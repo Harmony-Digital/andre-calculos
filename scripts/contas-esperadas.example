@@ -23,8 +23,20 @@ SUPABASE_ORG=""            # nome da organização do cliente no Supabase
 SUPABASE_PROJECT_REF="qtofwbxujshroaafxowr"    # informado pelo Fábio em 2026-10-10; o MCP do projeto fica restrito a ele
 
 # Vercel: conta nova do cliente
-VERCEL_TEAM=""             # slug do time do cliente
+VERCEL_TEAM="projeto-andre1" # equipe Projeto Andre, registrada no plan.md
 VERCEL_PROJETO=""          # nome do projeto na Vercel
+# Preencher depois da conferência do projeto em M1.50; nenhum ID presumido.
+VERCEL_TEAM_ID=""
+VERCEL_PROJECT_ID=""
+VERCEL_USUARIO=""          # username devolvido por whoami com token do cliente
+VERCEL_REPOSITORIO=""      # vínculo conferido na Vercel: Harmony-Digital/andre-calculos
+VERCEL_PRODUCTION_BRANCH="" # branch conferida na Vercel: main
+APP_ORIGIN_PRODUCAO=""     # origem HTTPS aprovada, sem path/query
+APP_ORIGIN_PREVIEW=""      # origem própria de preview, sem path/query
+SUPABASE_PREVIEW_PROJECT_REF="" # banco de dados fictícios; nunca o projeto de produção
+# Fábio confirma D14 e sua conta pessoal; o agente não consulta estes cofres.
+OP_COFRE_PRODUCAO=""
+OP_EMAIL_FABIO=""
 
 # MCPs de outras contas, bloqueados neste projeto no .claude/settings.json
 MCPS_BLOQUEADOS="supabase harmony-supabase supabase-leonardo claude_ai_Vercel github hostinger lovable"

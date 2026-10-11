@@ -22,7 +22,7 @@ Numa segunda fase, a IA lê o processo e prepara o trabalho para o André só va
 2. `plan.md`: leia "Onde estamos", "Insumos pendentes" e "Ordem de execução"; escolha a tarefa pela regra de "Como o agente trabalha com este plano"; depois leia só a especificação dessa tarefa (seção "Especificação das tarefas"). Não é preciso ler o plano inteiro.
 3. `PRD.md`: só as seções que a tarefa cita (RF, RN, stack no §11).
 4. Contexto de negócio, quando precisar:
-   - [transcrição da reunião](<docs/transcricao-reuniao-2026-10-10.md>);
+   - transcrição privada em `docs/transcricao-reuniao-2026-10-10.md` (somente local, ignorada pelo Git por decisão do Fábio);
    - [pesquisa de concorrentes](<docs/pesquisa/reports/Concorrentes cálculos judiciais advogados.md>);
    - `docs/pesquisa/research_notes/`.
 5. Regras do Hub da Harmony, quando mexer na sincronização do plano:
@@ -258,7 +258,7 @@ O projeto é gerido no Hub (`https://hub.harmonydigital.com.br`). O `plan.md` se
 |---|---|
 | `PRD.md` | o que construir, regras, modelo de dados e stack |
 | `plan.md` | marcos, tarefas, decisões abertas, onde estamos e registro de execução |
-| `docs/transcricao-reuniao-2026-10-10.md` | reunião de descoberta (2026-10-10) |
+| `docs/transcricao-reuniao-2026-10-10.md` | reunião de descoberta (2026-10-10), sigilosa e somente local; nunca adicionar ao Git |
 | `docs/pesquisa/reports/Concorrentes cálculos judiciais advogados.md` | pesquisa de concorrentes e recomendações |
 | `docs/pesquisa/research_notes/` | notas das pesquisas |
 | `app/.env.tpl` (a criar no M1) | referências `op://` para os segredos do cofre, sem valores |

@@ -9,6 +9,9 @@ scripts/contas-esperadas.env
 *.m4a
 *.mp3
 *.wav
+# Transcrição privada preservada apenas na pasta local, por decisão do Fábio.
+docs/transcricao-reuniao-2026-10-10.md
+Transcricao - Reuniao Fabio e Andre.md
 
 # Dependências e builds
 node_modules/
