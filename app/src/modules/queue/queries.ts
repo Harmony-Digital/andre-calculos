@@ -3,18 +3,31 @@ import { notFound } from "next/navigation";
 import { authorize } from "@/modules/auth/session";
 import { createSessionClient } from "@/lib/supabase/server";
 import {
+  dashboardWindow,
+  deadlineFilter,
+  deadlineRange,
+  type DashboardWindow,
+} from "@/modules/dashboard/window";
+import {
   queueStates,
   queueFilter,
   queueCursor,
   encodeQueueCursor,
   queuePaymentStatus,
 } from "./queue";
-export async function getWorkQueue(filter?: string, after?: string) {
+export async function getWorkQueue(
+  filter?: string,
+  after?: string,
+  deadline?: string,
+  window: DashboardWindow = dashboardWindow(),
+) {
   await authorize(["calculator"]);
   let status, cursor;
+  let period: ReturnType<typeof deadlineFilter>;
   try {
     status = queueFilter(filter);
     cursor = queueCursor(after);
+    period = deadlineFilter(deadline);
   } catch {
     notFound();
   }
@@ -28,6 +41,10 @@ export async function getWorkQueue(filter?: string, after?: string) {
     .order("internal_due_date", { ascending: true, nullsFirst: false })
     .order("id", { ascending: true })
     .limit(51);
+  const range = deadlineRange(period, window);
+  if (range.gte) query = query.gte("internal_due_date", range.gte);
+  if (range.lte) query = query.lte("internal_due_date", range.lte);
+  if (range.lt) query = query.lt("internal_due_date", range.lt);
   if (cursor) {
     if (cursor.due === null)
       query = query.is("internal_due_date", null).gt("id", cursor.id);
@@ -55,6 +72,8 @@ export async function getWorkQueue(filter?: string, after?: string) {
   return {
     rows,
     status,
+    period,
+    today: window.today,
     after: cursor,
     next: result.data.length > 50 ? encodeQueueCursor(result.data[49]) : null,
   };

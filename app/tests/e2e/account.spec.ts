@@ -1,13 +1,19 @@
 import { test, expect } from "@playwright/test";
 import { randomUUID, randomBytes } from "node:crypto";
 import AxeBuilder from "@axe-core/playwright";
-import { localSystem, removeLocalUser } from "./local-helper";
+import {
+  localSystem,
+  removeLocalUser,
+  leaseLocalSettings,
+} from "./local-helper";
+test.setTimeout(90000);
 test("perfil, senha e solicitação de exclusão auditados", async ({
   page,
   context,
   browser,
 }, testInfo) => {
-  const db = localSystem();
+  const db = localSystem(),
+    release = await leaseLocalSettings();
   const email = `conta-${randomUUID()}@exemplo.com`;
   const password = process.env.ANDRE_TEST_PASSWORD!;
   const created = await db.auth.admin.createUser({
@@ -16,7 +22,10 @@ test("perfil, senha e solicitação de exclusão auditados", async ({
     email_confirm: true,
     user_metadata: { full_name: "Pessoa fictícia" },
   });
-  expect(created.error).toBeNull();
+  if (created.error || !created.data.user) {
+    await release();
+    throw new Error("Conta fictícia não criada.");
+  }
   const id = created.data.user!.id;
   const otherDevice = await browser.newContext();
   try {
@@ -111,7 +120,11 @@ test("perfil, senha e solicitação de exclusão auditados", async ({
     await expect(page).toHaveURL(/\/app$/);
     await context.clearCookies();
   } finally {
-    await otherDevice.close();
-    await removeLocalUser(id);
+    try {
+      await otherDevice.close();
+      await removeLocalUser(id);
+    } finally {
+      await release();
+    }
   }
 });

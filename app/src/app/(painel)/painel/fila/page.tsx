@@ -1,12 +1,7 @@
 import Link from "next/link";
 import { requireRole } from "@/modules/auth/session";
 import { getWorkQueue } from "@/modules/queue/queries";
-import {
-  queueStates,
-  todayInSaoPaulo,
-  deadlineBadge,
-  queueMoney,
-} from "@/modules/queue/queue";
+import { queueStates, deadlineBadge, queueMoney } from "@/modules/queue/queue";
 import {
   orderStateLabels,
   type OrderState,
@@ -22,12 +17,12 @@ const date = (value: string | null) =>
 export default async function WorkQueue({
   searchParams,
 }: {
-  searchParams: Promise<{ situacao?: string; depois?: string }>;
+  searchParams: Promise<{ situacao?: string; depois?: string; prazo?: string }>;
 }) {
   await requireRole(["calculator"]);
   const search = await searchParams,
-    data = await getWorkQueue(search.situacao, search.depois),
-    today = todayInSaoPaulo();
+    data = await getWorkQueue(search.situacao, search.depois, search.prazo),
+    today = data.today;
   const fields = (row: (typeof data.rows)[number]) => {
     const badge = deadlineBadge(row.internal_due_date, today);
     return {
@@ -39,7 +34,9 @@ export default async function WorkQueue({
       status: orderStateLabels[row.status as OrderState],
     };
   };
-  const filter = data.status ? `&situacao=${data.status}` : "";
+  const filter =
+    (data.status ? `&situacao=${data.status}` : "") +
+    (data.period ? `&prazo=${data.period}` : "");
   return (
     <>
       <div className="page-heading">
@@ -62,6 +59,16 @@ export default async function WorkQueue({
                 {orderStateLabels[state]}
               </option>
             ))}
+          </select>
+          <label htmlFor="queue-period">Filtrar prazo</label>
+          <select
+            id="queue-period"
+            name="prazo"
+            defaultValue={data.period ?? "todos"}
+          >
+            <option value="todos">Todos os prazos</option>
+            <option value="vencendo">Vencendo em até dois dias úteis</option>
+            <option value="atrasados">Atrasados</option>
           </select>
           <button className="button button-secondary" type="submit">
             Aplicar filtro
