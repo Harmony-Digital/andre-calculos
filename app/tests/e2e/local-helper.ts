@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import type { BrowserContext, APIRequestContext } from "@playwright/test";
+import type { Page, APIRequestContext } from "@playwright/test";
 import { mkdir, rmdir } from "node:fs/promises";
 import { resolve } from "node:path";
 export async function leaseLocalSettings() {
@@ -61,45 +61,83 @@ export async function removeLocalUser(id: string) {
   if (result.error)
     throw new Error("Não foi possível limpar o usuário fictício.");
 }
+export async function mailpitMessageIds(
+  email: string,
+  request: APIRequestContext,
+) {
+  localSystem();
+  try {
+    const query = encodeURIComponent(`to:"${email}"`);
+    const response = await request.get(
+      `http://127.0.0.1:54324/api/v1/search?query=${query}&limit=100`,
+    );
+    if (!response.ok()) throw new Error();
+    const list = await response.json();
+    if (list.total > 100 || !Array.isArray(list.messages)) throw new Error();
+    return list.messages
+      .filter((message: { ID: string; To: { Address: string }[] }) =>
+        message.To.some((to) => to.Address === email),
+      )
+      .map((message: { ID: string }) => {
+        if (!/^[a-zA-Z0-9_-]+$/.test(message.ID)) throw new Error();
+        return message.ID;
+      }) as string[];
+  } catch {
+    throw new Error("A caixa fictícia local não pôde ser consultada.");
+  }
+}
+async function removeMailpitIds(ids: string[], request: APIRequestContext) {
+  // Sem IDs a API apaga toda a caixa. Nunca emitir essa operação vazia.
+  if (!ids.length) return;
+  try {
+    const response = await request.delete(
+      "http://127.0.0.1:54324/api/v1/messages",
+      { data: { IDs: ids } },
+    );
+    if (!response.ok()) throw new Error();
+  } catch {
+    throw new Error("Não foi possível limpar os e-mails fictícios locais.");
+  }
+}
+export async function clearMailpit(email: string, request: APIRequestContext) {
+  await removeMailpitIds(await mailpitMessageIds(email, request), request);
+}
 export async function confirmMailpit(
   email: string,
-  context: BrowserContext,
+  page: Page,
   request: APIRequestContext,
+  previousIds: readonly string[] = [],
 ) {
   let id: string | undefined;
   for (let attempt = 0; attempt < 50; attempt++) {
-    const query = encodeURIComponent(`to:"${email}"`);
-    const response = await request.get(
-      `http://127.0.0.1:54324/api/v1/search?query=${query}&limit=20`,
+    id = (await mailpitMessageIds(email, request)).find(
+      (messageId) => !previousIds.includes(messageId),
     );
-    const list = await response.json();
-    id = list.messages?.find(
-      (message: { ID: string; To: { Address: string }[] }) =>
-        message.To.some((to) => to.Address === email),
-    )?.ID;
     if (id) break;
     await new Promise((resolve) => setTimeout(resolve, 100));
   }
   if (!id) throw new Error("E-mail local de confirmação não recebido.");
-  const message = await (
-    await request.get(`http://127.0.0.1:54324/api/v1/message/${id}`)
-  ).json();
-  const link = message.HTML?.match(
-    /href="([^"]*\/auth\/v1\/verify[^"]*)"/,
-  )?.[1]?.replaceAll("&amp;", "&");
-  if (!link) throw new Error("Link de confirmação local indisponível.");
-  const url = new URL(link);
-  if (
-    url.origin !== "http://127.0.0.1:54321" ||
-    url.pathname !== "/auth/v1/verify"
-  )
-    throw new Error("Destino de confirmação inesperado.");
-  // Cookie verifier e cookies de resposta pertencem ao mesmo contexto do cadastro.
-  // Não imprimir o HTML, a URL de uso único ou as respostas que contêm tokens.
   try {
-    const result = await context.request.get(url.toString());
-    if (!result.ok()) throw new Error();
+    const message = await (
+      await request.get(`http://127.0.0.1:54324/api/v1/message/${id}`)
+    ).json();
+    const link = message.HTML?.match(
+      /href="([^"]*\/auth\/v1\/verify[^"]*)"/,
+    )?.[1]?.replaceAll("&amp;", "&");
+    if (!link) throw new Error();
+    const url = new URL(link);
+    if (
+      url.origin !== "http://127.0.0.1:54321" ||
+      url.pathname !== "/auth/v1/verify"
+    )
+      throw new Error();
+    // Navegação real: o teste observa o retorno automático. Cookies, link e HTML
+    // permanecem em memória; falhas não imprimem URL/token da confirmação.
+    const result = await page.goto(url.toString());
+    if (!result?.ok()) throw new Error();
   } catch {
     throw new Error("A confirmação local não foi concluída.");
+  } finally {
+    await removeMailpitIds([id], request);
   }
 }
