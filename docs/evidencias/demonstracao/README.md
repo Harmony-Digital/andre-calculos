@@ -48,3 +48,19 @@
 3. Se o painel mostrar uma revisão antes da publicação, conservar Next.js, Node 22 e Root Directory vazio: o `package.json` está na raiz do ZIP. Publicar e compartilhar o endereço `.vercel.app` exibido para a verificação da jornada pública.
 
 O status e a publicação ficam exclusivamente no `plan.md`.
+
+## Publicação pelo MCP e jornada hospedada em 2026-10-11
+
+Fábio confirmou novo consentimento exclusivamente para Projeto Andre/andre-calculos. O OAuth oficial terminou com sucesso; o MCP dedicado confirmou os IDs da equipe/projeto, lista com somente esse recurso e consulta de deploys acessível. Foi usado create_deployment com os 158 arquivos do pacote conferido contra a main, sem integração Git, cadastro de variáveis, domínio próprio ou serviços reais.
+
+- Endereço original público: [demonstração](https://project-rucji.vercel.app/demonstracao). A raiz redireciona para essa rota. Ensaio em navegador sem cookies de login da Vercel.
+- Deploy final: `dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7`, target production, READY, regiões `gru1`. IDs de equipe/projeto iguais aos esperados.
+- A primeira publicação `dpl_CBdhLxTeuehTuzbHGji5ubKbwxKY` respondeu health em iad1, apesar do vercel.json versionado. Ajuste pelo MCP update_project, somente resourceConfig.functionDefaultRegions=[gru1], seguido de novo envio dos mesmos arquivos com projectSettings.serverlessFunctionRegion=gru1. Novo health HTTP200, status ok, versão0.1.0 e region gru1. A causa de o arquivo não ter prevalecido não foi estabelecida.
+- Health retorna sha vazio porque o envio não possui integração Git; a procedência está na comparação do ZIP com main9a25f31 e no manifesto. Não tratar o endpoint como comprovação de SHA remoto.
+- Quatro testes hospedados aprovados em 11,9 s: jornada completa e armazenamento indisponível/prazo insuficiente, em 1440×1000 e 375×812. axe A/AA sem violações nas etapas avaliadas; sem rolagem horizontal ou requisições a outros serviços.
+- Jornada percorreu orçamento de R$650, proposta, aceite/sinal/documento simulados, fila, linha do tempo, visão do calculista, revisão/entrega, mensagem local, recarga, download fictício, calendário e reinício.
+- Harness local ignorado em .data/publicacao/qa-hospedada: reutiliza demo.spec.ts com origem da baseURL autorizada, imports locais, webServer desativado e sem segredos. Comando: app/node_modules/.bin/playwright test --config=.data/publicacao/qa-hospedada/playwright.config.ts --project=computador --project=celular --workers=1 --retries=0. O ensaio completo foi seguido de duas jornadas para recapturar as quatro etapas por tamanho, colocando a página no topo antes do screenshot.
+- Oito capturas em hospedada/ e metadados em hospedada/validacao.json. Conferência visual da apresentação, proposta, timeline e entrega.
+- O alias gerado andre-calculos-projeto-andre1.vercel.app pediu login em acesso anônimo. A proteção do projeto foi preservada; a apresentação usa o domínio original público project-rucji.vercel.app.
+
+Aplicativo idêntico à main aprovada no CI38153083358; nenhuma mudança de código nesta publicação. A integração contínua/comercial de M1.50 e os GATEs humanos continuam tratados no plan.md.

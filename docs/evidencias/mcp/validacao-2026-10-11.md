@@ -77,3 +77,17 @@ O dedicado também respondeu 404 na consulta por nome `andre-calculos`. Request 
 O 403 confirma recusa de permissão para listar deploys; a causa da ausência de acesso ao projeto não foi estabelecida. Não houve repetição do erro sem mudança de estado, reconexão automática, navegador, CLI Vercel, API alternativa, concessão ou escrita externa. Reautenticar, por si só, não foi considerado solução comprovada.
 
 A operação create_deployment do MCP aceita arquivos de código. Preparado apenas localmente `.data/publicacao/deployment-mcp.json`, ignorado pelo Git, com equipe/ID esperados, target production e os 158 arquivos base64 do ZIP conferido contra main `9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd`. Sem env vars ou projectSettings. O envio exige antes get_project confirmar o ID esperado na equipe correta; a revisão de acesso deve limitar-se a esse recurso. Publicação e jornada hospedada ainda não foram verificadas.
+
+## Reautorização exclusiva e confirmação do acesso ao recurso
+
+Fábio solicitou resolver e confirmou “Concluí a autorização somente desse projeto”. Iniciado OAuth oficial da conexão existente andre-calculos-vercel; comando concluído com Successfully logged in e código zero. Não houve revogação de tokens, mudança de endpoint ou uso de MCP/CLI de outra conta. A limitação ao projeto foi confirmada pelo Fábio e pelas consultas acima. Nenhum código de callback, cookie, token ou URL de consentimento foi salvo nesta evidência.
+
+Chamadas reais após o consentimento:
+
+- list_teams: somente Projeto Andre / projeto-andre1 / team_4fdLDCsB0ROvP5ph50aFNvxm.
+- get_project: andre-calculos, ID prj_tdmzmC6utVU2fHPz0iVhroMD8NtI e accountId igual à equipe esperada.
+- list_projects sem filtro de nome: somente esse projeto, count1.
+- list_deployments: acesso permitido, sem403; inicialmente nenhum deployment.
+- create_deployment: código enviado ao recurso confirmado, pelo próprio MCP. get_deployment verificou o deploy final dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 em READY/production/gru1.
+
+O consentimento renovado seguido dos retornos reais comprovou a recuperação do acesso. A causa técnica exata do bloqueio anterior não foi demonstrada. A verificação de publicação, região e jornada está em docs/evidencias/demonstracao/README.md; o status fica no plan.md.
