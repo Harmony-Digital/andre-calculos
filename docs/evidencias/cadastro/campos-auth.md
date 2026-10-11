@@ -18,3 +18,5 @@ bash scripts/dev-env.sh npm run test:e2e -- signup.spec.ts account.spec.ts email
 ```
 
 Fonte e remoto conferidos no mesmo SHA 4af6407. PR [#5](https://github.com/Harmony-Digital/andre-calculos/pull/5) em rascunho, dependente de #4/#3. A nova fonte não foi integrada à main nem publicada.
+
+Read-back local após os ensaios: quatro usuários Auth/perfis/clientes fictícios, zero consentimentos e zero grants privados residuais. As fixtures foram preservadas e as contas temporárias dos ensaios removidas.
