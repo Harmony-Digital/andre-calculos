@@ -1,0 +1,13 @@
+# Obrigações de cobrança fictícias — 2026-10-11
+
+A migration0058 registra conta/ambiente/cliente e o contexto de uma obrigação em tabelas privadas com RLS e privilégios diretos revogados. O modo é fixture e o ambiente é sandbox. A configuração privada escolhe a conta; os casos de uso não aceitam uma conta pelo formulário. Esses metadados declarados não comprovam autenticação no Asaas.
+
+O sinal usa o valor capturado no aceite menos crédito confirmado de sinal; a condição contratual vigente pode dispensá-lo. O saldo, após entrega técnica, usa o total contratado menos créditos confirmados de sinal e saldo. Triagem, pagamentos pendentes e devolvidos não viram crédito. Recebimentos manuais anteriores, inclusive sem recibo, são preservados. Asaas legado sem projeção, excesso, valor inseguro, ausência de contrato válido ou fase indevida bloqueiam o preparo.
+
+Preparar conserva autor, pedido, processo, cliente, aceite/hash, conta/cliente do provedor, fase, valor, meio e data civil. Datas SQL/DTO usam1900–9999. Não há intenção, POST, pagamento, alteração de fila ou liberação de download nesta parte. A dívida será revalidada antes da intenção e do despacho nas partes h/i; a projeção comum de crédito fica em j.
+
+Os RPCs são autenticados e auditados. Perfis, cliente e pedido são travados na ordem dos fluxos existentes, com rechecagem da propriedade. O preparo também trava pagamentos e serializa o UUID da solicitação. Replay do mesmo ator e dados devolve o snapshot original, mesmo após mudança de crédito/conta; outro destino, ator ou parâmetros conflitam. Os recibos, scopes e clientes vinculados são imutáveis. Documentos, contatos e URLs privadas não integram os retornos ou a auditoria.
+
+Os testes usam somente o PostgreSQL dedicado local e usuários fictícios. A suíte unitária verifica centavos exatos, estados, datas, vínculo/autoria da resposta e mensagens sanitizadas, inclusive falhas da autorização, criação do cliente, RPC e parsing. A suíte de banco verifica sinal/saldo, contrato vigente, histórico manual, triagem, legado, excesso, limites, replay e isolamento nos dois papéis. As corridas de proprietário, papel e promoção de crédito comprovam espera real com `pg_blocking_pids`, rejeição e rollback; o cleanup restaura dados e configuração das fixtures.
+
+Comandos: `npm run check`, `bash scripts/dev-env.sh npm run test:rls`, `supabase db advisors --local --workdir . --type security --level warn --fail-on error` e equivalente de desempenho, sempre no socket Colima `andre-calculos`. A fonte, contagens e resultado do build ficam no `plan.md`.

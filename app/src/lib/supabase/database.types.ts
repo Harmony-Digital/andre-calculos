@@ -1532,6 +1532,22 @@ export type Database = {
         Args: { target_process: string };
         Returns: Json;
       };
+      get_payment_obligation: {
+        Args: { target_order: string; target_phase: string };
+        Returns: Json;
+      };
+      prepare_payment_obligation: {
+        Args: {
+          target_order: string;
+          target_phase: string;
+          expected_context: string;
+          expected_remaining_cents: number;
+          billing_type: string;
+          due_date: string;
+          request_id: string;
+        };
+        Returns: Json;
+      };
       get_process_participants: {
         Args: { target_process: string };
         Returns: {
