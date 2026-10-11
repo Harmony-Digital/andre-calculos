@@ -48,3 +48,15 @@ As chamadas dos MCPs foram somente de leitura; a única mudança externa foi o c
 As ferramentas dedicadas não constavam no catálogo nativo deste chat na primeira tentativa; esse ensaio usou chamadas reais dos MCPs pelo cliente oficial separado. A validação final usou as ferramentas nativas após sua disponibilização.
 
 Fontes do procedimento: [MCP no Codex](https://developers.openai.com/codex/mcp), [protocolo do App Server](https://learn.chatgpt.com/docs/app-server#protocol), [MCP do Supabase](https://supabase.com/docs/guides/ai-tools/mcp), [get_team da Vercel](https://vercel.com/docs/agent-resources/vercel-mcp/tools/teams/get_team). A causa específica da recusa da Vercel não foi estabelecida pelo ensaio.
+
+## Diagnóstico de visibilidade após criação do projeto
+
+Em 2026-10-11, a pedido do Fábio, foram repetidas somente chamadas de leitura no MCP `andre-calculos-vercel`:
+
+- `list_teams`: somente Projeto Andre, slug `projeto-andre1`, ID `team_4fdLDCsB0ROvP5ph50aFNvxm`.
+- `list_projects` com essa equipe: `projects: []`, contagem zero.
+- `get_project` com `idOrName: prj_tdmzmC6utVU2fHPz0iVhroMD8NtI` e a equipe esperada: HTTP 404, `not_found`, "Project not found".
+
+Esses resultados confirmam conexão/autenticação à equipe e ausência de visibilidade do recurso por essa credencial. Não comprovam exclusão do projeto nem a causa do 404. A concessão anterior à criação, com acesso a projetos futuros desmarcado, é uma hipótese compatível; deve ser conferida na autorização do recurso. Nenhum grant, escrita, CLI de outra conta ou operação no navegador foi executado. O nome da conexão que aparece ao Fábio foi solicitado antes de avaliar outra conexão.
+
+A documentação [Scopes and Permissions](https://vercel.com/docs/sign-in-with-vercel/scopes-and-permissions) distingue permissões da equipe e de projetos autorizados. A URL específica de um projeto no MCP fornece contexto e não comprova concessão de acesso. O status fica exclusivamente no plan.md.
