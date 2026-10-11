@@ -39,7 +39,7 @@ export type Role = "client" | "calculator" | "admin" | "system";
 export type Actor = { id: string; role: Role };
 export type Order = {
   state: OrderState;
-  clientId: string;
+  clientOwnerId: string;
   quoteAccepted: boolean;
   depositConfirmed: boolean;
   hasContract: boolean;
@@ -152,7 +152,7 @@ export function transition(
   const rule: Rule | undefined = rules[event];
   if (
     !actor.id.trim() ||
-    (actor.role === "client" && actor.id !== order.clientId)
+    (actor.role === "client" && actor.id !== order.clientOwnerId)
   )
     throw new Error("Você não tem acesso a este pedido.");
   if (!rule || !rule.roles.includes(actor.role))
@@ -194,7 +194,16 @@ export function transition(
   if (event === "request_information")
     next.resumeState = order.state as NonNullable<Order["resumeState"]>;
   if (event === "receive_information") {
-    next.state = order.resumeState ?? "in_analysis";
+    if (
+      !order.resumeState ||
+      !["in_analysis", "in_calculation", "in_review"].includes(
+        order.resumeState,
+      )
+    )
+      throw new Error(
+        "A etapa anterior não está registrada. Confira o pedido antes de retomar.",
+      );
+    next.state = order.resumeState;
     delete next.resumeState;
   }
   if (
