@@ -60,3 +60,20 @@ Em 2026-10-11, a pedido do Fábio, foram repetidas somente chamadas de leitura n
 Esses resultados confirmam conexão/autenticação à equipe e ausência de visibilidade do recurso por essa credencial. Não comprovam exclusão do projeto nem a causa do 404. A concessão anterior à criação, com acesso a projetos futuros desmarcado, é uma hipótese compatível; deve ser conferida na autorização do recurso. Nenhum grant, escrita, CLI de outra conta ou operação no navegador foi executado. O nome da conexão que aparece ao Fábio foi solicitado antes de avaliar outra conexão.
 
 A documentação [Scopes and Permissions](https://vercel.com/docs/sign-in-with-vercel/scopes-and-permissions) distingue permissões da equipe e de projetos autorizados. A URL específica de um projeto no MCP fornece contexto e não comprova concessão de acesso. O status fica exclusivamente no plan.md.
+
+## Verificação das duas conexões a pedido do Fábio
+
+Fábio determinou priorizar MCP. Foram consultadas as duas conexões disponíveis, somente por leitura e com identidade da equipe conferida antes das consultas do projeto:
+
+| Operação | `andre-calculos-vercel` | `vercel` |
+|---|---|---|
+| list_teams | Somente Projeto Andre / projeto-andre1 / team_4fdLDCsB0ROvP5ph50aFNvxm | Mesma equipe, nenhuma outra |
+| list_projects nessa equipe | projects vazio, count zero | Mesmo resultado |
+| get_project por ID esperado | 404 not_found / Project not found | Mesmo resultado |
+| list_deployments por equipe/projeto esperados, limit 3 | 403 forbidden / You don't have permission to list the deployment. | Mesmo resultado |
+
+O dedicado também respondeu 404 na consulta por nome `andre-calculos`. Request IDs: get_project dedicado `gru1:sfo1::qcftj-1791739567518-660fdc7b3d65`, conexão vercel `gru1:sfo1::8wvqp-1791739569177-dc675e0755a0`; list_deployments dedicado `gru1:sfo1::8bpqc-1791739619446-6755322d2098`, conexão vercel `gru1:sfo1::65scv-1791739619449-13e498bdca11`.
+
+O 403 confirma recusa de permissão para listar deploys; a causa da ausência de acesso ao projeto não foi estabelecida. Não houve repetição do erro sem mudança de estado, reconexão automática, navegador, CLI Vercel, API alternativa, concessão ou escrita externa. Reautenticar, por si só, não foi considerado solução comprovada.
+
+A operação create_deployment do MCP aceita arquivos de código. Preparado apenas localmente `.data/publicacao/deployment-mcp.json`, ignorado pelo Git, com equipe/ID esperados, target production e os 158 arquivos base64 do ZIP conferido contra main `9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd`. Sem env vars ou projectSettings. O envio exige antes get_project confirmar o ID esperado na equipe correta; a revisão de acesso deve limitar-se a esse recurso. Publicação e jornada hospedada ainda não foram verificadas.
