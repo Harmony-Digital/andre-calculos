@@ -19,3 +19,18 @@ await cp(
   new URL("pdf.worker.min.mjs", destination),
 );
 console.info(`Recursos locais do PDF.js ${version} preparados.`);
+const fonts = dirname(
+  require.resolve("@fontsource/source-sans-3/package.json"),
+);
+const reportFonts = new URL("../public/pdf-fonts/", import.meta.url);
+await mkdir(reportFonts, { recursive: true });
+for (const [weight, name] of [
+  [400, "regular"],
+  [600, "semibold"],
+]) {
+  await cp(
+    join(fonts, `files/source-sans-3-latin-${weight}-normal.woff`),
+    new URL(`${name}.woff`, reportFonts),
+  );
+}
+await cp(join(fonts, "LICENSE"), new URL("LICENSE", reportFonts));

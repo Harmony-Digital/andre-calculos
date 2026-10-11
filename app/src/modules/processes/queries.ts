@@ -89,10 +89,11 @@ export async function getProcess(
         ? supabase
             .from("decisions")
             .select(
-              "id,parameter,value,source,page,rationale,recorded_by,client_confirmed_at,created_at",
+              "id,parameter,value,source,page,rationale,recorded_by,client_confirmed_at,client_confirmed_by,created_at",
             )
             .eq("process_id", id)
             .order("created_at", { ascending: false })
+            .order("id", { ascending: false })
         : Promise.resolve({ data: [], error: null }),
       tab === "indice"
         ? supabase

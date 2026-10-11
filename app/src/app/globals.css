@@ -920,6 +920,24 @@ h2 {
   align-items: center;
   margin-block: 24px;
 }
+.decision-composer {
+  margin-block: 24px;
+  padding-block: 16px;
+  border-block: 1px solid var(--border);
+}
+.decision-composer summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.decision-composer form {
+  margin-top: 20px;
+}
+.decision-confirmation {
+  margin-top: 16px;
+}
+.decision-confirmation .check-option {
+  margin-bottom: 12px;
+}
 .timeline-filter select {
   border: 1px solid var(--border);
   border-radius: 4px;

@@ -229,6 +229,7 @@ export type Database = {
       decisions: {
         Row: {
           client_confirmed_at: string | null;
+          client_confirmed_by: string | null;
           created_at: string;
           id: string;
           order_id: string | null;
@@ -243,6 +244,7 @@ export type Database = {
         };
         Insert: {
           client_confirmed_at?: string | null;
+          client_confirmed_by?: string | null;
           created_at?: string;
           id?: string;
           order_id?: string | null;
@@ -257,6 +259,7 @@ export type Database = {
         };
         Update: {
           client_confirmed_at?: string | null;
+          client_confirmed_by?: string | null;
           created_at?: string;
           id?: string;
           order_id?: string | null;
@@ -270,6 +273,13 @@ export type Database = {
           value?: string;
         };
         Relationships: [
+          {
+            foreignKeyName: "decisions_client_confirmed_by_fkey";
+            columns: ["client_confirmed_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
           {
             foreignKeyName: "decisions_order_id_process_id_fkey";
             columns: ["order_id", "process_id"];
@@ -1104,6 +1114,10 @@ export type Database = {
         };
         Returns: undefined;
       };
+      confirm_process_decision: {
+        Args: { target_decision: string };
+        Returns: string;
+      };
       get_complexity_limits: { Args: never; Returns: Json };
       get_legal_versions: {
         Args: never;
@@ -1111,6 +1125,10 @@ export type Database = {
           privacy_version: string;
           terms_version: string;
         }[];
+      };
+      get_process_decision_export: {
+        Args: { target_process: string };
+        Returns: Json;
       };
       get_process_participants: {
         Args: { target_process: string };
@@ -1152,6 +1170,18 @@ export type Database = {
       record_file_access: {
         Args: { access_kind?: string; target_file: string };
         Returns: undefined;
+      };
+      record_process_decision: {
+        Args: {
+          decision_page?: number;
+          decision_parameter: string;
+          decision_rationale?: string;
+          decision_source: string;
+          decision_value: string;
+          request_id?: string;
+          target_process: string;
+        };
+        Returns: string;
       };
       request_account_deletion: { Args: never; Returns: string };
       save_checklist_draft: {

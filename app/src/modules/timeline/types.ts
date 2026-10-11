@@ -18,7 +18,15 @@ export function eventFilter(value?: string): EventKind | null {
   if (!Object.hasOwn(eventLabels, value)) throw new Error("Filtro inválido.");
   return value as EventKind;
 }
-export function eventLabel(kind: string) {
+export function eventLabel(kind: string, data?: unknown) {
+  if (
+    kind === "decision_recorded" &&
+    data &&
+    typeof data === "object" &&
+    "confirmation" in data &&
+    data.confirmation === true
+  )
+    return "Concordância registrada";
   return Object.hasOwn(eventLabels, kind)
     ? eventLabels[kind as EventKind]
     : "Atividade registrada";

@@ -43,4 +43,5 @@ next-env.d.ts
 /playwright-report
 /test-results
 /public/pdfjs
+/public/pdf-fonts
 !.env.tpl

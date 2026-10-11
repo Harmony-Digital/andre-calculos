@@ -13,19 +13,19 @@ import { PdfViewer } from "./pdf-viewer";
 import { MessageComposer } from "./message-composer";
 import { NoteComposer } from "./note-composer";
 import { eventLabel, eventLabels, noteText } from "@/modules/timeline/types";
+import { DecisionComposer } from "./decision-composer";
+import { DecisionConfirmation } from "./decision-confirmation";
+import {
+  parameterLabel,
+  sourceLabel,
+  isPremise,
+} from "@/modules/decisions/types";
 const folders = {
   case: "Processo",
   client: "Documentos do cliente",
   deliverables: "Entregas",
   triage: "Triagem",
 } as const;
-const sources: Record<string, string> = {
-  judgment: "Sentença",
-  appeal: "Acórdão",
-  decision: "Decisão",
-  lawyer: "Advogado",
-  calculator: "André",
-};
 const dateTime = (date: string) =>
   new Intl.DateTimeFormat("pt-BR", {
     dateStyle: "short",
@@ -263,6 +263,13 @@ export async function ProcessFolder({
       {tab === "decisoes" && (
         <section className="panel process-section">
           <h2>Decisões técnicas</h2>
+          <p>Escolhas, fontes informadas e concordâncias deste processo.</p>
+          <a className="text-link" href={`/api/processes/${id}/decisions/pdf`}>
+            Exportar decisões em PDF
+          </a>
+          {data.role === "calculator" && (
+            <DecisionComposer processId={id} requestId={randomUUID()} />
+          )}
           <p>
             Os critérios adotados ficam registrados com sua origem e
             justificativa.
@@ -274,12 +281,12 @@ export async function ProcessFolder({
               {data.decisions.map((decision) => (
                 <li key={decision.id}>
                   <strong>
-                    {decision.parameter}: {decision.value}
+                    {parameterLabel(decision.parameter)}: {decision.value}
                   </strong>
                   <p>
-                    {sources[decision.source]}
+                    Origem informada: {sourceLabel(decision.source)}
                     {decision.page ? ` · Página ${decision.page}` : ""}
-                    {!decision.page && !decision.client_confirmed_at
+                    {isPremise(decision.page, decision.client_confirmed_at)
                       ? " · Premissa"
                       : ""}
                   </p>
@@ -288,6 +295,24 @@ export async function ProcessFolder({
                     {data.authors.get(decision.recorded_by) || "Responsável"} ·{" "}
                     {dateTime(decision.created_at)}
                   </p>
+                  {decision.client_confirmed_at ? (
+                    <p>
+                      Concordância de{" "}
+                      {data.authors.get(decision.client_confirmed_by!) ||
+                        "Cliente"}{" "}
+                      em {dateTime(decision.client_confirmed_at)}.
+                    </p>
+                  ) : (
+                    <>
+                      <p>Concordância do cliente ainda não registrada.</p>
+                      {data.role === "client" && (
+                        <DecisionConfirmation
+                          processId={id}
+                          decisionId={decision.id}
+                        />
+                      )}
+                    </>
+                  )}
                 </li>
               ))}
             </ul>
@@ -385,7 +410,7 @@ export async function ProcessFolder({
                   <li key={event.id}>
                     <Icon size={20} aria-hidden="true" />
                     <div>
-                      <strong>{eventLabel(event.kind)}</strong>
+                      <strong>{eventLabel(event.kind, event.data)}</strong>
                       <p>
                         {event.actor_id
                           ? data.authors.get(event.actor_id) || "Responsável"
