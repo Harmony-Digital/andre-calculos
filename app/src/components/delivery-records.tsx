@@ -1,4 +1,5 @@
 import { z } from "zod";
+import Link from "next/link";
 import {
   deliveryAccess,
   deliveryAccessLabels,
@@ -18,14 +19,36 @@ const snapshotSchema = z.object({
 export function DeliveryRecords({
   records,
   calculator,
+  base,
+  before,
+  older,
 }: {
   records: Awaited<ReturnType<typeof getProcess>>["deliveries"];
   calculator: boolean;
+  base: string;
+  before?: string;
+  older: string | null;
 }) {
-  if (!records.length) return null;
+  if (!records.length && !before) return null;
   return (
     <section className="delivery-records" aria-label="Entregas confirmadas">
       <h3>Entregas confirmadas</h3>
+      <div className="message-history-links">
+        {before && (
+          <Link className="text-link" href={`${base}?aba=resumo`}>
+            Voltar às entregas recentes
+          </Link>
+        )}
+        {older && (
+          <Link
+            className="text-link"
+            href={`${base}?aba=resumo&antes=${encodeURIComponent(older)}`}
+          >
+            Entregas anteriores
+          </Link>
+        )}
+      </div>
+      {!records.length && <p>Nenhuma entrega anterior neste processo.</p>}
       <ul className="process-records">
         {records.map((record) => {
           if (!record.order) throw new Error("Pedido da entrega indisponível.");

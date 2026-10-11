@@ -21,7 +21,7 @@ Nome provisório até a marca (D3).
   - decisões técnicas registradas pelo calculista com origem/página/justificativa, premissas e concordância exclusiva do cliente; registro imutável, confirmação idempotente, eventos/auditoria transacionais e PDF privado com CRC, fontes locais e paginação; ensaios em 375/1440 px e PDFs de uma/seis páginas conferidos;
   - índice de páginas por arquivo/versão com criação/edição/remoção pelo calculista, leitura do cliente, revisão otimista e recibos privados para reenvio seguro; paginação com microssegundos/UUID, fonte preservada e nova versão sem herança automática de referências;
   - fila do André ordenada pelo prazo interno/UUID, com filtro antes do limite, prazos ausentes ao final e paginação de cinquenta; destaques de atraso/dois dias úteis pelo calendário provisório e situação financeira só por pagamentos confirmados;
-  - entrega conferida com PDF/PJC/parecer, complementos DOCX/XLSX e checklist explícito; confirmação transacional/idempotente, arquivos/identificação congelados, evento/auditoria e aviso enfileirado; cliente sem bytes até política/saldo permitirem, sem decisão real de D6;
+  - entrega conferida com PDF/PJC/parecer, complementos DOCX/XLSX e checklist explícito; confirmação transacional/idempotente, arquivos/identificação congelados, evento/auditoria e aviso enfileirado; resumo paginado sem perda de microssegundos, cliente sem bytes até política/saldo permitirem, sem decisão real de D6;
   - checklist v1 persistido como rascunho, retomado após recarga e pela lista; revisões concorrentes protegidas e outro cliente recebe 404; nenhum orçamento ou entrada na fila antes das condições comerciais;
   - configurações profissionais/comerciais auditadas, versões de preço e itens imutáveis após ativação, edição concorrente recusada; projeção pública sem Pix; limites do classificador vêm das configurações;
   - cadastro confirmado no Mailpit com versões legais sintéticas, perfil persistido, troca de senha com revogação no segundo dispositivo, exclusão solicitada sem apagar conta e aviso de cadastro enfileirado;
@@ -112,7 +112,7 @@ O título vai até o primeiro " — ". As seções "Especificação das tarefas"
 3. **Depois de M1.03 (MCPs):** M1.04 → M1.05.
 4. **Depois de M1.08 (Docker):** M1.40 → M1.41 → M1.42 → M1.43 → M1.44 → M1.22.
 5. **Depois de M1.50 (Vercel ligada ao GitHub):** M1.51 → M1.52 → M1.23 (Fábio) → GATE M1.
-6. **M2 com banco:** M2.04 → M2.05 → M2.06 → M2.33 → M2.12 → M2.14 → M2.15 → M2.16 → M2.17 → M2.18 → M2.20 → M2.21 → M2.22 → M2.23 → M2.24 → M2.25 → M2.26 → M2.27 → M2.13 → M2.32.
+6. **M2 com banco:** M2.04 → M2.05 → M2.06 → M2.33 → M2.12 → M2.14 → M2.15 → M2.16 → M2.17 → M2.18 → M2.20 → M2.21 → M2.22 → M2.23 → M2.24 → M2.25 → M2.26 → M2.26a → M2.27 → M2.13 → M2.32.
 7. **Notificações:**
    - M2.28 precisa da conta no Resend (e do domínio, para produção);
    - M2.29 precisa de D7;
@@ -231,7 +231,7 @@ Prazo sugerido: 2026-10-20
 
 - [x] M2.25 Criar a fila do André ordenada pelo prazo interno — evidência: quatro e2e em 375/1440 px e quatro unitários; 116 pedidos com datas empatadas/ausentes, filtro antes do limite e pagamentos parciais/confirmados verificados; migration local 0023, docs/evidencias/fila/README.md (2026-10-11)
 - [x] M2.26 Criar a entrega com checklist de pré-juntada — evidência: quatro e2e em 375/1440 px, seis RLS específicos e três unitários; snapshots imutáveis, replay/concorrência, confirmação humana e aviso enfileirado verificados. Migrations locais 0024–0026, docs/evidencias/entrega/README.md (2026-10-11); despacho real depende de M2.28
-- [ ] M2.26a Paginar entregas confirmadas no resumo do processo — hoje exibe até cinquenta; incluir cursor por data/UUID e ensaio sem perda de registros
+- [x] M2.26a Paginar entregas confirmadas no resumo do processo — evidência: dois e2e em 375/1440 px; cliente/painel recuperaram 61 registros com empates e microssegundos, cursor inválido/retorno ao início/axe/largura verificados. docs/evidencias/entrega/README.md (2026-10-11)
 - [ ] M2.27 Liberar o download das entregas com URL assinada e auditoria — ⏳ bloqueio/políticas/saldo/estorno/isolamento e download auditado de 120 s verificados localmente junto com M2.26; faltam configuração aprovada de D6 e instruções de pagamento. Evidência: docs/evidencias/entrega/README.md
 
 ### Notificações
@@ -1050,6 +1050,11 @@ Prazo sugerido: a planejar
   - Entrega confirmada não implica download: D6 continua aberta. Sem política, cliente não recebe bytes; regra capturada por entrega impede liberação retroativa por mudança de settings. Despacho real do aviso depende de M2.28.
 - **Pronto quando:** existe um e2e da entrega.
 
+#### M2.26a Paginação das entregas
+
+- **Fazer:** limitar o resumo a cinquenta entregas por página com navegação às anteriores/retorno às recentes, preservando microssegundos e desempate por UUID.
+- **Pronto quando:** cliente e calculista recuperam mais de cinquenta registros uma única vez; cursor inválido e página vazia são tratados, em celular/computador.
+
 #### M2.27 Download das entregas
 
 - **Fazer:**
@@ -1221,3 +1226,4 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-11 | Codex | Índice por arquivo/versão com CRUD do calculista, cliente somente leitura, revisão concorrente e recibos privados imutáveis (M2.24); eventos/auditoria atômicos e paginação de cinquenta. Migrations locais 0020–0022, SQL lint/advisors sem achados; npm run check com 263 unitários/build, 55 RLS e 67 e2e aprovados; cinco ensaios únicos omitidos só no celular; capturas em docs/evidencias/indice | 61 referências com empates recuperadas; duas sessões não sobrescrevem revisão antiga; replays funcionam após remover entrada/arquivo; versão nova sem herança. Corrigidos escopo SQL e uso de PT409 para evitar retries, além de useId nos rótulos após criação. Dois processos de ensaios interrompidos limpos; zero processos temporários/recibos. Formato das páginas validado, sem alegar contagem real do PDF. Nuvem, áudio, insumos e gates seguem pendentes. Próximo: M2.25. |
 | 2026-10-11 | Codex | Fila do André (M2.25), ordenação pelo prazo/UUID com nulos ao final, filtro antes do limite e situação de pagamentos confirmados; destaque por data civil de São Paulo/calendário provisório. Migration local 0023 com índices parciais; lint/advisors sem achados; npm run check com 267 unitários/build, 55 RLS e 71 e2e aprovados; cinco ensaios únicos omitidos só no celular. Capturas em docs/evidencias/fila | 116 pedidos fictícios recuperados sem perdas, 61 na revisão filtrada, inclusive cursor de prazo nulo; dados temporários removidos e settings/preços restaurados. Contraste dos rótulos corrigido e capturas conferidas. Nenhuma alteração de permissões. Calendário real do TRT, nuvem, áudio, insumos e gates seguem pendentes. Próximo: M2.26. |
 | 2026-10-11 | Codex | Entrega conferida (M2.26): PDF/PJC/parecer e DOCX/XLSX, checklist explícito, snapshots profissionais/arquivos imutáveis, confirmação transacional/idempotente, evento/auditoria/aviso enfileirado. Migrations locais 0024–0026; lint/advisors sem achados; npm run check com 269 unitários/build, 61 RLS e 75 e2e aprovados; cinco ensaios únicos omitidos só no celular; capturas em docs/evidencias/entrega | Dois pedidos disputando arquivos tiveram um vencedor sem deadlock; falhas não deixaram efeitos parciais. Política pendente bloqueia cliente, saldo confirmado libera, estorno bloqueia nova leitura; URL de 120 s e auditoria verificadas. Corrigida visibilidade de metadados pendentes do calculista para TUS e exibição do mês/estilos. Dados profissionais/legais/preços restaurados e zero processos/entregas temporários. D6, despacho real, nuvem, áudio e gates seguem pendentes. Próximo: completar M2.27 local. |
+| 2026-10-11 | Codex | Paginação de entregas no resumo (M2.26a), cinquenta por página com cursor data/UUID sem conversão por Date e retorno às recentes. npm run check com 269 unitários/build; dois e2e novos em 375/1440 px e quatro fluxos de entrega repetidos aprovados | Todos os 61 registros fictícios com empates exatos/diferença de um microssegundo recuperados por cliente e painel; cursor inválido recebe 404, página vazia volta ao início, axe/largura passaram. Sem migration nem alteração de permissões. Evidência: docs/evidencias/entrega/README.md. Próximo: M2.27. |

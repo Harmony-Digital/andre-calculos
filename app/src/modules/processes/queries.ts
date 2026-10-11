@@ -38,7 +38,10 @@ export async function getProcess(
   let selectedEvent;
   try {
     cursor = messageCursor(
-      tab === "mensagens" || tab === "historico" || tab === "indice"
+      tab === "mensagens" ||
+        tab === "historico" ||
+        tab === "indice" ||
+        tab === "resumo"
         ? before
         : undefined,
     );
@@ -82,6 +85,19 @@ export async function getProcess(
     indexQuery = indexQuery.or(
       `created_at.lt.${cursor.date},and(created_at.eq.${cursor.date},id.lt.${cursor.id})`,
     );
+  let deliveryQuery = supabase
+    .from("deliveries")
+    .select(
+      "id,order_id,pje_version,index_month,professional,created_at,files:delivery_files(file_id,kind,snapshot),release:delivery_releases(policy),order:orders!deliveries_order_id_process_id_fkey(code,status,total_cents,payments!payments_order_id_fkey(amount_cents,kind,status))",
+    )
+    .eq("process_id", id)
+    .order("created_at", { ascending: false })
+    .order("id", { ascending: false })
+    .limit(51);
+  if (cursor)
+    deliveryQuery = deliveryQuery.or(
+      `created_at.lt.${cursor.date},and(created_at.eq.${cursor.date},id.lt.${cursor.id})`,
+    );
   const [files, orders, messages, decisions, index, events, deliveries] =
     await Promise.all([
       supabase
@@ -119,15 +135,7 @@ export async function getProcess(
         ? timelineQuery
         : Promise.resolve({ data: [], error: null }),
       tab === "resumo"
-        ? supabase
-            .from("deliveries")
-            .select(
-              "id,order_id,pje_version,index_month,professional,created_at,files:delivery_files(file_id,kind,snapshot),release:delivery_releases(policy),order:orders!deliveries_order_id_process_id_fkey(code,status,total_cents,payments!payments_order_id_fkey(amount_cents,kind,status))",
-            )
-            .eq("process_id", id)
-            .order("created_at", { ascending: false })
-            .order("id", { ascending: false })
-            .limit(50)
+        ? deliveryQuery
         : Promise.resolve({ data: [], error: null }),
     ]);
   if (
@@ -155,7 +163,11 @@ export async function getProcess(
     role: session.profile.role,
     files: files.data ?? [],
     orders: orders.data ?? [],
-    deliveries: deliveries.data ?? [],
+    deliveries: (deliveries.data ?? []).slice(0, 50),
+    olderDeliveries:
+      (deliveries.data?.length ?? 0) > 50
+        ? encodeMessageCursor(deliveries.data![49])
+        : null,
     messages: (messages.data ?? []).slice(0, 50).reverse(),
     olderMessages:
       (messages.data?.length ?? 0) > 50

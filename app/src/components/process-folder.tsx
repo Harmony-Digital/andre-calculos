@@ -159,6 +159,9 @@ export async function ProcessFolder({
           <DeliveryRecords
             records={data.deliveries}
             calculator={data.role === "calculator"}
+            base={base}
+            before={before}
+            older={data.olderDeliveries}
           />
         </section>
       )}
