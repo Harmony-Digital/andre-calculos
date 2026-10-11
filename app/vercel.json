@@ -1,1 +1,6 @@
-{ "regions": ["gru1"] }
+{
+  "regions": ["gru1"],
+  "redirects": [
+    { "source": "/", "destination": "/demonstracao", "permanent": false }
+  ]
+}
