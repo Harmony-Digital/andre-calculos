@@ -1,0 +1,35 @@
+# Ensaio conectado do cliente e do André
+
+`app/tests/e2e/full-journey.spec.ts` percorre uma única jornada, em 375 e 1440 px, com duas sessões independentes. O cliente é criado pelo formulário e confirma o e-mail no Mailpit; o André usa o calculista fictício do seed. O cliente, o processo e o pedido permanecem os mesmos até o download.
+
+```sh
+bash scripts/dev-env.sh npm run test:e2e -- full-journey.spec.ts --workers=1
+```
+
+O teste passa pelas nove etapas do checklist, gera a proposta simulada e seu PDF, registra aceite, confirma sinal, envia documento com integridade verificada, troca mensagens, registra decisão e concordância, envia três artefatos e confirma a entrega. Axe e ausência de rolagem horizontal são verificados nas páginas principais dos dois papéis.
+
+## Preparações sintéticas explícitas
+
+Três fronteiras têm nome próprio no relatório do Playwright:
+
+1. **Contexto contratual:** a proposta simulada não pode ser aceita ou promovida. Depois de verificar esse bloqueio, o helper remove somente a simulação daquele pedido e prepara outra proposta e contexto contratual fictícios no PostgreSQL local. Isso permite testar o aceite, sem habilitar o produtor comercial de M2.12.
+2. **Revisão técnica:** depois de verificar a entrada na fila, o helper prepara `in_review` no mesmo pedido. Essa ponte representa o trabalho manual do calculista no PJe-Calc; não comprova as transições operacionais intermediárias, cálculo correto ou assinatura ICP-Brasil.
+3. **Saldo:** o ensaio aprova pela interface somente a regra daquela entrega fictícia, após constatar que a regra global nula bloqueia arquivos. A política `after_balance` ainda nega download com saldo pendente. O crédito de saldo é preparado localmente, pois a confirmação comercial de saldo pertence a M3.09.
+
+Essas preparações não equivalem à contratação comercial completa. Os dados profissionais, calendário, capacidade, preços, textos aprovados e decisões do responsável técnico continuam sujeitos às condições do plano. Nenhum dado de processo real entra neste ensaio.
+
+## Isolamento e limpeza
+
+O helper exige Supabase local em `127.0.0.1:54321`, mantém um lease de settings e outro da fila na ordem usada pelos testes existentes e valida o proprietário antes das pontes. As credenciais são efêmeras, em memória. Não há `.env`, estado de sessão, trace ou HAR exportado.
+
+Ao terminar, inclusive após falha, remove arquivos pelos caminhos daquele processo, recibos privados e registros relacionados ao novo cliente, restaurando settings e a tabela ativa anterior. Não apaga auditorias do calculista seed em massa. O histórico de preços fictícios permanece inativo, como nos ensaios existentes.
+
+O download deve retornar 307 com `private, no-store` e `no-referrer`, assinar para a origem local por 120 segundos, entregar os bytes originais e registrar auditoria do cliente. Rejeições da chamada assinada são sanitizadas para não expor o token.
+
+## Execução no CI
+
+O workflow `.github/workflows/qualidade.yml` tem jobs separados `qualidade` e `e2e`. Este último instala Chromium, Poppler e Supabase CLI 2.113.0, inicia a instância local, roda RLS e navegador sequencialmente, confere advisors e encerra os serviços mesmo após falha. Não usa conexão de nuvem ou credenciais de produção.
+
+A CLI usa a ação oficial com versão fixa e Node 22; o navegador usa um worker para evitar concorrência entre fixtures globais. Referências: [Supabase setup-cli](https://github.com/supabase/setup-cli) e [Playwright no CI](https://playwright.dev/docs/ci#workers).
+
+O wrapper registra máscaras no GitHub antes de iniciar processos filhos, conforme [os comandos do runner](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#masking-a-value-in-a-log). Em falha, o job publica somente capturas PNG; máscaras de logs não sanitizam arquivos. A conclusão de M2.34 requer a execução real do job verde, registrada no `plan.md`.

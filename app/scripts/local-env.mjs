@@ -64,6 +64,18 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const env = localEnvironment();
   if (args.some((value) => ["test:e2e", "test:rls"].includes(value))) {
     env.ANDRE_TEST_PASSWORD = randomBytes(32).toString("base64url");
+  }
+  if (process.env.GITHUB_ACTIONS === "true") {
+    // Redação no runner antes de qualquer processo filho; nada vai a env/files.
+    for (const value of [
+      env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+      env.SUPABASE_SERVICE_ROLE_KEY,
+      env.CRON_SECRET,
+      env.ANDRE_TEST_PASSWORD,
+    ])
+      if (value) process.stdout.write(`::add-mask::${value}\n`);
+  }
+  if (args.some((value) => ["test:e2e", "test:rls"].includes(value))) {
     execFileSync(
       resolve(projectRoot, "app/node_modules/.bin/tsx"),
       [resolve(projectRoot, "scripts/seed-dev.ts")],

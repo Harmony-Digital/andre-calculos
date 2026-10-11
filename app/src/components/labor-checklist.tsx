@@ -304,7 +304,7 @@ export function LaborChecklist({
             </div>
           )}
         </div>
-        <div className="form-actions">
+        <div className="form-actions checklist-summary-actions">
           <Button onClick={issueQuote} disabled={issuing || !saved}>
             {issuing ? "Gerando proposta…" : "Gerar proposta"}
           </Button>

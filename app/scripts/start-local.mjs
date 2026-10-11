@@ -5,7 +5,8 @@ console.info(
 );
 try {
   execFileSync("supabase", ["start", "--workdir", projectRoot], {
-    stdio: ["ignore", "pipe", "pipe"],
+    // Pulls frios podem produzir mais de 1 MiB; a saída inclui chaves locais.
+    stdio: "ignore",
     timeout: 900000,
   });
   console.info("Supabase local iniciado.");
