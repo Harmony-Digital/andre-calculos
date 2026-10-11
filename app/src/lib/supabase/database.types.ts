@@ -7,6 +7,31 @@ export type Json =
   | Json[];
 
 export type Database = {
+  graphql_public: {
+    Tables: {
+      [_ in never]: never;
+    };
+    Views: {
+      [_ in never]: never;
+    };
+    Functions: {
+      graphql: {
+        Args: {
+          extensions?: Json;
+          operationName?: string;
+          query?: string;
+          variables?: Json;
+        };
+        Returns: Json;
+      };
+    };
+    Enums: {
+      [_ in never]: never;
+    };
+    CompositeTypes: {
+      [_ in never]: never;
+    };
+  };
   public: {
     Tables: {
       audit_log: {
@@ -597,6 +622,8 @@ export type Database = {
           pages: string;
           piece: string;
           process_id: string;
+          recorded_by: string | null;
+          revision: number;
           updated_at: string;
         };
         Insert: {
@@ -607,6 +634,8 @@ export type Database = {
           pages: string;
           piece: string;
           process_id: string;
+          recorded_by?: string | null;
+          revision?: number;
           updated_at?: string;
         };
         Update: {
@@ -617,6 +646,8 @@ export type Database = {
           pages?: string;
           piece?: string;
           process_id?: string;
+          recorded_by?: string | null;
+          revision?: number;
           updated_at?: string;
         };
         Relationships: [
@@ -632,6 +663,13 @@ export type Database = {
             columns: ["process_id"];
             isOneToOne: false;
             referencedRelation: "processes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "page_index_recorded_by_fkey";
+            columns: ["recorded_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
             referencedColumns: ["id"];
           },
         ];
@@ -1152,6 +1190,10 @@ export type Database = {
       };
       is_admin: { Args: never; Returns: boolean };
       is_calculator: { Args: never; Returns: boolean };
+      mutate_process_page_index: {
+        Args: { payload: Json; request_id: string; target_process: string };
+        Returns: string;
+      };
       prepare_file_upload: {
         Args: {
           expected_hash: string;
@@ -1364,6 +1406,9 @@ export type CompositeTypes<
     : never;
 
 export const Constants = {
+  graphql_public: {
+    Enums: {},
+  },
   public: {
     Enums: {},
   },

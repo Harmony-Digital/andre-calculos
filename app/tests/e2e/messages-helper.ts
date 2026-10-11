@@ -41,13 +41,33 @@ export async function removeMessageProcess(id: string) {
     throw new Error("Limpeza limitada ao processo fictício de mensagens.");
   const messages = await db.from("messages").select("id").eq("process_id", id),
     files = await db.from("files").select("id,path").eq("process_id", id),
-    events = await db.from("timeline_events").select("id").eq("process_id", id),
+    events = await db
+      .from("timeline_events")
+      .select("id,kind,data")
+      .eq("process_id", id),
+    index = await db.from("page_index").select("id").eq("process_id", id),
     decisions = await db.from("decisions").select("id").eq("process_id", id);
-  if (messages.error || files.error || events.error || decisions.error)
+  if (
+    messages.error ||
+    files.error ||
+    events.error ||
+    decisions.error ||
+    index.error
+  )
     throw new Error("Fixture de mensagens indisponível.");
   const targets = [
     id,
     ...decisions.data!.map((row) => row.id),
+    ...index.data!.map((row) => row.id),
+    ...events.data!.flatMap((row) =>
+      row.kind === "index_updated" &&
+      row.data &&
+      typeof row.data === "object" &&
+      !Array.isArray(row.data) &&
+      typeof row.data.entry_id === "string"
+        ? [row.data.entry_id]
+        : [],
+    ),
     ...events.data!.map((row) => row.id),
     ...messages.data.map((row) => row.id),
     ...files.data.map((row) => row.id),
@@ -63,6 +83,7 @@ export async function removeMessageProcess(id: string) {
     if (audit.error) throw new Error("Falha ao limpar auditorias fictícias.");
   }
   for (const result of [
+    await db.from("page_index").delete().eq("process_id", id),
     await db.from("decisions").delete().eq("process_id", id),
     await db
       .from("notifications")

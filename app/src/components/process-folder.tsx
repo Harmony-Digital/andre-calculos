@@ -15,6 +15,8 @@ import { NoteComposer } from "./note-composer";
 import { eventLabel, eventLabels, noteText } from "@/modules/timeline/types";
 import { DecisionComposer } from "./decision-composer";
 import { DecisionConfirmation } from "./decision-confirmation";
+import { PageIndexEditor } from "./page-index-editor";
+import { pieceLabel } from "@/modules/page-index/forms";
 import {
   parameterLabel,
   sourceLabel,
@@ -323,29 +325,79 @@ export async function ProcessFolder({
         <section className="panel process-section">
           <h2>Índice de páginas</h2>
           <p>Localização das peças em cada versão do processo.</p>
+          {data.role === "calculator" &&
+            !before &&
+            (files.some(
+              (f) =>
+                f.mime === "application/pdf" &&
+                ["case", "client"].includes(f.folder),
+            ) ? (
+              <PageIndexEditor
+                processId={id}
+                requestId={randomUUID()}
+                entryId={randomUUID()}
+                files={files.filter(
+                  (f) =>
+                    f.mime === "application/pdf" &&
+                    ["case", "client"].includes(f.folder),
+                )}
+              />
+            ) : (
+              <p>
+                Envie um PDF para a pasta Processo ou Documentos do cliente
+                antes de indexar.
+              </p>
+            ))}
           {!data.index.length ? (
             <p>Nenhuma peça indexada.</p>
           ) : (
             <ul className="process-records">
               {data.index.map((piece) => {
-                const file = files.find((row) => row.id === piece.file_id);
+                const file = piece.source;
                 return (
                   <li key={piece.id}>
                     <strong>
-                      {piece.piece} · Páginas {piece.pages}
+                      {pieceLabel(piece.piece)} · Páginas {piece.pages}
                     </strong>
                     <p>
                       {file
-                        ? `${file.name} · Versão ${file.version}`
+                        ? `${file.name} · Versão ${file.version}${file.upload_status !== "uploaded" ? " · Documento indisponível" : ""}`
                         : "Documento indisponível"}
                     </p>
                     {piece.note && (
                       <p className="preserve-lines">{piece.note}</p>
                     )}
+                    {data.role === "calculator" &&
+                      file?.upload_status === "uploaded" && (
+                        <PageIndexEditor
+                          key={`${piece.id}:${piece.revision}`}
+                          processId={id}
+                          requestId={randomUUID()}
+                          entryId={piece.id}
+                          entry={piece}
+                        />
+                      )}
                   </li>
                 );
               })}
             </ul>
+          )}
+          {(before || data.olderIndex) && (
+            <nav className="folder-pagination" aria-label="Paginação do índice">
+              {before && (
+                <Link className="text-link" href={`${base}?aba=indice`}>
+                  Peças mais recentes
+                </Link>
+              )}
+              {data.olderIndex && (
+                <Link
+                  className="text-link"
+                  href={`${base}?aba=indice&antes=${encodeURIComponent(data.olderIndex)}`}
+                >
+                  Peças anteriores
+                </Link>
+              )}
+            </nav>
           )}
         </section>
       )}

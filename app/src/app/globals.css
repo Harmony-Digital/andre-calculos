@@ -925,6 +925,35 @@ h2 {
   padding-block: 16px;
   border-block: 1px solid var(--border);
 }
+.page-index-editor {
+  margin-block: 1rem;
+}
+.page-index-editor > summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding-block: 0.75rem;
+}
+.index-removal {
+  display: grid;
+  gap: 0.75rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+.index-removal label {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+.index-removal .button {
+  justify-self: start;
+}
+.folder-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-block: 1rem;
+}
 .decision-composer summary {
   cursor: pointer;
   font-weight: 600;

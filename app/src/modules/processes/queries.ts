@@ -38,7 +38,9 @@ export async function getProcess(
   let selectedEvent;
   try {
     cursor = messageCursor(
-      tab === "mensagens" || tab === "historico" ? before : undefined,
+      tab === "mensagens" || tab === "historico" || tab === "indice"
+        ? before
+        : undefined,
     );
     selectedEvent = eventFilter(tab === "historico" ? eventType : undefined);
   } catch {
@@ -65,6 +67,19 @@ export async function getProcess(
   if (selectedEvent) timelineQuery = timelineQuery.eq("kind", selectedEvent);
   if (cursor)
     timelineQuery = timelineQuery.or(
+      `created_at.lt.${cursor.date},and(created_at.eq.${cursor.date},id.lt.${cursor.id})`,
+    );
+  let indexQuery = supabase
+    .from("page_index")
+    .select(
+      "id,file_id,piece,pages,note,revision,created_at,source:files!page_index_file_id_process_id_fkey(name,version,upload_status)",
+    )
+    .eq("process_id", id)
+    .order("created_at", { ascending: false })
+    .order("id", { ascending: false })
+    .limit(51);
+  if (cursor)
+    indexQuery = indexQuery.or(
       `created_at.lt.${cursor.date},and(created_at.eq.${cursor.date},id.lt.${cursor.id})`,
     );
   const [files, orders, messages, decisions, index, events] = await Promise.all(
@@ -96,11 +111,7 @@ export async function getProcess(
             .order("id", { ascending: false })
         : Promise.resolve({ data: [], error: null }),
       tab === "indice"
-        ? supabase
-            .from("page_index")
-            .select("id,file_id,piece,pages,note")
-            .eq("process_id", id)
-            .order("created_at", { ascending: true })
+        ? indexQuery
         : Promise.resolve({ data: [], error: null }),
       tab === "historico"
         ? timelineQuery
@@ -138,7 +149,11 @@ export async function getProcess(
         ? encodeMessageCursor(messages.data![49])
         : null,
     decisions: decisions.data ?? [],
-    index: index.data ?? [],
+    index: (index.data ?? []).slice(0, 50),
+    olderIndex:
+      (index.data?.length ?? 0) > 50
+        ? encodeMessageCursor(index.data![49])
+        : null,
     events: (events.data ?? []).slice(0, 100),
     selectedEvent,
     olderEvents:

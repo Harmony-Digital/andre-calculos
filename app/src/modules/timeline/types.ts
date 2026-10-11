@@ -6,6 +6,7 @@ export const eventLabels = {
   message_sent: "Mensagem enviada",
   note_added: "Nota registrada",
   decision_recorded: "Decisão registrada",
+  index_updated: "Índice atualizado",
   quote_created: "Proposta emitida",
   quote_accepted: "Proposta aceita",
   payment_confirmed: "Pagamento confirmado",
