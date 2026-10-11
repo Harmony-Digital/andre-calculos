@@ -1296,6 +1296,44 @@ h2 {
 .dashboard-list li p {
   margin: 0.5rem 0 0;
 }
+.notification-events {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+.notification-events > li {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+}
+.notification-events h3 {
+  font-family: var(--font-source-sans);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+.notification-channels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+.notification-preference fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.notification-preference select {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: white;
+  padding: 0.625rem;
+}
+.notification-preference [role="status"] {
+  font-size: 0.875rem;
+  margin: 0.5rem 0 0;
+}
 .panel {
   background: #fff;
   border: 1px solid var(--border);

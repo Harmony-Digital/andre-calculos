@@ -6,6 +6,9 @@ import {
 import { priceParameterSchema } from "@/modules/settings/forms";
 import { randomUUID } from "node:crypto";
 import { DeliveryPolicyForm } from "@/components/delivery-policy-form";
+import { NotificationPreferenceForm } from "@/components/notification-preferences";
+import { getNotificationPreferences } from "@/modules/notifications/queries";
+import { notificationEvents } from "@/modules/notifications/preferences";
 const reais = (value: number) =>
   new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(
     value / 100,
@@ -13,6 +16,8 @@ const reais = (value: number) =>
 export default async function Configuration() {
   const { values, priceValues, history, deliveryPolicy, role } =
     await getConfiguration();
+  const notifications =
+    role === "calculator" ? await getNotificationPreferences() : null;
   return (
     <>
       <div className="page-heading">
@@ -29,6 +34,11 @@ export default async function Configuration() {
         <a className="text-link" href="#precos">
           Tabela de preços
         </a>
+        {role === "calculator" && (
+          <a className="text-link" href="#avisos">
+            Preferências de aviso
+          </a>
+        )}
         {role === "calculator" && (
           <a className="text-link" href="#entregas">
             Liberação das entregas
@@ -64,6 +74,59 @@ export default async function Configuration() {
             current={deliveryPolicy}
             requestId={randomUUID()}
           />
+        </section>
+      )}
+      {notifications && (
+        <section className="panel" id="avisos" aria-labelledby="titulo-avisos">
+          <div className="panel-header">
+            <h2 id="titulo-avisos">Preferências de aviso</h2>
+          </div>
+          <div className="form-body">
+            <p>
+              E-mail começa ligado e WhatsApp começa desligado. A escolha vale
+              para novas ocorrências: desligar não cancela avisos já
+              enfileirados; ligar não recupera avisos anteriores.
+            </p>
+            <p className="field-help">
+              Os avisos usam os contatos do serviço. A disponibilidade de cada
+              canal depende da configuração de envio.
+            </p>
+            {notifications.context.canClaim && (
+              <p className="notice">
+                Ao salvar, este perfil passa a controlar os avisos enviados
+                pelos contatos do serviço.
+              </p>
+            )}
+            {!notifications.context.isRecipient &&
+              !notifications.context.canClaim && (
+                <p role="status" className="notice">
+                  É preciso confirmar o responsável pelos avisos antes de
+                  configurar os canais.
+                </p>
+              )}
+            <ul className="notification-events">
+              {Object.entries(notificationEvents).map(([event, label]) => (
+                <li key={event}>
+                  <h3>{label}</h3>
+                  <div className="notification-channels">
+                    {notifications.preferences
+                      .filter((pref) => pref.event === event)
+                      .map((preference) => (
+                        <NotificationPreferenceForm
+                          key={preference.channel}
+                          preference={preference}
+                          requestId={randomUUID()}
+                          canEdit={
+                            notifications.context.isRecipient ||
+                            notifications.context.canClaim
+                          }
+                        />
+                      ))}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
       )}
       <section

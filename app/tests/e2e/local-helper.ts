@@ -7,7 +7,9 @@ export async function leaseLocalSettings() {
   const root = resolve(process.cwd(), ".data"),
     lock = resolve(root, "settings-fixture-lock");
   await mkdir(root, { recursive: true });
-  for (let attempt = 0; attempt < 600; attempt++) {
+  // Quatro workers podem esperar por mais de um ensaio que altera settings.
+  // A espera continua limitada; não removemos o lock de um ensaio em andamento.
+  for (let attempt = 0; attempt < 1200; attempt++) {
     try {
       await mkdir(lock);
       return async () => {

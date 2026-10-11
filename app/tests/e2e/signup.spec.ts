@@ -7,6 +7,7 @@ import {
   leaseLocalSettings,
 } from "./local-helper";
 import AxeBuilder from "@axe-core/playwright";
+test.setTimeout(90000);
 test("cadastro com confirmação e consentimentos sintéticos", async ({
   page,
   context,

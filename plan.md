@@ -11,9 +11,9 @@ Nome provisório até a marca (D3).
 - **Fase:** M1 em andamento; autenticação e arquivos privados verificados localmente, com fluxos do M2 em construção.
 - **O que já existe:**
   - documentação organizada em `docs/`, Next.js 16.4/React 19.3 em `app/`, página pública, áreas provisórias do cliente e André, checklist de nove etapas e rascunhos legais;
-  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 271 testes unitários aprovados, cobertura do motor de preço 100%;
+  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 273 testes unitários aprovados, cobertura do motor de preço 100%;
   - sessão SSR com cookies HttpOnly, login/logout, papéis protegidos e pasta de documentos; navegador/axe verificados em 375 e 1440 px;
-  - vinte e oito migrations locais, 25 tabelas públicas e duas tabelas internas com RLS (vínculos de anexos e recibos do índice), quatro usuários fictícios e um processo inventado; 64 testes reais de RLS aprovados e advisors locais sem achados;
+  - vinte e nove migrations locais, 25 tabelas públicas e quatro tabelas internas com RLS (vínculos de anexos, recibos do índice/preferências e responsável pelos avisos), quatro usuários fictícios e um processo inventado; 71 testes reais de RLS aprovados e advisors locais sem achados;
   - upload TUS de 300 MiB retomado do offset de 12 MiB após interrupção da rede; SHA-256 conferido no servidor; download auditado por link de 120 s e acesso entre clientes negado;
   - pasta do processo com seis abas, quatro pastas fixas e PDF sob demanda; paginação, zoom, texto selecionável, senha efêmera e rolagem por teclado; proxy privado com HEAD/Range/206 auditado, leitura de PDF acima de 4,5 MB verificada localmente, sem URL assinada no navegador durante a visualização;
   - mensagens privadas entre cliente e calculista, anexos confirmados da pasta do cliente, nomes dos participantes, histórico paginado sem perda de microssegundos; envio idempotente e texto preservado após falha, inclusive resposta perdida depois de gravar; avisos enfileirados, sem despacho real;
@@ -26,13 +26,14 @@ Nome provisório até a marca (D3).
   - aprovação explícita/auditada pelo calculista da regra para entregas futuras ou individualmente para entregas antigas sem regra, com revisão concorrente e recibos imutáveis; saldo/Pix restritos ao processo, uma obrigação por pedido na página, pagamento parcial e estorno considerados, escolha real de D6 ainda pendente;
   - checklist v1 persistido como rascunho, retomado após recarga e pela lista; revisões concorrentes protegidas e outro cliente recebe 404; nenhum orçamento ou entrada na fila antes das condições comerciais;
   - configurações profissionais/comerciais auditadas, versões de preço e itens imutáveis após ativação, edição concorrente recusada; projeção pública sem Pix; limites do classificador vêm das configurações;
+  - preferências do responsável pelos avisos para nove eventos e dois canais; e-mail ligado/WhatsApp desligado por padrão, vínculo persistente, revisão concorrente e recibos imutáveis; falha de rede antes/depois da gravação preserva a tentativa, reenvio antigo não desfaz escolha mais recente; novos avisos respeitam a preferência, sem cancelar pendentes nem recuperar ocorrências anteriores;
   - cadastro confirmado no Mailpit com versões legais sintéticas, perfil persistido, troca de senha com revogação no segundo dispositivo, exclusão solicitada sem apagar conta e aviso de cadastro enfileirado;
-  - `npm run check` aprovado (271 unitários/build), 79 e2e aprovados; cinco ensaios únicos (e-mail, cadastro, edição de settings, 300 MiB e proxy acima de 4,5 MB) omitidos no projeto celular, com formulários/conta/PDF/arquivos menores/mensagens/linha do tempo/decisões/índice/entrega/liberação/painel verificados nas duas larguras; `npm audit --omit=dev` sem achados em 2026-10-11;
+  - `npm run check` aprovado (273 unitários/build), 81 e2e aprovados; cinco ensaios únicos (e-mail, cadastro, edição de settings, 300 MiB e proxy acima de 4,5 MB) omitidos no projeto celular, com formulários/conta/PDF/arquivos menores/mensagens/linha do tempo/decisões/índice/entrega/liberação/painel/preferências verificados nas duas larguras; `npm audit --omit=dev` sem achados em 2026-10-11;
   - Docker/Colima exclusivos de `andre-calculos`, sem alterar o contexto global; Supabase local PostgreSQL 17 com serviços saudáveis e Auth health HTTP 200;
   - branch `feat/fundacao-portal`; remoto `Harmony-Digital/andre-calculos` ainda vazio e sem push;
   - conexão Vercel exclusiva autenticada na equipe `Projeto Andre` (`projeto-andre1`), conta `projetoandre.harmony@gmail.com`; nenhum projeto Vercel criado;
   - MCP `andre-calculos-supabase` registrado no Codex com `project_ref=qtofwbxujshroaafxowr`; OAuth dessa conexão aguarda login na conta do cliente. As ferramentas dedicadas ainda não estão expostas nesta sessão.
-- **Próximas tarefas do agente:** preparar o fluxo local de proposta e PDF (M2.12) com fixtures isoladas e guardas comerciais; geração real depende de identificação/CRC, tabela/condições, calendário e disponibilidade confirmados. M2.32 está verificado localmente. M2.27 tem controles/instruções locais verificados; D6 real continua aberta. Filtro/notas/decisões/índice/entrega da linha do tempo estão verificados; eventos dos casos de uso futuros entram ao construir cada fluxo. M2.22 tem conversa local verificada; despacho dos avisos depende de M2.28/29. M2.33 já tem telas/RPCs locais, com ligação à proposta ainda pendente. Nenhuma alteração de nuvem sem conferir a conexão dedicada.
+- **Próximas tarefas do agente:** preparar M2.30 local (seleção e deduplicação de lembretes, sem ativar cron/envio real), identificando separadamente a janela de envio e o calendário provisório. M2.31/M2.32 estão verificados localmente. O fluxo local de proposta e PDF (M2.12) precisa de guardas comerciais: geração real depende de identificação/CRC, tabela/condições, calendário e regra de disponibilidade confirmados; contar pedidos na fila não determina uma data prometida. M2.27 tem controles/instruções locais verificados; D6 real continua aberta. Filtro/notas/decisões/índice/entrega da linha do tempo estão verificados; eventos dos casos de uso futuros entram ao construir cada fluxo. M2.22 tem conversa local verificada; despacho dos avisos depende de M2.28/29. M2.33 já tem telas/RPCs locais, com ligação à proposta ainda pendente. Nenhuma alteração de nuvem sem conferir a conexão dedicada.
 - **Bloqueios externos:**
   - M1.10: revisão automática recusou retirar o áudio do primeiro commit sem aprovação específica do Fábio; áudio preservado e push bloqueado;
   - MCP Supabase dedicado aguarda login; planos Pro, integração GitHub/Vercel e dados reais do André ainda precisam de verificação/insumos;
@@ -100,6 +101,8 @@ O título vai até o primeiro " — ". As seções "Especificação das tarefas"
 | Nome completo, número do CRC (UF e categoria) e CPF ou CNPJ e razão social que aparecem no site e nas propostas | André | publicação de M2.02, M2.03 e M2.12 | pendente |
 | Respostas do formulário de marca: nome e domínio (D3) | André | domínio do e-mail (M2.28) e M2.37 | pendente |
 | Tabela de preços, adicionais, prazo padrão, folga e percentual de urgência (D10) | André | valores reais de M2.09 e M2.33 | pendente |
+| Regra para confirmar disponibilidade e propor entrega considerando a fila e a urgência (RF-22) | André | prazo de entrega de M2.12 | pendente; quantidade de pedidos não informa duração nem compromissos da agenda |
+| Calendário oficial do TRT e conferência de três casos | André | fechamento de M2.10 e ativação dos lembretes de M2.30 | calendário local provisório, validação pendente |
 | Validação dos campos do checklist (RF-20) | André | fechamento de M2.08 | pendente |
 | Chave Pix e dados para o sinal | André | M2.16 | pendente |
 | Número de WhatsApp para os alertas (D7) | André | M2.29 | pendente |
@@ -116,9 +119,11 @@ O título vai até o primeiro " — ". As seções "Especificação das tarefas"
 5. **Depois de M1.50 (Vercel ligada ao GitHub):** M1.51 → M1.52 → M1.23 (Fábio) → GATE M1.
 6. **M2 com banco:** M2.04 → M2.05 → M2.06 → M2.33 → M2.12 → M2.14 → M2.15 → M2.16 → M2.17 → M2.18 → M2.20 → M2.21 → M2.22 → M2.23 → M2.24 → M2.25 → M2.26 → M2.26a → M2.27 → M2.13 → M2.32.
 7. **Notificações:**
+   - M2.31 pode ser verificada antes dos provedores: os casos de uso existentes enfileiram no banco local e permitem comprovar as preferências sem enviar mensagens;
+   - preparação local de seleção/deduplicação de M2.30 pode seguir, com calendário provisório e sem ativar o cron real;
    - M2.28 precisa da conta no Resend (e do domínio, para produção);
    - M2.29 precisa de D7;
-   - depois, M2.30 → M2.31.
+   - ativação de M2.30 depende do calendário confirmado e do cron/provedores nas contas do projeto.
 8. **Fechamento:** M2.34 → M2.35 → M2.36 → M2.37 → GATE M2.
 
 ## M1 — Fundação técnica
@@ -241,7 +246,7 @@ Prazo sugerido: 2026-10-20
 - [ ] M2.28 Configurar os e-mails transacionais e o SMTP do login com o Resend — RF-70
 - [ ] M2.29 Enviar alertas ao André por WhatsApp — D7
 - [ ] M2.30 Agendar os lembretes de prazo — RF-53
-- [ ] M2.31 Criar as preferências de notificação do André — RF-71
+- [x] M2.31 Criar as preferências de notificação do André — evidência: nove eventos/dois canais com vínculo persistente, revisões concorrentes, recibos imutáveis e auditoria; sete ensaios RLS específicos e dois e2e em 375/1440 px confirmaram canal desligado sem novo aviso, reenvio antigo sem desfazer mudança e falha de rede antes/depois de gravar. Migration local 0029, lint/advisors sem achados, docs/evidencias/notificacoes/README.md (2026-10-11); despacho real segue em M2.28/29
 
 ### Painel do André
 
@@ -1102,11 +1107,13 @@ Prazo sugerido: a planejar
   2. Buscar pedidos não entregues com prazo interno em 2 dias úteis, em 1 dia útil ou já atrasados.
   3. Enfileirar com `dedupKey` `deadline:{order}:{tipo}:{data}`.
   4. Enviar entre 7h e 21h, horário configurável.
+- **Conferência de implementação:** os campos atuais Primeiro/Segundo horário (09h/17h) são horários pontuais e não definem a janela de envio. Implementar a janela explicitamente, sem reinterpretar esses valores; manter calendário provisório identificado e ativação externa pendente até M2.10/M1.51.
 - **Pronto quando:** existem testes com datas simuladas e não há aviso repetido.
 
 #### M2.31 Preferências de notificação
 
 - **Fazer:** em Configurações, criar a tabela de eventos por canal (e-mail, WhatsApp), ligado ou desligado, gravada em `notification_preferences`. O `enqueue` respeita a escolha.
+- **Conferência de implementação:** o vínculo com o responsável pelos contatos do serviço é persistente; outro calculista não passa a controlar as preferências automaticamente. Gravação usa revisão e recibo imutável, com auditoria; reenvio antigo não reaplica o valor. A escolha vale para novas ocorrências, sem cancelar avisos pendentes nem recuperar os anteriores.
 - **Pronto quando:** um teste mostra que um canal desligado não recebe.
 
 #### M2.32 Página inicial do painel
@@ -1233,3 +1240,4 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-11 | Codex | Paginação de entregas no resumo (M2.26a), cinquenta por página com cursor data/UUID sem conversão por Date e retorno às recentes. npm run check com 269 unitários/build; dois e2e novos em 375/1440 px e quatro fluxos de entrega repetidos aprovados | Todos os 61 registros fictícios com empates exatos/diferença de um microssegundo recuperados por cliente e painel; cursor inválido recebe 404, página vazia volta ao início, axe/largura passaram. Sem migration nem alteração de permissões. Evidência: docs/evidencias/entrega/README.md. Próximo: M2.27. |
 | 2026-10-11 | Codex | Aprovação explícita da regra futura/individual de liberação e instruções Pix/saldo por pedido (M2.27 local); recibos imutáveis, revisão concorrente, evento/auditoria e deduplicação financeira. Migrations locais 0027–0028, lint/advisors sem achados; npm run check com 270 unitários/build, 64 RLS e 77 e2e aprovados; cinco ensaios únicos omitidos só no celular. Capturas em docs/evidencias/liberacao | Suíte completa reproduziu perda de seleção antes do carregamento do formulário; campos agora só habilitam depois, seis ensaios específicos e suíte completa repetidos aprovados. Pagamento parcial, estorno, Pix ausente, políticas mistas e paginação conferidos. Configurações restauradas e zero processos/entregas/aprovações temporários; D6 real, nuvem, áudio, insumos e gates seguem pendentes. Próximo: M2.32. |
 | 2026-10-11 | Codex | Visão geral e listas do painel (M2.32), contagens exatas antes do limite, cadastros de clientes em sete dias, propostas válidas sem aceite, pagamentos/fila/prazos e cinco próximos trabalhos. npm run check com 271 unitários/build; dez regressões específicas, 79 e2e da suíte completa e dois ensaios finais de layout aprovados; cinco ensaios únicos omitidos só no celular. Capturas em docs/evidencias/painel | 116 atrasados e 61 propostas paginados sem perdas em 375/1440 px; axe, filtros e papéis conferidos. Corrigida entrada do admin para preservar login/logout sem ler indicadores operacionais; ensaio interrompido deixou somente fixture profissional, limpa com marcador exato. Configurações restauradas, quatro perfis fictícios e zero processos/entregas/aprovações temporários; sem migration, push ou escrita na nuvem. Próximo: preparar M2.12 local com guardas para insumos comerciais e prazo. |
+| 2026-10-11 | Codex | Preferências por evento/canal (M2.31): vínculo persistente do responsável, revisão concorrente, recibos imutáveis e auditoria; migration local 0029, lint/advisors sem achados. npm run check com 273 unitários/build, 71 RLS e 81 e2e da suíte completa aprovados; dois ensaios finais em 375/1440 px confirmaram reenvio após resposta perdida e revalidação de outro formulário. Capturas em docs/evidencias/notificacoes | Canal desligado não cria novo aviso; pendentes preservados e ocorrências antigas não recuperadas. Outro calculista não controla as preferências do responsável. Ajustada espera limitada do lock das fixtures para 60 s e execução de cadastro/settings para 90 s; interceptação de rede agora termina antes da limpeza. Um processo, três recibos e duas preferências fictícias de ensaio interrompido foram identificados e removidos; read-back final sem resíduos, contatos e configurações reais vazios. M2.31 pôde ser verificada localmente antes dos provedores; ordem do plano ajustada por essa independência. Registradas a disponibilidade necessária para RF-22 e a distinção entre horários pontuais e janela de envio. Nuvem, áudio, insumos e GATEs continuam pendentes. Próximo: preparar M2.30 local sem ativar cron ou envio real. |

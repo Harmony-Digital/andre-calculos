@@ -634,6 +634,7 @@ export type Database = {
           event: string;
           id: string;
           profile_id: string;
+          revision: number;
           updated_at: string;
         };
         Insert: {
@@ -643,6 +644,7 @@ export type Database = {
           event: string;
           id?: string;
           profile_id: string;
+          revision?: number;
           updated_at?: string;
         };
         Update: {
@@ -652,6 +654,7 @@ export type Database = {
           event?: string;
           id?: string;
           profile_id?: string;
+          revision?: number;
           updated_at?: string;
         };
         Relationships: [
@@ -1357,6 +1360,7 @@ export type Database = {
         Args: { target_decision: string };
         Returns: string;
       };
+      get_calculator_notification_context: { Args: never; Returns: Json };
       get_complexity_limits: { Args: never; Returns: Json };
       get_delivery_payment_instructions: {
         Args: { target_deliveries: string[]; target_process: string };
@@ -1476,6 +1480,16 @@ export type Database = {
           target_process: string;
         };
         Returns: string;
+      };
+      set_my_notification_preference: {
+        Args: {
+          channel: string;
+          enabled: boolean;
+          event: string;
+          expected_revision: number;
+          request_id: string;
+        };
+        Returns: Json;
       };
       update_own_profile: {
         Args: {

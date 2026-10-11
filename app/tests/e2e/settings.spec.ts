@@ -3,6 +3,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { loginAs } from "./auth-helper";
 import { localSystem, leaseLocalSettings } from "./local-helper";
 import { fictionalServiceSettings } from "../settings-fixture";
+test.setTimeout(90000);
 test("configurações acessíveis no celular e computador; cliente recebe negação", async ({
   page,
 }, testInfo) => {

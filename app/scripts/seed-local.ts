@@ -28,6 +28,7 @@ export async function seedDev() {
     },
   );
   const { data, error: listError } = await admin.auth.admin.listUsers();
+  let calculatorId: string | undefined;
   if (listError)
     throw new Error("Não foi possível conferir os usuários locais.");
   for (const fixture of devUsers) {
@@ -48,6 +49,7 @@ export async function seedDev() {
     const id = response.data.user.id;
     if (!/^[0-9a-f-]{36}$/.test(id))
       throw new Error("Identificador de usuário inesperado.");
+    if (fixture.role === "calculator") calculatorId = id;
     // Papéis privilegiados são atribuídos exclusivamente no banco local de fixtures.
     execFileSync(
       "docker",
@@ -70,6 +72,30 @@ export async function seedDev() {
       },
     );
   }
+  if (!calculatorId) throw new Error("Calculista fictício indisponível.");
+  execFileSync(
+    "docker",
+    [
+      "exec",
+      "-i",
+      "supabase_db_andre-calculos",
+      "psql",
+      "-U",
+      "postgres",
+      "-d",
+      "postgres",
+      "-v",
+      "ON_ERROR_STOP=1",
+    ],
+    {
+      env,
+      input: `do $$ begin
+      update private.calculator_notification_recipient set profile_id='${calculatorId}' where singleton and profile_id is null and (select count(*) from public.profiles where role='calculator')=1;
+      if not exists(select 1 from private.calculator_notification_recipient where singleton and profile_id='${calculatorId}') then raise exception 'Responsável fictício pelos avisos inesperado'; end if;
+    end $$;`,
+      stdio: ["pipe", "pipe", "pipe"],
+    },
+  );
   execFileSync(
     "docker",
     [
