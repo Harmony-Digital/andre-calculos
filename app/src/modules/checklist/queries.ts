@@ -1,5 +1,5 @@
 import "server-only";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { z } from "zod";
 import { authorize } from "@/modules/auth/session";
 import { createSessionClient } from "@/lib/supabase/server";
@@ -16,6 +16,17 @@ export async function getDraft(id: string) {
       .eq("order_id", id)
       .single(),
   ]);
+  if (order.data?.status === "quoted") {
+    const quote = await db
+      .from("quotes")
+      .select("id")
+      .eq("order_id", id)
+      .not("proposal_snapshot", "is", null)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+    if (quote.data) redirect(`/app/orcamentos/${quote.data.id}`);
+  }
   if (
     !order.data ||
     order.data.status !== "draft" ||

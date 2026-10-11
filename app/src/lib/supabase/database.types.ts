@@ -1063,11 +1063,15 @@ export type Database = {
           accepted_by: string | null;
           accepted_ip: unknown;
           accepted_user_agent: string | null;
+          checklist_revision: number | null;
           created_at: string;
           id: string;
+          is_simulation: boolean;
           items: Json;
           number: string;
           order_id: string;
+          price_table_id: string | null;
+          proposal_snapshot: Json | null;
           total_cents: number;
           updated_at: string;
           valid_until: string;
@@ -1077,11 +1081,15 @@ export type Database = {
           accepted_by?: string | null;
           accepted_ip?: unknown;
           accepted_user_agent?: string | null;
+          checklist_revision?: number | null;
           created_at?: string;
           id?: string;
+          is_simulation?: boolean;
           items: Json;
           number: string;
           order_id: string;
+          price_table_id?: string | null;
+          proposal_snapshot?: Json | null;
           total_cents: number;
           updated_at?: string;
           valid_until: string;
@@ -1091,11 +1099,15 @@ export type Database = {
           accepted_by?: string | null;
           accepted_ip?: unknown;
           accepted_user_agent?: string | null;
+          checklist_revision?: number | null;
           created_at?: string;
           id?: string;
+          is_simulation?: boolean;
           items?: Json;
           number?: string;
           order_id?: string;
+          price_table_id?: string | null;
+          proposal_snapshot?: Json | null;
           total_cents?: number;
           updated_at?: string;
           valid_until?: string;
@@ -1113,6 +1125,13 @@ export type Database = {
             columns: ["order_id"];
             isOneToOne: false;
             referencedRelation: "orders";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "quotes_price_table_id_fkey";
+            columns: ["price_table_id"];
+            isOneToOne: false;
+            referencedRelation: "price_tables";
             referencedColumns: ["id"];
           },
         ];
@@ -1347,6 +1366,18 @@ export type Database = {
         Args: { target_decision: string };
         Returns: string;
       };
+      create_checklist_quote_system: {
+        Args: {
+          actor: string;
+          expected_checklist_revision: number;
+          expected_price_table?: string;
+          expected_settings_revision?: number;
+          proposal?: Json;
+          request_id: string;
+          target_order: string;
+        };
+        Returns: string;
+      };
       enqueue_deadline_reminder: {
         Args: {
           expected_due: string;
@@ -1400,6 +1431,7 @@ export type Database = {
           technical_name: string;
         }[];
       };
+      get_quote_pdf_export: { Args: { target_quote: string }; Returns: Json };
       is_admin: { Args: never; Returns: boolean };
       is_calculator: { Args: never; Returns: boolean };
       mutate_process_page_index: {

@@ -11,6 +11,7 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { saveDraft } from "@/modules/checklist/actions";
+import { createChecklistQuote } from "@/modules/quotes/actions";
 import { Button } from "./ui/button";
 import {
   checklistLaborV1,
@@ -104,6 +105,40 @@ export function LaborChecklist({
     ),
     [result, setResult] = useState<ChecklistLaborV1 | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
+  const quoteIntent = useRef<{ revision: number; requestId: string } | null>(
+    null,
+  );
+  const [quoteError, setQuoteError] = useState<string[]>([]);
+  const [issuing, setIssuing] = useState(false);
+  const issueQuote = async () => {
+    if (!saved || issuing) return;
+    if (quoteIntent.current?.revision !== saved.revision)
+      quoteIntent.current = {
+        revision: saved.revision,
+        requestId: crypto.randomUUID(),
+      };
+    setIssuing(true);
+    setQuoteError([]);
+    try {
+      const response = await createChecklistQuote({
+        orderId: saved.orderId,
+        revision: saved.revision,
+        requestId: quoteIntent.current.requestId,
+      });
+      if (response.quoteId) router.push(`/app/orcamentos/${response.quoteId}`);
+      else
+        setQuoteError([
+          response.error ?? "Não foi possível gerar a proposta.",
+          ...(response.reasons ?? []),
+        ]);
+    } catch {
+      setQuoteError([
+        "Não foi possível gerar agora. Suas respostas estão salvas; tente novamente.",
+      ]);
+    } finally {
+      setIssuing(false);
+    }
+  };
   const {
     register,
     handleSubmit,
@@ -258,8 +293,21 @@ export function LaborChecklist({
             O orçamento precisa da tabela real de preços. O André revisará o
             calendário do TRT e as decisões antes de confirmar os prazos.
           </p>
+          {quoteError.length > 0 && (
+            <div role="alert" aria-label="Emissão da proposta">
+              <p>{quoteError[0]}</p>
+              <ul>
+                {quoteError.slice(1).map((message) => (
+                  <li key={message}>{message}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
         <div className="form-actions">
+          <Button onClick={issueQuote} disabled={issuing || !saved}>
+            {issuing ? "Gerando proposta…" : "Gerar proposta"}
+          </Button>
           <Button
             variant="outline"
             onClick={() => {

@@ -1498,6 +1498,46 @@ h2 {
   font-size: 16px;
   font-weight: 600;
 }
+.quote-page {
+  max-width: 920px;
+  margin-inline: auto;
+}
+.quote-page h1 {
+  font-family: var(--font-source-serif);
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 12px 0 20px;
+}
+.quote-page .panel {
+  margin-block: 24px;
+}
+.quote-page .form-actions {
+  flex-wrap: wrap;
+}
+.quote-page .preserve-lines {
+  overflow-wrap: anywhere;
+}
+.quote-items {
+  list-style: none;
+  padding: 0;
+  margin-block: 20px;
+}
+.quote-items li {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.quote-items li > strong {
+  white-space: nowrap;
+}
+.quote-items p {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin: 4px 0 0;
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

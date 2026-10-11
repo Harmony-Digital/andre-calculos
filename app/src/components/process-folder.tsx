@@ -140,6 +140,19 @@ export async function ProcessFolder({
                       Continuar checklist
                     </Link>
                   )}
+                  {order.quotes
+                    .filter((quote) => quote.proposal_snapshot)
+                    .map((quote) => (
+                      <p key={quote.id}>
+                        <Link
+                          className="text-link"
+                          href={`${panel ? "/painel" : "/app"}/orcamentos/${quote.id}`}
+                        >
+                          {quote.number}
+                          {quote.is_simulation ? " · Ensaio fictício" : ""}
+                        </Link>
+                      </p>
+                    ))}
                   {data.role === "calculator" &&
                     order.status === "in_review" && (
                       <DeliveryForm

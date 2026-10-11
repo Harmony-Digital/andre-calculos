@@ -20,6 +20,7 @@ Preencha valores em reais e prazos em dias úteis. O sistema armazenará dinheir
 4. Quantas verbas entram na base? Como contar as excedentes e quanto cobrar por elas?
    Resposta: __________.
 5. Qual período entra na base? Como cobrar excedentes, frações e períodos descontínuos?
+   Defina como contar meses parciais (inclui todo mês tocado, mês completo ou proporcional), contratos sem demissão informada e a data que encerra o período. A data-base não será presumida como fim do contrato.
    Resposta: __________.
 6. Quantos meses ou páginas de cartões de ponto estão incluídos? Como diferenciar dados digitais, digitação e imagens pouco legíveis?
    Resposta: __________.
@@ -42,6 +43,7 @@ Preencha valores em reais e prazos em dias úteis. O sistema armazenará dinheir
 12. Quantos dias úteis de folga exige antes do vencimento processual? Quem confere o TRT e o calendário? Como agir quando faltar tempo? A regra do portal exige entrega prometida ≤ prazo interno ≤ vencimento menos folga; confirme essa ordem ou registre a decisão de alteração antes de implementá-la.
     Resposta: __________.
 13. O prazo começa após quais condições: aceite, sinal, documentos ou esclarecimentos? Como tratar pendências e horário de corte?
+    Como registrar capacidade e compromissos da agenda para propor a entrega automaticamente, incluindo a reserva concorrente de disponibilidade e a modalidade de urgência?
     Resposta: __________.
 14. Quanto tempo vale a proposta? Como versionar reajustes, contratos recorrentes e mudança de escopo depois do aceite?
     Resposta: __________.

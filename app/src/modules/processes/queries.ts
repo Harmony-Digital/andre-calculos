@@ -111,7 +111,9 @@ export async function getProcess(
       tab === "resumo"
         ? supabase
             .from("orders")
-            .select("id,code,calc_type,status,delivery_date")
+            .select(
+              "id,code,calc_type,status,delivery_date,quotes(id,number,is_simulation,proposal_snapshot)",
+            )
             .eq("process_id", id)
             .order("created_at", { ascending: false })
         : Promise.resolve({ data: [], error: null }),
