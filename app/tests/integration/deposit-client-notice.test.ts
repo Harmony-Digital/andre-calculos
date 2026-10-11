@@ -503,117 +503,148 @@ it("reserva da fila congela o aviso do cliente e conserva a chave no replay", as
   );
 });
 
-it("edição do perfil e confirmação concorrentes concluem sem inversão dos locks", async () => {
-  const sample = await fixture.create();
-  await accept(sample);
-  const profile = await fixture.db
-    .from("profiles")
-    .select("full_name,phone,oab_number,oab_state,city")
-    .eq("id", sample.actor)
-    .single();
-  const customer = await fixture.db
-    .from("clients")
-    .select("legal_name")
-    .eq("owner_id", sample.actor)
-    .single();
-  expect(profile.error).toBeNull();
-  expect(customer.error).toBeNull();
-  const audits = await fixture.db
-    .from("audit_log")
-    .select("id")
-    .eq("action", "profile_updated")
-    .eq("target_id", sample.actor);
-  expect(audits.error).toBeNull();
-  const priorAudits = new Set(audits.data!.map((row) => row.id));
-  const name = "deposit-profile-lock-" + randomUUID();
-  const child = spawn(
-    "docker",
-    [
-      "exec",
-      "-i",
-      "supabase_db_andre-calculos",
-      "psql",
-      "-U",
-      "postgres",
-      "-d",
-      "postgres",
-      "-At",
-      "-v",
-      "ON_ERROR_STOP=1",
-    ],
-    { env: process.env, stdio: ["pipe", "pipe", "pipe"] },
-  );
-  let output = "";
-  child.stdout.on("data", (chunk: Buffer) => {
-    output += chunk.toString();
-  });
-  child.stderr.on("data", () => {});
-  const done = new Promise<number | null>((resolve, reject) => {
-    child.on("error", reject);
-    child.on("exit", resolve);
-  });
-  let pending: Promise<Awaited<ReturnType<SupabaseClient["rpc"]>>> | undefined;
-  try {
-    // Reproduz o primeiro lock adquirido pela edição do perfil, antes do cliente.
-    child.stdin.write(`set application_name='${name}';
+it.each([false, true])(
+  "edição do perfil e confirmação concorrentes concluem sem inversão dos locks (perfil mínimo %s)",
+  async (minimal) => {
+    const sample = await fixture.create();
+    await accept(sample);
+    const profile = await fixture.db
+      .from("profiles")
+      .select("full_name,phone,oab_number,oab_state,city")
+      .eq("id", sample.actor)
+      .single();
+    const customer = await fixture.db
+      .from("clients")
+      .select("legal_name")
+      .eq("owner_id", sample.actor)
+      .single();
+    expect(profile.error).toBeNull();
+    expect(customer.error).toBeNull();
+    const audits = await fixture.db
+      .from("audit_log")
+      .select("id")
+      .eq("action", "profile_updated")
+      .eq("target_id", sample.actor);
+    expect(audits.error).toBeNull();
+    const priorAudits = new Set(audits.data!.map((row) => row.id));
+    const name = "deposit-profile-lock-" + randomUUID();
+    const child = spawn(
+      "docker",
+      [
+        "exec",
+        "-i",
+        "supabase_db_andre-calculos",
+        "psql",
+        "-U",
+        "postgres",
+        "-d",
+        "postgres",
+        "-At",
+        "-v",
+        "ON_ERROR_STOP=1",
+      ],
+      { env: process.env, stdio: ["pipe", "pipe", "pipe"] },
+    );
+    let output = "";
+    child.stdout.on("data", (chunk: Buffer) => {
+      output += chunk.toString();
+    });
+    child.stderr.on("data", () => {});
+    const done = new Promise<number | null>((resolve, reject) => {
+      child.on("error", reject);
+      child.on("exit", resolve);
+    });
+    let pending:
+      Promise<Awaited<ReturnType<SupabaseClient["rpc"]>>> | undefined;
+    try {
+      if (minimal) {
+        expect(
+          (
+            await fixture.db
+              .from("profiles")
+              .update({ phone: null })
+              .eq("id", sample.actor)
+          ).error,
+        ).toBeNull();
+      }
+      // Reproduz o primeiro lock adquirido pela edição do perfil, antes do cliente.
+      child.stdin.write(`set application_name='${name}';
       set statement_timeout='8s'; set idle_in_transaction_session_timeout='8s'; begin;
       update public.profiles set full_name=full_name where id='${sample.actor}';
       \\echo PROFILE_HELD
     `);
-    await expect
-      .poll(() => output, { timeout: 3000 })
-      .toContain("PROFILE_HELD");
-    pending = Promise.resolve(
-      sessions.calculator.rpc("confirm_manual_deposit", args(sample)),
-    );
-    await expect
-      .poll(
-        () =>
-          sql(`select count(*) from pg_stat_activity b where b.wait_event_type='Lock'
+      await expect
+        .poll(() => output, { timeout: 3000 })
+        .toContain("PROFILE_HELD");
+      pending = Promise.resolve(
+        sessions.calculator.rpc("confirm_manual_deposit", args(sample)),
+      );
+      await expect
+        .poll(
+          () =>
+            sql(`select count(*) from pg_stat_activity b where b.wait_event_type='Lock'
       and exists(select 1 from pg_stat_activity a where a.application_name='${name}'
       and a.pid=any(pg_blocking_pids(b.pid)));`),
-        { timeout: 3000 },
-      )
-      .toBe("1");
-    const p = profile.data!;
-    const values = [
-      p.full_name,
-      p.phone,
-      p.oab_number ?? "",
-      p.oab_state ?? "",
-      p.city ?? "",
-      customer.data!.legal_name,
-    ];
-    const claims = literal(
-      JSON.stringify({ sub: sample.actor, role: "authenticated" }),
-    );
-    child.stdin.end(`set local role authenticated;
+          { timeout: 3000 },
+        )
+        .toBe("1");
+      const p = profile.data!;
+      const values = [
+        p.full_name,
+        (minimal ? null : p.phone) ?? "+5561999999999",
+        p.oab_number ?? "",
+        p.oab_state ?? "",
+        p.city ?? "",
+        customer.data!.legal_name,
+      ];
+      const claims = literal(
+        JSON.stringify({ sub: sample.actor, role: "authenticated" }),
+      );
+      child.stdin.end(`set local role authenticated;
       select set_config('request.jwt.claims',${claims},true);
       select public.update_own_profile(${values.map(literal).join(",")});
       commit;
       \\q
     `);
-    expect(await done).toBe(0);
-    expect((await pending).error).toBeNull();
-    expect(await paymentCount(sample)).toBe(1);
-    expect(await notices(sample)).toHaveLength(1);
-  } finally {
-    if (child.exitCode === null && !child.stdin.destroyed)
-      child.stdin.end("rollback;\n\\q\n");
-    await done;
-    if (pending) await pending;
-    const result = await fixture.db
-      .from("audit_log")
-      .select("id")
-      .eq("action", "profile_updated")
-      .eq("target_id", sample.actor);
-    expect(result.error).toBeNull();
-    const fresh = result
-      .data!.map((row) => row.id)
-      .filter((id) => !priorAudits.has(id));
-    if (fresh.length)
+      expect(await done).toBe(0);
+      expect((await pending).error).toBeNull();
+      expect(await paymentCount(sample)).toBe(1);
+      expect(await notices(sample)).toHaveLength(1);
+    } finally {
+      if (child.exitCode === null && !child.stdin.destroyed)
+        child.stdin.end("rollback;\n\\q\n");
+      await done;
+      if (pending) await pending;
       expect(
-        (await fixture.db.from("audit_log").delete().in("id", fresh)).error,
+        (
+          await fixture.db
+            .from("profiles")
+            .update(profile.data!)
+            .eq("id", sample.actor)
+        ).error,
       ).toBeNull();
-  }
-}, 12000);
+      expect(
+        (
+          await fixture.db
+            .from("clients")
+            .update(customer.data!)
+            .eq("owner_id", sample.actor)
+        ).error,
+      ).toBeNull();
+      const result = await fixture.db
+        .from("audit_log")
+        .select("id")
+        .eq("action", "profile_updated")
+        .eq("target_id", sample.actor);
+      expect(result.error).toBeNull();
+      const fresh = result
+        .data!.map((row) => row.id)
+        .filter((id) => !priorAudits.has(id));
+      if (fresh.length)
+        expect(
+          (await fixture.db.from("audit_log").delete().in("id", fresh)).error,
+        ).toBeNull();
+    }
+  },
+  12000,
+);
