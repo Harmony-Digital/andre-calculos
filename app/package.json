@@ -37,6 +37,7 @@
     "pino": "^10.4.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "react-email": "6.11.1",
     "react-hook-form": "^7.89.0",
     "react-pdf": "11.0.0",
     "server-only": "^0.0.1",
