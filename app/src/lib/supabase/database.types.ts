@@ -1,0 +1,1224 @@
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[];
+
+export type Database = {
+  public: {
+    Tables: {
+      audit_log: {
+        Row: {
+          action: string;
+          actor_id: string | null;
+          created_at: string;
+          id: string;
+          ip: unknown;
+          target_id: string | null;
+          target_type: string;
+          updated_at: string;
+        };
+        Insert: {
+          action: string;
+          actor_id?: string | null;
+          created_at?: string;
+          id?: string;
+          ip?: unknown;
+          target_id?: string | null;
+          target_type: string;
+          updated_at?: string;
+        };
+        Update: {
+          action?: string;
+          actor_id?: string | null;
+          created_at?: string;
+          id?: string;
+          ip?: unknown;
+          target_id?: string | null;
+          target_type?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "audit_log_actor_id_fkey";
+            columns: ["actor_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      checklists: {
+        Row: {
+          answers: Json;
+          created_at: string;
+          id: string;
+          order_id: string;
+          schema_version: number;
+          updated_at: string;
+        };
+        Insert: {
+          answers: Json;
+          created_at?: string;
+          id?: string;
+          order_id: string;
+          schema_version: number;
+          updated_at?: string;
+        };
+        Update: {
+          answers?: Json;
+          created_at?: string;
+          id?: string;
+          order_id?: string;
+          schema_version?: number;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "checklists_order_id_fkey";
+            columns: ["order_id"];
+            isOneToOne: true;
+            referencedRelation: "orders";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      clients: {
+        Row: {
+          created_at: string;
+          document: string | null;
+          has_contract: boolean;
+          id: string;
+          kind: string;
+          legal_name: string;
+          owner_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          created_at?: string;
+          document?: string | null;
+          has_contract?: boolean;
+          id?: string;
+          kind?: string;
+          legal_name?: string;
+          owner_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          document?: string | null;
+          has_contract?: boolean;
+          id?: string;
+          kind?: string;
+          legal_name?: string;
+          owner_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "clients_owner_id_fkey";
+            columns: ["owner_id"];
+            isOneToOne: true;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      consents: {
+        Row: {
+          accepted_at: string;
+          created_at: string;
+          document: string;
+          id: string;
+          ip: unknown;
+          profile_id: string;
+          updated_at: string;
+          version: string;
+        };
+        Insert: {
+          accepted_at?: string;
+          created_at?: string;
+          document: string;
+          id?: string;
+          ip?: unknown;
+          profile_id: string;
+          updated_at?: string;
+          version: string;
+        };
+        Update: {
+          accepted_at?: string;
+          created_at?: string;
+          document?: string;
+          id?: string;
+          ip?: unknown;
+          profile_id?: string;
+          updated_at?: string;
+          version?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "consents_profile_id_fkey";
+            columns: ["profile_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      deadlines: {
+        Row: {
+          act_type: string;
+          adjustments: Json;
+          created_at: string;
+          days: number;
+          due_date: string;
+          id: string;
+          internal_due_date: string;
+          notice_date: string;
+          order_id: string;
+          slack_days: number;
+          updated_at: string;
+        };
+        Insert: {
+          act_type: string;
+          adjustments?: Json;
+          created_at?: string;
+          days: number;
+          due_date: string;
+          id?: string;
+          internal_due_date: string;
+          notice_date: string;
+          order_id: string;
+          slack_days: number;
+          updated_at?: string;
+        };
+        Update: {
+          act_type?: string;
+          adjustments?: Json;
+          created_at?: string;
+          days?: number;
+          due_date?: string;
+          id?: string;
+          internal_due_date?: string;
+          notice_date?: string;
+          order_id?: string;
+          slack_days?: number;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "deadlines_order_id_fkey";
+            columns: ["order_id"];
+            isOneToOne: true;
+            referencedRelation: "orders";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      decisions: {
+        Row: {
+          client_confirmed_at: string | null;
+          created_at: string;
+          id: string;
+          order_id: string | null;
+          page: number | null;
+          parameter: string;
+          process_id: string;
+          rationale: string;
+          recorded_by: string;
+          source: string;
+          updated_at: string;
+          value: string;
+        };
+        Insert: {
+          client_confirmed_at?: string | null;
+          created_at?: string;
+          id?: string;
+          order_id?: string | null;
+          page?: number | null;
+          parameter: string;
+          process_id: string;
+          rationale: string;
+          recorded_by: string;
+          source: string;
+          updated_at?: string;
+          value: string;
+        };
+        Update: {
+          client_confirmed_at?: string | null;
+          created_at?: string;
+          id?: string;
+          order_id?: string | null;
+          page?: number | null;
+          parameter?: string;
+          process_id?: string;
+          rationale?: string;
+          recorded_by?: string;
+          source?: string;
+          updated_at?: string;
+          value?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "decisions_order_id_process_id_fkey";
+            columns: ["order_id", "process_id"];
+            isOneToOne: false;
+            referencedRelation: "orders";
+            referencedColumns: ["id", "process_id"];
+          },
+          {
+            foreignKeyName: "decisions_process_id_fkey";
+            columns: ["process_id"];
+            isOneToOne: false;
+            referencedRelation: "processes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "decisions_recorded_by_fkey";
+            columns: ["recorded_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      files: {
+        Row: {
+          bucket: string;
+          created_at: string;
+          expected_sha256: string | null;
+          folder: string;
+          id: string;
+          mime: string;
+          name: string;
+          order_id: string | null;
+          pages: number | null;
+          path: string;
+          process_id: string;
+          sha256: string | null;
+          size_bytes: number;
+          updated_at: string;
+          upload_status: string;
+          uploaded_by: string;
+          version: number;
+        };
+        Insert: {
+          bucket?: string;
+          created_at?: string;
+          expected_sha256?: string | null;
+          folder: string;
+          id?: string;
+          mime: string;
+          name: string;
+          order_id?: string | null;
+          pages?: number | null;
+          path: string;
+          process_id: string;
+          sha256?: string | null;
+          size_bytes: number;
+          updated_at?: string;
+          upload_status?: string;
+          uploaded_by: string;
+          version?: number;
+        };
+        Update: {
+          bucket?: string;
+          created_at?: string;
+          expected_sha256?: string | null;
+          folder?: string;
+          id?: string;
+          mime?: string;
+          name?: string;
+          order_id?: string | null;
+          pages?: number | null;
+          path?: string;
+          process_id?: string;
+          sha256?: string | null;
+          size_bytes?: number;
+          updated_at?: string;
+          upload_status?: string;
+          uploaded_by?: string;
+          version?: number;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "files_order_id_process_id_fkey";
+            columns: ["order_id", "process_id"];
+            isOneToOne: false;
+            referencedRelation: "orders";
+            referencedColumns: ["id", "process_id"];
+          },
+          {
+            foreignKeyName: "files_process_id_fkey";
+            columns: ["process_id"];
+            isOneToOne: false;
+            referencedRelation: "processes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "files_uploaded_by_fkey";
+            columns: ["uploaded_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      messages: {
+        Row: {
+          attachment_ids: string[];
+          author_id: string;
+          body: string;
+          created_at: string;
+          id: string;
+          process_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          attachment_ids?: string[];
+          author_id: string;
+          body: string;
+          created_at?: string;
+          id?: string;
+          process_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          attachment_ids?: string[];
+          author_id?: string;
+          body?: string;
+          created_at?: string;
+          id?: string;
+          process_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "messages_author_id_fkey";
+            columns: ["author_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "messages_process_id_fkey";
+            columns: ["process_id"];
+            isOneToOne: false;
+            referencedRelation: "processes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      notification_preferences: {
+        Row: {
+          channel: string;
+          created_at: string;
+          enabled: boolean;
+          event: string;
+          id: string;
+          profile_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          channel: string;
+          created_at?: string;
+          enabled?: boolean;
+          event: string;
+          id?: string;
+          profile_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          channel?: string;
+          created_at?: string;
+          enabled?: boolean;
+          event?: string;
+          id?: string;
+          profile_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "notification_preferences_profile_id_fkey";
+            columns: ["profile_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      notifications: {
+        Row: {
+          attempts: number;
+          channel: string;
+          created_at: string;
+          data: Json;
+          dedup_key: string;
+          id: string;
+          last_error: string | null;
+          recipient: string;
+          send_after: string;
+          sent_at: string | null;
+          status: string;
+          template: string;
+          updated_at: string;
+        };
+        Insert: {
+          attempts?: number;
+          channel: string;
+          created_at?: string;
+          data?: Json;
+          dedup_key: string;
+          id?: string;
+          last_error?: string | null;
+          recipient: string;
+          send_after?: string;
+          sent_at?: string | null;
+          status?: string;
+          template: string;
+          updated_at?: string;
+        };
+        Update: {
+          attempts?: number;
+          channel?: string;
+          created_at?: string;
+          data?: Json;
+          dedup_key?: string;
+          id?: string;
+          last_error?: string | null;
+          recipient?: string;
+          send_after?: string;
+          sent_at?: string | null;
+          status?: string;
+          template?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      orders: {
+        Row: {
+          area: string;
+          calc_type: string;
+          client_id: string;
+          code: string;
+          complexity: string | null;
+          created_at: string;
+          delivery_date: string | null;
+          deposit_cents: number;
+          id: string;
+          internal_due_date: string | null;
+          price_table_id: string | null;
+          process_id: string;
+          status: string;
+          total_cents: number;
+          updated_at: string;
+          urgent: boolean;
+        };
+        Insert: {
+          area?: string;
+          calc_type: string;
+          client_id: string;
+          code?: string;
+          complexity?: string | null;
+          created_at?: string;
+          delivery_date?: string | null;
+          deposit_cents?: number;
+          id?: string;
+          internal_due_date?: string | null;
+          price_table_id?: string | null;
+          process_id: string;
+          status?: string;
+          total_cents?: number;
+          updated_at?: string;
+          urgent?: boolean;
+        };
+        Update: {
+          area?: string;
+          calc_type?: string;
+          client_id?: string;
+          code?: string;
+          complexity?: string | null;
+          created_at?: string;
+          delivery_date?: string | null;
+          deposit_cents?: number;
+          id?: string;
+          internal_due_date?: string | null;
+          price_table_id?: string | null;
+          process_id?: string;
+          status?: string;
+          total_cents?: number;
+          updated_at?: string;
+          urgent?: boolean;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "orders_price_table_id_fkey";
+            columns: ["price_table_id"];
+            isOneToOne: false;
+            referencedRelation: "price_tables";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "orders_process_id_client_id_fkey";
+            columns: ["process_id", "client_id"];
+            isOneToOne: false;
+            referencedRelation: "processes";
+            referencedColumns: ["id", "client_id"];
+          },
+        ];
+      };
+      page_index: {
+        Row: {
+          created_at: string;
+          file_id: string;
+          id: string;
+          note: string | null;
+          pages: string;
+          piece: string;
+          process_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          created_at?: string;
+          file_id: string;
+          id?: string;
+          note?: string | null;
+          pages: string;
+          piece: string;
+          process_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          file_id?: string;
+          id?: string;
+          note?: string | null;
+          pages?: string;
+          piece?: string;
+          process_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "page_index_file_id_process_id_fkey";
+            columns: ["file_id", "process_id"];
+            isOneToOne: false;
+            referencedRelation: "files";
+            referencedColumns: ["id", "process_id"];
+          },
+          {
+            foreignKeyName: "page_index_process_id_fkey";
+            columns: ["process_id"];
+            isOneToOne: false;
+            referencedRelation: "processes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      payments: {
+        Row: {
+          amount_cents: number;
+          confirmed_at: string | null;
+          confirmed_by: string | null;
+          created_at: string;
+          id: string;
+          kind: string;
+          method: string;
+          order_id: string;
+          provider_ref: string | null;
+          status: string;
+          updated_at: string;
+        };
+        Insert: {
+          amount_cents: number;
+          confirmed_at?: string | null;
+          confirmed_by?: string | null;
+          created_at?: string;
+          id?: string;
+          kind: string;
+          method: string;
+          order_id: string;
+          provider_ref?: string | null;
+          status?: string;
+          updated_at?: string;
+        };
+        Update: {
+          amount_cents?: number;
+          confirmed_at?: string | null;
+          confirmed_by?: string | null;
+          created_at?: string;
+          id?: string;
+          kind?: string;
+          method?: string;
+          order_id?: string;
+          provider_ref?: string | null;
+          status?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "payments_confirmed_by_fkey";
+            columns: ["confirmed_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "payments_order_id_fkey";
+            columns: ["order_id"];
+            isOneToOne: false;
+            referencedRelation: "orders";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      price_items: {
+        Row: {
+          amount_cents: number | null;
+          code: string;
+          created_at: string;
+          id: string;
+          kind: string;
+          label: string;
+          percent_bp: number | null;
+          price_table_id: string;
+          rule: Json;
+          updated_at: string;
+        };
+        Insert: {
+          amount_cents?: number | null;
+          code: string;
+          created_at?: string;
+          id?: string;
+          kind: string;
+          label: string;
+          percent_bp?: number | null;
+          price_table_id: string;
+          rule?: Json;
+          updated_at?: string;
+        };
+        Update: {
+          amount_cents?: number | null;
+          code?: string;
+          created_at?: string;
+          id?: string;
+          kind?: string;
+          label?: string;
+          percent_bp?: number | null;
+          price_table_id?: string;
+          rule?: Json;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "price_items_price_table_id_fkey";
+            columns: ["price_table_id"];
+            isOneToOne: false;
+            referencedRelation: "price_tables";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      price_tables: {
+        Row: {
+          active: boolean;
+          created_at: string;
+          id: string;
+          is_example: boolean;
+          updated_at: string;
+          version: number;
+        };
+        Insert: {
+          active?: boolean;
+          created_at?: string;
+          id?: string;
+          is_example?: boolean;
+          updated_at?: string;
+          version: number;
+        };
+        Update: {
+          active?: boolean;
+          created_at?: string;
+          id?: string;
+          is_example?: boolean;
+          updated_at?: string;
+          version?: number;
+        };
+        Relationships: [];
+      };
+      processes: {
+        Row: {
+          chamber: string;
+          claimants_count: number;
+          client_id: string;
+          cnj_number: string;
+          court: string;
+          created_at: string;
+          id: string;
+          side: string;
+          updated_at: string;
+        };
+        Insert: {
+          chamber?: string;
+          claimants_count?: number;
+          client_id: string;
+          cnj_number: string;
+          court: string;
+          created_at?: string;
+          id?: string;
+          side: string;
+          updated_at?: string;
+        };
+        Update: {
+          chamber?: string;
+          claimants_count?: number;
+          client_id?: string;
+          cnj_number?: string;
+          court?: string;
+          created_at?: string;
+          id?: string;
+          side?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "processes_client_id_fkey";
+            columns: ["client_id"];
+            isOneToOne: false;
+            referencedRelation: "clients";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      profiles: {
+        Row: {
+          created_at: string;
+          full_name: string;
+          id: string;
+          oab_number: string | null;
+          oab_state: string | null;
+          phone: string | null;
+          role: string;
+          updated_at: string;
+        };
+        Insert: {
+          created_at?: string;
+          full_name?: string;
+          id: string;
+          oab_number?: string | null;
+          oab_state?: string | null;
+          phone?: string | null;
+          role?: string;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          full_name?: string;
+          id?: string;
+          oab_number?: string | null;
+          oab_state?: string | null;
+          phone?: string | null;
+          role?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      quotes: {
+        Row: {
+          accepted_at: string | null;
+          accepted_by: string | null;
+          accepted_ip: unknown;
+          accepted_user_agent: string | null;
+          created_at: string;
+          id: string;
+          items: Json;
+          number: string;
+          order_id: string;
+          total_cents: number;
+          updated_at: string;
+          valid_until: string;
+        };
+        Insert: {
+          accepted_at?: string | null;
+          accepted_by?: string | null;
+          accepted_ip?: unknown;
+          accepted_user_agent?: string | null;
+          created_at?: string;
+          id?: string;
+          items: Json;
+          number: string;
+          order_id: string;
+          total_cents: number;
+          updated_at?: string;
+          valid_until: string;
+        };
+        Update: {
+          accepted_at?: string | null;
+          accepted_by?: string | null;
+          accepted_ip?: unknown;
+          accepted_user_agent?: string | null;
+          created_at?: string;
+          id?: string;
+          items?: Json;
+          number?: string;
+          order_id?: string;
+          total_cents?: number;
+          updated_at?: string;
+          valid_until?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "quotes_accepted_by_fkey";
+            columns: ["accepted_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "quotes_order_id_fkey";
+            columns: ["order_id"];
+            isOneToOne: false;
+            referencedRelation: "orders";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      reviews: {
+        Row: {
+          body: string;
+          created_at: string;
+          id: string;
+          order_id: string;
+          profile_id: string;
+          published: boolean;
+          rating: number;
+          updated_at: string;
+        };
+        Insert: {
+          body?: string;
+          created_at?: string;
+          id?: string;
+          order_id: string;
+          profile_id: string;
+          published?: boolean;
+          rating: number;
+          updated_at?: string;
+        };
+        Update: {
+          body?: string;
+          created_at?: string;
+          id?: string;
+          order_id?: string;
+          profile_id?: string;
+          published?: boolean;
+          rating?: number;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "reviews_order_id_fkey";
+            columns: ["order_id"];
+            isOneToOne: true;
+            referencedRelation: "orders";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "reviews_profile_id_fkey";
+            columns: ["profile_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      settings: {
+        Row: {
+          approved_privacy_version: string | null;
+          approved_terms_version: string | null;
+          complexity_limits: Json;
+          contact_email: string | null;
+          contact_phone: string | null;
+          crc_category: string | null;
+          crc_number: string | null;
+          crc_state: string | null;
+          created_at: string;
+          default_texts: Json;
+          id: string;
+          pix_key: string | null;
+          quote_valid_days: number;
+          singleton: boolean;
+          slack_days: number;
+          technical_name: string | null;
+          updated_at: string;
+          urgency_bp: number;
+        };
+        Insert: {
+          approved_privacy_version?: string | null;
+          approved_terms_version?: string | null;
+          complexity_limits?: Json;
+          contact_email?: string | null;
+          contact_phone?: string | null;
+          crc_category?: string | null;
+          crc_number?: string | null;
+          crc_state?: string | null;
+          created_at?: string;
+          default_texts?: Json;
+          id?: string;
+          pix_key?: string | null;
+          quote_valid_days?: number;
+          singleton?: boolean;
+          slack_days?: number;
+          technical_name?: string | null;
+          updated_at?: string;
+          urgency_bp?: number;
+        };
+        Update: {
+          approved_privacy_version?: string | null;
+          approved_terms_version?: string | null;
+          complexity_limits?: Json;
+          contact_email?: string | null;
+          contact_phone?: string | null;
+          crc_category?: string | null;
+          crc_number?: string | null;
+          crc_state?: string | null;
+          created_at?: string;
+          default_texts?: Json;
+          id?: string;
+          pix_key?: string | null;
+          quote_valid_days?: number;
+          singleton?: boolean;
+          slack_days?: number;
+          technical_name?: string | null;
+          updated_at?: string;
+          urgency_bp?: number;
+        };
+        Relationships: [];
+      };
+      timeline_events: {
+        Row: {
+          actor_id: string | null;
+          created_at: string;
+          data: Json;
+          id: string;
+          kind: string;
+          order_id: string | null;
+          process_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          actor_id?: string | null;
+          created_at?: string;
+          data?: Json;
+          id?: string;
+          kind: string;
+          order_id?: string | null;
+          process_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          actor_id?: string | null;
+          created_at?: string;
+          data?: Json;
+          id?: string;
+          kind?: string;
+          order_id?: string | null;
+          process_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "timeline_events_actor_id_fkey";
+            columns: ["actor_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "timeline_events_order_id_process_id_fkey";
+            columns: ["order_id", "process_id"];
+            isOneToOne: false;
+            referencedRelation: "orders";
+            referencedColumns: ["id", "process_id"];
+          },
+          {
+            foreignKeyName: "timeline_events_process_id_fkey";
+            columns: ["process_id"];
+            isOneToOne: false;
+            referencedRelation: "processes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+    };
+    Views: {
+      [_ in never]: never;
+    };
+    Functions: {
+      complete_file_system: {
+        Args: {
+          actor: string;
+          observed_hash: string;
+          observed_size: number;
+          target_file: string;
+        };
+        Returns: undefined;
+      };
+      get_legal_versions: {
+        Args: never;
+        Returns: {
+          privacy_version: string;
+          terms_version: string;
+        }[];
+      };
+      is_admin: { Args: never; Returns: boolean };
+      is_calculator: { Args: never; Returns: boolean };
+      prepare_file_upload: {
+        Args: {
+          expected_hash: string;
+          file_mime: string;
+          file_name: string;
+          file_size: number;
+          target_folder?: string;
+          target_process: string;
+        };
+        Returns: {
+          file_id: string;
+          object_path: string;
+        }[];
+      };
+      record_auth_audit: { Args: { event: string }; Returns: undefined };
+      record_file_access: { Args: { target_file: string }; Returns: undefined };
+    };
+    Enums: {
+      [_ in never]: never;
+    };
+    CompositeTypes: {
+      [_ in never]: never;
+    };
+  };
+};
+
+type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">;
+
+type DefaultSchema = DatabaseWithoutInternals[Extract<
+  keyof Database,
+  "public"
+>];
+
+export type Tables<
+  DefaultSchemaTableNameOrOptions extends
+    | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
+    | { schema: keyof DatabaseWithoutInternals },
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals;
+  }
+    ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+        DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
+    : never) = never,
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals;
+}
+  ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+      DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+      Row: infer R;
+    }
+    ? R
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema["Tables"] &
+        DefaultSchema["Views"])
+    ? (DefaultSchema["Tables"] &
+        DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {
+        Row: infer R;
+      }
+      ? R
+      : never
+    : never;
+
+export type TablesInsert<
+  DefaultSchemaTableNameOrOptions extends
+    keyof DefaultSchema["Tables"] | { schema: keyof DatabaseWithoutInternals },
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals;
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    : never) = never,
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals;
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Insert: infer I;
+    }
+    ? I
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Insert: infer I;
+      }
+      ? I
+      : never
+    : never;
+
+export type TablesUpdate<
+  DefaultSchemaTableNameOrOptions extends
+    keyof DefaultSchema["Tables"] | { schema: keyof DatabaseWithoutInternals },
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals;
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    : never) = never,
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals;
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Update: infer U;
+    }
+    ? U
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Update: infer U;
+      }
+      ? U
+      : never
+    : never;
+
+export type Enums<
+  DefaultSchemaEnumNameOrOptions extends
+    keyof DefaultSchema["Enums"] | { schema: keyof DatabaseWithoutInternals },
+  EnumName extends (DefaultSchemaEnumNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals;
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
+    : never) = never,
+> = DefaultSchemaEnumNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals;
+}
+  ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
+  : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
+    ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
+    : never;
+
+export type CompositeTypes<
+  PublicCompositeTypeNameOrOptions extends
+    | keyof DefaultSchema["CompositeTypes"]
+    | { schema: keyof DatabaseWithoutInternals },
+  CompositeTypeName extends (PublicCompositeTypeNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals;
+  }
+    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    : never) = never,
+> = PublicCompositeTypeNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals;
+}
+  ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+  : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
+    ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
+    : never;
+
+export const Constants = {
+  public: {
+    Enums: {},
+  },
+} as const;

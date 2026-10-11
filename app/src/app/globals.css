@@ -631,9 +631,84 @@ h2 {
   font-size: 14px;
 }
 .workspace-id {
+  min-width: 0;
+  margin-left: auto;
+  max-width: 300px;
   display: flex;
   gap: 11px;
   align-items: center;
+}
+.user-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.upload-box {
+  padding: 26px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  margin-bottom: 24px;
+}
+.upload-box h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+.upload-box p {
+  color: var(--muted-foreground);
+}
+.upload-box progress {
+  display: block;
+  width: 100%;
+  margin: 18px 0 10px;
+  accent-color: var(--primary);
+}
+.upload-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+.upload-box label:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.document-list {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+.document-row {
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.document-row div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.document-row p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+@media (max-width: 600px) {
+  .document-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .workspace-header > span:first-child {
+    display: none;
+  }
+  .workspace-id {
+    margin-left: 0;
+  }
 }
 .avatar {
   width: 31px;

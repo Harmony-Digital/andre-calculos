@@ -8,16 +8,19 @@ Nome provisório até a marca (D3).
 ## Onde estamos
 
 - **Atualizado em:** 2026-10-11, por Codex.
-- **Fase:** M1 em andamento; base visual e regras puras do M2 construídas e verificadas localmente.
+- **Fase:** M1 em andamento; autenticação e arquivos privados verificados localmente, com fluxos do M2 em construção.
 - **O que já existe:**
   - documentação organizada em `docs/`, Next.js 16.4/React 19.3 em `app/`, página pública, áreas provisórias do cliente e André, checklist de nove etapas e rascunhos legais;
-  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 165 testes unitários aprovados, cobertura do motor de preço 100%;
-  - `npm run check` aprovado e 22 testes Playwright/axe em 375 e 1440 px, incluindo preenchimento, erros e revisão do checklist;
+  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 186 testes unitários aprovados, cobertura do motor de preço 100%;
+  - sessão SSR com cookies HttpOnly, login/logout, papéis protegidos e pasta de documentos; navegador/axe verificados em 375 e 1440 px;
+  - quatro migrations locais, 21 tabelas com RLS, quatro usuários fictícios e um processo inventado; 16 testes reais de RLS aprovados e advisors locais sem achados;
+  - upload TUS de 300 MiB retomado do offset de 12 MiB após interrupção da rede; SHA-256 conferido no servidor; download auditado por link de 120 s e acesso entre clientes negado;
+  - `npm run check` aprovado (186 unitários/build), 37 e2e aprovados/um ensaio grande omitido apenas no celular; `npm audit --omit=dev` sem achados em 2026-10-11;
   - Docker/Colima exclusivos de `andre-calculos`, sem alterar o contexto global; Supabase local PostgreSQL 17 com serviços saudáveis e Auth health HTTP 200;
   - branch `feat/fundacao-portal`; remoto `Harmony-Digital/andre-calculos` ainda vazio e sem push;
   - conexão Vercel exclusiva autenticada na equipe `Projeto Andre` (`projeto-andre1`), conta `projetoandre.harmony@gmail.com`; nenhum projeto Vercel criado;
   - MCP `andre-calculos-supabase` registrado no Codex com `project_ref=qtofwbxujshroaafxowr`; OAuth dessa conexão aguarda login na conta do cliente. As ferramentas dedicadas ainda não estão expostas nesta sessão.
-- **Próximas tarefas do agente:** concluir M1.40 (quatro usuários fictícios), M1.42 local (migrations/RLS), M1.41 e M1.43 (sessão/login), M1.44 (arquivos), depois os fluxos persistidos do M2. Nenhuma alteração de nuvem sem conferir a conexão dedicada.
+- **Próximas tarefas do agente:** construir cadastro condicionado a textos aprovados (M2.04), conta (M2.06) e persistência do checklist (M2.08). Nenhuma alteração de nuvem sem conferir a conexão dedicada.
 - **Bloqueios externos:**
   - M1.10: revisão automática recusou retirar o áudio do primeiro commit sem aprovação específica do Fábio; áudio preservado e push bloqueado;
   - MCP Supabase dedicado aguarda login; planos Pro, integração GitHub/Vercel e dados reais do André ainda precisam de verificação/insumos;
@@ -132,9 +135,9 @@ Prazo sugerido: 2026-10-13
 
 - [x] M1.20 Criar o cofre proj-andre-calculos e a conta de serviço do agente com leitura só nesse cofre — evidência: `scripts/configurar-1password.sh` rodou em 2026-10-10 com aprovação do Fábio; o cofre já existia, a conta `sa-andre-calculos-agente` foi criada com `read_items`, o token está nas Chaves do macOS (`op-sa-andre-calculos-agente`) e o teste mostrou que a conta enxerga só `proj-andre-calculos`
 - [ ] M1.21 Cadastrar no cofre os itens de cada serviço quando ele for configurado — responsável: Fábio
-- [ ] M1.22 Criar o app/.env.tpl e o script scripts/com-segredos.sh — depende de M1.30 e M1.40
-- [ ] M1.23 Cadastrar as variáveis de produção na Vercel — responsável: Fábio; o agente prepara a lista e o script
-- [ ] M1.24 Configurar segredos no CI se algum job precisar
+- [ ] M1.22 Criar o app/.env.tpl e o script scripts/com-segredos.sh — ⏳ referências e scripts criados, bash -n aprovado; dev-env injeta apenas chaves locais em memória, sem .env; falta ensaio op run com os itens de M1.21
+- [ ] M1.23 Cadastrar as variáveis de produção na Vercel — ⏳ lista em docs/variaveis-producao.md preparada; script e cadastro pelo Fábio pendentes
+- [x] M1.24 Configurar segredos no CI se algum job precisar — evidência: não necessário em 2026-10-11; workflow sobe Supabase local e gera credenciais fictícias em memória, sem segredos de produção
 
 ### Aplicação base
 
@@ -144,11 +147,11 @@ Prazo sugerido: 2026-10-13
 
 ### Banco, autenticação e arquivos
 
-- [ ] M1.40 Montar o Supabase local com dados fictícios — ⏳ Colima exclusivo instalado/iniciado e Supabase local saudável (Auth HTTP 200); falta seed dos quatro usuários e processo fictício
-- [ ] M1.41 Ligar o app ao Supabase com @supabase/ssr — depende de M1.40
-- [ ] M1.42 Criar as migrations iniciais com RLS — depende de M1.41
-- [ ] M1.43 Configurar o login e os papéis cliente, calculista e admin — depende de M1.42
-- [ ] M1.44 Configurar os buckets privados com upload retomável e URL assinada curta — depende de M1.43
+- [x] M1.40 Montar o Supabase local com dados fictícios — evidência: scripts/seed-dev.ts cria quatro usuários @exemplo.com e processo inventado; 16 consultas/testes de RLS locais aprovados em 2026-10-11
+- [x] M1.41 Ligar o app ao Supabase com @supabase/ssr — evidência: páginas server leem perfil real; testes e2e confirmam cookies HttpOnly e ausência de tokens acessíveis ao JavaScript em 2026-10-11
+- [ ] M1.42 Criar as migrations iniciais com RLS — ⏳ quatro migrations locais aplicadas, 16 testes de RLS aprovados, advisors segurança/desempenho e db lint sem achados; falta aplicar/verificar na nuvem pela conexão dedicada
+- [x] M1.43 Configurar o login e os papéis cliente, calculista e admin — evidência: e2e login/logout/acesso negado em 375/1440 px aprovados; Auth verifica getUser e profiles.role, sem confiar no papel em metadata (2026-10-11)
+- [ ] M1.44 Configurar os buckets privados com upload retomável e URL assinada curta — ⏳ bucket local privado; ensaio real de 314572800 bytes retomou de 12582912 bytes, hash confirmado; download auditado/120 s e cliente B negado em ambas telas; falta configurar e verificar limite Pro na nuvem
 
 ### Publicação e operação
 
@@ -203,12 +206,12 @@ Prazo sugerido: 2026-10-20
 - [ ] M2.15 Registrar o aceite eletrônico da proposta — RF-30
 - [ ] M2.16 Criar o pagamento manual do sinal com confirmação do André — RF-31
 - [ ] M2.17 Permitir marcar cliente com contrato — RF-32
-- [ ] M2.18 Criar o upload retomável de documentos — RF-33
+- [ ] M2.18 Criar o upload retomável de documentos — ⏳ RF-33 verificado no Supabase local com rede interrompida e isolamento; falta integração aos pedidos persistidos e validação na nuvem
 - [x] M2.19 Criar a máquina de estados do pedido — evidência: transições, papéis, propriedade, aceite/sinal/contrato e revisão de entrega testados em 2026-10-11
 
 ### Pasta do processo
 
-- [ ] M2.20 Criar a pasta do processo com abas e visualizador de PDF — RF-40 e RF-41
+- [ ] M2.20 Criar a pasta do processo com abas e visualizador de PDF — ⏳ pasta/documentos e 404 entre clientes verificados localmente; abas, visualizador e demais conteúdos pendentes
 - [ ] M2.21 Criar a linha do tempo automática — RF-42
 - [ ] M2.22 Criar as mensagens entre cliente e André — RF-43
 - [ ] M2.23 Criar o registro de decisões técnicas com exportação em PDF — RF-44 e RN-08
@@ -535,7 +538,7 @@ Prazo sugerido: a planejar
      - lê o token com `security find-generic-password -a "$USER" -s op-sa-andre-calculos-agente -w`, só dentro do script;
      - exporta `OP_SERVICE_ACCOUNT_TOKEN`;
      - entra em `app/` e roda `exec op run --env-file=.env.tpl -- "$@"`.
-  3. Criar `scripts/dev-env.sh`, que grava em `app/.env.local` (fora do git) as chaves locais do Supabase vindas de `supabase status -o env`. São chaves locais, não segredos.
+  3. Criar `scripts/dev-env.sh`, que captura internamente `supabase status -o json`, confirma a URL local exata e injeta as chaves apenas no ambiente do processo. Não grava `.env.local` nem imprime valores (AGENTS §7.1).
   4. Documentar o uso no README: `scripts/com-segredos.sh npm run dev`.
 - **Pronto quando:** `scripts/com-segredos.sh npm run dev` sobe o app, e nenhum valor de segredo aparece no repositório nem na saída.
 
@@ -593,7 +596,7 @@ Prazo sugerido: a planejar
 #### M1.40 Supabase local
 
 - **Fazer:**
-  1. Na raiz: `supabase init`. Em `supabase/config.toml`, definir `project_id = "andre-calculos"` e `[storage] file_size_limit = "500MiB"`.
+  1. Na raiz: `supabase init`. Em `supabase/config.toml`, definir `project_id = "andre-calculos"` e `[storage] file_size_limit = "500MB"`, alinhado ao limite de 500 MB do bucket.
   2. `supabase start`.
   3. Criar `scripts/seed-dev.ts`, que roda com `npx tsx` e usa a API admin local para criar usuários de teste com os e-mails `@exemplo.com`:
      - cliente A;
@@ -612,7 +615,7 @@ Prazo sugerido: a planejar
   2. Criar os clientes:
      - `src/lib/supabase/server.ts`: `createServerClient` com cookies, sessão do usuário, RLS aplicada;
      - `src/lib/supabase/admin.ts`: `import 'server-only'`, chave secreta, só para cron, webhooks e operações de sistema, sempre com verificação explícita de permissão;
-     - `src/lib/supabase/browser.ts`: só para login e upload.
+     - `src/lib/supabase/browser.ts`: cliente público disponível apenas para Auth/Storage; login realizado por Server Action e cookies HttpOnly, upload por assinatura restrita ao caminho, sem expor JWT da sessão.
   3. Criar `src/proxy.ts` (Next 16), que renova a sessão.
   4. Criar uma função `getSessionProfile()` que devolve o usuário e o papel.
 - **Pronto quando:** um teste mostra uma página server lendo o usuário logado, e nenhum componente cliente faz consulta de dados ao banco.
@@ -682,12 +685,12 @@ Prazo sugerido: a planejar
      - tipos permitidos: PDF, imagens, XLSX, CSV, DOCX e `application/octet-stream` para o .pjc.
   2. Usar o caminho `{client_id}/{process_id}/{folder}/{uuid}-{nome}`.
   3. Criar as políticas em `storage.objects`:
-     - o cliente insere e lê só sob os clientes dele;
-     - o calculista insere e lê tudo.
+     - cliente/calculista só inserem em caminhos de uploads pendentes autorizados;
+     - leitura passa pelo servidor, com RLS e auditoria antes da URL assinada; não conceder SELECT direto em Storage para permitir bypass da auditoria.
   4. Fazer o upload pelo navegador com Uppy e `@uppy/tus`:
-     - endpoint `https://qtofwbxujshroaafxowr.storage.supabase.co/storage/v1/upload/resumable` (local: `http://127.0.0.1:54321/storage/v1/upload/resumable`);
-     - cabeçalho `Authorization` com o token do usuário;
-     - pedaços de 6 MB, que é o tamanho exigido pelo Supabase (conferir na documentação).
+     - endpoint `https://qtofwbxujshroaafxowr.storage.supabase.co/storage/v1/upload/resumable/sign` (local: `http://127.0.0.1:54321/storage/v1/upload/resumable/sign`), conforme exemplo oficial de upload assinado do Supabase;
+     - cabeçalhos `x-signature` (autorização de um caminho por 2 h) e `apikey` pública; JWT de sessão permanece no servidor;
+     - pedaços de 6 MiB e uploadDataDuringCreation; conferir tamanho e SHA-256 no servidor antes de liberar o arquivo.
   5. No servidor, gerar o download como URL assinada de 120 s e registrar no `audit_log`.
   6. No painel do Supabase (plano Pro), ajustar o limite global de arquivo.
 - **Pronto quando:** um arquivo fictício de 300 MB sobe localmente, o upload retoma depois de cortar a rede, e o cliente B não consegue baixar arquivo do A.
@@ -1176,3 +1179,4 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-10 | Claude Code | Repositório transferido da conta pessoal para a organização: `Harmony-Digital/andre-calculos` (privado, vazio); origin local atualizado; preflight OK | Primeiro push depende da decisão sobre o áudio no commit `1d4e8ea` |
 | 2026-10-10 | Claude Code | Plano reescrito para execução por agentes: IDs em todas as tarefas, "Insumos pendentes", "Ordem de execução", especificação passo a passo de todas as tarefas do M1 e do M2, tarefa `.00` de detalhamento no M3 a M6, D17 (ambiente local). Contas do Supabase e da Vercel do cliente registradas como criadas. Constatado: Docker ausente; CLIs da Vercel e do Supabase logadas em outras contas | Insumos do Fábio e do André listados em "Insumos pendentes" |
 | 2026-10-11 | Codex | Documentação organizada (M1.11), fundação Next/rotas/fontes locais/health (M1.30–32); checklist/schema/CNJ, motores puros de preço/prazo/complexidade/estados; rascunhos legais; npm run check e 165 testes unitários aprovados, 22 e2e/axe em 375/1440 px; Colima exclusivo e Supabase local saudáveis; CI preparado | Não publicado; áudio bloqueado por revisão automática; OAuth do MCP Supabase dedicado aguardando login; migrations, seed e autenticação a seguir. npm audit --omit=dev sem achados; cinco alertas altos transitivos em ferramentas ESLint (braces sem versão corrigida disponível), registrar e acompanhar sem downgrade de Next. shadcn configurado pelo método manual para preservar os tokens próprios. |
+| 2026-10-11 | Codex | Seed fictício (M1.40), SSR/roles/login/logout (M1.41/43), quatro migrations locais com RLS, Storage privado, TUS assinado, hash no servidor e download auditado (M1.42/44 e M2.18/20 parciais); npm run check verde com 186 unitários, 37 e2e/axe aprovados e um ensaio de 300 MiB omitido só no celular; 16 testes RLS, advisors e SQL lint sem achados; npm audit --omit=dev sem achados; imagens em docs/evidencias/autenticacao-arquivos. CI preparado com Supabase local e nenhum segredo de produção (M1.24) | Nuvem intacta; OAuth Supabase dedicado e decisão sobre áudio continuam pendentes. Textos legais ainda não aprovados, cadastro público desabilitado. Especificações atualizadas: cookies HttpOnly e upload assinado por caminho sem JWT no navegador; Storage sem SELECT direto para exigir auditoria; limite 500 MB; dev-env mantém chaves só em memória conforme AGENTS §7.1. Template 1Password e lista de variáveis preparados, ensaio com cofre ainda pendente. |

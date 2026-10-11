@@ -2,6 +2,7 @@
 .env*
 !.env.tpl
 !**/.env.tpl
+scripts/contas-esperadas.env
 .claude/settings.local.json
 
 # Áudios e gravações de reunião com o cliente

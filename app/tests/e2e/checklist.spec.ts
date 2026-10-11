@@ -1,8 +1,10 @@
 import { test, expect } from "@playwright/test";
+import { loginAs } from "./auth-helper";
 import AxeBuilder from "@axe-core/playwright";
 test("preenche as nove etapas, corrige erros e confere sem persistir", async ({
   page,
 }) => {
+  await loginAs(page);
   await page.goto("/app/novo-pedido");
   const next = () => page.getByRole("button", { name: "Continuar" }).click();
   await next();

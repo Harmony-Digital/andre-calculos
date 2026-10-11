@@ -1,8 +1,15 @@
 import { WorkspaceShell } from "@/components/workspace-shell";
-export default function PanelLayout({
+import { requireRole } from "@/modules/auth/session";
+export const dynamic = "force-dynamic";
+export default async function PanelLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <WorkspaceShell panel>{children}</WorkspaceShell>;
+  const { profile } = await requireRole(["calculator", "admin"]);
+  return (
+    <WorkspaceShell panel name={profile.full_name}>
+      {children}
+    </WorkspaceShell>
+  );
 }

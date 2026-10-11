@@ -12,6 +12,7 @@ import {
   ClipboardList,
 } from "lucide-react";
 import { Brand } from "./brand";
+import { logout } from "@/modules/auth/actions";
 const customerLinks = [
   { href: "/app", label: "Processos", icon: FolderOpen },
   { href: "/app/novo-pedido", label: "Novo pedido", icon: Plus },
@@ -27,9 +28,11 @@ const panelLinks = [
 export function WorkspaceShell({
   children,
   panel = false,
+  name = "Minha conta",
 }: {
   children: React.ReactNode;
   panel?: boolean;
+  name?: string;
 }) {
   const pathname = usePathname();
   return (
@@ -71,10 +74,15 @@ export function WorkspaceShell({
           </span>
           <span className="workspace-id">
             <span className="avatar" aria-hidden="true">
-              {panel ? "A" : "C"}
+              {name.slice(0, 1)}
             </span>
-            {panel ? "André" : "Minha conta"}
+            <span className="user-name">{name}</span>
           </span>
+          <form action={logout}>
+            <button className="text-link" type="submit">
+              Sair
+            </button>
+          </form>
         </header>
         <main id="conteudo" className="workspace-main">
           {children}

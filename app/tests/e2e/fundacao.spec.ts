@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { loginAs } from "./auth-helper";
 for (const route of [
   "/",
   "/entrar",
@@ -9,8 +10,12 @@ for (const route of [
   "/painel",
   "/termos",
   "/privacidade",
+  "/recuperar-senha",
+  "/acesso-negado",
 ]) {
   test("navegação e acessibilidade em " + route, async ({ page }, testInfo) => {
+    if (route.startsWith("/app")) await loginAs(page);
+    if (route.startsWith("/painel")) await loginAs(page, "calculator");
     const response = await page.goto(route);
     expect(response?.ok()).toBe(true);
     await expect(page.locator("html")).toHaveAttribute("lang", "pt-BR");

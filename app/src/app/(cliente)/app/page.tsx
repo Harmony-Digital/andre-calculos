@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { Plus, Clock3, FolderOpen, FileCheck2 } from "lucide-react";
 import { EmptyState } from "@/components/empty-state";
+import { listProcesses } from "@/modules/processes/queries";
 const stats = [
   { label: "Em andamento", icon: FolderOpen },
   { label: "Aguardando você", icon: Clock3 },
   { label: "Entregues", icon: FileCheck2 },
 ];
-export default function Processes() {
+export default async function Processes() {
+  const processes = await listProcesses();
   return (
     <>
       <div className="page-heading">
@@ -34,14 +36,40 @@ export default function Processes() {
       <section className="panel">
         <div className="panel-header">
           <h2>Meus processos</h2>
-          <span>0 processos</span>
+          <span>{processes.length} processo(s)</span>
         </div>
-        <EmptyState
-          title="Tudo começa com o primeiro pedido."
-          description="Conte sobre o processo para receber uma proposta com os serviços e o prazo de entrega."
-          href="/app/novo-pedido"
-          label="Solicitar orçamento"
-        />
+        {processes.length ? (
+          <ul className="document-list">
+            {processes.map((process) => (
+              <li className="document-row" key={process.id}>
+                <div>
+                  <strong>
+                    {process.cnj_number.replace(
+                      /^(\d{7})(\d{2})(\d{4})(\d)(\d{2})(\d{4})$/,
+                      "$1-$2.$3.$4.$5.$6",
+                    )}
+                  </strong>
+                  <p>
+                    {process.court} · {process.chamber}
+                  </p>
+                </div>
+                <Link
+                  className="text-link"
+                  href={`/app/processos/${process.id}`}
+                >
+                  Abrir pasta
+                </Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <EmptyState
+            title="Tudo começa com o primeiro pedido."
+            description="Conte sobre o processo para receber uma proposta com os serviços e o prazo de entrega."
+            href="/app/novo-pedido"
+            label="Solicitar orçamento"
+          />
+        )}
       </section>
     </>
   );
