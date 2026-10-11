@@ -28,6 +28,18 @@ jobs:
           cache-dependency-path: app/package-lock.json
       - run: npm ci
       - run: npm run check
+      - name: Inventário sanitizado das dependências no build
+        env:
+          AUDIT_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          AUDIT_CHECKOUT_SHA: ${{ github.sha }}
+        run: |
+          mkdir -p ../.data/ci
+          node ../scripts/inventariar-build.mjs > ../.data/ci/build-dependencies.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inventario-dependencias
+          path: .data/ci/build-dependencies.json
+          retention-days: 7
 
   e2e:
     runs-on: ubuntu-24.04
@@ -59,7 +71,7 @@ jobs:
         if: always()
         run: supabase stop --workdir .. --no-backup > /dev/null
       - uses: actions/upload-artifact@v4
-        if: failure()
+        if: always()
         with:
           name: evidencias-de-testes
           # Somente capturas; não publicar cookies, traces ou estado de sessão.

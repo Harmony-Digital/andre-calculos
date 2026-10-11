@@ -39,8 +39,10 @@ export type Role = "client" | "calculator" | "admin" | "system";
 export type Actor = { id: string; role: Role };
 export type Order = {
   state: OrderState;
-  clientId: string;
+  clientOwnerId: string;
   quoteAccepted: boolean;
+  quoteRejected?: boolean;
+  paymentPresent?: boolean;
   depositConfirmed: boolean;
   hasContract: boolean;
   minimumDocumentPresent: boolean;
@@ -71,6 +73,7 @@ const rules = {
     roles: ["calculator", "system"],
   },
   accept_quote: { from: ["quoted"], to: "awaiting_payment", roles: ["client"] },
+  reject_quote: { from: ["quoted"], to: "cancelled", roles: ["client"] },
   queue: {
     from: ["awaiting_payment", "awaiting_documents", "quoted"],
     to: "queued",
@@ -152,7 +155,7 @@ export function transition(
   const rule: Rule | undefined = rules[event];
   if (
     !actor.id.trim() ||
-    (actor.role === "client" && actor.id !== order.clientId)
+    (actor.role === "client" && actor.id !== order.clientOwnerId)
   )
     throw new Error("Você não tem acesso a este pedido.");
   if (!rule || !rule.roles.includes(actor.role))
@@ -184,6 +187,20 @@ export function transition(
       "A entrega anterior precisa estar revisada para iniciar um ajuste.",
     );
   const next: Order = { ...order, state: rule.to };
+  if (event === "accept_quote" && order.quoteRejected)
+    throw new Error("A proposta já foi recusada.");
+  if (
+    event === "reject_quote" &&
+    (order.quoteRejected ||
+      order.quoteAccepted ||
+      order.depositConfirmed ||
+      order.paymentPresent)
+  )
+    throw new Error("A proposta já tem decisão ou pagamento registrado.");
+  if (event === "reject_quote") {
+    next.quoteRejected = true;
+    delete next.resumeState;
+  }
   if (event === "accept_quote") {
     next.quoteAccepted = true;
     if (order.hasContract)
@@ -194,7 +211,16 @@ export function transition(
   if (event === "request_information")
     next.resumeState = order.state as NonNullable<Order["resumeState"]>;
   if (event === "receive_information") {
-    next.state = order.resumeState ?? "in_analysis";
+    if (
+      !order.resumeState ||
+      !["in_analysis", "in_calculation", "in_review"].includes(
+        order.resumeState,
+      )
+    )
+      throw new Error(
+        "A etapa anterior não está registrada. Confira o pedido antes de retomar.",
+      );
+    next.state = order.resumeState;
     delete next.resumeState;
   }
   if (
