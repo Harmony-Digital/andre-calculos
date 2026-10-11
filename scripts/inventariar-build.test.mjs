@@ -297,6 +297,13 @@ test("alvo declarado externo, ausente ou divergente não afirma cobertura; raiz 
     const result = await f.run();
     assert.equal(result.traceCoverageComplete, false);
     assert.ok(result.coverage.unresolvedSymlinks > 0);
+    assert.deepEqual(result.diagnostics, [
+      {
+        reason: "declared_symlink_mismatch",
+        tracePath: ".next/server/main.js.nft.json",
+        entryIndex: 0,
+      },
+    ]);
     assert.ok(!JSON.stringify(result).includes(privateText));
   }
   await f.put("node_modules/micromatch/index.js", privateText);
@@ -346,4 +353,75 @@ test("candidato incorporado ao Next não recebe a versão declarada do pacote or
   assert.equal(packageInfo.compiledVersion, "indeterminada");
   assert.deepEqual(packageInfo.versions, ["3.0.3"]);
   assert.ok(!JSON.stringify(result).includes(privateText));
+});
+
+test("symlink de output informa somente motivo e path relativo, sem seguir arquivo ou diretório", async (t) => {
+  const f = await fixture(t);
+  const outside = await mkdtemp(resolve(tmpdir(), "andre-link-fixture-"));
+  t.after(() => rm(outside, { recursive: true, force: true }));
+  await writeFile(resolve(outside, `${privateText}.js`), privateText);
+  await symlink(
+    resolve(outside, `${privateText}.js`),
+    resolve(f.root, ".next/server/linked.js"),
+  );
+  await symlink(outside, resolve(f.root, ".next/server/linked-directory"));
+  const result = await f.run();
+  assert.equal(result.traceCoverageComplete, false);
+  assert.equal(result.coverage.unresolvedSymlinks, 2);
+  assert.equal(result.javascriptOutputs.length, 2);
+  assert.deepEqual(result.diagnostics, [
+    {
+      reason: "artifact_symlink_skipped",
+      artifactPath: ".next/server/linked-directory",
+    },
+    {
+      reason: "artifact_symlink_skipped",
+      artifactPath: ".next/server/linked.js",
+    },
+  ]);
+  const text = JSON.stringify(result);
+  assert.ok(!text.includes(outside) && !text.includes(privateText));
+});
+
+test("falha de resolução do trace informa posição sem exportar erro ou alvo", async (t) => {
+  const f = await fixture(t);
+  await symlink("loop.js", resolve(f.root, "node_modules/braces/loop.js"));
+  await f.put(".next/server/main.js.nft.json", {
+    version: 1,
+    files: ["../../node_modules/braces/loop.js"],
+  });
+  const result = await f.run();
+  assert.equal(result.traceCoverageComplete, false);
+  assert.equal(result.coverage.unresolvedSymlinks, 1);
+  assert.deepEqual(result.diagnostics, [
+    {
+      reason: "trace_resolution_failed",
+      tracePath: ".next/server/main.js.nft.json",
+      entryIndex: 0,
+      reference: "source",
+    },
+  ]);
+  const text = JSON.stringify(result);
+  assert.ok(!text.includes("loop.js") && !text.includes(f.root));
+});
+
+test("symlink físico omitido dos metadados tem motivo próprio sem expor o alvo", async (t) => {
+  const f = await fixture(t);
+  await symlink("index.js", resolve(f.root, "node_modules/braces/alias.js"));
+  await f.put(".next/server/main.js.nft.json", {
+    version: 1,
+    files: ["../../node_modules/braces/alias.js"],
+    symlinks: [],
+  });
+  const result = await f.run();
+  assert.equal(result.traceCoverageComplete, false);
+  assert.equal(result.coverage.unresolvedSymlinks, 1);
+  assert.deepEqual(result.diagnostics, [
+    {
+      reason: "undeclared_symlink",
+      tracePath: ".next/server/main.js.nft.json",
+      entryIndex: 0,
+    },
+  ]);
+  assert.ok(!JSON.stringify(result).includes("alias.js"));
 });

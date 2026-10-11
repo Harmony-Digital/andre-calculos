@@ -13,6 +13,8 @@ O JSON exporta somente:
 - versões declaradas dos cinco pacotes no lock, contagem de referências no trace e arquivos com marcador de caminho de pacote;
 - contadores de cobertura incompleta para extensões desconhecidas, referências externas/ausentes e symlinks não resolvidos.
 
+O diagnóstico adicional preparado localmente identifica os motivos `artifact_symlink_skipped`, `trace_resolution_failed`, `declared_symlink_mismatch` e `undeclared_symlink`. Para artefatos, exporta somente o path relativo filtrado; para NFT, somente path do trace, índice da entrada e, quando aplicável, referência `source`/`declared_target`. Não exporta alvo do link, path de dependência ou erro bruto, e não remove a cobertura incompleta.
+
 Nenhum código, ambiente, conteúdo de arquivo, trace bruto, source map ou path absoluto é exportado. `.next/dev`, cache, build, types e standalone são excluídos do inventário; o coletor examina os outputs de produção originais, sem duplicar a cópia standalone. Symlinks de artefatos não são seguidos para ler conteúdo. Caminhos em next/dist/compiled são candidatos incorporados separados das referências ao pacote original; sua versão permanece indeterminada, sem herdar a versão do lock.
 
 Validação local em 2026-10-11:
@@ -30,6 +32,8 @@ Coleta real conferida no [CI38169457310](https://github.com/Harmony-Digital/andr
 - Hashes do lock e configuração comparados aos bytes da fonte no Git. JSON preservado byte a byte em [build-dependencies-b1a201f.json](build-dependencies-b1a201f.json), SHA-256 `a6d68e8db302aa423d68e6a9e1f4693fd9cce7e7a8c7c94b181c564db800af1a`.
 
 A coleta é evidência parcial de alcance. A suíte geral de banco/navegador desse CI ainda está em execução; a fonte remota foi preservada para concluir a verificação.
+
+O diagnóstico adicional passou em treze testes próprios e 25 testes de scripts locais. Três fixtures novas cobrem artefato symlink de arquivo/diretório sem seguir o alvo, falha de resolução por ciclo e symlink físico omitido dos metadados; a fixture existente também confere o motivo para destino divergente. Revisão independente estática sem bloqueadores. Nova coleta remota pendente; a origem da ocorrência no build anterior não foi inferida da árvore local.
 
 `traceCoverageComplete` descreve somente a resolução dos metadados examinados. Referência no trace não comprova execução nem explorabilidade; marker de caminho é candidato de atribuição, sem provar versão ou função incorporada. Nenhum path/marker encontrado não exclui código minificado sem identificação.
 

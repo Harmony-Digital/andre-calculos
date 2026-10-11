@@ -125,7 +125,12 @@ export async function collectBuildInventory({ root, sourceSha, checkoutSha }) {
     missingReferences: 0,
     unresolvedSymlinks: 0,
   };
-  async function resolveReference(path) {
+  const diagnostics = [];
+  function unresolved(reason, context) {
+    coverage.unresolvedSymlinks++;
+    diagnostics.push({ reason, ...context });
+  }
+  async function resolveReference(path, context) {
     if (!inside(root, path)) {
       coverage.externalReferences++;
       return { path, known: false, symlink: false };
@@ -141,7 +146,7 @@ export async function collectBuildInventory({ root, sourceSha, checkoutSha }) {
     } catch (error) {
       if (["ENOENT", "ENOTDIR"].includes(error.code))
         coverage.missingReferences++;
-      else coverage.unresolvedSymlinks++;
+      else unresolved("trace_resolution_failed", context);
       return { path, known: false, symlink: false };
     }
   }
@@ -155,7 +160,9 @@ export async function collectBuildInventory({ root, sourceSha, checkoutSha }) {
       if (["dev", "cache", "build", "types", "standalone"].includes(first))
         continue;
       if (entry.isSymbolicLink()) {
-        coverage.unresolvedSymlinks++;
+        unresolved("artifact_symlink_skipped", {
+          artifactPath: publicPath(root, path),
+        });
         continue;
       }
       if (entry.isDirectory()) await walk(path);
@@ -231,11 +238,18 @@ export async function collectBuildInventory({ root, sourceSha, checkoutSha }) {
     });
     const name = publicPath(root, path);
     for (const [index, entry] of entries.entries()) {
-      const actual = await resolveReference(entry.source);
+      const context = { tracePath: name, entryIndex: index };
+      const actual = await resolveReference(entry.source, {
+        ...context,
+        reference: "source",
+      });
       const candidates = [entry.source, actual.path];
       const target = targets[index];
       if (target.path) {
-        const declared = await resolveReference(target.path);
+        const declared = await resolveReference(target.path, {
+          ...context,
+          reference: "declared_target",
+        });
         candidates.push(target.path, declared.path);
         if (
           !actual.symlink ||
@@ -243,9 +257,9 @@ export async function collectBuildInventory({ root, sourceSha, checkoutSha }) {
           !declared.known ||
           actual.path !== declared.path
         )
-          coverage.unresolvedSymlinks++;
+          unresolved("declared_symlink_mismatch", context);
       } else if (target.declared && actual.symlink) {
-        coverage.unresolvedSymlinks++;
+        unresolved("undeclared_symlink", context);
       }
       const paths = candidates.map((value) => value.split(sep).join("/"));
       for (const finding of findings)
@@ -303,6 +317,7 @@ export async function collectBuildInventory({ root, sourceSha, checkoutSha }) {
       (count) => count === 0,
     ),
     coverage,
+    diagnostics,
     traces: traceMetadata,
     javascriptOutputs: outputs,
     packages: findings.map((finding) => ({
