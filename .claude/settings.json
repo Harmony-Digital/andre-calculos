@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "deny": [
+      "mcp__supabase",
+      "mcp__harmony-supabase",
+      "mcp__supabase-leonardo",
+      "mcp__claude_ai_Vercel",
+      "mcp__github",
+      "mcp__hostinger",
+      "mcp__lovable",
+      "Bash(op read *)",
+      "Bash(op item get *)",
+      "Bash(op inject *)",
+      "Bash(op run --no-masking *)",
+      "Bash(printenv *)",
+      "Bash(security find-generic-password *)",
+      "Bash(security dump-keychain *)",
+      "Read(./**/.env)",
+      "Read(./**/.env.local)",
+      "Read(./**/.env.*.local)",
+      "Read(./**/.env.production)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/preflight.sh\"",
+            "timeout": 45,
+            "statusMessage": "Conferindo as contas do projeto..."
+          }
+        ]
+      }
+    ]
+  }
+}

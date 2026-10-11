@@ -1,0 +1,22 @@
+# Segredos e configurações locais (AGENTS.md §7.1)
+.env*
+!.env.tpl
+!**/.env.tpl
+.claude/settings.local.json
+
+# Áudios e gravações de reunião com o cliente
+*.m4a
+*.mp3
+*.wav
+
+# Dependências e builds
+node_modules/
+.next/
+.data/
+.vercel/
+coverage/
+playwright-report/
+test-results/
+
+# Sistema
+.DS_Store

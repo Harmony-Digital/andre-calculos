@@ -1,0 +1,1 @@
+-- Somente dados fictícios. Usuários com login serão criados pelo seed local via Auth Admin API.
