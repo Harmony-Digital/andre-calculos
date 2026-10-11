@@ -46,17 +46,23 @@ export async function removeMessageProcess(id: string) {
       .select("id,kind,data")
       .eq("process_id", id),
     index = await db.from("page_index").select("id").eq("process_id", id),
-    decisions = await db.from("decisions").select("id").eq("process_id", id);
+    decisions = await db.from("decisions").select("id").eq("process_id", id),
+    orders = await db.from("orders").select("id").eq("process_id", id),
+    deliveries = await db.from("deliveries").select("id").eq("process_id", id);
   if (
     messages.error ||
     files.error ||
     events.error ||
     decisions.error ||
-    index.error
+    index.error ||
+    orders.error ||
+    deliveries.error
   )
     throw new Error("Fixture de mensagens indisponível.");
   const targets = [
     id,
+    ...orders.data!.map((row) => row.id),
+    ...deliveries.data!.map((row) => row.id),
     ...decisions.data!.map((row) => row.id),
     ...index.data!.map((row) => row.id),
     ...events.data!.flatMap((row) =>
@@ -83,6 +89,7 @@ export async function removeMessageProcess(id: string) {
     if (audit.error) throw new Error("Falha ao limpar auditorias fictícias.");
   }
   for (const result of [
+    await db.from("deliveries").delete().eq("process_id", id),
     await db.from("page_index").delete().eq("process_id", id),
     await db.from("decisions").delete().eq("process_id", id),
     await db
@@ -98,9 +105,24 @@ export async function removeMessageProcess(id: string) {
       .remove(files.data.map((row) => row.path));
     if (storage.error) throw new Error("Falha ao limpar anexos fictícios.");
   }
-  for (const result of [
-    await db.from("files").delete().eq("process_id", id),
-    await db.from("processes").delete().eq("id", id),
-  ])
+  for (const result of [await db.from("files").delete().eq("process_id", id)])
     if (result.error) throw new Error("Falha ao limpar a pasta fictícia.");
+  const orderIds = orders.data!.map((row) => row.id);
+  if (orderIds.length) {
+    for (const table of [
+      "payments",
+      "checklists",
+      "quotes",
+      "deadlines",
+      "reviews",
+    ]) {
+      const result = await db.from(table).delete().in("order_id", orderIds);
+      if (result.error)
+        throw new Error("Falha ao limpar os filhos dos pedidos fictícios.");
+    }
+    if ((await db.from("orders").delete().eq("process_id", id)).error)
+      throw new Error("Falha ao limpar pedidos fictícios.");
+  }
+  if ((await db.from("processes").delete().eq("id", id)).error)
+    throw new Error("Falha ao limpar o processo fictício.");
 }

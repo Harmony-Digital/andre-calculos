@@ -328,6 +328,139 @@ export type Database = {
           },
         ];
       };
+      deliveries: {
+        Row: {
+          checklist: Json;
+          confirmed_by: string;
+          created_at: string;
+          id: string;
+          index_month: string;
+          order_id: string;
+          payload: Json;
+          pje_version: string;
+          process_id: string;
+          professional: Json;
+        };
+        Insert: {
+          checklist: Json;
+          confirmed_by: string;
+          created_at?: string;
+          id: string;
+          index_month: string;
+          order_id: string;
+          payload: Json;
+          pje_version: string;
+          process_id: string;
+          professional: Json;
+        };
+        Update: {
+          checklist?: Json;
+          confirmed_by?: string;
+          created_at?: string;
+          id?: string;
+          index_month?: string;
+          order_id?: string;
+          payload?: Json;
+          pje_version?: string;
+          process_id?: string;
+          professional?: Json;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "deliveries_confirmed_by_fkey";
+            columns: ["confirmed_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "deliveries_order_id_process_id_fkey";
+            columns: ["order_id", "process_id"];
+            isOneToOne: false;
+            referencedRelation: "orders";
+            referencedColumns: ["id", "process_id"];
+          },
+          {
+            foreignKeyName: "deliveries_process_id_fkey";
+            columns: ["process_id"];
+            isOneToOne: false;
+            referencedRelation: "processes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      delivery_files: {
+        Row: {
+          delivery_id: string;
+          file_id: string;
+          kind: string;
+          snapshot: Json;
+        };
+        Insert: {
+          delivery_id: string;
+          file_id: string;
+          kind: string;
+          snapshot: Json;
+        };
+        Update: {
+          delivery_id?: string;
+          file_id?: string;
+          kind?: string;
+          snapshot?: Json;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "delivery_files_delivery_id_fkey";
+            columns: ["delivery_id"];
+            isOneToOne: false;
+            referencedRelation: "deliveries";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "delivery_files_file_id_fkey";
+            columns: ["file_id"];
+            isOneToOne: false;
+            referencedRelation: "files";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      delivery_releases: {
+        Row: {
+          approved_by: string;
+          created_at: string;
+          delivery_id: string;
+          policy: string;
+        };
+        Insert: {
+          approved_by: string;
+          created_at?: string;
+          delivery_id: string;
+          policy: string;
+        };
+        Update: {
+          approved_by?: string;
+          created_at?: string;
+          delivery_id?: string;
+          policy?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "delivery_releases_approved_by_fkey";
+            columns: ["approved_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "delivery_releases_delivery_id_fkey";
+            columns: ["delivery_id"];
+            isOneToOne: true;
+            referencedRelation: "deliveries";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       files: {
         Row: {
           bucket: string;
@@ -1022,6 +1155,7 @@ export type Database = {
           crc_state: string | null;
           created_at: string;
           default_texts: Json;
+          delivery_release_policy: string | null;
           id: string;
           notification_times: Json;
           pix_key: string | null;
@@ -1044,6 +1178,7 @@ export type Database = {
           crc_state?: string | null;
           created_at?: string;
           default_texts?: Json;
+          delivery_release_policy?: string | null;
           id?: string;
           notification_times?: Json;
           pix_key?: string | null;
@@ -1066,6 +1201,7 @@ export type Database = {
           crc_state?: string | null;
           created_at?: string;
           default_texts?: Json;
+          delivery_release_policy?: string | null;
           id?: string;
           notification_times?: Json;
           pix_key?: string | null;
@@ -1151,6 +1287,15 @@ export type Database = {
           target_file: string;
         };
         Returns: undefined;
+      };
+      confirm_order_delivery: {
+        Args: {
+          payload: Json;
+          request_id: string;
+          target_order: string;
+          target_process: string;
+        };
+        Returns: string;
       };
       confirm_process_decision: {
         Args: { target_decision: string };

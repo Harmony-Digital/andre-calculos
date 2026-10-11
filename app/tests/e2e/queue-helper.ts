@@ -57,19 +57,6 @@ export async function queueFixture(
         .single();
       if (check.error || check.data.chamber !== "Ensaio fictício de mensagens")
         throw new Error("Limpeza da fila limitada ao processo fictício.");
-      for (const ids of [orders.map((row) => row.id)]) {
-        for (const table of ["payments", "checklists", "quotes"]) {
-          const result = await db.from(table).delete().in("order_id", ids);
-          if (result.error)
-            throw new Error("Falha ao limpar os filhos dos pedidos fictícios.");
-        }
-      }
-      const result = await db
-        .from("orders")
-        .delete()
-        .eq("process_id", process.id);
-      if (result.error)
-        throw new Error("Falha ao limpar os pedidos fictícios.");
       await removeMessageProcess(process.id);
     },
   };

@@ -158,7 +158,7 @@ it("não permite inventar ações de auditoria nem ler arquivo pendente", async 
   ).not.toBeNull();
   await db.from("files").update({ upload_status: "uploaded" }).eq("id", fileId);
 });
-it("PDF da entrega só libera ao cliente no estado entregue; calculista confere antes", async () => {
+it("estado entregue sozinho não libera arquivo sem confirmação e política; calculista confere antes", async () => {
   expect(
     (
       await sessions.a.rpc("record_file_access", {
@@ -183,5 +183,5 @@ it("PDF da entrega só libera ao cliente no estado entregue; calculista confere 
         access_kind: "file_view",
       })
     ).error,
-  ).toBeNull();
+  ).not.toBeNull();
 });

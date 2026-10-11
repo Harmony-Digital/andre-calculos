@@ -139,7 +139,7 @@ const rules = {
 } as const satisfies Record<string, Rule>;
 export type OrderEvent = keyof typeof rules;
 
-/** Recebe fatos persistidos e verificados; uma entrada do navegador não pode preencher Order. */
+/** Fatos financeiros/arquivos vêm do servidor; revisão é atestada pelo calculista autorizado. */
 export function transition(
   order: Order,
   event: OrderEvent,
@@ -166,12 +166,10 @@ export function transition(
     );
   if (
     event === "deliver" &&
-    (!order.calculatorReviewed ||
-      !order.deliveryComplete ||
-      (!order.balanceConfirmed && !order.hasContract))
+    (!order.calculatorReviewed || !order.deliveryComplete)
   )
     throw new Error(
-      "A entrega exige revisão do André, arquivos completos e saldo confirmado ou contrato ativo.",
+      "A entrega exige revisão do André e arquivos completos. A liberação do download segue a regra aprovada de saldo.",
     );
   if (event === "request_adjustment" && !order.calculatorReviewed)
     throw new Error(

@@ -75,27 +75,25 @@ describe("estados do pedido", () => {
       ).state,
     ).toBe("queued");
   });
-  it.each([
-    { calculatorReviewed: false },
-    { deliveryComplete: false },
-    { balanceConfirmed: false },
-  ])("não entrega sem requisito %j", (facts) =>
-    expect(() =>
-      transition(
-        { ...base, state: "in_review", ...facts },
-        "deliver",
-        calculator,
-      ),
-    ).toThrow(/revisão/),
+  it.each([{ calculatorReviewed: false }, { deliveryComplete: false }])(
+    "não entrega sem requisito %j",
+    (facts) =>
+      expect(() =>
+        transition(
+          { ...base, state: "in_review", ...facts },
+          "deliver",
+          calculator,
+        ),
+      ).toThrow(/revisão/),
   );
-  it("permite entrega faturada por contrato depois da revisão", () =>
+  it("confirma o trabalho revisado sem confundir saldo com liberação do download", () =>
     expect(
       transition(
         {
           ...base,
           state: "in_review",
           balanceConfirmed: false,
-          hasContract: true,
+          hasContract: false,
         },
         "deliver",
         calculator,

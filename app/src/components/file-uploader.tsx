@@ -9,16 +9,20 @@ import { hashFile } from "@/modules/files/hash";
 export function FileUploader({
   processId,
   allowTriage = false,
+  allowDeliverables = false,
   fixedFolder,
 }: {
   processId: string;
   allowTriage?: boolean;
+  allowDeliverables?: boolean;
   fixedFolder?: "client";
 }) {
   const router = useRouter();
   const uploader = useRef<Uppy | null>(null);
   const titleId = useId();
-  const [folder, setFolder] = useState<"case" | "client" | "triage">("case");
+  const [folder, setFolder] = useState<
+    "case" | "client" | "triage" | "deliverables"
+  >("case");
   const [busy, setBusy] = useState(false),
     [paused, setPaused] = useState(false),
     [progress, setProgress] = useState(0),
@@ -152,6 +156,9 @@ export function FileUploader({
             <option value="case">Processo</option>
             <option value="client">Documentos do cliente</option>
             {allowTriage && <option value="triage">Triagem</option>}
+            {allowDeliverables && (
+              <option value="deliverables">Entregas</option>
+            )}
           </select>
         </label>
       )}

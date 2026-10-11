@@ -16,6 +16,8 @@ import { eventLabel, eventLabels, noteText } from "@/modules/timeline/types";
 import { DecisionComposer } from "./decision-composer";
 import { DecisionConfirmation } from "./decision-confirmation";
 import { PageIndexEditor } from "./page-index-editor";
+import { DeliveryForm } from "./delivery-form";
+import { DeliveryRecords } from "./delivery-records";
 import { pieceLabel } from "@/modules/page-index/forms";
 import {
   parameterLabel,
@@ -138,10 +140,26 @@ export async function ProcessFolder({
                       Continuar checklist
                     </Link>
                   )}
+                  {data.role === "calculator" &&
+                    order.status === "in_review" && (
+                      <DeliveryForm
+                        processId={id}
+                        orderId={order.id}
+                        code={order.code}
+                        requestId={randomUUID()}
+                        files={files.filter(
+                          (file) => file.folder === "deliverables",
+                        )}
+                      />
+                    )}
                 </li>
               ))}
             </ul>
           )}
+          <DeliveryRecords
+            records={data.deliveries}
+            calculator={data.role === "calculator"}
+          />
         </section>
       )}
       {tab === "documentos" && (
@@ -149,6 +167,7 @@ export async function ProcessFolder({
           <FileUploader
             processId={id}
             allowTriage={data.role === "calculator"}
+            allowDeliverables={data.role === "calculator"}
           />
           {Object.entries(folders).map(([folder, title]) => {
             const rows = files.filter((file) => file.folder === folder);

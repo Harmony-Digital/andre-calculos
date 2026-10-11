@@ -957,6 +957,44 @@ h2 {
 .work-queue {
   padding: 1.25rem;
 }
+.delivery-form {
+  margin-top: 1rem;
+}
+.delivery-form summary {
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 600;
+}
+.settings-form .delivery-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-block: 0.85rem;
+}
+.settings-form .delivery-check input {
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+  accent-color: var(--primary);
+}
+.delivery-attachments {
+  margin-block: 1rem;
+}
+.delivery-records {
+  margin-top: 2rem;
+}
+.delivery-file-list {
+  list-style: none;
+  padding: 0;
+}
+.delivery-records .delivery-file-list > li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-block: 0.65rem;
+  border-top: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
 .queue-desktop {
   overflow-x: auto;
 }

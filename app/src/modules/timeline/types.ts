@@ -11,7 +11,7 @@ export const eventLabels = {
   quote_accepted: "Proposta aceita",
   payment_confirmed: "Pagamento confirmado",
   status_changed: "Situação atualizada",
-  delivered: "Entrega disponibilizada",
+  delivered: "Entrega confirmada",
 } as const;
 export type EventKind = keyof typeof eventLabels;
 export function eventFilter(value?: string): EventKind | null {
