@@ -37,4 +37,14 @@ Cliente proprietário consulta `/app/orcamentos/[id]`; calculista consulta `/pai
 
 O arquivo inclui responsável, CRC/categoria/contato, itens, total/sinal/saldo, validade, datas e condições. Fontes são locais. Rodapé estático e numeração ficam separados, sem `lineHeight` numérico: esta versão do renderizador reaplica o multiplicador ao repetir elementos entre páginas. Textos indivisíveis recebem quebras visuais sem alterar o snapshot.
 
-Aceite/recusa ficam desabilitados na simulação. A contratação, instruções de pagamento e alertas seguem seus casos de uso específicos; o andamento fica somente no `plan.md`.
+## Aviso ao André
+
+Cada inserção de proposta não simulada enfileira `quote_created` na mesma transação. A chave `quote:<UUID>:<canal>` evita duplicação; atualizar uma proposta ou repetir uma inserção já aplicada não cria outro aviso. Propostas com `is_simulation=true` ou snapshot `mode=fixture` não entram na fila, inclusive no fluxo fictício do checklist.
+
+O destino vem dos contatos do serviço e do vínculo persistente do responsável com papel de calculista. E-mail começa ligado; WhatsApp exige preferência explícita. Sem vínculo, papel adequado ou contato, o canal não recebe o aviso. Ligar um canal depois não recupera propostas anteriores. Os locks do vínculo e das configurações mantêm as escolhas estáveis durante o enfileiramento.
+
+O payload inclui somente identificadores da proposta/pedido/processo, número, código e caminho da pasta no painel. Não inclui nome do cliente, número CNJ, itens, condições ou arquivos. O alerta não exige aceite nem coloca o pedido na fila de trabalho. Uma falha ao gravar qualquer canal reverte também a proposta e os outros avisos. A entrega por provedores segue a configuração específica de e-mail/WhatsApp; a fila por si só não envia mensagens.
+
+Os testes positivos deste gancho usam propostas legadas sintéticas com snapshot vazio, em pedidos exclusivos no banco local. Isso verifica a fila sem permitir snapshots comerciais pela RPC ou flexibilizar o CHECK. A emissão comercial continua dependente dos insumos protegidos de calendário, período e capacidade.
+
+Aceite/recusa ficam desabilitados na simulação. A contratação e instruções de pagamento seguem seus casos de uso específicos; o andamento fica somente no `plan.md`.

@@ -176,6 +176,14 @@ it("concorrência com dois UUIDs cria uma proposta/evento/auditoria; número nã
   expect(
     (
       await fixture.db
+        .from("notifications")
+        .select("id")
+        .contains("data", { quote_id: quoteId })
+    ).data,
+  ).toEqual([]);
+  expect(
+    (
+      await fixture.db
         .from("quotes")
         .select("id")
         .eq("order_id", draft.order_id)

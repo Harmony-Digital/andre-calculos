@@ -46,6 +46,14 @@ test("gera proposta fictícia, recupera resposta perdida e baixa PDF privado", a
       .eq("order_id", draft.order_id)
       .single();
     expect(stored.error).toBeNull();
+    expect(
+      (
+        await fixture.db
+          .from("notifications")
+          .select("id")
+          .contains("data", { quote_id: stored.data!.id })
+      ).data,
+    ).toEqual([]);
     // Alterar o cadastro não altera nem impede a recuperação da proposta emitida.
     await fixture.db
       .from("settings")
