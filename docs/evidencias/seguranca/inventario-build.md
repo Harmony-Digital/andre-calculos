@@ -21,6 +21,16 @@ Validação local em 2026-10-11:
 - `npm run check`: formato/lint/tipos, 403 unitários e 22 testes de scripts aprovados. O build local encontra a restrição da porta interna do Turbopack; coleta real depende do CI da nova fonte.
 - Fixtures temporárias limpas pelos testes; nenhum banco, cliente ou processo real utilizado.
 
+Coleta real conferida no [CI38169457310](https://github.com/Harmony-Digital/andre-calculos/actions/runs/38169457310), job qualidade `114558800055` aprovado:
+
+- Fonte `b1a201fb02dc51bb33aa62f32a97970f2f315936`, checkout `45adaf532b1b5698cfcfeb2fcfe80af5ff6ade9e`; a API Git confirmou pais `9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd` e a fonte do PR.
+- `npm run check` completo: 403 unitários, 22 scripts, formato/lint/tipos e build aprovados; Next.js 16.4.0 e Node v22.23.3.
+- 35 traces e 300 arquivos JS inventariados. Zero referências diretas/incorporadas ou markers identificáveis dos cinco pacotes; versões incorporadas permanecem indeterminadas.
+- `traceCoverageComplete: false`: zero campos desconhecidos, referências externas ou ausentes; um symlink não resolvido. O artefato não identifica seu caminho, portanto não permite concluir seu alcance nem eliminar essa lacuna.
+- Hashes do lock e configuração comparados aos bytes da fonte no Git. JSON preservado byte a byte em [build-dependencies-b1a201f.json](build-dependencies-b1a201f.json), SHA-256 `a6d68e8db302aa423d68e6a9e1f4693fd9cce7e7a8c7c94b181c564db800af1a`.
+
+A coleta é evidência parcial de alcance. A suíte geral de banco/navegador desse CI ainda está em execução; a fonte remota foi preservada para concluir a verificação.
+
 `traceCoverageComplete` descreve somente a resolução dos metadados examinados. Referência no trace não comprova execução nem explorabilidade; marker de caminho é candidato de atribuição, sem provar versão ou função incorporada. Nenhum path/marker encontrado não exclui código minificado sem identificação.
 
 A busca de markers examina somente os JS em .next/server e .next/static; não examina código de dependências externas dos traces nem source maps.

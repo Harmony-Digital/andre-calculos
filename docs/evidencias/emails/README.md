@@ -25,6 +25,6 @@ npm run check
 
 As capturas verificam renderização no Chromium, não recebimento nem compatibilidade visual em todos os clientes de e-mail. Resend, vínculo dos produtores adicionais, fila/dispatcher, destinatário autorizado, SMTP Auth e ensaio real pertencem a M2.28b/c; a tarefa M2.28 integral permanece aberta no plan.md.
 
-PR [#7](https://github.com/Harmony-Digital/andre-calculos/pull/7) em rascunho, dependente de #6/#5/#4/#3. O job e2e geral do mesmo CI permanece em execução; nenhuma dessas operações novas foi publicada na Vercel.
+PR [#7](https://github.com/Harmony-Digital/andre-calculos/pull/7) pronto para revisão, dependente de #6/#5/#4/#3. O [CI38168299312](https://github.com/Harmony-Digital/andre-calculos/actions/runs/38168299312) completo da mesma fonte concluiu com sucesso: 315 testes reais de banco, 153 e2e/sete omissões previstas apenas no projeto celular e advisors locais de segurança/desempenho sem achados. Nenhuma dessas operações novas foi publicada na Vercel.
 
 O audit das dependências foi conferido separadamente em [audit-dependencias.md](../seguranca/audit-dependencias.md). Não foi executado `npm audit fix` nem downgrade automático.
