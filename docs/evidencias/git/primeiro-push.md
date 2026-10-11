@@ -12,7 +12,7 @@ A varredura prévia dos 25 commits/682 blobs não encontrou candidatos nos padr�
 
 ## Primeira execução do CI
 
-[Execução 38139370081](https://github.com/Harmony-Digital/andre-calculos/actions/runs/38139370081), evento `push`, mesmo SHA.
+[Execução 38139370081](https://github.com/Harmony-Digital/andre-calculos-arquivo-privado-20261011/actions/runs/38139370081), evento `push`, mesmo SHA. Essa execução pertence ao ID antigo do repositório, depois renomeado e conservado privado. A [retirada da transcrição](retirada-transcricao.md) documenta a separação do histórico publicado.
 
 Os jobs `qualidade` e `e2e` foram criados, mas recusados **antes de executar qualquer etapa**. As anotações do GitHub informam falha de cobrança recente ou necessidade de aumentar o limite de gastos. Não houve falha de teste observada, e essa execução não é evidência de CI aprovado.
 
