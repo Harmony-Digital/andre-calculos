@@ -1296,6 +1296,45 @@ h2 {
 .dashboard-list li p {
   margin: 0.5rem 0 0;
 }
+.client-contract {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--surface, #f6f7f3);
+  border-left: 3px solid var(--border);
+}
+.client-contract summary {
+  margin-top: 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+.client-contract form {
+  margin-top: 1rem;
+  max-width: 42rem;
+}
+.client-contract fieldset {
+  display: grid;
+  gap: 0.75rem;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.client-contract select,
+.client-contract textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: white;
+  padding: 0.75rem;
+  font: inherit;
+}
+.client-contract .button {
+  justify-self: start;
+}
+.contract-receipt {
+  font-size: 0.875rem;
+}
 .notification-events {
   list-style: none;
   margin: 1.5rem 0 0;

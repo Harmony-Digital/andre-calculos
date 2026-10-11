@@ -4,6 +4,7 @@ import { authorize } from "@/modules/auth/session";
 import { createSessionClient } from "@/lib/supabase/server";
 import { dashboardWindow } from "./window";
 import { messageCursor, encodeMessageCursor } from "@/modules/messages/cursor";
+import { clientContractContextSchema } from "@/modules/clients/contract";
 const cursor = (value?: string) => {
   try {
     return messageCursor(value);
@@ -34,8 +35,24 @@ export async function getPanelClients(period?: string, after?: string) {
     );
   const result = await query;
   if (result.error) throw new Error("Não foi possível consultar os clientes.");
+  const rows = result.data.slice(0, 50);
+  const contractResult = await db.rpc("get_client_contract_context", {
+    target_clients: rows.map((row) => row.id),
+  });
+  const contexts = clientContractContextSchema
+    .array()
+    .safeParse(contractResult.data);
+  if (contractResult.error || !contexts.success)
+    throw new Error("Não foi possível conferir os contratos dos clientes.");
+  const contracts = new Map(
+    contexts.data.map((context) => [context.clientId, context]),
+  );
   return {
-    rows: result.data.slice(0, 50),
+    rows: rows.map((row) => {
+      const contract = contracts.get(row.id);
+      if (!contract) throw new Error("Condição do cliente indisponível.");
+      return { ...row, contract };
+    }),
     next: result.data.length > 50 ? encodeMessageCursor(result.data[49]) : null,
     before,
   };

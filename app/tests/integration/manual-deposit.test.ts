@@ -458,10 +458,9 @@ it("falha no aviso da fila reverte sinal, recibo, estado e todos os efeitos", as
 it("contrato histórico não libera primeiro documento depois de perder condição atual", async () => {
   const sample = await fixture.create({ contract: true });
   await accept(sample);
-  await fixture.db
-    .from("clients")
-    .update({ has_contract: false })
-    .eq("id", fixture.owner.id);
+  localNotificationSql(
+    `update public.clients set has_contract=false where id='${fixture.owner.id}'::uuid;`,
+  );
   const id = randomUUID();
   await fixture.db.from("files").insert({
     id,

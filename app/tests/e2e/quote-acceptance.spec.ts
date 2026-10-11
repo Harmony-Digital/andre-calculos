@@ -208,7 +208,7 @@ test("contrato libera a fila só com documento confirmado", async ({
         page.getByRole("heading", { name: "Contratação registrada" }),
       ).toBeVisible();
       await expect(page.getByRole("status")).toContainText(
-        documents ? "Acompanhe o andamento" : "Envie pelo menos um documento",
+        documents ? "Acompanhe o andamento" : "envie pelo menos um documento",
       );
       await page.goto(`/app/processos/${sample.process_id}?aba=resumo`);
       await expect(

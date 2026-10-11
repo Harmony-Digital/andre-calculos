@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { randomUUID } from "node:crypto";
+import { ClientContractForm } from "@/components/client-contract-form";
 import { requireRole } from "@/modules/auth/session";
 import { getPanelClients } from "@/modules/dashboard/lists";
 export default async function Clients({
@@ -64,6 +66,11 @@ export default async function Clients({
                     }).format(new Date(row.created_at))}
                   </time>
                 </p>
+                <ClientContractForm
+                  context={row.contract}
+                  requestId={randomUUID()}
+                  name={row.legal_name || row.profile?.full_name || "Cliente"}
+                />
               </li>
             ))}
           </ul>

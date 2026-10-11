@@ -22,7 +22,7 @@ export async function acceptanceFixture(
     const owner = (
       await db
         .from("clients")
-        .select("id,has_contract,owner_id")
+        .select("id,has_contract,contract_revision,owner_id")
         .eq("id", seed.client_id)
         .single()
     ).data!;
@@ -128,15 +128,10 @@ export async function acceptanceFixture(
           proposal.depositCents = 0;
           proposal.balanceCents = 0;
         }
-        if (
-          (
-            await db
-              .from("clients")
-              .update({ has_contract: options.contract ?? false })
-              .eq("id", owner.id)
-          ).error
-        )
-          throw new Error("Cliente sintético não preparado.");
+        // Preparação exclusiva do PostgreSQL local; não promove pedidos de outras amostras.
+        localNotificationSql(
+          `update public.clients set has_contract=${options.contract ?? false} where id='${owner.id}'::uuid;`,
+        );
         if (
           (
             await db
@@ -245,15 +240,9 @@ values('${id}'::uuid,${literal(JSON.stringify(proposal))}::jsonb,${literal(terms
               .eq("id", entry.order);
             await removeLocalDraft(entry.order);
           }
-          if (
-            (
-              await db
-                .from("clients")
-                .update({ has_contract: owner.has_contract })
-                .eq("id", owner.id)
-            ).error
-          )
-            throw new Error("Cliente sintético não restaurado.");
+          localNotificationSql(
+            `update public.clients set has_contract=${owner.has_contract},contract_revision=${owner.contract_revision} where id='${owner.id}'::uuid;`,
+          );
         } finally {
           await fixture.cleanup();
         }

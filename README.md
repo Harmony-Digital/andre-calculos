@@ -38,6 +38,8 @@ Calculista e admin usam `/painel/configuracoes` para editar identificação prof
 
 ### Propostas
 
+O calculista registra clientes que pagam no final em `/painel/clientes`, com motivo, revisão e histórico privado. O contrato dispensa sinal, preserva pagamentos/aceites e exige documento confirmado para a fila. Regras de retirada e reenvio em `docs/clientes-com-contrato.md`.
+
 O fluxo do checklist prepara proposta numerada, snapshot imutável e PDF privado com CRC. A emissão comercial exige calendário, disponibilidade, período e dados reais confirmados. O ensaio fictício tem opt-in exclusivo do servidor local, indicação em tela/PDF e contratação bloqueada. Recuperação, regras e comandos em `docs/propostas.md`.
 
 ### Lembretes de prazo

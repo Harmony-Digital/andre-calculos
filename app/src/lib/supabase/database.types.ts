@@ -118,6 +118,7 @@ export type Database = {
       };
       clients: {
         Row: {
+          contract_revision: number;
           created_at: string;
           deletion_requested_at: string | null;
           document: string | null;
@@ -129,6 +130,7 @@ export type Database = {
           updated_at: string;
         };
         Insert: {
+          contract_revision?: number;
           created_at?: string;
           deletion_requested_at?: string | null;
           document?: string | null;
@@ -140,6 +142,7 @@ export type Database = {
           updated_at?: string;
         };
         Update: {
+          contract_revision?: number;
           created_at?: string;
           deletion_requested_at?: string | null;
           document?: string | null;
@@ -1437,6 +1440,10 @@ export type Database = {
         Returns: string;
       };
       get_calculator_notification_context: { Args: never; Returns: Json };
+      get_client_contract_context: {
+        Args: { target_clients: string[] };
+        Returns: Json;
+      };
       get_complexity_limits: { Args: never; Returns: Json };
       get_delivery_payment_instructions: {
         Args: { target_deliveries: string[]; target_process: string };
@@ -1571,6 +1578,16 @@ export type Database = {
           target_process: string;
         };
         Returns: string;
+      };
+      set_client_contract: {
+        Args: {
+          expected_revision: number;
+          has_contract: boolean;
+          reason: string;
+          request_id: string;
+          target_client: string;
+        };
+        Returns: Json;
       };
       set_my_notification_preference: {
         Args: {
