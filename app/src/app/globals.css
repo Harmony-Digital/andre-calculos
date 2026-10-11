@@ -954,6 +954,99 @@ h2 {
   gap: 1.5rem;
   margin-block: 1rem;
 }
+.work-queue {
+  padding: 1.25rem;
+}
+.queue-desktop {
+  overflow-x: auto;
+}
+.queue-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.queue-table th {
+  text-align: left;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+}
+.queue-table th,
+.queue-table td {
+  padding: 1rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.queue-table .queue-money {
+  white-space: nowrap;
+}
+.queue-mobile {
+  display: none;
+}
+.deadline-badge {
+  display: block;
+  width: fit-content;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 0.2rem 0.45rem;
+  background: #edf1eb;
+  color: #345146;
+}
+.deadline-late {
+  background: #fae7e0;
+  color: #8f321a;
+}
+.deadline-soon {
+  background: #f5eed9;
+  color: #70551a;
+}
+.deadline-missing {
+  background: #efefea;
+  color: #575d58;
+}
+@media (max-width: 900px) {
+  .work-queue {
+    padding: 1rem;
+  }
+  .queue-desktop {
+    display: none;
+  }
+  .queue-mobile {
+    display: grid;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+  }
+  .queue-card {
+    padding-block: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .queue-card-heading {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: baseline;
+  }
+  .queue-card dl {
+    display: grid;
+    gap: 0.4rem;
+    margin-block: 1rem 0;
+  }
+  .queue-card dl > div {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 1rem;
+  }
+  .queue-card dt {
+    color: var(--muted-foreground);
+    font-size: 0.9rem;
+  }
+  .queue-card dd {
+    margin: 0;
+  }
+}
 .decision-composer summary {
   cursor: pointer;
   font-weight: 600;
