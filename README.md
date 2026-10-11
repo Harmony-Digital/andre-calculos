@@ -32,6 +32,10 @@ Esses comandos renovam o seed com credenciais efêmeras e verificam sessões e R
 
 Cada etapa concluída é salva no banco como rascunho versionado. O cliente retoma pela lista de rascunhos ou pela URL do pedido; as respostas não ficam em localStorage. Uma revisão antiga é recusada para preservar alterações feitas em outra sessão. O rascunho não emite proposta nem entra na fila sem as condições comerciais.
 
+### Configurações
+
+Calculista e admin usam `/painel/configuracoes` para editar identificação profissional, contato, Pix, condições, horários e limites de complexidade. Cada alteração de preço cria uma versão; tabelas de exemplo ficam inativas. A ativação exige confirmação dos valores e prazos, e congela os itens daquela versão. As configurações têm revisão para recusar uma gravação baseada em estado antigo. O site recebe apenas a projeção pública dos dados profissionais e da garantia, sem a chave Pix.
+
 ### Cofre de desenvolvimento
 
 `bash scripts/com-segredos.sh npm run dev` usa as referências de `app/.env.tpl`, exige a conta de serviço com acesso exclusivamente a `proj-andre-calculos` e mantém a saída mascarada pelo 1Password. O Fábio cadastra os itens ausentes. As variáveis de produção estão documentadas em `docs/variaveis-producao.md`.

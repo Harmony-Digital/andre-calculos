@@ -725,6 +725,54 @@ h2 {
   max-width: 1380px;
   margin: auto;
 }
+.workspace-header > form {
+  margin-left: 18px;
+}
+.settings-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  margin-bottom: 24px;
+}
+.settings-nav ~ .panel {
+  margin-bottom: 24px;
+  scroll-margin-top: 24px;
+}
+.settings-form h3 {
+  font-family: var(--font-source-sans);
+  font-size: 18px;
+  margin-top: 24px;
+}
+.settings-form fieldset > p {
+  margin-top: 8px;
+}
+.settings-form .form-grid {
+  margin-block: 16px 24px;
+}
+.settings-form .check-option {
+  margin-bottom: 18px;
+}
+.price-history {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.price-history > li {
+  padding: 20px 26px;
+  border-bottom: 1px solid var(--border);
+}
+.price-history > li:last-child {
+  border-bottom: 0;
+}
+.price-history summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.price-history p,
+.technical-info p {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
 .page-heading {
   display: flex;
   align-items: center;

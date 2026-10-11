@@ -732,30 +732,47 @@ export type Database = {
       };
       price_tables: {
         Row: {
+          activated_at: string | null;
           active: boolean;
           created_at: string;
+          created_by: string | null;
           id: string;
           is_example: boolean;
+          parameters: Json;
           updated_at: string;
           version: number;
         };
         Insert: {
+          activated_at?: string | null;
           active?: boolean;
           created_at?: string;
+          created_by?: string | null;
           id?: string;
           is_example?: boolean;
+          parameters?: Json;
           updated_at?: string;
           version: number;
         };
         Update: {
+          activated_at?: string | null;
           active?: boolean;
           created_at?: string;
+          created_by?: string | null;
           id?: string;
           is_example?: boolean;
+          parameters?: Json;
           updated_at?: string;
           version?: number;
         };
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: "price_tables_created_by_fkey";
+            columns: ["created_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       processes: {
         Row: {
@@ -958,8 +975,10 @@ export type Database = {
           created_at: string;
           default_texts: Json;
           id: string;
+          notification_times: Json;
           pix_key: string | null;
           quote_valid_days: number;
+          revision: number;
           singleton: boolean;
           slack_days: number;
           technical_name: string | null;
@@ -978,8 +997,10 @@ export type Database = {
           created_at?: string;
           default_texts?: Json;
           id?: string;
+          notification_times?: Json;
           pix_key?: string | null;
           quote_valid_days?: number;
+          revision?: number;
           singleton?: boolean;
           slack_days?: number;
           technical_name?: string | null;
@@ -998,8 +1019,10 @@ export type Database = {
           created_at?: string;
           default_texts?: Json;
           id?: string;
+          notification_times?: Json;
           pix_key?: string | null;
           quote_valid_days?: number;
+          revision?: number;
           singleton?: boolean;
           slack_days?: number;
           technical_name?: string | null;
@@ -1077,11 +1100,24 @@ export type Database = {
         };
         Returns: undefined;
       };
+      get_complexity_limits: { Args: never; Returns: Json };
       get_legal_versions: {
         Args: never;
         Returns: {
           privacy_version: string;
           terms_version: string;
+        }[];
+      };
+      get_public_service_info: {
+        Args: never;
+        Returns: {
+          contact_email: string;
+          contact_phone: string;
+          crc_category: string;
+          crc_number: string;
+          crc_state: string;
+          guarantee: string;
+          technical_name: string;
         }[];
       };
       is_admin: { Args: never; Returns: boolean };
@@ -1117,6 +1153,23 @@ export type Database = {
           revision: number;
           saved_step: number;
         }[];
+      };
+      save_price_version: {
+        Args: {
+          approved?: boolean;
+          example: boolean;
+          expected_version: number;
+          payload: Json;
+        };
+        Returns: {
+          is_active: boolean;
+          table_id: string;
+          table_version: number;
+        }[];
+      };
+      save_service_settings: {
+        Args: { expected_revision: number; payload: Json };
+        Returns: number;
       };
       update_own_profile: {
         Args: {

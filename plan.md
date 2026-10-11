@@ -11,18 +11,19 @@ Nome provisório até a marca (D3).
 - **Fase:** M1 em andamento; autenticação e arquivos privados verificados localmente, com fluxos do M2 em construção.
 - **O que já existe:**
   - documentação organizada em `docs/`, Next.js 16.4/React 19.3 em `app/`, página pública, áreas provisórias do cliente e André, checklist de nove etapas e rascunhos legais;
-  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 220 testes unitários aprovados, cobertura do motor de preço 100%;
+  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 232 testes unitários aprovados, cobertura do motor de preço 100%;
   - sessão SSR com cookies HttpOnly, login/logout, papéis protegidos e pasta de documentos; navegador/axe verificados em 375 e 1440 px;
-  - nove migrations locais, 21 tabelas com RLS, quatro usuários fictícios e um processo inventado; 19 testes reais de RLS aprovados e advisors locais sem achados;
+  - onze migrations locais, 21 tabelas com RLS, quatro usuários fictícios e um processo inventado; 24 testes reais de RLS aprovados e advisors locais sem achados;
   - upload TUS de 300 MiB retomado do offset de 12 MiB após interrupção da rede; SHA-256 conferido no servidor; download auditado por link de 120 s e acesso entre clientes negado;
   - checklist v1 persistido como rascunho, retomado após recarga e pela lista; revisões concorrentes protegidas e outro cliente recebe 404; nenhum orçamento ou entrada na fila antes das condições comerciais;
+  - configurações profissionais/comerciais auditadas, versões de preço e itens imutáveis após ativação, edição concorrente recusada; projeção pública sem Pix; limites do classificador vêm das configurações;
   - cadastro confirmado no Mailpit com versões legais sintéticas, perfil persistido, troca de senha com revogação no segundo dispositivo, exclusão solicitada sem apagar conta e aviso de cadastro enfileirado;
-  - `npm run check` aprovado (220 unitários/build), 41 e2e aprovados; três ensaios únicos (e-mail, cadastro/settings e 300 MiB) omitidos no projeto celular, com formulários/conta/arquivos menores verificados nas duas larguras; `npm audit --omit=dev` sem achados em 2026-10-11;
+  - `npm run check` aprovado (232 unitários/build), 44 e2e aprovados; quatro ensaios únicos (e-mail, cadastro, edição de settings e 300 MiB) omitidos no projeto celular, com formulários/conta/arquivos menores verificados nas duas larguras; `npm audit --omit=dev` sem achados em 2026-10-11;
   - Docker/Colima exclusivos de `andre-calculos`, sem alterar o contexto global; Supabase local PostgreSQL 17 com serviços saudáveis e Auth health HTTP 200;
   - branch `feat/fundacao-portal`; remoto `Harmony-Digital/andre-calculos` ainda vazio e sem push;
   - conexão Vercel exclusiva autenticada na equipe `Projeto Andre` (`projeto-andre1`), conta `projetoandre.harmony@gmail.com`; nenhum projeto Vercel criado;
   - MCP `andre-calculos-supabase` registrado no Codex com `project_ref=qtofwbxujshroaafxowr`; OAuth dessa conexão aguarda login na conta do cliente. As ferramentas dedicadas ainda não estão expostas nesta sessão.
-- **Próximas tarefas do agente:** preparar a gestão da tabela/configurações (M2.33) e os fluxos de proposta/pedido. Nenhuma alteração de nuvem sem conferir a conexão dedicada.
+- **Próximas tarefas do agente:** preparar proposta/pedido e completar a pasta do processo; M2.33 já tem telas/RPCs locais, com ligação à proposta ainda pendente. Nenhuma alteração de nuvem sem conferir a conexão dedicada.
 - **Bloqueios externos:**
   - M1.10: revisão automática recusou retirar o áudio do primeiro commit sem aprovação específica do Fábio; áudio preservado e push bloqueado;
   - MCP Supabase dedicado aguarda login; planos Pro, integração GitHub/Vercel e dados reais do André ainda precisam de verificação/insumos;
@@ -151,7 +152,7 @@ Prazo sugerido: 2026-10-13
 
 - [x] M1.40 Montar o Supabase local com dados fictícios — evidência: scripts/seed-dev.ts cria quatro usuários @exemplo.com e processo inventado; 16 consultas/testes de RLS locais aprovados em 2026-10-11
 - [x] M1.41 Ligar o app ao Supabase com @supabase/ssr — evidência: páginas server leem perfil real; testes e2e confirmam cookies HttpOnly e ausência de tokens acessíveis ao JavaScript em 2026-10-11
-- [ ] M1.42 Criar as migrations iniciais com RLS — ⏳ sete migrations locais aplicadas, 17 testes de RLS aprovados, advisors segurança/desempenho e db lint sem achados; falta aplicar/verificar na nuvem pela conexão dedicada
+- [ ] M1.42 Criar as migrations iniciais com RLS — ⏳ onze migrations locais aplicadas, 24 testes de RLS aprovados, advisors segurança/desempenho e db lint sem achados; falta aplicar/verificar na nuvem pela conexão dedicada
 - [x] M1.43 Configurar o login e os papéis cliente, calculista e admin — evidência: e2e login/logout/acesso negado em 375/1440 px aprovados; Auth verifica getUser e profiles.role, sem confiar no papel em metadata (2026-10-11)
 - [ ] M1.44 Configurar os buckets privados com upload retomável e URL assinada curta — ⏳ bucket local privado; ensaio real de 314572800 bytes retomou de 12582912 bytes, hash confirmado; download auditado/120 s e cliente B negado em ambas telas; falta configurar e verificar limite Pro na nuvem
 
@@ -198,7 +199,7 @@ Prazo sugerido: 2026-10-20
 - [ ] M2.08 Criar o checklist trabalhista em etapas com schema versionado — ⏳ schema v1/CNJ, nove etapas persistidas, retomada e revisão concorrente verificados em 375/1440 px e 19 testes RLS; imagens em docs/evidencias/checklist; falta validação dos campos pelo André
 - [x] M2.09 Criar o motor de preço determinístico — evidência: testes de base/adicionais/urgência/arredondamento/limites; 100% das linhas e branches de pricing.ts executados em 2026-10-11
 - [ ] M2.10 Criar a calculadora de prazo processual em dias úteis — ⏳ calendário/folga e testes Carnaval/Páscoa/20-11/recesso aprovados; fontes em docs/calendario-processual.md; falta calendário oficial do TRT e conferência de três casos pelo André
-- [ ] M2.11 Criar o classificador de complexidade — ⏳ regras e limites parametrizados com testes aprovados; falta edição dos limites pelo painel/settings
+- [x] M2.11 Criar o classificador de complexidade — evidência: testes por regra e limites configuráveis; painel salva os limites por RPC auditada e checklist os carrega por projeção mínima protegida; 24 testes RLS aprovados (2026-10-11)
 - [ ] M2.12 Criar a tela de orçamento e o PDF da proposta — RF-22 e RF-23
 - [ ] M2.13 Criar o caminho Só o PDF com taxa de triagem — RF-24; D5
 - [ ] M2.14 Avisar o André a cada orçamento gerado — RF-25
@@ -235,7 +236,7 @@ Prazo sugerido: 2026-10-20
 ### Painel do André
 
 - [ ] M2.32 Criar a página inicial do painel — RF-80
-- [ ] M2.33 Criar as configurações do painel — RF-81 e RF-82
+- [ ] M2.33 Criar as configurações do painel — ⏳ telas/RPCs locais, dados profissionais/Pix/condições/horários/limites e histórico de preços verificados; 24 RLS e 44 e2e aprovados; falta tabela real validada pelo André e ligação aos snapshots da proposta (M2.12)
 
 ### Qualidade e publicação
 
@@ -1184,3 +1185,4 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-11 | Codex | Seed fictício (M1.40), SSR/roles/login/logout (M1.41/43), quatro migrations locais com RLS, Storage privado, TUS assinado, hash no servidor e download auditado (M1.42/44 e M2.18/20 parciais); npm run check verde com 186 unitários, 37 e2e/axe aprovados e um ensaio de 300 MiB omitido só no celular; 16 testes RLS, advisors e SQL lint sem achados; npm audit --omit=dev sem achados; imagens em docs/evidencias/autenticacao-arquivos. CI preparado com Supabase local e nenhum segredo de produção (M1.24) | Nuvem intacta; OAuth Supabase dedicado e decisão sobre áudio continuam pendentes. Textos legais ainda não aprovados, cadastro público desabilitado. Especificações atualizadas: cookies HttpOnly e upload assinado por caminho sem JWT no navegador; Storage sem SELECT direto para exigir auditoria; limite 500 MB; dev-env mantém chaves só em memória conforme AGENTS §7.1. Template 1Password e lista de variáveis preparados, ensaio com cofre ainda pendente. |
 | 2026-10-11 | Codex | Cadastro/aceites versionados testados no Mailpit com fixture local (M2.04 parcial); perfil, senha, revogação em outro dispositivo e exclusão idempotente auditados (M2.06); aviso new_signup enfileirado sem CPF/CNPJ (M2.05); questionários de marca/preços preparados (M2.01/07 parciais). npm run check verde, 213 unitários, 17 RLS e 41 e2e aprovados, três ensaios únicos omitidos só no celular; advisors/lint SQL locais sem achados; imagens em docs/evidencias/cadastro-conta | Nuvem e publicação pendentes; rascunhos legais não liberam cadastro em produção. Fixture fixture-termos-v1/fixture-privacidade-v1 válida só com NODE_ENV não production, ANDRE_LOCAL_TESTS e URL local exata; settings restauradas no finally. Auth local passou a exigir confirmação e senha de 12 caracteres; limites ampliados servem apenas aos ensaios locais. CNPJ alfanumérico conforme manual da Receita Federal, vigente desde julho/2026. Próximo: persistência do checklist. |
 | 2026-10-11 | Codex | Checklist salvo e retomado por etapa, revisão otimista, auditoria e linha do tempo (M2.08 parcial); pedidos continuam draft/zero e cliente B recebe 404; migrations locais 0008/0009, SQL lint/advisors sem achados; npm run check com 220 unitários, 19 RLS e 41 e2e aprovados, três ensaios únicos omitidos só no celular; imagens em docs/evidencias/checklist | Validação dos campos pelo André, preços e nuvem pendentes. Migration 0009 corrige qualificação de variável da RPC, descoberta pelo teste real; seed tem respostas fictícias válidas; normalização de CNPJ rejeita Unicode que se converteria em ASCII. Próximo: M2.33. |
+| 2026-10-11 | Codex | Painel de configurações (M2.33 parcial), versões de preços e itens imutáveis, ativação concorrente e revisão de settings protegidas; dados profissionais/garantia aparecem no site, Pix não é público; limites do classificador carregados de settings (M2.11). Migrations locais 0010/0011, lint/advisors sem achados; npm run check com 232 unitários, 24 RLS e 44 e2e aprovados; quatro ensaios únicos omitidos só no celular; imagens em docs/evidencias/configuracoes | Nenhuma tabela fictícia ficou ativa e settings legais/profissionais foram restauradas no fim dos testes. Formulário volta a modo exemplo após salvar e exige confirmação a cada ativação. Nuvem, insumos do André, aprovação dos textos, snapshot da proposta e gates pendentes. |

@@ -65,7 +65,7 @@ export async function seedDev() {
       ],
       {
         env,
-        input: `update public.profiles set role='${fixture.role}' where id='${id}';`,
+        input: `update public.profiles set role='${fixture.role}',full_name='${fixture.name.replaceAll("'", "''")}' where id='${id}';`,
         stdio: ["pipe", "pipe", "pipe"],
       },
     );

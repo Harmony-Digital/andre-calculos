@@ -20,7 +20,10 @@ import {
   wageLabels,
   type ChecklistLaborV1,
 } from "@/modules/checklist/v1";
-import { classifyComplexity } from "@/modules/orders/complexity";
+import {
+  classifyComplexity,
+  defaultComplexitySettings,
+} from "@/modules/orders/complexity";
 
 const subscribeReady = () => () => {};
 const clientReady = () => true;
@@ -86,8 +89,10 @@ type SavedDraft = {
 };
 export function LaborChecklist({
   initialDraft,
+  complexitySettings = defaultComplexitySettings,
 }: {
   initialDraft?: SavedDraft & { answers: ChecklistLaborV1 };
+  complexitySettings?: typeof defaultComplexitySettings;
 }) {
   const router = useRouter();
   const ready = useSyncExternalStore(subscribeReady, clientReady, serverReady);
@@ -205,7 +210,7 @@ export function LaborChecklist({
   };
 
   if (result) {
-    const complexity = classifyComplexity(result);
+    const complexity = classifyComplexity(result, complexitySettings);
     return (
       <div className="panel">
         <div className="form-body">

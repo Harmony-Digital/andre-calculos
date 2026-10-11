@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Brand } from "./brand";
+import { getPublicServiceInfo } from "@/modules/settings/queries";
 export function SiteHeader() {
   return (
     <header className="site-header">
@@ -21,7 +22,8 @@ export function SiteHeader() {
     </header>
   );
 }
-export function SiteFooter() {
+export async function SiteFooter() {
+  const info = await getPublicServiceInfo();
   return (
     <footer className="site-footer">
       <div className="container">
@@ -38,11 +40,30 @@ export function SiteFooter() {
             <Link href="/privacidade">Privacidade</Link>
           </nav>
         </div>
-        {process.env.NODE_ENV !== "production" && (
-          <p className="dev-note">
-            Prévia de desenvolvimento. Nome completo, categoria profissional e
-            CRC do responsável técnico aguardam confirmação.
-          </p>
+        {info?.technical_name &&
+        info.crc_number &&
+        info.crc_state &&
+        info.crc_category ? (
+          <div className="technical-info">
+            <p>
+              Responsável técnico: {info.technical_name} · {info.crc_category} ·
+              CRC {info.crc_state} {info.crc_number}
+            </p>
+            {info.contact_email && (
+              <p>
+                <a href={`mailto:${info.contact_email}`}>
+                  {info.contact_email}
+                </a>
+              </p>
+            )}
+          </div>
+        ) : (
+          process.env.NODE_ENV !== "production" && (
+            <p className="dev-note">
+              Prévia de desenvolvimento. Nome completo, categoria profissional e
+              CRC do responsável técnico aguardam confirmação.
+            </p>
+          )
         )}
       </div>
     </footer>

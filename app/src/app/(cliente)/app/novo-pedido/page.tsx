@@ -1,12 +1,16 @@
 import { LaborChecklist } from "@/components/labor-checklist";
 import { getDraft } from "@/modules/checklist/queries";
+import { getComplexitySettings } from "@/modules/settings/queries";
 export default async function NewOrderPage({
   searchParams,
 }: {
   searchParams: Promise<{ rascunho?: string }>;
 }) {
   const { rascunho } = await searchParams;
-  const draft = rascunho ? await getDraft(rascunho) : undefined;
+  const [draft, complexitySettings] = await Promise.all([
+    rascunho ? getDraft(rascunho) : Promise.resolve(undefined),
+    getComplexitySettings(),
+  ]);
   return (
     <>
       <div className="page-heading">
@@ -28,7 +32,10 @@ export default async function NewOrderPage({
           Ambiente de desenvolvimento: use somente dados fictícios.
         </p>
       )}
-      <LaborChecklist initialDraft={draft} />
+      <LaborChecklist
+        initialDraft={draft}
+        complexitySettings={complexitySettings}
+      />
     </>
   );
 }

@@ -1,6 +1,11 @@
 import { test, expect } from "@playwright/test";
 import { randomUUID } from "node:crypto";
-import { localSystem, removeLocalUser, confirmMailpit } from "./local-helper";
+import {
+  localSystem,
+  removeLocalUser,
+  confirmMailpit,
+  leaseLocalSettings,
+} from "./local-helper";
 import AxeBuilder from "@axe-core/playwright";
 test("cadastro com confirmação e consentimentos sintéticos", async ({
   page,
@@ -12,6 +17,7 @@ test("cadastro com confirmação e consentimentos sintéticos", async ({
     "O ensaio altera settings locais; uma execução única cobre o fluxo e as duas larguras.",
   );
   const db = localSystem();
+  const release = await leaseLocalSettings();
   const cfg = await db
     .from("settings")
     .select("id,approved_terms_version,approved_privacy_version,contact_email")
@@ -144,5 +150,6 @@ test("cadastro com confirmação e consentimentos sintéticos", async ({
         .eq("dedup_key", `signup:${userId}:email`);
       await removeLocalUser(userId);
     }
+    await release();
   }
 });

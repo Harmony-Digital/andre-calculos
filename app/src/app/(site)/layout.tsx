@@ -1,4 +1,5 @@
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+export const dynamic = "force-dynamic";
 export default function SiteLayout({
   children,
 }: {

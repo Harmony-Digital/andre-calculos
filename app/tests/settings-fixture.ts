@@ -1,0 +1,31 @@
+import { examplePriceTable } from "../src/modules/quotes/example-table";
+export const fictionalPriceParameters = {
+  base: { initial: 15001, liquidation: 25000, challenge: 30000, update: 10000 },
+  perWage: 0,
+  includedWages: 1,
+  perContractMonth: 0,
+  includedContractMonths: 12,
+  perTimecardUnit: 7000,
+  timecardUnit: "month",
+  perExtraClaimant: 0,
+  urgencyBasisPoints: 3000,
+  businessDays: { ...examplePriceTable.businessDays },
+};
+export const fictionalServiceSettings = {
+  technicalName: "Responsável fictício para teste",
+  crcNumber: "000001/O-0",
+  crcState: "DF",
+  crcCategory: "Contador",
+  contactEmail: "calculista@exemplo.com",
+  contactPhone: "+5561999999999",
+  pixKey: "chave-ficticia-sem-cobranca",
+  slackDays: 2,
+  quoteValidDays: 7,
+  wageThreshold: 6,
+  pageThreshold: 1000,
+  claimantThreshold: 1,
+  morningTime: "09:00",
+  eveningTime: "17:00",
+  conditions: "Condições fictícias para ensaio local.",
+  guarantee: "Garantia fictícia para ensaio local.",
+};

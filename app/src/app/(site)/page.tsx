@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getPublicServiceInfo } from "@/modules/settings/queries";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -11,7 +12,8 @@ import {
   ScrollText,
   Layers3,
 } from "lucide-react";
-export default function Home() {
+export default async function Home() {
+  const info = await getPublicServiceInfo();
   return (
     <main id="conteudo">
       <div className="container">
@@ -262,6 +264,12 @@ export default function Home() {
                 permanece com o profissional.
               </p>
             </details>
+            {info?.guarantee && (
+              <details>
+                <summary>Quais são as condições de garantia?</summary>
+                <p>{info.guarantee}</p>
+              </details>
+            )}
           </div>
         </section>
         <section className="closing">

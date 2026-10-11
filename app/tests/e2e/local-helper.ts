@@ -1,5 +1,27 @@
 import { createClient } from "@supabase/supabase-js";
 import type { BrowserContext, APIRequestContext } from "@playwright/test";
+import { mkdir, rmdir } from "node:fs/promises";
+import { resolve } from "node:path";
+export async function leaseLocalSettings() {
+  localSystem();
+  const root = resolve(process.cwd(), ".data"),
+    lock = resolve(root, "settings-fixture-lock");
+  await mkdir(root, { recursive: true });
+  for (let attempt = 0; attempt < 600; attempt++) {
+    try {
+      await mkdir(lock);
+      return async () => {
+        await rmdir(lock);
+      };
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "EEXIST") throw error;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+  throw new Error(
+    "Outro ensaio está usando as configurações fictícias locais.",
+  );
+}
 export function localSystem() {
   if (
     process.env.ANDRE_LOCAL_TESTS !== "1" ||
