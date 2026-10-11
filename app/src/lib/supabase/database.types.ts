@@ -425,24 +425,62 @@ export type Database = {
           },
         ];
       };
+      delivery_policy_approvals: {
+        Row: {
+          approved_by: string;
+          created_at: string;
+          id: string;
+          policy: string;
+          prior_policy: string | null;
+          settings_revision: number;
+        };
+        Insert: {
+          approved_by: string;
+          created_at?: string;
+          id: string;
+          policy: string;
+          prior_policy?: string | null;
+          settings_revision: number;
+        };
+        Update: {
+          approved_by?: string;
+          created_at?: string;
+          id?: string;
+          policy?: string;
+          prior_policy?: string | null;
+          settings_revision?: number;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "delivery_policy_approvals_approved_by_fkey";
+            columns: ["approved_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       delivery_releases: {
         Row: {
           approved_by: string;
           created_at: string;
           delivery_id: string;
           policy: string;
+          request_id: string;
         };
         Insert: {
           approved_by: string;
           created_at?: string;
           delivery_id: string;
           policy: string;
+          request_id?: string;
         };
         Update: {
           approved_by?: string;
           created_at?: string;
           delivery_id?: string;
           policy?: string;
+          request_id?: string;
         };
         Relationships: [
           {
@@ -1279,6 +1317,24 @@ export type Database = {
         Args: { note_body: string; request_id: string; target_process: string };
         Returns: string;
       };
+      approve_existing_delivery_release: {
+        Args: {
+          approved: boolean;
+          policy: string;
+          request_id: string;
+          target_delivery: string;
+        };
+        Returns: Json;
+      };
+      approve_future_delivery_policy: {
+        Args: {
+          approved: boolean;
+          expected_revision: number;
+          policy: string;
+          request_id: string;
+        };
+        Returns: Json;
+      };
       complete_file_system: {
         Args: {
           actor: string;
@@ -1302,6 +1358,15 @@ export type Database = {
         Returns: string;
       };
       get_complexity_limits: { Args: never; Returns: Json };
+      get_delivery_payment_instructions: {
+        Args: { target_deliveries: string[]; target_process: string };
+        Returns: {
+          delivery_id: string;
+          order_code: string;
+          pix_key: string;
+          remaining_cents: number;
+        }[];
+      };
       get_legal_versions: {
         Args: never;
         Returns: {

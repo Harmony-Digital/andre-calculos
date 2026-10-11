@@ -4,12 +4,15 @@ import {
   PriceSettingsForm,
 } from "@/components/settings-forms";
 import { priceParameterSchema } from "@/modules/settings/forms";
+import { randomUUID } from "node:crypto";
+import { DeliveryPolicyForm } from "@/components/delivery-policy-form";
 const reais = (value: number) =>
   new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(
     value / 100,
   );
 export default async function Configuration() {
-  const { values, priceValues, history } = await getConfiguration();
+  const { values, priceValues, history, deliveryPolicy, role } =
+    await getConfiguration();
   return (
     <>
       <div className="page-heading">
@@ -26,6 +29,11 @@ export default async function Configuration() {
         <a className="text-link" href="#precos">
           Tabela de preços
         </a>
+        {role === "calculator" && (
+          <a className="text-link" href="#entregas">
+            Liberação das entregas
+          </a>
+        )}
         <a className="text-link" href="#historico">
           Histórico
         </a>
@@ -42,6 +50,22 @@ export default async function Configuration() {
         </div>
         <PriceSettingsForm values={priceValues} />
       </section>
+      {role === "calculator" && (
+        <section
+          className="panel"
+          id="entregas"
+          aria-labelledby="titulo-entregas"
+        >
+          <div className="panel-header">
+            <h2 id="titulo-entregas">Liberação das próximas entregas</h2>
+          </div>
+          <DeliveryPolicyForm
+            revision={Number(values.revision)}
+            current={deliveryPolicy}
+            requestId={randomUUID()}
+          />
+        </section>
+      )}
       <section
         className="panel"
         id="historico"

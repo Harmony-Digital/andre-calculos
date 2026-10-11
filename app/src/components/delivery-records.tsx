@@ -1,5 +1,7 @@
 import { z } from "zod";
 import Link from "next/link";
+import { randomUUID } from "node:crypto";
+import { DeliveryPolicyForm } from "./delivery-policy-form";
 import {
   deliveryAccess,
   deliveryAccessLabels,
@@ -22,12 +24,16 @@ export function DeliveryRecords({
   base,
   before,
   older,
+  processId,
+  payments,
 }: {
   records: Awaited<ReturnType<typeof getProcess>>["deliveries"];
   calculator: boolean;
   base: string;
   before?: string;
   older: string | null;
+  processId: string;
+  payments: Awaited<ReturnType<typeof getProcess>>["deliveryPayments"];
 }) {
   if (!records.length && !before) return null;
   return (
@@ -53,6 +59,7 @@ export function DeliveryRecords({
         {records.map((record) => {
           if (!record.order) throw new Error("Pedido da entrega indisponível.");
           const professional = professionalSchema.parse(record.professional),
+            payment = payments.get(record.id),
             access = deliveryAccess(
               record.release?.policy ?? null,
               record.order.status,
@@ -76,6 +83,48 @@ export function DeliveryRecords({
                 {record.index_month.split("-").reverse().join("/")}
               </p>
               <p className="field-help">{deliveryAccessLabels[access]}</p>
+              {!calculator && access === "balance_pending" && payment && (
+                <div className="delivery-payment">
+                  <p>
+                    <strong>
+                      Saldo pendente:{" "}
+                      {new Intl.NumberFormat("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      }).format(payment.remaining_cents / 100)}
+                    </strong>
+                  </p>
+                  {payment.pix_key ? (
+                    <>
+                      <p>
+                        Chave Pix: <span>{payment.pix_key}</span>
+                      </p>
+                      <p>
+                        Confira o destinatário no seu banco e informe o código{" "}
+                        {payment.order_code} na descrição. Os arquivos serão
+                        liberados depois da confirmação do pagamento.
+                      </p>
+                    </>
+                  ) : (
+                    <p>Peça os dados de pagamento na conversa do processo.</p>
+                  )}
+                  <Link className="text-link" href={`${base}?aba=mensagens`}>
+                    Abrir conversa do processo
+                  </Link>
+                </div>
+              )}
+              {calculator &&
+                !record.release &&
+                ["delivered", "completed"].includes(record.order.status) && (
+                  <details className="delivery-form">
+                    <summary>Definir regra desta entrega</summary>
+                    <DeliveryPolicyForm
+                      processId={processId}
+                      deliveryId={record.id}
+                      requestId={randomUUID()}
+                    />
+                  </details>
+                )}
               <ul className="delivery-file-list">
                 {record.files.map((f) => {
                   const snapshot = snapshotSchema.parse(f.snapshot);

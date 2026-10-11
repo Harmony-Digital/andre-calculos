@@ -45,6 +45,25 @@ test("entregas paginadas preservam empates e microssegundos, com retorno ao iní
         .map((r) => r.id),
       base = `/app/processos/${fixture.process.id}?aba=resumo`,
       records = page.locator("[data-delivery-id]");
+    expect(
+      (
+        await db
+          .from("orders")
+          .update({ status: "delivered", total_cents: 123456 })
+          .eq("id", fixture.order.id)
+      ).error,
+    ).toBeNull();
+    expect(
+      (
+        await db.from("delivery_releases").insert(
+          expected.map((id, i) => ({
+            delivery_id: id,
+            policy: i === 0 ? "before_balance" : "after_balance",
+            approved_by: actor.id,
+          })),
+        )
+      ).error,
+    ).toBeNull();
     await loginAs(page, "client");
     await page.goto(base);
     const found: string[] = [];
@@ -54,6 +73,23 @@ test("entregas paginadas preservam empates e microssegundos, com retorno ao iní
         "data-delivery-id",
         expected[found.length],
       );
+      await expect(page.locator(".delivery-payment")).toHaveCount(1);
+      await expect(page.locator(".delivery-payment")).toContainText(
+        "R$ 1.234,56",
+      );
+      await expect(
+        page.locator(
+          `[data-delivery-id="${expected[batch === 0 ? 1 : 50]}"] .delivery-payment`,
+        ),
+      ).toHaveCount(1);
+      if (batch === 0) {
+        await expect(records.first()).toContainText(
+          "Arquivos liberados para download.",
+        );
+        await expect(records.first().locator(".delivery-payment")).toHaveCount(
+          0,
+        );
+      }
       found.push(
         ...(await records.evaluateAll((items) =>
           items.map((item) => item.getAttribute("data-delivery-id")!),

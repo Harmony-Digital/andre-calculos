@@ -31,7 +31,7 @@ import {
 const record = (value: Json) =>
   value && !Array.isArray(value) && typeof value === "object" ? value : {};
 export async function getConfiguration() {
-  await authorize(["calculator", "admin"]);
+  const session = await authorize(["calculator", "admin"]);
   const db = await createSessionClient();
   const [settings, prices] = await Promise.all([
     db.from("settings").select("*").eq("singleton", true).single(),
@@ -93,7 +93,13 @@ export async function getConfiguration() {
     isExample: true,
     approved: false,
   };
-  return { values, priceValues, history };
+  return {
+    values,
+    priceValues,
+    history,
+    deliveryPolicy: cfg.delivery_release_policy,
+    role: session.profile.role,
+  };
 }
 export const getPublicServiceInfo = cache(async () => {
   const config = supabaseConfig();

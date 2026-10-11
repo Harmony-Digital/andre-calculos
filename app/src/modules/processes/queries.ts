@@ -158,6 +158,17 @@ export async function getProcess(
     : { data: [], error: null };
   if (profiles.error)
     throw new Error("Não foi possível carregar os responsáveis.");
+  const paymentInstructions =
+    tab === "resumo" &&
+    session.profile.role === "client" &&
+    deliveries.data?.length
+      ? await supabase.rpc("get_delivery_payment_instructions", {
+          target_process: id,
+          target_deliveries: deliveries.data.slice(0, 50).map((row) => row.id),
+        })
+      : { data: [], error: null };
+  if (paymentInstructions.error)
+    throw new Error("Não foi possível consultar as instruções de pagamento.");
   return {
     process: data,
     role: session.profile.role,
@@ -168,6 +179,9 @@ export async function getProcess(
       (deliveries.data?.length ?? 0) > 50
         ? encodeMessageCursor(deliveries.data![49])
         : null,
+    deliveryPayments: new Map(
+      (paymentInstructions.data ?? []).map((row) => [row.delivery_id, row]),
+    ),
     messages: (messages.data ?? []).slice(0, 50).reverse(),
     olderMessages:
       (messages.data?.length ?? 0) > 50

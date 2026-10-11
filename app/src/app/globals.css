@@ -982,6 +982,16 @@ h2 {
 .delivery-records {
   margin-top: 2rem;
 }
+.delivery-policy-form {
+  margin-block: 1rem;
+}
+.delivery-payment {
+  padding: 1rem;
+  margin-block: 1rem;
+  border: 1px solid var(--border);
+  background: var(--background);
+  overflow-wrap: anywhere;
+}
 .delivery-file-list {
   list-style: none;
   padding: 0;

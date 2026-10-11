@@ -1,0 +1,20 @@
+import { it, expect } from "vitest";
+import { parseExistingPolicy, parseFuturePolicy } from "./approval-forms";
+it("política exige escolha explícita, aprovação e revisão/alvo válidos", () => {
+  const f = new FormData();
+  f.set("requestId", "f58577bd-9ba3-4f69-9ac1-b519aa08b2b0");
+  f.set("revision", "1");
+  expect(parseFuturePolicy(f).success).toBe(false);
+  f.set("policy", "after_balance");
+  f.set("approved", "true");
+  expect(parseFuturePolicy(f).success).toBe(false);
+  f.set("approved", "on");
+  expect(parseFuturePolicy(f).success).toBe(true);
+  f.set("revision", "0");
+  expect(parseFuturePolicy(f).success).toBe(false);
+  f.set("processId", "6d0e3c1d-287c-4492-a1d5-f4a07d107ba1");
+  f.set("deliveryId", "8cc89509-8226-4ce6-9518-3bb0a55e075c");
+  expect(parseExistingPolicy(f).success).toBe(true);
+  f.set("deliveryId", "outro");
+  expect(parseExistingPolicy(f).success).toBe(false);
+});

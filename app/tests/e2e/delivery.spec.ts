@@ -19,7 +19,7 @@ for (const policy of [null, "after_balance"] as const) {
         await db
           .from("settings")
           .select(
-            "technical_name,crc_number,crc_state,crc_category,delivery_release_policy",
+            "technical_name,crc_number,crc_state,crc_category,delivery_release_policy,revision,pix_key",
           )
           .eq("singleton", true)
           .single()
@@ -32,7 +32,8 @@ for (const policy of [null, "after_balance"] as const) {
         locale: "pt-BR",
         timezoneId: "America/Sao_Paulo",
       }),
-      client = await context.newPage();
+      client = await context.newPage(),
+      policyKeys = new Set<string>();
     try {
       expect(
         (
@@ -41,6 +42,7 @@ for (const policy of [null, "after_balance"] as const) {
             .update({
               ...deliveryProfessional,
               delivery_release_policy: policy,
+              pix_key: "chave-pix-ficticia",
             })
             .eq("singleton", true)
         ).error,
@@ -187,7 +189,7 @@ for (const policy of [null, "after_balance"] as const) {
       const record = page.locator(`[data-delivery-id="${key}"]`);
       await expect(record).toBeVisible();
       await expect(record).toContainText("CRC DF 000001/O-0");
-      await expect(page.locator(".delivery-form")).toHaveCount(0);
+      await expect(form).toHaveCount(0);
       expect(
         (
           await db
@@ -212,7 +214,7 @@ for (const policy of [null, "after_balance"] as const) {
           ? "aguarda a definição da regra de pagamento"
           : "aguarda a confirmação do saldo",
       );
-      await expect(own.getByRole("link")).toHaveCount(0);
+      await expect(own.locator('a[href^="/api/files/"]')).toHaveCount(0);
       await expect(client.locator(".delivery-form")).toHaveCount(0);
       for (const action of ["download", "content"])
         expect(
@@ -240,7 +242,217 @@ for (const policy of [null, "after_balance"] as const) {
         path: info.outputPath(`entrega-cliente-${policy ?? "pendente"}.png`),
         fullPage: true,
       });
+      if (policy === null) {
+        await page.goto("/painel/configuracoes#entregas");
+        let future = page.getByRole("form", {
+          name: "Regra das próximas entregas",
+          exact: true,
+        });
+        await expect(
+          future.getByLabel("Quando liberar os arquivos?", { exact: true }),
+        ).toHaveValue("");
+        const approval =
+          "Confirmei a regra com o responsável técnico e aprovo sua aplicação.";
+        await expect(
+          future.getByLabel(approval, { exact: true }),
+        ).not.toBeChecked();
+        await future
+          .getByRole("button", {
+            name: "Aprovar regra das próximas entregas",
+            exact: true,
+          })
+          .click();
+        await expect(future.getByRole("status")).toHaveText(
+          "Confira os campos indicados.",
+        );
+        await future
+          .getByLabel("Quando liberar os arquivos?", { exact: true })
+          .selectOption("after_balance");
+        await future.getByLabel(approval, { exact: true }).check();
+        const staleKey = await future
+          .locator('input[name="requestId"]')
+          .inputValue();
+        policyKeys.add(staleKey);
+        expect(
+          (
+            await db
+              .from("settings")
+              .update({ revision: prior.revision + 1 })
+              .eq("singleton", true)
+          ).error,
+        ).toBeNull();
+        await future
+          .getByRole("button", {
+            name: "Aprovar regra das próximas entregas",
+            exact: true,
+          })
+          .click();
+        await expect(future.getByRole("status")).toHaveText(
+          "As configurações ou a tentativa mudaram. Recarregue para conferir antes de aprovar.",
+        );
+        await expect(future.locator('input[name="requestId"]')).toHaveValue(
+          staleKey,
+        );
+        await expect(
+          future.getByLabel("Quando liberar os arquivos?", { exact: true }),
+        ).toHaveValue("after_balance");
+        await page.reload();
+        future = page.getByRole("form", {
+          name: "Regra das próximas entregas",
+          exact: true,
+        });
+        await future
+          .getByLabel("Quando liberar os arquivos?", { exact: true })
+          .selectOption("after_balance");
+        await future.getByLabel(approval, { exact: true }).check();
+        policyKeys.add(
+          await future.locator('input[name="requestId"]').inputValue(),
+        );
+        await expect(
+          future.getByLabel("Quando liberar os arquivos?", { exact: true }),
+        ).toHaveValue("after_balance");
+        expect(
+          (
+            await new AxeBuilder({ page })
+              .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+              .analyze()
+          ).violations,
+        ).toEqual([]);
+        await page.evaluate(() =>
+          (document.activeElement as HTMLElement | null)?.blur(),
+        );
+        await page.locator("#entregas").screenshot({
+          path: info.outputPath("politica-futura-pendente.png"),
+        });
+        await future
+          .getByRole("button", {
+            name: "Aprovar regra das próximas entregas",
+            exact: true,
+          })
+          .click();
+        await expect(future.getByRole("status")).toHaveText(
+          "Regra aprovada para as próximas entregas.",
+        );
+        await expect(future).toContainText(
+          "Regra atual: Depois da confirmação do saldo",
+        );
+        await expect(
+          future.getByLabel("Quando liberar os arquivos?", { exact: true }),
+        ).toHaveValue("");
+        await expect(
+          future.getByLabel(approval, { exact: true }),
+        ).not.toBeChecked();
+        await expect(future.locator('input[name="revision"]')).toHaveValue(
+          String(prior.revision + 2),
+        );
+        await client.reload();
+        await expect(own).toContainText(
+          "aguarda a definição da regra de pagamento",
+        );
+        await expect(own.locator('a[href^="/api/files/"]')).toHaveCount(0);
+        expect(
+          (
+            await db
+              .from("delivery_releases")
+              .select("delivery_id")
+              .eq("delivery_id", key)
+          ).data,
+        ).toEqual([]);
+        await page.goto(`/painel/processos/${fixture.process.id}?aba=resumo`);
+        const original = page.locator(`[data-delivery-id="${key}"]`);
+        await original
+          .getByText("Definir regra desta entrega", { exact: true })
+          .click();
+        const existing = original.getByRole("form", {
+          name: "Regra desta entrega",
+          exact: true,
+        });
+        await expect(
+          existing.getByLabel("Quando liberar os arquivos?", { exact: true }),
+        ).toHaveValue("");
+        await existing
+          .getByLabel("Quando liberar os arquivos?", { exact: true })
+          .selectOption("before_balance");
+        const releaseKey = await existing
+          .locator('input[name="requestId"]')
+          .inputValue();
+        await existing
+          .getByRole("button", {
+            name: "Aprovar regra desta entrega",
+            exact: true,
+          })
+          .click();
+        await expect(existing.getByRole("status")).toHaveText(
+          "Confira os campos indicados.",
+        );
+        await expect(existing.locator('input[name="requestId"]')).toHaveValue(
+          releaseKey,
+        );
+        await existing.getByLabel(approval, { exact: true }).check();
+        expect(
+          (
+            await new AxeBuilder({ page })
+              .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+              .analyze()
+          ).violations,
+        ).toEqual([]);
+        expect(
+          await page.evaluate(() => document.documentElement.scrollWidth),
+        ).toBeLessThanOrEqual(page.viewportSize()!.width);
+        await page.evaluate(() => {
+          (document.activeElement as HTMLElement | null)?.blur();
+          window.scrollTo(0, 0);
+        });
+        await expect(page.locator(".skip-link")).not.toBeFocused();
+        await page.screenshot({
+          path: info.outputPath("regra-entrega-pendente.png"),
+          fullPage: true,
+        });
+        await existing
+          .getByRole("button", {
+            name: "Aprovar regra desta entrega",
+            exact: true,
+          })
+          .click();
+        await expect(existing).toHaveCount(0);
+        await client.reload();
+        await expect(own).toContainText("Arquivos liberados para download.");
+        await expect(own.locator('a[href^="/api/files/"]')).toHaveCount(3);
+        expect(
+          (
+            await client.request.get(`/api/files/${fileId}/download`, {
+              maxRedirects: 0,
+            })
+          ).status(),
+        ).toBe(307);
+        expect(
+          (
+            await db
+              .from("audit_log")
+              .select("id")
+              .eq("target_id", fileId)
+              .eq("action", "file_download")
+              .eq("actor_id", fixture.process.authorId)
+          ).data,
+        ).toHaveLength(1);
+        await client.evaluate(() => {
+          (document.activeElement as HTMLElement | null)?.blur();
+          window.scrollTo(0, 0);
+        });
+        await client.screenshot({
+          path: info.outputPath("entrega-cliente-liberada-antes-saldo.png"),
+          fullPage: true,
+        });
+      }
       if (policy === "after_balance") {
+        await expect(own).toContainText("Saldo pendente: R$ 1.234,56");
+        await expect(own).toContainText("Chave Pix: chave-pix-ficticia");
+        await expect(
+          own.getByRole("link", {
+            name: "Abrir conversa do processo",
+            exact: true,
+          }),
+        ).toBeVisible();
         const payment = (
           kind: string,
           amount_cents: number,
@@ -270,6 +482,8 @@ for (const policy of [null, "after_balance"] as const) {
             })
           ).status(),
         ).toBe(404);
+        await client.reload();
+        await expect(own).toContainText("Saldo pendente: R$ 617,28");
         expect(
           (
             await db
@@ -363,6 +577,24 @@ for (const policy of [null, "after_balance"] as const) {
       await context.close();
       try {
         await fixture.cleanup();
+        if (policyKeys.size) {
+          expect(
+            (
+              await db
+                .from("audit_log")
+                .delete()
+                .in("target_id", [...policyKeys])
+            ).error,
+          ).toBeNull();
+          expect(
+            (
+              await db
+                .from("delivery_policy_approvals")
+                .delete()
+                .in("id", [...policyKeys])
+            ).error,
+          ).toBeNull();
+        }
         await db.from("settings").update(prior).eq("singleton", true);
       } finally {
         await releaseQueue();

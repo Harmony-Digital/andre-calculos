@@ -162,6 +162,8 @@ export async function ProcessFolder({
             base={base}
             before={before}
             older={data.olderDeliveries}
+            processId={id}
+            payments={data.deliveryPayments}
           />
         </section>
       )}

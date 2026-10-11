@@ -21,6 +21,14 @@ export function eventFilter(value?: string): EventKind | null {
 }
 export function eventLabel(kind: string, data?: unknown) {
   if (
+    kind === "status_changed" &&
+    data &&
+    typeof data === "object" &&
+    "release_policy" in data &&
+    ["before_balance", "after_balance"].includes(String(data.release_policy))
+  )
+    return "Regra de liberação aprovada";
+  if (
     kind === "decision_recorded" &&
     data &&
     typeof data === "object" &&
