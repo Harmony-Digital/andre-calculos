@@ -1356,6 +1356,27 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      begin_notification_local_run: {
+        Args: {
+          run_id: string;
+          channel: string;
+          batch_limit: number;
+          target_notifications?: string[];
+        };
+        Returns: Json;
+      };
+      get_notification_local_receipt: {
+        Args: { request_id: string };
+        Returns: Json;
+      };
+      get_notification_local_transport_result: {
+        Args: { request_id: string };
+        Returns: Json;
+      };
+      simulate_notification_local_transport: {
+        Args: { request_id: string };
+        Returns: Json;
+      };
       claim_notification_local_system: {
         Args: {
           request_id: string;

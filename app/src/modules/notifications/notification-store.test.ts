@@ -146,6 +146,103 @@ it("resultado e validação usam recibos da simulação e não recebem relógio 
     "Reserva não confirmada",
   );
 });
+it("execução preserva slots/alvos e getters vazios não criam resultado", async () => {
+  const store = createLocalNotificationStore();
+  const input = {
+    runId: requestId,
+    channel: "email" as const,
+    limit: 1,
+    targets: [notificationId],
+  };
+  const run = {
+    ...input,
+    requestIds: [requestId],
+    mode: "simulation",
+    schemaVersion: 1,
+  };
+  rpc.mockResolvedValueOnce({ data: run, error: null });
+  expect(await store.beginRun(input)).toEqual(run);
+  rpc.mockResolvedValue({ data: null, error: null });
+  expect(await store.getReceipt(requestId)).toBeNull();
+  expect(await store.getTransportResult(requestId)).toBeNull();
+  expect(rpc.mock.calls.map(([name]) => name)).toEqual([
+    "begin_notification_local_run",
+    "get_notification_local_receipt",
+    "get_notification_local_transport_result",
+  ]);
+});
+it.each(["run", "slots", "targets", "duplicate"])(
+  "recusa resposta de execução com %s divergente",
+  async (kind) => {
+    const input = {
+      runId: requestId,
+      channel: "email" as const,
+      limit: 2,
+      targets: [requestId, notificationId],
+    };
+    const data = {
+      ...input,
+      requestIds: [requestId, notificationId],
+      mode: "simulation",
+      schemaVersion: 1,
+    };
+    if (kind === "run") data.runId = notificationId;
+    if (kind === "slots") data.requestIds = [requestId];
+    if (kind === "targets") data.targets = [notificationId, requestId];
+    if (kind === "duplicate") data.requestIds = [requestId, requestId];
+    rpc.mockResolvedValue({ data, error: null });
+    await expect(
+      createLocalNotificationStore().beginRun(input),
+    ).rejects.toThrow("Execução não confirmada");
+  },
+);
+it("novos RPCs recusam entradas inválidas antes de consultar banco", async () => {
+  const store = createLocalNotificationStore();
+  await expect(
+    store.beginRun({ runId: requestId, channel: "email", limit: 26 }),
+  ).rejects.toThrow("inválida");
+  await expect(store.getReceipt("invalid")).rejects.toThrow("inválida");
+  await expect(store.getTransportResult("invalid")).rejects.toThrow("inválida");
+  await expect(store.simulate("invalid")).rejects.toThrow("inválida");
+  expect(rpc).not.toHaveBeenCalled();
+});
+it.each(["returned", "thrown", "identity", "mode"])(
+  "novos RPCs sanitizam falhas %s e não aceitam dados externos",
+  async (kind) => {
+    const store = createLocalNotificationStore();
+    const raw = "sentinela privada fictícia";
+    if (kind === "thrown") rpc.mockRejectedValue(new Error(raw));
+    else
+      rpc.mockResolvedValue({
+        data: {
+          status: "result",
+          requestId: kind === "identity" ? notificationId : requestId,
+          notificationId,
+          attempt: 1,
+          code: null,
+          outcome: "accepted",
+          mode: kind === "mode" ? "provider" : "simulation",
+        },
+        error: kind === "returned" ? { message: raw } : null,
+      });
+    for (const call of [
+      store.beginRun({ runId: requestId, channel: "email", limit: 1 }),
+      store.getReceipt(requestId),
+      store.getTransportResult(requestId),
+      store.simulate(requestId),
+    ]) {
+      if (
+        kind === "identity" ||
+        kind === "mode" ||
+        kind === "returned" ||
+        kind === "thrown"
+      ) {
+        await expect(call).rejects.toThrow("não confirmad");
+        await expect(call).rejects.not.toThrow(raw);
+      }
+    }
+  },
+);
 it.each(["returned", "thrown"])(
   "%s não expõe conteúdo de erros e orienta repetir o mesmo nonce",
   async (kind) => {
