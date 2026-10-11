@@ -9,7 +9,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { loginAs } from "./auth-helper";
-import { confirmMailpit } from "./local-helper";
+import { confirmMailpit, mailpitMessageIds } from "./local-helper";
 import { fullJourneyFixture } from "./full-journey-helper";
 import { fictionalCnj } from "./draft-helper";
 import { pdfFixture } from "./pdf-helper";
@@ -47,7 +47,6 @@ async function accessible(page: Page, info: TestInfo, name: string) {
 
 test("mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas explícitas", async ({
   page,
-  context,
   request,
   browser,
 }, info) => {
@@ -153,14 +152,15 @@ test("mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas
         .getByLabel("Confirme a senha", { exact: true })
         .fill(process.env.ANDRE_TEST_PASSWORD!);
       await page.getByLabel("Li e aceito").check();
+      const previousEmails = await mailpitMessageIds(fixture.email, request);
       await page.getByRole("button", { name: "Criar minha conta" }).click();
       await expect(page.getByRole("status")).toContainText(
         "Confira seu e-mail e confirme o cadastro",
       );
       actor = (await fixture.identity())!;
       expect(actor).toBeTruthy();
-      await confirmMailpit(fixture.email, context, request);
-      await page.goto("/app");
+      await confirmMailpit(fixture.email, page, request, previousEmails);
+      await expect.poll(() => new URL(page.url()).pathname).toBe("/app");
       await expect(page.getByText(name, { exact: true })).toBeVisible();
       const consents = await db
         .from("consents")
