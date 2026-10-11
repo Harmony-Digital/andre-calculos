@@ -96,7 +96,14 @@ it("resposta cadastral vincula documento e referência, descartando contato", ()
   expect(result.customerId).toBe("cus_fixture");
   expect(result.document).toBe("00000000191");
   expect(Object.keys(result).sort()).toEqual(
-    ["scope", "customerId", "clientId", "kind", "document"].sort(),
+    [
+      "scope",
+      "customerId",
+      "clientId",
+      "kind",
+      "document",
+      "notificationDisabled",
+    ].sort(),
   );
   expect(JSON.stringify(result)).not.toContain("fixture@example.invalid");
 });
