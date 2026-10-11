@@ -23,6 +23,8 @@ Essas preparações não equivalem à contratação comercial completa. Os dados
 
 O helper exige Supabase local em `127.0.0.1:54321`, mantém um lease de settings e outro da fila na ordem usada pelos testes existentes e valida o proprietário antes das pontes. As credenciais são efêmeras, em memória. Não há `.env`, estado de sessão, trace ou HAR exportado.
 
+As quatro contas seed e as contas temporárias de perfil/recuperação são provisionadas pelo helper administrativo `app/scripts/provision-local-user.ts`, com autorização privada de uso único por UUID; não recebem consentimentos fictícios. O novo cliente da jornada continua usando o formulário público, aceite de versões sintéticas e confirmação no Mailpit. O hook exige o mesmo aceite também nas chamadas diretas ao Auth; esse ensaio não aprova textos para uso comercial.
+
 Ao terminar, inclusive após falha, remove arquivos pelos caminhos daquele processo, recibos privados e registros relacionados ao novo cliente, restaurando settings e a tabela ativa anterior. Não apaga auditorias do calculista seed em massa. O histórico de preços fictícios permanece inativo, como nos ensaios existentes.
 
 O download deve retornar 307 com `private, no-store` e `no-referrer`, assinar para a origem local por 120 segundos, entregar os bytes originais e registrar auditoria do cliente. Rejeições da chamada assinada são sanitizadas para não expor o token.
