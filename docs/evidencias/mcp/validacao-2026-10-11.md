@@ -99,3 +99,9 @@ Após a confirmação humana “Concluí a autorização somente desse projeto�
 ## Revalidação durante M2.12a
 
 Chamadas nativas novamente confirmaram somente Projeto Andre/projeto-andre1/team_4fdLDCsB0ROvP5ph50aFNvxm; a continuação da lista de equipes retornou zero. A listagem sem filtro de nome retornou andre-calculos/prj_tdmzmC6utVU2fHPz0iVhroMD8NtI. get_project confirmou a equipe e o mesmo deploy READY de produção dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7, com domínio project-rucji.vercel.app. get_project_url do Supabase dedicado retornou https://qtofwbxujshroaafxowr.supabase.co. Nenhuma mutação externa nessas consultas.
+
+## Conferência ao encerrar o preparo do manual
+
+As chamadas reais do MCP dedicado `andre-calculos-vercel` confirmaram novamente a equipe Projeto Andre, slug projeto-andre1, ID team_4fdLDCsB0ROvP5ph50aFNvxm. A página de equipes com `until` anterior ao cursor retornou zero. `list_projects`, sem filtro de nome, retornou somente andre-calculos; `get_project` confirmou prj_tdmzmC6utVU2fHPz0iVhroMD8NtI e o accountId esperado. A listagem não trouxe cursor `next`; uma consulta adicional com `from` repetiu esse mesmo registro, sem acrescentar recurso.
+
+`get_deployment` confirmou dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 em READY/production/gru1 e o alias project-rucji.vercel.app. GETs públicos de `/api/health` e `/demonstracao` responderam HTTP200; o health informou status ok, região gru1 e versão0.1.0. Esses GETs conferem disponibilidade, sem substituir a jornada hospedada registrada anteriormente. Nenhuma alteração de permissões, publicação ou variável foi necessária; o navegador com bloqueio anterior não foi utilizado.

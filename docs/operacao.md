@@ -63,7 +63,7 @@ Os dois métodos recuperam o banco. Recuperar o serviço completo exige conferir
 | Permissões | RLS, políticas, grants, papéis e RPCs conferidos. Clientes distintos não acessam os mesmos processos; funções internas permanecem restritas. Advisors de segurança/desempenho executados no destino e achados registrados. |
 | Auth | Configurações, redirects e credenciais do destino conferidos pelo responsável; login real autorizado dos papéis cliente/calculista/admin e acesso negado no papel indevido. Senhas de pessoas não passam pelo agente. |
 | Storage | Buckets privados, políticas e limites conferidos; arquivo/versão/tamanho/hash reconciliados com manifesto aprovado e ponto do banco. Bytes ausentes impedem declarar recuperação completa. |
-| Aplicação | SHA da versão usada confirmado no deploy e em `/api/health`; cadastro/login, orçamento/proposta, aceite, sinal, pasta, linha do tempo e entrega/download percorridos em 375 e 1440 px, conforme o escopo liberado. `status: ok` isolado não prova acesso ao banco. |
+| Aplicação | SHA da versão usada confirmado na fonte do deploy; `/api/health` responde no destino/região previstos. Cadastro/login, orçamento/proposta, aceite, sinal, pasta, linha do tempo e entrega/download percorridos em 375 e 1440 px, conforme o escopo liberado. O health atual informa versão/região, não SHA; `status: ok` isolado não prova acesso ao banco. |
 | Idempotência | Recibos, reservas e chaves recuperados; aviso/pagamento com resultado incerto não é reenviado. Reconciliar o efeito já ocorrido no provedor antes de liberar processamento. |
 | Privacidade | Reaplicar exclusões/restrições aprovadas posteriores ao ponto recuperado; conferir acesso histórico e retenção sem ressuscitar dados proibidos. |
 
