@@ -59,6 +59,7 @@ export async function acceptanceFixture(
           expired?: boolean;
           expiresInSeconds?: number;
           context?: boolean;
+          zero?: boolean;
         } = {},
       ) => {
         const draft = await createQuoteDraft(),
@@ -117,6 +118,16 @@ export async function acceptanceFixture(
         if (evaluated.status !== "commercial_ready")
           throw new Error("Snapshot contratual sintético indisponível.");
         const proposal = evaluated.proposal;
+        if (options.zero) {
+          proposal.items = proposal.items.map((item) => ({
+            ...item,
+            unitCents: 0,
+            amountCents: 0,
+          }));
+          proposal.totalCents = 0;
+          proposal.depositCents = 0;
+          proposal.balanceCents = 0;
+        }
         if (
           (
             await db
@@ -216,7 +227,7 @@ values('${id}'::uuid,${literal(JSON.stringify(proposal))}::jsonb,${literal(terms
         try {
           for (const entry of ids) {
             localNotificationSql(
-              `delete from private.quote_acceptance_requests where quote_id='${entry.quote}'::uuid; delete from private.quote_acceptances where quote_id='${entry.quote}'::uuid; delete from private.quote_contract_contexts where quote_id='${entry.quote}'::uuid;`,
+              `delete from public.audit_log where action='manual_deposit_confirmed' and target_id in (select id from private.manual_deposit_receipts where quote_id='${entry.quote}'::uuid); delete from private.manual_deposit_requests where quote_id='${entry.quote}'::uuid; delete from private.manual_deposit_receipts where quote_id='${entry.quote}'::uuid; delete from public.payments where order_id='${entry.order}'::uuid; delete from private.quote_acceptance_requests where quote_id='${entry.quote}'::uuid; delete from private.quote_acceptances where quote_id='${entry.quote}'::uuid; delete from private.quote_contract_contexts where quote_id='${entry.quote}'::uuid;`,
             );
             for (const result of [
               await db

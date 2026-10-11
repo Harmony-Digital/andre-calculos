@@ -3,6 +3,7 @@ import { z } from "zod";
 import { notFound } from "next/navigation";
 import { authorize, getSessionProfile } from "@/modules/auth/session";
 import { createSessionClient } from "@/lib/supabase/server";
+import { depositInfoSchema } from "@/modules/payments/deposit";
 import type { ProcessTab } from "./tabs";
 import { messageCursor, encodeMessageCursor } from "@/modules/messages/cursor";
 import { eventFilter } from "@/modules/timeline/types";
@@ -107,6 +108,7 @@ export async function getProcess(
     events,
     deliveries,
     contractQuotes,
+    deposits,
   ] = await Promise.all([
     supabase
       .from("files")
@@ -148,6 +150,9 @@ export async function getProcess(
     tab === "resumo"
       ? supabase.rpc("get_process_contract_quote_ids", { target_process: id })
       : Promise.resolve({ data: [], error: null }),
+    tab === "resumo"
+      ? supabase.rpc("get_process_deposit_instructions", { target_process: id })
+      : Promise.resolve({ data: [], error: null }),
   ]);
   if (
     [
@@ -159,6 +164,7 @@ export async function getProcess(
       events,
       deliveries,
       contractQuotes,
+      deposits,
     ].some((result) => result.error)
   )
     throw new Error("Não foi possível carregar a pasta do processo.");
@@ -188,6 +194,12 @@ export async function getProcess(
   if (paymentInstructions.error)
     throw new Error("Não foi possível consultar as instruções de pagamento.");
   return {
+    deposits: new Map(
+      depositInfoSchema
+        .array()
+        .parse(deposits.data ?? [])
+        .map((row) => [row.orderId, row]),
+    ),
     process: data,
     role: session.profile.role,
     files: files.data ?? [],

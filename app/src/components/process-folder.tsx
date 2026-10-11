@@ -17,6 +17,7 @@ import { DecisionComposer } from "./decision-composer";
 import { DecisionConfirmation } from "./decision-confirmation";
 import { PageIndexEditor } from "./page-index-editor";
 import { DeliveryForm } from "./delivery-form";
+import { DepositCard } from "./deposit-card";
 import { DeliveryRecords } from "./delivery-records";
 import { pieceLabel } from "@/modules/page-index/forms";
 import {
@@ -157,6 +158,14 @@ export async function ProcessFolder({
                         </Link>
                       </p>
                     ))}
+                  {data.deposits.has(order.id) && (
+                    <DepositCard
+                      key={`${order.id}:${data.deposits.get(order.id)!.receipt?.id ?? "none"}:${data.deposits.get(order.id)!.paymentStatus ?? "none"}:${data.deposits.get(order.id)!.remainingCents}`}
+                      info={data.deposits.get(order.id)!}
+                      requestId={randomUUID()}
+                      panel={panel}
+                    />
+                  )}
                   {data.role === "calculator" &&
                     order.status === "in_review" && (
                       <DeliveryForm

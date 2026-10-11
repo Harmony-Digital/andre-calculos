@@ -1390,6 +1390,16 @@ export type Database = {
         };
         Returns: undefined;
       };
+      confirm_manual_deposit: {
+        Args: {
+          confirmed: boolean;
+          expected_context: string;
+          expected_remaining_cents: number;
+          request_id: string;
+          target_quote: string;
+        };
+        Returns: Json;
+      };
       confirm_order_delivery: {
         Args: {
           payload: Json;
@@ -1451,6 +1461,10 @@ export type Database = {
         }[];
       };
       get_process_decision_export: {
+        Args: { target_process: string };
+        Returns: Json;
+      };
+      get_process_deposit_instructions: {
         Args: { target_process: string };
         Returns: Json;
       };

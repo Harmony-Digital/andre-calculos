@@ -64,9 +64,11 @@ export function QuoteAcceptance({
           </p>
           <p>
             {status === "awaiting_documents"
-              ? "Envie pelo menos um documento do processo para liberar a entrada na fila."
+              ? receipt.hasContract
+                ? "Envie pelo menos um documento do processo para a entrada na fila."
+                : "Confira o pagamento e envie os documentos do processo para a entrada na fila."
               : status === "awaiting_payment"
-                ? `Aguardando o sinal de ${formatMoney(receipt.depositCents)}.${panel ? "" : " Combine o pagamento na conversa do processo."}`
+                ? "Confira a situação do sinal e as instruções de pagamento na pasta do processo."
                 : "Acompanhe o andamento na pasta do processo."}
           </p>
           {receipt.hasContract && (
@@ -76,9 +78,10 @@ export function QuoteAcceptance({
               final.
             </p>
           )}
-          {status === "awaiting_payment" && (
-            <Link className="text-link" href={`${processPath}?aba=mensagens`}>
-              {panel ? "Ver mensagens" : "Conversar com André"}
+          {(status === "awaiting_payment" ||
+            (status === "awaiting_documents" && !receipt.hasContract)) && (
+            <Link className="text-link" href={`${processPath}?aba=resumo`}>
+              Ver sinal e pagamento
             </Link>
           )}
           {status === "awaiting_documents" && (

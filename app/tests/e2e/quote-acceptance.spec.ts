@@ -91,7 +91,7 @@ test("aceite pela pasta recupera resposta perdida, preserva recibo e restringe a
       page.getByRole("heading", { name: "Contratação registrada" }),
     ).toBeVisible();
     await expect(page.getByRole("status")).toContainText(
-      "Aguardando o sinal de R$ 125,01",
+      "Confira a situação do sinal",
     );
     await page.reload();
     await expect(
@@ -106,11 +106,8 @@ test("aceite pela pasta recupera resposta perdida, preserva recibo e restringe a
     ).data!;
     expect(replay).toEqual(stored);
     await expect(
-      page.getByRole("link", { name: "Conversar com André" }),
-    ).toHaveAttribute(
-      "href",
-      `/app/processos/${sample.process_id}?aba=mensagens`,
-    );
+      page.getByRole("link", { name: "Ver sinal e pagamento" }),
+    ).toHaveAttribute("href", `/app/processos/${sample.process_id}?aba=resumo`);
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.screenshot({
       path: testInfo.outputPath("recibo.png"),
@@ -161,14 +158,19 @@ test("aceite pela pasta recupera resposta perdida, preserva recibo e restringe a
         expect(
           (await other.request.get(`/api/quotes/${sample.id}/pdf`)).status(),
         ).toBe(200);
-        const messages = other.getByRole("link", { name: "Ver mensagens" });
+        const messages = other.getByRole("link", {
+          name: "Ver sinal e pagamento",
+        });
         await expect(messages).toHaveAttribute(
           "href",
-          `/painel/processos/${sample.process_id}?aba=mensagens`,
+          `/painel/processos/${sample.process_id}?aba=resumo`,
         );
         await messages.click();
         await expect(
-          other.getByRole("heading", { name: "Mensagens", exact: true }),
+          other.getByRole("heading", {
+            name: "Resumo do processo",
+            exact: true,
+          }),
         ).toBeVisible();
       } else {
         expect(response?.status()).toBe(404);
