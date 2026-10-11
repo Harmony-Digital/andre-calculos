@@ -41,6 +41,8 @@ export type Order = {
   state: OrderState;
   clientOwnerId: string;
   quoteAccepted: boolean;
+  quoteRejected?: boolean;
+  paymentPresent?: boolean;
   depositConfirmed: boolean;
   hasContract: boolean;
   minimumDocumentPresent: boolean;
@@ -71,6 +73,7 @@ const rules = {
     roles: ["calculator", "system"],
   },
   accept_quote: { from: ["quoted"], to: "awaiting_payment", roles: ["client"] },
+  reject_quote: { from: ["quoted"], to: "cancelled", roles: ["client"] },
   queue: {
     from: ["awaiting_payment", "awaiting_documents", "quoted"],
     to: "queued",
@@ -184,6 +187,20 @@ export function transition(
       "A entrega anterior precisa estar revisada para iniciar um ajuste.",
     );
   const next: Order = { ...order, state: rule.to };
+  if (event === "accept_quote" && order.quoteRejected)
+    throw new Error("A proposta já foi recusada.");
+  if (
+    event === "reject_quote" &&
+    (order.quoteRejected ||
+      order.quoteAccepted ||
+      order.depositConfirmed ||
+      order.paymentPresent)
+  )
+    throw new Error("A proposta já tem decisão ou pagamento registrado.");
+  if (event === "reject_quote") {
+    next.quoteRejected = true;
+    delete next.resumeState;
+  }
   if (event === "accept_quote") {
     next.quoteAccepted = true;
     if (order.hasContract)

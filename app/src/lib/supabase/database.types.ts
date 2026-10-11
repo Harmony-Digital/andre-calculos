@@ -1356,6 +1356,20 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      reject_quote_system: {
+        Args: {
+          actor: string;
+          target_quote: string;
+          expected_context: string;
+          expected_revision: number;
+          request_id: string;
+          confirmed: boolean;
+          reason: string;
+          ip_address: string;
+          user_agent: string;
+        };
+        Returns: Json;
+      };
       accept_quote_system: {
         Args: {
           actor: string;

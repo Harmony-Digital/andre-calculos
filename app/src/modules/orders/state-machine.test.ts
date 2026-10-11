@@ -29,6 +29,7 @@ const valid: [OrderState, OrderEvent, OrderState, Actor][] = [
   ["in_triage", "create_quote", "quoted", calculator],
   ["draft", "create_quote", "quoted", { id: "server", role: "system" }],
   ["quoted", "accept_quote", "awaiting_payment", client],
+  ["quoted", "reject_quote", "cancelled", client],
   ["awaiting_payment", "queue", "queued", admin],
   ["queued", "start_analysis", "in_analysis", calculator],
   ["in_analysis", "request_information", "awaiting_client", calculator],
@@ -50,6 +51,9 @@ describe("estados do pedido", () => {
         {
           ...base,
           state,
+          ...(event === "reject_quote"
+            ? { quoteAccepted: false, depositConfirmed: false }
+            : {}),
           ...(state === "awaiting_client"
             ? { resumeState: "in_analysis" as const }
             : {}),

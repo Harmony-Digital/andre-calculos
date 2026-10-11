@@ -25,6 +25,14 @@ export function eventLabel(kind: string, data?: unknown) {
     data &&
     typeof data === "object" &&
     "operation" in data &&
+    data.operation === "reject_quote"
+  )
+    return "Proposta recusada";
+  if (
+    kind === "status_changed" &&
+    data &&
+    typeof data === "object" &&
+    "operation" in data &&
     "from" in data &&
     "to" in data &&
     typeof data.from === "string" &&

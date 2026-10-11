@@ -95,3 +95,7 @@ O consentimento renovado seguido dos retornos reais comprovou a recuperação do
 ## Revalidação posterior da conexão restrita ao projeto
 
 Após a confirmação humana “Concluí a autorização somente desse projeto”, as chamadas nativas atuais list_teams e list_projects (sem filtro de nome) confirmaram somente Projeto Andre/andre-calculos. A continuação da página de equipes retornou zero registros; projetos sem continuação. IDs esperados: team_4fdLDCsB0ROvP5ph50aFNvxm e prj_tdmzmC6utVU2fHPz0iVhroMD8NtI. get_project e list_deployments responderam sem erro e confirmaram dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 em READY/production, com os domínios project-rucji.vercel.app e andre-calculos-projeto-andre1.vercel.app. Nenhuma alteração externa foi necessária nessa revalidação.
+
+## Revalidação durante M2.12a
+
+Chamadas nativas novamente confirmaram somente Projeto Andre/projeto-andre1/team_4fdLDCsB0ROvP5ph50aFNvxm; a continuação da lista de equipes retornou zero. A listagem sem filtro de nome retornou andre-calculos/prj_tdmzmC6utVU2fHPz0iVhroMD8NtI. get_project confirmou a equipe e o mesmo deploy READY de produção dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7, com domínio project-rucji.vercel.app. get_project_url do Supabase dedicado retornou https://qtofwbxujshroaafxowr.supabase.co. Nenhuma mutação externa nessas consultas.
