@@ -24,6 +24,27 @@ export function eventLabel(kind: string, data?: unknown) {
     kind === "status_changed" &&
     data &&
     typeof data === "object" &&
+    "operation" in data &&
+    data.operation === "reject_quote"
+  )
+    return "Proposta recusada";
+  if (
+    kind === "status_changed" &&
+    data &&
+    typeof data === "object" &&
+    "operation" in data &&
+    "from" in data &&
+    "to" in data &&
+    typeof data.from === "string" &&
+    typeof data.to === "string" &&
+    Object.hasOwn(orderStateLabels, data.from) &&
+    Object.hasOwn(orderStateLabels, data.to)
+  )
+    return `${orderStateLabels[data.from as OrderState]} → ${orderStateLabels[data.to as OrderState]}`;
+  if (
+    kind === "status_changed" &&
+    data &&
+    typeof data === "object" &&
     "to" in data &&
     data.to === "queued"
   )
@@ -58,3 +79,7 @@ export function noteText(data: unknown): string | null {
     return null;
   return data.note;
 }
+import {
+  orderStateLabels,
+  type OrderState,
+} from "@/modules/orders/state-machine";

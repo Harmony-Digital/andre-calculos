@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-11",
+  "team_id": "team_4fdLDCsB0ROvP5ph50aFNvxm",
+  "project_id": "prj_tdmzmC6utVU2fHPz0iVhroMD8NtI",
+  "deployment_id": "dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7",
+  "deployment_state": "READY",
+  "target": "production",
+  "public_url": "https://project-rucji.vercel.app/demonstracao",
+  "source_sha": "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+  "artifact_sha256": "85d678b463ef38fe5d3e3ddfd36fe4fdf2cebf49c82cc85b9b808d56ba7a8859",
+  "source_files": 158,
+  "git_integration": false,
+  "health": {
+    "http_status": 200,
+    "status": "ok",
+    "version": "0.1.0",
+    "sha": "",
+    "region": "gru1"
+  },
+  "hosted_tests": {
+    "passed": 4,
+    "failed": 0,
+    "duration_seconds": 11.9,
+    "viewports": [
+      [
+        1440,
+        1000
+      ],
+      [
+        375,
+        812
+      ]
+    ],
+    "axe_tags": [
+      "wcag2a",
+      "wcag2aa",
+      "wcag21aa"
+    ],
+    "external_requests": 0,
+    "horizontal_overflow": false
+  },
+  "screenshots": [
+    "celular-01-apresentacao.png",
+    "celular-02-proposta.png",
+    "celular-03-linha-do-tempo.png",
+    "celular-04-entrega.png",
+    "computador-01-apresentacao.png",
+    "computador-02-proposta.png",
+    "computador-03-linha-do-tempo.png",
+    "computador-04-entrega.png"
+  ]
+}

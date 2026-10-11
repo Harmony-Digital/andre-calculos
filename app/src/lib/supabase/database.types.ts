@@ -738,7 +738,9 @@ export type Database = {
           internal_due_date: string | null;
           price_table_id: string | null;
           process_id: string;
+          resume_status: string | null;
           status: string;
+          status_revision: number;
           total_cents: number;
           updated_at: string;
           urgent: boolean;
@@ -756,7 +758,9 @@ export type Database = {
           internal_due_date?: string | null;
           price_table_id?: string | null;
           process_id: string;
+          resume_status?: string | null;
           status?: string;
+          status_revision?: number;
           total_cents?: number;
           updated_at?: string;
           urgent?: boolean;
@@ -774,7 +778,9 @@ export type Database = {
           internal_due_date?: string | null;
           price_table_id?: string | null;
           process_id?: string;
+          resume_status?: string | null;
           status?: string;
+          status_revision?: number;
           total_cents?: number;
           updated_at?: string;
           urgent?: boolean;
@@ -1350,6 +1356,20 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      reject_quote_system: {
+        Args: {
+          actor: string;
+          target_quote: string;
+          expected_context: string;
+          expected_revision: number;
+          request_id: string;
+          confirmed: boolean;
+          reason: string;
+          ip_address: string;
+          user_agent: string;
+        };
+        Returns: Json;
+      };
       accept_quote_system: {
         Args: {
           actor: string;
@@ -1505,6 +1525,15 @@ export type Database = {
       mutate_process_page_index: {
         Args: { payload: Json; request_id: string; target_process: string };
         Returns: string;
+      };
+      operate_order: {
+        Args: {
+          payload: Json;
+          request_id: string;
+          target_order: string;
+          target_process: string;
+        };
+        Returns: Json;
       };
       prepare_file_upload: {
         Args: {
