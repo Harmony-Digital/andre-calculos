@@ -34,6 +34,13 @@ const legal = () => ({
   terms_version: terms,
   privacy_version: privacy,
 });
+const fields = (name: string) => ({
+  full_name: name,
+  legal_name: name,
+  phone: "+5561999999999",
+  kind: "person",
+  document: "00000000191",
+});
 const identity = () => {
   const token = randomUUID();
   return {
@@ -82,7 +89,7 @@ async function denied(metadata?: Record<string, unknown>) {
   const result = await anon().auth.signUp({
     email,
     password,
-    options: metadata ? { data: { full_name: name, ...metadata } } : undefined,
+    options: metadata ? { data: { ...fields(name), ...metadata } } : undefined,
   });
   try {
     expect(result.error).not.toBeNull();
@@ -182,7 +189,7 @@ it("cadastro válido grava dois aceites e não aceita papel ou contrato dos meta
     password,
     options: {
       data: {
-        full_name: name,
+        ...fields(name),
         ...legal(),
         role: "admin",
         has_contract: true,
