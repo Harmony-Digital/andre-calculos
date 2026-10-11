@@ -11,7 +11,7 @@ Datas são absolutas e não se deslocam por fuso. Avisos de um/dois dias e atras
 Validação em 2026-10-11:
 
 - 24 testes específicos: nomes atuais, HTML/texto, referências, injeção, identificadores inválidos, destino arbitrário, datas civis/inválidas, identidade inválida, ausência de dados sensíveis e render repetido determinístico.
-- 403 unitários em 39 arquivos, doze testes de scripts e formato/lint/tipos aprovados no `npm run check`. Build local interrompido pelo ambiente na abertura de porta interna do Turbopack; a nova fonte precisa do build/check remoto antes do fechamento da tarefa.
+- 403 unitários em 39 arquivos, doze testes de scripts e formato/lint/tipos aprovados no `npm run check`. Build local interrompido pelo ambiente na abertura de porta interna do Turbopack; o npm run check/build completo da fonte d065be6f0ffdc2e1f42f015d766ee79430cd5096 passou no job qualidade 114555367460 do CI38168299312.
 - 32 testes Playwright aprovados em 10,2 s: 16 modelos em 375/1440 px. Cada render passou por teclado/foco, link esperado, viewport/largura, rodapé, axe A/AA e ausência de requisições HTTP.
 - 32 PNG inspecionados visualmente; títulos, código/data, CTA e rodapé legíveis, sem cortes ou sobreposições. Evidências em [celular](celular/) e [computador](computador/).
 - Revisão independente de conteúdo e rotas sem bloqueador concreto. Não houve transporte, banco, SMTP, cron ou integração de produção novo.
@@ -24,5 +24,7 @@ npm run check
 ```
 
 As capturas verificam renderização no Chromium, não recebimento nem compatibilidade visual em todos os clientes de e-mail. Resend, vínculo dos produtores adicionais, fila/dispatcher, destinatário autorizado, SMTP Auth e ensaio real pertencem a M2.28b/c; a tarefa M2.28 integral permanece aberta no plan.md.
+
+PR [#7](https://github.com/Harmony-Digital/andre-calculos/pull/7) em rascunho, dependente de #6/#5/#4/#3. O job e2e geral do mesmo CI permanece em execução; nenhuma dessas operações novas foi publicada na Vercel.
 
 O audit das dependências foi conferido separadamente em [audit-dependencias.md](../seguranca/audit-dependencias.md). Não foi executado `npm audit fix` nem downgrade automático.
