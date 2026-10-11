@@ -91,3 +91,7 @@ Chamadas reais após o consentimento:
 - create_deployment: código enviado ao recurso confirmado, pelo próprio MCP. get_deployment verificou o deploy final dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 em READY/production/gru1.
 
 O consentimento renovado seguido dos retornos reais comprovou a recuperação do acesso. A causa técnica exata do bloqueio anterior não foi demonstrada. A verificação de publicação, região e jornada está em docs/evidencias/demonstracao/README.md; o status fica no plan.md.
+
+## Revalidação posterior da conexão restrita ao projeto
+
+Após a confirmação humana “Concluí a autorização somente desse projeto”, as chamadas nativas atuais list_teams e list_projects (sem filtro de nome) confirmaram somente Projeto Andre/andre-calculos. A continuação da página de equipes retornou zero registros; projetos sem continuação. IDs esperados: team_4fdLDCsB0ROvP5ph50aFNvxm e prj_tdmzmC6utVU2fHPz0iVhroMD8NtI. get_project e list_deployments responderam sem erro e confirmaram dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 em READY/production, com os domínios project-rucji.vercel.app e andre-calculos-projeto-andre1.vercel.app. Nenhuma alteração externa foi necessária nessa revalidação.

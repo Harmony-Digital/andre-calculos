@@ -22,3 +22,5 @@ Verificações em 2026-10-11:
 Uma primeira suíte completa de banco teve 152 sucessos e oito timeouts no aceite com limite local de cinco segundos sob execução concorrente de build; repetições específica e completa sequenciais acima aprovadas. Um ensaio concorrente de dois wrappers colidiu as senhas de fixtures e foi descartado. Não houve alteração de asserções nem de timeout no código do CI.
 
 Somente dados fictícios, banco local, capturas PNG sem estado de sessão/trace/HAR. O cálculo técnico e a assinatura ICP-Brasil não são certificados por esta tarefa. O contexto contratual e a confirmação do saldo continuam sendo as duas preparações sintéticas documentadas em `docs/jornada-local.md`.
+
+Repetição completa do head do PR #3 no CI [38163315728](https://github.com/Harmony-Digital/andre-calculos/actions/runs/38163315728): ambos os jobs concluídos com sucesso em 2026-10-11, 117 e2e/sete omissões e advisors sem achados. Nenhuma publicação da nova fonte nesta execução.
