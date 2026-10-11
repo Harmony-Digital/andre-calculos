@@ -20,3 +20,7 @@ O Fábio cadastra os valores a partir do cofre de produção, depois de conferir
 `OP_SERVICE_ACCOUNT_TOKEN` e `HUB_API_KEY` não são variáveis da aplicação nem da Vercel. A chave pública nunca substitui a sessão do usuário; chaves privilegiadas não usam prefixo `NEXT_PUBLIC_`.
 
 Após cadastrar, validar `/api/health`, login, confirmação, recuperação de senha e isolamento entre dois usuários no destino. A existência das variáveis não comprova essas funções.
+
+Antes de liberar o cadastro, o Fábio confere no Auth do projeto dedicado: confirmação de e-mail obrigatória, senha mínima de 12 caracteres, Secure Email Change habilitado e SMTP próprio para os destinatários reais. Autorizar somente as origens e callbacks HTTPS do portal em produção e nos previews autorizados. Os limites ampliados de config.toml são exclusivos do Mailpit e dos testes locais.
+
+As versões de settings precisam corresponder ao conteúdo legal aprovado e exibido pelo app. A constante que começa por rascunho e as versões de fixture não ativam cadastro em produção. Concluir a revisão e o versionamento dos textos antes de alterar isso.

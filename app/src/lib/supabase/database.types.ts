@@ -88,6 +88,7 @@ export type Database = {
       clients: {
         Row: {
           created_at: string;
+          deletion_requested_at: string | null;
           document: string | null;
           has_contract: boolean;
           id: string;
@@ -98,6 +99,7 @@ export type Database = {
         };
         Insert: {
           created_at?: string;
+          deletion_requested_at?: string | null;
           document?: string | null;
           has_contract?: boolean;
           id?: string;
@@ -108,6 +110,7 @@ export type Database = {
         };
         Update: {
           created_at?: string;
+          deletion_requested_at?: string | null;
           document?: string | null;
           has_contract?: boolean;
           id?: string;
@@ -794,6 +797,7 @@ export type Database = {
       };
       profiles: {
         Row: {
+          city: string | null;
           created_at: string;
           full_name: string;
           id: string;
@@ -804,6 +808,7 @@ export type Database = {
           updated_at: string;
         };
         Insert: {
+          city?: string | null;
           created_at?: string;
           full_name?: string;
           id: string;
@@ -814,6 +819,7 @@ export type Database = {
           updated_at?: string;
         };
         Update: {
+          city?: string | null;
           created_at?: string;
           full_name?: string;
           id?: string;
@@ -1090,6 +1096,18 @@ export type Database = {
       };
       record_auth_audit: { Args: { event: string }; Returns: undefined };
       record_file_access: { Args: { target_file: string }; Returns: undefined };
+      request_account_deletion: { Args: never; Returns: string };
+      update_own_profile: {
+        Args: {
+          city: string;
+          full_name: string;
+          legal_name: string;
+          oab_number: string;
+          oab_state: string;
+          phone: string;
+        };
+        Returns: undefined;
+      };
     };
     Enums: {
       [_ in never]: never;

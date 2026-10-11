@@ -11,16 +11,17 @@ Nome provisório até a marca (D3).
 - **Fase:** M1 em andamento; autenticação e arquivos privados verificados localmente, com fluxos do M2 em construção.
 - **O que já existe:**
   - documentação organizada em `docs/`, Next.js 16.4/React 19.3 em `app/`, página pública, áreas provisórias do cliente e André, checklist de nove etapas e rascunhos legais;
-  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 186 testes unitários aprovados, cobertura do motor de preço 100%;
+  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 213 testes unitários aprovados, cobertura do motor de preço 100%;
   - sessão SSR com cookies HttpOnly, login/logout, papéis protegidos e pasta de documentos; navegador/axe verificados em 375 e 1440 px;
-  - quatro migrations locais, 21 tabelas com RLS, quatro usuários fictícios e um processo inventado; 16 testes reais de RLS aprovados e advisors locais sem achados;
+  - sete migrations locais, 21 tabelas com RLS, quatro usuários fictícios e um processo inventado; 17 testes reais de RLS aprovados e advisors locais sem achados;
   - upload TUS de 300 MiB retomado do offset de 12 MiB após interrupção da rede; SHA-256 conferido no servidor; download auditado por link de 120 s e acesso entre clientes negado;
-  - `npm run check` aprovado (186 unitários/build), 37 e2e aprovados/um ensaio grande omitido apenas no celular; `npm audit --omit=dev` sem achados em 2026-10-11;
+  - cadastro confirmado no Mailpit com versões legais sintéticas, perfil persistido, troca de senha com revogação no segundo dispositivo, exclusão solicitada sem apagar conta e aviso de cadastro enfileirado;
+  - `npm run check` aprovado (213 unitários/build), 41 e2e aprovados; três ensaios únicos (e-mail, cadastro/settings e 300 MiB) omitidos no projeto celular, com formulários/conta/arquivos menores verificados nas duas larguras; `npm audit --omit=dev` sem achados em 2026-10-11;
   - Docker/Colima exclusivos de `andre-calculos`, sem alterar o contexto global; Supabase local PostgreSQL 17 com serviços saudáveis e Auth health HTTP 200;
   - branch `feat/fundacao-portal`; remoto `Harmony-Digital/andre-calculos` ainda vazio e sem push;
   - conexão Vercel exclusiva autenticada na equipe `Projeto Andre` (`projeto-andre1`), conta `projetoandre.harmony@gmail.com`; nenhum projeto Vercel criado;
   - MCP `andre-calculos-supabase` registrado no Codex com `project_ref=qtofwbxujshroaafxowr`; OAuth dessa conexão aguarda login na conta do cliente. As ferramentas dedicadas ainda não estão expostas nesta sessão.
-- **Próximas tarefas do agente:** construir cadastro condicionado a textos aprovados (M2.04), conta (M2.06) e persistência do checklist (M2.08). Nenhuma alteração de nuvem sem conferir a conexão dedicada.
+- **Próximas tarefas do agente:** persistir e retomar o checklist (M2.08), preparar a gestão da tabela/configurações (M2.33) e os fluxos de proposta/pedido. Nenhuma alteração de nuvem sem conferir a conexão dedicada.
 - **Bloqueios externos:**
   - M1.10: revisão automática recusou retirar o áudio do primeiro commit sem aprovação específica do Fábio; áudio preservado e push bloqueado;
   - MCP Supabase dedicado aguarda login; planos Pro, integração GitHub/Vercel e dados reais do André ainda precisam de verificação/insumos;
@@ -117,7 +118,7 @@ Prazo sugerido: 2026-10-13
 
 - [x] M1.01 Criar as contas do cliente no Supabase e na Vercel — evidência: criadas pelo Fábio em 2026-10-10; projeto do Supabase `qtofwbxujshroaafxowr`
 - [x] M1.02 Conectar o projeto às contas certas e bloquear as contas de outros clientes — evidência: `.mcp.json` com `andre-calculos-supabase` (restrito ao projeto `qtofwbxujshroaafxowr`) e `andre-calculos-vercel`; `.claude/settings.json` bloqueia os MCPs de outras contas e os comandos que revelam segredos (bloqueio testado com `printenv` em 2026-10-10); hook `SessionStart` roda `scripts/preflight.sh` (testado: GitHub, repositório e 1Password OK)
-- [ ] M1.03 Aprovar os MCPs do projeto e fazer o login com as contas novas do cliente — responsável: Fábio
+- [ ] M1.03 Aprovar os MCPs do projeto e fazer o login com as contas novas do cliente — ⏳ OAuth Vercel autorizado na equipe Projeto Andre; Supabase dedicado aguardando login do Fábio
 - [ ] M1.04 Conferir os dois MCPs e registrar os identificadores do cliente — depende de M1.03
 - [ ] M1.05 Confirmar a região e o plano do Supabase e da Vercel — responsável: Fábio confirma no painel; o agente registra
 - [ ] M1.06 Confirmar a conta-mãe do cliente e guardar o acesso no cofre só de pessoas — responsável: Fábio; D16
@@ -149,7 +150,7 @@ Prazo sugerido: 2026-10-13
 
 - [x] M1.40 Montar o Supabase local com dados fictícios — evidência: scripts/seed-dev.ts cria quatro usuários @exemplo.com e processo inventado; 16 consultas/testes de RLS locais aprovados em 2026-10-11
 - [x] M1.41 Ligar o app ao Supabase com @supabase/ssr — evidência: páginas server leem perfil real; testes e2e confirmam cookies HttpOnly e ausência de tokens acessíveis ao JavaScript em 2026-10-11
-- [ ] M1.42 Criar as migrations iniciais com RLS — ⏳ quatro migrations locais aplicadas, 16 testes de RLS aprovados, advisors segurança/desempenho e db lint sem achados; falta aplicar/verificar na nuvem pela conexão dedicada
+- [ ] M1.42 Criar as migrations iniciais com RLS — ⏳ sete migrations locais aplicadas, 17 testes de RLS aprovados, advisors segurança/desempenho e db lint sem achados; falta aplicar/verificar na nuvem pela conexão dedicada
 - [x] M1.43 Configurar o login e os papéis cliente, calculista e admin — evidência: e2e login/logout/acesso negado em 375/1440 px aprovados; Auth verifica getUser e profiles.role, sem confiar no papel em metadata (2026-10-11)
 - [ ] M1.44 Configurar os buckets privados com upload retomável e URL assinada curta — ⏳ bucket local privado; ensaio real de 314572800 bytes retomou de 12582912 bytes, hash confirmado; download auditado/120 s e cliente B negado em ambas telas; falta configurar e verificar limite Pro na nuvem
 
@@ -180,19 +181,19 @@ Prazo sugerido: 2026-10-20
 
 ### Marca e site público
 
-- [ ] M2.01 Preparar o formulário de marca e gerar as opções de nome — responsável: o agente prepara; Fábio envia; André responde
+- [ ] M2.01 Preparar o formulário de marca e gerar as opções de nome — ⏳ formulário com 15 perguntas em docs/marca/formulario.md; aguardando respostas para propor nomes e verificar domínios
 - [ ] M2.02 Criar a página inicial — ⏳ prévia responsiva e axe aprovados; falta identidade/CRC, tabela ativa, textos de garantia e aprovação do André
 - [ ] M2.03 Escrever os termos de uso e a política de privacidade versão 1 — ⏳ rascunhos versionados e páginas locais verificadas; falta revisão jurídica, dados reais e registro de aceite em consents
 
 ### Cadastro e conta
 
-- [ ] M2.04 Criar o cadastro e o login do cliente — RF-10
-- [ ] M2.05 Avisar o André a cada novo cadastro — RF-11
-- [ ] M2.06 Criar a página da conta com perfil, senha e pedido de exclusão — RF-12
+- [ ] M2.04 Criar o cadastro e o login do cliente — ⏳ RF-10 implementado e e2e de confirmação Mailpit/login aprovado com dados e aceites sintéticos; CPF/CNPJ numérico e alfanumérico, E.164 e OAB/UF validados; cadastro público ainda bloqueado até conteúdo legal aprovado e Auth/SMTP de produção conferidos
+- [x] M2.05 Avisar o André a cada novo cadastro — evidência: e2e confirmou notificação new_signup na fila local, com nome/OAB/cidade e sem documento; destino configurado e preferências respeitados; envio real depende de M2.28/29 (2026-10-11)
+- [x] M2.06 Criar a página da conta com perfil, senha e pedido de exclusão — evidência: três fluxos e axe em 375/1440 px aprovados; perfil por RPC auditada, senha nova funciona e segundo dispositivo perde acesso; pedido idempotente preserva conta/retenção (17 testes RLS, 2026-10-11)
 
 ### Checklist e orçamento
 
-- [ ] M2.07 Receber do André a tabela de preços e os prazos — responsável: André; o agente prepara o questionário e os valores de exemplo
+- [ ] M2.07 Receber do André a tabela de preços e os prazos — ⏳ questionário em docs/precos/questionario.md e tabela de exemplo local inativa preparados; respostas e ativação da tabela real pelo André pendentes
 - [ ] M2.08 Criar o checklist trabalhista em etapas com schema versionado — ⏳ schema v1/CNJ e preenchimento de nove etapas aprovados em testes unitários/e2e; falta persistência e validação do André
 - [x] M2.09 Criar o motor de preço determinístico — evidência: testes de base/adicionais/urgência/arredondamento/limites; 100% das linhas e branches de pricing.ts executados em 2026-10-11
 - [ ] M2.10 Criar a calculadora de prazo processual em dias úteis — ⏳ calendário/folga e testes Carnaval/Páscoa/20-11/recesso aprovados; fontes em docs/calendario-processual.md; falta calendário oficial do TRT e conferência de três casos pelo André
@@ -1180,3 +1181,4 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-10 | Claude Code | Plano reescrito para execução por agentes: IDs em todas as tarefas, "Insumos pendentes", "Ordem de execução", especificação passo a passo de todas as tarefas do M1 e do M2, tarefa `.00` de detalhamento no M3 a M6, D17 (ambiente local). Contas do Supabase e da Vercel do cliente registradas como criadas. Constatado: Docker ausente; CLIs da Vercel e do Supabase logadas em outras contas | Insumos do Fábio e do André listados em "Insumos pendentes" |
 | 2026-10-11 | Codex | Documentação organizada (M1.11), fundação Next/rotas/fontes locais/health (M1.30–32); checklist/schema/CNJ, motores puros de preço/prazo/complexidade/estados; rascunhos legais; npm run check e 165 testes unitários aprovados, 22 e2e/axe em 375/1440 px; Colima exclusivo e Supabase local saudáveis; CI preparado | Não publicado; áudio bloqueado por revisão automática; OAuth do MCP Supabase dedicado aguardando login; migrations, seed e autenticação a seguir. npm audit --omit=dev sem achados; cinco alertas altos transitivos em ferramentas ESLint (braces sem versão corrigida disponível), registrar e acompanhar sem downgrade de Next. shadcn configurado pelo método manual para preservar os tokens próprios. |
 | 2026-10-11 | Codex | Seed fictício (M1.40), SSR/roles/login/logout (M1.41/43), quatro migrations locais com RLS, Storage privado, TUS assinado, hash no servidor e download auditado (M1.42/44 e M2.18/20 parciais); npm run check verde com 186 unitários, 37 e2e/axe aprovados e um ensaio de 300 MiB omitido só no celular; 16 testes RLS, advisors e SQL lint sem achados; npm audit --omit=dev sem achados; imagens em docs/evidencias/autenticacao-arquivos. CI preparado com Supabase local e nenhum segredo de produção (M1.24) | Nuvem intacta; OAuth Supabase dedicado e decisão sobre áudio continuam pendentes. Textos legais ainda não aprovados, cadastro público desabilitado. Especificações atualizadas: cookies HttpOnly e upload assinado por caminho sem JWT no navegador; Storage sem SELECT direto para exigir auditoria; limite 500 MB; dev-env mantém chaves só em memória conforme AGENTS §7.1. Template 1Password e lista de variáveis preparados, ensaio com cofre ainda pendente. |
+| 2026-10-11 | Codex | Cadastro/aceites versionados testados no Mailpit com fixture local (M2.04 parcial); perfil, senha, revogação em outro dispositivo e exclusão idempotente auditados (M2.06); aviso new_signup enfileirado sem CPF/CNPJ (M2.05); questionários de marca/preços preparados (M2.01/07 parciais). npm run check verde, 213 unitários, 17 RLS e 41 e2e aprovados, três ensaios únicos omitidos só no celular; advisors/lint SQL locais sem achados; imagens em docs/evidencias/cadastro-conta | Nuvem e publicação pendentes; rascunhos legais não liberam cadastro em produção. Fixture fixture-termos-v1/fixture-privacidade-v1 válida só com NODE_ENV não production, ANDRE_LOCAL_TESTS e URL local exata; settings restauradas no finally. Auth local passou a exigir confirmação e senha de 12 caracteres; limites ampliados servem apenas aos ensaios locais. CNPJ alfanumérico conforme manual da Receita Federal, vigente desde julho/2026. Próximo: persistência do checklist. |

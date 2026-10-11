@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { createSessionClient } from "@/lib/supabase/server";
 import { supabaseConfig } from "@/lib/supabase/config";
+import { portalOrigin } from "./origin";
 import { authorize } from "./session";
 import {
   emailSchema,
@@ -12,18 +13,6 @@ import {
   type AuthFormState,
 } from "./forms";
 
-function appUrl() {
-  const configured = process.env.APP_BASE_URL;
-  if (process.env.NODE_ENV === "production" && !configured)
-    throw new Error("Origem do portal indisponível.");
-  const url = new URL(configured ?? "http://127.0.0.1:3000");
-  if (
-    url.protocol !== "https:" &&
-    !["127.0.0.1", "localhost"].includes(url.hostname)
-  )
-    throw new Error("Origem do portal indisponível.");
-  return url.origin;
-}
 export async function login(
   _previous: AuthFormState,
   form: FormData,
@@ -48,7 +37,11 @@ export async function login(
     await supabase.auth.signOut();
     return { message: "Seu acesso precisa ser conferido pelo responsável." };
   }
-  await supabase.rpc("record_auth_audit", { event: "login" });
+  const audited = await supabase.rpc("record_auth_audit", { event: "login" });
+  if (audited.error) {
+    await supabase.auth.signOut({ scope: "local" });
+    return { message: "O acesso está temporariamente indisponível." };
+  }
   revalidatePath("/", "layout");
   redirect(
     safeReturnPath(
@@ -67,7 +60,7 @@ export async function requestLink(
     return { message: "O acesso está temporariamente indisponível." };
   const supabase = await createSessionClient();
   const recovery = form.get("intent") === "recovery";
-  const redirectTo = `${appUrl()}/auth/callback?next=${recovery ? "/nova-senha" : "/app"}`;
+  const redirectTo = `${portalOrigin()}/auth/callback?next=${recovery ? "/nova-senha" : "/app"}`;
   if (recovery)
     await supabase.auth.resetPasswordForEmail(parsed.data.email, {
       redirectTo,
@@ -102,6 +95,11 @@ export async function changePassword(
       message:
         "Não foi possível atualizar a senha. Solicite um novo link e tente novamente.",
     };
+  const audited = await supabase.rpc("record_auth_audit", {
+    event: "password_changed",
+  });
+  if (audited.error)
+    throw new Error("Não foi possível registrar a alteração de senha.");
   await supabase.auth.signOut({ scope: "global" });
   redirect("/entrar?senha=atualizada");
 }

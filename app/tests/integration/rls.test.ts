@@ -40,6 +40,7 @@ afterAll(async () => {
     const system = createClient(url, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
       auth: { persistSession: false },
     });
+    await system.from("audit_log").delete().eq("actor_id", disposableId);
     await system.from("clients").delete().eq("owner_id", disposableId);
     await system.auth.admin.deleteUser(disposableId);
   }
@@ -103,23 +104,56 @@ describe("RLS com sessões reais", () => {
       ).error?.code,
     ).toBe("42501");
   });
-  it("cliente só atualiza campos permitidos do próprio perfil", async () => {
+  it("perfil é atualizado por RPC auditada, sem update direto", async () => {
     const {
       data: { user },
     } = await sessions.a.auth.getUser();
-    const change = await sessions.a
-      .from("profiles")
-      .update({ full_name: "Cliente A de teste" })
-      .eq("id", user!.id)
-      .select("id");
-    expect(change.error).toBeNull();
-    expect(change.data).toHaveLength(1);
-    const other = await sessions.b
-      .from("profiles")
-      .update({ full_name: "Não permitido" })
-      .eq("id", user!.id)
-      .select("id");
-    expect(other.data).toEqual([]);
+    const result = await sessions.a.rpc("update_own_profile", {
+      full_name: "Cliente A de teste",
+      phone: "+5561999999999",
+      oab_number: "",
+      oab_state: "",
+      city: "Cidade fictícia",
+      legal_name: "Cliente A de teste",
+    });
+    expect(result.error).toBeNull();
+    expect(
+      (
+        await sessions.a
+          .from("profiles")
+          .update({ full_name: "Sem auditoria" })
+          .eq("id", user!.id)
+      ).error?.code,
+    ).toBe("42501");
+    expect(
+      (
+        await sessions.b
+          .from("profiles")
+          .update({ full_name: "Não permitido" })
+          .eq("id", user!.id)
+      ).error?.code,
+    ).toBe("42501");
+    expect(
+      (
+        await sessions.a
+          .from("profiles")
+          .select("full_name")
+          .eq("id", user!.id)
+          .single()
+      ).data?.full_name,
+    ).toBe("Cliente A de teste");
+    expect(
+      (
+        await client().rpc("update_own_profile", {
+          full_name: "Acesso anônimo",
+          phone: "+5561999999999",
+          oab_number: "",
+          oab_state: "",
+          city: "",
+          legal_name: "Não permitido",
+        })
+      ).error,
+    ).not.toBeNull();
   });
   it("admin acessa configurações e finanças, mas não conteúdo de processos", async () => {
     expect(
@@ -171,5 +205,38 @@ describe("RLS com sessões reais", () => {
       .eq("id", disposableId)
       .single();
     expect(result.data?.role).toBe("client");
+  });
+  it("pedido de exclusão é idempotente e não apaga a conta", async () => {
+    const system = createClient(url, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
+      auth: { persistSession: false },
+    });
+    const fixture = await system.auth.admin.getUserById(disposableId!);
+    const own = client();
+    expect(
+      (
+        await own.auth.signInWithPassword({
+          email: fixture.data.user!.email!,
+          password,
+        })
+      ).error,
+    ).toBeNull();
+    const first = await own.rpc("request_account_deletion"),
+      second = await own.rpc("request_account_deletion");
+    expect(first.error).toBeNull();
+    expect(second.data).toBe(first.data);
+    expect(
+      (
+        await system
+          .from("audit_log")
+          .select("id")
+          .eq("actor_id", disposableId!)
+          .eq("action", "account_deletion_requested")
+      ).data,
+    ).toHaveLength(1);
+    expect((await own.auth.getUser()).data.user?.id).toBe(disposableId);
+    expect(
+      (await sessions.admin.rpc("request_account_deletion")).error,
+    ).not.toBeNull();
+    await own.auth.signOut();
   });
 });
