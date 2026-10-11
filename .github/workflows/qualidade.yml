@@ -32,6 +32,7 @@ jobs:
         env:
           AUDIT_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
           AUDIT_CHECKOUT_SHA: ${{ github.sha }}
+          AUDIT_INSPECT_EXTERNALIZED: "1"
         run: |
           mkdir -p ../.data/ci
           node ../scripts/inventariar-build.mjs > ../.data/ci/build-dependencies.json
