@@ -6,8 +6,11 @@ export default async function Folder({
   searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ aba?: string }>;
+  searchParams: Promise<{ aba?: string; antes?: string }>;
 }) {
   const { id } = await params;
-  return <ProcessFolder id={id} tab={processTab((await searchParams).aba)} />;
+  const search = await searchParams;
+  return (
+    <ProcessFolder id={id} tab={processTab(search.aba)} before={search.antes} />
+  );
 }

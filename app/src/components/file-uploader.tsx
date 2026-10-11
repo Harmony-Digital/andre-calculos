@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useId } from "react";
 import { useRouter } from "next/navigation";
 import Uppy from "@uppy/core";
 import Tus from "@uppy/tus";
@@ -9,12 +9,15 @@ import { hashFile } from "@/modules/files/hash";
 export function FileUploader({
   processId,
   allowTriage = false,
+  fixedFolder,
 }: {
   processId: string;
   allowTriage?: boolean;
+  fixedFolder?: "client";
 }) {
   const router = useRouter();
   const uploader = useRef<Uppy | null>(null);
+  const titleId = useId();
   const [folder, setFolder] = useState<"case" | "client" | "triage">("case");
   const [busy, setBusy] = useState(false),
     [paused, setPaused] = useState(false),
@@ -51,7 +54,7 @@ export function FileUploader({
         mime,
         size: file.size,
         sha256,
-        folder,
+        folder: fixedFolder ?? folder,
       });
       if (prepared.error || !prepared.fileId) {
         setMessage(prepared.error ?? "Envio indisponível.");
@@ -123,24 +126,35 @@ export function FileUploader({
     }
   }
   return (
-    <section className="upload-box" aria-labelledby="upload-title">
-      <h2 id="upload-title">Enviar documento do processo</h2>
+    <section className="upload-box" aria-labelledby={titleId}>
+      <h2 id={titleId}>
+        {fixedFolder
+          ? "Enviar anexo da mensagem"
+          : "Enviar documento do processo"}
+      </h2>
       <p>
         PDF, imagens, XLSX, CSV, DOCX ou PJC, até 500 MB. O arquivo fica privado
         nesta pasta.
       </p>
-      <label className="upload-folder">
-        Pasta de destino
-        <select
-          value={folder}
-          disabled={busy}
-          onChange={(event) => setFolder(event.target.value as typeof folder)}
-        >
-          <option value="case">Processo</option>
-          <option value="client">Documentos do cliente</option>
-          {allowTriage && <option value="triage">Triagem</option>}
-        </select>
-      </label>
+      {fixedFolder ? (
+        <p>
+          Destino: Documentos do cliente. Depois do envio, selecione o arquivo
+          na mensagem.
+        </p>
+      ) : (
+        <label className="upload-folder">
+          Pasta de destino
+          <select
+            value={folder}
+            disabled={busy}
+            onChange={(event) => setFolder(event.target.value as typeof folder)}
+          >
+            <option value="case">Processo</option>
+            <option value="client">Documentos do cliente</option>
+            {allowTriage && <option value="triage">Triagem</option>}
+          </select>
+        </label>
+      )}
       <label className="button button-secondary">
         Escolher arquivo
         <input

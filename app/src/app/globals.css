@@ -842,6 +842,77 @@ h2 {
   margin: 16px 0;
   max-width: 300px;
 }
+.message-form {
+  margin: 22px 0 30px;
+}
+.message-form > label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.message-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  min-height: 130px;
+  resize: vertical;
+}
+.message-attachments {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 16px;
+  margin: 18px 0;
+}
+.message-attachments legend {
+  padding: 0 6px;
+  font-weight: 600;
+}
+.message-attachments label {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+  align-items: start;
+  overflow-wrap: anywhere;
+}
+.message-attachments input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+}
+.message-submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+.message-submit span {
+  color: var(--muted-foreground);
+  font-size: 14px;
+}
+.message-upload {
+  margin: 20px 0;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 14px;
+}
+.message-upload summary {
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: 600;
+  padding: 8px 0;
+}
+.message-upload .upload-box {
+  margin: 16px 0 0;
+}
+.message-history-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 20px 0;
+}
 @media (max-width: 600px) {
   .process-tabs a {
     font-size: 14px;

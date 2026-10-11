@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { authorize, getSessionProfile } from "@/modules/auth/session";
 import { createSessionClient } from "@/lib/supabase/server";
 import type { ProcessTab } from "./tabs";
+import { messageCursor, encodeMessageCursor } from "@/modules/messages/cursor";
 export async function listProcesses() {
   await authorize(["client", "calculator"]);
   const supabase = await createSessionClient();
@@ -14,7 +15,11 @@ export async function listProcesses() {
   if (error) throw new Error("Não foi possível carregar os processos.");
   return data;
 }
-export async function getProcess(id: string, tab: ProcessTab = "documentos") {
+export async function getProcess(
+  id: string,
+  tab: ProcessTab = "documentos",
+  before?: string,
+) {
   const session = await getSessionProfile();
   if (!session || !["client", "calculator"].includes(session.profile.role))
     notFound();
@@ -27,6 +32,23 @@ export async function getProcess(id: string, tab: ProcessTab = "documentos") {
     .eq("id", id)
     .single();
   if (error || !data) notFound();
+  let cursor;
+  try {
+    cursor = messageCursor(tab === "mensagens" ? before : undefined);
+  } catch {
+    notFound();
+  }
+  let messageQuery = supabase
+    .from("messages")
+    .select("id,author_id,body,attachment_ids,created_at")
+    .eq("process_id", id)
+    .order("created_at", { ascending: false })
+    .order("id", { ascending: false })
+    .limit(51);
+  if (cursor)
+    messageQuery = messageQuery.or(
+      `created_at.lt.${cursor.date},and(created_at.eq.${cursor.date},id.lt.${cursor.id})`,
+    );
   const [files, orders, messages, decisions, index, events] = await Promise.all(
     [
       supabase
@@ -43,12 +65,7 @@ export async function getProcess(id: string, tab: ProcessTab = "documentos") {
             .order("created_at", { ascending: false })
         : Promise.resolve({ data: [], error: null }),
       tab === "mensagens"
-        ? supabase
-            .from("messages")
-            .select("id,author_id,body,attachment_ids,created_at")
-            .eq("process_id", id)
-            .order("created_at", { ascending: false })
-            .limit(100)
+        ? messageQuery
         : Promise.resolve({ data: [], error: null }),
       tab === "decisoes"
         ? supabase
@@ -92,7 +109,7 @@ export async function getProcess(id: string, tab: ProcessTab = "documentos") {
     ]),
   ];
   const profiles = authorIds.length
-    ? await supabase.from("profiles").select("id,full_name").in("id", authorIds)
+    ? await supabase.rpc("get_process_participants", { target_process: id })
     : { data: [], error: null };
   if (profiles.error)
     throw new Error("Não foi possível carregar os responsáveis.");
@@ -101,12 +118,16 @@ export async function getProcess(id: string, tab: ProcessTab = "documentos") {
     role: session.profile.role,
     files: files.data ?? [],
     orders: orders.data ?? [],
-    messages: messages.data ?? [],
+    messages: (messages.data ?? []).slice(0, 50).reverse(),
+    olderMessages:
+      (messages.data?.length ?? 0) > 50
+        ? encodeMessageCursor(messages.data![49])
+        : null,
     decisions: decisions.data ?? [],
     index: index.data ?? [],
     events: events.data ?? [],
     authors: new Map(
-      (profiles.data ?? []).map((row) => [row.id, row.full_name]),
+      (profiles.data ?? []).map((row) => [row.profile_id, row.display_name]),
     ),
   };
 }

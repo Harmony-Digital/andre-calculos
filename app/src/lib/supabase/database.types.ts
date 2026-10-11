@@ -1108,6 +1108,14 @@ export type Database = {
           terms_version: string;
         }[];
       };
+      get_process_participants: {
+        Args: { target_process: string };
+        Returns: {
+          display_name: string;
+          participant_role: string;
+          profile_id: string;
+        }[];
+      };
       get_public_service_info: {
         Args: never;
         Returns: {
@@ -1173,6 +1181,15 @@ export type Database = {
       save_service_settings: {
         Args: { expected_revision: number; payload: Json };
         Returns: number;
+      };
+      send_process_message: {
+        Args: {
+          attachments: string[];
+          message_body: string;
+          request_id: string;
+          target_process: string;
+        };
+        Returns: string;
       };
       update_own_profile: {
         Args: {

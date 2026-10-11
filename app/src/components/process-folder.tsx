@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { randomUUID } from "node:crypto";
 import { Clock3, FileText, ClipboardList } from "lucide-react";
 import { getProcess } from "@/modules/processes/queries";
 import { processTabs, type ProcessTab } from "@/modules/processes/tabs";
@@ -9,6 +10,7 @@ import {
 import { calculationLabels } from "@/modules/checklist/v1";
 import { FileUploader } from "./file-uploader";
 import { PdfViewer } from "./pdf-viewer";
+import { MessageComposer } from "./message-composer";
 const folders = {
   case: "Processo",
   client: "Documentos do cliente",
@@ -48,12 +50,14 @@ export async function ProcessFolder({
   id,
   panel = false,
   tab = "documentos",
+  before,
 }: {
   id: string;
   panel?: boolean;
   tab?: ProcessTab;
+  before?: string;
 }) {
-  const data = await getProcess(id, tab),
+  const data = await getProcess(id, tab, before),
     { process, files } = data;
   const base = `${panel ? "/painel" : "/app"}/processos/${id}`;
   const cnj = process.cnj_number.replace(
@@ -204,6 +208,34 @@ export async function ProcessFolder({
         <section className="panel process-section">
           <h2>Mensagens</h2>
           <p>A conversa deste processo fica nesta pasta.</p>
+          {!before && (
+            <>
+              <details className="message-upload">
+                <summary>Adicionar novo anexo</summary>
+                <FileUploader processId={id} fixedFolder="client" />
+              </details>
+              <MessageComposer
+                processId={id}
+                requestId={randomUUID()}
+                files={files.filter((file) => file.folder === "client")}
+              />
+            </>
+          )}
+          <div className="message-history-links">
+            {before && (
+              <Link className="text-link" href={`${base}?aba=mensagens`}>
+                Voltar às mensagens recentes
+              </Link>
+            )}
+            {data.olderMessages && (
+              <Link
+                className="text-link"
+                href={`${base}?aba=mensagens&antes=${encodeURIComponent(data.olderMessages)}`}
+              >
+                Ver mensagens anteriores
+              </Link>
+            )}
+          </div>
           {!data.messages.length ? (
             <p>Nenhuma mensagem enviada.</p>
           ) : (

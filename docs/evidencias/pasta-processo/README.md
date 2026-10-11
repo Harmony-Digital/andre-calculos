@@ -16,4 +16,4 @@ Dois PDFs sintéticos de duas páginas foram renderizados e inspecionados, inclu
 
 Um PDF sintético acima de 6 MiB foi transmitido integralmente e visualizado com requisições por intervalo. Isto confirma a implementação local; não confirma 500 MB na Vercel. A [documentação oficial da Vercel](https://vercel.com/kb/guide/how-to-bypass-vercel-body-size-limit-serverless-functions) permite respostas streaming acima de 4,5 MB, mas duração, memória, banda e conexão lenta ainda precisam de ensaio hospedado.
 
-Os conteúdos das abas Mensagens, Decisões e Índice são projeções de leitura. As próximas entregas e pendências ficam somente no `plan.md`.
+Neste ensaio de M2.20, Mensagens, Decisões e Índice tinham projeções de leitura. A verificação posterior dos formulários de mensagens está em `../mensagens/README.md`; as entregas e pendências ficam somente no `plan.md`.
