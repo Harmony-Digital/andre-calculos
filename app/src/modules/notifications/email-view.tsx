@@ -26,9 +26,15 @@ const textStyle = {
 export function TransactionalEmail({
   content,
   brand,
+  actionLabel = "Abrir portal",
+  guidance = "Entre com sua conta para consultar os detalhes com segurança.",
+  alternativeLinkLabel,
 }: {
   content: EmailContent;
   brand: EmailBrand;
+  actionLabel?: string;
+  guidance?: string;
+  alternativeLinkLabel?: string;
 }) {
   return (
     <Html lang="pt-BR">
@@ -43,8 +49,9 @@ export function TransactionalEmail({
           }
         `}</style>
       </Head>
-      <Preview>{content.message}</Preview>
+      <Preview useTitleTag={false}>{content.message}</Preview>
       <Body
+        lang="pt-BR"
         style={{
           backgroundColor: "#fbfaf6",
           margin: "0",
@@ -155,7 +162,7 @@ export function TransactionalEmail({
                   textDecoration: "none",
                 }}
               >
-                Abrir portal
+                {actionLabel}
               </Button>
               <Text
                 style={{
@@ -166,8 +173,17 @@ export function TransactionalEmail({
                   margin: "22px 0 0",
                 }}
               >
-                Entre com sua conta para consultar os detalhes com segurança.
+                {guidance}
               </Text>
+              {alternativeLinkLabel && (
+                <Text
+                  style={{ ...textStyle, fontSize: "14px", margin: "18px 0 0" }}
+                >
+                  <a href={content.href} style={{ color: green }}>
+                    {alternativeLinkLabel}
+                  </a>
+                </Text>
+              )}
             </main>
           </Section>
           <Hr style={{ borderColor: border, margin: "0" }} />

@@ -14,6 +14,7 @@
     "test:e2e": "playwright test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "prepare:auth-emails": "tsx --tsconfig tsconfig.json scripts/prepare-auth-templates.ts",
     "test:scripts": "bash -n ../scripts/sincronizar-vercel.sh && prettier --check ../scripts/sincronizar-vercel.mjs ../scripts/sincronizar-vercel.test.mjs && node --test ../scripts/sincronizar-vercel.test.mjs && prettier --check ../scripts/inventariar-build.mjs ../scripts/inventariar-build.test.mjs && node --test ../scripts/inventariar-build.test.mjs",
     "check": "npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run test:scripts && npm run build",
     "test:rls": "vitest run --config vitest.rls.config.mts"
@@ -50,6 +51,7 @@
     "@tailwindcss/turbopack": "^4",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
+    "@types/jsdom": "30.0.0",
     "@types/node": "^22.20.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",

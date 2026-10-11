@@ -31,6 +31,8 @@ for (const template of emailTemplates) {
       }),
     );
     await page.setContent(html);
+    await expect(page.locator("body")).toHaveAttribute("lang", "pt-BR");
+    await expect(page.locator("title")).toHaveCount(1);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       content.heading,
     );
