@@ -31,6 +31,9 @@ it("filtro aceita só os tipos declarados e não interpreta HTML das notas", () 
     expect(() => eventFilter(value)).toThrow();
   expect(eventLabel("checklist_draft_saved")).toBe("Checklist salvo");
   expect(eventLabel("desconhecido")).toBe("Atividade registrada");
+  expect(eventLabel("status_changed", { from: "quoted", to: "queued" })).toBe(
+    "Pedido entrou na fila",
+  );
   expect(noteText({ note: "<script>texto</script>" })).toBe(
     "<script>texto</script>",
   );

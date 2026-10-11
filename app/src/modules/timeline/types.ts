@@ -24,6 +24,14 @@ export function eventLabel(kind: string, data?: unknown) {
     kind === "status_changed" &&
     data &&
     typeof data === "object" &&
+    "to" in data &&
+    data.to === "queued"
+  )
+    return "Pedido entrou na fila";
+  if (
+    kind === "status_changed" &&
+    data &&
+    typeof data === "object" &&
     "release_policy" in data &&
     ["before_balance", "after_balance"].includes(String(data.release_policy))
   )

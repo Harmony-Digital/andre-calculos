@@ -33,7 +33,7 @@ Valores ficam em centavos. Sinal é metade arredondada para cima; saldo é o res
 
 Cliente proprietário consulta `/app/orcamentos/[id]`; calculista consulta `/painel/orcamentos/[id]`. A pasta do processo aponta para a proposta. Retomar um rascunho já convertido abre sua proposta.
 
-`GET /api/quotes/[id]/pdf` deriva somente do snapshot, exige sessão de cliente proprietário ou calculista e audita a solicitação. Outro cliente, admin operacional e visitante recebem 404. A resposta usa `private, no-store`, `no-referrer` e `nosniff`. Falha de renderização retorna 503 sem detalhes internos e permite repetir o download sem criar outra proposta.
+`GET /api/quotes/[id]/pdf` deriva somente do snapshot imutável da proposta ou do contexto contratual preparado, exige sessão de cliente proprietário ou calculista e audita a solicitação. Outro cliente, admin operacional e visitante recebem 404. A resposta usa `private, no-store`, `no-referrer` e `nosniff`. Falha de renderização retorna 503 sem detalhes internos e permite repetir o download sem criar outra proposta.
 
 O arquivo inclui responsável, CRC/categoria/contato, itens, total/sinal/saldo, validade, datas e condições. Fontes são locais. Rodapé estático e numeração ficam separados, sem `lineHeight` numérico: esta versão do renderizador reaplica o multiplicador ao repetir elementos entre páginas. Textos indivisíveis recebem quebras visuais sem alterar o snapshot.
 
@@ -47,4 +47,18 @@ O payload inclui somente identificadores da proposta/pedido/processo, número, c
 
 Os testes positivos deste gancho usam propostas legadas sintéticas com snapshot vazio, em pedidos exclusivos no banco local. Isso verifica a fila sem permitir snapshots comerciais pela RPC ou flexibilizar o CHECK. A emissão comercial continua dependente dos insumos protegidos de calendário, período e capacidade.
 
-Aceite/recusa ficam desabilitados na simulação. A contratação e instruções de pagamento seguem seus casos de uso específicos; o andamento fica somente no `plan.md`.
+## Aceite eletrônico
+
+O preparo contratual fica em `private.quote_contract_contexts`: proposta completa, termos e informação de privacidade integrais, versões e hashes. O futuro emissor comercial deverá criá-lo junto da proposta e da reserva de agenda. A aplicação não tem permissão direta de preparo; somente testes locais criam contextos sintéticos por PostgreSQL. Propostas legadas sem contexto não recebem aceite. As guardas da emissão fictícia permanecem intactas.
+
+Cliente proprietário confirma explicitamente a contratação na proposta. A action deriva o usuário da sessão e os metadados dos headers HTTP; nenhum preço, identidade ou metadado é aceito do formulário. O primeiro IP de `x-forwarded-for` deve ser um endereço completo válido. Ele registra a origem HTTP; não determina identidade nem autorização. A implantação deve conservar o comportamento do proxy para esse header.
+
+`accept_quote_system` usa o hash do contexto exibido e um UUID estável da tentativa. Preserva número, conteúdo, versões legais, usuário, instante, IP e user agent em recibo privado imutável. Reenvio recupera o recibo anterior, antes de conferir a configuração atual; não desfaz estados posteriores. Uma solicitação não pode mudar de proposta ou conteúdo.
+
+Sem contrato, o pedido aguarda sinal. Com contrato, aguarda documentos ou entra na fila se houver documento mínimo confirmado do processo. O primeiro upload confirmado após o aceite libera a fila dos pedidos elegíveis, mantendo o recibo original; documento ligado a um pedido só libera esse pedido, documento geral atende os pedidos elegíveis do processo. A condição registrada esclarece a dispensa do sinal e o valor total para pagamento no final. Documento de entrega, pendente ou com hash divergente não satisfaz essa condição. A regra RF-34 exige aceite, sinal ou contrato e documento; um contrato sozinho não libera a fila.
+
+Estado, recibo, projeção na proposta, histórico, auditoria e avisos são transacionais. A confirmação do upload segue cliente, pedidos ordenados e arquivo, evitando inversão dos locks do aceite. Perda de resposta do upload oferece “Confirmar envio” com o mesmo arquivo; a RPC recupera o registro sem duplicar eventos ou avisos. O cliente recebe aviso por e-mail; André recebe conforme suas preferências. Entrada na fila gera também o aviso correspondente. Os payloads não carregam documentos, conteúdo dos termos, IP ou user agent. Enfileirar não significa enviar: o dispatcher e os provedores têm seus próprios controles.
+
+A pasta lista propostas com contexto por um getter de IDs autorizado, sem carregar os textos legais na listagem. O calculista consulta o recibo e os documentos na proposta, sem botão de aceite. Recarga e perda de resposta preservam a contratação registrada.
+
+Aceite/recusa ficam desabilitados na simulação; recusa ainda depende de seu caso de uso. Propostas reais exigem conteúdo comercial protegido e textos legais aprovados. A preparação é ensaiada com dados sintéticos em [conferência do aceite](evidencias/propostas/aceite.md). Instruções de pagamento seguem M2.16; o andamento fica somente no `plan.md`.

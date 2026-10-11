@@ -1518,6 +1518,18 @@ h2 {
 .quote-page .preserve-lines {
   overflow-wrap: anywhere;
 }
+.quote-legal {
+  margin-block: 16px;
+}
+.quote-legal summary {
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+}
+.quote-legal summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
 .quote-items {
   list-style: none;
   padding: 0;

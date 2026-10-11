@@ -24,6 +24,7 @@ export function FileUploader({
     "case" | "client" | "triage" | "deliverables"
   >("case");
   const [busy, setBusy] = useState(false),
+    [confirmationFile, setConfirmationFile] = useState<string | null>(null),
     [paused, setPaused] = useState(false),
     [progress, setProgress] = useState(0),
     [message, setMessage] = useState("");
@@ -39,12 +40,34 @@ export function FileUploader({
       uploader.current?.destroy();
     };
   }, []);
+  async function verify(fileId: string) {
+    setBusy(true);
+    setPaused(false);
+    setMessage("Conferindo a integridade do arquivo…");
+    try {
+      const completed = await completeUpload(fileId);
+      if (completed.error) {
+        setConfirmationFile(fileId);
+        setMessage(completed.error);
+        return;
+      }
+      setConfirmationFile(null);
+      setMessage("Arquivo enviado e integridade confirmada.");
+      router.refresh();
+    } catch {
+      setConfirmationFile(fileId);
+      setMessage("Não foi possível conferir o envio. Tente novamente.");
+    } finally {
+      setBusy(false);
+    }
+  }
   async function send(file: File) {
     if (file.size < 1 || file.size > maxFileBytes) {
       setMessage("Escolha um arquivo de até 500 MB.");
       return;
     }
     setBusy(true);
+    setConfirmationFile(null);
     setProgress(0);
     setMessage("Preparando envio…");
     try {
@@ -94,22 +117,7 @@ export function FileUploader({
         setMessage("O envio foi interrompido. Retome para continuar.");
       });
       uppy.on("upload-success", async () => {
-        try {
-          setMessage("Conferindo a integridade do arquivo…");
-          const completed = await completeUpload(prepared.fileId);
-          setBusy(false);
-          setPaused(false);
-          if (completed.error) {
-            setMessage(completed.error);
-            return;
-          }
-          setMessage("Arquivo enviado e integridade confirmada.");
-          router.refresh();
-        } catch {
-          setBusy(false);
-          setPaused(false);
-          setMessage("Não foi possível conferir o envio. Tente novamente.");
-        }
+        await verify(prepared.fileId);
       });
       uppy.addFile({
         name: file.name,
@@ -177,6 +185,15 @@ export function FileUploader({
           }}
         />
       </label>
+      {confirmationFile && !busy && (
+        <button
+          type="button"
+          className="button button-secondary"
+          onClick={() => void verify(confirmationFile)}
+        >
+          Confirmar envio
+        </button>
+      )}
       {busy && (
         <>
           <progress

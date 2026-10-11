@@ -141,7 +141,11 @@ export async function ProcessFolder({
                     </Link>
                   )}
                   {order.quotes
-                    .filter((quote) => quote.proposal_snapshot)
+                    .filter(
+                      (quote) =>
+                        quote.proposal_snapshot ||
+                        data.contractQuoteIds.has(quote.id),
+                    )
                     .map((quote) => (
                       <p key={quote.id}>
                         <Link

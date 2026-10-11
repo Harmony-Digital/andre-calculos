@@ -57,6 +57,7 @@ export async function confirmDelivery(
           quoteAccepted: false,
           depositConfirmed: false,
           hasContract: false,
+          minimumDocumentPresent: false,
           balanceConfirmed: false,
           calculatorReviewed: v.reviewed,
           deliveryComplete:

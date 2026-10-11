@@ -53,7 +53,7 @@ export async function completeUpload(fileId: string) {
   const { data: file, error } = await session
     .from("files")
     .select(
-      "id,path,process_id,size_bytes,expected_sha256,uploaded_by,upload_status",
+      "id,path,process_id,size_bytes,expected_sha256,sha256,uploaded_by,upload_status",
     )
     .eq("id", fileId)
     .single();
@@ -61,11 +61,25 @@ export async function completeUpload(fileId: string) {
     error ||
     !file ||
     file.uploaded_by !== user.id ||
-    file.upload_status !== "pending"
+    !["pending", "uploaded"].includes(file.upload_status)
   )
     return { error: "Envio indisponível." };
   // A permissão foi conferida com o JWT do usuário antes do cliente de sistema.
   const system = createSystemClient();
+  // Recupera a confirmação anterior sem baixar nem registrar o arquivo de novo.
+  if (file.upload_status === "uploaded") {
+    const replay = await system.rpc("complete_file_system", {
+      target_file: file.id,
+      actor: user.id,
+      observed_hash: file.sha256 ?? "",
+      observed_size: file.size_bytes,
+    });
+    if (replay.error)
+      return { error: "Não foi possível conferir o envio anterior." };
+    revalidatePath(`/app/processos/${file.process_id}`);
+    revalidatePath(`/painel/processos/${file.process_id}`);
+    return { success: true };
+  }
   const signed = await system.storage
     .from("processos")
     .createSignedUrl(file.path, 120);

@@ -137,6 +137,37 @@ test("salva dados profissionais, ativa preços e conserva histórico", async ({
     await priceForm.getByLabel("Esta é uma tabela de exemplo").uncheck();
     await priceForm.getByLabel("Confirmo que o André validou").check();
     await priceForm
+      .getByLabel("Cálculo inicial (R$)", { exact: true })
+      .fill("150,001");
+    await priceForm
+      .getByRole("button", { name: "Salvar e ativar nova versão" })
+      .click();
+    await expect(priceForm.getByRole("alert")).toHaveText(
+      "Confira os campos indicados.",
+    );
+    await expect(
+      priceForm.getByLabel("Esta é uma tabela de exemplo"),
+    ).not.toBeChecked();
+    await expect(
+      priceForm.getByLabel("Confirmo que o André validou"),
+    ).toBeChecked();
+    await expect(
+      priceForm.getByLabel("Cálculo inicial (R$)", { exact: true }),
+    ).toHaveValue("150,001");
+    expect(
+      (
+        await db
+          .from("price_tables")
+          .select("version")
+          .order("version", { ascending: false })
+          .limit(1)
+          .single()
+      ).data!.version,
+    ).toBe(example.version);
+    await priceForm
+      .getByLabel("Cálculo inicial (R$)", { exact: true })
+      .fill("150,01");
+    await priceForm
       .getByRole("button", { name: "Salvar e ativar nova versão" })
       .click();
     await expect(priceForm.getByRole("status")).toContainText("ativada");
@@ -158,6 +189,9 @@ test("salva dados profissionais, ativa preços e conserva histórico", async ({
       .getByLabel("Cálculo inicial (R$)", { exact: true })
       .fill("999,99");
     await priceForm.getByLabel("Esta é uma tabela de exemplo").uncheck();
+    await expect(
+      priceForm.getByLabel("Confirmo que o André validou"),
+    ).not.toBeChecked();
     await priceForm.getByLabel("Confirmo que o André validou").check();
     await priceForm
       .getByRole("button", { name: "Salvar e ativar nova versão" })

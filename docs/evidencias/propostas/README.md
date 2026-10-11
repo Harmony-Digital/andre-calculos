@@ -7,6 +7,7 @@ Ensaios com usuários, valores, CRC, calendário e agenda exclusivamente fictíc
 - [PDF fictício de exemplo](proposta-ficticia.pdf)
 - [Página do exemplo](pdf-1.png)
 - [Conferência dos avisos de orçamento](avisos.md)
+- [Conferência do aceite eletrônico](aceite.md)
 
 O ensaio de condições extensas usa seis serviços, quatro mil caracteres e identificador indivisível de 460 caracteres. Todas as três páginas são renderizadas e conferidas visualmente; extração confirma texto completo, CRC, indicação fictícia e numeração, com caracteres dentro da folha. As imagens `pdf-longo-N.png` registram essa conferência.
 

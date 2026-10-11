@@ -4,6 +4,7 @@ export const orderStates = [
   "in_triage",
   "quoted",
   "awaiting_payment",
+  "awaiting_documents",
   "queued",
   "in_analysis",
   "awaiting_client",
@@ -22,6 +23,7 @@ export const orderStateLabels: Record<OrderState, string> = {
   in_triage: "Em triagem",
   quoted: "Orçamento enviado",
   awaiting_payment: "Aguardando sinal",
+  awaiting_documents: "Aguardando documentos",
   queued: "Na fila",
   in_analysis: "Em análise",
   awaiting_client: "Aguardando cliente",
@@ -41,6 +43,7 @@ export type Order = {
   quoteAccepted: boolean;
   depositConfirmed: boolean;
   hasContract: boolean;
+  minimumDocumentPresent: boolean;
   calculatorReviewed: boolean;
   deliveryComplete: boolean;
   balanceConfirmed: boolean;
@@ -69,7 +72,7 @@ const rules = {
   },
   accept_quote: { from: ["quoted"], to: "awaiting_payment", roles: ["client"] },
   queue: {
-    from: ["awaiting_payment", "quoted"],
+    from: ["awaiting_payment", "awaiting_documents", "quoted"],
     to: "queued",
     roles: ["calculator", "admin", "system"],
   },
@@ -121,6 +124,7 @@ const rules = {
       "in_triage",
       "quoted",
       "awaiting_payment",
+      "awaiting_documents",
       "queued",
       "in_analysis",
       "awaiting_client",
@@ -159,10 +163,14 @@ export function transition(
     );
   if (
     event === "queue" &&
-    !(order.hasContract || (order.quoteAccepted && order.depositConfirmed))
+    !(
+      order.quoteAccepted &&
+      (order.hasContract || order.depositConfirmed) &&
+      order.minimumDocumentPresent
+    )
   )
     throw new Error(
-      "O pedido só entra na fila após o aceite e o sinal confirmado, ou com contrato ativo.",
+      "O pedido só entra na fila após o aceite, documento confirmado e sinal confirmado ou contrato ativo.",
     );
   if (
     event === "deliver" &&
@@ -176,7 +184,13 @@ export function transition(
       "A entrega anterior precisa estar revisada para iniciar um ajuste.",
     );
   const next: Order = { ...order, state: rule.to };
-  if (event === "accept_quote") next.quoteAccepted = true;
+  if (event === "accept_quote") {
+    next.quoteAccepted = true;
+    if (order.hasContract)
+      next.state = order.minimumDocumentPresent
+        ? "queued"
+        : "awaiting_documents";
+  }
   if (event === "request_information")
     next.resumeState = order.state as NonNullable<Order["resumeState"]>;
   if (event === "receive_information") {

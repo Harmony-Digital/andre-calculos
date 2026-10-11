@@ -1,5 +1,7 @@
 import Link from "next/link";
-import type { QuoteExport } from "@/modules/quotes/queries";
+import { randomUUID } from "node:crypto";
+import type { QuoteDetailData } from "@/modules/quotes/queries";
+import { QuoteAcceptance } from "./quote-acceptance";
 import { formatMoney } from "@/lib/utils";
 const civil = (date: string) => date.split("-").reverse().join("/");
 const instant = (date: string) =>
@@ -12,7 +14,7 @@ export function QuoteDetail({
   data,
   panel = false,
 }: {
-  data: QuoteExport;
+  data: QuoteDetailData;
   panel?: boolean;
 }) {
   const p = data.proposal;
@@ -78,14 +80,25 @@ export function QuoteDetail({
           Tabela {p.priceVersion} · Emitida em {instant(p.issuedAt)} (Brasília)
         </p>
       </section>
-      <p className="notice">
-        O aceite e a recusa serão habilitados com o fluxo de contratação. Este
-        ensaio não permite pagamento ou entrada na fila.
-      </p>
+      {data.contract ? (
+        <QuoteAcceptance
+          quoteId={data.id}
+          context={data.contract}
+          requestId={randomUUID()}
+          panel={panel}
+        />
+      ) : (
+        <p className="notice">
+          Esta proposta ainda não permite contratação. O ensaio não permite
+          pagamento ou entrada na fila.
+        </p>
+      )}
       <div className="form-actions">
-        <button className="button" disabled>
-          Aceitar
-        </button>
+        {!data.contract && (
+          <button className="button" disabled>
+            Aceitar
+          </button>
+        )}
         <button className="button" disabled>
           Recusar
         </button>

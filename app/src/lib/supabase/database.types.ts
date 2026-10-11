@@ -7,6 +7,31 @@ export type Json =
   | Json[];
 
 export type Database = {
+  graphql_public: {
+    Tables: {
+      [_ in never]: never;
+    };
+    Views: {
+      [_ in never]: never;
+    };
+    Functions: {
+      graphql: {
+        Args: {
+          extensions?: Json;
+          operationName?: string;
+          query?: string;
+          variables?: Json;
+        };
+        Returns: Json;
+      };
+    };
+    Enums: {
+      [_ in never]: never;
+    };
+    CompositeTypes: {
+      [_ in never]: never;
+    };
+  };
   public: {
     Tables: {
       audit_log: {
@@ -1322,6 +1347,18 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      accept_quote_system: {
+        Args: {
+          actor: string;
+          confirmed: boolean;
+          expected_context: string;
+          ip_address: string;
+          request_id: string;
+          target_quote: string;
+          user_agent: string;
+        };
+        Returns: Json;
+      };
       add_process_note: {
         Args: { note_body: string; request_id: string; target_process: string };
         Returns: string;
@@ -1407,6 +1444,12 @@ export type Database = {
           terms_version: string;
         }[];
       };
+      get_process_contract_quote_ids: {
+        Args: { target_process: string };
+        Returns: {
+          quote_id: string;
+        }[];
+      };
       get_process_decision_export: {
         Args: { target_process: string };
         Returns: Json;
@@ -1430,6 +1473,10 @@ export type Database = {
           guarantee: string;
           technical_name: string;
         }[];
+      };
+      get_quote_contract_context: {
+        Args: { target_quote: string };
+        Returns: Json;
       };
       get_quote_pdf_export: { Args: { target_quote: string }; Returns: Json };
       is_admin: { Args: never; Returns: boolean };
@@ -1660,6 +1707,9 @@ export type CompositeTypes<
     : never;
 
 export const Constants = {
+  graphql_public: {
+    Enums: {},
+  },
   public: {
     Enums: {},
   },

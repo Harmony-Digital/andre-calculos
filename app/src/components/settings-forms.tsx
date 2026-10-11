@@ -218,11 +218,15 @@ export function ServiceSettingsForm({ values }: { values: SettingsValues }) {
   );
 }
 export function PriceSettingsForm({ values }: { values: PriceValues }) {
+  const [example, setExample] = useState(true);
   const [state, submit, pending] = useActionState(
-      savePrices,
-      {} as SettingsState,
-    ),
-    [example, setExample] = useState(true);
+    async (previous: SettingsState, form: FormData) => {
+      const result = await savePrices(previous, form);
+      if (result.success === true) setExample(true);
+      return result;
+    },
+    {} as SettingsState,
+  );
   const field = (
     name: Exclude<keyof PriceValues, "isExample" | "approved">,
     label: string,
@@ -244,7 +248,7 @@ export function PriceSettingsForm({ values }: { values: PriceValues }) {
       action={submit}
       className="form-body settings-form"
       aria-label="Tabela de preços"
-      onReset={() => setExample(true)}
+      onReset={(event) => event.preventDefault()}
     >
       <input
         type="hidden"

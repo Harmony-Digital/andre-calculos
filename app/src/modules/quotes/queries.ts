@@ -4,13 +4,17 @@ import { notFound } from "next/navigation";
 import { createSessionClient } from "@/lib/supabase/server";
 import { authorize, getSessionProfile } from "@/modules/auth/session";
 import { proposalSchema } from "./proposal";
+import { contractContextSchema, type ContractContext } from "./acceptance";
 export const quoteExportSchema = z.strictObject({
   id: z.uuid(),
   number: z.string().regex(/^ORC-\d{4}-\d{4,}$/),
   proposal: proposalSchema,
 });
 export type QuoteExport = z.infer<typeof quoteExportSchema>;
-export async function getQuote(id: string): Promise<QuoteExport> {
+export type QuoteDetailData = QuoteExport & {
+  contract: ContractContext | null;
+};
+export async function getQuote(id: string): Promise<QuoteDetailData> {
   const session = await getSessionProfile();
   if (
     !session ||
@@ -26,13 +30,24 @@ export async function getQuote(id: string): Promise<QuoteExport> {
     .eq("id", id)
     .single();
   if (row.error || !row.data) notFound();
+  const context = await db.rpc("get_quote_contract_context", {
+    target_quote: id,
+  });
+  if (context.error) notFound();
+  const contract =
+    context.data === null
+      ? null
+      : contractContextSchema.safeParse(context.data);
+  if (contract && !contract.success) notFound();
   const parsed = quoteExportSchema.safeParse({
     id: row.data.id,
     number: row.data.number,
-    proposal: row.data.proposal_snapshot,
+    proposal:
+      row.data.proposal_snapshot ??
+      (contract?.success ? contract.data.proposal : null),
   });
   if (!parsed.success) notFound();
-  return parsed.data;
+  return { ...parsed.data, contract: contract?.success ? contract.data : null };
 }
 export async function getQuotePdfExport(
   id: string,

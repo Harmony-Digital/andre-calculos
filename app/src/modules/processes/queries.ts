@@ -98,52 +98,68 @@ export async function getProcess(
     deliveryQuery = deliveryQuery.or(
       `created_at.lt.${cursor.date},and(created_at.eq.${cursor.date},id.lt.${cursor.id})`,
     );
-  const [files, orders, messages, decisions, index, events, deliveries] =
-    await Promise.all([
-      supabase
-        .from("files")
-        .select(
-          "id,name,mime,size_bytes,folder,version,sha256,created_at,order_id",
-        )
-        .eq("process_id", id)
-        .eq("upload_status", "uploaded")
-        .order("created_at", { ascending: false }),
-      tab === "resumo"
-        ? supabase
-            .from("orders")
-            .select(
-              "id,code,calc_type,status,delivery_date,quotes(id,number,is_simulation,proposal_snapshot)",
-            )
-            .eq("process_id", id)
-            .order("created_at", { ascending: false })
-        : Promise.resolve({ data: [], error: null }),
-      tab === "mensagens"
-        ? messageQuery
-        : Promise.resolve({ data: [], error: null }),
-      tab === "decisoes"
-        ? supabase
-            .from("decisions")
-            .select(
-              "id,parameter,value,source,page,rationale,recorded_by,client_confirmed_at,client_confirmed_by,created_at",
-            )
-            .eq("process_id", id)
-            .order("created_at", { ascending: false })
-            .order("id", { ascending: false })
-        : Promise.resolve({ data: [], error: null }),
-      tab === "indice"
-        ? indexQuery
-        : Promise.resolve({ data: [], error: null }),
-      tab === "historico"
-        ? timelineQuery
-        : Promise.resolve({ data: [], error: null }),
-      tab === "resumo"
-        ? deliveryQuery
-        : Promise.resolve({ data: [], error: null }),
-    ]);
+  const [
+    files,
+    orders,
+    messages,
+    decisions,
+    index,
+    events,
+    deliveries,
+    contractQuotes,
+  ] = await Promise.all([
+    supabase
+      .from("files")
+      .select(
+        "id,name,mime,size_bytes,folder,version,sha256,created_at,order_id",
+      )
+      .eq("process_id", id)
+      .eq("upload_status", "uploaded")
+      .order("created_at", { ascending: false }),
+    tab === "resumo"
+      ? supabase
+          .from("orders")
+          .select(
+            "id,code,calc_type,status,delivery_date,quotes(id,number,is_simulation,proposal_snapshot)",
+          )
+          .eq("process_id", id)
+          .order("created_at", { ascending: false })
+      : Promise.resolve({ data: [], error: null }),
+    tab === "mensagens"
+      ? messageQuery
+      : Promise.resolve({ data: [], error: null }),
+    tab === "decisoes"
+      ? supabase
+          .from("decisions")
+          .select(
+            "id,parameter,value,source,page,rationale,recorded_by,client_confirmed_at,client_confirmed_by,created_at",
+          )
+          .eq("process_id", id)
+          .order("created_at", { ascending: false })
+          .order("id", { ascending: false })
+      : Promise.resolve({ data: [], error: null }),
+    tab === "indice" ? indexQuery : Promise.resolve({ data: [], error: null }),
+    tab === "historico"
+      ? timelineQuery
+      : Promise.resolve({ data: [], error: null }),
+    tab === "resumo"
+      ? deliveryQuery
+      : Promise.resolve({ data: [], error: null }),
+    tab === "resumo"
+      ? supabase.rpc("get_process_contract_quote_ids", { target_process: id })
+      : Promise.resolve({ data: [], error: null }),
+  ]);
   if (
-    [files, orders, messages, decisions, index, events, deliveries].some(
-      (result) => result.error,
-    )
+    [
+      files,
+      orders,
+      messages,
+      decisions,
+      index,
+      events,
+      deliveries,
+      contractQuotes,
+    ].some((result) => result.error)
   )
     throw new Error("Não foi possível carregar a pasta do processo.");
   const authorIds = [
@@ -176,6 +192,9 @@ export async function getProcess(
     role: session.profile.role,
     files: files.data ?? [],
     orders: orders.data ?? [],
+    contractQuoteIds: new Set(
+      (contractQuotes.data ?? []).map((row) => row.quote_id),
+    ),
     deliveries: (deliveries.data ?? []).slice(0, 50),
     olderDeliveries:
       (deliveries.data?.length ?? 0) > 50

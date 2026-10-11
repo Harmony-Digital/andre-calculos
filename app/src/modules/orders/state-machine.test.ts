@@ -15,6 +15,7 @@ const base: Order = {
   quoteAccepted: true,
   depositConfirmed: true,
   hasContract: false,
+  minimumDocumentPresent: true,
   calculatorReviewed: true,
   deliveryComplete: true,
   balanceConfirmed: true,
@@ -53,7 +54,11 @@ describe("estados do pedido", () => {
     expect(Object.keys(orderStateLabels)).toEqual([...orderStates]);
   });
   it("só enfileira com aceite e sinal ou contrato", () => {
-    for (const facts of [{ quoteAccepted: false }, { depositConfirmed: false }])
+    for (const facts of [
+      { quoteAccepted: false },
+      { depositConfirmed: false },
+      { minimumDocumentPresent: false },
+    ])
       expect(() =>
         transition(
           { ...base, state: "awaiting_payment", ...facts },
@@ -66,7 +71,7 @@ describe("estados do pedido", () => {
         {
           ...base,
           state: "quoted",
-          quoteAccepted: false,
+          quoteAccepted: true,
           depositConfirmed: false,
           hasContract: true,
         },
@@ -74,7 +79,32 @@ describe("estados do pedido", () => {
         admin,
       ).state,
     ).toBe("queued");
+    expect(() =>
+      transition(
+        { ...base, state: "quoted", hasContract: true, quoteAccepted: false },
+        "queue",
+        admin,
+      ),
+    ).toThrow(/aceite/);
   });
+  it.each([true, false])(
+    "contrato dispensa sinal e respeita documento mínimo: %s",
+    (minimumDocumentPresent) => {
+      expect(
+        transition(
+          {
+            ...base,
+            state: "quoted",
+            hasContract: true,
+            depositConfirmed: false,
+            minimumDocumentPresent,
+          },
+          "accept_quote",
+          client,
+        ).state,
+      ).toBe(minimumDocumentPresent ? "queued" : "awaiting_documents");
+    },
+  );
   it.each([{ calculatorReviewed: false }, { deliveryComplete: false }])(
     "não entrega sem requisito %j",
     (facts) =>
