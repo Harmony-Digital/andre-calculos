@@ -14,7 +14,7 @@
     "test:e2e": "playwright test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test:scripts": "bash -n ../scripts/sincronizar-vercel.sh && prettier --check ../scripts/sincronizar-vercel.mjs ../scripts/sincronizar-vercel.test.mjs && node --test ../scripts/sincronizar-vercel.test.mjs",
+    "test:scripts": "bash -n ../scripts/sincronizar-vercel.sh && prettier --check ../scripts/sincronizar-vercel.mjs ../scripts/sincronizar-vercel.test.mjs && node --test ../scripts/sincronizar-vercel.test.mjs && prettier --check ../scripts/inventariar-build.mjs ../scripts/inventariar-build.test.mjs && node --test ../scripts/inventariar-build.test.mjs",
     "check": "npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run test:scripts && npm run build",
     "test:rls": "vitest run --config vitest.rls.config.mts"
   },
