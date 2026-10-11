@@ -1182,3 +1182,10 @@ h2 {
 .checklist-layout > aside {
   min-width: 0;
 }
+
+.checklist-fields {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}

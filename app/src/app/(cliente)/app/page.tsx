@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Plus, Clock3, FolderOpen, FileCheck2 } from "lucide-react";
 import { EmptyState } from "@/components/empty-state";
+import { listDrafts } from "@/modules/checklist/queries";
+import { calculationLabels } from "@/modules/checklist/v1";
 import { listProcesses } from "@/modules/processes/queries";
 const stats = [
   { label: "Em andamento", icon: FolderOpen },
@@ -8,7 +10,10 @@ const stats = [
   { label: "Entregues", icon: FileCheck2 },
 ];
 export default async function Processes() {
-  const processes = await listProcesses();
+  const [processes, drafts] = await Promise.all([
+    listProcesses(),
+    listDrafts(),
+  ]);
   return (
     <>
       <div className="page-heading">
@@ -33,6 +38,36 @@ export default async function Processes() {
           </div>
         ))}
       </div>
+      {drafts.length > 0 && (
+        <section className="panel">
+          <div className="panel-header">
+            <h2>Rascunhos</h2>
+            <span>{drafts.length} rascunho(s)</span>
+          </div>
+          <ul className="document-list">
+            {drafts.map((draft) => (
+              <li key={draft.id} className="document-row">
+                <div>
+                  <strong>{draft.code}</strong>
+                  <p>
+                    {
+                      calculationLabels[
+                        draft.calc_type as keyof typeof calculationLabels
+                      ]
+                    }
+                  </p>
+                </div>
+                <Link
+                  className="text-link"
+                  href={`/app/novo-pedido?rascunho=${draft.id}`}
+                >
+                  Continuar rascunho
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       <section className="panel">
         <div className="panel-header">
           <h2>Meus processos</h2>

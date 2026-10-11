@@ -8,9 +8,13 @@ import {
 } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { saveDraft } from "@/modules/checklist/actions";
 import { Button } from "./ui/button";
 import {
   checklistLaborV1,
+  emptyChecklist,
   checklistSteps,
   calculationLabels,
   wageLabels,
@@ -21,40 +25,6 @@ import { classifyComplexity } from "@/modules/orders/complexity";
 const subscribeReady = () => () => {};
 const clientReady = () => true;
 const serverReady = () => false;
-
-const emptyChecklist: ChecklistLaborV1 = {
-  schemaVersion: 1,
-  processNumber: "",
-  tribunal: 10,
-  court: "",
-  side: "claimant",
-  claimants: 1,
-  calculationType: "initial",
-  hasSentence: false,
-  hasAppeal: false,
-  hasInterlocutory: false,
-  correctionRule: "unspecified",
-  correctionDetails: "",
-  strategy: "",
-  admissionDate: "",
-  dismissalDate: "",
-  filingDate: "",
-  baseDate: "",
-  wageItems: [],
-  otherWages: "",
-  timecardFormat: "none",
-  timecardMonths: 0,
-  timecardPages: 0,
-  documents: [],
-  deductInss: false,
-  deductIr: false,
-  processPages: 0,
-  noticeDate: "",
-  actType: "other",
-  deadlineDays: 8,
-  urgency: false,
-  instructions: "",
-};
 
 function Field({
   label,
@@ -107,19 +77,38 @@ function Field({
   );
 }
 
-export function LaborChecklist() {
+type SavedDraft = {
+  orderId: string;
+  code: string;
+  processId: string;
+  revision: number;
+  completedStep: number;
+};
+export function LaborChecklist({
+  initialDraft,
+}: {
+  initialDraft?: SavedDraft & { answers: ChecklistLaborV1 };
+}) {
+  const router = useRouter();
   const ready = useSyncExternalStore(subscribeReady, clientReady, serverReady);
-  const [step, setStep] = useState(0),
+  const [saved, setSaved] = useState<SavedDraft | undefined>(initialDraft);
+  const [saving, setSaving] = useState(false),
+    [saveError, setSaveError] = useState("");
+  const [step, setStep] = useState(
+      initialDraft ? Math.min(initialDraft.completedStep + 1, 8) : 0,
+    ),
     [result, setResult] = useState<ChecklistLaborV1 | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   const {
     register,
     handleSubmit,
     trigger,
+    getValues,
+    setError,
     formState: { errors },
   } = useForm<ChecklistLaborV1>({
     resolver: zodResolver(checklistLaborV1),
-    defaultValues: emptyChecklist,
+    defaultValues: initialDraft?.answers ?? emptyChecklist,
     mode: "onSubmit",
     reValidateMode: "onSubmit",
     shouldUnregister: false,
@@ -161,8 +150,52 @@ export function LaborChecklist() {
     setStep(next);
     requestAnimationFrame(() => heading.current?.focus());
   };
+  const persist = async (answers: ChecklistLaborV1) => {
+    setSaving(true);
+    setSaveError("");
+    try {
+      const response = await saveDraft({
+        orderId: saved?.orderId,
+        revision: saved?.revision,
+        completedStep: step,
+        answers,
+      });
+      if (!response.saved) {
+        setSaveError(
+          response.error ?? "Não foi possível salvar. Tente novamente.",
+        );
+        for (const [key, messages] of Object.entries(response.errors ?? {}))
+          if (key in emptyChecklist)
+            setError(key as keyof ChecklistLaborV1, { message: messages[0] });
+        return false;
+      }
+      setSaved(response.saved);
+      if (!saved)
+        router.replace(`/app/novo-pedido?rascunho=${response.saved.orderId}`, {
+          scroll: false,
+        });
+      return true;
+    } catch {
+      setSaveError(
+        "Não foi possível salvar agora. Suas respostas continuam nesta tela; tente novamente.",
+      );
+      return false;
+    } finally {
+      setSaving(false);
+    }
+  };
   const next = async () => {
-    if (await trigger(current.fields, { shouldFocus: true })) move(step + 1);
+    if (
+      (await trigger(current.fields, { shouldFocus: true })) &&
+      (await persist(getValues()))
+    )
+      move(step + 1);
+  };
+  const complete = async (answers: ChecklistLaborV1) => {
+    if (await persist(answers)) {
+      setResult(answers);
+      requestAnimationFrame(() => heading.current?.focus());
+    }
   };
   const onInvalid = (invalid: FieldErrors<ChecklistLaborV1>) => {
     const first = checklistSteps.findIndex((s) =>
@@ -176,13 +209,13 @@ export function LaborChecklist() {
     return (
       <div className="panel">
         <div className="form-body">
-          <span className="eyebrow">Checklist concluído nesta prévia</span>
+          <span className="eyebrow">Rascunho {saved?.code}</span>
           <h2 tabIndex={-1} ref={heading}>
             Confira as informações
           </h2>
           <p>
-            Estas respostas estão apenas na memória desta tela. Ainda não há
-            pedido salvo nem proposta emitida.
+            Suas respostas estão salvas. Nenhuma proposta foi emitida e este
+            rascunho ainda não entrou na fila de trabalho.
           </p>
           <dl className="summary-grid">
             <div>
@@ -231,6 +264,11 @@ export function LaborChecklist() {
           >
             <ArrowLeft size={16} aria-hidden="true" /> Revisar respostas
           </Button>
+          {saved && (
+            <Link className="button" href={`/app/processos/${saved.processId}`}>
+              Abrir pasta do processo
+            </Link>
+          )}
         </div>
       </div>
     );
@@ -260,243 +298,268 @@ export function LaborChecklist() {
         onSubmit={(event) => {
           event.preventDefault();
           if (step < 8) void next();
-          else void handleSubmit(setResult, onInvalid)(event);
+          else void handleSubmit(complete, onInvalid)(event);
         }}
       >
-        <div className="form-body">
-          <span className="eyebrow">Etapa {step + 1} de 9</span>
-          <h2 ref={heading} tabIndex={-1}>
-            {current.title}
-          </h2>
-          <p>
-            {
-              [
-                "Informe os dados do processo e o lado que você representa.",
-                "Selecione o serviço de que você precisa.",
-                "O cálculo seguirá as decisões registradas no processo.",
-                "Informe as datas que delimitam o cálculo.",
-                "Marque as verbas que precisam de apuração.",
-                "Indique como os registros de jornada estão disponíveis.",
-                "Informe os documentos que poderão apoiar a análise.",
-                "O prazo será conferido com o calendário do tribunal.",
-                "Acrescente orientações úteis à análise do André.",
-              ][step]
-            }
-          </p>
-          <div className="form-grid">
-            {step === 0 && (
-              <>
-                {field("processNumber", "Número do processo", {
-                  hint: "Formato CNJ: NNNNNNN-DD.AAAA.5.TR.OOOO.",
-                })}
-                {field("tribunal", "TRT", { type: "number", min: 1, max: 24 })}
-                {field("court", "Vara do trabalho")}
-                {field("side", "Lado representado", {
-                  children: (
-                    <>
-                      <option value="claimant">Reclamante</option>
-                      <option value="respondent">Reclamada</option>
-                    </>
-                  ),
-                })}
-                {field("claimants", "Número de reclamantes", {
-                  type: "number",
-                  min: 1,
-                  max: 1000,
-                })}
-              </>
+        <fieldset className="checklist-fields" disabled={saving}>
+          <div className="form-body">
+            {saved && (
+              <p className="notice" role="status">
+                Rascunho {saved.code} salvo. Você pode continuar depois em Seus
+                processos.
+              </p>
             )}
-            {step === 1 && (
-              <div className="form-wide">
-                {field("calculationType", "Tipo de cálculo", {
-                  children: Object.entries(calculationLabels).map(
-                    ([value, label]) => (
-                      <option key={value} value={value}>
-                        {label}
-                      </option>
+            {saveError && (
+              <p className="notice" role="alert">
+                {saveError}
+              </p>
+            )}
+            <span className="eyebrow">Etapa {step + 1} de 9</span>
+            <h2 ref={heading} tabIndex={-1}>
+              {current.title}
+            </h2>
+            <p>
+              {
+                [
+                  "Informe os dados do processo e o lado que você representa.",
+                  "Selecione o serviço de que você precisa.",
+                  "O cálculo seguirá as decisões registradas no processo.",
+                  "Informe as datas que delimitam o cálculo.",
+                  "Marque as verbas que precisam de apuração.",
+                  "Indique como os registros de jornada estão disponíveis.",
+                  "Informe os documentos que poderão apoiar a análise.",
+                  "O prazo será conferido com o calendário do tribunal.",
+                  "Acrescente orientações úteis à análise do André.",
+                ][step]
+              }
+            </p>
+            <div className="form-grid">
+              {step === 0 && (
+                <>
+                  {field("processNumber", "Número do processo", {
+                    hint: "Formato CNJ: NNNNNNN-DD.AAAA.5.TR.OOOO.",
+                  })}
+                  {field("tribunal", "TRT", {
+                    type: "number",
+                    min: 1,
+                    max: 24,
+                  })}
+                  {field("court", "Vara do trabalho")}
+                  {field("side", "Lado representado", {
+                    children: (
+                      <>
+                        <option value="claimant">Reclamante</option>
+                        <option value="respondent">Reclamada</option>
+                      </>
                     ),
-                  ),
-                })}
-              </div>
-            )}
-            {step === 2 && (
-              <>
+                  })}
+                  {field("claimants", "Número de reclamantes", {
+                    type: "number",
+                    min: 1,
+                    max: 1000,
+                  })}
+                </>
+              )}
+              {step === 1 && (
                 <div className="form-wide">
-                  {checkbox("hasSentence", "Existe sentença")}
-                  {checkbox("hasAppeal", "Há acórdão que alterou a sentença")}
-                  {checkbox(
-                    "hasInterlocutory",
-                    "Há decisão interlocutória relevante",
-                  )}
+                  {field("calculationType", "Tipo de cálculo", {
+                    children: Object.entries(calculationLabels).map(
+                      ([value, label]) => (
+                        <option key={value} value={value}>
+                          {label}
+                        </option>
+                      ),
+                    ),
+                  })}
                 </div>
+              )}
+              {step === 2 && (
+                <>
+                  <div className="form-wide">
+                    {checkbox("hasSentence", "Existe sentença")}
+                    {checkbox("hasAppeal", "Há acórdão que alterou a sentença")}
+                    {checkbox(
+                      "hasInterlocutory",
+                      "Há decisão interlocutória relevante",
+                    )}
+                  </div>
+                  <div className="form-wide">
+                    {field(
+                      "correctionRule",
+                      "Índice e juros fixados na decisão",
+                      {
+                        children: (
+                          <>
+                            <option value="unspecified">
+                              Não fixou ou não sei informar
+                            </option>
+                            <option value="adc58">
+                              ADC 58 — IPCA-E e Selic
+                            </option>
+                            <option value="law14905">
+                              Lei 14.905/2024 — IPCA e taxa legal
+                            </option>
+                            <option value="other">
+                              Outro índice expressamente fixado
+                            </option>
+                          </>
+                        ),
+                      },
+                    )}
+                    {field("correctionDetails", "Detalhes do índice", {
+                      type: "textarea",
+                    })}
+                    {field("strategy", "Estratégia do advogado", {
+                      type: "textarea",
+                      hint: "Indique se a estratégia difere da decisão.",
+                    })}
+                  </div>
+                </>
+              )}
+              {step === 3 && (
+                <>
+                  {field("admissionDate", "Data de admissão", { type: "date" })}
+                  {field("dismissalDate", "Data de demissão", {
+                    type: "date",
+                    hint: "Deixe em branco se o contrato estiver ativo.",
+                  })}
+                  {field("filingDate", "Data de ajuizamento", { type: "date" })}
+                  {field("baseDate", "Data-base do cálculo", { type: "date" })}
+                </>
+              )}
+              {step === 4 && (
                 <div className="form-wide">
-                  {field(
-                    "correctionRule",
-                    "Índice e juros fixados na decisão",
-                    {
+                  <fieldset className="plain-fieldset">
+                    <legend>Verbas a calcular</legend>
+                    {Object.entries(wageLabels).map(([value, label]) =>
+                      checkbox("wageItems", label, value),
+                    )}
+                  </fieldset>
+                  {errors.wageItems && (
+                    <p className="field-error" role="alert">
+                      {errors.wageItems.message}
+                    </p>
+                  )}
+                  {field("otherWages", "Descreva outras verbas", {
+                    type: "textarea",
+                  })}
+                </div>
+              )}
+              {step === 5 && (
+                <>
+                  <div className="form-wide">
+                    {field("timecardFormat", "Registros de jornada", {
                       children: (
                         <>
-                          <option value="unspecified">
-                            Não fixou ou não sei informar
+                          <option value="none">Sem análise de jornada</option>
+                          <option value="digital">Cartões digitais</option>
+                          <option value="handwritten">
+                            Cartões manuscritos
                           </option>
-                          <option value="adc58">ADC 58 — IPCA-E e Selic</option>
-                          <option value="law14905">
-                            Lei 14.905/2024 — IPCA e taxa legal
-                          </option>
-                          <option value="other">
-                            Outro índice expressamente fixado
+                          <option value="image">Cartões em imagem</option>
+                          <option value="judicial">
+                            Jornada fixada pelo juiz
                           </option>
                         </>
                       ),
-                    },
-                  )}
-                  {field("correctionDetails", "Detalhes do índice", {
-                    type: "textarea",
+                    })}
+                  </div>
+                  {field("timecardMonths", "Meses de cartões para digitar", {
+                    type: "number",
+                    min: 0,
+                    max: 1200,
                   })}
-                  {field("strategy", "Estratégia do advogado", {
-                    type: "textarea",
-                    hint: "Indique se a estratégia difere da decisão.",
+                  {field("timecardPages", "Páginas de cartões para digitar", {
+                    type: "number",
+                    min: 0,
+                    max: 100000,
                   })}
-                </div>
-              </>
-            )}
-            {step === 3 && (
-              <>
-                {field("admissionDate", "Data de admissão", { type: "date" })}
-                {field("dismissalDate", "Data de demissão", {
-                  type: "date",
-                  hint: "Deixe em branco se o contrato estiver ativo.",
-                })}
-                {field("filingDate", "Data de ajuizamento", { type: "date" })}
-                {field("baseDate", "Data-base do cálculo", { type: "date" })}
-              </>
-            )}
-            {step === 4 && (
-              <div className="form-wide">
-                <fieldset className="plain-fieldset">
-                  <legend>Verbas a calcular</legend>
-                  {Object.entries(wageLabels).map(([value, label]) =>
-                    checkbox("wageItems", label, value),
+                </>
+              )}
+              {step === 6 && (
+                <>
+                  <div className="form-wide">
+                    <fieldset className="plain-fieldset">
+                      <legend>Documentos disponíveis</legend>
+                      {[
+                        ["financial", "Fichas financeiras"],
+                        ["payslips", "Holerites"],
+                        ["timecards", "Cartões de ponto"],
+                        ["employment", "CTPS"],
+                        ["sentence", "Sentença"],
+                        ["appeal", "Acórdão"],
+                        ["previousCalculation", "Cálculo anterior"],
+                      ].map(([value, label]) =>
+                        checkbox("documents", label, value),
+                      )}
+                    </fieldset>
+                    {checkbox("deductInss", "Considerar desconto de INSS")}
+                    {checkbox("deductIr", "Considerar desconto de IR")}
+                  </div>
+                  {field(
+                    "processPages",
+                    "Quantidade estimada de páginas do processo",
+                    { type: "number", min: 0, max: 100000 },
                   )}
-                </fieldset>
-                {errors.wageItems && (
-                  <p className="field-error" role="alert">
-                    {errors.wageItems.message}
-                  </p>
-                )}
-                {field("otherWages", "Descreva outras verbas", {
-                  type: "textarea",
-                })}
-              </div>
-            )}
-            {step === 5 && (
-              <>
-                <div className="form-wide">
-                  {field("timecardFormat", "Registros de jornada", {
+                </>
+              )}
+              {step === 7 && (
+                <>
+                  {field("noticeDate", "Data da ciência da intimação", {
+                    type: "date",
+                  })}
+                  {field("actType", "Tipo de ato", {
                     children: (
                       <>
-                        <option value="none">Sem análise de jornada</option>
-                        <option value="digital">Cartões digitais</option>
-                        <option value="handwritten">Cartões manuscritos</option>
-                        <option value="image">Cartões em imagem</option>
-                        <option value="judicial">
-                          Jornada fixada pelo juiz
+                        <option value="other">
+                          Outro prazo informado pelo advogado
+                        </option>
+                        <option value="challenge">
+                          Impugnação — 8 dias úteis
+                        </option>
+                        <option value="embargo">Embargos — 5 dias úteis</option>
+                        <option value="appeal">
+                          Agravo de petição — 8 dias úteis
                         </option>
                       </>
                     ),
                   })}
-                </div>
-                {field("timecardMonths", "Meses de cartões para digitar", {
-                  type: "number",
-                  min: 0,
-                  max: 1200,
-                })}
-                {field("timecardPages", "Páginas de cartões para digitar", {
-                  type: "number",
-                  min: 0,
-                  max: 100000,
-                })}
-              </>
-            )}
-            {step === 6 && (
-              <>
+                  {field("deadlineDays", "Dias úteis para outro ato", {
+                    type: "number",
+                    min: 1,
+                    max: 365,
+                  })}
+                  <div className="form-wide">
+                    {checkbox("urgency", "Preciso de atendimento urgente")}
+                  </div>
+                </>
+              )}
+              {step === 8 && (
                 <div className="form-wide">
-                  <fieldset className="plain-fieldset">
-                    <legend>Documentos disponíveis</legend>
-                    {[
-                      ["financial", "Fichas financeiras"],
-                      ["payslips", "Holerites"],
-                      ["timecards", "Cartões de ponto"],
-                      ["employment", "CTPS"],
-                      ["sentence", "Sentença"],
-                      ["appeal", "Acórdão"],
-                      ["previousCalculation", "Cálculo anterior"],
-                    ].map(([value, label]) =>
-                      checkbox("documents", label, value),
-                    )}
-                  </fieldset>
-                  {checkbox("deductInss", "Considerar desconto de INSS")}
-                  {checkbox("deductIr", "Considerar desconto de IR")}
+                  {field("instructions", "Instruções ao André", {
+                    type: "textarea",
+                    hint: "Registre instruções objetivas para o André. Envie os documentos pela pasta do processo.",
+                  })}
                 </div>
-                {field(
-                  "processPages",
-                  "Quantidade estimada de páginas do processo",
-                  { type: "number", min: 0, max: 100000 },
-                )}
-              </>
-            )}
-            {step === 7 && (
-              <>
-                {field("noticeDate", "Data da ciência da intimação", {
-                  type: "date",
-                })}
-                {field("actType", "Tipo de ato", {
-                  children: (
-                    <>
-                      <option value="other">
-                        Outro prazo informado pelo advogado
-                      </option>
-                      <option value="challenge">
-                        Impugnação — 8 dias úteis
-                      </option>
-                      <option value="embargo">Embargos — 5 dias úteis</option>
-                      <option value="appeal">
-                        Agravo de petição — 8 dias úteis
-                      </option>
-                    </>
-                  ),
-                })}
-                {field("deadlineDays", "Dias úteis para outro ato", {
-                  type: "number",
-                  min: 1,
-                  max: 365,
-                })}
-                <div className="form-wide">
-                  {checkbox("urgency", "Preciso de atendimento urgente")}
-                </div>
-              </>
-            )}
-            {step === 8 && (
-              <div className="form-wide">
-                {field("instructions", "Instruções ao André", {
-                  type: "textarea",
-                  hint: "Nesta prévia, use apenas informações fictícias. Anexos serão adicionados após a configuração segura do armazenamento.",
-                })}
-              </div>
-            )}
+              )}
+            </div>
           </div>
-        </div>
+        </fieldset>
         <div className="form-actions">
           <Button
             type="button"
             variant="outline"
             onClick={() => move(step - 1)}
-            disabled={step === 0 || !ready}
+            disabled={step === 0 || !ready || saving}
           >
             <ArrowLeft size={16} aria-hidden="true" /> Voltar
           </Button>
-          <Button type="submit" disabled={!ready}>
-            {step === 8 ? "Conferir respostas" : "Continuar"}
+          <Button type="submit" disabled={!ready || saving}>
+            {saving
+              ? "Salvando…"
+              : step === 8
+                ? "Conferir respostas"
+                : "Continuar"}
             <ArrowRight size={16} aria-hidden="true" />
           </Button>
         </div>

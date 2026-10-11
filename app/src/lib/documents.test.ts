@@ -24,6 +24,11 @@ describe("documentos brasileiros", () => {
     expect(validCnpj("12.abc.345/01de-35")).toBe(true);
     expect(normalizeDocument("12.abc.345/01de-35")).toBe("12ABC34501DE35");
   });
+  it("rejeita letras Unicode que se transformariam em ASCII ao normalizar", () => {
+    expect(validCnpj("12ABC345SSDE05")).toBe(true);
+    expect(validCnpj("12ABC345ßDE05")).toBe(false);
+    expect(normalizeDocument("12ABC345ßDE05")).toBe("12ABC345ßDE05");
+  });
   it.each([
     "00000000000000",
     "AAAAAAAAAAAA00",

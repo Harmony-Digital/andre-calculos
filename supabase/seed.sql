@@ -9,8 +9,19 @@ on conflict(id) do nothing;
 insert into public.orders(id,process_id,client_id,calc_type,code,price_table_id)
 select '00000000-0000-4000-8000-000000000201',p.id,p.client_id,'liquidation','P-TESTE-0001','00000000-0000-4000-8000-000000000001'
 from public.processes p where p.id='00000000-0000-4000-8000-000000000101' on conflict(id) do nothing;
-insert into public.checklists(order_id,schema_version,answers)
-select o.id,1,'{"fixture":true}' from public.orders o where o.id='00000000-0000-4000-8000-000000000201' on conflict(order_id) do nothing;
+insert into public.checklists(order_id,schema_version,answers,completed_step)
+select o.id,1,'{
+  "schemaVersion":1,"processNumber":"9999999-06.2026.5.10.9999",
+  "tribunal":10,"court":"Unidade fictícia de teste","side":"claimant","claimants":1,
+  "calculationType":"liquidation","hasSentence":false,"hasAppeal":false,
+  "hasInterlocutory":false,"correctionRule":"unspecified","correctionDetails":"",
+  "strategy":"","admissionDate":"","dismissalDate":"","filingDate":"","baseDate":"",
+  "wageItems":[],"otherWages":"","timecardFormat":"none","timecardMonths":0,
+  "timecardPages":0,"documents":[],"deductInss":false,"deductIr":false,
+  "processPages":0,"noticeDate":"","actType":"other","deadlineDays":8,
+  "urgency":false,"instructions":"Rascunho fictício para testes de isolamento."
+}',0 from public.orders o where o.id='00000000-0000-4000-8000-000000000201'
+on conflict(order_id) do update set answers=excluded.answers,completed_step=excluded.completed_step;
 insert into public.quotes(id,order_id,number,items,total_cents,valid_until)
 select '00000000-0000-4000-8000-000000000301',o.id,'TESTE-1','[]',25000,'2099-12-31'
 from public.orders o where o.id='00000000-0000-4000-8000-000000000201' on conflict(id) do nothing;
@@ -29,3 +40,5 @@ from public.processes p join public.clients c on c.id=p.client_id where p.id='00
 insert into public.timeline_events(id,process_id,kind,data)
 select '00000000-0000-4000-8000-000000000801',p.id,'fixture','{"fixture":true}'
 from public.processes p where p.id='00000000-0000-4000-8000-000000000101' on conflict(id) do nothing;
+-- Os códigos fictícios explícitos não podem colidir com o próximo pedido automático.
+select setval('public.order_number_seq',greatest((select last_value from public.order_number_seq),coalesce((select max(substring(code,3)::bigint) from public.orders where code ~ '^P-[0-9]+$'),1)),true);

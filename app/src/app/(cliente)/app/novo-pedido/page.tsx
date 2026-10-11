@@ -1,19 +1,34 @@
 import { LaborChecklist } from "@/components/labor-checklist";
-export default function NewOrderPage() {
+import { getDraft } from "@/modules/checklist/queries";
+export default async function NewOrderPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ rascunho?: string }>;
+}) {
+  const { rascunho } = await searchParams;
+  const draft = rascunho ? await getDraft(rascunho) : undefined;
   return (
     <>
       <div className="page-heading">
         <div>
           <span className="eyebrow">Um pedido, todas as informações</span>
-          <h1>Novo pedido de cálculo</h1>
-          <p>Organize os dados do processo em nove etapas.</p>
+          <h1>
+            {draft
+              ? `Continuar rascunho ${draft.code}`
+              : "Novo pedido de cálculo"}
+          </h1>
+          <p>
+            Organize os dados do processo em nove etapas. Suas respostas são
+            salvas ao avançar.
+          </p>
         </div>
       </div>
-      <p className="notice">
-        Prévia local: use apenas dados fictícios. As respostas não são enviadas
-        nem salvas; saindo da página, elas serão descartadas.
-      </p>
-      <LaborChecklist />
+      {process.env.NODE_ENV !== "production" && (
+        <p className="notice">
+          Ambiente de desenvolvimento: use somente dados fictícios.
+        </p>
+      )}
+      <LaborChecklist initialDraft={draft} />
     </>
   );
 }

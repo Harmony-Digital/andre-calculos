@@ -53,25 +53,31 @@ export type Database = {
       checklists: {
         Row: {
           answers: Json;
+          completed_step: number;
           created_at: string;
           id: string;
           order_id: string;
+          revision: number;
           schema_version: number;
           updated_at: string;
         };
         Insert: {
           answers: Json;
+          completed_step?: number;
           created_at?: string;
           id?: string;
           order_id: string;
+          revision?: number;
           schema_version: number;
           updated_at?: string;
         };
         Update: {
           answers?: Json;
+          completed_step?: number;
           created_at?: string;
           id?: string;
           order_id?: string;
+          revision?: number;
           schema_version?: number;
           updated_at?: string;
         };
@@ -1097,6 +1103,21 @@ export type Database = {
       record_auth_audit: { Args: { event: string }; Returns: undefined };
       record_file_access: { Args: { target_file: string }; Returns: undefined };
       request_account_deletion: { Args: never; Returns: string };
+      save_checklist_draft: {
+        Args: {
+          completed_step: number;
+          draft_id?: string;
+          expected_revision?: number;
+          payload: Json;
+        };
+        Returns: {
+          order_code: string;
+          order_id: string;
+          process_id: string;
+          revision: number;
+          saved_step: number;
+        }[];
+      };
       update_own_profile: {
         Args: {
           city: string;

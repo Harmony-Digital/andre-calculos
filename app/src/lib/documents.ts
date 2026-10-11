@@ -1,6 +1,8 @@
 // Receita Federal: módulo 11; CNPJ alfanumérico usa ASCII - 48 (A = 17).
 export function normalizeDocument(value: string) {
-  const normalized = value.trim().toUpperCase();
+  const input = value.trim();
+  if (!/^[0-9A-Za-z./-]*$/.test(input)) return input;
+  const normalized = input.toUpperCase();
   if (
     /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(normalized) ||
     /^[0-9A-Z]{2}\.[0-9A-Z]{3}\.[0-9A-Z]{3}\/[0-9A-Z]{4}-\d{2}$/.test(

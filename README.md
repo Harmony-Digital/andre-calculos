@@ -28,6 +28,10 @@ bash scripts/dev-env.sh npm run test:e2e
 
 Esses comandos renovam o seed com credenciais efêmeras e verificam sessões e RLS reais. O login fica protegido por cookies HttpOnly; consultas de negócio passam pelo servidor. Uploads usam permissões assinadas para um único caminho. O cadastro público depende de termos e política aprovados, com versões registradas em `settings`; rascunhos não ativam consentimento em produção. O ensaio de cadastro usa versões fixture-termos-v1 e fixture-privacidade-v1 só em localhost e restaura settings ao terminar. O Mailpit local recebe confirmação, recuperação e link de acesso; nenhum e-mail sai para destinatários reais.
 
+### Checklist e rascunhos
+
+Cada etapa concluída é salva no banco como rascunho versionado. O cliente retoma pela lista de rascunhos ou pela URL do pedido; as respostas não ficam em localStorage. Uma revisão antiga é recusada para preservar alterações feitas em outra sessão. O rascunho não emite proposta nem entra na fila sem as condições comerciais.
+
 ### Cofre de desenvolvimento
 
 `bash scripts/com-segredos.sh npm run dev` usa as referências de `app/.env.tpl`, exige a conta de serviço com acesso exclusivamente a `proj-andre-calculos` e mantém a saída mascarada pelo 1Password. O Fábio cadastra os itens ausentes. As variáveis de produção estão documentadas em `docs/variaveis-producao.md`.
