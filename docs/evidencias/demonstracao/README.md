@@ -38,6 +38,13 @@
 - O seletor automatizado recusou o envio por falta de acesso da extensão a URLs de arquivo. A tentativa seguinte de leitura da aba recebeu a recusa de segurança: acesso a vercel.com negado pelo usuário. Nenhuma publicação ou acesso alternativo foi tentado após essa recusa.
 - Em 2026-10-11, Fábio respondeu "Autorizar acesso e publicação somente nesse projeto". O preflight GitHub/cofre/remoto passou; a leitura normal da mesma aba foi novamente recusada pela proteção do navegador, desta vez identificando preferência salva que bloqueia `vercel.com`. Nenhum contorno foi tentado. A [documentação oficial da extensão](https://learn.chatgpt.com/docs/chrome-extension#manage-allowed-and-blocked-websites) orienta remover o domínio da lista de bloqueados em Configurações → Computer Use → Chrome → Manage; para upload automático, exige "Allow access to file URLs". O Fábio recebeu a opção de ajustar essas permissões ou enviar o ZIP manualmente.
 - Auditoria independente somente de leitura repetiu a comparação dos 158 arquivos, tamanhos e hashes com a main e o manifesto, sem divergências nem conteúdo privado reconhecido. Identidade esperada do projeto registrada também em `scripts/contas-esperadas.env` e `AGENTS.md` §7.
+- Após Fábio informar "Concluí os dois ajustes", a leitura normal da mesma aba foi novamente recusada por preferência salva que bloqueia `vercel.com`. Uma inspeção somente de leitura das configurações do aplicativo Codex foi recusada por política do próprio app. Não houve tentativa de acessar a Vercel por outra superfície. O ZIP foi novamente conferido contra a main por auditor independente e copiado para `.data/publicacao/andre-calculos-demo.zip`, com o mesmo SHA-256; essa pasta é ignorada pelo Git.
 - [Vercel Drop](https://vercel.com/docs/drop) documenta envio de código de framework em ZIP ao projeto sem Git; isso não substitui a integração contínua de M1.50. Upload sem Git não informa o SHA de commit ao endpoint de saúde; a procedência é a comparação do pacote acima.
+
+## Envio manual do pacote pelo Fábio
+
+1. Abrir `https://vercel.com/projeto-andre1/andre-calculos` na conta do cliente, equipe Projeto Andre. Usar o projeto existente `prj_tdmzmC6utVU2fHPz0iVhroMD8NtI`.
+2. Escolher **Choose a file to deploy** e selecionar `.data/publicacao/andre-calculos-demo.zip` desta pasta. No seletor do Mac, Command + Shift + G permite informar o caminho completo do arquivo.
+3. Se o painel mostrar uma revisão antes da publicação, conservar Next.js, Node 22 e Root Directory vazio: o `package.json` está na raiz do ZIP. Publicar e compartilhar o endereço `.vercel.app` exibido para a verificação da jornada pública.
 
 O status e a publicação ficam exclusivamente no `plan.md`.
