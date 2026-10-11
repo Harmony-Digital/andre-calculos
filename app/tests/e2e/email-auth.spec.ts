@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { randomUUID, randomBytes } from "node:crypto";
+import { provisionLocalUser } from "../../scripts/provision-local-user";
 import {
   localSystem,
   removeLocalUser,
@@ -20,18 +21,16 @@ test("recuperação de senha e link de acesso pelo Mailpit", async ({
     release = await leaseLocalSettings(),
     email = `recuperacao-${randomUUID()}@exemplo.com`,
     password = process.env.ANDRE_TEST_PASSWORD!;
-  const created = await db.auth.admin.createUser({
-    email,
-    password,
-    email_confirm: true,
-    user_metadata: { full_name: "Recuperação fictícia" },
-  });
-  if (created.error || !created.data.user) {
-    await release();
-    throw new Error("Conta fictícia de e-mail não criada.");
-  }
-  const id = created.data.user!.id;
+  let userId: string | undefined;
   try {
+    const created = await provisionLocalUser({
+      email,
+      password,
+      email_confirm: true,
+      user_metadata: { full_name: "Recuperação fictícia" },
+    });
+    const id = created.data.user!.id;
+    userId = id;
     await page.goto("/recuperar-senha");
     await page.getByLabel("E-mail", { exact: true }).fill(email);
     await page.getByRole("button", { name: "Enviar link por e-mail" }).click();
@@ -71,7 +70,7 @@ test("recuperação de senha e link de acesso pelo Mailpit", async ({
     await expect(page).toHaveURL(/\/app$/);
   } finally {
     try {
-      await removeLocalUser(id);
+      if (userId) await removeLocalUser(userId);
     } finally {
       await release();
     }

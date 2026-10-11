@@ -59,7 +59,7 @@ jobs:
         if: always()
         run: supabase stop --workdir .. --no-backup > /dev/null
       - uses: actions/upload-artifact@v4
-        if: failure()
+        if: always()
         with:
           name: evidencias-de-testes
           # Somente capturas; não publicar cookies, traces ou estado de sessão.
