@@ -55,7 +55,7 @@ A seleção local usa dias úteis para avisos de um/dois dias e gera um aviso de
 ## Estrutura
 
 - `app/`: Next.js, interface e casos de uso em `src/modules`.
-- `docs/`: transcrição, pesquisas e documentação de operação.
+- `docs/`: pesquisas e documentação de operação. A transcrição sigilosa fica somente na pasta local, ignorada pelo Git.
 - `scripts/`: conferência das contas e comandos auxiliares.
 - `supabase/`: migrations, configuração local e seed fictício.
 

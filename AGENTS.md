@@ -22,7 +22,7 @@ Numa segunda fase, a IA lê o processo e prepara o trabalho para o André só va
 2. `plan.md`: leia "Onde estamos", "Insumos pendentes" e "Ordem de execução"; escolha a tarefa pela regra de "Como o agente trabalha com este plano"; depois leia só a especificação dessa tarefa (seção "Especificação das tarefas"). Não é preciso ler o plano inteiro.
 3. `PRD.md`: só as seções que a tarefa cita (RF, RN, stack no §11).
 4. Contexto de negócio, quando precisar:
-   - [transcrição da reunião](<docs/transcricao-reuniao-2026-10-10.md>);
+   - transcrição privada em `docs/transcricao-reuniao-2026-10-10.md` (somente local, ignorada pelo Git por decisão do Fábio);
    - [pesquisa de concorrentes](<docs/pesquisa/reports/Concorrentes cálculos judiciais advogados.md>);
    - `docs/pesquisa/research_notes/`.
 5. Regras do Hub da Harmony, quando mexer na sincronização do plano:
@@ -145,7 +145,7 @@ Os valores esperados ficam em `scripts/contas-esperadas.env`, que não guarda se
 
 | Alvo | Conta ou destino deste projeto | Como confirmar | Regra |
 |---|---|---|---|
-| GitHub | conta `fabioalmeidadigital`, admin da organização Harmony-Digital; repositório `Harmony-Digital/andre-calculos` (privado) | `GH_TOKEN="$(gh auth token --user fabioalmeidadigital)" gh api user --jq .login` responde `fabioalmeidadigital`; `git remote get-url origin` aponta para o repositório | A conta ativa do `gh` é de outro cliente. Sempre usar o `GH_TOKEN` acima nos comandos `gh`. No `git push`, usar `git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push`, com o `GH_TOKEN` exportado. O MCP do GitHub está bloqueado aqui |
+| GitHub                             | conta `fabioalmeidadigital`, admin da organização Harmony-Digital; repositório público `Harmony-Digital/andre-calculos`, ID `1414349093` | `GH_TOKEN="$(gh auth token --user fabioalmeidadigital)" gh api user --jq .login` responde `fabioalmeidadigital`; `git remote get-url origin` aponta para o repositório; API confirma o ID | A conta ativa do `gh` é de outro cliente. Sempre usar o `GH_TOKEN` acima nos comandos `gh`. No `git push`, usar `git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push`, com o `GH_TOKEN` exportado. O MCP do GitHub está bloqueado aqui; não trabalhar no arquivo privado de ID `1413659875` |
 | Supabase | MCP `andre-calculos-supabase`, restrito ao projeto `qtofwbxujshroaafxowr` (conta nova do cliente) | antes do primeiro uso na sessão: `get_project_url` responde `https://qtofwbxujshroaafxowr.supabase.co` | Só este MCP. Os MCPs `supabase`, `harmony-supabase` e `supabase-leonardo` são de outras contas e estão bloqueados. DDL só por migration |
 | Vercel | MCP `andre-calculos-vercel` (conta nova do cliente) | antes do primeiro uso na sessão: `list_teams` mostra só o time do cliente (`VERCEL_TEAM` em `contas-esperadas.env`, registrado na primeira conexão) | O MCP da Vercel do claude.ai é de outra conta e está bloqueado. Produção só pela `main`. Variáveis de produção, só o Fábio altera |
 | 1Password | conta de serviço `sa-andre-calculos-agente`, cofre `proj-andre-calculos` | o preflight confere que a conta de serviço enxerga só esse cofre | Se o `op` pedir Touch ID, é a conta pessoal do Fábio: parar |
@@ -258,7 +258,7 @@ O projeto é gerido no Hub (`https://hub.harmonydigital.com.br`). O `plan.md` se
 |---|---|
 | `PRD.md` | o que construir, regras, modelo de dados e stack |
 | `plan.md` | marcos, tarefas, decisões abertas, onde estamos e registro de execução |
-| `docs/transcricao-reuniao-2026-10-10.md` | reunião de descoberta (2026-10-10) |
+| `docs/transcricao-reuniao-2026-10-10.md` | reunião de descoberta (2026-10-10), sigilosa e somente local; nunca adicionar ao Git |
 | `docs/pesquisa/reports/Concorrentes cálculos judiciais advogados.md` | pesquisa de concorrentes e recomendações |
 | `docs/pesquisa/research_notes/` | notas das pesquisas |
 | `app/.env.tpl` (a criar no M1) | referências `op://` para os segredos do cofre, sem valores |

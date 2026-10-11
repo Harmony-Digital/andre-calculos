@@ -6,7 +6,7 @@
 - **Dono do produto:** André (contador com CRC, cálculos judiciais)
 - **Construção:** Harmony Digital Hub (Fábio), com agentes de IA
 - **Infraestrutura:** Vercel e Supabase em contas do cliente; código na organização Harmony-Digital do GitHub (§11.0)
-- **Fontes:** [transcrição da reunião](<docs/transcricao-reuniao-2026-10-10.md>) (2026-10-10), [pesquisa de concorrentes](<docs/pesquisa/reports/Concorrentes cálculos judiciais advogados.md>) e as notas em `docs/pesquisa/research_notes/`
+- **Fontes:** transcrição privada da reunião (2026-10-10), em `docs/transcricao-reuniao-2026-10-10.md`, preservada somente na pasta local; [pesquisa de concorrentes](<docs/pesquisa/reports/Concorrentes cálculos judiciais advogados.md>) e as notas em `docs/pesquisa/research_notes/`
 
 Este PRD diz **o que** construir e **com quais ferramentas**. Ele não registra progresso: o estado vivo do projeto está no `plan.md`, na seção "Onde estamos".
 

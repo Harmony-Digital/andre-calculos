@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   qualidade:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: app
@@ -30,7 +30,7 @@ jobs:
       - run: npm run check
 
   e2e:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     defaults:
       run:
