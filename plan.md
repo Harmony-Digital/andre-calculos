@@ -35,20 +35,20 @@ Nome provisório até a marca (D3).
   - condição de cliente com contrato cadastrada no painel com motivo, revisão concorrente e histórico privado; dispensa sinal antes/depois do aceite, exige documento confirmado e preserva pagamentos/recibos; retirada bloqueada durante trabalho ativo, replay e rollback atômicos; quinze testes de banco e seis e2e próprios aprovados, com upload real e quatro capturas inspecionadas; vínculo do pagamento imutável também para parcelas legadas/pendentes;
   - cadastro confirmado no Mailpit com versões legais sintéticas, perfil persistido, troca de senha com revogação no segundo dispositivo, exclusão solicitada sem apagar conta e aviso de cadastro enfileirado;
   - `npm run check` aprovado (340 unitários/build), 109 e2e da suíte completa aprovados e sete ensaios únicos omitidos apenas no projeto celular; jornada do cadastro ao download repetida em 375/1440 px após correção dos controles cortados do checklist; 142 testes de banco aprovados e advisors locais de segurança/desempenho sem achados;
-  - jornada única com cliente e André em contextos independentes, axe nas dez páginas principais por largura, sinal/upload/fila/decisão/entrega/download e limpeza verificados; três preparações sintéticas explícitas (contexto contratual, revisão técnica e saldo) conservam os bloqueios comerciais; CI com job e2e separado e credenciais locais mascaradas, ainda aguardando execução remota;
+  - jornada única com cliente e André em contextos independentes, axe nas dez páginas principais por largura, sinal/upload/fila/decisão/entrega/download e limpeza verificados; três preparações sintéticas explícitas (contexto contratual, revisão técnica e saldo) conservam os bloqueios comerciais; CI remoto 38142154491 aprovado: 340 unitários, doze testes de scripts, build, 142 testes de banco, 109 e2e e advisors locais sem achados; PR #1 integrado em f0f900740ed60cb5cd655ce414b8b342ea35b0d9. Evidência: docs/evidencias/git/ci.md;
   - Docker/Colima exclusivos de `andre-calculos`, sem alterar o contexto global; Supabase local PostgreSQL 17 com serviços saudáveis e Auth health HTTP 200;
   - branch de trabalho `feat/fundacao-portal`; primeiro push da `main` em `Harmony-Digital/andre-calculos` confirmado no SHA `cc34885848e694887e7da7be626e87d2e037118a`, com clone remoto independente de 25 commits sem áudio;
   - conexão Vercel exclusiva autenticada na equipe `Projeto Andre` (`projeto-andre1`), conta `projetoandre.harmony@gmail.com`; nenhum projeto Vercel criado;
   - MCP `andre-calculos-supabase` registrado no Codex com `project_ref=qtofwbxujshroaafxowr`; Fábio confirmou a conclusão da autenticação em 2026-10-11. As ferramentas dedicadas ainda não estão expostas nesta sessão; URL de configuração conferida, sem substituir a chamada `get_project_url`;
   - áudio removido de 24 commits e duas árvores de snapshot Git com autorização do Fábio, mantendo autores/mensagens/datas/arquivos restantes e o original local íntegro; nenhuma referência alcança o blob do áudio. Evidência: `docs/evidencias/git/retirada-audio.md`;
   - primeira execução GitHub Actions criou os jobs `qualidade` e `e2e`, mas a conta recusou ambos por cobrança/limite antes de qualquer etapa; proteção de main recusada por exigir upgrade no repositório privado;
-  - preparação de M1.23 concluída com doze testes fictícios de destino, transporte de valores e falha parcial; script exclusivo do Fábio e metadados obrigatórios impedem qualquer uso atual em produção; o build desta execução foi recusado pelo ambiente ao abrir porta interna do Turbopack;
-  - transcrição retirada das referências de 27 commits e duas árvores locais, com original íntegro; remoto antigo saneado e arquivado privado, novo repositório independente público no mesmo endereço (ID 1414349093); clone de 25 commits sem áudio/transcrição e consultas anônimas dos conteúdos antigos HTTP 404; proteção de main aplicada e conferida, CI por PR a seguir. Evidência: docs/evidencias/git/retirada-transcricao.md. Caches antigos não foram purgados fisicamente e ficam restritos ao arquivo privado.
-- **Próximas tarefas do agente:** abrir PR das mudanças preparadas, executar CI no repositório público e concluir M1.13/M2.34 somente com execução real aprovada. M1.10/M1.12 concluídos com read-back independente. M2.34 está verificado localmente; não equivale à contratação comercial completa. M2.15/M2.16 ainda exigem produtor de M2.12, Pix/dados reais e textos aprovados. M2.35 requer a skill `security-review`, ausente no catálogo e nos diretórios Claude. Nenhuma alteração de nuvem sem conferir a conexão dedicada.
+  - preparação de M1.23 concluída com doze testes fictícios de destino, transporte de valores e falha parcial; script exclusivo do Fábio e metadados obrigatórios impedem qualquer uso atual em produção; o build local foi recusado pelo ambiente ao abrir porta interna do Turbopack; o mesmo código passou no npm run check/build do CI remoto;
+  - transcrição retirada das referências de 27 commits e duas árvores locais, com original íntegro; remoto antigo saneado e arquivado privado, novo repositório independente público no mesmo endereço (ID 1414349093); clone de 25 commits sem áudio/transcrição e consultas anônimas dos conteúdos antigos HTTP 404; proteção de main aplicada e conferida, CI do PR #1 aprovado e integrado. Evidência: docs/evidencias/git/retirada-transcricao.md. Caches antigos não foram purgados fisicamente e ficam restritos ao arquivo privado.
+- **Próximas tarefas do agente:** M2.35 exige a skill security-review ausente; M1.03/04 e validações na nuvem aguardam ferramentas dos MCPs dedicados carregadas nesta sessão. As preparações locais elegíveis de M1/M2 já foram executadas. M1.10/M1.10a/M1.12/M1.13 e M2.34 concluídos com evidência real. M2.34 está verificado localmente e no CI; não equivale à contratação comercial completa. M2.15/M2.16 ainda exigem produtor de M2.12, Pix/dados reais e textos aprovados. M2.35 requer a skill `security-review`, ausente no catálogo e nos diretórios Claude. Nenhuma alteração de nuvem sem conferir a conexão dedicada.
 - **Bloqueios externos:**
   - MCP Supabase dedicado ainda sem ferramentas disponíveis após autenticação informada; tentativa de atualizar pelo app Codex recusada pela proteção de Computer Use. Não foi usado conector alternativo;
   - planos Pro, integração GitHub/Vercel, skill de segurança e dados reais do André ainda precisam de verificação/insumos;
-  - CI anterior recusado antes dos testes por cobrança/limite; novo repositório público limpo e proteção aplicada, aguardando execução real por PR. Caches antigos continuam privados; purga física exigiria suporte do GitHub;
+  - CI e proteção do novo repositório público verificados; caches antigos continuam privados, sem purga física pelo suporte do GitHub. A integração Vercel deverá selecionar o novo repositório ID 1414349093;
   - GATEs, revisão de textos, calendário de TRT, preços e ensaios reais continuam sem evidência humana; não foram marcados como concluídos.
 - **Prazo combinado com o André:** primeira versão no ar por volta de 2026-10-20 (M2).
 - **Toda sessão começa pelo preflight de contas** (`scripts/preflight.sh`, `AGENTS.md` §7). Nesta execução foram confirmados GitHub `fabioalmeidadigital`, remoto e cofre exclusivo `proj-andre-calculos`.
@@ -106,7 +106,7 @@ O título vai até o primeiro " — ". As seções "Especificação das tarefas"
 | Tratamento da transcrição antes da visibilidade pública autorizada                                              | Fábio                                         | CI de M1.13/M2.34                                     | autorizado e executado em 2026-10-11: histórico publicado sem transcrição, original local íntegro; caches antigos isolados em arquivo privado |
 | Runtime Docker local (D17) | Agente, conforme execução integral autorizada | M1.40 a M1.44 | Colima 0.10.3 e Docker 29.9.0 instalados; perfil andre-calculos saudável; decisão de produto D17 permanece aberta |
 | Confirmar a região São Paulo e assinar o plano Pro no Supabase e na Vercel, com o cartão do cliente | Fábio | M1.05, M1.44, M1.50 | pendente |
-| Instalar o app da Vercel do cliente na organização Harmony-Digital do GitHub, só com acesso a `andre-calculos` | Fábio | M1.50 | pendente |
+| Instalar o app da Vercel do cliente na organização Harmony-Digital do GitHub, só com acesso a `andre-calculos` | Fábio | M1.50 | pendente; selecionar o novo repositório público ID 1414349093, não o arquivo privado |
 | Confirmar se as contas do Supabase e da Vercel foram criadas com a conta-mãe (Gmail novo do cliente) | Fábio | M1.06 | a confirmar |
 | Conta no Resend | Fábio | M2.28 | pendente |
 | Cadastrar o projeto no Hub e criar a chave do agente | Fábio | M1.60, M1.61 | pendente |
@@ -161,7 +161,7 @@ Prazo sugerido: 2026-10-13
 - [x] M1.10a Retirar a transcrição de todo o histórico Git preservando o original local — evidência: 27 commits e todas as referências filtradas/conferidas, original com SHA-256/tamanho idênticos; novo remoto público independente sem caminhos/blobs privados e consultas anônimas antigas HTTP 404; caches residuais do GitHub restritos ao arquivo privado, sem purga física; docs/evidencias/git/retirada-transcricao.md
 - [x] M1.11 Organizar a pasta do projeto — evidência: transcrição e pesquisas movidas preservando o conteúdo; README e referências atualizados; 13 documentos conferidos, zero links locais quebrados (2026-10-11)
 - [x] M1.12 Fazer o primeiro push para Harmony-Digital/andre-calculos — evidência: conta fabioalmeidadigital, SHA remoto cc34885848e694887e7da7be626e87d2e037118a e clone bare independente com 25 commits sem áudio; docs/evidencias/git/primeiro-push.md
-- [ ] M1.13 Criar o CI de qualidade e proteger a main — ⏳ novo repositório público independente ID 1414349093 com histórico limpo; ruleset 24880297 aplicado/read-back e regras efetivas exigem PR, qualidade/e2e estritos sem bypass; falta PR e CI verde
+- [x] M1.13 Criar o CI de qualidade e proteger a main — evidência: ruleset 24880297 aplicado/read-back na main, PR e qualidade/e2e estritos sem bypass; CI 38142154491 verde no PR #1/SHA b7d4390ca522d3d127062f796acf5a9be5966787; integrado em f0f900740ed60cb5cd655ce414b8b342ea35b0d9 com árvore integral idêntica; docs/evidencias/git/ci.md
 
 ### Segredos (1Password)
 
@@ -270,7 +270,7 @@ Prazo sugerido: 2026-10-20
 
 ### Qualidade e publicação
 
-- [ ] M2.34 Testar o fluxo completo de ponta a ponta no Playwright — ⏳ jornada única em 375/1440 px e suíte completa com 109 aprovados; 142 testes de banco e npm run check verdes; CI 38139370081 recusou iniciar os jobs por cobrança/limite; falta CI remoto verde. Três pontes sintéticas documentadas em docs/jornada-local.md; evidência: docs/evidencias/jornada-local/README.md
+- [x] M2.34 Testar o fluxo completo de ponta a ponta no Playwright — evidência: job e2e 114478041670/CI 38142154491 verde, 109 aprovados e sete omitidos somente no celular; 142 testes de banco, npm run check e advisors locais aprovados. Jornada em 375/1440 px e três pontes sintéticas documentadas em docs/jornada-local.md; docs/evidencias/git/ci.md e docs/evidencias/jornada-local/README.md
 - [x] M2.34a Corrigir os controles cortados ao concluir o checklist no celular — evidência: jornada repetida em 375/1440 px, todos os controles contidos no painel e captura celular/02-checklist.png em docs/evidencias/jornada-local; npm run check verde
 - [ ] M2.35 Fazer a revisão de segurança antes da publicação
 - [ ] M2.36 Ensaiar com o André um processo antigo autorizado — responsável: André com o agente
@@ -528,6 +528,17 @@ Prazo sugerido: a planejar
 - **Observação:** o arquivo continua na pasta e o `.gitignore` já ignora `*.m4a`.
 - **Pronto quando:** `git log --all -- "PROJETO DO ANDRE THE ONE.m4a"` e `git ls-files` desse caminho estão vazios; o blob do áudio não aparece em `git rev-list --objects --all`; o original conserva hash/tamanho e nenhuma referência de backup será enviada ao GitHub.
 
+#### M1.10a Retirar a transcrição antes da publicação autorizada
+
+- **Fazer**, conforme a autorização do Fábio:
+  1. Registrar tamanho/SHA-256 do original local e conferir a conta GitHub, o ID do repositório e os SHAs remotos.
+  2. Em cópia bare temporária, filtrar os dois caminhos exatos da transcrição, incluindo seu nome antigo. Comparar os demais arquivos e metadados de todos os commits; conferir também as árvores de snapshot do Codex. Trocar referências atomicamente, sem importar backups, fazer checkout/reset ou apagar o original.
+  3. Atualizar o remoto privado usando lease com o SHA anterior explícito e consultar se os commits antigos continuam acessíveis pelo cache.
+  4. Se houver cache privado, inventariar os vínculos antes de separar a publicação: conservar o antigo privado e arquivado e criar um repositório independente, inicialmente privado, no mesmo endereço. Não excluir repositórios nem transferir acessos ou integrações sem verificar seu escopo.
+  5. Conferir um clone remoto e a ausência dos caminhos/blobs privados antes de tornar público. Verificar acesso anônimo ao novo destino e HTTP 404 para os conteúdos antigos; registrar os IDs e o mapa de SHAs.
+- **Limite da evidência:** a ausência no histórico publicado não equivale à purga física dos caches antigos pelo GitHub. Registrar essa limitação; contato com suporte exige autorização para enviar a mensagem.
+- **Pronto quando:** caminhos e blobs privados ausentes de todas as referências e do clone publicado; original local com hash/tamanho idênticos e ignorado; arquivo antigo permanece privado, se necessário, com as consultas anônimas negadas.
+
 #### M1.11 Organizar a pasta do projeto
 
 - **Fazer:**
@@ -556,7 +567,7 @@ Prazo sugerido: a planejar
      - `npm ci` e `npm run check`.
   2. Tentar proteger a `main`, exigindo PR e o CI verde, com `gh api` (rulesets).
   3. Se o plano da organização não permitir isso em repositório privado, registrar no Registro de Execução e manter a regra de processo do `AGENTS.md` §4.
-- **Pronto quando:** um PR de teste mostra o job "Qualidade" verde.
+- **Pronto quando:** um PR mostra os checks reais `qualidade` e `e2e` verdes, e a consulta da API confirma as regras efetivas da `main`.
 
 #### M1.21 Itens do cofre (Fábio)
 
@@ -1222,7 +1233,7 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
   - logins das contas do cliente e chaves de produção vão para um segundo cofre, `proj-andre-calculos-prod`, só de pessoas (recomendado).
 
   Até decidir, nenhuma credencial de conta ou de produção entra no cofre dos agentes.
-- [x] **D15 Repositório:** organização Harmony-Digital no GitHub, `Harmony-Digital/andre-calculos` (criado privado pelo Fábio em 2026-10-10 e transferido para a organização no mesmo dia). Em 2026-10-11, Fábio autorizou mudar para público para usar CI gratuito; retirada da transcrição integral de todo o Git autorizada, mantendo o original local; mudança aguarda verificar o conteúdo remoto. Na passagem, decidir se vai para o cliente.
+- [x] **D15 Repositório:** organização Harmony-Digital no GitHub, `Harmony-Digital/andre-calculos` (criado privado pelo Fábio em 2026-10-10 e transferido para a organização no mesmo dia). Em 2026-10-11, Fábio autorizou mudar para público para usar CI gratuito e retirar a transcrição mantendo o original local. Novo repositório público independente ID `1414349093`, com histórico limpo, e arquivo anterior ID `1413659875` conservado privado; evidência em `docs/evidencias/git/retirada-transcricao.md`. Na passagem, decidir se vai para o cliente.
 - [ ] **D16 Conta-mãe e cobrança:**
   - Gmail novo do cliente (decidido), com 2FA por app autenticador e recuperação no celular e e-mail do André;
   - planos pagos no cartão do cliente;
@@ -1278,3 +1289,5 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-11 | Codex | Preparação de M1.23: wrapper exclusivo do Fábio com op run, referências por ambiente, conta pessoal e destino declarado; CLI recebe somente token/IDs e valor atual por stdin, sem arquivo com segredo, sobrescrita ou deploy | Doze testes fictícios aprovados; revisão independente corrigiu NEXT_PUBLIC como Config porque a CLI recusa esse prefixo para Secret. Supabase/service role e origens separados por ambiente; cadastro parcial reporta nomes e não presume valores existentes. Conferência local recusou metadados ainda ausentes sem abrir o 1Password ou conectar à Vercel. Format/lint/types/340 unitários e doze testes de scripts aprovados; build Turbopack recusado pelo ambiente ao abrir porta interna, inclusive na execução escalada, sem alteração de código do compilador. Fábio autorizou a retirada integral da transcrição preservando o original; M1.10a e validação remota iniciados. |
 
 | 2026-10-11 | Codex | M1.10a verificado: filtro dos dois caminhos privados em 27 commits/todas as referências locais, original íntegro e demais arquivos/metadados preservados. Main privada saneada por lease, mas cache antigo ainda consultável; repositório antigo renomeado/arquivado privado e novo independente ID 1414349093 criado no mesmo endereço, conforme publicação autorizada. Clone remoto limpo e consultas anônimas dos conteúdos antigos HTTP 404. Ruleset 24880297 aplicado/read-back na main | Evidência: docs/evidencias/git/retirada-transcricao.md e mapa dos SHAs. Nenhum repositório excluído, nenhuma mensagem enviada; cache antigo permanece privado, sem purga física no GitHub. CI real por PR ainda pendente; última cadeia local aprovou formato/lint/types/340 unitários/doze testes de scripts, build bloqueado pelo ambiente. Nuvem dedicada, insumos e gates permanecem pendentes. |
+
+| 2026-10-11 | Codex | M1.13 e M2.34 concluídos no CI remoto 38142154491/SHA b7d4390ca522d3d127062f796acf5a9be5966787: qualidade e e2e success; 340 unitários/33 arquivos, doze testes de scripts, build, 142 testes de banco/16 arquivos, 109 e2e/7 omissões exclusivas do celular, advisors locais sem achados. PR #1 integrado normalmente em f0f900740ed60cb5cd655ce414b8b342ea35b0d9; fetch e comparação da árvore integral confirmaram código idêntico ao verificado | Evidência: docs/evidencias/git/ci.md. Corrigido critério M1.13 para nomes reais dos checks e especificação adicionada de M1.10a. As mudanças posteriores deste registro são só documentação; sem nova aplicação, envio, pagamento ou publicação do portal. Próximo M2.35 bloqueado pela skill security-review ausente; ferramentas dos MCPs dedicados, integração Vercel, planos/cofres, dados e decisões humanas continuam pendentes. Nenhuma outra tarefa de M1/M2 elegível sem esses insumos; M3 exige detalhamento/aprovação antes de execução. |
