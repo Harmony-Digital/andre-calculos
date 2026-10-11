@@ -40,18 +40,23 @@ export async function removeMessageProcess(id: string) {
   if (process.error || process.data.chamber !== marker)
     throw new Error("Limpeza limitada ao processo fictício de mensagens.");
   const messages = await db.from("messages").select("id").eq("process_id", id),
-    files = await db.from("files").select("id,path").eq("process_id", id);
-  if (messages.error || files.error)
+    files = await db.from("files").select("id,path").eq("process_id", id),
+    events = await db.from("timeline_events").select("id").eq("process_id", id);
+  if (messages.error || files.error || events.error)
     throw new Error("Fixture de mensagens indisponível.");
   const targets = [
+    ...events.data!.map((row) => row.id),
     ...messages.data.map((row) => row.id),
     ...files.data.map((row) => row.id),
   ];
   // Excluir mensagens primeiro libera os vínculos internos com os anexos.
   const removed = await db.from("messages").delete().eq("process_id", id);
   if (removed.error) throw new Error("Falha ao limpar mensagens fictícias.");
-  if (targets.length) {
-    const audit = await db.from("audit_log").delete().in("target_id", targets);
+  for (let offset = 0; offset < targets.length; offset += 50) {
+    const audit = await db
+      .from("audit_log")
+      .delete()
+      .in("target_id", targets.slice(offset, offset + 50));
     if (audit.error) throw new Error("Falha ao limpar auditorias fictícias.");
   }
   for (const result of [

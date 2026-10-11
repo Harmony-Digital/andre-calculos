@@ -6,7 +6,7 @@ export default async function Folder({
   searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ aba?: string; antes?: string }>;
+  searchParams: Promise<{ aba?: string; antes?: string; tipo?: string }>;
 }) {
   const { id } = await params;
   const search = await searchParams;
@@ -16,6 +16,7 @@ export default async function Folder({
       panel
       tab={processTab(search.aba)}
       before={search.antes}
+      eventType={search.tipo}
     />
   );
 }

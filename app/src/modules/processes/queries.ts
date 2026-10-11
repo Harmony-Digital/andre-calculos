@@ -5,6 +5,7 @@ import { authorize, getSessionProfile } from "@/modules/auth/session";
 import { createSessionClient } from "@/lib/supabase/server";
 import type { ProcessTab } from "./tabs";
 import { messageCursor, encodeMessageCursor } from "@/modules/messages/cursor";
+import { eventFilter } from "@/modules/timeline/types";
 export async function listProcesses() {
   await authorize(["client", "calculator"]);
   const supabase = await createSessionClient();
@@ -19,6 +20,7 @@ export async function getProcess(
   id: string,
   tab: ProcessTab = "documentos",
   before?: string,
+  eventType?: string,
 ) {
   const session = await getSessionProfile();
   if (!session || !["client", "calculator"].includes(session.profile.role))
@@ -33,8 +35,12 @@ export async function getProcess(
     .single();
   if (error || !data) notFound();
   let cursor;
+  let selectedEvent;
   try {
-    cursor = messageCursor(tab === "mensagens" ? before : undefined);
+    cursor = messageCursor(
+      tab === "mensagens" || tab === "historico" ? before : undefined,
+    );
+    selectedEvent = eventFilter(tab === "historico" ? eventType : undefined);
   } catch {
     notFound();
   }
@@ -47,6 +53,18 @@ export async function getProcess(
     .limit(51);
   if (cursor)
     messageQuery = messageQuery.or(
+      `created_at.lt.${cursor.date},and(created_at.eq.${cursor.date},id.lt.${cursor.id})`,
+    );
+  let timelineQuery = supabase
+    .from("timeline_events")
+    .select("id,kind,data,actor_id,created_at")
+    .eq("process_id", id)
+    .order("created_at", { ascending: false })
+    .order("id", { ascending: false })
+    .limit(101);
+  if (selectedEvent) timelineQuery = timelineQuery.eq("kind", selectedEvent);
+  if (cursor)
+    timelineQuery = timelineQuery.or(
       `created_at.lt.${cursor.date},and(created_at.eq.${cursor.date},id.lt.${cursor.id})`,
     );
   const [files, orders, messages, decisions, index, events] = await Promise.all(
@@ -84,12 +102,7 @@ export async function getProcess(
             .order("created_at", { ascending: true })
         : Promise.resolve({ data: [], error: null }),
       tab === "historico"
-        ? supabase
-            .from("timeline_events")
-            .select("id,kind,actor_id,created_at")
-            .eq("process_id", id)
-            .order("created_at", { ascending: false })
-            .limit(100)
+        ? timelineQuery
         : Promise.resolve({ data: [], error: null }),
     ],
   );
@@ -125,7 +138,12 @@ export async function getProcess(
         : null,
     decisions: decisions.data ?? [],
     index: index.data ?? [],
-    events: events.data ?? [],
+    events: (events.data ?? []).slice(0, 100),
+    selectedEvent,
+    olderEvents:
+      (events.data?.length ?? 0) > 100
+        ? encodeMessageCursor(events.data![99])
+        : null,
     authors: new Map(
       (profiles.data ?? []).map((row) => [row.profile_id, row.display_name]),
     ),

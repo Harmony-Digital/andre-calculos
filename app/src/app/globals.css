@@ -913,6 +913,23 @@ h2 {
   gap: 16px;
   margin: 20px 0;
 }
+.timeline-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-block: 24px;
+}
+.timeline-filter select {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: white;
+  padding: 10px;
+  max-width: 100%;
+}
+.note-form {
+  margin-block: 24px;
+}
 @media (max-width: 600px) {
   .process-tabs a {
     font-size: 14px;

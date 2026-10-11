@@ -39,4 +39,3 @@ end;
 $$;
 revoke all on function public.send_process_message(uuid,text,uuid[],uuid) from public,anon;
 grant execute on function public.send_process_message(uuid,text,uuid[],uuid) to authenticated;
-

@@ -1091,6 +1091,10 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      add_process_note: {
+        Args: { note_body: string; request_id: string; target_process: string };
+        Returns: string;
+      };
       complete_file_system: {
         Args: {
           actor: string;

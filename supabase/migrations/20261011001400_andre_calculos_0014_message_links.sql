@@ -79,4 +79,3 @@ end;
 $$;
 revoke all on function private.preserve_attached_file() from public,anon,authenticated,service_role;
 create trigger files_preserve_message_attachment before update on public.files for each row execute function private.preserve_attached_file();
-

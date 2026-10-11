@@ -11,6 +11,8 @@ import { calculationLabels } from "@/modules/checklist/v1";
 import { FileUploader } from "./file-uploader";
 import { PdfViewer } from "./pdf-viewer";
 import { MessageComposer } from "./message-composer";
+import { NoteComposer } from "./note-composer";
+import { eventLabel, eventLabels, noteText } from "@/modules/timeline/types";
 const folders = {
   case: "Processo",
   client: "Documentos do cliente",
@@ -23,17 +25,6 @@ const sources: Record<string, string> = {
   decision: "Decisão",
   lawyer: "Advogado",
   calculator: "André",
-};
-const kinds: Record<string, string> = {
-  draft_created: "Rascunho criado",
-  draft_updated: "Checklist atualizado",
-  file_uploaded: "Documento enviado",
-  quote_created: "Proposta emitida",
-  quote_accepted: "Proposta aceita",
-  payment_confirmed: "Pagamento confirmado",
-  message_sent: "Mensagem enviada",
-  decision_recorded: "Decisão registrada",
-  delivered: "Entrega disponibilizada",
 };
 const dateTime = (date: string) =>
   new Intl.DateTimeFormat("pt-BR", {
@@ -51,13 +42,15 @@ export async function ProcessFolder({
   panel = false,
   tab = "documentos",
   before,
+  eventType,
 }: {
   id: string;
   panel?: boolean;
   tab?: ProcessTab;
   before?: string;
+  eventType?: string;
 }) {
-  const data = await getProcess(id, tab, before),
+  const data = await getProcess(id, tab, before, eventType),
     { process, files } = data;
   const base = `${panel ? "/painel" : "/app"}/processos/${id}`;
   const cnj = process.cnj_number.replace(
@@ -335,6 +328,46 @@ export async function ProcessFolder({
         <section className="panel process-section">
           <h2>Linha do tempo</h2>
           <p>Atividades mais recentes deste processo.</p>
+          <form method="get" action={base} className="timeline-filter">
+            <input type="hidden" name="aba" value="historico" />
+            <label htmlFor="event-type">Filtrar atividade</label>
+            <select
+              id="event-type"
+              name="tipo"
+              defaultValue={data.selectedEvent ?? "todos"}
+            >
+              <option value="todos">Todas as atividades</option>
+              {Object.entries(eventLabels).map(([kind, label]) => (
+                <option key={kind} value={kind}>
+                  {label}
+                </option>
+              ))}
+            </select>
+            <button type="submit" className="button button-secondary">
+              Filtrar
+            </button>
+          </form>
+          {data.role === "calculator" && !before && (
+            <NoteComposer processId={id} requestId={randomUUID()} />
+          )}
+          <div className="message-history-links">
+            {before && (
+              <Link
+                className="text-link"
+                href={`${base}?aba=historico${data.selectedEvent ? `&tipo=${data.selectedEvent}` : ""}`}
+              >
+                Voltar às atividades recentes
+              </Link>
+            )}
+            {data.olderEvents && (
+              <Link
+                className="text-link"
+                href={`${base}?aba=historico${data.selectedEvent ? `&tipo=${data.selectedEvent}` : ""}&antes=${encodeURIComponent(data.olderEvents)}`}
+              >
+                Ver atividades anteriores
+              </Link>
+            )}
+          </div>
           {!data.events.length ? (
             <p>Nenhuma atividade registrada.</p>
           ) : (
@@ -343,16 +376,16 @@ export async function ProcessFolder({
                 const Icon =
                   event.kind === "file_uploaded"
                     ? FileText
-                    : event.kind.startsWith("draft_")
+                    : event.kind.startsWith("draft_") ||
+                        event.kind === "checklist_draft_saved" ||
+                        event.kind === "note_added"
                       ? ClipboardList
                       : Clock3;
                 return (
                   <li key={event.id}>
                     <Icon size={20} aria-hidden="true" />
                     <div>
-                      <strong>
-                        {kinds[event.kind] ?? "Atividade registrada"}
-                      </strong>
+                      <strong>{eventLabel(event.kind)}</strong>
                       <p>
                         {event.actor_id
                           ? data.authors.get(event.actor_id) || "Responsável"
@@ -361,6 +394,9 @@ export async function ProcessFolder({
                       <time dateTime={event.created_at}>
                         {dateTime(event.created_at)}
                       </time>
+                      {event.kind === "note_added" && noteText(event.data) && (
+                        <p className="preserve-lines">{noteText(event.data)}</p>
+                      )}
                     </div>
                   </li>
                 );
