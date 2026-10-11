@@ -245,6 +245,15 @@ function invoiceUrl(value: string | null | undefined, scope: AsaasScope) {
   }
 }
 
+function fieldPresence(
+  value: unknown,
+): "missing" | "null" | "empty" | "present" {
+  if (value === undefined) return "missing";
+  if (value === null) return "null";
+  if (Array.isArray(value) && value.length === 0) return "empty";
+  return "present";
+}
+
 function paymentObservation(
   value: unknown,
   expected: z.infer<typeof paymentExpectationSchema>,
@@ -272,6 +281,12 @@ function paymentObservation(
     valueCents: payment.value,
     providerOriginalCents: payment.originalValue ?? null,
     netCents: payment.netValue ?? null,
+    presence: Object.freeze({
+      originalValue: fieldPresence(payment.originalValue),
+      netValue: fieldPresence(payment.netValue),
+      refunds: fieldPresence(payment.refunds),
+      chargeback: fieldPresence(payment.chargeback),
+    }),
     status: payment.status,
     billingType: payment.billingType,
     dueDate: payment.dueDate,
