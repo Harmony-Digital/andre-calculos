@@ -464,7 +464,7 @@ O produto vai ser entregue ao André. Por isso a infraestrutura fica em contas c
 | Geração de PDF | `@react-pdf/renderer` | atual estável | recomendado | proposta, registro de decisões e contrato |
 | E-mails | React Email com Resend | atual estável | decidido (Resend) | modelos em português |
 | Upload retomável | Uppy ou tus-js-client com o TUS do Supabase Storage, direto do navegador | atual estável | recomendado | as funções da Vercel limitam o corpo da requisição a 4,5 MB; o PDF vai direto ao Storage |
-| Jobs e agendamentos | Vercel Cron e fila de envios no banco (tabela `outbox`) | — | recomendado | lembretes de prazo e reenvio de notificações. Jobs longos de IA (M4) decididos no M4 |
+| Jobs e agendamentos | Vercel Cron e fila de envios no banco (tabela `notifications`) | — | recomendado | fila transacional existente, lembretes de prazo e reenvio de notificações. Jobs longos de IA (M4) decididos no M4 |
 | Logs | pino e os logs da Vercel | 10.x | padrão | |
 | Testes | Vitest 5, Playwright 1.62 com `@axe-core/playwright`, ESLint 9, Prettier 3 | conforme Hub | padrão | `npm run check` = format, lint, typecheck, test e build |
 
