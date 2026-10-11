@@ -7,6 +7,7 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // Override default ignores of eslint-config-next.
   globalIgnores([
+    "public/pdfjs/**",
     "coverage/**",
     "playwright-report/**",
     "test-results/**",

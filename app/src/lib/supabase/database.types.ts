@@ -1137,7 +1137,10 @@ export type Database = {
         }[];
       };
       record_auth_audit: { Args: { event: string }; Returns: undefined };
-      record_file_access: { Args: { target_file: string }; Returns: undefined };
+      record_file_access: {
+        Args: { access_kind?: string; target_file: string };
+        Returns: undefined;
+      };
       request_account_deletion: { Args: never; Returns: string };
       save_checklist_draft: {
         Args: {

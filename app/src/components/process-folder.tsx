@@ -1,14 +1,61 @@
 import Link from "next/link";
+import { Clock3, FileText, ClipboardList } from "lucide-react";
 import { getProcess } from "@/modules/processes/queries";
+import { processTabs, type ProcessTab } from "@/modules/processes/tabs";
+import {
+  orderStateLabels,
+  type OrderState,
+} from "@/modules/orders/state-machine";
+import { calculationLabels } from "@/modules/checklist/v1";
 import { FileUploader } from "./file-uploader";
+import { PdfViewer } from "./pdf-viewer";
+const folders = {
+  case: "Processo",
+  client: "Documentos do cliente",
+  deliverables: "Entregas",
+  triage: "Triagem",
+} as const;
+const sources: Record<string, string> = {
+  judgment: "Sentença",
+  appeal: "Acórdão",
+  decision: "Decisão",
+  lawyer: "Advogado",
+  calculator: "André",
+};
+const kinds: Record<string, string> = {
+  draft_created: "Rascunho criado",
+  draft_updated: "Checklist atualizado",
+  file_uploaded: "Documento enviado",
+  quote_created: "Proposta emitida",
+  quote_accepted: "Proposta aceita",
+  payment_confirmed: "Pagamento confirmado",
+  message_sent: "Mensagem enviada",
+  decision_recorded: "Decisão registrada",
+  delivered: "Entrega disponibilizada",
+};
+const dateTime = (date: string) =>
+  new Intl.DateTimeFormat("pt-BR", {
+    dateStyle: "short",
+    timeStyle: "short",
+    timeZone: "America/Sao_Paulo",
+  }).format(new Date(date));
+const civilDate = (date: string) =>
+  new Intl.DateTimeFormat("pt-BR", {
+    dateStyle: "short",
+    timeZone: "America/Sao_Paulo",
+  }).format(new Date(`${date}T12:00:00-03:00`));
 export async function ProcessFolder({
   id,
   panel = false,
+  tab = "documentos",
 }: {
   id: string;
   panel?: boolean;
+  tab?: ProcessTab;
 }) {
-  const { process, files } = await getProcess(id);
+  const data = await getProcess(id, tab),
+    { process, files } = data;
+  const base = `${panel ? "/painel" : "/app"}/processos/${id}`;
   const cnj = process.cnj_number.replace(
     /^(\d{7})(\d{2})(\d{4})(\d)(\d{2})(\d{4})$/,
     "$1-$2.$3.$4.$5.$6",
@@ -27,36 +74,269 @@ export async function ProcessFolder({
           Voltar aos processos
         </Link>
       </div>
-      <FileUploader processId={id} />
-      <section className="panel">
-        <div className="panel-header">
-          <h2>Documentos</h2>
-          <span>{files.length} arquivo(s)</span>
-        </div>
-        {files.length === 0 ? (
-          <p className="document-row">Nenhum documento enviado.</p>
-        ) : (
-          <ul className="document-list">
-            {files.map((file) => (
-              <li key={file.id} className="document-row">
-                <div>
-                  <strong>{file.name}</strong>
+      <nav className="process-tabs" aria-label="Abas da pasta do processo">
+        {Object.entries(processTabs).map(([key, label]) => (
+          <Link
+            key={key}
+            href={`${base}?aba=${key}`}
+            aria-current={tab === key ? "page" : undefined}
+          >
+            {label}
+          </Link>
+        ))}
+      </nav>
+      {tab === "resumo" && (
+        <section className="panel process-section">
+          <h2>Resumo do processo</h2>
+          <dl className="process-summary">
+            <div>
+              <dt>Tribunal e vara</dt>
+              <dd>
+                {process.court} · {process.chamber}
+              </dd>
+            </div>
+            <div>
+              <dt>Polo representado</dt>
+              <dd>
+                {process.side === "claimant" ? "Reclamante" : "Reclamada"}
+              </dd>
+            </div>
+            <div>
+              <dt>Reclamantes</dt>
+              <dd>{process.claimants_count}</dd>
+            </div>
+            <div>
+              <dt>Documentos disponíveis</dt>
+              <dd>{files.length}</dd>
+            </div>
+          </dl>
+          <h3>Pedidos deste processo</h3>
+          {!data.orders.length ? (
+            <p>Nenhum pedido registrado.</p>
+          ) : (
+            <ul className="process-records">
+              {data.orders.map((order) => (
+                <li key={order.id}>
+                  <strong>
+                    {order.code} ·{" "}
+                    {
+                      calculationLabels[
+                        order.calc_type as keyof typeof calculationLabels
+                      ]
+                    }
+                  </strong>
                   <p>
-                    {(file.size_bytes / 1024 / 1024).toFixed(1)} MB ·
-                    integridade confirmada
+                    {orderStateLabels[order.status as OrderState]}
+                    {order.delivery_date
+                      ? ` · Entrega prevista: ${civilDate(order.delivery_date)}`
+                      : ""}
                   </p>
+                  {order.status === "draft" && !panel && (
+                    <Link
+                      className="text-link"
+                      href={`/app/novo-pedido?rascunho=${order.id}`}
+                    >
+                      Continuar checklist
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
+      {tab === "documentos" && (
+        <>
+          <FileUploader
+            processId={id}
+            allowTriage={data.role === "calculator"}
+          />
+          {Object.entries(folders).map(([folder, title]) => {
+            const rows = files.filter((file) => file.folder === folder);
+            return (
+              <section
+                className="panel file-folder"
+                key={folder}
+                aria-label={`Pasta ${title}`}
+              >
+                <div className="panel-header">
+                  <h2>{title}</h2>
+                  <span>{rows.length} arquivo(s)</span>
                 </div>
-                <a
-                  className="text-link"
-                  href={`/api/files/${file.id}/download`}
-                >
-                  Baixar arquivo
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
+                {!rows.length ? (
+                  <p className="document-row">Nenhum documento nesta pasta.</p>
+                ) : (
+                  <ul className="document-list">
+                    {rows.map((file) => (
+                      <li key={file.id} className="document-item">
+                        <div className="document-row">
+                          <div>
+                            <strong>{file.name}</strong>
+                            <p>
+                              {(file.size_bytes / 1024 / 1024).toLocaleString(
+                                "pt-BR",
+                                { maximumFractionDigits: 1 },
+                              )}{" "}
+                              MB · Versão {file.version} · Integridade
+                              confirmada
+                            </p>
+                          </div>
+                          <a
+                            className="text-link"
+                            href={`/api/files/${file.id}/download`}
+                          >
+                            Baixar arquivo
+                          </a>
+                        </div>
+                        {file.mime === "application/pdf" && (
+                          <PdfViewer id={file.id} name={file.name} />
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            );
+          })}
+        </>
+      )}
+      {tab === "mensagens" && (
+        <section className="panel process-section">
+          <h2>Mensagens</h2>
+          <p>A conversa deste processo fica nesta pasta.</p>
+          {!data.messages.length ? (
+            <p>Nenhuma mensagem enviada.</p>
+          ) : (
+            <ul className="process-records">
+              {data.messages.map((message) => (
+                <li key={message.id}>
+                  <strong>
+                    {data.authors.get(message.author_id) || "Responsável"}
+                  </strong>
+                  <time dateTime={message.created_at}>
+                    {dateTime(message.created_at)}
+                  </time>
+                  <p className="preserve-lines">{message.body}</p>
+                  {message.attachment_ids.map((fileId) => {
+                    const file = files.find((row) => row.id === fileId);
+                    return file ? (
+                      <a
+                        key={fileId}
+                        className="text-link attachment-link"
+                        href={`/api/files/${fileId}/download`}
+                      >
+                        {file.name}
+                      </a>
+                    ) : null;
+                  })}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
+      {tab === "decisoes" && (
+        <section className="panel process-section">
+          <h2>Decisões técnicas</h2>
+          <p>
+            Os critérios adotados ficam registrados com sua origem e
+            justificativa.
+          </p>
+          {!data.decisions.length ? (
+            <p>Nenhuma decisão registrada.</p>
+          ) : (
+            <ul className="process-records">
+              {data.decisions.map((decision) => (
+                <li key={decision.id}>
+                  <strong>
+                    {decision.parameter}: {decision.value}
+                  </strong>
+                  <p>
+                    {sources[decision.source]}
+                    {decision.page ? ` · Página ${decision.page}` : ""}
+                    {!decision.page && !decision.client_confirmed_at
+                      ? " · Premissa"
+                      : ""}
+                  </p>
+                  <p className="preserve-lines">{decision.rationale}</p>
+                  <p>
+                    {data.authors.get(decision.recorded_by) || "Responsável"} ·{" "}
+                    {dateTime(decision.created_at)}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
+      {tab === "indice" && (
+        <section className="panel process-section">
+          <h2>Índice de páginas</h2>
+          <p>Localização das peças em cada versão do processo.</p>
+          {!data.index.length ? (
+            <p>Nenhuma peça indexada.</p>
+          ) : (
+            <ul className="process-records">
+              {data.index.map((piece) => {
+                const file = files.find((row) => row.id === piece.file_id);
+                return (
+                  <li key={piece.id}>
+                    <strong>
+                      {piece.piece} · Páginas {piece.pages}
+                    </strong>
+                    <p>
+                      {file
+                        ? `${file.name} · Versão ${file.version}`
+                        : "Documento indisponível"}
+                    </p>
+                    {piece.note && (
+                      <p className="preserve-lines">{piece.note}</p>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </section>
+      )}
+      {tab === "historico" && (
+        <section className="panel process-section">
+          <h2>Linha do tempo</h2>
+          <p>Atividades mais recentes deste processo.</p>
+          {!data.events.length ? (
+            <p>Nenhuma atividade registrada.</p>
+          ) : (
+            <ol className="process-timeline">
+              {data.events.map((event) => {
+                const Icon =
+                  event.kind === "file_uploaded"
+                    ? FileText
+                    : event.kind.startsWith("draft_")
+                      ? ClipboardList
+                      : Clock3;
+                return (
+                  <li key={event.id}>
+                    <Icon size={20} aria-hidden="true" />
+                    <div>
+                      <strong>
+                        {kinds[event.kind] ?? "Atividade registrada"}
+                      </strong>
+                      <p>
+                        {event.actor_id
+                          ? data.authors.get(event.actor_id) || "Responsável"
+                          : "Sistema"}
+                      </p>
+                      <time dateTime={event.created_at}>
+                        {dateTime(event.created_at)}
+                      </time>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          )}
+        </section>
+      )}
     </>
   );
 }

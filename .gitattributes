@@ -1,0 +1,2 @@
+# PDFs são binários; a tabela xref usa espaços finais obrigatórios.
+*.pdf binary

@@ -1,0 +1,143 @@
+%PDF-1.3
+%‚„œ”
+1 0 obj
+<<
+/PageMode /UseNone
+/Pages 2 0 R
+/Type /Catalog
+/OpenAction <<
+/S /JavaScript
+/JS (app\056alert\050\047pdf\055script\055sentinela\047\051\073)
+>>
+>>
+endobj
+2 0 obj
+<<
+/Count 2
+/Kids [ 3 0 R 9 0 R ]
+/Type /Pages
+>>
+endobj
+3 0 obj
+<<
+/Annots [ 4 0 R ]
+/Contents 5 0 R
+/MediaBox [ 0 0 595.2756 841.8898 ]
+/Parent 2 0 R
+/Resources <<
+/Font 6 0 R
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+>>
+endobj
+4 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057pdf\055fixture\056example\056invalid\057\077sentinela\075pdf\055link)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 48 670 400 700 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+5 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ]
+/Length 321
+>>
+stream
+Garo<92EJ[%#"*H/*7*Cb,2?o*"gAN",@kCM6\QcC?d*Z/&\X3l1-58.$>=+jDW%=fZI,c[2uj,\:.7N3HPL+AgR'op3O(/3E247>\3ShY!*G/KAFcfg>hOkmH!(W12%LF"d9j[NpPC6<Fq$5TjOHG^<qF7Y0kc+rR;UZHD\N7HuR/H"mr&"%ucq9A9rP\#7`]tRcX.qBFW1d"h7@G-G3)11BsNh%*M!FWk@E]3-Z\=XtAq]`FO::0sZYo8R0oF/g<8B1&KS*DGL#8H]tcAA6`#:p+SCq.c-%t.4toZ@FLg]SU-#-IP&7qA+K^JML'd~>
+endstream
+endobj
+6 0 obj
+<<
+/F1 7 0 R
+/F2 8 0 R
+>>
+endobj
+7 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+8 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+9 0 obj
+<<
+/Contents 10 0 R
+/MediaBox [ 0 0 595.2756 841.8898 ]
+/Parent 2 0 R
+/Resources <<
+/Font 6 0 R
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+>>
+endobj
+10 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ]
+/Length 271
+>>
+stream
+GarW2_+qm%%#44tMZ:bZ.!+*Yj#Sni*'!$399c<;&WK</p;#.@'EgikQ7Vp"r-]pYEm`=k!1XJcT*V6#H;INt0[D_Jc&sU(Z/geBrGPHgLusN2_[^:oc(hd_n6m#M(d1An(6>'Cf[a4fQ7^<2bj>r;J)qTN^X+WNh9^k.KgOsD]7]W&_`P]YBsM[T@69=U7\95@=0r/]]`?C?fZ*ZBB0jW2>2UZj7qp'EpC[_#j$R&>[805;odP_lO==DPPq=/*bGe\0Yk\E$8RB4~>
+endstream
+endobj
+11 0 obj
+<<
+/Author (Fixtures do Portal de C\341lculos)
+/CreationDate (D\07220261011031444\05503\04700\047)
+/Creator (anonymous)
+/Keywords ()
+/ModDate (D\07220261011031444\05503\04700\047)
+/Producer (ReportLab PDF Library \055 \050opensource\051)
+/Subject (unspecified)
+/Title (Documento inteiramente fict\355cio)
+/Trapped /False
+>>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000015 00000 n 
+0000000181 00000 n 
+0000000246 00000 n 
+0000000463 00000 n 
+0000000679 00000 n 
+0000001091 00000 n 
+0000001132 00000 n 
+0000001239 00000 n 
+0000001351 00000 n 
+0000001551 00000 n 
+0000001914 00000 n 
+trailer
+<<
+/Size 12
+/Root 1 0 R
+/Info 11 0 R
+/ID [ (\374\030\344\261\054\016\376\327\240\227V\332\260\136\343\364) (\374\030\344\261\054\016\376\327\240\227V\332\260\136\343\364) ]
+>>
+startxref
+2254
+%%EOF

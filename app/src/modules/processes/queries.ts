@@ -3,6 +3,7 @@ import { z } from "zod";
 import { notFound } from "next/navigation";
 import { authorize, getSessionProfile } from "@/modules/auth/session";
 import { createSessionClient } from "@/lib/supabase/server";
+import type { ProcessTab } from "./tabs";
 export async function listProcesses() {
   await authorize(["client", "calculator"]);
   const supabase = await createSessionClient();
@@ -13,7 +14,7 @@ export async function listProcesses() {
   if (error) throw new Error("Não foi possível carregar os processos.");
   return data;
 }
-export async function getProcess(id: string) {
+export async function getProcess(id: string, tab: ProcessTab = "documentos") {
   const session = await getSessionProfile();
   if (!session || !["client", "calculator"].includes(session.profile.role))
     notFound();
@@ -22,16 +23,90 @@ export async function getProcess(id: string) {
   const supabase = await createSessionClient();
   const { data, error } = await supabase
     .from("processes")
-    .select("id,cnj_number,court,chamber,client_id")
+    .select("id,cnj_number,court,chamber,client_id,side,claimants_count")
     .eq("id", id)
     .single();
   if (error || !data) notFound();
-  const result = await supabase
-    .from("files")
-    .select("id,name,mime,size_bytes,folder,sha256,created_at")
-    .eq("process_id", id)
-    .eq("upload_status", "uploaded")
-    .order("created_at", { ascending: false });
-  if (result.error) throw new Error("Não foi possível carregar os documentos.");
-  return { process: data, files: result.data };
+  const [files, orders, messages, decisions, index, events] = await Promise.all(
+    [
+      supabase
+        .from("files")
+        .select("id,name,mime,size_bytes,folder,version,sha256,created_at")
+        .eq("process_id", id)
+        .eq("upload_status", "uploaded")
+        .order("created_at", { ascending: false }),
+      tab === "resumo"
+        ? supabase
+            .from("orders")
+            .select("id,code,calc_type,status,delivery_date")
+            .eq("process_id", id)
+            .order("created_at", { ascending: false })
+        : Promise.resolve({ data: [], error: null }),
+      tab === "mensagens"
+        ? supabase
+            .from("messages")
+            .select("id,author_id,body,attachment_ids,created_at")
+            .eq("process_id", id)
+            .order("created_at", { ascending: false })
+            .limit(100)
+        : Promise.resolve({ data: [], error: null }),
+      tab === "decisoes"
+        ? supabase
+            .from("decisions")
+            .select(
+              "id,parameter,value,source,page,rationale,recorded_by,client_confirmed_at,created_at",
+            )
+            .eq("process_id", id)
+            .order("created_at", { ascending: false })
+        : Promise.resolve({ data: [], error: null }),
+      tab === "indice"
+        ? supabase
+            .from("page_index")
+            .select("id,file_id,piece,pages,note")
+            .eq("process_id", id)
+            .order("created_at", { ascending: true })
+        : Promise.resolve({ data: [], error: null }),
+      tab === "historico"
+        ? supabase
+            .from("timeline_events")
+            .select("id,kind,actor_id,created_at")
+            .eq("process_id", id)
+            .order("created_at", { ascending: false })
+            .limit(100)
+        : Promise.resolve({ data: [], error: null }),
+    ],
+  );
+  if (
+    [files, orders, messages, decisions, index, events].some(
+      (result) => result.error,
+    )
+  )
+    throw new Error("Não foi possível carregar a pasta do processo.");
+  const authorIds = [
+    ...new Set([
+      ...(messages.data ?? []).map((row) => row.author_id),
+      ...(decisions.data ?? []).map((row) => row.recorded_by),
+      ...(events.data ?? []).flatMap((row) =>
+        row.actor_id ? [row.actor_id] : [],
+      ),
+    ]),
+  ];
+  const profiles = authorIds.length
+    ? await supabase.from("profiles").select("id,full_name").in("id", authorIds)
+    : { data: [], error: null };
+  if (profiles.error)
+    throw new Error("Não foi possível carregar os responsáveis.");
+  return {
+    process: data,
+    role: session.profile.role,
+    files: files.data ?? [],
+    orders: orders.data ?? [],
+    messages: messages.data ?? [],
+    decisions: decisions.data ?? [],
+    index: index.data ?? [],
+    events: events.data ?? [],
+    authors: new Map(
+      (profiles.data ?? []).map((row) => [row.id, row.full_name]),
+    ),
+  };
 }

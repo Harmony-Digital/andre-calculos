@@ -1,35 +1,18 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { z } from "zod";
-import { getSessionProfile } from "@/modules/auth/session";
-import { createSessionClient } from "@/lib/supabase/server";
 import { createSystemClient } from "@/lib/supabase/admin";
+import { getAuthorizedFile } from "@/modules/files/authorized-file";
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
-  const session = await getSessionProfile();
   const { id } = await params;
-  if (
-    !session ||
-    !["client", "calculator"].includes(session.profile.role) ||
-    !z.uuid().safeParse(id).success
-  )
-    return new NextResponse("Arquivo não encontrado.", { status: 404 });
-  const supabase = await createSessionClient();
-  const file = await supabase
-    .from("files")
-    .select("id,path,name,upload_status")
-    .eq("id", id)
-    .single();
-  if (file.error || !file.data || file.data.upload_status !== "uploaded")
-    return new NextResponse("Arquivo não encontrado.", { status: 404 });
-  const audit = await supabase.rpc("record_file_access", { target_file: id });
-  if (audit.error)
+  const file = await getAuthorizedFile(id, "file_download");
+  if (!file)
     return new NextResponse("Arquivo não encontrado.", { status: 404 });
   const system = createSystemClient();
   const signed = await system.storage
     .from("processos")
-    .createSignedUrl(file.data.path, 120, { download: file.data.name });
+    .createSignedUrl(file.path, 120, { download: file.name });
   if (signed.error || !signed.data)
     return new NextResponse("Arquivo indisponível.", { status: 503 });
   return NextResponse.redirect(signed.data.signedUrl, {

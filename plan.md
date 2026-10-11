@@ -11,19 +11,20 @@ Nome provisório até a marca (D3).
 - **Fase:** M1 em andamento; autenticação e arquivos privados verificados localmente, com fluxos do M2 em construção.
 - **O que já existe:**
   - documentação organizada em `docs/`, Next.js 16.4/React 19.3 em `app/`, página pública, áreas provisórias do cliente e André, checklist de nove etapas e rascunhos legais;
-  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 232 testes unitários aprovados, cobertura do motor de preço 100%;
+  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 245 testes unitários aprovados, cobertura do motor de preço 100%;
   - sessão SSR com cookies HttpOnly, login/logout, papéis protegidos e pasta de documentos; navegador/axe verificados em 375 e 1440 px;
-  - onze migrations locais, 21 tabelas com RLS, quatro usuários fictícios e um processo inventado; 24 testes reais de RLS aprovados e advisors locais sem achados;
+  - doze migrations locais, 21 tabelas com RLS, quatro usuários fictícios e um processo inventado; 28 testes reais de RLS aprovados e advisors locais sem achados;
   - upload TUS de 300 MiB retomado do offset de 12 MiB após interrupção da rede; SHA-256 conferido no servidor; download auditado por link de 120 s e acesso entre clientes negado;
+  - pasta do processo com seis abas, quatro pastas fixas e PDF sob demanda; paginação, zoom, texto selecionável, senha efêmera e rolagem por teclado; proxy privado com HEAD/Range/206 auditado, leitura de PDF acima de 4,5 MB verificada localmente, sem URL assinada no navegador durante a visualização;
   - checklist v1 persistido como rascunho, retomado após recarga e pela lista; revisões concorrentes protegidas e outro cliente recebe 404; nenhum orçamento ou entrada na fila antes das condições comerciais;
   - configurações profissionais/comerciais auditadas, versões de preço e itens imutáveis após ativação, edição concorrente recusada; projeção pública sem Pix; limites do classificador vêm das configurações;
   - cadastro confirmado no Mailpit com versões legais sintéticas, perfil persistido, troca de senha com revogação no segundo dispositivo, exclusão solicitada sem apagar conta e aviso de cadastro enfileirado;
-  - `npm run check` aprovado (232 unitários/build), 44 e2e aprovados; quatro ensaios únicos (e-mail, cadastro, edição de settings e 300 MiB) omitidos no projeto celular, com formulários/conta/arquivos menores verificados nas duas larguras; `npm audit --omit=dev` sem achados em 2026-10-11;
+  - `npm run check` aprovado (245 unitários/build), 49 e2e aprovados; cinco ensaios únicos (e-mail, cadastro, edição de settings, 300 MiB e proxy acima de 4,5 MB) omitidos no projeto celular, com formulários/conta/PDF/arquivos menores verificados nas duas larguras; `npm audit --omit=dev` sem achados em 2026-10-11;
   - Docker/Colima exclusivos de `andre-calculos`, sem alterar o contexto global; Supabase local PostgreSQL 17 com serviços saudáveis e Auth health HTTP 200;
   - branch `feat/fundacao-portal`; remoto `Harmony-Digital/andre-calculos` ainda vazio e sem push;
   - conexão Vercel exclusiva autenticada na equipe `Projeto Andre` (`projeto-andre1`), conta `projetoandre.harmony@gmail.com`; nenhum projeto Vercel criado;
   - MCP `andre-calculos-supabase` registrado no Codex com `project_ref=qtofwbxujshroaafxowr`; OAuth dessa conexão aguarda login na conta do cliente. As ferramentas dedicadas ainda não estão expostas nesta sessão.
-- **Próximas tarefas do agente:** preparar proposta/pedido e completar a pasta do processo; M2.33 já tem telas/RPCs locais, com ligação à proposta ainda pendente. Nenhuma alteração de nuvem sem conferir a conexão dedicada.
+- **Próximas tarefas do agente:** completar a linha do tempo, as mensagens (M2.22), decisões e índice da pasta; preparar proposta/pedido conforme os insumos. M2.33 já tem telas/RPCs locais, com ligação à proposta ainda pendente. Nenhuma alteração de nuvem sem conferir a conexão dedicada.
 - **Bloqueios externos:**
   - M1.10: revisão automática recusou retirar o áudio do primeiro commit sem aprovação específica do Fábio; áudio preservado e push bloqueado;
   - MCP Supabase dedicado aguarda login; planos Pro, integração GitHub/Vercel e dados reais do André ainda precisam de verificação/insumos;
@@ -214,8 +215,8 @@ Prazo sugerido: 2026-10-20
 
 ### Pasta do processo
 
-- [ ] M2.20 Criar a pasta do processo com abas e visualizador de PDF — ⏳ pasta/documentos e 404 entre clientes verificados localmente; abas, visualizador e demais conteúdos pendentes
-- [ ] M2.21 Criar a linha do tempo automática — RF-42
+- [x] M2.20 Criar a pasta do processo com abas e visualizador de PDF — evidência: seis abas compartilhadas cliente/painel, quatro pastas e PDF sob demanda; 5 e2e específicos aprovados em 375/1440 px (um ensaio único omitido no celular), cliente B/admin/anônimo recebem 404, calc autorizado; HEAD/Range/206/416, senha/cancelamento e axe aprovados; docs/evidencias/pasta-processo (2026-10-11, banco local)
+- [ ] M2.21 Criar a linha do tempo automática — ⏳ aba lista eventos persistidos de rascunho/upload; filtro, notas e eventos dos casos de uso futuros pendentes
 - [ ] M2.22 Criar as mensagens entre cliente e André — RF-43
 - [ ] M2.23 Criar o registro de decisões técnicas com exportação em PDF — RF-44 e RN-08
 - [ ] M2.24 Criar o índice de páginas do processo — RF-45
@@ -963,6 +964,8 @@ Prazo sugerido: a planejar
 - **Fazer:**
   1. Criar `(cliente)/processos/[id]` e `(painel)/processos/[id]`, com componentes em comum.
   2. Criar as abas: Resumo, Documentos (pastas fixas e visualizador `react-pdf` carregado sob demanda), Mensagens, Decisões, Índice e Linha do tempo.
+     - `react-pdf` 11.0.0 / PDF.js 6.3.289: worker, fontes, CMaps e WASM locais da mesma versão; `ssr: false` no wrapper cliente e `suspense={false}` para senha/cancelamento. Canvas/texto sem formulários ou links de anotação executáveis.
+     - Visualização por `GET/HEAD /api/files/[id]/content`, com permissão e auditoria em cada requisição, transmissão por stream e suporte a Range. URL assinada de 120 s fica no servidor; download mantém seu link curto. Validação de 500 MB na Vercel continua pendente da nuvem.
   3. Se o usuário não tiver acesso, responder 404.
 - **Pronto quando:** existe um e2e de navegação, e o cliente B recebe 404 no processo do A.
 
@@ -1186,3 +1189,4 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-11 | Codex | Cadastro/aceites versionados testados no Mailpit com fixture local (M2.04 parcial); perfil, senha, revogação em outro dispositivo e exclusão idempotente auditados (M2.06); aviso new_signup enfileirado sem CPF/CNPJ (M2.05); questionários de marca/preços preparados (M2.01/07 parciais). npm run check verde, 213 unitários, 17 RLS e 41 e2e aprovados, três ensaios únicos omitidos só no celular; advisors/lint SQL locais sem achados; imagens em docs/evidencias/cadastro-conta | Nuvem e publicação pendentes; rascunhos legais não liberam cadastro em produção. Fixture fixture-termos-v1/fixture-privacidade-v1 válida só com NODE_ENV não production, ANDRE_LOCAL_TESTS e URL local exata; settings restauradas no finally. Auth local passou a exigir confirmação e senha de 12 caracteres; limites ampliados servem apenas aos ensaios locais. CNPJ alfanumérico conforme manual da Receita Federal, vigente desde julho/2026. Próximo: persistência do checklist. |
 | 2026-10-11 | Codex | Checklist salvo e retomado por etapa, revisão otimista, auditoria e linha do tempo (M2.08 parcial); pedidos continuam draft/zero e cliente B recebe 404; migrations locais 0008/0009, SQL lint/advisors sem achados; npm run check com 220 unitários, 19 RLS e 41 e2e aprovados, três ensaios únicos omitidos só no celular; imagens em docs/evidencias/checklist | Validação dos campos pelo André, preços e nuvem pendentes. Migration 0009 corrige qualificação de variável da RPC, descoberta pelo teste real; seed tem respostas fictícias válidas; normalização de CNPJ rejeita Unicode que se converteria em ASCII. Próximo: M2.33. |
 | 2026-10-11 | Codex | Painel de configurações (M2.33 parcial), versões de preços e itens imutáveis, ativação concorrente e revisão de settings protegidas; dados profissionais/garantia aparecem no site, Pix não é público; limites do classificador carregados de settings (M2.11). Migrations locais 0010/0011, lint/advisors sem achados; npm run check com 232 unitários, 24 RLS e 44 e2e aprovados; quatro ensaios únicos omitidos só no celular; imagens em docs/evidencias/configuracoes | Nenhuma tabela fictícia ficou ativa e settings legais/profissionais foram restauradas no fim dos testes. Formulário volta a modo exemplo após salvar e exige confirmação a cada ativação. Nuvem, insumos do André, aprovação dos textos, snapshot da proposta e gates pendentes. |
+| 2026-10-11 | Codex | Pasta com seis abas e quatro pastas fixas (M2.20), PDF privado sob demanda, senha efêmera, zoom/páginas/texto e rolagem por teclado; proxy autenticado HEAD/Range/206 auditado em migration local 0012; hash incremental do upload em blocos de 4 MiB (M2.18). SQL lint/advisors sem achados; npm run check com 245 unitários, 28 RLS e 49 e2e aprovados; cinco ensaios únicos omitidos só no celular; npm audit --omit=dev sem achados; imagens em docs/evidencias/pasta-processo | PDFs inteiramente fictícios com duas páginas, URI externa e OpenAction não causaram navegação/requisição/diálogo externo; senha fictícia não apareceu em requisições, console ou armazenamento do navegador. Upload de 300 MiB retomou dos 12 MiB e confirmou hash. Teste local do stream acima de 4,5 MB não substitui ensaio hospedado de 500 MB. Mensagens/decisões/índice ainda só exibem dados; seus formulários, notificações e exportação seguem em M2.22–24. Nuvem, insumos e gates continuam pendentes. |

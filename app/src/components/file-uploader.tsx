@@ -5,9 +5,17 @@ import Uppy from "@uppy/core";
 import Tus from "@uppy/tus";
 import { prepareUpload, completeUpload } from "@/modules/files/actions";
 import { fileMime, maxFileBytes } from "@/modules/files/validation";
-export function FileUploader({ processId }: { processId: string }) {
+import { hashFile } from "@/modules/files/hash";
+export function FileUploader({
+  processId,
+  allowTriage = false,
+}: {
+  processId: string;
+  allowTriage?: boolean;
+}) {
   const router = useRouter();
   const uploader = useRef<Uppy | null>(null);
+  const [folder, setFolder] = useState<"case" | "client" | "triage">("case");
   const [busy, setBusy] = useState(false),
     [paused, setPaused] = useState(false),
     [progress, setProgress] = useState(0),
@@ -33,13 +41,9 @@ export function FileUploader({ processId }: { processId: string }) {
     setProgress(0);
     setMessage("Preparando envio…");
     try {
-      const digest = await crypto.subtle.digest(
-        "SHA-256",
-        await file.arrayBuffer(),
+      const sha256 = await hashFile(file, (value) =>
+        setMessage(`Preparando arquivo: ${value}%.`),
       );
-      const sha256 = Array.from(new Uint8Array(digest), (byte) =>
-        byte.toString(16).padStart(2, "0"),
-      ).join("");
       const mime = fileMime(file);
       const prepared = await prepareUpload({
         processId,
@@ -47,7 +51,7 @@ export function FileUploader({ processId }: { processId: string }) {
         mime,
         size: file.size,
         sha256,
-        folder: "case",
+        folder,
       });
       if (prepared.error || !prepared.fileId) {
         setMessage(prepared.error ?? "Envio indisponível.");
@@ -125,6 +129,18 @@ export function FileUploader({ processId }: { processId: string }) {
         PDF, imagens, XLSX, CSV, DOCX ou PJC, até 500 MB. O arquivo fica privado
         nesta pasta.
       </p>
+      <label className="upload-folder">
+        Pasta de destino
+        <select
+          value={folder}
+          disabled={busy}
+          onChange={(event) => setFolder(event.target.value as typeof folder)}
+        >
+          <option value="case">Processo</option>
+          <option value="client">Documentos do cliente</option>
+          {allowTriage && <option value="triage">Triagem</option>}
+        </select>
+      </label>
       <label className="button button-secondary">
         Escolher arquivo
         <input
