@@ -40,4 +40,4 @@ Checklist para aplicação e ensaio pelo Fábio, após as autorizações de M2.2
 4. Ensaiar link reutilizado/expirado, solicitação concorrente e navegador distinto; conferir orientação compreensível e ausência de sessão indevida. Não registrar tokens, URLs completas, cookies ou senhas nas evidências.
 5. Verificar renderer real e aparência nas caixas de e-mail autorizadas. As capturas atuais comprovam Chromium; não atestam todos os clientes de e-mail.
 
-O preparo local foi verificado também no build remoto. O CI geral de banco/navegador dessa fonte continua em execução; SMTP, aplicação dos templates e ensaio real permanecem em M2.28c no plan.md.
+O preparo local foi verificado também no build remoto. O mesmo CI concluiu a suíte geral: 315 testes de banco, 159 e2e aprovados/sete omissões planejadas e advisors locais sem achados; SMTP, aplicação dos templates e ensaio real permanecem em M2.28c no plan.md.

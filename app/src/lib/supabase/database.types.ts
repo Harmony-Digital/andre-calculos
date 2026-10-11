@@ -1356,6 +1356,22 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      claim_notification_local_system: {
+        Args: {
+          request_id: string;
+          channel: string;
+          target_notification?: string;
+        };
+        Returns: Json;
+      };
+      validate_notification_local_claim: {
+        Args: { request_id: string };
+        Returns: boolean;
+      };
+      complete_notification_local_system: {
+        Args: { request_id: string; outcome: string };
+        Returns: Json;
+      };
       reject_quote_system: {
         Args: {
           actor: string;
