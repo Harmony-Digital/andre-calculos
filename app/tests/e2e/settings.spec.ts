@@ -28,6 +28,10 @@ test("configurações acessíveis no celular e computador; cliente recebe negaç
     fullPage: true,
   });
   await page.screenshot({ path: testInfo.outputPath("dados-visivel.png") });
+  await page
+    .getByRole("heading", { name: "Janela dos lembretes de prazo" })
+    .scrollIntoViewIfNeeded();
+  await page.screenshot({ path: testInfo.outputPath("janela-lembretes.png") });
   await page.locator("#precos").scrollIntoViewIfNeeded();
   await page.screenshot({ path: testInfo.outputPath("precos-visivel.png") });
   await page.getByRole("button", { name: "Sair", exact: true }).click();
@@ -80,8 +84,23 @@ test("salva dados profissionais, ativa preços e conserva histórico", async ({
     await form
       .getByLabel("Condições da proposta")
       .fill(fictionalServiceSettings.conditions);
+    await form.getByLabel("Início dos lembretes").fill("08:00");
+    await form.getByLabel("Fim dos lembretes").fill("20:00");
     await form.getByRole("button", { name: "Salvar configurações" }).click();
     await expect(form.getByRole("status")).toHaveText("Configurações salvas.");
+    const savedWindow = await db
+      .from("settings")
+      .select("deadline_window_start,deadline_window_end,notification_times")
+      .eq("singleton", true)
+      .single();
+    expect(savedWindow.data).toMatchObject({
+      deadline_window_start: "08:00:00",
+      deadline_window_end: "20:00:00",
+      notification_times: ["09:00", "17:00"],
+    });
+    await page.reload();
+    await expect(form.getByLabel("Início dos lembretes")).toHaveValue("08:00");
+    await expect(form.getByLabel("Fim dos lembretes")).toHaveValue("20:00");
     await page.goto("/");
     await expect(
       page.getByText(/Responsável técnico: Responsável fictício/),

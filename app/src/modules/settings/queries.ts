@@ -61,6 +61,8 @@ export async function getConfiguration() {
     claimantThreshold: String(limits.claimants ?? 1),
     morningTime: typeof times[0] === "string" ? times[0] : "09:00",
     eveningTime: typeof times[1] === "string" ? times[1] : "17:00",
+    deadlineWindowStart: cfg.deadline_window_start.slice(0, 5),
+    deadlineWindowEnd: cfg.deadline_window_end.slice(0, 5),
     conditions: typeof texts.conditions === "string" ? texts.conditions : "",
     guarantee: typeof texts.guarantee === "string" ? texts.guarantee : "",
     revision: String(cfg.revision),

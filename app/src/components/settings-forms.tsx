@@ -80,7 +80,7 @@ export function ServiceSettingsForm({ values }: { values: SettingsValues }) {
       key={name}
       name={name}
       label={label}
-      value={values[name]}
+      value={values[name] ?? ""}
       state={state}
       type={type}
       help={help}
@@ -172,6 +172,15 @@ export function ServiceSettingsForm({ values }: { values: SettingsValues }) {
         <div className="form-grid">
           {field("morningTime", "Primeiro horário", "time")}
           {field("eveningTime", "Segundo horário", "time")}
+        </div>
+        <h3>Janela dos lembretes de prazo</h3>
+        <p>
+          Horário de Brasília, do início até antes do fim. O calendário precisa
+          ser conferido antes da ativação dos lembretes.
+        </p>
+        <div className="form-grid">
+          {field("deadlineWindowStart", "Início dos lembretes", "time")}
+          {field("deadlineWindowEnd", "Fim dos lembretes", "time")}
         </div>
         <h3>Condições e garantia</h3>
         <p>

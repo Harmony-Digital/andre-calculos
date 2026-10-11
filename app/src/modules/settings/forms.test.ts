@@ -113,3 +113,16 @@ describe("configuração de preços e serviço", () => {
     expect(parseSettings(form).success).toBe(false);
   });
 });
+
+it("janela é independente dos horários pontuais e exige início antes do fim", () => {
+  const form = settings();
+  form.set("deadlineWindowStart", "07:00");
+  form.set("deadlineWindowEnd", "21:00");
+  expect(parseSettings(form).success).toBe(true);
+  form.set("deadlineWindowEnd", "07:00");
+  expect(parseSettings(form).success).toBe(false);
+  form.delete("deadlineWindowEnd");
+  expect(parseSettings(form).success).toBe(false);
+  form.delete("deadlineWindowStart");
+  expect(parseSettings(form).success).toBe(true);
+});

@@ -7,31 +7,6 @@ export type Json =
   | Json[];
 
 export type Database = {
-  graphql_public: {
-    Tables: {
-      [_ in never]: never;
-    };
-    Views: {
-      [_ in never]: never;
-    };
-    Functions: {
-      graphql: {
-        Args: {
-          extensions?: Json;
-          operationName?: string;
-          query?: string;
-          variables?: Json;
-        };
-        Returns: Json;
-      };
-    };
-    Enums: {
-      [_ in never]: never;
-    };
-    CompositeTypes: {
-      [_ in never]: never;
-    };
-  };
   public: {
     Tables: {
       audit_log: {
@@ -670,6 +645,8 @@ export type Database = {
       notifications: {
         Row: {
           attempts: number;
+          cancellation_reason: string | null;
+          cancelled_at: string | null;
           channel: string;
           created_at: string;
           data: Json;
@@ -685,6 +662,8 @@ export type Database = {
         };
         Insert: {
           attempts?: number;
+          cancellation_reason?: string | null;
+          cancelled_at?: string | null;
           channel: string;
           created_at?: string;
           data?: Json;
@@ -700,6 +679,8 @@ export type Database = {
         };
         Update: {
           attempts?: number;
+          cancellation_reason?: string | null;
+          cancelled_at?: string | null;
           channel?: string;
           created_at?: string;
           data?: Json;
@@ -1195,6 +1176,8 @@ export type Database = {
           crc_number: string | null;
           crc_state: string | null;
           created_at: string;
+          deadline_window_end: string;
+          deadline_window_start: string;
           default_texts: Json;
           delivery_release_policy: string | null;
           id: string;
@@ -1218,6 +1201,8 @@ export type Database = {
           crc_number?: string | null;
           crc_state?: string | null;
           created_at?: string;
+          deadline_window_end?: string;
+          deadline_window_start?: string;
           default_texts?: Json;
           delivery_release_policy?: string | null;
           id?: string;
@@ -1241,6 +1226,8 @@ export type Database = {
           crc_number?: string | null;
           crc_state?: string | null;
           created_at?: string;
+          deadline_window_end?: string;
+          deadline_window_start?: string;
           default_texts?: Json;
           delivery_release_policy?: string | null;
           id?: string;
@@ -1358,6 +1345,17 @@ export type Database = {
       };
       confirm_process_decision: {
         Args: { target_decision: string };
+        Returns: string;
+      };
+      enqueue_deadline_reminder: {
+        Args: {
+          expected_due: string;
+          one_day?: string;
+          reference_date: string;
+          reminder_event: string;
+          target_order: string;
+          two_days?: string;
+        };
         Returns: string;
       };
       get_calculator_notification_context: { Args: never; Returns: Json };
@@ -1630,9 +1628,6 @@ export type CompositeTypes<
     : never;
 
 export const Constants = {
-  graphql_public: {
-    Enums: {},
-  },
   public: {
     Enums: {},
   },

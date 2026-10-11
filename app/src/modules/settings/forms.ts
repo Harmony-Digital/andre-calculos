@@ -130,11 +130,32 @@ export const settingsFormSchema = z
     eveningTime: z
       .string()
       .regex(/^([01]\d|2[0-3]):[0-5]\d$/, "Confira o horário."),
+    deadlineWindowStart: z
+      .string()
+      .regex(/^([01]\d|2[0-3]):[0-5]\d$/, "Confira o horário.")
+      .optional(),
+    deadlineWindowEnd: z
+      .string()
+      .regex(/^([01]\d|2[0-3]):[0-5]\d$/, "Confira o horário.")
+      .optional(),
     conditions: z.string().trim().max(4000),
     guarantee: z.string().trim().max(4000),
     revision: integer(1, 2147483646),
   })
   .superRefine((data, ctx) => {
+    if (
+      (data.deadlineWindowStart !== undefined ||
+        data.deadlineWindowEnd !== undefined) &&
+      (!data.deadlineWindowStart ||
+        !data.deadlineWindowEnd ||
+        data.deadlineWindowStart >= data.deadlineWindowEnd)
+    )
+      ctx.addIssue({
+        code: "custom",
+        path: ["deadlineWindowEnd"],
+        message:
+          "Informe início e fim; o fim deve ser depois do início no mesmo dia.",
+      });
     if (
       [
         data.technicalName,

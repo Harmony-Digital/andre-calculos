@@ -36,6 +36,10 @@ Cada etapa concluída é salva no banco como rascunho versionado. O cliente reto
 
 Calculista e admin usam `/painel/configuracoes` para editar identificação profissional, contato, Pix, condições, horários e limites de complexidade. Cada alteração de preço cria uma versão; tabelas de exemplo ficam inativas. A ativação exige confirmação dos valores e prazos, e congela os itens daquela versão. As configurações têm revisão para recusar uma gravação baseada em estado antigo. O site recebe apenas a projeção pública dos dados profissionais e da garantia, sem a chave Pix.
 
+### Lembretes de prazo
+
+A seleção local usa dias úteis para avisos de um/dois dias e gera um aviso de atraso por prazo interno. Janela de 07h até antes de 21h independente dos horários pontuais, recibos privados e cancelamento de pendentes evitam duplicação e avisos obsoletos. O endpoint exige Bearer; calendário provisório bloqueia execução em nuvem. Regras e ativação em `docs/lembretes-de-prazo.md`.
+
 ### Cofre de desenvolvimento
 
 `bash scripts/com-segredos.sh npm run dev` usa as referências de `app/.env.tpl`, exige a conta de serviço com acesso exclusivamente a `proj-andre-calculos` e mantém a saída mascarada pelo 1Password. O Fábio cadastra os itens ausentes. As variáveis de produção estão documentadas em `docs/variaveis-producao.md`.

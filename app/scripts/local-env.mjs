@@ -2,7 +2,7 @@ import { execFileSync, spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { homedir } from "node:os";
-import { randomBytes } from "node:crypto";
+import { createHash, randomBytes } from "node:crypto";
 
 export const projectRoot = resolve(
   dirname(fileURLToPath(import.meta.url)),
@@ -49,6 +49,9 @@ export function localEnvironment() {
     SUPABASE_SERVICE_ROLE_KEY: state.SERVICE_ROLE_KEY,
     APP_BASE_URL: "http://127.0.0.1:3000",
     ANDRE_LOCAL_TESTS: "1",
+    CRON_SECRET: createHash("sha256")
+      .update(`andre-calculos-local-cron:${state.SERVICE_ROLE_KEY}`)
+      .digest("base64url"),
   };
 }
 
