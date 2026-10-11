@@ -738,7 +738,9 @@ export type Database = {
           internal_due_date: string | null;
           price_table_id: string | null;
           process_id: string;
+          resume_status: string | null;
           status: string;
+          status_revision: number;
           total_cents: number;
           updated_at: string;
           urgent: boolean;
@@ -756,7 +758,9 @@ export type Database = {
           internal_due_date?: string | null;
           price_table_id?: string | null;
           process_id: string;
+          resume_status?: string | null;
           status?: string;
+          status_revision?: number;
           total_cents?: number;
           updated_at?: string;
           urgent?: boolean;
@@ -774,7 +778,9 @@ export type Database = {
           internal_due_date?: string | null;
           price_table_id?: string | null;
           process_id?: string;
+          resume_status?: string | null;
           status?: string;
+          status_revision?: number;
           total_cents?: number;
           updated_at?: string;
           urgent?: boolean;
@@ -1505,6 +1511,15 @@ export type Database = {
       mutate_process_page_index: {
         Args: { payload: Json; request_id: string; target_process: string };
         Returns: string;
+      };
+      operate_order: {
+        Args: {
+          payload: Json;
+          request_id: string;
+          target_order: string;
+          target_process: string;
+        };
+        Returns: Json;
       };
       prepare_file_upload: {
         Args: {

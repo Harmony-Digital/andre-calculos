@@ -6,15 +6,16 @@
 bash scripts/dev-env.sh npm run test:e2e -- full-journey.spec.ts --workers=1
 ```
 
-O teste passa pelas nove etapas do checklist, gera a proposta simulada e seu PDF, registra aceite, confirma sinal, envia documento com integridade verificada, troca mensagens, registra decisão e concordância, envia três artefatos e confirma a entrega. Axe e ausência de rolagem horizontal são verificados nas páginas principais dos dois papéis.
+O teste passa pelas nove etapas do checklist, gera a proposta simulada e seu PDF, registra aceite, confirma sinal, envia documento com integridade verificada, troca mensagens, registra decisão e concordância, opera análise/cálculo/espera/revisão pela interface, envia três artefatos e confirma a entrega. Axe e ausência de rolagem horizontal são verificados nas páginas principais dos dois papéis. As etapas operacionais não atestam o cálculo realizado no PJe-Calc nem a assinatura ICP-Brasil.
 
 ## Preparações sintéticas explícitas
 
-Três fronteiras têm nome próprio no relatório do Playwright:
+Duas fronteiras têm nome próprio no relatório do Playwright:
 
 1. **Contexto contratual:** a proposta simulada não pode ser aceita ou promovida. Depois de verificar esse bloqueio, o helper remove somente a simulação daquele pedido e prepara outra proposta e contexto contratual fictícios no PostgreSQL local. Isso permite testar o aceite, sem habilitar o produtor comercial de M2.12.
-2. **Revisão técnica:** depois de verificar a entrada na fila, o helper prepara `in_review` no mesmo pedido. Essa ponte representa o trabalho manual do calculista no PJe-Calc; não comprova as transições operacionais intermediárias, cálculo correto ou assinatura ICP-Brasil.
-3. **Saldo:** o ensaio aprova pela interface somente a regra daquela entrega fictícia, após constatar que a regra global nula bloqueia arquivos. A política `after_balance` ainda nega download com saldo pendente. O crédito de saldo é preparado localmente, pois a confirmação comercial de saldo pertence a M3.09.
+2. **Saldo:** o ensaio aprova pela interface somente a regra daquela entrega fictícia, após constatar que a regra global nula bloqueia arquivos. A política `after_balance` ainda nega download com saldo pendente. O crédito de saldo é preparado localmente, pois a confirmação comercial de saldo pertence a M3.09.
+
+Não há preparação direta de `in_review`: o calculista inicia análise e cálculo, aguarda esclarecimento fictício, retoma a etapa exata, envia à revisão, devolve ao cálculo com motivo e envia novamente à revisão. O cliente acompanha situação e motivos no histórico. Os prazos não mudam enquanto D11 permanece aberta. `order-operations.spec.ts` também verifica resposta perdida, replay após avanço posterior e conflito seguido de recarga completa.
 
 Essas preparações não equivalem à contratação comercial completa. Os dados profissionais, calendário, capacidade, preços, textos aprovados e decisões do responsável técnico continuam sujeitos às condições do plano. Nenhum dado de processo real entra neste ensaio.
 
@@ -32,4 +33,4 @@ O workflow `.github/workflows/qualidade.yml` tem jobs separados `qualidade` e `e
 
 A CLI usa a ação oficial com versão fixa e Node 22; o navegador usa um worker para evitar concorrência entre fixtures globais. Referências: [Supabase setup-cli](https://github.com/supabase/setup-cli) e [Playwright no CI](https://playwright.dev/docs/ci#workers).
 
-O wrapper registra máscaras no GitHub antes de iniciar processos filhos, conforme [os comandos do runner](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#masking-a-value-in-a-log). Em falha, o job publica somente capturas PNG; máscaras de logs não sanitizam arquivos. A conclusão de M2.34 requer a execução real do job verde, registrada no `plan.md`.
+O wrapper registra máscaras no GitHub antes de iniciar processos filhos, conforme [os comandos do runner](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#masking-a-value-in-a-log). O job conserva somente capturas PNG por sete dias, inclusive após sucesso, para inspeção visual; máscaras de logs não sanitizam arquivos. A conclusão de M2.34 requer a execução real do job verde, registrada no `plan.md`.
