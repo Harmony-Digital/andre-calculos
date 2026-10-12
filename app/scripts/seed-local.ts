@@ -4,6 +4,7 @@ import { randomBytes } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { localEnvironment, projectRoot } from "./local-env.mjs";
+import { provisionLocalUser } from "./provision-local-user";
 
 export const devUsers = [
   { email: "clientea@exemplo.com", name: "Cliente A de teste", role: "client" },
@@ -38,12 +39,15 @@ export async function seedDev() {
           password,
           email_confirm: true,
         })
-      : await admin.auth.admin.createUser({
-          email: fixture.email,
-          password,
-          email_confirm: true,
-          user_metadata: { full_name: fixture.name },
-        });
+      : await provisionLocalUser(
+          {
+            email: fixture.email,
+            password,
+            email_confirm: true,
+            user_metadata: { full_name: fixture.name },
+          },
+          env,
+        );
     if (response.error || !response.data.user)
       throw new Error("Falha ao criar usuário fictício local.");
     const id = response.data.user.id;

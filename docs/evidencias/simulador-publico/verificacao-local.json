@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-12",
+  "scope": "preparo local ficticio; sem publicacao, nuvem ou operacao real",
+  "base": "30dd457d5b62db8f5833285a9907d0440444d8b6",
+  "units": {
+    "passed": 1321,
+    "files": 65
+  },
+  "scripts": 43,
+  "bankOwnPassed": 5,
+  "browserOwnPassed": 8,
+  "browserRegressionsPassed": 32,
+  "browserGeneralInitial": {
+    "passed": 198,
+    "failed": 1,
+    "skipped": 7,
+    "failure": "feedback de preferencia ainda pendente no limite de 5s"
+  },
+  "preferenceDiagnostic": {
+    "passed": 2,
+    "firstAttemptFeedbackMs": [
+      1334,
+      1279
+    ],
+    "originalTimeoutMs": 5000,
+    "originalFailureWouldRemainFailure": true,
+    "instrumentationRemoved": true,
+    "originalSourceSha256": "7ff30c1768520b209b0ddff81deca43789d8de4a7cd6687726a200a8b1a316f7"
+  },
+  "checkLocal": {
+    "formatLintTypesUnitsScriptsPassed": true,
+    "exitCode": 1,
+    "build": "EPERM do Turbopack ao vincular porta; fonte exata exige build CI"
+  },
+  "database": {
+    "migrations": 91,
+    "publicTables": 25,
+    "privateTables": 55,
+    "allRls": true,
+    "financialControlsUnchanged": true,
+    "publicRpcGrantConfirmed": true,
+    "activePriceAndIdentityRestored": true,
+    "advisorsNoIssues": 2
+  },
+  "rawLogSha256": {
+    "simulador-unitarios-integral.log": "48f4508812000013f865d5652271fe53401041648711aaf4ed6120be2f6e8455",
+    "simulador-banco-foco.log": "90f6fc3ee5b64318220e2f8d2c6d5c3884fb1cce613b705b92018f3ef207aa89",
+    "simulador-navegador-estilizado.log": "d77f345cdaca7ff23aeb17eb56a9d0778b6a09c1cc9dec9e8ba448d063009ee0",
+    "simulador-navegador-regressoes.log": "f1e7b8a08ff0409dd1a35a1f0369843db1cb7069316b35ab9d7bb60c060930d3",
+    "simulador-check-local.log": "26e0b1cea25da06dbc372854e48998f320148fdc704d0ecb065f2ab78306f7ff",
+    "simulador-preferencia-diagnostico.log": "6210632bb477f6e6ebcb436a70d223d2a67391ab4e14ec8e54ff3d8d499c845d",
+    "simulador-advisors-final.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "simulador-navegador-integral.log": "eee40e2e920070d0bca5f2ac6d62ceb9ee5a22a6e6238603f8975f8f890066fa",
+    "simulador-readback-final.log": "39fd49d201469a5681d4ede45b04a286a0a404bf39abf77ecc29e39f42fb0bd2",
+    "simulador-controls-final.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "simulador-controls-comparison.json": "64905d7c825925accc1950f85c2dd955514d21fd2f43c92f864883df4c4c2f87"
+  }
+}

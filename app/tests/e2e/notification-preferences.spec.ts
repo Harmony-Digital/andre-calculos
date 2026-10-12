@@ -80,7 +80,23 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
     await page.goto("/painel/configuracoes#avisos");
     await loginAs(other, "calculator");
     await other.goto("/painel/configuracoes#avisos");
-    await expect(page.locator("#avisos form")).toHaveCount(18);
+    await expect(page.locator("#avisos form")).toHaveCount(20);
+    const financial = page.getByRole("form", {
+      name: "E-mail para Situação financeira atualizada",
+      exact: true,
+    });
+    await financial.getByRole("combobox").selectOption("no");
+    fixture.remember(
+      await financial.locator('input[name="requestId"]').inputValue(),
+    );
+    await financial
+      .getByRole("button", { name: "Salvar", exact: true })
+      .click();
+    await expect(financial.getByRole("status")).toHaveText(
+      "Preferência salva.",
+    );
+    await page.reload();
+    await expect(financial.getByRole("combobox")).toHaveValue("no");
     await expect(form(page, "E-mail").getByRole("combobox")).toHaveValue("yes");
     await expect(form(page, "WhatsApp").getByRole("combobox")).toHaveValue(
       "no",
@@ -211,9 +227,23 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
     await page
       .getByRole("heading", { name: "Preferências de aviso", exact: true })
       .click();
+    const originalViewport = page.viewportSize()!;
+    const sectionHeight = await page
+      .locator("#avisos")
+      .evaluate((node) => Math.ceil(node.getBoundingClientRect().height));
+    await page.setViewportSize({
+      width: originalViewport.width,
+      height: Math.max(originalViewport.height, sectionHeight + 80),
+    });
+    await page.locator("#avisos").scrollIntoViewIfNeeded();
+    await page.evaluate(() => {
+      if (document.activeElement instanceof HTMLElement)
+        document.activeElement.blur();
+    });
     await page
       .locator("#avisos")
       .screenshot({ path: info.outputPath("preferencias-avisos.png") });
+    await page.setViewportSize(originalViewport);
     await other.getByRole("button", { name: "Sair", exact: true }).click();
     await loginAs(other, "admin");
     await other.goto("/painel/configuracoes");

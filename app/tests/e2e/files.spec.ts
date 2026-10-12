@@ -6,6 +6,7 @@ import { loginAs } from "./auth-helper";
 import { mkdtemp, open, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { cleanupFileFixture } from "./file-fixture-cleanup";
 if (
   process.env.NEXT_PUBLIC_SUPABASE_URL !== "http://127.0.0.1:54321" ||
   process.env.ANDRE_LOCAL_TESTS !== "1"
@@ -78,17 +79,15 @@ test("upload de 300 MB retoma do offset após cortar a rede", async ({
       `Retomada verificada: ${offset} bytes preservados; total ${bytes} bytes; hash confirmado no servidor.`,
     );
   } finally {
-    await context.setOffline(false);
-    const fixture = await system
-      .from("files")
-      .select("id,path")
-      .eq("name", name)
-      .maybeSingle();
-    if (fixture.data) {
-      await system.storage.from("processos").remove([fixture.data.path]);
-      await system.from("files").delete().eq("id", fixture.data.id);
+    try {
+      await context.setOffline(false);
+    } finally {
+      try {
+        await cleanupFileFixture(name);
+      } finally {
+        await rm(dir, { recursive: true, force: true });
+      }
     }
-    await rm(dir, { recursive: true, force: true });
   }
 });
 test("arquivo privado, integridade, auditoria e isolamento", async ({
@@ -99,83 +98,121 @@ test("arquivo privado, integridade, auditoria e isolamento", async ({
   const content = Buffer.from(
     "%PDF-1.7\nDocumento inteiramente fictício para teste.\n%%EOF",
   );
-  await loginAs(page);
-  const response = await page.goto(`/app/processos/${processId}`);
-  expect(response?.status()).toBe(200);
-  await page
-    .getByLabel("Escolher arquivo do processo")
-    .setInputFiles({ name, mimeType: "application/pdf", buffer: content });
-  await expect(page.getByRole("status")).toContainText(
-    "Arquivo enviado e integridade confirmada.",
-    { timeout: 60000 },
-  );
-  const row = page.getByRole("listitem").filter({ hasText: name });
-  await expect(row).toBeVisible();
-  const href = await row
-    .getByRole("link", { name: "Baixar arquivo" })
-    .getAttribute("href");
-  const download = await context.request.get(href!, { maxRedirects: 0 });
-  expect(download.status()).toBe(307);
-  const signed = new URL(download.headers().location);
-  const claims = JSON.parse(
-    Buffer.from(
-      signed.searchParams.get("token")!.split(".")[1],
-      "base64url",
-    ).toString(),
-  );
-  expect(claims.exp - claims.iat).toBe(120);
-  const result = await context.request.get(signed.toString());
-  expect(result.ok()).toBe(true);
-  expect(await result.body()).toEqual(content);
   const system = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
     { auth: { persistSession: false } },
   );
-  const stored = await system
-    .from("files")
-    .select("id,path,sha256")
-    .eq("name", name)
-    .single();
-  expect(stored.data?.sha256).toBe(
-    createHash("sha256").update(content).digest("hex"),
-  );
-  expect(
-    (
-      await system
-        .from("audit_log")
-        .select("id")
-        .eq("target_id", stored.data!.id)
-        .eq("action", "file_download")
-    ).data!.length,
-  ).toBeGreaterThan(0);
-  expect(
-    (
-      await new AxeBuilder({ page })
-        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-        .analyze()
-    ).violations,
-  ).toEqual([]);
-  expect(
-    await page.evaluate(() => document.documentElement.scrollWidth),
-  ).toBeLessThanOrEqual(page.viewportSize()!.width);
-  await page.screenshot({
-    path: testInfo.outputPath("pasta-documentos.png"),
-    fullPage: true,
-  });
-  await context.clearCookies();
-  await loginAs(page, "clientB");
-  expect((await page.goto(`/app/processos/${processId}`))?.status()).toBe(404);
-  expect((await context.request.get(href!, { maxRedirects: 0 })).status()).toBe(
-    404,
-  );
-  const anonymous = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { auth: { persistSession: false } },
-  );
-  const denied = await anonymous.storage
+  let observed: { id: string; path: string; sha256: string } | undefined;
+  const interruption = new Error("Interrupção fictícia após as verificações.");
+  async function scenario() {
+    try {
+      await loginAs(page);
+      const response = await page.goto(`/app/processos/${processId}`);
+      expect(response?.status()).toBe(200);
+      await page
+        .getByLabel("Escolher arquivo do processo")
+        .setInputFiles({ name, mimeType: "application/pdf", buffer: content });
+      await expect(page.getByRole("status")).toContainText(
+        "Arquivo enviado e integridade confirmada.",
+        { timeout: 60000 },
+      );
+      const row = page.getByRole("listitem").filter({ hasText: name });
+      await expect(row).toBeVisible();
+      const href = await row
+        .getByRole("link", { name: "Baixar arquivo" })
+        .getAttribute("href");
+      const download = await context.request.get(href!, { maxRedirects: 0 });
+      expect(download.status()).toBe(307);
+      const signed = new URL(download.headers().location);
+      const claims = JSON.parse(
+        Buffer.from(
+          signed.searchParams.get("token")!.split(".")[1],
+          "base64url",
+        ).toString(),
+      );
+      expect(claims.exp - claims.iat).toBe(120);
+      const result = await context.request.get(signed.toString());
+      expect(result.ok()).toBe(true);
+      expect(await result.body()).toEqual(content);
+      const stored = await system
+        .from("files")
+        .select("id,path,sha256")
+        .eq("name", name)
+        .single();
+      if (stored.data) observed = stored.data;
+      expect(stored.data?.sha256).toBe(
+        createHash("sha256").update(content).digest("hex"),
+      );
+      expect(
+        (
+          await system
+            .from("audit_log")
+            .select("id")
+            .eq("target_id", stored.data!.id)
+            .eq("action", "file_download")
+        ).data!.length,
+      ).toBeGreaterThan(0);
+      expect(
+        (
+          await new AxeBuilder({ page })
+            .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+            .analyze()
+        ).violations,
+      ).toEqual([]);
+      expect(
+        await page.evaluate(() => document.documentElement.scrollWidth),
+      ).toBeLessThanOrEqual(page.viewportSize()!.width);
+      await page.screenshot({
+        path: testInfo.outputPath("pasta-documentos.png"),
+        fullPage: true,
+      });
+      await context.clearCookies();
+      await loginAs(page, "clientB");
+      expect((await page.goto(`/app/processos/${processId}`))?.status()).toBe(
+        404,
+      );
+      expect(
+        (await context.request.get(href!, { maxRedirects: 0 })).status(),
+      ).toBe(404);
+      const anonymous = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        { auth: { persistSession: false } },
+      );
+      const denied = await anonymous.storage
+        .from("processos")
+        .download(stored.data!.path);
+      expect(denied.error).not.toBeNull();
+      // Comprova a limpeza também quando o fluxo termina com erro após o upload.
+      throw interruption;
+    } finally {
+      await cleanupFileFixture(name);
+    }
+  }
+  await expect(scenario()).rejects.toBe(interruption);
+  expect(observed).toBeDefined();
+  const absent = await system.from("files").select("id").eq("name", name);
+  expect(absent.error).toBeNull();
+  expect(absent.data).toEqual([]);
+  const audit = await system
+    .from("audit_log")
+    .select("id")
+    .eq("target_type", "file")
+    .eq("target_id", observed!.id);
+  expect(audit.error).toBeNull();
+  expect(audit.data).toEqual([]);
+  const events = await system
+    .from("timeline_events")
+    .select("id")
+    .eq("process_id", processId)
+    .eq("kind", "file_uploaded")
+    .contains("data", { file_id: observed!.id });
+  expect(events.error).toBeNull();
+  expect(events.data).toEqual([]);
+  const missingObject = await system.storage
     .from("processos")
-    .download(stored.data!.path);
-  expect(denied.error).not.toBeNull();
+    .download(observed!.path);
+  expect(missingObject.error).not.toBeNull();
+  expect(missingObject.data).toBeNull();
 });

@@ -8,7 +8,8 @@ import { createDeliveryFixture, deliveryProfessional } from "./delivery-helper";
 
 test("entregas paginadas preservam empates e microssegundos, com retorno ao início", async ({
   page,
-}) => {
+}, info) => {
+  page.setDefaultTimeout(10000);
   const releaseQueue = await leaseQueue(),
     fixture = await createDeliveryFixture(false),
     db = localSystem();
@@ -75,7 +76,10 @@ test("entregas paginadas preservam empates e microssegundos, com retorno ao iní
       );
       await expect(page.locator(".delivery-payment")).toHaveCount(1);
       await expect(page.locator(".delivery-payment")).toContainText(
-        "R$ 1.234,56",
+        "Saldo em conciliação",
+      );
+      await expect(page.locator(".delivery-payment")).not.toContainText(
+        "Chave Pix:",
       );
       await expect(
         page.locator(
@@ -121,6 +125,10 @@ test("entregas paginadas preservam empates e microssegundos, com retorno ao iní
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth),
     ).toBeLessThanOrEqual(page.viewportSize()!.width);
+    await page.screenshot({
+      path: info.outputPath("historico-paginado-conciliacao.png"),
+      fullPage: true,
+    });
     await page
       .getByRole("link", { name: "Voltar às entregas recentes", exact: true })
       .click();
@@ -155,7 +163,10 @@ test("entregas paginadas preservam empates e microssegundos, com retorno ao iní
       expected[50],
     );
   } finally {
-    await fixture.cleanup();
-    await releaseQueue();
+    try {
+      await fixture.cleanup();
+    } finally {
+      await releaseQueue();
+    }
   }
 });
