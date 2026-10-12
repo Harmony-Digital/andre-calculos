@@ -211,7 +211,10 @@ export function readAsaasCustomer(
   return customerObservation(parseAsaasJson(text), expected);
 }
 
-function invoiceUrl(value: string | null | undefined, scope: AsaasScope) {
+export function readAsaasInvoiceUrl(
+  value: string | null | undefined,
+  scope: AsaasScope,
+) {
   if (value == null) return null;
   try {
     const url = new URL(value);
@@ -281,7 +284,7 @@ function paymentObservation(
     billingType: payment.billingType,
     dueDate: payment.dueDate,
     deleted: payment.deleted,
-    invoiceUrl: invoiceUrl(payment.invoiceUrl, expected.scope),
+    invoiceUrl: readAsaasInvoiceUrl(payment.invoiceUrl, expected.scope),
     refunds:
       payment.refunds == null
         ? null
