@@ -466,7 +466,9 @@ it.each(["pending", "confirmed", "refunded"])(
     expect(await info(s)).toMatchObject({
       status: "blocked",
       reason: "legacy_provider_reconciliation",
-      creditedCents: 0,
+      creditedCents: null,
+      totalCreditedCents: null,
+      remainingCents: null,
     });
     expect((await prepare(s)).error).not.toBeNull();
     expect(contexts(s)).toBe(0);

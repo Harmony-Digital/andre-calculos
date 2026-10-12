@@ -77,6 +77,13 @@ beforeEach(() => {
   mocks.client.mockResolvedValue({ rpc: mocks.rpc });
 });
 it.each([
+  {
+    status: "blocked",
+    reason: "financial_reconciliation",
+    creditedCents: null,
+    totalCreditedCents: null,
+    remainingCents: null,
+  },
   {},
   { status: "waived", hasContract: true, remainingCents: 0, binding: null },
   {

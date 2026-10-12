@@ -31,6 +31,7 @@ export const paymentObligationSchema = z
         "contract_missing",
         "unsafe_amount",
         "legacy_provider_reconciliation",
+        "financial_reconciliation",
         "credit_excess",
         "order_closed",
         "phase_unavailable",
