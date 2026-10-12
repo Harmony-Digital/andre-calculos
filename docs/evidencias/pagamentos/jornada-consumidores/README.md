@@ -1,0 +1,7 @@
+# Reversões cumulativas na jornada de entregas
+
+Dois ensaios reais locais verificaram a recomposição do crédito para before_balance e after_balance. T/Y/origem/vínculo/resolução usam os produtores da fixture. O débito de R$20,01 permanece registrado; a primeira reversão de R$10,01 é preservada e uma segunda prova de R$10,00 recompõe o sinal de R$125,01. A política após o saldo usa uma parcela manual sintética explícita de R$125,00, sem validar o comando comercial de M3.09.
+
+O contexto de autorização bloqueia o crédito insuficiente e volta a permitir acesso após a nova reversão comprovada. A consulta repetida não cria recebimento ou pagamento duplicado. Fingerprints dos registros originais de execução/claim/reserva, origem, vínculo, primeira aplicação e resolução permanecem iguais; o pedido entregue não retrocede. Este ensaio verifica contexto e metadados; não comprova bytes, URL ou o percurso dessas etapas na interface.
+
+O comando `npm run test:rls -- tests/integration/delivery-financial-journey.test.ts tests/integration/financial-journey.test.ts tests/integration/delivery-credit-access.test.ts tests/integration/delivery-display.test.ts` terminou com39 aprovados em4 arquivos:2 novos e37 regressões. Read-back e controles ficaram idênticos ao fechamento local de AO. Formato/lint/tipos/1392 unitários69arquivos/43 scripts passaram; build local conserva EPERM do Turbopack. A execução e as demais pendências ficam exclusivamente no plan.md.

@@ -25,6 +25,7 @@ export const financialScenarios = [
   "chargeback_dispute",
   "chargeback_debit",
   "chargeback_restore",
+  "chargeback_restore_full",
   "unknown",
 ] as const;
 export type FinancialScenario = (typeof financialScenarios)[number];
@@ -126,7 +127,10 @@ export async function financialJourneyFixture() {
       sql(
         `update private.payment_fixture_payments set ${value} where scope_id='${fixture.scopeId}' and id='${paymentId}';`,
       );
-    const cb = (status: string, restored = false) => ({
+    const cb = (
+      status: string,
+      restoration: "none" | "partial" | "full" = "none",
+    ) => ({
       status,
       fixtureProof: {
         schemaVersion: 1,
@@ -139,16 +143,27 @@ export async function financialJourneyFixture() {
           value: 20.01,
           effectedAt: "2026-10-12T10:00:00-03:00",
         },
-        reversals: restored
-          ? [
-              {
-                id: "reversal_fixture",
-                value: 10.01,
-                reversesDebitId: "debit_fixture",
-                effectedAt: "2026-10-12T11:00:00-03:00",
-              },
-            ]
-          : [],
+        reversals:
+          restoration !== "none"
+            ? [
+                {
+                  id: "reversal_fixture",
+                  value: 10.01,
+                  reversesDebitId: "debit_fixture",
+                  effectedAt: "2026-10-12T11:00:00-03:00",
+                },
+                ...(restoration === "full"
+                  ? [
+                      {
+                        id: "second_reversal_fixture",
+                        value: 10,
+                        reversesDebitId: "debit_fixture",
+                        effectedAt: "2026-10-12T12:00:00-03:00",
+                      },
+                    ]
+                  : []),
+              ]
+            : [],
       },
     });
     const observe = async (scenario: FinancialScenario = "current") => {
@@ -212,7 +227,7 @@ export async function financialJourneyFixture() {
       }
       if (scenario.startsWith("chargeback_"))
         patch(
-          `status='CHARGEBACK_DISPUTE',chargeback=${literal(cb(scenario === "chargeback_dispute" ? "IN_DISPUTE" : "DONE", scenario === "chargeback_restore"))}`,
+          `status='CHARGEBACK_DISPUTE',chargeback=${literal(cb(scenario === "chargeback_dispute" ? "IN_DISPUTE" : "DONE", scenario === "chargeback_restore_full" ? "full" : scenario === "chargeback_restore" ? "partial" : "none"))}`,
         );
       observationId = (
         await queryFixtureFinancialObservation(chargeId, randomUUID())
