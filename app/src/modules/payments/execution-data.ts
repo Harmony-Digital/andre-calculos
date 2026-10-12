@@ -15,8 +15,22 @@ export const paymentExecutionViewSchema = z
     createdBy: executionId,
     currentOwnerId: executionId,
     createdAt: z.iso.datetime({ offset: true }).nullable(),
-    state: z.enum(["unstarted", "pending", "held", "stopped"]),
-    reason: z.enum(["context_changed", "reservation_missing"]).nullable(),
+    state: z.enum(["unstarted", "pending", "held", "stopped", "identified"]),
+    reason: z
+      .enum([
+        "context_changed",
+        "reservation_missing",
+        "unavailable",
+        "invalid_observation",
+        "not_located",
+        "multiple_candidates",
+        "incomplete_list",
+        "not_dispatched",
+        "indeterminate",
+        "financial_reconciliation",
+        "identity_changed",
+      ])
+      .nullable(),
     revision: z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER),
     dispatchClaimed: z.boolean(),
     reservationActive: z.boolean(),
@@ -27,7 +41,9 @@ export const paymentExecutionViewSchema = z
       (v.runId === null) !== (v.createdAt === null) ||
       (v.state === "unstarted" && (v.reason !== null || v.revision !== 0)) ||
       (v.state === "pending" && v.reason !== null) ||
-      (v.state === "held" && v.reason !== "context_changed") ||
+      (v.state === "held" && v.reason === null) ||
+      (v.state === "identified" &&
+        (v.reason !== null || !v.reservationActive)) ||
       (v.state === "stopped" &&
         (v.reason !== "reservation_missing" || v.reservationActive))
     )

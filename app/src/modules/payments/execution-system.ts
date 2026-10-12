@@ -6,6 +6,7 @@ import {
   paymentExecutionClaimSchema,
   paymentExecutionStartSchema,
 } from "./execution-data";
+import { executionProtocols } from "./execution-protocol";
 const unavailable = "Execução fictícia indisponível.";
 function requireLocal() {
   if (
@@ -17,7 +18,7 @@ function requireLocal() {
   )
     throw new Error(unavailable);
 }
-/** Descriptor privado: somente o futuro worker fixo usa conta/documento capturados. */
+/** Descriptor privado: somente o worker fixo usa conta/documento capturados. */
 export async function allocateFixturePaymentExecution(requestId: string) {
   requireLocal();
   try {
@@ -41,16 +42,45 @@ export async function allocateFixturePaymentExecution(requestId: string) {
     throw new Error(unavailable);
   }
 }
-/** Consumir start não despacha: resposta perdida deve ser retomada por nova alocação/consulta. */
-export async function startFixturePaymentExecution(input: unknown) {
+/** Expectativa imutável antes de qualquer autorização/transporte. */
+export async function prepareFixturePaymentExecution(input: unknown) {
   requireLocal();
   try {
     const target = paymentExecutionStartSchema.parse(input),
       db = createSystemClient();
-    const r = await db.rpc("start_payment_execution_step", {
+    const frame = await db.rpc("get_payment_execution_step", {
       target_step: target.stepId,
       worker_id: target.workerId,
     });
+    if (frame.error) throw new Error(unavailable);
+    if (frame.data === null) return false;
+    const claim = paymentExecutionClaimSchema.parse(frame.data),
+      step = claim.step;
+    if (!step || step.id !== target.stepId || step.workerId !== target.workerId)
+      throw new Error(unavailable);
+    const r = await db.rpc("prepare_payment_execution_protocol", {
+      target_step: target.stepId,
+      worker_id: target.workerId,
+      protocols: executionProtocols(step),
+    });
+    if (r.error || typeof r.data !== "boolean") throw new Error(unavailable);
+    return r.data;
+  } catch {
+    throw new Error(unavailable);
+  }
+}
+/** Consumir start não despacha; resultado perdido exige nova alocação/consulta. */
+export async function startFixturePaymentExecution(input: unknown) {
+  requireLocal();
+  try {
+    const target = paymentExecutionStartSchema.parse(input);
+    if (!(await prepareFixturePaymentExecution(target))) return false;
+    requireLocal();
+    const db = createSystemClient(),
+      r = await db.rpc("start_payment_execution_step", {
+        target_step: target.stepId,
+        worker_id: target.workerId,
+      });
     if (r.error || typeof r.data !== "boolean") throw new Error(unavailable);
     return r.data;
   } catch {

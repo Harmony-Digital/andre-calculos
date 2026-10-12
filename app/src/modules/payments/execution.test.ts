@@ -91,7 +91,19 @@ it("UUID e objeto de start inválidos não criam cliente", async () => {
   expect(mocks.system).not.toHaveBeenCalled();
 });
 it.each([true, false])("start retorna booleano consumível %s", async (data) => {
-  mocks.rpc.mockResolvedValue({ error: null, data });
+  mocks.rpc.mockImplementation(
+    async (name: string, args: Record<string, string>) => {
+      if (name === "get_payment_execution_step") {
+        const d = descriptor();
+        d.step.id = args.target_step;
+        d.step.workerId = args.worker_id;
+        return { error: null, data: d };
+      }
+      if (name === "prepare_payment_execution_protocol")
+        return { error: null, data: true };
+      return { error: null, data };
+    },
+  );
   expect(
     await startFixturePaymentExecution({ stepId: id(4), workerId: id(5) }),
   ).toBe(data);

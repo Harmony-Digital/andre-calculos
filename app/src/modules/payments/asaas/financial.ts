@@ -3,6 +3,7 @@ import {
   readAsaasEvent,
   readAsaasPayment,
   readAsaasPaymentExpectation,
+  isValidatedAsaasPaymentObservation,
   type AsaasPaymentObservation,
 } from "./contracts";
 import { AsaasContractError } from "./errors";
@@ -436,6 +437,15 @@ function context(value: unknown) {
   // marcar divergência; não relaxar IDs, referência, original ou vencimento.
   const { billingType, ...binding } = expected;
   return { expectedMethod: billingType, binding };
+}
+/** Somente objetos imutáveis dos leitores lossless; nunca DTO/body de usuário. */
+export function normalizeValidatedAsaasPaymentObservation(
+  payment: AsaasPaymentObservation,
+  expectedBillingType: string | undefined,
+) {
+  if (!isValidatedAsaasPaymentObservation(payment))
+    throw new AsaasContractError("invalid_data");
+  return normalize(payment, expectedBillingType, null);
 }
 export function normalizeAsaasPaymentSnapshot(
   text: string,

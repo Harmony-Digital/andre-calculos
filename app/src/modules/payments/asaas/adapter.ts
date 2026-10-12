@@ -15,7 +15,12 @@ import {
   type AsaasPaymentObservation,
 } from "./contracts";
 import { AsaasContractError } from "./errors";
-import { centsToken } from "./money";
+import {
+  fixtureRequest,
+  fixtureCustomerGetRequest,
+  fixturePaymentCreateRequest,
+  fixturePaymentFindRequest,
+} from "./fixture-protocol";
 
 export type AsaasFixtureRequest = Readonly<{
   mode: "fixture";
@@ -114,10 +119,6 @@ export function createAsaasFixtureAdapter(
   matchScope(parsed.scope, scope);
   const capabilities = Object.freeze({ ...parsed.capabilities });
   const send = parsed.send;
-  const origin =
-    scope.environment === "sandbox"
-      ? "https://api-sandbox.asaas.com"
-      : "https://api.asaas.com";
   function documentSupported(document: string) {
     if (/[A-Z]/.test(document) && capabilities.alphanumericCnpj !== "supported")
       throw new AsaasContractError("invalid_data");
@@ -128,16 +129,9 @@ export function createAsaasFixtureAdapter(
     params?: Record<string, string>,
     bodyText?: string,
   ): AsaasFixtureRequest {
-    const url = new URL("/v3/" + path, origin);
-    if (params) url.search = new URLSearchParams(params).toString();
-    return Object.freeze({
-      mode: "fixture",
-      scope,
-      method,
-      url: url.href,
-      ...(bodyText === undefined ? {} : { bodyText }),
-    });
+    return fixtureRequest(scope, method, path, params, bodyText);
   }
+
   async function dispatch(input: AsaasFixtureRequest) {
     try {
       const outcome = read(outcomeSchema, await send(input));
@@ -191,8 +185,9 @@ export function createAsaasFixtureAdapter(
     value: unknown,
   ): Promise<AsaasFixtureRead<AsaasCustomerObservation>> {
     const expected = customerExpectation(value, true);
-    return observe(request("GET", "customers/" + expected.customerId), (text) =>
-      readAsaasCustomer(text, scope, expected),
+    return observe(
+      fixtureCustomerGetRequest(scope, expected.customerId!),
+      (text) => readAsaasCustomer(text, scope, expected),
     );
   }
   function paymentExpectation(value: unknown) {
@@ -295,20 +290,14 @@ export function createAsaasFixtureAdapter(
         observedCustomer.value.notificationDisabled !== true
       )
         return result({ kind: "not_dispatched" });
-      const bodyText =
-        '{"customer":' +
-        JSON.stringify(expected.customerId) +
-        ',"billingType":' +
-        JSON.stringify(input.billingType) +
-        ',"value":' +
-        centsToken(input.contractedCents) +
-        ',"dueDate":' +
-        JSON.stringify(input.dueDate) +
-        ',"externalReference":' +
-        JSON.stringify(input.reference) +
-        "}";
       return create(
-        request("POST", "payments", undefined, bodyText),
+        fixturePaymentCreateRequest(scope, {
+          customerId: expected.customerId,
+          reference: input.reference,
+          contractedCents: input.contractedCents,
+          dueDate: input.dueDate,
+          billingType: input.billingType,
+        }),
         (text) => {
           const observed = readAsaasPayment(text, scope, expected);
           if (observed.deleted) throw new AsaasContractError("invalid_data");
@@ -320,12 +309,7 @@ export function createAsaasFixtureAdapter(
       const expected = readAsaasPaymentSearch(value);
       matchScope(expected.scope, scope);
       const page = await observe(
-        request("GET", "payments", {
-          customer: expected.customerId,
-          externalReference: expected.reference,
-          limit: "2",
-          offset: "0",
-        }),
+        fixturePaymentFindRequest(scope, expected),
         (text) => readAsaasPaymentCandidates(text, scope, expected),
       );
       return unique(page);

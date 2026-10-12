@@ -243,6 +243,7 @@ function fieldPresence(
   return "present";
 }
 
+const validatedPaymentObservations = new WeakSet<object>();
 function paymentObservation(
   value: unknown,
   expected: z.infer<typeof paymentExpectationSchema>,
@@ -260,7 +261,7 @@ function paymentObservation(
       payment.value !== expected.contractedCents)
   )
     throw new AsaasContractError("obligation_mismatch");
-  return Object.freeze({
+  const observation = Object.freeze({
     scope: readAsaasScope(expected.scope),
     phase: expected.phase,
     paymentId: payment.id,
@@ -298,6 +299,8 @@ function paymentObservation(
         ? null
         : Object.freeze({ status: payment.chargeback.status }),
   });
+  validatedPaymentObservations.add(observation);
+  return observation;
 }
 export type AsaasPaymentObservation = ReturnType<typeof paymentObservation>;
 
@@ -410,4 +413,15 @@ export function readAsaasPaymentCandidates(
     totalCount: list.totalCount,
     items: Object.freeze(items),
   });
+}
+
+/** Guarda interna: DTO reconstruído não constitui observação lossless validada. */
+export function isValidatedAsaasPaymentObservation(
+  value: unknown,
+): value is AsaasPaymentObservation {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    validatedPaymentObservations.has(value)
+  );
 }

@@ -1568,6 +1568,24 @@ export type Database = {
         Args: { target_order: string };
         Returns: Json;
       };
+      get_payment_execution_step: {
+        Args: { target_step: string; worker_id: string };
+        Returns: Json;
+      };
+      prepare_payment_execution_protocol: {
+        Args: { target_step: string; worker_id: string; protocols: Json };
+        Returns: boolean;
+      };
+      finish_payment_execution_step: {
+        Args: {
+          target_step: string;
+          worker_id: string;
+          body_hash: string | null;
+          normalizer_version: number;
+          facts: Json;
+        };
+        Returns: Json;
+      };
       claim_payment_execution_step: {
         Args: { target_request: string; worker_id: string };
         Returns: Json;

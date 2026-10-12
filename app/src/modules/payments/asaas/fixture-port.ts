@@ -1,5 +1,8 @@
 import "server-only";
-import { createHash } from "node:crypto";
+import {
+  fixtureRequestIdentity,
+  fixtureRequestFingerprint,
+} from "./fixture-protocol";
 import { z } from "zod";
 import { createSystemClient } from "@/lib/supabase/admin";
 import { isCivilDate } from "@/modules/deadlines/calendar";
@@ -196,13 +199,6 @@ function decodeRequest(
   }
   return { operation, payload, request };
 }
-/** Chave interna estável. Não declara idempotência da API real do Asaas. */
-function requestIdentity(slotId: string, operation: Operation) {
-  const raw = createHash("sha256")
-    .update(slotId + ":" + operation)
-    .digest("hex");
-  return `${raw.slice(0, 8)}-${raw.slice(8, 12)}-5${raw.slice(13, 16)}-8${raw.slice(17, 20)}-${raw.slice(20, 32)}`;
-}
 /** Porta fixa interna: nenhuma URL é acessada; não recebe callback do usuário. */
 export async function createDurableAsaasFixturePort(input: unknown) {
   requireLocal();
@@ -230,21 +226,15 @@ export async function createDurableAsaasFixturePort(input: unknown) {
         requireLocal();
         try {
           const decoded = decodeRequest(value, target.clientId, scope);
-          const fingerprint = createHash("sha256")
-            .update(
-              JSON.stringify({
-                scope,
-                method: decoded.request.method,
-                url: decoded.request.url,
-                bodyText: decoded.request.bodyText ?? null,
-              }),
-            )
-            .digest("hex");
+          const fingerprint = fixtureRequestFingerprint(decoded.request);
           const result = await db.rpc("send_payment_fixture_request", {
             target_scope: target.scopeId,
             target_client: target.clientId,
             slot_id: target.slotId,
-            request_id: requestIdentity(target.slotId, decoded.operation),
+            request_id: fixtureRequestIdentity(
+              target.slotId,
+              decoded.operation,
+            ),
             operation: decoded.operation,
             fingerprint,
             payload: decoded.payload,
@@ -274,7 +264,7 @@ export async function getDurableFixtureTransportReceipt(input: unknown) {
       target_scope: target.scopeId,
       target_client: target.clientId,
       slot_id: target.slotId,
-      request_id: requestIdentity(target.slotId, target.operation),
+      request_id: fixtureRequestIdentity(target.slotId, target.operation),
     });
     if (result.error) throw new Error(unavailable);
     if (result.data === null) return null;
@@ -285,7 +275,8 @@ export async function getDurableFixtureTransportReceipt(input: unknown) {
       receipt.scope.environment !== "sandbox" ||
       receipt.slotId !== target.slotId ||
       receipt.operation !== target.operation ||
-      receipt.requestId !== requestIdentity(target.slotId, target.operation)
+      receipt.requestId !==
+        fixtureRequestIdentity(target.slotId, target.operation)
     )
       throw new Error(unavailable);
     equalScope(receipt.outcome.scope, receipt.scope);

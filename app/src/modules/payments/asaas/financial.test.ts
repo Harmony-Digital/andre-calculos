@@ -1,10 +1,15 @@
 import { expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
-import { readAsaasScope, readAsaasPayment } from "./contracts";
+import {
+  readAsaasScope,
+  readAsaasPayment,
+  readAsaasPaymentCandidates,
+} from "./contracts";
 import { AsaasContractError } from "./errors";
 import {
   normalizeAsaasFinancialEvent,
   normalizeAsaasPaymentSnapshot,
+  normalizeValidatedAsaasPaymentObservation,
 } from "./financial";
 import { compareAsaasFinancialEvents } from "./comparison";
 const reference = "00000000-0000-4000-8000-000000000002";
@@ -14,6 +19,74 @@ const scope = readAsaasScope({
   accountId: "account_fixture",
   walletId: "wallet_fixture",
 });
+it("normalização de candidato validado equivale ao snapshot textual", () => {
+  const text = paymentText(),
+    payment = readAsaasPayment(text, scope, {
+      ...expected,
+      phase: "observation",
+    });
+  expect(normalizeValidatedAsaasPaymentObservation(payment, "PIX")).toEqual(
+    normalizeAsaasPaymentSnapshot(text, scope, expected),
+  );
+  expect(() =>
+    normalizeValidatedAsaasPaymentObservation({ ...payment }, "PIX"),
+  ).toThrow(AsaasContractError);
+});
+it.each(["PIX", "BOLETO", "CREDIT_CARD"])(
+  "candidato de lista com originalUNDEFINED preserva %s",
+  (billingType) => {
+    const page = readAsaasPaymentCandidates(
+      `{"object":"list","offset":0,"limit":2,"totalCount":1,"hasMore":false,"data":[${paymentText({ billingType })}]}`,
+      scope,
+      {
+        scope,
+        customerId: expected.customerId,
+        reference,
+        contractedCents: 12501,
+        dueDate: expected.dueDate,
+      },
+    );
+    const result = normalizeValidatedAsaasPaymentObservation(
+      page.items[0],
+      "UNDEFINED",
+    );
+    expect(result).toMatchObject({
+      expectedBillingType: "UNDEFINED",
+      billingType,
+      disposition: "observed",
+    });
+  },
+);
+it("candidato lossless conserva valor máximo e estorno de um centavo", () => {
+  const text =
+    '{"id":"pay_fixture","customer":"cus_fixture","externalReference":"' +
+    reference +
+    '","value":90071992547409.91,"originalValue":90071992547409.91,"netValue":90071992547409.90,"status":"RECEIVED","billingType":"BOLETO","dueDate":"2026-10-20","deleted":false,"refunds":[{"value":0.01,"status":"DONE","dateCreated":"2026-10-11 10:00:00"}],"chargeback":null}';
+  const observed = readAsaasPayment(text, scope, {
+    ...expected,
+    contractedCents: Number.MAX_SAFE_INTEGER,
+    billingType: "BOLETO",
+  });
+  const result = normalizeValidatedAsaasPaymentObservation(observed, "BOLETO");
+  expect(result.amounts).toMatchObject({
+    currentValueCents: Number.MAX_SAFE_INTEGER,
+    netCents: Number.MAX_SAFE_INTEGER - 1,
+    feeCents: 1,
+    grossLessCompletedRefundsCents: Number.MAX_SAFE_INTEGER - 1,
+  });
+  expect(result.refunds.completedCents).toBe(1);
+});
+it.each(["missing", "null", "empty"])(
+  "candidato validado preserva presença refunds %s",
+  (kind) => {
+    const wire = JSON.parse(paymentText()) as Record<string, unknown>;
+    if (kind === "missing") delete wire.refunds;
+    else wire.refunds = kind === "null" ? null : [];
+    const observed = readAsaasPayment(JSON.stringify(wire), scope, expected),
+      result = normalizeValidatedAsaasPaymentObservation(observed, "PIX");
+    expect(result.presence.refunds).toBe(kind);
+  },
+);
 const expected = {
   scope,
   phase: "observation",
