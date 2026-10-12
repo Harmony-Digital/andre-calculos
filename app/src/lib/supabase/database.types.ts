@@ -1576,6 +1576,22 @@ export type Database = {
         Args: { target_observation: string };
         Returns: Json;
       };
+      get_financial_application_receipt: {
+        Args: { target_observation: string; request_id: string };
+        Returns: Json;
+      };
+      apply_financial_observation: {
+        Args: {
+          target_observation: string;
+          request_id: string;
+          expected_position_revision: number;
+          expected_charge_revision: number;
+          expected_journal_fingerprint: string;
+          decision_action: string;
+          position_value: Json;
+        };
+        Returns: Json;
+      };
       get_financial_origin: {
         Args: { target_observation: string };
         Returns: Json;

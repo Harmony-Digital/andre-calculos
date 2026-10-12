@@ -153,3 +153,35 @@ it("payload incompleto conserva rota autenticada e modelo desconhecido falha sem
       "Modelo de e-mail não reconhecido.",
     );
 });
+
+it("movimentos financeiros distinguem débito, restauração e conciliação com destino fixo", () => {
+  for (const [effect, template] of [
+    ["debited", "payment_debited"],
+    ["restored", "payment_restored"],
+    ["reconcile", "payment_reconciliation"],
+    ["reconciled", "payment_reconciled"],
+  ] as const) {
+    const data = {
+      ...fictionalEmailData,
+      effect,
+      path: "https://example.invalid/privado",
+      role: "admin",
+    };
+    const client = emailContent({ template, data }),
+      calculator = emailContent({ template: "payment_updated", data });
+    expect(client.message).toBe(calculator.message);
+    expect(client.href).toBe(
+      `${emailPortalOrigin}/app/processos/${fictionalEmailData.process_id}`,
+    );
+    expect(calculator.href).toBe(
+      `${emailPortalOrigin}/painel/processos/${fictionalEmailData.process_id}`,
+    );
+    expect(client.message).not.toBe(
+      emailContent({ template: "payment_confirmed", data }).message,
+    );
+  }
+  expect(
+    emailContent({ template: "payment_updated", data: { effect: "<script>" } })
+      .href,
+  ).toBe(`${emailPortalOrigin}/painel`);
+});

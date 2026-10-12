@@ -8,6 +8,11 @@ export const emailTemplates = [
   "quote_accepted",
   "quote_accepted_client",
   "payment_confirmed",
+  "payment_debited",
+  "payment_restored",
+  "payment_reconciled",
+  "payment_reconciliation",
+  "payment_updated",
   "order_queued",
   "new_message",
   "deadline_reminder",
@@ -70,6 +75,31 @@ const messages: Record<EmailTemplate, [string, string, string]> = {
     "Pagamento registrado",
     "Um pagamento foi confirmado",
     "Consulte a situação atual do pedido e suas próximas etapas no portal.",
+  ],
+  payment_debited: [
+    "Pagamento ajustado",
+    "Um estorno foi registrado",
+    "Consulte a situação financeira atual e as próximas etapas do pedido no portal.",
+  ],
+  payment_restored: [
+    "Crédito restabelecido",
+    "Um crédito foi restabelecido",
+    "Consulte o crédito e a situação atual do pedido no portal.",
+  ],
+  payment_reconciled: [
+    "Conciliação concluída",
+    "A conciliação foi concluída",
+    "Consulte a situação financeira atual do pedido no portal.",
+  ],
+  payment_reconciliation: [
+    "Pagamento em conciliação",
+    "Um pagamento está em conciliação",
+    "A situação financeira precisa de conferência. Acompanhe o pedido pelo portal.",
+  ],
+  payment_updated: [
+    "Situação financeira",
+    "A situação financeira foi atualizada",
+    "Consulte a situação financeira e as próximas etapas do pedido no painel.",
   ],
   order_queued: [
     "Pedido na fila",
@@ -146,7 +176,22 @@ export function emailContent(input: unknown): EmailContent {
     !Array.isArray(parsed.data.data)
       ? (parsed.data.data as Record<string, unknown>)
       : {};
-  const [label, heading, message] = messages[template];
+  const financialMessages = {
+    received: messages.payment_confirmed,
+    debited: messages.payment_debited,
+    restored: messages.payment_restored,
+    reconciled: messages.payment_reconciled,
+    reconcile: messages.payment_reconciliation,
+  };
+  const financialEffect =
+    typeof data.effect === "string" &&
+    Object.hasOwn(financialMessages, data.effect)
+      ? (data.effect as keyof typeof financialMessages)
+      : null;
+  const [label, heading, message] =
+    template === "payment_updated" && financialEffect
+      ? financialMessages[financialEffect]
+      : messages[template];
   const references: EmailContent["references"] = [];
   // Identificadores nunca vêm do path, do destinatário ou de um papel do payload.
   const quoteId = z.uuid().safeParse(data.quote_id);
@@ -157,13 +202,24 @@ export function emailContent(input: unknown): EmailContent {
     "quote_created",
     "quote_accepted",
     "order_queued",
+    "payment_updated",
     "account_deletion_requested",
   ].includes(template);
   if (calculator) path = "/painel";
   if (["new_signup", "account_deletion_requested"].includes(template))
     path = "/painel/clientes";
   if (template.startsWith("deadline_")) path = "/painel/fila";
-  if (["welcome", "deletion_request", "payment_confirmed"].includes(template))
+  if (
+    [
+      "welcome",
+      "deletion_request",
+      "payment_confirmed",
+      "payment_debited",
+      "payment_restored",
+      "payment_reconciled",
+      "payment_reconciliation",
+    ].includes(template)
+  )
     path = "/app";
   if (
     ["quote_created", "quote_created_client", "quote_accepted_client"].includes(
@@ -178,6 +234,11 @@ export function emailContent(input: unknown): EmailContent {
       "quote_accepted",
       "order_queued",
       "payment_confirmed",
+      "payment_debited",
+      "payment_restored",
+      "payment_reconciled",
+      "payment_reconciliation",
+      "payment_updated",
       "delivery_ready",
     ].includes(template) &&
     processId.success

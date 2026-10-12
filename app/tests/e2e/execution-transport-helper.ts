@@ -14,6 +14,8 @@ export async function executionTransportFixture(billingType = "PIX") {
       sql(`delete from public.audit_log where action like 'payment_financial_%' and target_id in(
  select o.id from private.payment_financial_observations o join private.payment_financial_charges c on c.id=o.charge_id where c.scope_id in(${scopes})
  union select f.id from private.payment_financial_conflicts f join private.payment_financial_observations o on o.id=f.observation_id join private.payment_financial_charges c on c.id=o.charge_id where c.scope_id in(${scopes}));
+ delete from public.audit_log where action='payment_financial_applied' and target_id in(select request_id from private.payment_financial_applications where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes})));
+ delete from private.payment_financial_applications where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));
  delete from private.payment_legacy_bindings where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));
  delete from private.payment_financial_positions where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));
  delete from private.payment_financial_conflicts where observation_id in(select o.id from private.payment_financial_observations o join private.payment_financial_charges c on c.id=o.charge_id where c.scope_id in(${scopes}));
