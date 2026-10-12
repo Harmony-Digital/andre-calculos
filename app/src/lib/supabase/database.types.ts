@@ -1356,6 +1356,10 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      receive_fixture_payment_webhook: {
+        Args: { body_text: string; source_hash: string; target_scope: string };
+        Returns: Json;
+      };
       begin_notification_local_run: {
         Args: {
           run_id: string;
