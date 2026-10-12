@@ -1,0 +1,23 @@
+{
+  "banco-foco": {
+    "originalSha256": "5f6befcc323523851fb113038913de960db6fa8f8241ff5bc63e191c8e236006",
+    "artifactSha256": "1b45539a2cbe4ad12ab2ad87cc782b86fe7b9b0a4240d4ccac821802309471e5",
+    "normalization": "Removidas linhas em branco finais; originalSha256 preservado"
+  },
+  "check-local": {
+    "originalSha256": "b96dc80ba803979612fb2f2ff821f4687f0a83b8a426c411dd83c19b873dd1d5",
+    "artifactSha256": "ec4c9c6217f2c7a5cbb7faee93c8e0c4ae0e5b7071e9ba6c1788a6718c52642f"
+  },
+  "read-back": {
+    "originalSha256": "d2de5e9a49f41080c37a9d4ef71b53b9531a7701007807e4fd5b13e5ebf6dc23",
+    "artifactSha256": "d2de5e9a49f41080c37a9d4ef71b53b9531a7701007807e4fd5b13e5ebf6dc23"
+  },
+  "controles": {
+    "originalSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "artifactSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c"
+  },
+  "advisors": {
+    "originalSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "artifactSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+  }
+}

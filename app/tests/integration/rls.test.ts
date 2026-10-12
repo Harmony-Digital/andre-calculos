@@ -3,6 +3,7 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { fictionalChecklist } from "../../src/modules/checklist/fixtures";
 import { fictionalCnj, removeLocalDraft } from "../e2e/draft-helper";
 import { randomBytes } from "node:crypto";
+import { provisionLocalUser } from "../../scripts/provision-local-user";
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const password = process.env.ANDRE_TEST_PASSWORD;
@@ -198,7 +199,7 @@ describe("RLS com sessões reais", () => {
     const system = createClient(url, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
       auth: { persistSession: false },
     });
-    const created = await system.auth.admin.createUser({
+    const created = await provisionLocalUser({
       email: `${randomBytes(8).toString("hex")}@exemplo.com`,
       password,
       email_confirm: true,
