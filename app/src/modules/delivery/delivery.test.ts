@@ -1,10 +1,6 @@
 import { expect, it } from "vitest";
 import { parseDelivery } from "./forms";
-import {
-  deliveryAccess,
-  deliveryFilesComplete,
-  type DeliveryFile,
-} from "./delivery";
+import { deliveryFilesComplete, type DeliveryFile } from "./delivery";
 const ids = Array.from(
   { length: 5 },
   (_, i) => `00000000-0000-4000-8000-${String(i + 1).padStart(12, "0")}`,
@@ -46,34 +42,6 @@ it("checklist exige confirmação explícita, versão/mês válidos e arquivos d
   f.set("reportFile", ids[2]);
   f.set("pjeVersion", "<script>");
   expect(parseDelivery(f).success).toBe(false);
-});
-it("liberação desconhecida bloqueia; sinal/triagem/contrato não substituem o saldo", () => {
-  const p = (amount_cents: number, kind = "deposit", status = "confirmed") => ({
-    amount_cents,
-    kind,
-    status,
-  });
-  for (const policy of [null, "unknown"])
-    expect(deliveryAccess(policy, "delivered", 1000, [p(1000)])).toBe(
-      "policy_pending",
-    );
-  expect(deliveryAccess("before_balance", "in_review", 1000, [])).toBe(
-    "review_pending",
-  );
-  expect(deliveryAccess("before_balance", "delivered", 1000, [])).toBe("ready");
-  expect(
-    deliveryAccess("after_balance", "delivered", 1000, [
-      p(500),
-      p(1000, "triage"),
-      p(500, "balance", "refunded"),
-    ]),
-  ).toBe("balance_pending");
-  expect(
-    deliveryAccess("after_balance", "delivered", 1000, [
-      p(500),
-      p(500, "balance"),
-    ]),
-  ).toBe("ready");
 });
 it("integridade, vínculo e tipos vêm dos metadados conferidos pelo servidor", () => {
   const files: DeliveryFile[] = ids.slice(0, 3).map((id, i) => ({

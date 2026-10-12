@@ -1,0 +1,11 @@
+{
+  "run": 38223644784,
+  "job": 114725722242,
+  "source": "fe55a63b308d8378e3629f4a53a121c77d6ccc9d",
+  "conclusion": "failure",
+  "bankPassed": 782,
+  "bankFailed": 1,
+  "browser": "skipped",
+  "advisors": "skipped",
+  "reason": "fence de application ultrapassou timeout5000ms"
+}
