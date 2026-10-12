@@ -1568,6 +1568,26 @@ export type Database = {
         Args: { target_order: string };
         Returns: Json;
       };
+      request_payment_customer: {
+        Args: { target_client: string; request_id: string };
+        Returns: Json;
+      };
+      get_payment_customer_request: {
+        Args: { target_request: string };
+        Returns: Json;
+      };
+      claim_payment_customer_step: {
+        Args: { target_request: string; worker_id: string };
+        Returns: Json;
+      };
+      start_payment_customer_step: {
+        Args: { target_step: string; worker_id: string };
+        Returns: boolean;
+      };
+      finish_payment_customer_step: {
+        Args: { target_step: string; worker_id: string };
+        Returns: Json;
+      };
       get_payment_fixture_scope: {
         Args: { target_scope: string; target_client: string };
         Returns: Json;
