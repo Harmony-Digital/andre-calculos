@@ -1,0 +1,20 @@
+{
+  "run": 38232179008,
+  "job": 114754059279,
+  "kind": "quality",
+  "source": "e792553a0547fdda45af664841b31928b77cf79d",
+  "checkout": "9c05a10f1bc4b54063b457d013222d2ba18a1ffd",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "e792553a0547fdda45af664841b31928b77cf79d"
+  ],
+  "jobConclusion": "success",
+  "overallStatus": "in_progress",
+  "overallConclusion": null,
+  "unitTests": 1284,
+  "unitFiles": 62,
+  "scripts": 43,
+  "logSha256": "88b89c0d262202b1f379c9fd3ec8283a21107f554d1934675063f38a38d05a2f",
+  "artifactSha256": "24181b672b0227d08f72e1e1a3e399dfd08b9960f8c80af27f1f908ea10f296a",
+  "artifactNormalization": "Espacos finais e linhas vazias finais removidos; logSha256 preserva o extrato original."
+}

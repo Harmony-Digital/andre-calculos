@@ -1,0 +1,14 @@
+BEGIN
+CREATE TABLE
+INSERT 0 12
+DO
+DELETE 12
+DELETE 0
+DELETE 12
+DELETE 0
+DELETE 36
+DELETE 0
+DELETE 12
+DELETE 12
+{"scopedProcessesRemaining" : 0, "processes" : 1, "orders" : 1, "uploadedFiles" : 0, "pendingFiles" : 1, "storageObjects" : 0}
+COMMIT

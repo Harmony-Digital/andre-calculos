@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-12",
+  "base": "bd84c511e4ac774b485309743d87b09bd3136b63",
+  "scope": "SQL/RLS/contexto e auditoria locais; UI/rotas/bytes continuam AO",
+  "immutableLocalMigration": 92,
+  "transactionalEquivalentCases": 108,
+  "ownBankTests": 17,
+  "consumerRegressions": 47,
+  "unitTests": 1370,
+  "unitFiles": 66,
+  "scripts": 43,
+  "localBuild": "EPERM/Turbopack ao vincular porta; fonte exata ainda precisa CI",
+  "advisorsNoIssues": 2,
+  "readbackBeforeGeneral": {
+    "migrations": 92,
+    "publicTables": 25,
+    "privateTables": 55,
+    "allRls": true,
+    "controlsMatchBaseline90": true,
+    "profiles": 4,
+    "temporaryOwnersAndGrants": 0
+  },
+  "generalBank": {
+    "status": "completed",
+    "exitCode": 0,
+    "passed": 858,
+    "files": 42
+  },
+  "rawLogSha256": {
+    "an-banco-foco-definitivo.log": "df468835a7109bd868dd60a90305b93eeb878aa38f79d052a204df310ed0d042",
+    "an-banco-regressoes-final.log": "05ea2acecf7451fec76903a39abc51ab972a61682ac9222a389ef234d83baaea",
+    "an-check-final.log": "2d66209f20d7ad42756024c635c61952c3226a27fe04d32d2dad076bd795479d",
+    "an-rehearsal-smoke.log": "c5eb5887d49378dba22ed16cc630c9ba8f8619891ed7d956a29d8abc06b2c047",
+    "an-advisors-apos92.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "an-readback-before-general.log": "17867f643b1147903cc6e2f9b59b21e241d2eb529513d0984c243c782d4f4f2e",
+    "an-controls-before-general.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c"
+  },
+  "sourceFilesSha256": {
+    "supabase/migrations/20261012009200_andre_calculos_0092_delivery_credit_access.sql": "983ac2d8ba163a91bcf1b1657ff79577c3a88141930a3a7ba85cb5f4d382b141",
+    "app/src/lib/supabase/database.types.ts": "d98ce22440d38bdd865e23c2d726d907cf0ef37285b6f1d338cf19a24fa1da2e",
+    "app/tests/integration/delivery-credit-access.test.ts": "011f39acfeab1bf086bc9c4113113547264fff6231d7de2ccd989762e5df2ad3",
+    "app/tests/integration/delivery.test.ts": "3bd88e3717d0f32dac0bc8c3216bcba7228076a5ab84afa1b9c5c2159f6e7d21",
+    "app/tests/integration/delivery-approval.test.ts": "32905ac68d48f1ddafaec812d729f56b97ee316b69290e7d44fa75468f5df594"
+  },
+  "finalReadbackMatchesBeforeGeneral": true,
+  "finalControlsMatchBaseline90": true,
+  "finalAdvisorsNoIssues": 2,
+  "exactSourceBuildProof": "ci40-build.json"
+}
