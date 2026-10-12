@@ -21,10 +21,12 @@ export function DepositCard({
   info,
   requestId,
   panel,
+  invoiceEnabled = false,
 }: {
   info: DepositInfo;
   requestId: string;
   panel: boolean;
+  invoiceEnabled?: boolean;
 }) {
   const id = useId(),
     hydrated = useSyncExternalStore(subscribe, ready, waiting),
@@ -59,6 +61,17 @@ export function DepositCard({
   return (
     <section className="form-body deposit-card" aria-labelledby={`${id}-title`}>
       <h4 id={`${id}-title`}>Sinal · {info.code}</h4>
+      {invoiceEnabled && (
+        <p>
+          <Link
+            className="text-link"
+            href={`${path}/fatura?pedido=${info.orderId}`}
+            prefetch={false}
+          >
+            Consultar fatura do sinal
+          </Link>
+        </p>
+      )}
       {info.hasContract ? (
         <p>Sinal dispensado. Pagamento no final, conforme contrato.</p>
       ) : info.requiredCents === 0 ? (

@@ -19,6 +19,7 @@ import { PageIndexEditor } from "./page-index-editor";
 import { DeliveryForm } from "./delivery-form";
 import { OrderOperations } from "./order-operations";
 import { DepositCard } from "./deposit-card";
+import { fixtureInvoiceEnabled } from "@/modules/payments/invoice-mode";
 import { DeliveryRecords } from "./delivery-records";
 import { pieceLabel } from "@/modules/page-index/forms";
 import {
@@ -165,6 +166,7 @@ export async function ProcessFolder({
                       info={data.deposits.get(order.id)!}
                       requestId={randomUUID()}
                       panel={panel}
+                      invoiceEnabled={fixtureInvoiceEnabled()}
                     />
                   )}
                   {data.role === "calculator" && (

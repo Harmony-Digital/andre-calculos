@@ -32,7 +32,7 @@ export type FinancialScenario = (typeof financialScenarios)[number];
 const literal = (v: unknown) =>
   "'" + JSON.stringify(v).replaceAll("'", "''") + "'::jsonb";
 /** Um lease e uma origem real da fixture. Nenhum evento financeiro semeado. */
-export async function financialJourneyFixture() {
+export async function financialJourneyFixture(billingType = "PIX") {
   if (
     process.env.ANDRE_LOCAL_TESTS !== "1" ||
     process.env.NEXT_PUBLIC_SUPABASE_URL !== "http://127.0.0.1:54321" ||
@@ -41,7 +41,7 @@ export async function financialJourneyFixture() {
     process.env.NODE_ENV === "production"
   )
     throw new Error("Jornada fictícia indisponível.");
-  const fixture = await executionTransportFixture();
+  const fixture = await executionTransportFixture(billingType);
   let releaseQueue: (() => Promise<void>) | undefined;
   let prior:
     | {

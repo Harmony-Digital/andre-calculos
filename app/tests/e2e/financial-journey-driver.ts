@@ -28,10 +28,13 @@ type Actions = {
   receipts: ReturnType<JourneyFixture["receipts"]>;
   replay: Awaited<ReturnType<JourneyFixture["replay"]>>;
   prepareDelivery: string;
+  createZeroOrder: { orderId: string; processId: string };
   close: string;
 };
 /** Servidor-only via Node/TSX, sem endpoint HTTP de teste na aplicação. */
-export async function financialJourneyDriver() {
+export async function financialJourneyDriver(billingType = "PIX") {
+  if (!["PIX", "BOLETO", "CREDIT_CARD", "UNDEFINED"].includes(billingType))
+    throw new Error("Meio fictício inválido.");
   const child = spawn(
     process.execPath,
     [
@@ -40,7 +43,11 @@ export async function financialJourneyDriver() {
       "tsx",
       "tests/e2e/financial-journey-runner.ts",
     ],
-    { cwd: process.cwd(), env: process.env, stdio: ["pipe", "pipe", "pipe"] },
+    {
+      cwd: process.cwd(),
+      env: { ...process.env, ANDRE_INVOICE_METHOD: billingType },
+      stdio: ["pipe", "pipe", "pipe"],
+    },
   );
   const pending = new Map<
     string,

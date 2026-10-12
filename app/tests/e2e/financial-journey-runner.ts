@@ -19,7 +19,10 @@ async function run() {
   process.on("SIGTERM", () => input.close());
   process.on("SIGINT", () => input.close());
   try {
-    fixture = await financialJourneyFixture();
+    const method = process.env.ANDRE_INVOICE_METHOD ?? "PIX";
+    if (!["PIX", "BOLETO", "CREDIT_CARD", "UNDEFINED"].includes(method))
+      throw new Error("Meio fictício inválido.");
+    fixture = await financialJourneyFixture(method);
     reply("ready", {
       processId: fixture.sample.process_id,
       orderId: fixture.sample.order_id,
@@ -83,6 +86,11 @@ async function run() {
               .single();
             if (delivery.error || !delivery.data) throw new Error();
             data = delivery.data.id;
+            break;
+          }
+          case "createZeroOrder": {
+            const sample = await fixture.create({ zero: true });
+            data = { orderId: sample.order_id, processId: sample.process_id };
             break;
           }
           case "close":
