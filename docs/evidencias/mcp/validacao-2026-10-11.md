@@ -48,3 +48,60 @@ As chamadas dos MCPs foram somente de leitura; a única mudança externa foi o c
 As ferramentas dedicadas não constavam no catálogo nativo deste chat na primeira tentativa; esse ensaio usou chamadas reais dos MCPs pelo cliente oficial separado. A validação final usou as ferramentas nativas após sua disponibilização.
 
 Fontes do procedimento: [MCP no Codex](https://developers.openai.com/codex/mcp), [protocolo do App Server](https://learn.chatgpt.com/docs/app-server#protocol), [MCP do Supabase](https://supabase.com/docs/guides/ai-tools/mcp), [get_team da Vercel](https://vercel.com/docs/agent-resources/vercel-mcp/tools/teams/get_team). A causa específica da recusa da Vercel não foi estabelecida pelo ensaio.
+
+## Diagnóstico de visibilidade após criação do projeto
+
+Em 2026-10-11, a pedido do Fábio, foram repetidas somente chamadas de leitura no MCP `andre-calculos-vercel`:
+
+- `list_teams`: somente Projeto Andre, slug `projeto-andre1`, ID `team_4fdLDCsB0ROvP5ph50aFNvxm`.
+- `list_projects` com essa equipe: `projects: []`, contagem zero.
+- `get_project` com `idOrName: prj_tdmzmC6utVU2fHPz0iVhroMD8NtI` e a equipe esperada: HTTP 404, `not_found`, "Project not found".
+
+Esses resultados confirmam conexão/autenticação à equipe e ausência de visibilidade do recurso por essa credencial. Não comprovam exclusão do projeto nem a causa do 404. A concessão anterior à criação, com acesso a projetos futuros desmarcado, é uma hipótese compatível; deve ser conferida na autorização do recurso. Nenhum grant, escrita, CLI de outra conta ou operação no navegador foi executado. O nome da conexão que aparece ao Fábio foi solicitado antes de avaliar outra conexão.
+
+A documentação [Scopes and Permissions](https://vercel.com/docs/sign-in-with-vercel/scopes-and-permissions) distingue permissões da equipe e de projetos autorizados. A URL específica de um projeto no MCP fornece contexto e não comprova concessão de acesso. O status fica exclusivamente no plan.md.
+
+## Verificação das duas conexões a pedido do Fábio
+
+Fábio determinou priorizar MCP. Foram consultadas as duas conexões disponíveis, somente por leitura e com identidade da equipe conferida antes das consultas do projeto:
+
+| Operação | `andre-calculos-vercel` | `vercel` |
+|---|---|---|
+| list_teams | Somente Projeto Andre / projeto-andre1 / team_4fdLDCsB0ROvP5ph50aFNvxm | Mesma equipe, nenhuma outra |
+| list_projects nessa equipe | projects vazio, count zero | Mesmo resultado |
+| get_project por ID esperado | 404 not_found / Project not found | Mesmo resultado |
+| list_deployments por equipe/projeto esperados, limit 3 | 403 forbidden / You don't have permission to list the deployment. | Mesmo resultado |
+
+O dedicado também respondeu 404 na consulta por nome `andre-calculos`. Request IDs: get_project dedicado `gru1:sfo1::qcftj-1791739567518-660fdc7b3d65`, conexão vercel `gru1:sfo1::8wvqp-1791739569177-dc675e0755a0`; list_deployments dedicado `gru1:sfo1::8bpqc-1791739619446-6755322d2098`, conexão vercel `gru1:sfo1::65scv-1791739619449-13e498bdca11`.
+
+O 403 confirma recusa de permissão para listar deploys; a causa da ausência de acesso ao projeto não foi estabelecida. Não houve repetição do erro sem mudança de estado, reconexão automática, navegador, CLI Vercel, API alternativa, concessão ou escrita externa. Reautenticar, por si só, não foi considerado solução comprovada.
+
+A operação create_deployment do MCP aceita arquivos de código. Preparado apenas localmente `.data/publicacao/deployment-mcp.json`, ignorado pelo Git, com equipe/ID esperados, target production e os 158 arquivos base64 do ZIP conferido contra main `9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd`. Sem env vars ou projectSettings. O envio exige antes get_project confirmar o ID esperado na equipe correta; a revisão de acesso deve limitar-se a esse recurso. Publicação e jornada hospedada ainda não foram verificadas.
+
+## Reautorização exclusiva e confirmação do acesso ao recurso
+
+Fábio solicitou resolver e confirmou “Concluí a autorização somente desse projeto”. Iniciado OAuth oficial da conexão existente andre-calculos-vercel; comando concluído com Successfully logged in e código zero. Não houve revogação de tokens, mudança de endpoint ou uso de MCP/CLI de outra conta. A limitação ao projeto foi confirmada pelo Fábio e pelas consultas acima. Nenhum código de callback, cookie, token ou URL de consentimento foi salvo nesta evidência.
+
+Chamadas reais após o consentimento:
+
+- list_teams: somente Projeto Andre / projeto-andre1 / team_4fdLDCsB0ROvP5ph50aFNvxm.
+- get_project: andre-calculos, ID prj_tdmzmC6utVU2fHPz0iVhroMD8NtI e accountId igual à equipe esperada.
+- list_projects sem filtro de nome: somente esse projeto, count1.
+- list_deployments: acesso permitido, sem403; inicialmente nenhum deployment.
+- create_deployment: código enviado ao recurso confirmado, pelo próprio MCP. get_deployment verificou o deploy final dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 em READY/production/gru1.
+
+O consentimento renovado seguido dos retornos reais comprovou a recuperação do acesso. A causa técnica exata do bloqueio anterior não foi demonstrada. A verificação de publicação, região e jornada está em docs/evidencias/demonstracao/README.md; o status fica no plan.md.
+
+## Revalidação posterior da conexão restrita ao projeto
+
+Após a confirmação humana “Concluí a autorização somente desse projeto”, as chamadas nativas atuais list_teams e list_projects (sem filtro de nome) confirmaram somente Projeto Andre/andre-calculos. A continuação da página de equipes retornou zero registros; projetos sem continuação. IDs esperados: team_4fdLDCsB0ROvP5ph50aFNvxm e prj_tdmzmC6utVU2fHPz0iVhroMD8NtI. get_project e list_deployments responderam sem erro e confirmaram dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 em READY/production, com os domínios project-rucji.vercel.app e andre-calculos-projeto-andre1.vercel.app. Nenhuma alteração externa foi necessária nessa revalidação.
+
+## Revalidação durante M2.12a
+
+Chamadas nativas novamente confirmaram somente Projeto Andre/projeto-andre1/team_4fdLDCsB0ROvP5ph50aFNvxm; a continuação da lista de equipes retornou zero. A listagem sem filtro de nome retornou andre-calculos/prj_tdmzmC6utVU2fHPz0iVhroMD8NtI. get_project confirmou a equipe e o mesmo deploy READY de produção dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7, com domínio project-rucji.vercel.app. get_project_url do Supabase dedicado retornou https://qtofwbxujshroaafxowr.supabase.co. Nenhuma mutação externa nessas consultas.
+
+## Conferência ao encerrar o preparo do manual
+
+As chamadas reais do MCP dedicado `andre-calculos-vercel` confirmaram novamente a equipe Projeto Andre, slug projeto-andre1, ID team_4fdLDCsB0ROvP5ph50aFNvxm. A página de equipes com `until` anterior ao cursor retornou zero. `list_projects`, sem filtro de nome, retornou somente andre-calculos; `get_project` confirmou prj_tdmzmC6utVU2fHPz0iVhroMD8NtI e o accountId esperado. A listagem não trouxe cursor `next`; uma consulta adicional com `from` repetiu esse mesmo registro, sem acrescentar recurso.
+
+`get_deployment` confirmou dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 em READY/production/gru1 e o alias project-rucji.vercel.app. GETs públicos de `/api/health` e `/demonstracao` responderam HTTP200; o health informou status ok, região gru1 e versão0.1.0. Esses GETs conferem disponibilidade, sem substituir a jornada hospedada registrada anteriormente. Nenhuma alteração de permissões, publicação ou variável foi necessária; o navegador com bloqueio anterior não foi utilizado.

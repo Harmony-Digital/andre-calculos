@@ -4,6 +4,7 @@ import type { AuthFormState } from "@/modules/auth/forms";
 import { parseSignup } from "./forms";
 import { registrationLegal } from "./legal";
 import { portalOrigin } from "@/modules/auth/origin";
+import { signupMetadata } from "./metadata";
 export async function signup(
   _previous: AuthFormState,
   form: FormData,
@@ -31,19 +32,7 @@ export async function signup(
     password: value.password,
     options: {
       emailRedirectTo: `${portalOrigin()}/auth/callback`,
-      data: {
-        full_name: value.fullName,
-        phone: value.phone,
-        oab_number: value.oabNumber,
-        oab_state: value.oabState,
-        city: value.city,
-        kind: value.kind,
-        document: value.document,
-        legal_name: value.legalName,
-        accepted_legal: true,
-        terms_version: legal.termsVersion,
-        privacy_version: legal.privacyVersion,
-      },
+      data: signupMetadata(value, legal),
     },
   });
   if (result.error)
