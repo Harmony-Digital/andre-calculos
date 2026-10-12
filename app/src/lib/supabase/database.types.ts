@@ -1548,6 +1548,26 @@ export type Database = {
         };
         Returns: Json;
       };
+      reserve_payment_intent: {
+        Args: { target_context: string; request_id: string };
+        Returns: Json;
+      };
+      withdraw_payment_intent: {
+        Args: {
+          target_intent: string;
+          expected_revision: number;
+          request_id: string;
+        };
+        Returns: Json;
+      };
+      get_payment_intent: {
+        Args: { target_intent: string };
+        Returns: Json;
+      };
+      get_order_payment_reservation: {
+        Args: { target_order: string };
+        Returns: Json;
+      };
       get_process_participants: {
         Args: { target_process: string };
         Returns: {
