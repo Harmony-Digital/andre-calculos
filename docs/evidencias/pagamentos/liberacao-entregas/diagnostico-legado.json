@@ -1,0 +1,15 @@
+{
+  "source": "e2342ce4d8ec54c6a6e86b965327b09bea44e011",
+  "testSource": "app/tests/integration/delivery-approval.test.ts",
+  "testSourceSha256": "bade784e21f0021049a98324c4b033751d1d173dba90b232245cba0386d07b91",
+  "command": "bash scripts/dev-env.sh npm run test:rls -- tests/integration/delivery-approval.test.ts -t 'configuração não libera entrega antiga'",
+  "passed": 1,
+  "skippedByFilter": 2,
+  "verifiedInExistingAssertions": [
+    "saldo atual permanece null sem contexto aceito",
+    "soma antiga de Pix manual confirmado libera quatro metadados de entrega",
+    "estorno de saldo volta a negar os metadados"
+  ],
+  "scope": "Diagnostico do comportamento anterior aAH, nao prova correção nem bytes; fixture tecnica nao tem aceite",
+  "rawLogSha256": "e93f13dd9be4129551b211aea7ab71f328397d1b292f82dd65ee63da87427005"
+}

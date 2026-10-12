@@ -1,0 +1,13 @@
+2026-10-12T22:15:00.0894854Z [command]/usr/bin/git log -1 --format=%H
+2026-10-12T22:15:00.0924340Z 99ed599eb3d2d14719699464f5b0665cc33de642
+2026-10-12T22:42:27.7268884Z  Test Files  47 passed (47)
+2026-10-12T22:42:27.7273223Z       Tests  932 passed (932)
+2026-10-12T23:11:13.0709760Z   7 skipped
+2026-10-12T23:11:13.0710482Z   255 passed (28.7m)
+2026-10-12T23:11:13.0808907Z ##[notice]  7 skipped
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	  255 passed (28.7m)
+2026-10-12T23:11:13.1205317Z ##[group]Run supabase db advisors --local --workdir .. --type security --level warn --fail-on error
+2026-10-12T23:11:13.1205891Z supabase db advisors --local --workdir .. --type security --level warn --fail-on error
+2026-10-12T23:11:13.1206386Z supabase db advisors --local --workdir .. --type performance --level warn --fail-on error
+2026-10-12T23:11:13.8684362Z No issues found
+2026-10-12T23:11:14.9450701Z No issues found
