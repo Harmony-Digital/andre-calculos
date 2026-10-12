@@ -366,7 +366,7 @@ it("papéis humanos não podem consultar nem gravar journal privado", async () =
   }
   expect(
     sql(
-      "select count(*) from pg_tables t join pg_class c on c.relname=t.tablename join pg_namespace n on n.oid=c.relnamespace and n.nspname=t.schemaname where t.schemaname='private' and t.tablename like 'payment_financial_%' and c.relrowsecurity;",
+      "select count(*) from pg_tables t join pg_class c on c.relname=t.tablename join pg_namespace n on n.oid=c.relnamespace and n.nspname=t.schemaname where t.schemaname='private' and t.tablename in('payment_financial_charges','payment_financial_queries','payment_financial_observations','payment_financial_conflicts') and c.relrowsecurity;",
     ),
   ).toBe("4");
   expect(

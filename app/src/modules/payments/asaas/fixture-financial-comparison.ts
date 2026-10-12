@@ -1,5 +1,8 @@
 import "server-only";
-import { compareAsaasFinancialSnapshots } from "./comparison";
+import {
+  asaasCumulativeView,
+  compareAsaasFinancialSnapshots,
+} from "./comparison";
 import type { AsaasFinancialSnapshot } from "./financial";
 import type { FixtureChargebackProof } from "./fixture-financial-proof";
 type Observation = {
@@ -22,8 +25,9 @@ export function compareFixtureFinancialObservations(
     reasons.push("older_fixture_source");
   else if (
     current.sourceOrder === previous.sourceOrder &&
-    (JSON.stringify(previous.facts) !== JSON.stringify(current.facts) ||
-      JSON.stringify(p) !== JSON.stringify(c))
+    (asaasCumulativeView(previous.facts) !==
+      asaasCumulativeView(current.facts) ||
+      canonicalProof(p) !== canonicalProof(c))
   )
     reasons.push("fixture_order_conflict");
   if (p.kind === "proven") {
@@ -54,5 +58,13 @@ export function compareFixtureFinancialObservations(
     reasons: Object.freeze([...new Set(reasons)]),
     fixtureOrder: current.sourceOrder,
     officialProviderOrder: "unverified" as const,
+  });
+}
+
+function canonicalProof(proof: FixtureChargebackProof) {
+  if (proof.kind !== "proven") return proof.kind;
+  return JSON.stringify({
+    ...proof,
+    reversals: [...proof.reversals].sort((a, b) => a.id.localeCompare(b.id)),
   });
 }

@@ -32,6 +32,7 @@ const reasons = [
   "arithmetic_out_of_range",
   "event_requires_query",
 ] as const;
+export const asaasFinancialReasons = reasons;
 export type AsaasFinancialReason = (typeof reasons)[number];
 type Classification =
   | "obligation"

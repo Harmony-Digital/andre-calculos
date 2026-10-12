@@ -1568,6 +1568,14 @@ export type Database = {
         Args: { target_order: string };
         Returns: Json;
       };
+      get_order_financial_projection: {
+        Args: { target_order: string };
+        Returns: Json;
+      };
+      get_financial_projection_source: {
+        Args: { target_observation: string };
+        Returns: Json;
+      };
       get_financial_origin: {
         Args: { target_observation: string };
         Returns: Json;

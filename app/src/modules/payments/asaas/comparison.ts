@@ -29,7 +29,7 @@ function refundKey(
 ) {
   return JSON.stringify([item.providerCreatedAt, item.valueCents, item.status]);
 }
-function cumulativeView(snapshot: AsaasFinancialSnapshot) {
+export function asaasCumulativeView(snapshot: AsaasFinancialSnapshot) {
   // Apenas a projeção validada, em centavos; não reserializar JSON do provedor.
   // Ordenação conserva multiplicidade: dois estornos iguais continuam dois.
   return JSON.stringify({
@@ -84,7 +84,8 @@ export function compareAsaasFinancialEvents(
   const found = new Set<AsaasComparisonReason>();
   let relation: Relation;
   const sameView =
-    cumulativeView(previous.snapshot) === cumulativeView(current.snapshot);
+    asaasCumulativeView(previous.snapshot) ===
+    asaasCumulativeView(current.snapshot);
   const incomplete =
     previous.snapshot.disposition === "reconcile" ||
     current.snapshot.disposition === "reconcile";
@@ -188,7 +189,7 @@ export function compareAsaasFinancialSnapshots(
   current: AsaasFinancialSnapshot,
 ) {
   const found = cumulativeRegressions(previous, current);
-  const same = cumulativeView(previous) === cumulativeView(current);
+  const same = asaasCumulativeView(previous) === asaasCumulativeView(current);
   if (
     previous.disposition === "reconcile" ||
     current.disposition === "reconcile"
