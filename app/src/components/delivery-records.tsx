@@ -3,9 +3,9 @@ import Link from "next/link";
 import { randomUUID } from "node:crypto";
 import { DeliveryPolicyForm } from "./delivery-policy-form";
 import {
-  deliveryAccess,
-  deliveryAccessLabels,
-} from "@/modules/delivery/delivery";
+  deriveDeliveryCreditAccess,
+  deliveryCreditAccessLabels,
+} from "@/modules/delivery/credit-access";
 import { deliveryKinds } from "@/modules/delivery/forms";
 import type { getProcess } from "@/modules/processes/queries";
 import {
@@ -31,6 +31,7 @@ export function DeliveryRecords({
   older,
   processId,
   payments,
+  accessContexts,
 }: {
   records: Awaited<ReturnType<typeof getProcess>>["deliveries"];
   calculator: boolean;
@@ -39,6 +40,7 @@ export function DeliveryRecords({
   older: string | null;
   processId: string;
   payments: Awaited<ReturnType<typeof getProcess>>["deliveryPayments"];
+  accessContexts: Awaited<ReturnType<typeof getProcess>>["deliveryAccess"];
 }) {
   if (!records.length && !before) return null;
   return (
@@ -63,14 +65,11 @@ export function DeliveryRecords({
       <ul className="process-records">
         {records.map((record) => {
           if (!record.order) throw new Error("Pedido da entrega indisponível.");
+          const context = accessContexts.get(record.id);
+          if (!context) throw new Error("Contexto da entrega indisponível.");
           const professional = professionalSchema.parse(record.professional),
             payment = payments.get(record.id),
-            access = deliveryAccess(
-              record.release?.policy ?? null,
-              record.order.status,
-              record.order.total_cents,
-              record.order.payments,
-            ),
+            access = deriveDeliveryCreditAccess(context),
             date = new Intl.DateTimeFormat("pt-BR", {
               dateStyle: "short",
               timeStyle: "short",
@@ -87,7 +86,7 @@ export function DeliveryRecords({
                 PJe-Calc {record.pje_version} · Tabela de índices{" "}
                 {record.index_month.split("-").reverse().join("/")}
               </p>
-              <p className="field-help">{deliveryAccessLabels[access]}</p>
+              <p className="field-help">{deliveryCreditAccessLabels[access]}</p>
               {!calculator &&
                 payment &&
                 (payment.remainingCents === null ||
@@ -146,8 +145,8 @@ export function DeliveryRecords({
                   </div>
                 )}
               {calculator &&
-                !record.release &&
-                ["delivered", "completed"].includes(record.order.status) && (
+                context.releasePolicy === null &&
+                ["delivered", "completed"].includes(context.orderStatus) && (
                   <details className="delivery-form">
                     <summary>Definir regra desta entrega</summary>
                     <DeliveryPolicyForm

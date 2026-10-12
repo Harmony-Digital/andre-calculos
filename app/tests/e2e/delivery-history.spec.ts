@@ -88,7 +88,7 @@ test("entregas paginadas preservam empates e microssegundos, com retorno ao iní
       ).toHaveCount(1);
       if (batch === 0) {
         await expect(records.first()).toContainText(
-          "Arquivos liberados para download.",
+          "valores aceitos e o crédito precisam ser conferidos",
         );
         await expect(records.first().locator(".delivery-payment")).toHaveCount(
           0,

@@ -1514,6 +1514,10 @@ export type Database = {
         Args: { target_deliveries: string[]; target_process: string };
         Returns: Json;
       };
+      get_delivery_display_context: {
+        Args: { target_deliveries: string[]; target_process: string };
+        Returns: Json;
+      };
       get_delivery_payment_instructions: {
         Args: { target_deliveries: string[]; target_process: string };
         Returns: {

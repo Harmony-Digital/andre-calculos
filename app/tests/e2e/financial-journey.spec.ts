@@ -7,7 +7,9 @@ import {
 } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { readFile } from "node:fs/promises";
-import { createHash } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
+import { quoteSession } from "./quote-helper";
+import { localNotificationSql as sql } from "./notification-helper";
 import { financialJourneyDriver } from "./financial-journey-driver";
 import { localSystem } from "./local-helper";
 import { loginAs } from "./auth-helper";
@@ -68,6 +70,7 @@ test("jornada financeira produz histórico real, fila, preferências e download 
   let calculatorContext: BrowserContext | undefined,
     strangerContext: BrowserContext | undefined,
     failure: unknown;
+  let contractKey: string | undefined;
   try {
     const m = driver.metadata,
       db = localSystem(),
@@ -380,6 +383,46 @@ test("jornada financeira produz histórico real, fila, preferências e download 
       .click();
     await expect(rule).toHaveCount(0);
     await page.reload();
+    // O crédito11501 não cobre o sinal12501; aprovação da política não cria recebimento.
+    await expect(clientDelivery).toContainText(
+      "aguarda a confirmação do sinal",
+    );
+    await expect(clientDelivery.locator('a[href^="/api/files/"]')).toHaveCount(
+      0,
+    );
+    expect(
+      (
+        await page.request.get(`/api/files/${fileId}/download`, {
+          maxRedirects: 0,
+        })
+      ).status(),
+    ).toBe(404);
+    const customer = (
+      await db
+        .from("clients")
+        .select("contract_revision")
+        .eq("id", m.clientId)
+        .single()
+    ).data!;
+    const contractActor = await quoteSession("calculator");
+    contractKey = randomUUID();
+    try {
+      const receipt = await contractActor.rpc("set_client_contract", {
+        target_client: m.clientId,
+        has_contract: true,
+        expected_revision: customer.contract_revision,
+        reason:
+          "Contrato vigente fictício para ensaio da liberação com sinal parcial.",
+        request_id: contractKey,
+      });
+      expect(receipt.error).toBeNull();
+    } finally {
+      await contractActor.auth.signOut({ scope: "local" });
+    }
+    expect((await driver.command("view")).projection.depositCreditCents).toBe(
+      11501,
+    );
+    await page.reload();
     await expect(clientDelivery).toContainText(
       "Arquivos liberados para download.",
     );
@@ -454,7 +497,14 @@ test("jornada financeira produz histórico real, fila, preferências e download 
     } catch (error) {
       if (!failure) throw error;
     } finally {
-      await driver.close();
+      try {
+        if (contractKey)
+          sql(
+            `delete from public.audit_log where target_id='${contractKey}' and action='client_contract_changed';delete from private.client_contract_changes where id='${contractKey}';`,
+          );
+      } finally {
+        await driver.close();
+      }
     }
   }
 });
