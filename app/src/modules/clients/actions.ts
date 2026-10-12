@@ -47,9 +47,11 @@ export async function saveClientContract(
         success: false,
         errors: undefined,
         message:
-          result.error?.code === "PT409"
-            ? "O cadastro ou esta tentativa mudou. Recarregue para conferir antes de salvar."
-            : "Não foi possível conferir a gravação. Sua escolha e motivo foram preservados; tente novamente.",
+          result.error?.code === "PT423"
+            ? "Há uma cobrança pendente de resolução para este cliente. Confira a cobrança antes de alterar a condição de contrato."
+            : result.error?.code === "PT409"
+              ? "O cadastro ou esta tentativa mudou. Recarregue para conferir antes de salvar."
+              : "Não foi possível conferir a gravação. Sua escolha e motivo foram preservados; tente novamente.",
       };
     const current = await db
       .from("clients")

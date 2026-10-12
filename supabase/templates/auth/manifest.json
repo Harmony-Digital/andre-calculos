@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "demonstration": true,
+  "templates": [
+    {
+      "name": "confirmation",
+      "subject": "Confirme seu cadastro no portal Marco",
+      "htmlFile": "confirmation.html",
+      "action": "Confirmar cadastro",
+      "expectedDestination": "/app"
+    },
+    {
+      "name": "magic_link",
+      "subject": "Seu link de acesso ao portal Marco",
+      "htmlFile": "magic_link.html",
+      "action": "Acessar minha conta",
+      "expectedDestination": "/app"
+    },
+    {
+      "name": "recovery",
+      "subject": "Redefina sua senha no portal Marco",
+      "htmlFile": "recovery.html",
+      "action": "Escolher nova senha",
+      "expectedDestination": "/nova-senha"
+    }
+  ]
+}
