@@ -4,13 +4,13 @@ import {
   localSystem,
   removeLocalUser,
   confirmMailpit,
+  mailpitMessageIds,
   leaseLocalSettings,
 } from "./local-helper";
 import AxeBuilder from "@axe-core/playwright";
 test.setTimeout(90000);
 test("cadastro com confirmação e consentimentos sintéticos", async ({
   page,
-  context,
   request,
 }, testInfo) => {
   test.skip(
@@ -78,6 +78,7 @@ test("cadastro com confirmação e consentimentos sintéticos", async ({
       .getByLabel("Confirme a senha", { exact: true })
       .fill(process.env.ANDRE_TEST_PASSWORD!);
     await page.getByLabel("Li e aceito").check();
+    const previousEmails = await mailpitMessageIds(email, request);
     await page.getByRole("button", { name: "Criar minha conta" }).click();
     await expect(page.getByRole("status")).toContainText(
       "Confira seu e-mail e confirme o cadastro",
@@ -88,9 +89,8 @@ test("cadastro com confirmação e consentimentos sintéticos", async ({
     expect(
       users.data.users.find((user) => user.id === userId)?.email_confirmed_at,
     ).toBeFalsy();
-    await confirmMailpit(email, context, request);
-    await page.goto("/app");
-    await expect(page).toHaveURL(/\/app$/);
+    await confirmMailpit(email, page, request, previousEmails);
+    await expect.poll(() => new URL(page.url()).pathname).toBe("/app");
     await expect(
       page.getByText("Cadastro inteiramente fictício", { exact: true }),
     ).toBeVisible();

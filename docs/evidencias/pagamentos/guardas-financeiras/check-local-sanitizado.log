@@ -1,0 +1,23 @@
+> andre-calculos@0.1.0 check
+> npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run test:scripts && npm run build
+> andre-calculos@0.1.0 format:check
+All matched files use Prettier code style!
+> andre-calculos@0.1.0 lint
+> andre-calculos@0.1.0 typecheck
+✓ Types generated successfully
+> andre-calculos@0.1.0 test:coverage
+ Test Files  60 passed (60)
+      Tests  1196 passed (1196)
+> andre-calculos@0.1.0 test:scripts
+All matched files use Prettier code style!
+# tests 12
+# pass 12
+# fail 0
+All matched files use Prettier code style!
+# tests 31
+# pass 31
+# fail 0
+> andre-calculos@0.1.0 build
+- Operation not permitted (os error 1)
+- Operation not permitted (os error 1)
+Exit code: 1. Build local: Turbopack/react-pdf, abertura de porta recusada (EPERM).
