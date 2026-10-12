@@ -1576,6 +1576,14 @@ export type Database = {
         Args: { target_step: string; worker_id: string; protocols: Json };
         Returns: boolean;
       };
+      get_payment_execution_resolution: {
+        Args: { target_request: string };
+        Returns: Json;
+      };
+      resolve_payment_execution_no_dispatch: {
+        Args: { target_request: string; request_id: string };
+        Returns: Json;
+      };
       finish_payment_execution_step: {
         Args: {
           target_step: string;

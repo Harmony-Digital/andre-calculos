@@ -15,7 +15,14 @@ export const paymentExecutionViewSchema = z
     createdBy: executionId,
     currentOwnerId: executionId,
     createdAt: z.iso.datetime({ offset: true }).nullable(),
-    state: z.enum(["unstarted", "pending", "held", "stopped", "identified"]),
+    state: z.enum([
+      "unstarted",
+      "pending",
+      "held",
+      "stopped",
+      "identified",
+      "resolved",
+    ]),
     reason: z
       .enum([
         "context_changed",
@@ -29,6 +36,7 @@ export const paymentExecutionViewSchema = z
         "indeterminate",
         "financial_reconciliation",
         "identity_changed",
+        "no_dispatch_proven",
       ])
       .nullable(),
     revision: z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER),
@@ -44,6 +52,11 @@ export const paymentExecutionViewSchema = z
       (v.state === "held" && v.reason === null) ||
       (v.state === "identified" &&
         (v.reason !== null || !v.reservationActive)) ||
+      (v.state === "resolved" &&
+        (v.reason !== "no_dispatch_proven" ||
+          !v.dispatchClaimed ||
+          v.reservationActive)) ||
+      (v.state !== "resolved" && v.reason === "no_dispatch_proven") ||
       (v.state === "stopped" &&
         (v.reason !== "reservation_missing" || v.reservationActive))
     )

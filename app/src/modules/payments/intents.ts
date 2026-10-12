@@ -68,9 +68,23 @@ export const paymentIntentViewSchema = z
     )
       invalid();
   });
-export const currentPaymentIntentSchema = paymentIntentViewSchema.safeExtend({
-  semantics: z.literal("current_state"),
-});
+// Recibos históricos continuam no schema anterior, sem campos novos.
+export const currentPaymentIntentSchema = z.union([
+  paymentIntentViewSchema.safeExtend({ semantics: z.literal("current_state") }),
+  z.strictObject({
+    semantics: z.literal("current_state"),
+    intent: paymentIntentSchema,
+    currentOwnerId: id,
+    state: z.literal("resolved"),
+    revision: z.literal(2),
+    reservationActive: z.literal(false),
+    claimedAt: at,
+    withdrawnAt: z.null(),
+    withdrawnBy: z.null(),
+    resolvedAt: at,
+    resolutionReason: z.literal("no_dispatch_proven"),
+  }),
+]);
 export const paymentIntentReceiptSchema = z
   .strictObject({
     semantics: z.literal("receipt_snapshot"),

@@ -428,3 +428,40 @@ it("conflito não autoriza nova emissão; perda de resposta usa UUID original", 
     mocks.rpc.mock.calls.every((call) => call[1].request_id === id(10)),
   ).toBe(true);
 });
+it("estado resolvido é atual e não transforma recibo histórico", () => {
+  const resolved = current({
+    state: "resolved",
+    revision: 2,
+    reservationActive: false,
+    claimedAt: time,
+    resolvedAt: time,
+    resolutionReason: "no_dispatch_proven",
+  });
+  expect(currentPaymentIntentSchema.parse(resolved)).toEqual(resolved);
+  expect(paymentIntentViewSchema.safeParse(resolved).success).toBe(false);
+  expect(paymentIntentReceiptSchema.parse(receipt())).toEqual(receipt());
+  expect(paymentIntentReceiptSchema.parse(withdrawal())).toEqual(withdrawal());
+});
+it.each([
+  { claimedAt: null },
+  { reservationActive: true },
+  { revision: 1 },
+  { withdrawnAt: time },
+  { resolutionReason: "not_located" },
+  { resolvedAt: undefined },
+  { receiptId: id(20) },
+])("estado resolvido recusa combinação inválida: %j", (patch) => {
+  expect(
+    currentPaymentIntentSchema.safeParse(
+      current({
+        state: "resolved",
+        revision: 2,
+        reservationActive: false,
+        claimedAt: time,
+        resolvedAt: time,
+        resolutionReason: "no_dispatch_proven",
+        ...patch,
+      }),
+    ).success,
+  ).toBe(false);
+});

@@ -14,6 +14,7 @@ export async function executionTransportFixture(billingType = "PIX") {
       sql(`delete from public.audit_log where action like 'payment_execution_%' and target_id in(
  select i.id from private.payment_intents i join private.payment_obligation_contexts c on c.id=i.context_id where c.client_id='${fixture.owner.id}'
  union select s.id from private.payment_execution_steps s join private.payment_execution_runs r on r.id=s.run_id where r.scope_id in(${scopes}));
+ delete from private.payment_intent_resolutions where run_id in(select id from private.payment_execution_runs where scope_id in(${scopes}));
  delete from private.payment_execution_observations where run_id in(select id from private.payment_execution_runs where scope_id in(${scopes}));
  delete from private.payment_execution_protocols where run_id in(select id from private.payment_execution_runs where scope_id in(${scopes}));
  update private.payment_execution_runs set current_step=null where scope_id in(${scopes});
