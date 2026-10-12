@@ -72,6 +72,19 @@ async function run() {
           case "replay":
             data = await fixture.replay();
             break;
+          case "prepareDelivery": {
+            // Pré-condição técnica sintética para testar a apresentação do saldo.
+            // A política permanece sem aprovação e é escolhida na UI fictícia.
+            await fixture.deliver(fixture.sample);
+            const delivery = await fixture.db
+              .from("deliveries")
+              .select("id")
+              .eq("order_id", fixture.sample.order_id)
+              .single();
+            if (delivery.error || !delivery.data) throw new Error();
+            data = delivery.data.id;
+            break;
+          }
           case "close":
             await cleanup();
             reply(id, "closed");

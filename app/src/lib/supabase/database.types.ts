@@ -1502,13 +1502,21 @@ export type Database = {
         Returns: Json;
       };
       get_complexity_limits: { Args: never; Returns: Json };
+      get_current_order_credits: {
+        Args: { target_orders: string[] };
+        Returns: Json;
+      };
+      get_delivery_credit_instructions: {
+        Args: { target_deliveries: string[]; target_process: string };
+        Returns: Json;
+      };
       get_delivery_payment_instructions: {
         Args: { target_deliveries: string[]; target_process: string };
         Returns: {
           delivery_id: string;
           order_code: string;
-          pix_key: string;
-          remaining_cents: number;
+          pix_key: string | null;
+          remaining_cents: number | null;
         }[];
       };
       get_legal_versions: {

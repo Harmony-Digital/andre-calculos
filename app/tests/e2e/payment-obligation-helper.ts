@@ -88,7 +88,9 @@ export async function paymentObligationFixture() {
           checklist: { liquidated: true, taxIdPresent: true, reviewed: true },
           professional: {
             name: "Profissional fictício",
-            crc: "CRC FICTICIO",
+            crcNumber: "000000/O-0",
+            crcState: "DF",
+            crcCategory: "Contador fictício",
           },
           payload: { fixture: true },
         });

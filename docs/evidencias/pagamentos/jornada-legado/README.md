@@ -21,3 +21,7 @@ A entrega usa os três arquivos enviados pela interface e o checklist técnico f
 ## Limite da validação
 
 A migração dos consumidores monetários para W e a integração financeira de `before_balance`/`after_balance` pertencem a V. Esta jornada exercita os contratos de leitura/liberação existentes e uma política fictícia explícita; não substitui saldo com pagamento manual nem aprova D5/D6. Provedor real, banco cloud, produção, publicação e despacho a pessoas reais ficam fora destes ensaios.
+
+## CI integral da fonte
+
+CI38232179008/job114754058841 terminou com sucesso na fonte e792553a0547fdda45af664841b31928b77cf79d:798 testes de banco em38 arquivos,185 testes de navegador,sete omissões planejadas e dois advisors sem achados. Checkout9c05a10f1bc4b54063b457d013222d2ba18a1ffd e pais main9a25+fonte/head conferidos. Extrato original f39d2994f6da33b5f3aa928b4cab7a42a50374717d2ab6a9ca913c24e0cf2a9c; a cópia normalizada conserva o hash próprio emci-integral.json. A fonte da PR33 foi preservada.

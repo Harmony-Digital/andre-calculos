@@ -27,6 +27,7 @@ type Actions = {
   view: ReturnType<JourneyFixture["view"]>;
   receipts: ReturnType<JourneyFixture["receipts"]>;
   replay: Awaited<ReturnType<JourneyFixture["replay"]>>;
+  prepareDelivery: string;
   close: string;
 };
 /** Servidor-only via Node/TSX, sem endpoint HTTP de teste na aplicação. */

@@ -11,49 +11,8 @@ import {
 } from "./financial-position-data";
 import { deriveFinancialPosition } from "./financial-position";
 const unavailable = "Projeção financeira indisponível.";
-export const orderCreditProjectionSchema = z
-  .strictObject({
-    schemaVersion: z.literal(1),
-    semantics: z.literal("credit_projection"),
-    orderId: financialId,
-    effects: z.literal("none"),
-    requiredDepositCents: cents.nullable(),
-    totalCents: cents.nullable(),
-    manualDepositCents: cents.nullable(),
-    manualTotalCents: cents.nullable(),
-    providerObservedDepositCents: cents.nullable(),
-    providerObservedTotalCents: cents.nullable(),
-    depositCreditCents: cents.nullable(),
-    totalCreditCents: cents.nullable(),
-    depositUncertain: z.boolean(),
-    uncertain: z.boolean(),
-    unsafeAmount: z.boolean(),
-    partial: z.boolean().nullable(),
-    remainingDepositCents: cents.nullable(),
-    remainingTotalCents: cents.nullable(),
-    depositExcessCents: cents.nullable(),
-    totalExcessCents: cents.nullable(),
-    unlinkedLegacyCount: cents,
-    missingPositionCount: cents,
-    pendingChargeCount: cents,
-    conflictedChargeCount: cents,
-  })
-  .superRefine((v, ctx) => {
-    if (
-      (!v.depositUncertain && v.depositCreditCents === null) ||
-      (!v.uncertain && v.totalCreditCents === null) ||
-      (v.depositUncertain &&
-        (v.depositCreditCents !== null ||
-          v.partial !== null ||
-          v.remainingDepositCents !== null ||
-          v.depositExcessCents !== null)) ||
-      (v.uncertain &&
-        (v.totalCreditCents !== null ||
-          v.remainingTotalCents !== null ||
-          v.totalExcessCents !== null))
-    )
-      ctx.addIssue({ code: "custom", message: unavailable });
-  });
+export { orderCreditProjectionSchema } from "./order-credit";
+import { orderCreditProjectionSchema } from "./order-credit";
 export const financialProjectionSourceSchema = z
   .strictObject({
     chargeId: financialId,
