@@ -1,0 +1,13 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/balance-invoice-query.test.ts tests/integration/invoice-query.test.ts tests/integration/balance-journey.test.ts tests/integration/financial-journey.test.ts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+
+ Test Files  4 passed (4)
+      Tests  82 passed (82)
+   Start at  18:27:26
+   Duration  162.94s (tests 100%)

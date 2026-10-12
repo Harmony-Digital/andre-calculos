@@ -1,0 +1,13 @@
+# Evidência do produtor de saldo — M3.01at
+
+Jornada exclusivamente fictícia no Supabase local. A fixture executa os produtores existentes do sinal, confirma o recebimento, vincula a origem comprovada e resolve sua reserva. A entrega técnica usa identificação profissional e payload explicitamente fictícios. O saldo é preparado e reservado pela sessão autenticada, emitido pelo execution-worker e observado/aplicado pelo núcleo financeiro. Nenhuma cobrança, posição ou recibo foi semeado para simular sucesso.
+
+16 casos novos passaram na execução focada de 33,24 segundos. Pix, boleto e cartão cobram 12.500 centavos após sinal de 12.501 sobre contrato de 25.001; a taxa de 100 não reduz o crédito do cliente. Estorno líquido do sinal altera o saldo para 13.501. Recebimento e estorno de saldo mantêm separado o crédito do sinal, com replay dos recibos sem dupla contagem. Pagamento parcial mantém a reserva até prova integral de recebimento ou estorno.
+
+Também foram exercitados ausência de entrega, cliente B/admin, excesso e incerteza do sinal, reserva anterior de outra fase, crédito alterado depois de reservar, concorrência, criação com resposta perdida e retomada por busca sem novo POST. UNDEFINED não confirma dinheiro nem libera reserva. Falha de auditoria reverte intenção/reserva/recibo e permite repetir a mesma tentativa depois da recuperação.
+
+O primeiro ensaio encontrou duas expectativas incompatíveis com guardas existentes: tentativas concorrentes com UUIDs distintos devem admitir uma e recusar a outra; meio não escolhido não prova recebimento. O estorno sintético também usava decimal SQL com casas excessivas; a fixture agora serializa duas casas. As regras financeiras e de segurança do produto foram preservadas e os 16 casos finais passaram.
+
+Regressão final: 57 testes de banco em três arquivos passaram em 107,92 segundos, incluindo os 16 novos, as jornadas financeiras do sinal e a consulta da fatura. Read-back idêntico ao final de AR: 96 migrations, 25 tabelas públicas/56 privadas com RLS, quatro perfis, marker desativado e pagamento original preservado. Controles idênticos ao baseline; zero funções/triggers temporários. Os dois advisors não apontaram achados.
+
+Formato, lint, tipos, 1.432 unitários em 72 arquivos e 43 testes de scripts passaram. O build local encontrou a restrição já registrada de criação de processo/porta do Turbopack; a fonte exata deve ser conferida no CI. A consulta e a interface da fatura de saldo pertencem a AU/AV. Esta evidência não demonstra driver externo, webhook, publicação ou operação comercial. O manifesto preserva hashes dos logs originais e dos extratos.

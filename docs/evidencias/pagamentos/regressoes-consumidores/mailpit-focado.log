@@ -1,0 +1,9 @@
+Running 6 tests using 1 worker
+  ✓  1 [computador] › tests/e2e/email-auth.spec.ts:37:5 › recuperação de senha e link de acesso pelo Mailpit (3.8s)
+  ✓  2 [computador] › tests/e2e/full-journey.spec.ts:48:5 › mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas explícitas (28.8s)
+  ✓  3 [computador] › tests/e2e/signup.spec.ts:12:5 › cadastro com confirmação e consentimentos sintéticos (3.2s)
+  -  4 [celular] › tests/e2e/email-auth.spec.ts:37:5 › recuperação de senha e link de acesso pelo Mailpit
+  ✓  5 [celular] › tests/e2e/full-journey.spec.ts:48:5 › mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas explícitas (19.9s)
+  -  6 [celular] › tests/e2e/signup.spec.ts:12:5 › cadastro com confirmação e consentimentos sintéticos
+  2 skipped
+  4 passed (59.3s)
