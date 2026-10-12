@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { proposalSchema } from "./proposal";
+import { rejectionReceiptSchema } from "./rejection";
 const hash = z.string().regex(/^[0-9a-f]{64}$/);
 export const acceptanceIntentSchema = z.strictObject({
   quoteId: z.uuid(),
@@ -29,5 +30,9 @@ export const contractContextSchema = z.strictObject({
   blockMessage: z.string().nullable(),
   status: z.string(),
   receipt: acceptanceReceiptSchema.nullable(),
+  canReject: z.boolean(),
+  rejectionBlockMessage: z.string().nullable(),
+  statusRevision: z.number().int().min(0).max(2147483647),
+  rejectionReceipt: rejectionReceiptSchema.nullable(),
 });
 export type ContractContext = z.infer<typeof contractContextSchema>;
