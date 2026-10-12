@@ -5,6 +5,8 @@ import { brazilMobile } from "@/lib/brazil";
 import { AsaasContractError } from "./errors";
 import { JsonNumber, parseAsaasJson } from "./json";
 import { providerCents } from "./money";
+import { accountId, scopeSchema, type AsaasScope } from "./scope-data";
+export type { AsaasScope, AsaasAccountId, AsaasWalletId } from "./scope-data";
 
 const identifier = z
   .string()
@@ -16,8 +18,6 @@ const tag = z
   .min(1)
   .max(100)
   .regex(/^[A-Z0-9_]+$/);
-const accountId = identifier.brand<"AsaasAccountId">();
-const walletId = identifier.brand<"AsaasWalletId">();
 const customerId = identifier.brand<"AsaasCustomerId">();
 const paymentId = identifier.brand<"AsaasPaymentId">();
 const cents = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
@@ -53,17 +53,6 @@ const canonicalDocument = z
       value === normalizeDocument(value) &&
       (validCpf(value) || validCnpj(value)),
   );
-
-/** IDs diferentes: uma carteira não comprova o ID da conta emissora. */
-const scopeSchema = z.strictObject({
-  provider: z.literal("asaas"),
-  environment: z.enum(["sandbox", "production"]),
-  accountId,
-  walletId: walletId.optional(),
-});
-export type AsaasScope = Readonly<z.infer<typeof scopeSchema>>;
-export type AsaasAccountId = z.infer<typeof accountId>;
-export type AsaasWalletId = z.infer<typeof walletId>;
 
 const customerInputSchema = z
   .strictObject({

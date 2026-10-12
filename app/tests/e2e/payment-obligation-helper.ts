@@ -5,7 +5,7 @@ import { localNotificationSql as sql } from "./notification-helper";
 import {
   paymentObligationSchema,
   paymentObligationReceiptSchema,
-} from "@/modules/payments/obligations";
+} from "@/modules/payments/obligation-data";
 const literal = (value: string | null) =>
   value === null ? "null" : "'" + value.replaceAll("'", "''") + "'";
 export async function paymentObligationFixture() {
