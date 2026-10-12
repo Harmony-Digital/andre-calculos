@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { expect } from "vitest";
+import assert from "node:assert/strict";
 import { paymentObligationFixture } from "./payment-obligation-helper";
 import { quoteSession } from "./quote-helper";
 import { localNotificationSql as sql } from "./notification-helper";
@@ -79,22 +79,26 @@ export async function executionTransportFixture(billingType = "PIX") {
     const db = await quoteSession(),
       customerRequest = randomUUID();
     try {
-      expect(
+      assert(
         (
           await db.rpc("request_payment_customer", {
             target_client: fixture.owner.id,
             request_id: customerRequest,
           })
-        ).error,
-      ).toBeNull();
+        ).error === null,
+        "Cadastro fictício não solicitado.",
+      );
     } finally {
       await db.auth.signOut({ scope: "local" });
     }
-    expect((await advanceFixturePaymentCustomer(customerRequest)).state).toBe(
-      "ready_to_create",
+    assert(
+      (await advanceFixturePaymentCustomer(customerRequest)).state ===
+        "ready_to_create",
+      "Cadastro fictício não preparado.",
     );
-    expect((await advanceFixturePaymentCustomer(customerRequest)).state).toBe(
-      "bound",
+    assert(
+      (await advanceFixturePaymentCustomer(customerRequest)).state === "bound",
+      "Cadastro fictício não vinculado.",
     );
 
     const sample = await fixture.create(),
@@ -109,7 +113,7 @@ export async function executionTransportFixture(billingType = "PIX") {
         target_context: context.id,
         request_id: requestId,
       });
-      expect(r.error).toBeNull();
+      assert(r.error === null, "Intenção fictícia não reservada.");
       intentId = paymentIntentReceiptSchema.parse(r.data).snapshot.intent.id;
     } finally {
       await session.auth.signOut({ scope: "local" });
