@@ -1,15 +1,19 @@
 {
-  "repositoryId": 1414349093,
-  "pr": 36,
-  "source": "e2342ce4d8ec54c6a6e86b965327b09bea44e011",
   "run": 38262322935,
-  "qualityJob": 114855699883,
-  "qualityConclusion": "success",
-  "checkStepConclusion": "success",
-  "overallStatus": "in_progress",
-  "overallConclusion": null,
-  "nativeLogEvidence": "pendente: gh run view so disponibiliza logs apos encerramento integral",
-  "localUnitTests": 1303,
-  "localUnitFiles": 64,
-  "localScriptTests": 43
+  "job": 114855699883,
+  "kind": "quality",
+  "source": "e2342ce4d8ec54c6a6e86b965327b09bea44e011",
+  "checkout": "c77966660e4634c556b2360e9c0d904c3686b846",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "e2342ce4d8ec54c6a6e86b965327b09bea44e011"
+  ],
+  "jobConclusion": "success",
+  "overallStatus": "completed",
+  "overallConclusion": "cancelled",
+  "unitTests": 1303,
+  "unitFiles": 64,
+  "scripts": 43,
+  "logSha256": "c649c75e56f700db486fba34eef2e3430d1a222059b9c4fbbaa387062110c32b",
+  "artifactSha256": "6c505bee3814c75d11988b21fcc2ae32148b4f482bfe33685a15c87d09922315"
 }
