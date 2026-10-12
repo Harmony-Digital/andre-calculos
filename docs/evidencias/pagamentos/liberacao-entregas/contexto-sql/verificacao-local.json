@@ -21,9 +21,10 @@
     "temporaryOwnersAndGrants": 0
   },
   "generalBank": {
-    "status": "running",
-    "session": 16712,
-    "log": "an-banco-integral.log"
+    "status": "completed",
+    "exitCode": 0,
+    "passed": 858,
+    "files": 42
   },
   "rawLogSha256": {
     "an-banco-foco-definitivo.log": "df468835a7109bd868dd60a90305b93eeb878aa38f79d052a204df310ed0d042",
@@ -40,5 +41,9 @@
     "app/tests/integration/delivery-credit-access.test.ts": "011f39acfeab1bf086bc9c4113113547264fff6231d7de2ccd989762e5df2ad3",
     "app/tests/integration/delivery.test.ts": "3bd88e3717d0f32dac0bc8c3216bcba7228076a5ab84afa1b9c5c2159f6e7d21",
     "app/tests/integration/delivery-approval.test.ts": "32905ac68d48f1ddafaec812d729f56b97ee316b69290e7d44fa75468f5df594"
-  }
+  },
+  "finalReadbackMatchesBeforeGeneral": true,
+  "finalControlsMatchBaseline90": true,
+  "finalAdvisorsNoIssues": 2,
+  "exactSourceBuildProof": "ci40-build.json"
 }
