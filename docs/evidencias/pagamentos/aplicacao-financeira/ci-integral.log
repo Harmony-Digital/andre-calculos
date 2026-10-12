@@ -1,0 +1,13 @@
+2026-10-12T05:56:39.3395663Z [command]/usr/bin/git log -1 --format=%H
+2026-10-12T05:56:39.3424459Z c4a075e6ff06caf9cb1c3f729b3ed2cf1ce7ccda
+2026-10-12T06:11:10.5285815Z  Test Files  34 passed (34)
+2026-10-12T06:11:10.5287179Z       Tests  690 passed (690)
+2026-10-12T06:28:59.5310198Z   7 skipped
+2026-10-12T06:28:59.5310581Z   179 passed (17.8m)
+2026-10-12T06:28:59.5372408Z ##[notice]  7 skipped
+  179 passed (17.8m)
+2026-10-12T06:28:59.5792434Z ##[group]Run supabase db advisors --local --workdir .. --type security --level warn --fail-on error
+2026-10-12T06:28:59.5793200Z supabase db advisors --local --workdir .. --type security --level warn --fail-on error
+2026-10-12T06:28:59.5793884Z supabase db advisors --local --workdir .. --type performance --level warn --fail-on error
+2026-10-12T06:29:00.3602327Z No issues found
+2026-10-12T06:29:01.5132655Z No issues found

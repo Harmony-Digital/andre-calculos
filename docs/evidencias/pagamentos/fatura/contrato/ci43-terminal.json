@@ -1,0 +1,37 @@
+{
+  "run": 38300625412,
+  "job": 114982405098,
+  "steps": [
+    {
+      "name": "Advisors locais",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 11,
+      "started_at": "2026-10-12T20:33:10Z",
+      "completed_at": "2026-10-12T20:33:12Z"
+    },
+    {
+      "name": "Encerrar Supabase local",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 12,
+      "started_at": "2026-10-12T20:33:12Z",
+      "completed_at": "2026-10-12T20:33:33Z"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 13,
+      "started_at": "2026-10-12T20:33:33Z",
+      "completed_at": "2026-10-12T20:33:36Z"
+    }
+  ],
+  "artifact": {
+    "id": 11772770414,
+    "name": "evidencias-de-testes",
+    "expired": false,
+    "size_in_bytes": 65592003,
+    "digest": "sha256:1764f1492414913d022c177843091e7668b07ed1bb50d383172bd1106278c309"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "task": "M3.01av",
+  "mode": "fixture_local",
+  "newBrowserTests": 20,
+  "regressionBrowserPassed": 63,
+  "regressionBrowserSkipped": 1,
+  "newSkips": 0,
+  "bankPassed": 51,
+  "bankFiles": 2,
+  "routeUnitTests": 12,
+  "newRouteUnitTests": 5,
+  "unitTests": 1441,
+  "unitFiles": 72,
+  "scripts": 43,
+  "captures": 38,
+  "visualQaInspected": 12,
+  "axeAA": "passed in all 38 captures",
+  "widthCSS": [
+    375,
+    1440
+  ],
+  "readbackAndControlsUnchanged": true,
+  "advisorsNoIssues": 2,
+  "localBuild": "EPERM; fonte/check-build exato remoto ainda pendentes",
+  "files": [
+    {
+      "origin": "av-navegador-regressao.log",
+      "artifact": "navegador-regressao.log",
+      "originalSha256": "f2ad1e5eeb1a1f7f7cdd6a3d308ec9f657988843e65fbdab52755e71fd1f2b00",
+      "artifactSha256": "a39f3df06686b267df1c2a72e47f2ffa988b725490b82afe474b694d5d1e230b"
+    },
+    {
+      "origin": "av-banco-final.log",
+      "artifact": "banco-regressao.log",
+      "originalSha256": "0bdb54cf99663a5ebfa8c800ff870e476be7302e345ea93bf39978fd4302f1d2",
+      "artifactSha256": "c8d21b50d6440e779ab6333ebcc156f7a44400b956a592220e09c7fadd656abb"
+    },
+    {
+      "origin": "av-check-final.log",
+      "artifact": "qualidade-local.log",
+      "originalSha256": "767c36a549e4614b7b2ce687307db49c040985ea83bafa62cf19bea49061ab30",
+      "artifactSha256": "44a61dd740340c771baeb37d46bae8b481428418f1ec2844b49a75e299f0bb06"
+    },
+    {
+      "origin": "av-rota-unidades.log",
+      "artifact": "rota-unidades.log",
+      "originalSha256": "5da4ec0827a59059be2042939fa2777729538717edb9f0e93b60c0e2cac2c38a",
+      "artifactSha256": "d65caa8f1efe0403a8675a98ed3d9e35069a87c215320c35792bf1d8f8e7c55d"
+    },
+    {
+      "origin": "av-readback-final.log",
+      "artifact": "read-back.log",
+      "originalSha256": "7220ed5d5bb717c36a4b8428fe60f0b9eda0ef77a7c648a98f20dbf372c1d06c",
+      "artifactSha256": "7220ed5d5bb717c36a4b8428fe60f0b9eda0ef77a7c648a98f20dbf372c1d06c"
+    },
+    {
+      "origin": "av-controles-final.json",
+      "artifact": "controles.json",
+      "originalSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+      "artifactSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c"
+    },
+    {
+      "origin": "av-advisors-final.log",
+      "artifact": "advisors.log",
+      "originalSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+      "artifactSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+    }
+  ]
+}

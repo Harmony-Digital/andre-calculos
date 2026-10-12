@@ -53,7 +53,7 @@ export async function confirmDelivery(
       transition(
         {
           state: order.data.status as OrderState,
-          clientId: order.data.client_id,
+          clientOwnerId: "", // Evento exclusivo do calculista, sem ação do cliente.
           quoteAccepted: false,
           depositConfirmed: false,
           hasContract: false,

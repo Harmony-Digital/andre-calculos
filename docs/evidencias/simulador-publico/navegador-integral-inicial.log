@@ -1,0 +1,31 @@
+  1) [celular] › tests/e2e/financial-journey.spec.ts:63:5 › jornada financeira produz histórico real, fila, preferências e download auditado
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByRole('form', { name: 'E-mail para Situação financeira atualizada', exact: true }).getByRole('status')
+    Expected: "Preferência salva."
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" getByRole('form', { name: 'E-mail para Situação financeira atualizada', exact: true }).getByRole('status') with timeout 5000ms
+      - waiting for getByRole('form', { name: 'E-mail para Situação financeira atualizada', exact: true }).getByRole('status')
+        12 × locator resolved to <p role="status" aria-live="polite"></p>
+           - unexpected value ""
+
+
+      150 |       .getByRole("button", { name: "Salvar", exact: true })
+      151 |       .click();
+    > 152 |     await expect(preference.getByRole("status")).toHaveText(
+          |                                                  ^
+      153 |       "Preferência salva.",
+      154 |     );
+      155 |     const before = await driver.command("view"),
+        at /workspace/app/tests/e2e/financial-journey.spec.ts:152:50
+
+    Error Context: test-results/financial-journey-jornada--206e8-rências-e-download-auditado-celular/error-context.md
+
+  1 failed
+    [celular] › tests/e2e/financial-journey.spec.ts:63:5 › jornada financeira produz histórico real, fila, preferências e download auditado
+  7 skipped
+  198 passed (9.7m)

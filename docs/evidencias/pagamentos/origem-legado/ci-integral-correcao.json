@@ -1,0 +1,22 @@
+{
+  "run": 38227632215,
+  "job": 114738947456,
+  "kind": "e2e",
+  "source": "a818eefafe03c5e2c98799fbed3fe9dc5f2fdccf",
+  "checkout": "f93bdbb4cf80529a9ee47ffc7b802d05b8ce0cd7",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "a818eefafe03c5e2c98799fbed3fe9dc5f2fdccf"
+  ],
+  "jobConclusion": "success",
+  "overallStatus": "completed",
+  "overallConclusion": "success",
+  "bankTests": 783,
+  "bankFiles": 37,
+  "e2ePassed": 179,
+  "e2eSkipped": 7,
+  "advisorsNoIssues": 2,
+  "logSha256": "0ee3615725a12bd411fdb312ff156cf5a6381d6c5e57e091b4279fe693034024",
+  "artifactSha256": "0ee3615725a12bd411fdb312ff156cf5a6381d6c5e57e091b4279fe693034024",
+  "artifactNormalization": "Espacos finais e linhas vazias finais removidos; logSha256 preserva o extrato original."
+}

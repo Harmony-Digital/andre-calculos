@@ -1,0 +1,9 @@
+BEGIN
+CREATE FUNCTION
+REVOKE
+GRANT
+{"role" : "authenticated", "sub" : "4ad29f9d-f6f3-43ed-ba86-890e1b2ea87a"}
+SET
+{"effects": "none", "contexts": [], "payments": [], "semantics": "delivery_display", "schemaVersion": 1}
+RESET
+ROLLBACK
