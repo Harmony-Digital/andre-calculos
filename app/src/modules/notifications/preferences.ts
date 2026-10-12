@@ -4,6 +4,7 @@ export const notificationEvents = {
   quote_created: "Orçamento gerado",
   quote_accepted: "Proposta aceita",
   order_queued: "Pedido na fila",
+  payment_updated: "Situação financeira atualizada",
   new_message: "Nova mensagem",
   deadline_two_days: "Prazo em dois dias úteis",
   deadline_one_day: "Prazo em um dia útil",
