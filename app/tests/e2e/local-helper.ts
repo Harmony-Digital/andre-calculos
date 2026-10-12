@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import type { Page, APIRequestContext } from "@playwright/test";
 import { mkdir, rmdir } from "node:fs/promises";
 import { resolve } from "node:path";
+import { mailpitSearchIds } from "../../src/lib/testing/mailpit-search";
 export async function leaseLocalSettings() {
   localSystem();
   const root = resolve(process.cwd(), ".data"),
@@ -72,16 +73,7 @@ export async function mailpitMessageIds(
       `http://127.0.0.1:54324/api/v1/search?query=${query}&limit=100`,
     );
     if (!response.ok()) throw new Error();
-    const list = await response.json();
-    if (list.total > 100 || !Array.isArray(list.messages)) throw new Error();
-    return list.messages
-      .filter((message: { ID: string; To: { Address: string }[] }) =>
-        message.To.some((to) => to.Address === email),
-      )
-      .map((message: { ID: string }) => {
-        if (!/^[a-zA-Z0-9_-]+$/.test(message.ID)) throw new Error();
-        return message.ID;
-      }) as string[];
+    return mailpitSearchIds(await response.json(), email);
   } catch {
     throw new Error("A caixa fictícia local não pôde ser consultada.");
   }
