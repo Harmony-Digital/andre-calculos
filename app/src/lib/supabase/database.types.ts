@@ -1568,6 +1568,31 @@ export type Database = {
         Args: { target_order: string };
         Returns: Json;
       };
+      get_payment_fixture_scope: {
+        Args: { target_scope: string; target_client: string };
+        Returns: Json;
+      };
+      send_payment_fixture_request: {
+        Args: {
+          target_scope: string;
+          target_client: string;
+          slot_id: string;
+          request_id: string;
+          operation: string;
+          fingerprint: string;
+          payload: Json;
+        };
+        Returns: Json;
+      };
+      get_payment_fixture_receipt: {
+        Args: {
+          target_scope: string;
+          target_client: string;
+          slot_id: string;
+          request_id: string;
+        };
+        Returns: Json;
+      };
       get_process_participants: {
         Args: { target_process: string };
         Returns: {
