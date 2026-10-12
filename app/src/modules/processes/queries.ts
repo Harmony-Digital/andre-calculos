@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { authorize, getSessionProfile } from "@/modules/auth/session";
 import { createSessionClient } from "@/lib/supabase/server";
 import { depositInfoSchema } from "@/modules/payments/deposit";
+import { parseDeliveryCredits } from "@/modules/payments/order-credit";
 import type { ProcessTab } from "./tabs";
 import { messageCursor, encodeMessageCursor } from "@/modules/messages/cursor";
 import { eventFilter } from "@/modules/timeline/types";
@@ -122,7 +123,7 @@ export async function getProcess(
       ? supabase
           .from("orders")
           .select(
-            "id,code,calc_type,status,delivery_date,quotes(id,number,is_simulation,proposal_snapshot)",
+            "id,code,calc_type,status,status_revision,resume_status,delivery_date,quotes(id,number,is_simulation,proposal_snapshot)",
           )
           .eq("process_id", id)
           .order("created_at", { ascending: false })
@@ -186,7 +187,7 @@ export async function getProcess(
     tab === "resumo" &&
     session.profile.role === "client" &&
     deliveries.data?.length
-      ? await supabase.rpc("get_delivery_payment_instructions", {
+      ? await supabase.rpc("get_delivery_credit_instructions", {
           target_process: id,
           target_deliveries: deliveries.data.slice(0, 50).map((row) => row.id),
         })
@@ -212,8 +213,9 @@ export async function getProcess(
       (deliveries.data?.length ?? 0) > 50
         ? encodeMessageCursor(deliveries.data![49])
         : null,
-    deliveryPayments: new Map(
-      (paymentInstructions.data ?? []).map((row) => [row.delivery_id, row]),
+    deliveryPayments: parseDeliveryCredits(
+      paymentInstructions.data ?? [],
+      (deliveries.data ?? []).slice(0, 50),
     ),
     messages: (messages.data ?? []).slice(0, 50).reverse(),
     olderMessages:
