@@ -205,22 +205,11 @@ it("mudança de prazo cancela só pendentes, preserva histórico/recibo e não r
     b = await order(),
     c = await order();
   for (const o of [a, b, c]) expect(at(o.id)).toBe("consumed");
-  expect(
-    (
-      await fixture.db
-        .from("notifications")
-        .update({ status: "sent" })
-        .eq("data->>order_id", b.id)
-    ).error,
-  ).toBeNull();
-  expect(
-    (
-      await fixture.db
-        .from("notifications")
-        .update({ status: "failed" })
-        .eq("data->>order_id", c.id)
-    ).error,
-  ).toBeNull();
+  // Estados sintéticos são fixtures do proprietário local. O serviço agora
+  // avança a fila somente pelos RPCs de reserva/resultado, sem UPDATE direto.
+  localNotificationSql(
+    `update public.notifications set status='sent' where data->>'order_id'='${b.id}'; update public.notifications set status='failed' where data->>'order_id'='${c.id}';`,
+  );
   expect(
     (
       await fixture.db
