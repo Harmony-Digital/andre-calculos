@@ -82,7 +82,11 @@ export const currentPaymentIntentSchema = z.union([
     withdrawnAt: z.null(),
     withdrawnBy: z.null(),
     resolvedAt: at,
-    resolutionReason: z.literal("no_dispatch_proven"),
+    resolutionReason: z.enum([
+      "no_dispatch_proven",
+      "financial_received",
+      "financial_refunded",
+    ]),
   }),
 ]);
 export const paymentIntentReceiptSchema = z

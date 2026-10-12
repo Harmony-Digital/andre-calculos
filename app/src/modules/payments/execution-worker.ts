@@ -5,7 +5,7 @@ import {
   allocateFixturePaymentExecution,
   startFixturePaymentExecution,
 } from "./execution-system";
-import { paymentExecutionViewSchema } from "./execution-data";
+import { currentPaymentExecutionViewSchema } from "./execution-data";
 import {
   createDurableAsaasFixturePort,
   getDurableFixtureTransportReceipt,
@@ -140,7 +140,7 @@ export async function advanceFixturePaymentExecution(requestId: string) {
         normalizer_version: 1,
         facts: facts as unknown as Json,
       });
-    const view = paymentExecutionViewSchema.parse(r.data);
+    const view = currentPaymentExecutionViewSchema.parse(r.data);
     if (r.error || view.intentId !== step.intentId || view.runId !== step.runId)
       throw new Error(unavailable);
     return view;

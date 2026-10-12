@@ -442,6 +442,25 @@ it("estado resolvido é atual e não transforma recibo histórico", () => {
   expect(paymentIntentReceiptSchema.parse(receipt())).toEqual(receipt());
   expect(paymentIntentReceiptSchema.parse(withdrawal())).toEqual(withdrawal());
 });
+it.each(["financial_received", "financial_refunded"])(
+  "terminal %s pertence somente à intenção atual",
+  (resolutionReason) => {
+    const resolved = current({
+      state: "resolved",
+      revision: 2,
+      reservationActive: false,
+      claimedAt: time,
+      resolvedAt: time,
+      resolutionReason,
+    });
+    expect(currentPaymentIntentSchema.parse(resolved)).toEqual(resolved);
+    expect(paymentIntentViewSchema.safeParse(resolved).success).toBe(false);
+    expect(
+      paymentIntentReceiptSchema.safeParse({ ...receipt(), snapshot: resolved })
+        .success,
+    ).toBe(false);
+  },
+);
 it.each([
   { claimedAt: null },
   { reservationActive: true },

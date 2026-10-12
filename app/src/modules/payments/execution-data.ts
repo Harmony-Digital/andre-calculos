@@ -62,6 +62,21 @@ export const paymentExecutionViewSchema = z
     )
       ctx.addIssue({ code: "custom", message: "Execução indisponível." });
   });
+// O contrato historico de S permanece acima. Somente views atuais admitem
+// o journal financeiro, sem transformar recibos antigos.
+export const currentPaymentExecutionViewSchema = z.union([
+  paymentExecutionViewSchema,
+  z.strictObject({
+    ...paymentExecutionViewSchema.shape,
+    runId: executionId,
+    createdAt: z.iso.datetime({ offset: true }),
+    state: z.literal("resolved"),
+    reason: z.enum(["financial_received", "financial_refunded"]),
+    revision: z.number().int().positive().max(Number.MAX_SAFE_INTEGER),
+    dispatchClaimed: z.literal(true),
+    reservationActive: z.literal(false),
+  }),
+]);
 const stepSchema = z
   .strictObject({
     id: executionId,
@@ -115,7 +130,7 @@ const stepSchema = z
 export const paymentExecutionClaimSchema = z
   .strictObject({
     requestId: executionId,
-    view: paymentExecutionViewSchema,
+    view: currentPaymentExecutionViewSchema,
     step: stepSchema.nullable(),
   })
   .superRefine((v, ctx) => {

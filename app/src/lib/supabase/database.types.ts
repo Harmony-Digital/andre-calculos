@@ -1580,6 +1580,18 @@ export type Database = {
         Args: { target_observation: string; request_id: string };
         Returns: Json;
       };
+      get_financial_resolution_receipt: {
+        Args: { target_application: string; request_id: string };
+        Returns: Json;
+      };
+      get_financial_execution_resolution: {
+        Args: { target_request: string };
+        Returns: Json;
+      };
+      resolve_financial_execution: {
+        Args: { target_application: string; request_id: string };
+        Returns: Json;
+      };
       apply_financial_observation: {
         Args: {
           target_observation: string;

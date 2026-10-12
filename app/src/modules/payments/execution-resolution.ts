@@ -4,6 +4,7 @@ import { createSystemClient } from "@/lib/supabase/admin";
 import { paymentExecutionViewSchema, executionId } from "./execution-data";
 import { fixtureRequestIdentity } from "./asaas/fixture-protocol";
 import { advanceFixturePaymentExecution } from "./execution-worker";
+import { getFixtureFinancialExecutionResolution } from "./financial-resolution";
 const unavailable = "Resolução fictícia indisponível.";
 const revision = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 export const paymentResolutionInput = z.strictObject({
@@ -86,6 +87,10 @@ export async function resumeFixturePaymentExecution(requestId: string) {
   const executionRequestId = executionId.safeParse(requestId);
   if (!executionRequestId.success) throw new Error(unavailable);
   try {
+    const financial = await getFixtureFinancialExecutionResolution(
+      executionRequestId.data,
+    );
+    if (financial) return financial.view;
     const prior = await getFixturePaymentExecutionResolution(
       executionRequestId.data,
     );
@@ -105,6 +110,10 @@ export async function resumeFixturePaymentExecution(requestId: string) {
     return receipt?.view ?? view;
   } catch {
     // Uma resolução concorrente com outro UUID continua sendo terminal.
+    const financial = await getFixtureFinancialExecutionResolution(
+      executionRequestId.data,
+    );
+    if (financial) return financial.view;
     const prior = await getFixturePaymentExecutionResolution(
       executionRequestId.data,
     );

@@ -4,10 +4,14 @@ const mocks = vi.hoisted(() => ({
   system: vi.fn(),
   rpc: vi.fn(),
   advance: vi.fn(),
+  financial: vi.fn(),
 }));
 vi.mock("@/lib/supabase/admin", () => ({ createSystemClient: mocks.system }));
 vi.mock("./execution-worker", () => ({
   advanceFixturePaymentExecution: mocks.advance,
+}));
+vi.mock("./financial-resolution", () => ({
+  getFixtureFinancialExecutionResolution: mocks.financial,
 }));
 import {
   resolveFixturePaymentExecution,
@@ -50,8 +54,33 @@ beforeEach(() => {
   vi.stubEnv("VERCEL", "");
   vi.stubEnv("VERCEL_ENV", "");
   mocks.system.mockReturnValue({ rpc: mocks.rpc });
+  mocks.financial.mockResolvedValue(null);
 });
 afterEach(() => vi.unstubAllEnvs());
+it("retomada reconhece terminal financeiro antes do journal S e do transporte", async () => {
+  const financial = { ...view, reason: "financial_received" };
+  mocks.financial.mockResolvedValue({ view: financial });
+  expect(await resumeFixturePaymentExecution(id(1))).toEqual(financial);
+  expect(mocks.rpc).not.toHaveBeenCalled();
+  expect(mocks.advance).not.toHaveBeenCalled();
+});
+it("terminal financeiro concorrente é recuperado antes de repetir o caminho S", async () => {
+  const financial = { ...view, reason: "financial_refunded" };
+  mocks.financial
+    .mockResolvedValueOnce(null)
+    .mockResolvedValueOnce({ view: financial });
+  mocks.rpc.mockResolvedValue({ data: null, error: { code: "PT409" } });
+  expect(await resumeFixturePaymentExecution(id(1))).toEqual(financial);
+  expect(mocks.rpc).toHaveBeenCalledTimes(1);
+  expect(mocks.advance).not.toHaveBeenCalled();
+});
+it("recibo S não aceita terminal financeiro no contrato histórico", () => {
+  expect(
+    paymentResolutionReceiptSchema.safeParse(
+      receipt({ view: { ...view, reason: "financial_received" } }),
+    ).success,
+  ).toBe(false);
+});
 it.each([
   ["ANDRE_LOCAL_TESTS", "0"],
   ["NEXT_PUBLIC_SUPABASE_URL", "https://outro.supabase.co"],
