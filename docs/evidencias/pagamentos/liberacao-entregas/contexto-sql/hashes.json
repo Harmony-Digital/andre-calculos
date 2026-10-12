@@ -1,0 +1,20 @@
+{
+  "banco-foco.log": "8e327d9308bc99e22af2690ed0eb281a85e1226f5a662f2e030e76e4440a86af",
+  "ci40-integral-falha.json": "09f56ed795ad1ea85d1d118e92505d4e62c3cb94e1bb07022dc61a43ff68cb6a",
+  "check-local.log": "a5a573dbcf81129ff173376395bd7ff300aa6a22ab35ab068783c68bdee20409",
+  "banco-integral.log": "05e2f135c8bd61e1f20ec07b98ce7ad2dc2ed7d5495ef2f788446879705e6f1f",
+  "controles-antes-general.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+  "ci40-qualidade.json": "b0ac530e7e0b5c99ebfb9e6140dd9a8e26da8e476d47f8f81fcdd8e9fb8b4036",
+  "advisors-apos92.log": "6d90abb00f58c258939bbc573a8412c5817a79e3a2d2c4898a63b31adea9f8a7",
+  "README.md": "48a93a41558abe2e273c4873fac321f48775655ce23b99374bb6f45b6ee1f974",
+  "advisors-final.log": "6d90abb00f58c258939bbc573a8412c5817a79e3a2d2c4898a63b31adea9f8a7",
+  "ensaio-transacional.log": "2f55ba174968d6e6961a2fd334c652f3d8a82491dc5ece812b0871d6e751c0eb",
+  "controles-final.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+  "ci40-integral-falha.log": "93d90f185cae2909e039dff871ec01686d4ceb25c0ed79757899c0ff57b40ef1",
+  "readback-antes-general.log": "17867f643b1147903cc6e2f9b59b21e241d2eb529513d0984c243c782d4f4f2e",
+  "regressoes.log": "2f41f2b921152d76aef929ba3d834ec6baa159aa45a8e00087d8b9f0d09f31cf",
+  "ci40-build.json": "290bc722359b0df5f5ff44bed5b23b01a0cb4073e0b416c84ae81c3c4d3b2c71",
+  "verificacao-local.json": "4d6f461dab0da6aa2da2c372b57eb2e8892728ece5619fc29676d88970aa1350",
+  "readback-final.log": "17867f643b1147903cc6e2f9b59b21e241d2eb529513d0984c243c782d4f4f2e",
+  "ci40-qualidade.log": "ca1a4fce1b5f681c74962090d0d8ca354b28bf64e92c3a11ea84d2bf52dc4081"
+}

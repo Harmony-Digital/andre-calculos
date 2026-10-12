@@ -1,0 +1,13 @@
+{
+  "execution": "AJ antes da correcao Mailpit, com historia/reserva ja ajustadas",
+  "passed": 187,
+  "skipped": 7,
+  "failed": 4,
+  "failedCases": [
+    "  ✘   28 [computador] › tests/e2e/email-auth.spec.ts:37:5 › recuperação de senha e link de acesso pelo Mailpit (414ms)",
+    "  ✘   56 [computador] › tests/e2e/full-journey.spec.ts:48:5 › mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas explícitas (726ms)",
+    "  ✘   97 [computador] › tests/e2e/signup.spec.ts:12:5 › cadastro com confirmação e consentimentos sintéticos (699ms)",
+    "  ✘  155 [celular] › tests/e2e/full-journey.spec.ts:48:5 › mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas explícitas (768ms)"
+  ],
+  "rawLogSha256": "52f83c0e4922b87b16a6fd4e64d50c9317720576d760c2d2039d53addf32a5a0"
+}
