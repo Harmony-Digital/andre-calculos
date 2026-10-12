@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-12",
+  "source": "adbb50618a395a268e352e33ae14c7f1a49b122c",
+  "pullRequest": "https://github.com/Harmony-Digital/andre-calculos/pull/30",
+  "localBank": {
+    "tests": 717,
+    "files": 35,
+    "exitCode": 0
+  },
+  "focusedBank": {
+    "tests": 46,
+    "files": 2,
+    "ownTests": 27,
+    "exitCode": 0
+  },
+  "checkBuildCI": {
+    "run": 38213748801,
+    "job": 114693572820,
+    "unitTests": 1196,
+    "unitFiles": 60,
+    "scripts": 43,
+    "pages": 7,
+    "conclusion": "success"
+  },
+  "localBuild": {
+    "exitCode": 1,
+    "reason": "Turbopack react-pdf: abertura de porta EPERM"
+  },
+  "advisors": {
+    "after0085": "no issues",
+    "final": "no issues"
+  },
+  "readback": {
+    "migrations": 85,
+    "public_tables": 25,
+    "private_tables": 52,
+    "public_rls": 25,
+    "private_rls": 52,
+    "profiles": 4,
+    "fixture_enabled": false,
+    "payments": 1
+  },
+  "seedPayment": {
+    "id": "00000000-0000-4000-8000-000000000401",
+    "order_id": "00000000-0000-4000-8000-000000000201",
+    "kind": "deposit",
+    "method": "pix_manual",
+    "amount_cents": 12500,
+    "status": "pending"
+  },
+  "functions": [
+    {
+      "function": "private.lock_order_financial_sources",
+      "volatility": "v",
+      "security_definer": false,
+      "search_path": [
+        "search_path=\"\""
+      ],
+      "public_execute": false,
+      "anon_execute": false,
+      "authenticated_execute": false,
+      "service_execute": false
+    },
+    {
+      "function": "private.lock_payment_execution",
+      "volatility": "v",
+      "security_definer": true,
+      "search_path": [
+        "search_path=\"\""
+      ],
+      "public_execute": false,
+      "anon_execute": false,
+      "authenticated_execute": false,
+      "service_execute": false
+    },
+    {
+      "function": "private.payment_obligation_preview",
+      "volatility": "s",
+      "security_definer": true,
+      "search_path": [
+        "search_path=\"\""
+      ],
+      "public_execute": false,
+      "anon_execute": false,
+      "authenticated_execute": false,
+      "service_execute": false
+    },
+    {
+      "function": "private.send_payment_fixture_request",
+      "volatility": "v",
+      "security_definer": true,
+      "search_path": [
+        "search_path=\"\""
+      ],
+      "public_execute": false,
+      "anon_execute": false,
+      "authenticated_execute": false,
+      "service_execute": false
+    },
+    {
+      "function": "public.send_payment_fixture_request",
+      "volatility": "v",
+      "security_definer": true,
+      "search_path": [
+        "search_path=\"\""
+      ],
+      "public_execute": false,
+      "anon_execute": false,
+      "authenticated_execute": false,
+      "service_execute": true
+    }
+  ],
+  "logs": {
+    "banco-geral.log": {
+      "rawLogSha256": "7982d7787fe882262a1f41176d34c5b38a07e9bd76b8355624034f71bb4a7fa8",
+      "artifactLogSha256": "0d3d328615413abf57dc35b9244c72273af8deb51f6837344fdf3b3b5c42c08f"
+    },
+    "banco-focado.log": {
+      "rawLogSha256": "5ebc3d7dc6cd9f1ade7f5d9e4da255e132b97ad10ea525325f5db60d596c3221",
+      "artifactLogSha256": "40225f5c64cc79d793da1cf95005a0230b6203e1ffe69ea56878c744a27d09d1"
+    },
+    "advisors.log": {
+      "rawLogSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+      "artifactLogSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+    },
+    "readback.log": {
+      "rawLogSha256": "11b3f6c4df96924ba718052380293519625253f2951aeb7907f4a24f8dd705a5",
+      "artifactLogSha256": "11b3f6c4df96924ba718052380293519625253f2951aeb7907f4a24f8dd705a5"
+    }
+  }
+}
