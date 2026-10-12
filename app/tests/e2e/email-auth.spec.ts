@@ -1,5 +1,6 @@
 import { test, expect, type Page, type BrowserContext } from "@playwright/test";
 import { randomUUID, randomBytes } from "node:crypto";
+import { logoutAndConfirm } from "./logout-helper";
 import { provisionLocalUser } from "../../scripts/provision-local-user";
 import {
   localSystem,
@@ -141,7 +142,7 @@ test("recuperação de senha e link de acesso pelo Mailpit", async ({
           .eq("action", "password_changed")
       ).data,
     ).toHaveLength(1);
-    await page.getByRole("button", { name: "Sair", exact: true }).click();
+    await logoutAndConfirm(page, context);
     await page.getByText("Entrar com um link por e-mail").click();
     await page.locator("#link-email").fill(email);
     const previousMagic = await mailpitMessageIds(email, request);
@@ -155,7 +156,7 @@ test("recuperação de senha e link de acesso pelo Mailpit", async ({
       "Recuperação fictícia",
     );
 
-    await page.getByRole("button", { name: "Sair", exact: true }).click();
+    await logoutAndConfirm(page, context);
     // Usuário separado: o negativo não depende do cooldown de um envio anterior.
     const otherUser = await provisionLocalUser({
       email: otherEmail,
@@ -194,11 +195,41 @@ test("recuperação de senha e link de acesso pelo Mailpit", async ({
         } finally {
           await clearMailpit(otherEmail, request);
         }
+        expect((await mailpitMessageIds(email, request)).length).toBe(0);
+        expect((await mailpitMessageIds(otherEmail, request)).length).toBe(0);
       } finally {
         try {
-          if (userId) await removeLocalUser(userId);
+          if (userId) {
+            await removeLocalUser(userId);
+            expect(
+              (await db.from("profiles").select("id").eq("id", userId)).data
+                ?.length,
+            ).toBe(0);
+            expect(
+              (
+                await db
+                  .from("audit_log")
+                  .select("id")
+                  .or(`actor_id.eq.${userId},target_id.eq.${userId}`)
+              ).data?.length,
+            ).toBe(0);
+          }
         } finally {
-          if (otherUserId) await removeLocalUser(otherUserId);
+          if (otherUserId) {
+            await removeLocalUser(otherUserId);
+            expect(
+              (await db.from("profiles").select("id").eq("id", otherUserId))
+                .data?.length,
+            ).toBe(0);
+            expect(
+              (
+                await db
+                  .from("audit_log")
+                  .select("id")
+                  .or(`actor_id.eq.${otherUserId},target_id.eq.${otherUserId}`)
+              ).data?.length,
+            ).toBe(0);
+          }
         }
       }
     } finally {
