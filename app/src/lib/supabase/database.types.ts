@@ -1556,6 +1556,10 @@ export type Database = {
         Args: { target_order: string };
         Returns: Json;
       };
+      prepare_payment_balance_invoice: {
+        Args: { target_order: string };
+        Returns: Json;
+      };
       read_payment_invoice_fixture: {
         Args: { target_query: string };
         Returns: Json;

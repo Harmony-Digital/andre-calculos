@@ -5,7 +5,8 @@ import { readAsaasScope, readAsaasInvoiceUrl } from "./asaas/contracts";
 
 const id = z.uuid().transform((v) => v.toLowerCase());
 const cents = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
-const unavailable = "Não foi possível conferir a cobrança do sinal.";
+const unavailable = "Não foi possível conferir a fatura.";
+export const invoicePhaseSchema = z.enum(["deposit", "balance"]);
 export const invoiceStates = [
   "active",
   "paid",
@@ -18,6 +19,8 @@ export const invoiceReasons = [
   "provider_not_ready",
   "client_contract",
   "no_deposit",
+  "no_balance",
+  "phase_unavailable",
   "no_invoice",
   "protected_execution",
   "context_changed",
@@ -35,6 +38,8 @@ const reasonsByState: Record<
     "provider_not_ready",
     "client_contract",
     "no_deposit",
+    "no_balance",
+    "phase_unavailable",
     "no_invoice",
     "protected_execution",
     "context_changed",
@@ -49,7 +54,7 @@ const schema = z
     semantics: z.literal("invoice_presentation"),
     effects: z.literal("none"),
     mode: z.literal("fixture"),
-    phase: z.literal("deposit"),
+    phase: invoicePhaseSchema,
     orderId: id,
     processId: id,
     state: z.enum(invoiceStates),
@@ -65,6 +70,10 @@ const schema = z
   .superRefine((v, ctx) => {
     if (
       !reasonsByState[v.state].includes(v.reason) ||
+      (v.phase === "balance" &&
+        ["client_contract", "no_deposit"].includes(v.reason)) ||
+      (v.phase === "deposit" &&
+        ["no_balance", "phase_unavailable"].includes(v.reason)) ||
       (v.dueDate === null) !== (v.billingType === null) ||
       (v.state !== "active" && v.invoiceUrl !== null) ||
       (v.state !== "active" && v.invoiceAmountCents !== null) ||
@@ -78,7 +87,7 @@ const schema = z
       (v.state === "paid" && v.remainingCents !== 0) ||
       (v.state === "uncertain" && v.remainingCents !== null) ||
       (v.state === "blocked" &&
-        ["client_contract", "no_deposit"].includes(v.reason) &&
+        ["client_contract", "no_deposit", "no_balance"].includes(v.reason) &&
         v.remainingCents !== 0)
     )
       ctx.addIssue({ code: "custom", message: unavailable });
@@ -88,11 +97,20 @@ export type InvoicePresentation = z.infer<typeof schema>;
 /** Valida a apresentação; autorização e origem da resposta pertencem ao servidor. */
 export function parseInvoicePresentation(
   value: unknown,
-  expected: { orderId: string; processId: string; scope: unknown },
+  expected: {
+    orderId: string;
+    processId: string;
+    scope: unknown;
+    phase?: InvoicePresentation["phase"];
+  },
 ) {
   const identifiers = z
-    .strictObject({ orderId: id, processId: id })
-    .parse({ orderId: expected.orderId, processId: expected.processId });
+    .strictObject({ orderId: id, processId: id, phase: invoicePhaseSchema })
+    .parse({
+      orderId: expected.orderId,
+      processId: expected.processId,
+      phase: expected.phase ?? "deposit",
+    });
   const scope = expected.scope === null ? null : readAsaasScope(expected.scope);
   if (scope !== null && scope.environment !== "sandbox")
     throw new Error(unavailable);
@@ -100,6 +118,7 @@ export function parseInvoicePresentation(
   if (
     (parsed.state === "active" && scope === null) ||
     parsed.orderId !== identifiers.orderId ||
+    parsed.phase !== identifiers.phase ||
     parsed.processId !== identifiers.processId
   )
     throw new Error(unavailable);
@@ -126,6 +145,9 @@ export const invoiceReasonLabels: Record<
   provider_not_ready: "O pagamento automático ainda não está disponível.",
   client_contract: "O sinal está dispensado pelo contrato vigente.",
   no_deposit: "Esta proposta não exige sinal.",
+  no_balance: "Esta proposta não exige pagamento de saldo.",
+  phase_unavailable:
+    "A entrega técnica deste pedido ainda precisa ser conferida.",
   no_invoice: "A fatura ainda não está disponível.",
   protected_execution:
     "A cobrança está sendo verificada. Aguarde antes de efetuar outro pagamento.",

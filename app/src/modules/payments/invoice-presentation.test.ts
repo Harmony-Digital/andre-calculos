@@ -37,6 +37,54 @@ const parse = (patch: Record<string, unknown> = {}) =>
     },
     expected,
   );
+it("saldo exige fase esperada explícita e não reutiliza apresentação de sinal", () => {
+  const balance = { ...active, phase: "balance" };
+  expect(
+    parseInvoicePresentation(balance, { ...expected, phase: "balance" }).phase,
+  ).toBe("balance");
+  expect(() => parseInvoicePresentation(balance, expected)).toThrow();
+  expect(() =>
+    parseInvoicePresentation(active, { ...expected, phase: "balance" }),
+  ).toThrow();
+});
+it.each(["client_contract", "no_deposit"])(
+  "saldo não recebe dispensa %s do sinal",
+  (reason) => {
+    expect(() =>
+      parseInvoicePresentation(
+        {
+          ...active,
+          phase: "balance",
+          state: "blocked",
+          reason,
+          remainingCents: 0,
+          invoiceAmountCents: null,
+          invoiceUrl: null,
+        },
+        { ...expected, phase: "balance" },
+      ),
+    ).toThrow();
+  },
+);
+it("saldo gratuito não declara recebimento e não aceita motivo na fase do sinal", () => {
+  const free = {
+    ...active,
+    phase: "balance",
+    state: "blocked",
+    reason: "no_balance",
+    remainingCents: 0,
+    invoiceAmountCents: null,
+    dueDate: null,
+    billingType: null,
+    invoiceUrl: null,
+  };
+  expect(
+    parseInvoicePresentation(free, { ...expected, phase: "balance" }).state,
+  ).toBe("blocked");
+  expect(() =>
+    parseInvoicePresentation({ ...free, phase: "deposit" }, expected),
+  ).toThrow();
+});
 it("provedor ausente informa bloqueio sem inventar escopo", () => {
   const result = parseInvoicePresentation(
     {

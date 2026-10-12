@@ -12,7 +12,11 @@ import {
   fixturePaymentGetRequest,
   fixtureRequestFingerprint,
 } from "./asaas/fixture-protocol";
-import { parseInvoicePresentation } from "./invoice-presentation";
+import {
+  invoicePhaseSchema,
+  parseInvoicePresentation,
+  type InvoicePresentation,
+} from "./invoice-presentation";
 
 const unavailable =
   "Não foi possível conferir a fatura. Solicite uma nova conferência.";
@@ -121,16 +125,26 @@ export async function readFixtureInvoice(
 }
 
 /** Autorização em duas transações; só o retorno atual auditado recebe URL em memória. */
-export async function getPaymentInvoice(orderId: string, processId: string) {
+export async function getPaymentInvoice(
+  orderId: string,
+  processId: string,
+  phase: InvoicePresentation["phase"] = "deposit",
+) {
   try {
     requireLocal();
     const session = await authorize(["client", "calculator"]),
       target = id.parse(orderId),
       process = id.parse(processId),
+      invoicePhase = invoicePhaseSchema.parse(phase),
       db = await createSessionClient();
-    const response = await db.rpc("prepare_payment_invoice", {
-      target_order: target,
-    });
+    const response = await db.rpc(
+      invoicePhase === "balance"
+        ? "prepare_payment_balance_invoice"
+        : "prepare_payment_invoice",
+      {
+        target_order: target,
+      },
+    );
     if (response.error) throw new Error(unavailable);
     const prepared = preparationSchema.parse(response.data);
     if (
@@ -143,6 +157,7 @@ export async function getPaymentInvoice(orderId: string, processId: string) {
         orderId: target,
         processId: process,
         scope: prepared.scope,
+        phase: invoicePhase,
       });
     const invoice = await readFixtureInvoice(
       prepared.queryId,
@@ -173,7 +188,12 @@ export async function getPaymentInvoice(orderId: string, processId: string) {
             ? invoice.value
             : null,
       },
-      { orderId: target, processId: process, scope: current.scope },
+      {
+        orderId: target,
+        processId: process,
+        scope: current.scope,
+        phase: invoicePhase,
+      },
     );
   } catch {
     throw new Error(unavailable);
