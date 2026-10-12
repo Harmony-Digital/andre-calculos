@@ -1,0 +1,15 @@
+# Contexto e autorização de entregas pelo crédito atual
+
+SQL0092 foi ensaiada em transação com rollback e aplicada somente no Supabase local. A função pura SQL concordou com a regra de código em 108 cenários de status, política, valores, contrato, incerteza e limite inteiro. A migration fica imutável após aplicação.
+
+O contexto STABLE reúne a entrega, o pedido, o processo, o status, a regra capturada e a projeção atual. A consulta autoriza o dono atual ou o calculista, exige todas as entregas pedidas em um único processo e recusa IDs inválidos/duplicados/mais de cinquenta. O RLS dos arquivos usa a mesma elegibilidade e preserva os metadados pendentes/acesso operacional do calculista.
+
+A operação VOLATILE authorize_file_access adquire locks na ordem de profiles, cliente, processo, pedido, pagamentos/fontes financeiras e arquivo. Relê dono/papel/associação/estado após espera; autorização, auditoria e metadados devolvidos pertencem à mesma operação. record_file_access conserva a assinatura void e delega à operação nova. Leitores STABLE não fazem locks ou escrita.
+
+Dezessete testes próprios reais passaram, incluindo cinquenta entregas do mesmo pedido com regras capturadas distintas, leitura sem efeito, saldo/contrato, UNKNOWN, parcial inicial, estorno/restauração/excesso, ausência de valores aceitos, isolamento/papéis/grants, rollback e três esperas observadas em pg_stat_activity: saldo perdido, papel revogado e proprietário trocado. A identidade temporária foi provisionada somente no banco local, teve o cadastro vazio retirado para preservar owner_id único e foi removida no finally. Nenhum dono dos outros cadastros foi alterado.
+
+Quarenta e sete regressões de entrega/aprovação/crédito/contrato passaram. As duas fixtures técnicas antigas conservam ausência de aceite e agora provam negação; pagamentos manuais antigos não criam certeza. Os positivos novos usam contratação explícita e fontes reais do transporte fictício local. O saldo manual do ensaio é sintético; não comprova o comando comercial de M3.09 nem o sandbox externo do Asaas.
+
+Formato/lint/tipos, 1.370 unitários/66 arquivos e 43 testes de scripts passaram. O build local mantém EPERM do Turbopack. Os dois advisors apósSQL92 não apontaram problemas. O read-back anterior àsuíte geral confirma92 migrations/25 tabelas públicas/55 privadas comRLS,controles anteriores idênticos ao baseline90,quatro perfis/donos restaurados e nenhum grant/dono temporário.
+
+A suíte geral de banco está em validação. O check/build da fonte exata, read-back/advisors finais e a integração em AO permanecem obrigatórios. Os consumidores atuais ainda usam a leitura anterior ao audit; AO precisa consumir os metadados atômicos e atualizar UI/rotas/GET-HEAD-Range/no-store/download120s. Estes testes de metadados não comprovam bytes ou URL assinada, e não decidem D6 real.

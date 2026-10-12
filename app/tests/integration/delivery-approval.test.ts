@@ -506,7 +506,15 @@ it("configuração não libera entrega antiga; Pix/saldo são restritos ao proce
           .select("id")
           .eq("process_id", f.process.id)
       ).data,
-    ).toHaveLength(4);
+    ).toEqual([]);
+    // Confirmação manual antiga não cria o aceite/valores reconhecidos ausentes.
+    expect(
+      (
+        await sessions.client.rpc("record_file_access", {
+          target_file: f.ids[0],
+        })
+      ).error,
+    ).not.toBeNull();
     expect(
       (
         await db

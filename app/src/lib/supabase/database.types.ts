@@ -1502,6 +1502,10 @@ export type Database = {
         Returns: Json;
       };
       get_complexity_limits: { Args: never; Returns: Json };
+      get_current_delivery_access_contexts: {
+        Args: { target_deliveries: string[]; target_process: string };
+        Returns: Json;
+      };
       get_current_order_credits: {
         Args: { target_orders: string[] };
         Returns: Json;
@@ -1812,6 +1816,10 @@ export type Database = {
         }[];
       };
       record_auth_audit: { Args: { event: string }; Returns: undefined };
+      authorize_file_access: {
+        Args: { access_kind?: string; target_file: string };
+        Returns: Json;
+      };
       record_file_access: {
         Args: { access_kind?: string; target_file: string };
         Returns: undefined;
