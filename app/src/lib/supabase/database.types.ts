@@ -738,7 +738,9 @@ export type Database = {
           internal_due_date: string | null;
           price_table_id: string | null;
           process_id: string;
+          resume_status: string | null;
           status: string;
+          status_revision: number;
           total_cents: number;
           updated_at: string;
           urgent: boolean;
@@ -756,7 +758,9 @@ export type Database = {
           internal_due_date?: string | null;
           price_table_id?: string | null;
           process_id: string;
+          resume_status?: string | null;
           status?: string;
+          status_revision?: number;
           total_cents?: number;
           updated_at?: string;
           urgent?: boolean;
@@ -774,7 +778,9 @@ export type Database = {
           internal_due_date?: string | null;
           price_table_id?: string | null;
           process_id?: string;
+          resume_status?: string | null;
           status?: string;
+          status_revision?: number;
           total_cents?: number;
           updated_at?: string;
           urgent?: boolean;
@@ -1350,6 +1356,57 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      begin_notification_local_run: {
+        Args: {
+          run_id: string;
+          channel: string;
+          batch_limit: number;
+          target_notifications?: string[];
+        };
+        Returns: Json;
+      };
+      get_notification_local_receipt: {
+        Args: { request_id: string };
+        Returns: Json;
+      };
+      get_notification_local_transport_result: {
+        Args: { request_id: string };
+        Returns: Json;
+      };
+      simulate_notification_local_transport: {
+        Args: { request_id: string };
+        Returns: Json;
+      };
+      claim_notification_local_system: {
+        Args: {
+          request_id: string;
+          channel: string;
+          target_notification?: string;
+        };
+        Returns: Json;
+      };
+      validate_notification_local_claim: {
+        Args: { request_id: string };
+        Returns: boolean;
+      };
+      complete_notification_local_system: {
+        Args: { request_id: string; outcome: string };
+        Returns: Json;
+      };
+      reject_quote_system: {
+        Args: {
+          actor: string;
+          target_quote: string;
+          expected_context: string;
+          expected_revision: number;
+          request_id: string;
+          confirmed: boolean;
+          reason: string;
+          ip_address: string;
+          user_agent: string;
+        };
+        Returns: Json;
+      };
       accept_quote_system: {
         Args: {
           actor: string;
@@ -1475,6 +1532,42 @@ export type Database = {
         Args: { target_process: string };
         Returns: Json;
       };
+      get_payment_obligation: {
+        Args: { target_order: string; target_phase: string };
+        Returns: Json;
+      };
+      prepare_payment_obligation: {
+        Args: {
+          target_order: string;
+          target_phase: string;
+          expected_context: string;
+          expected_remaining_cents: number;
+          billing_type: string;
+          due_date: string;
+          request_id: string;
+        };
+        Returns: Json;
+      };
+      reserve_payment_intent: {
+        Args: { target_context: string; request_id: string };
+        Returns: Json;
+      };
+      withdraw_payment_intent: {
+        Args: {
+          target_intent: string;
+          expected_revision: number;
+          request_id: string;
+        };
+        Returns: Json;
+      };
+      get_payment_intent: {
+        Args: { target_intent: string };
+        Returns: Json;
+      };
+      get_order_payment_reservation: {
+        Args: { target_order: string };
+        Returns: Json;
+      };
       get_process_participants: {
         Args: { target_process: string };
         Returns: {
@@ -1505,6 +1598,15 @@ export type Database = {
       mutate_process_page_index: {
         Args: { payload: Json; request_id: string; target_process: string };
         Returns: string;
+      };
+      operate_order: {
+        Args: {
+          payload: Json;
+          request_id: string;
+          target_order: string;
+          target_process: string;
+        };
+        Returns: Json;
       };
       prepare_file_upload: {
         Args: {
