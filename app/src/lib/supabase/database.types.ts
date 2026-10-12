@@ -1356,6 +1356,23 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      get_fixture_webhook_context: {
+        Args: { expected_epoch: number; target_run: string; worker_id: string };
+        Returns: Json;
+      };
+      record_fixture_webhook_query: {
+        Args: {
+          expected_epoch: number;
+          target_observation: string;
+          target_run: string;
+          worker_id: string;
+        };
+        Returns: Json;
+      };
+      claim_fixture_payment_webhook: {
+        Args: { request_id: string; target_event: string };
+        Returns: Json;
+      };
       receive_fixture_payment_webhook: {
         Args: { body_text: string; source_hash: string; target_scope: string };
         Returns: Json;
