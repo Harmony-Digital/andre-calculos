@@ -1,0 +1,13 @@
+{
+  "pr": 37,
+  "source": "81b7026c3ab1a8d0481bb3fe5afe537c26a26338",
+  "run": 38269491889,
+  "qualityJob": 114879935067,
+  "qualityConclusion": "success",
+  "checkStepConclusion": "success",
+  "overallStatus": "in_progress",
+  "overallConclusion": null,
+  "nativeLogs": "pendentes ate encerramento integral",
+  "e2eJob": 114879934662,
+  "timeoutMinutes": 60
+}
