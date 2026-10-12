@@ -54,7 +54,11 @@ export function QuoteAcceptance({
   return (
     <section className="panel form-body" aria-labelledby={`${id}-title`}>
       <h2 id={`${id}-title`}>
-        {receipt ? "Contratação registrada" : "Confirmar contratação"}
+        {receipt
+          ? "Contratação registrada"
+          : context.rejectionReceipt
+            ? "Documentos da proposta"
+            : "Confirmar contratação"}
       </h2>
       {receipt && (
         <div role="status" className="notice">
@@ -100,7 +104,7 @@ export function QuoteAcceptance({
       {!receipt && context.blockMessage && (
         <p className="notice">{context.blockMessage}</p>
       )}
-      {!receipt && !panel && (
+      {!receipt && !panel && !context.rejectionReceipt && (
         <form
           action={action}
           aria-label="Aceite da proposta"
@@ -139,7 +143,7 @@ export function QuoteAcceptance({
           )}
         </form>
       )}
-      {!receipt && panel && (
+      {!receipt && panel && !context.rejectionReceipt && (
         <p className="muted">
           O aceite deve ser registrado pelo cliente na área dele.
         </p>

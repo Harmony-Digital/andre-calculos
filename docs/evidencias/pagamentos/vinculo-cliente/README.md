@@ -1,0 +1,15 @@
+# Vínculo fictício do cliente com retomada
+
+A migration0062 separa a solicitação humana, a operação única por conta/cliente e as etapas privadas do worker. RPCs de solicitação/leitura conferem papel e proprietário atuais; retornam somente IDs e estado. Documento, nome fiscal, conta do provedor e recibos não chegam à interface. Solicitação e leitura possuem auditoria humana; processamento e vinculação têm auditoria de sistema com ator nulo, preservando a autoria original.
+
+O worker servidor é independente das sessões e componentes Next.js. Exige opt-in, loopback exato e ausência de ambiente Vercel/produção antes de criar o cliente de sistema e antes do transporte/finalização. Usa a porta fixa de0061, sem callback, resultado livre, segredo do Asaas ou HTTP ao provedor. A finalização lê o recibo imutável do transporte e confere conta, payload, etapa, referência clients.id, documento e notificações desativadas.
+
+Cada observação recebe slot novo. Alocar uma etapa não autoriza POST; start consumível grava o marco permanente na mesma transação que a autorização. Uma etapa substituída antes disso não despacha. Depois dessa autorização, queda ou resposta incerta levam à consulta; zero,404, múltiplos ou lista insuficiente conservam pendência. O histórico de POSTs anteriores de0061 também bloqueia outra criação. Fencing impede resultado atrasado de sobrescrever estado mais recente.
+
+Binding existente exige GET coerente e permanece imutável. O binding novo usa INSERT somente após reconferir proprietário, documento, tipo, nome e configuração sob locks. Conferir/criar cliente não gera cobrança, crédito, aviso financeiro nem entrada na fila. A jornada ensaiada começa sem binding do alvo, solicita, busca zero completo, cria, vincula e prepara obrigaçãoG.
+
+Ensaios próprios:19 unitários de autorização, identidade, DTO e guarda/erros do worker;25 integrações de jornadaG, concorrência, replay, queda antes/depois de start, resposta perdida recuperada por processo Node distinto, histórico incerto anterior, consultas insuficientes, notificações ativas, binding preservado, mudanças de documento/tipo/proprietário/conta e rollback de binding/etapa/auditoria. O processo filho emite apenas PID/UUID/estado, com timeout e buffer limitados. Fixtures restauram marker, dados e usuário alternativo.
+
+Comandos: npm run check; bash scripts/dev-env.sh npm run test:rls; advisors locais de segurança e desempenho. Resultados gerais e a fonte final ficam registrados no plan.md. Nenhuma migration ou configuração foi aplicada à nuvem.
+
+Suíte geral local aprovada:497 banco/28 arquivos e1030 unitários/55 arquivos,43 scripts. Os25 casos próprios foram reexecutados no harness final. Advisors de segurança/desempenho sem achados e duas revisões sem bloqueador. Read-back:62 migrations,25 tabelas públicas/40 privadas, quatro perfis; marker desligado e zero operações/etapas/fatos/recibos/scopes/bindings/contextos/intents. Check local chega ao build e encontra a restrição conhecida de porta interna do Turbopack; extrato local4159a68269c69e25f1f2eeb38fe0ff5d498952e17bc020e86f337d688908cdba. Compilação da fonte final será conferida no CI, sem contornar a restrição.

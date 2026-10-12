@@ -8,13 +8,16 @@ Nome provisório até a marca (D3).
 ## Onde estamos
 
 - **Atualizado em:** 2026-10-11, por Codex.
+- **Última retomada de M2.34d:** concluída. Fábio confirmou nova autorização somente Projeto Andre/andre-calculos; OAuth terminou com sucesso e MCP dedicado confirmou equipe/ID, list_projects com somente o projeto e list_deployments acessível. Publicação por create_deployment com os 158 arquivos da main 9a25f31. Deploy final dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 READY em gru1; endereço público https://project-rucji.vercel.app/demonstracao. Quatro testes hospedados aprovados em 375/1440 px, axe sem violações, proposta/aceite/sinal/documento/fila/timeline/entrega/download/reinício simulados. Evidência: docs/evidencias/demonstracao/README.md e hospedada/.
 - **Demonstração autorizada pelo Fábio em 2026-10-11:** usar domínio original `.vercel.app` até a validação final; marca, nome, CRC, preços e calendário fictícios. Construir a visão do advogado, solicitação de orçamento, proposta discriminada e linha do tempo. A autorização vale para a apresentação fictícia; decisões comerciais definitivas e domínio próprio continuam abertos.
-- **Fase:** M1 em andamento; autenticação e arquivos privados verificados localmente, com fluxos do M2 em construção.
+- **Retomada da construção integral:** M2.19a concluída: comandos reais de análise/cálculo/revisão, espera e retorno à origem. CI38162207294 aprovado com 358 unitários, doze testes de scripts, build, 160 testes reais de banco, 117 e2e/sete omissões e advisors sem achados; seis e2e próprios em 375/1440 px e quatorze capturas inspecionadas localmente. PR #3 com fonte verificada. M2.04a concluída com CI38163619398 integralmente aprovado na fonte 2cab40d (184 banco, 117 e2e/sete omissões e advisors sem achados); PR #4 pronto para revisão e dependente de #3. M2.04b concluída localmente e no npm run check/build remoto: tipos/CPF/CNPJ/celular e campos obrigatórios protegidos no hook; 282 banco, seis e2e/duas omissões, 362 unitários/doze scripts e advisors sem achados. Fonte 4af6407/PR #5 pronto para revisão; CI38164584726 completo aprovado com 282 banco e 117 e2e/sete omissões. CI38163315728 do PR #3 concluído com sucesso. M2.12a implementada e validada localmente: 315 banco, 379 unitários, quatro e2e próprios e doze regressões de aceite/jornada em 375/1440 px; advisors sem achados. Fonte 5173391 aprovada no CI38166216291 completo: 315 banco, 121 e2e/sete omissões e advisors sem achados; PR #6 pronto para revisão. A demonstração publicada continua sendo a versão da main; novas operações não foram publicadas.
+- **Fase:** M1/M2 com implementação local verificada e demonstração publicada; operação comercial ainda depende dos insumos e GATEs humanos. M3 detalhado e aprovado para implementação local fictícia; condições externas próprias permanecem.
+- **Aprovação de M3.00:** Fábio aprovou em 2026-10-11 o detalhamento apresentado na fonte b9b687d e autorizou continuar a implementação local com dados fictícios. O alcance conserva as condições de contas, custos, decisões do André, publicação e operações reais; não aprova GATEs. M2.28e concluída no preparo/verificação local, com correção confirmada no CI; M3.01d/e/f e M3.01a concluídas no preparo/verificação local; M3.01g concluída no preparo/verificação local; M3.01l concluída no preparo/verificação local; M3.01m e M3.01h concluídas no preparo/verificação local e CI integral aprovado. M3.01n concluída no preparo/verificação local, com check/build da fonte final aprovado no CI; próxima M3.01o, vínculo retomável do cliente, seguindo a ordem aprovada. M3.01i, M3.01 e ativação externa permanecem abertas.
 - **O que já existe:**
   - documentação organizada em `docs/`, Next.js 16.4/React 19.3 em `app/`, página pública, áreas provisórias do cliente e André, checklist de nove etapas e rascunhos legais;
-  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 340 testes unitários aprovados, cobertura do motor de preço 100%;
+  - motor de orçamento em centavos, calendário processual provisório, classificador e máquina de estados; 1011 testes unitários aprovados, cobertura do motor de preço 100%;
   - sessão SSR com cookies HttpOnly, login/logout, papéis protegidos e pasta de documentos; navegador/axe verificados em 375 e 1440 px;
-  - 45 migrations locais, 25 tabelas públicas e treze tabelas internas com RLS (vínculos, contextos/recibos e contador anual das propostas), quatro usuários fictícios e um processo inventado; 142 testes reais de RLS aprovados, lint SQL e conferência local de RLS/permissões/índices sem achados;
+  - 61 migrations locais, 25 tabelas públicas e 37 tabelas internas com RLS (vínculos, contextos/recibos, provedor fictício e contador anual das propostas), quatro usuários fictícios e um processo inventado; 472 testes reais de banco/RLS aprovados localmente;63 casos de obrigações/reservas/coordenação reexecutados na versão final dos parsers e dois de navegador em375/1440 comAxe. Advisors de segurança/desempenho sem achados; lint SQL com oito avisos preexistentes de variáveis sombreadas/não usadas nos validadores de CPF/CNPJ, sem erro no caso alterado;
   - upload TUS de 300 MiB retomado do offset de 12 MiB após interrupção da rede; SHA-256 conferido no servidor; download auditado por link de 120 s e acesso entre clientes negado;
   - pasta do processo com seis abas, quatro pastas fixas e PDF sob demanda; paginação, zoom, texto selecionável, senha efêmera e rolagem por teclado; proxy privado com HEAD/Range/206 auditado, leitura de PDF acima de 4,5 MB verificada localmente, sem URL assinada no navegador durante a visualização;
   - mensagens privadas entre cliente e calculista, anexos confirmados da pasta do cliente, nomes dos participantes, histórico paginado sem perda de microssegundos; envio idempotente e texto preservado após falha, inclusive resposta perdida depois de gravar; avisos enfileirados, sem despacho real;
@@ -39,14 +42,26 @@ Nome provisório até a marca (D3).
   - jornada única com cliente e André em contextos independentes, axe nas dez páginas principais por largura, sinal/upload/fila/decisão/entrega/download e limpeza verificados; três preparações sintéticas explícitas (contexto contratual, revisão técnica e saldo) conservam os bloqueios comerciais; CI remoto 38142154491 aprovado: 340 unitários, doze testes de scripts, build, 142 testes de banco, 109 e2e e advisors locais sem achados; PR #1 integrado em f0f900740ed60cb5cd655ce414b8b342ea35b0d9. Evidência: docs/evidencias/git/ci.md;
   - Docker/Colima exclusivos de `andre-calculos`, sem alterar o contexto global; Supabase local PostgreSQL 17 com serviços saudáveis e Auth health HTTP 200;
   - branch de trabalho `feat/fundacao-portal`; primeiro push da `main` em `Harmony-Digital/andre-calculos` confirmado no SHA `cc34885848e694887e7da7be626e87d2e037118a`, com clone remoto independente de 25 commits sem áudio;
-  - conta Vercel `projetoandre.harmony@gmail.com` conferida no navegador; consentimento concedido somente à equipe `Projeto Andre`, com acesso a todos os projetos atuais/futuros desmarcado. MCP dedicado validado: `list_teams` retornou só `Projeto Andre` (`projeto-andre1`, ID `team_4fdLDCsB0ROvP5ph50aFNvxm`) e `get_team` confirmou os mesmos dados; `list_projects` dessa equipe retornou zero projetos, nenhum criado;
+  - conta Vercel `projetoandre.harmony@gmail.com` conferida no navegador; consentimento concedido somente à equipe `Projeto Andre`, com acesso a todos os projetos atuais/futuros desmarcado. MCP dedicado validado para a equipe: `list_teams`/`get_team` confirmaram `projeto-andre1`/`team_4fdLDCsB0ROvP5ph50aFNvxm`; o painel criou `andre-calculos` (`prj_tdmzmC6utVU2fHPz0iVhroMD8NtI`), com Next.js, Node 22 e raiz vazia para o pacote. MCP renovado e validado: somente este projeto aparece e seus deploys podem ser consultados;
+  - demonstração fictícia Marco em `/demonstracao`, com entrada do advogado, nove etapas do checklist, proposta discriminada, aceite/sinal/documento simulados, linha do tempo, visão do calculista, calendário e mensagens locais; CI 38153083358 aprovado com 348 unitários, doze testes de scripts, 142 RLS, 113 e2e/sete omissões e advisors sem achados. PR #2 integrado normalmente na main em `9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd`; pacote de 158 arquivos comparado byte a byte com essa fonte. Evidência: docs/evidencias/demonstracao/README.md;
   - MCP `andre-calculos-supabase` validado por chamada real `get_project_url`, retornando `https://qtofwbxujshroaafxowr.supabase.co`; ambos os MCPs agora disponíveis diretamente no chat e identidade conferida por chamadas nativas, após ensaio separado pelo cliente oficial Codex CLI/App Server. Evidência: `docs/evidencias/mcp/validacao-2026-10-11.md`;
   - áudio removido de 24 commits e duas árvores de snapshot Git com autorização do Fábio, mantendo autores/mensagens/datas/arquivos restantes e o original local íntegro; nenhuma referência alcança o blob do áudio. Evidência: `docs/evidencias/git/retirada-audio.md`;
   - primeira execução GitHub Actions criou os jobs `qualidade` e `e2e`, mas a conta recusou ambos por cobrança/limite antes de qualquer etapa; proteção de main recusada por exigir upgrade no repositório privado;
   - preparação de M1.23 concluída com doze testes fictícios de destino, transporte de valores e falha parcial; script exclusivo do Fábio e metadados obrigatórios impedem qualquer uso atual em produção; o build local foi recusado pelo ambiente ao abrir porta interna do Turbopack; o mesmo código passou no npm run check/build do CI remoto;
   - transcrição retirada das referências de 27 commits e duas árvores locais, com original íntegro; remoto antigo saneado e arquivado privado, novo repositório independente público no mesmo endereço (ID 1414349093); clone de 25 commits sem áudio/transcrição e consultas anônimas dos conteúdos antigos HTTP 404; proteção de main aplicada e conferida, CI do PR #1 aprovado e integrado. Evidência: docs/evidencias/git/retirada-transcricao.md. Caches antigos não foram purgados fisicamente e ficam restritos ao arquivo privado.
-- **Próximas tarefas do agente:** M2.34b/M2.34c verificados para a demonstração fictícia autorizada pelo Fábio. Próximo: CI da alteração e M2.34d, publicação temporária em `.vercel.app`. O MCP Vercel confirma a equipe, mas create_project foi recusado por 403; conferir a criação no painel da conta cliente sem ampliar permissões a todos os projetos. A integração GitHub/Vercel e os insumos comerciais definitivos permanecem tarefas separadas. M2.35 ainda exige a skill security-review ausente para a publicação comercial.
+- **Próximas tarefas do agente:** executar a construção integral solicitada pelo Fábio. M2.28a concluída com 16 modelos de e-mail, 24 testes específicos e 32 ensaios de navegador/axe em 375/1440 px aprovados; QA visual das 32 capturas sem cortes ou sobreposições. npm run check/build remoto aprovado na fonte d065be6 com 403 unitários/doze scripts; CI38168299312 completo aprovado com 315 banco, 153 e2e/sete omissões e advisors sem achados; PR #7 pronto para revisão. M2.35a com coleta parcial real: qualidade/build do CI38169457310 aprovados na fonte b1a201f (403 unitários/22 scripts), artefato com 35 traces/300 JS e hashes conferidos; zero referências/marcadores identificáveis dos cinco pacotes, mas um symlink não resolvido mantém cobertura incompleta. CI38169457310 completo aprovado (315 banco, 153 e2e/sete omissões, advisors sem achados); PR #8 pronto para revisão na fonte b1a201f. Diagnóstico sanitizado aprovado na nova fonte03b4d77/CI38170815863 (411 unitários/25 scripts/build): artefato symlink ignorado em .next/node_modules/@react-pdf/renderer, sem seguir alvo, cobertura incompleta preservada. Advisory e revisão integral abertos. PR #6 concluiu CI38166216291 com sucesso e está pronto para revisão; PRs #3/#4/#5 também verificados. M2.28d concluída no preparo local: três modelos nativos de autenticação, oito testes próprios/411 unitários/25 scripts e 38 e2e aprovados; seis capturas com QA independente, npm run check/build remoto da fonte03b4d77 aprovado no job114562860596/CI38170815863. CI38170815863 completo aprovado: 315 banco/159 e2e/sete omissões e advisors sem achados; PR #9 pronto para revisão na fonte03b4d77. SMTP/configuração/Auth real continuam pendentes. M2.04c implementada localmente: aviso de link inválido, callback com origem pública configurada e validação HTTP/HTTPS; sete unitários próprios/418 totais/25 scripts e 18 e2e/duas omissões planejadas aprovados, inclusive retorno automático sem navegação corretiva. QA visual independente e npm run check/build remoto da fonte9843f5d aprovados no job114565777210/CI38171804330. CI38171804330 completo aprovado: 315 banco/165 e2e/sete omissões e advisors sem achados; PR #10 pronto para revisão na fonte9843f5d. Fontes remotas preservadas. M2.04c concluída no preparo/verificação local. M3.00 contém 32 especificações, com pagamento dividido em M3.01a/b/c e reaproveitamento de M2.23 em M3.12; aprovação do Fábio registrada para implementação local fictícia. Para operação comercial, M1.50 requer integração GitHub/Vercel, M2.28b/c requerem conta/credenciais/envio autorizado e M2.35 requer a skill security-review ausente. Achado preexistente do npm audit registrado em M2.35a, sem correção oficial no advisory; audit omitindo dev retornou zero, sem comprovar o bundle. Priorizar MCP conforme ordem do Fábio; endereço temporário confirmado em scripts/contas-esperadas.env e AGENTS.md §7.
+- **Fila local verificada (M1.51a):** reservas/replay, conteúdo congelado, cinco tentativas e espera crescente; resultado incerto bloqueado sem reenvio. 434 unitários/25 scripts/check/build remoto aprovados na fonte558a5c7/job114571144088/CI38173586727, 340 banco/25 próprios locais e advisors sem achados. CI38173586727 completo aprovado: 340 banco/165 e2e/sete omissões planejadas e advisors sem achados; PR #11 pronto para revisão, fonte remota preservada. Executor fictício M1.51b preparado/verificado; ativação externa M1.51c e M1.51 integral permanecem abertas.
+- **Executor local (M1.51b):** preparação concluída: migration0055, runIds/slots imutáveis, getters sem efeitos e aceitação fictícia única/retomável. 30 próprios/370 banco gerais, 43 unitários dos módulos/461 gerais/25 scripts, advisors/revisões aprovados. npm run check/build remoto da fonte85568bcd004d387ab216bba5c23a95fbef52962e aprovado no job114574690764/CI38174754842; CI38174754842 completo aprovado: 370 banco/22 arquivos, 165 e2e/sete omissões planejadas e advisors sem achados; checkout447f99c42e34abff17f54ec1b7e98f455d645cf3 conferido. PR #12 pronto para revisão, fonte preservada. Read-back local zero execuções/chamadas/aceites/reservas/recibos/triggers das fixtures. Ativação externa/infraestrutura continuam pendentes; M3.00 aprovado pelo Fábio para implementação local fictícia.
+- **Inventário de build (M2.35b):** concluído no recorte técnico: fonte62c8def/PR #13, npm run check/build remoto aprovado no CI38175897388/job114578103904 (461 unitários/43 scripts). JSON real sanitizado conferido contra fonte/checkout/lock/configuração: 35 traces/301 JS e quatro JS do alias PDF, contadores de incompletude zero. Relatório preservado byte a byte com hash em docs/evidencias/seguranca/. Revisões independentes sem bloqueador. CI38175897388 completo aprovado: 370 banco/22 arquivos, 165 e2e/sete omissões planejadas e advisors sem achados; checkout73bb11cfc5ddf2c79d814520af5e90924cc03a68/pais conferidos. PR #13 pronto para revisão e fonte preservada. M2.35a/advisory e revisão integral permanecem abertos.
+- **Manual de operação (M1.52a):** preparo documental concluído na fonte79fc356c8c56579cc4375214d2f2275504cef7b3/PR #14, npm run check/build remoto aprovado no CI38176671146/job114580408182 (461 unitários/44 arquivos e 43 scripts), checkoute1e04c702bd6f2eab96b0d8992bd17f0ce95935d/pais conferidos. CI38176671146 completo aprovado: 370 banco/22 arquivos, 165 e2e/sete omissões planejadas e advisors sem achados. PR #14 pronto para revisão com fonte preservada. docs/operacao.md, com fontes oficiais atuais, oito links conferidos e revisões independentes. Explica backup/restore, responsáveis, ponto recuperado, método físico/lógico, isolamento, teste mensal, RLS/Auth/aplicação e limites do Storage. M1.52 continua dependente de M1.05 e confirmação real no painel; nenhuma restauração, contratação ou alteração de produção executada.
+- **Aviso de sinal ao cliente (M2.28e):** concluído no preparo/verificação local. Fonte5d3db8a1f63758e0a619605052f30e60e3af1153/PR #15, check/build CI38178835637/job114586864386 aprovado (461 unitários/44 arquivos e43 scripts), checkout8d74e4e2f6132189589b192264286b4ef1a2b65a/pais conferidos. Fixture de perfil mínimo corrigida com telefone fictício e restauração original; 27 testes locais próprios/regressões passaram, etapa geral de banco remoto success às22:08:30UTC. CI38178835637 completo success: 384 banco/23 arquivos, 165 e2e/sete omissões planejadas e advisors sem achados. Checkout8d74e4e2f6132189589b192264286b4ef1a2b65a/pais/head conferidos; fonte preservada. Sem despacho externo; próxima M3.01a aprovada. Evidência: docs/evidencias/notificacoes/sinal/README.md.
+- **Contratos Asaas (M3.01d, parte de M3.01a):** concluídos no preparo/verificação local: fontea2cb04a87e23ae85581d2eb7f42881dfc24b7dae/PR #16, check/build CI38180969695/job114593253417 aprovado com596 unitários/47 arquivos e43 scripts; checkout0cb19ffdc2b7798582467a06d9629d637cc16d71/pais conferidos. Quatro módulos somente servidor/135 próprios e revisões sem bloqueador. JSON preciso, centavosBigInt, clientes/obrigações/escopos e fatos separados, sem efeitos. CI38180969695 completo success: 384 banco/23 arquivos,165 navegador/sete omissões planejadas e advisors sem achados; checkout/pais/head conferidos. PR #16 pronto para revisão/fonte preservada. M3.01a preparada/verificada localmente nas três partes; ativação externa permanece pendente.
+- **Porta Asaas (M3.01e):** concluída no preparo/verificação local: fonte58f61cf291295672e8fa5c75d0cd1fa4b35a6893/PR #17, check/build CI38182349916/job114597378029 aprovado com732 unitários/49 arquivos e43 scripts; checkout3d803ab3b5083348dc2dad0f7cbe8be19ff4ac25/pais conferidos. Fixture declarada, JSON exato, cliente/notificações/meio/vencimento, busca de unicidade e fatura privada;136 casos novos e duas revisões sem bloqueador. CI38182349916 completo success: 384 banco/23 arquivos,165 navegador/sete omissões planejadas e advisors sem achados; checkout/pais/head conferidos. PR #17 pronto para revisão, fonte preservada. Sem driver/segredo/HTTP/banco/efeito financeiro. M3.01f e parentM3.01a preparados/verificados localmente; próxima M3.01b.
+- **Eventos Asaas (M3.01f):** concluídos no preparo/verificação local: fonte3dabd4dd888749f2dd0398fc2af0e85d5266083f/PR #18, check/build CI38183836577/job114601844053 aprovado com878 unitários/50 arquivos e43 scripts; checkout52650030f80793a5a4291af4504a3c5577dab10d/pais conferidos. 146 próprios/presença/fatos/reconciliação/comparação cumulativa semdelta/efeitos; duas revisões finais sem bloqueador. Suíte recuperada e fonte final revalidada. CI38183836577 integralmente success:384 banco/23 arquivos,165 navegador/sete omissões planejadas e dois advisors sem achados; checkout/pais/head conferidos, extrato0410e60d9a84cf78aa5e8a9b0bfdac1cfa41742c0bc9209d9118030b62b1b528. PR #18 pronto para revisão, fonte preservada. M3.01a preparada/verificada integralmente no recorte local,414 casos próprios; autenticidade/suporte real/ativação de M3.01c continuam pendentes. Próxima M3.01b.
+- **Obrigações (M3.01g):** concluídas no preparo/verificação local: migration0058 privada/RLS, conta e cliente fixture, sinal/saldo pelo aceite e crédito manual preservado; contrato vigente, fase, valores seguros, replay e autoria. 50 unitários e19 banco próprios/403 gerais locais, advisors sem achados e duas revisões. Check/build remoto CI38185910157/job114608059274 success na fonte86895f48d911c1f6365ca3a0461aaff6cb4e4c33/PR #19, com928 unitários/51 arquivos e43 scripts. Checkoutc241483a3db6cd7386b54d8d2d0045d104e52bec/pais main9a25+fonte conferidos, extratoc6cc3c41e8c37e5b79dc3274457a1297e9704cacd24d1228f2f872a36df2615e. CI38185910157 integralmente success:403 banco/24 arquivos,165 navegador/sete omissões planejadas e dois advisors sem achados; checkout/pais/head conferidos, extrato5081b8ebd1052dd0c2d11975dfd3c906b5d2db05eeb969aaf0339de734e1b5d7. PR #19 pronto para revisão, fonte preservada. Read-back local: zero scopes/bindings/contextos/configuração e quatro perfis. Nenhuma emissão/crédito/fila/download alterados. ParentM3.01b e h/i/j/k abertos; próxima l, parte de h.
+- **Reservas (M3.01l):** concluídas no preparo/verificação local: migration0059 privada/RLS, referência UUID, exclusividade por pedido, fingerprints/replay, retirada préclaim e estado atual separado de recibo.43 unitários e24 banco próprios/427 gerais em25 arquivos, advisors e duas revisões sem bloqueador. Check/build CI38187868946/job114614038683 success na fonte7daef30d5d1f341f08cc0717074961559f433f18/PR #20,971 unitários/52 arquivos e43 scripts; checkout49f87d56dec923aa904a2f296946c0e0aa87aa7b/pais main9a25+fonte conferidos, extratodac71b90476689e651e8a9056d58bae25f13a7f02ab4ba3b79289d1bfcfbf44d. Suíte geral remota viva/PR rascunho/head preservado; sem declaração de CI integral. Read-back zero intenções/reservas/requests/claims/retiradas/contextos/scopes/bindings/configuração e quatro perfis. H/parentb abertos; próxima m, que coordena Pix/contrato. Sem escritor de claim/POST/crédito.
 - **Bloqueios externos:**
+  - administração da Vercel pelo navegador teve bloqueio registrado de Computer Use; isso não impede a demonstração concluída pelo MCP. Não repetir nem contornar essa proteção caso o navegador volte a ser necessário;
   - planos Pro, integração GitHub/Vercel, skill de segurança e dados reais do André ainda precisam de verificação/insumos;
   - CI e proteção do novo repositório público verificados; caches antigos continuam privados, sem purga física pelo suporte do GitHub. A integração Vercel deverá selecionar o novo repositório ID 1414349093;
   - GATEs, revisão de textos, calendário de TRT, preços e ensaios reais continuam sem evidência humana; não foram marcados como concluídos.
@@ -102,13 +117,15 @@ O título vai até o primeiro " — ". As seções "Especificação das tarefas"
 | Insumo | De quem | Trava | Situação |
 |---|---|---|---|
 | Aprovar os MCPs `andre-calculos-supabase` e `andre-calculos-vercel` e fazer o login com as contas novas | Fábio | M1.04, migrations na nuvem, M1.50 | concluído: OAuth e chamadas nativas confirmaram projeto Supabase e somente equipe Projeto Andre; consentimento final autorizado pelo Fábio, sem acesso a todos os projetos atuais/futuros |
+| Incluir somente o projeto `andre-calculos` no acesso da conexão Vercel do cliente | Fábio | M1.04a; publicação pelo MCP em M2.34d | concluído: consentimento exclusivo confirmado pelo Fábio, OAuth com sucesso, MCP dedicado lista somente Projeto Andre/andre-calculos; get_project confirma os IDs e list_deployments funciona |
+| Resolver o bloqueio efetivo de `vercel.com`, caso o navegador volte a ser necessário | Fábio | nenhuma tarefa atual da demonstração | bloqueio anterior não revalidado; publicação concluída pelo MCP e endereço público testado. Não é insumo para a demonstração |
 | Decidir o áudio da reunião no primeiro commit | Fábio | M1.12 (push) | autorizado e executado em 2026-10-11; 24 commits/duas árvores filtrados, original íntegro preservado |
 | Tratamento da transcrição antes da visibilidade pública autorizada                                              | Fábio                                         | CI de M1.13/M2.34                                     | autorizado e executado em 2026-10-11: histórico publicado sem transcrição, original local íntegro; caches antigos isolados em arquivo privado |
 | Runtime Docker local (D17) | Agente, conforme execução integral autorizada | M1.40 a M1.44 | Colima 0.10.3 e Docker 29.9.0 instalados; perfil andre-calculos saudável; decisão de produto D17 permanece aberta |
-| Confirmar a região São Paulo e assinar o plano Pro no Supabase e na Vercel, com o cartão do cliente | Fábio | M1.05, M1.44, M1.50 | pendente |
+| Confirmar a região São Paulo e assinar o plano Pro no Supabase e na Vercel, com o cartão do cliente | Fábio | M1.05, M1.44, M1.50 | Vercel gru1 conferida no deploy e health da demonstração; assinaturas Pro e confirmação dos demais requisitos continuam pendentes. Nenhuma compra executada |
 | Instalar o app da Vercel do cliente na organização Harmony-Digital do GitHub, só com acesso a `andre-calculos` | Fábio | M1.50 | pendente; selecionar o novo repositório público ID 1414349093, não o arquivo privado |
 | Confirmar se as contas do Supabase e da Vercel foram criadas com a conta-mãe (Gmail novo do cliente) | Fábio | M1.06 | a confirmar |
-| Conta no Resend | Fábio | M2.28 | pendente |
+| Conta no Resend | Fábio | M2.28b/c e conclusão de M2.28 | pendente; M2.28a prepara somente modelos fictícios locais, sem conta, segredo ou envio |
 | Cadastrar o projeto no Hub e criar a chave do agente | Fábio | M1.60, M1.61 | pendente |
 | Decisões D7, D14, D16 e D17 | Fábio | ver "Decisões" | pendente |
 | Nome completo, número do CRC (UF e categoria) e CPF ou CNPJ e razão social que aparecem no site e nas propostas | André | publicação de M2.02, M2.03 e M2.12 | pendente |
@@ -123,6 +140,12 @@ O título vai até o primeiro " — ". As seções "Especificação das tarefas"
 | Decisões D5, D6, D8 e D11 | André | M2.13, M2.27, M2.10 | pendente |
 | Aprovação dos textos da página inicial, dos termos e da política | André | GATE M2 | pendente |
 | Um processo antigo, com autorização, para o ensaio | André | M2.36 | pendente |
+| Aprovar a especificação de M3.00 para implementação local fictícia | Fábio | implementação do M3 | concluído: Fábio respondeu “Aprovar e continuar a implementação local” em 2026-10-11 ao detalhamento da fonte b9b687d. Autoriza dados fictícios locais; condições específicas de contas/custos/decisões/publicação/operações reais permanecem |
+| Conta e credenciais Asaas sandbox do cliente, sem valores no chat | Fábio | ensaio externo de M3.01c | pendente; comprovar associação account.id/carteira/credencial e compatibilidade de CNPJ alfanumérico/timestamps antes do driver real. Adaptador/cenários locais autorizados por M3.00; produção depende de D9 e M3.03 |
+| Critérios completos de garantia: duração, termo inicial, responsabilidade e acesso histórico durante ajuste | André com revisão jurídica | M3.05/06 | pendente; D5/D11 seguem abertas; atraso isolado não comprova culpa |
+| Identificação privada do signatário e mecanismo aprovado de validação ICP-Brasil | André e Fábio | ensaio real de M3.08 | pendente; não presumir API autorizada a partir do site público VALIDAR |
+| Propriedades Google/Meta, configuração DataJud e textos de consentimento na conta do cliente | Fábio e André | ativação real de M3.13/16/17/21 | pendente; cenários fictícios e preparação local não comprovarão integração externa |
+| Política de retenção e destino/custo de backup externo aprovados | André e Fábio | ativação de M3.18/22 | pendente; política precede backup/restauração, que precedem exclusão real, sem dependência circular |
 
 ## Ordem de execução (M1 e M2)
 
@@ -130,9 +153,10 @@ O título vai até o primeiro " — ". As seções "Especificação das tarefas"
 2. **Depois de M1.10 (áudio):** M1.12 → M1.13.
 3. **Depois de M1.03 (MCPs):** M1.04 → M1.05.
 4. **Depois de M1.08 (Docker):** M1.40 → M1.41 → M1.42 → M1.43 → M1.44 → M1.22.
-5. **Depois de M1.50 (Vercel ligada ao GitHub):** M1.51 → M1.52 → M1.23 (Fábio) → GATE M1.
+5. **Fila e publicação:** M1.51a pode usar a parte local verificada de M1.42/M1.43 e M2.28a antes da integração Vercel; M1.51b prepara o executor fictício local; M1.52a prepara o manual documental antes da confirmação do plano/backup. Depois de M1.50 (Vercel ligada ao GitHub), M1.51c → M1.52 → M1.23 (Fábio) → GATE M1.
 6. **M2 com banco:** M2.04 → M2.05 → M2.06 → M2.33 → M2.12 → M2.14 → M2.15 → M2.16 → M2.17 → M2.18 → M2.20 → M2.21 → M2.22 → M2.23 → M2.24 → M2.25 → M2.26 → M2.26a → M2.27 → M2.13 → M2.32.
 7. **Notificações:**
+   - M2.28e integra o aviso de sinal ao caso de uso já verificado, antes do transporte real, usando apenas banco/dados locais;
    - M2.31 pode ser verificada antes dos provedores: os casos de uso existentes enfileiram no banco local e permitem comprovar as preferências sem enviar mensagens;
    - preparação local de seleção/deduplicação de M2.30 pode seguir, com calendário provisório e sem ativar o cron real;
    - M2.28 precisa da conta no Resend (e do domínio, para produção);
@@ -150,6 +174,7 @@ Prazo sugerido: 2026-10-13
 - [x] M1.02 Conectar o projeto às contas certas e bloquear as contas de outros clientes — evidência: `.mcp.json` com `andre-calculos-supabase` (restrito ao projeto `qtofwbxujshroaafxowr`) e `andre-calculos-vercel`; `.claude/settings.json` bloqueia os MCPs de outras contas e os comandos que revelam segredos (bloqueio testado com `printenv` em 2026-10-10); hook `SessionStart` roda `scripts/preflight.sh` (testado: GitHub, repositório e 1Password OK)
 - [x] M1.03 Aprovar os MCPs do projeto e fazer o login com as contas novas do cliente — evidência: `codex mcp login` concluído com código zero para ambos; consentimento final Vercel somente Projeto Andre, conforme autorização explícita das 35 permissões; ferramentas dedicadas disponíveis no chat; docs/evidencias/mcp/validacao-2026-10-11.md
 - [x] M1.04 Conferir os dois MCPs e registrar os identificadores do cliente — evidência: chamadas nativas `get_project_url` para qtofwbxujshroaafxowr, `list_teams` com somente Projeto Andre/projeto-andre1/team_4fdLDCsB0ROvP5ph50aFNvxm e `get_team` correto; `list_projects` da equipe vazio, valores esperados registrados e `bash scripts/preflight.sh` aprovado; docs/evidencias/mcp/validacao-2026-10-11.md
+- [x] M1.04a Conceder ao MCP Vercel acesso exclusivamente ao projeto andre-calculos — evidência: Fábio confirmou consentimento somente ao projeto, OAuth com sucesso; list_teams somente Projeto Andre, list_projects somente andre-calculos/prj_tdmzmC6utVU2fHPz0iVhroMD8NtI, get_project com equipe correta e list_deployments sem403. docs/evidencias/mcp/validacao-2026-10-11.md
 - [ ] M1.05 Confirmar a região e o plano do Supabase e da Vercel — responsável: Fábio confirma no painel; o agente registra
 - [ ] M1.06 Confirmar a conta-mãe do cliente e guardar o acesso no cofre só de pessoas — responsável: Fábio; D16
 - [ ] M1.07 Criar a conta no Resend com a conta-mãe — responsável: Fábio
@@ -187,9 +212,13 @@ Prazo sugerido: 2026-10-13
 
 ### Publicação e operação
 
-- [ ] M1.50 Criar o projeto na Vercel ligado ao repositório e publicar a produção — responsável: Fábio liga a integração; o agente configura
-- [ ] M1.51 Criar a fila de envios no banco e o Vercel Cron — depende de M1.42 e M1.50
-- [ ] M1.52 Confirmar o backup diário do banco e documentar a restauração — depende de M1.05
+- [ ] M1.50 Criar o projeto na Vercel ligado ao repositório e publicar a produção — ⏳ projeto exclusivo andre-calculos criado em Projeto Andre e demonstração fictícia publicada pelo MCP no domínio original. Integração GitHub e publicação comercial pendentes. Responsável: Fábio liga a integração; o agente configura
+- [ ] M1.51 Criar a fila de envios no banco e o Vercel Cron — ⏳ produtores transacionais e deduplicação já usam public.notifications; processamento dividido antes da implementação em M1.51a/b/c. Ativação externa depende de M1.42 e M1.50
+- [x] M1.51a Preparar reservas e resultados persistentes da fila no banco local — evidência: migrations0052/53/54 aplicadas somente localmente; 16 unitários próprios/434 totais/25 scripts e 25 próprios/340 banco aprovados, advisors sem achados e revisões independentes concluídas. npm run check/build remoto aprovado na fonte558a5c7ebefad7150302280a86efa8340c43cb91, job114571144088/CI38173586727. CI38173586727 completo aprovado com 340 banco/165 e2e/sete omissões e advisors sem achados; PR #11 pronto para revisão; núcleo não ativa transporte/cron/nuvem. docs/evidencias/notificacoes/fila/README.md
+- [x] M1.51b Preparar o executor local com transporte fictício — evidência: migration0055 somente local; 30 próprios/370 banco gerais, 43 unitários dos módulos/461 gerais/25 scripts, advisors e revisões independentes aprovados; npm run check/build remoto da fonte85568bcd004d387ab216bba5c23a95fbef52962e aprovado no job114574690764/CI38174754842. CI38174754842 completo aprovado: 370 banco/165 e2e/sete omissões/advisors sem achados; PR #12 pronto para revisão, fonte preservada. Sem transporte externo/endpoint/cron. Read-back das fixtures zerado; docs/evidencias/notificacoes/executor/README.md
+- [ ] M1.51c Ativar o cron e os adaptadores autorizados — depende de M1.51b, M1.50, credenciais e autorização de infraestrutura/envio
+- [ ] M1.52 Confirmar o backup diário do banco e documentar a restauração — ⏳ manual documental M1.52a concluído; falta M1.05 e confirmação real do backup no painel. Nenhuma restauração/compra/Storage protegido comprovados
+- [x] M1.52a Preparar o manual de backup e restauração — evidência: fonte79fc356c8c56579cc4375214d2f2275504cef7b3/PR #14, docs/operacao.md, npm run check/build remoto CI38176671146/job114580408182 aprovado (461 unitários/43 scripts); fontes oficiais backups/clone/CLI conferidas em 2026-10-11, oito links/destinos e referências locais válidos, git diff --check e duas revisões independentes sem bloqueador. Inclui teste mensal, papéis, identidade, matriz de validação e isolamento físico/lógico; sem restore/compra/produção. M1.52/M3.22 abertos
 
 ### Gestão no Hub
 
@@ -219,6 +248,7 @@ Prazo sugerido: 2026-10-20
 ### Cadastro e conta
 
 - [ ] M2.04 Criar o cadastro e o login do cliente — ⏳ RF-10 implementado e e2e de confirmação Mailpit/login aprovado com dados e aceites sintéticos; CPF/CNPJ numérico e alfanumérico, E.164 e OAB/UF validados; cadastro público ainda bloqueado até conteúdo legal aprovado e Auth/SMTP de produção conferidos
+- [x] M2.04c Apresentar falha de link e verificar o retorno automático — evidência: fonte9843f5df385ef072ab762191bf4e50aaa67e9b85/CI38171804330/job114565777210 com npm run check/build aprovados (418 unitários/25 scripts), sete próprios e 18 e2e/duas omissões planejadas em375/1440; Mailpit/cadastro/jornada sem navegação corretiva, replay/inválido/outro navegador sem sessão, dois PNG com QA independente. docs/evidencias/autenticacao/retorno/README.md; sem alterar Auth/configuração/produção
 - [x] M2.05 Avisar o André a cada novo cadastro — evidência: e2e confirmou notificação new_signup na fila local, com nome/OAB/cidade e sem documento; destino configurado e preferências respeitados; envio real depende de M2.28/29 (2026-10-11)
 - [x] M2.06 Criar a página da conta com perfil, senha e pedido de exclusão — evidência: três fluxos e axe em 375/1440 px aprovados; perfil por RPC auditada, senha nova funciona e segundo dispositivo perde acesso; pedido idempotente preserva conta/retenção (17 testes RLS, 2026-10-11)
 
@@ -229,7 +259,7 @@ Prazo sugerido: 2026-10-20
 - [x] M2.09 Criar o motor de preço determinístico — evidência: testes de base/adicionais/urgência/arredondamento/limites; 100% das linhas e branches de pricing.ts executados em 2026-10-11
 - [ ] M2.10 Criar a calculadora de prazo processual em dias úteis — ⏳ calendário/folga e testes Carnaval/Páscoa/20-11/recesso aprovados; fontes em docs/calendario-processual.md; falta calendário oficial do TRT e conferência de três casos pelo André
 - [x] M2.11 Criar o classificador de complexidade — evidência: testes por regra e limites configuráveis; painel salva os limites por RPC auditada e checklist os carrega por projeção mínima protegida; 24 testes RLS aprovados (2026-10-11)
-- [ ] M2.12 Criar a tela de orçamento e o PDF da proposta — ⏳ fluxo fictício local com numeração anual, snapshot imutável, tela e PDF privado verificados; reenvio/concorrência/rollback e acesso entre clientes testados; emissão comercial depende de dados reais, calendário, regra de meses e disponibilidade; aceite contratual preparado em M2.15; recusa segue bloqueada até seu caso de uso
+- [ ] M2.12 Criar a tela de orçamento e o PDF da proposta — ⏳ fluxo fictício local com numeração anual, snapshot imutável, tela e PDF privado verificados; reenvio/concorrência/rollback e acesso entre clientes testados; emissão comercial depende de dados reais, calendário, regra de meses e disponibilidade; aceite contratual preparado em M2.15 e recusa verificada em M2.12a
 - [ ] M2.13 Criar o caminho Só o PDF com taxa de triagem — RF-24; D5
 - [x] M2.14 Avisar o André a cada orçamento gerado — evidência: migration local 0035, oito testes RLS específicos e oito regressões de navegador em 375/1440 px; enfileiramento transacional, preferências, dedup/rollback e zero avisos para simulações; positivo com proposta legada sintética, emissão comercial ainda depende de M2.12 e envio de M2.28/29; docs/evidencias/propostas/avisos.md (2026-10-11)
 
@@ -240,6 +270,10 @@ Prazo sugerido: 2026-10-20
 - [x] M2.17 Permitir marcar cliente com contrato — evidência: migrations locais 0043–0045, quinze casos de banco e seis e2e próprios em 375/1440 px; motivo/revisão/recibo privado, contrato antes/depois do aceite/documento, replay/concorrência/rollback e pagamentos preservados; retirada bloqueada em trabalho ativo; docs/evidencias/clientes-com-contrato/README.md (2026-10-11). Ativação comercial segue dependente de M2.12 e insumos reais
 - [ ] M2.18 Criar o upload retomável de documentos — ⏳ RF-33 verificado no Supabase local com rede interrompida e isolamento; pasta dos pedidos persistidos acessível no e2e de rascunho; falta validação na nuvem
 - [x] M2.19 Criar a máquina de estados do pedido — evidência: transições, papéis, propriedade, aceite/sinal/contrato e revisão de entrega testados em 2026-10-11
+- [x] M2.19a Operar análise, cálculo e revisão pela pasta do processo — evidência: fonte 45a32d9, docs/evidencias/pedidos/operacoes.md; CI38162207294 aprovado com 358 unitários, doze testes de scripts/build, 160 banco, 117 e2e/sete omissões e advisors locais sem achados. Seis e2e próprios em 375/1440 px, retorno à origem/replay/conflito/rollback e jornada sem prepareTechnicalReview conferidos. PR #3; sem publicação das operações.
+- [x] M2.12a Registrar recusa de proposta pelo cliente — evidência: fonte 5173391, migration 0051, 33 regressões próprias/315 banco, 379 unitários/doze scripts, quatro e2e próprios e doze regressões de aceite/jornada em 375/1440 px; advisors sem achados. Evidência: docs/evidencias/orcamento/recusa/README.md. CI38166216291 completo aprovado: npm run check/build, 315 banco, 121 e2e/sete omissões e advisors sem achados; PR #6 pronto para revisão. Build local recusado pela porta interna do Turbopack.
+- [x] M2.04a Impedir cadastro direto sem aceite jurídico — evidência: fonte 2cab40d, migrations locais 0047/0048 e docs/evidencias/cadastro/aceite-juridico.md; 24 regressões Auth/grants, 184 banco, seis e2e/duas omissões em 375/1440 px aprovados. npm run check/build aprovado no job qualidade do CI38163619398, advisors locais sem achados; PR #4 dependente de #3; CI38163619398 completo aprovado com 184 banco, 117 e2e/sete omissões e advisors sem achados. Nenhuma mudança de Auth na nuvem; textos comerciais de M2.03 continuam pendentes.
+- [x] M2.04b Validar os campos do cadastro também no hook Auth — evidência: fonte 4af6407, migrations locais 0049/0050 e docs/evidencias/cadastro/campos-auth.md; 98 regressões de campos, 282 testes reais de banco e seis e2e/duas omissões em 375/1440 px aprovados. Job qualidade do CI38164584726 aprovou npm run check completo/build, 362 unitários/doze scripts; advisors locais sem achados. PR #5 pronto para revisão, dependente de #4/#3; CI38164584726 completo aprovado: 282 banco, 117 e2e/sete omissões e advisors sem achados. Bootstrap/gate jurídico preservados; nenhuma mudança Auth na nuvem.
 
 ### Pasta do processo
 
@@ -258,7 +292,12 @@ Prazo sugerido: 2026-10-20
 
 ### Notificações
 
-- [ ] M2.28 Configurar os e-mails transacionais e o SMTP do login com o Resend — RF-70
+- [ ] M2.28 Configurar os e-mails transacionais e o SMTP do login com o Resend — RF-70; dividido em modelos transacionais M2.28a, transporte M2.28b, SMTP M2.28c e modelos locais de autenticação M2.28d; conta/domínio e teste real permanecem pendentes
+- [x] M2.28a Criar e verificar os modelos de e-mail com dados fictícios — evidência: 16 modelos HTML/texto; 24 testes específicos, 403 unitários/doze scripts e 32 e2e em 375/1440 px aprovados, QA visual/axe sem achados; npm run check/build remoto aprovado no job qualidade 114555367460/CI38168299312, fonte d065be6f0ffdc2e1f42f015d766ee79430cd5096. docs/evidencias/emails/README.md; sem envio; CI completo aprovado com 315 banco/153 e2e/sete omissões e advisors sem achados; PR #7 pronto para revisão
+- [ ] M2.28b Integrar os modelos ao adaptador Resend e verificar destinatário de teste — parte de M2.28; depende de conta/credenciais do cliente e fila de M1.51; envio real exige autorização
+- [ ] M2.28c Configurar o SMTP e os textos de autenticação em português — parte de M2.28; responsável: Fábio configura Auth/segredos; agente prepara e verifica ensaio autorizado
+- [x] M2.28d Preparar modelos locais de confirmação, acesso e recuperação — evidência: fonte03b4d778c8cc924ff2a3a25dd04911fb85e7899c/CI38170815863/job114562860596 com npm run check/build aprovados, 411 unitários/25 scripts; oito próprios, 38 e2e dos 19 modelos e seis capturas com QA independente. docs/evidencias/emails/autenticacao/README.md; sem aplicar templates, Auth/SMTP ou envio
+- [x] M2.28e Enfileirar o aviso de sinal confirmado ao cliente — evidência: fonte5d3db8a1f63758e0a619605052f30e60e3af1153/PR #15, check/build CI38178835637/job114586864386 aprovado (461 unitários/44 arquivos, 43 scripts); checkout8d74e4e2f6132189589b192264286b4ef1a2b65a/pais conferidos. Etapa geral de banco no job114586864267 success, término22:08:30UTC; 27 testes específicos/regressões locais passaram, incluindo14 do aviso e perfil mínimo. Migrations0056/0057 somente locais, advisors/revisões sem bloqueador, fixtures limpas. Navegador remoto em execução; sem despacho/nuvem. docs/evidencias/notificacoes/sinal/README.md
 - [ ] M2.29 Enviar alertas ao André por WhatsApp — D7
 - [ ] M2.30 Agendar os lembretes de prazo — ⏳ RF-53 preparado/verificado localmente: seleção, janela, recibos, cancelamento e cron autenticado; onze novos testes de banco, 27 novos unitários e HTTP/axe em 375/1440 px. Calendário TRT, cron Vercel e despacho real pendentes; evidência: docs/lembretes-de-prazo.md e docs/evidencias/lembretes (2026-10-11)
 - [x] M2.31 Criar as preferências de notificação do André — evidência: nove eventos/dois canais com vínculo persistente, revisões concorrentes, recibos imutáveis e auditoria; sete ensaios RLS específicos e dois e2e em 375/1440 px confirmaram canal desligado sem novo aviso, reenvio antigo sem desfazer mudança e falha de rede antes/depois de gravar. Migration local 0029, lint/advisors sem achados, docs/evidencias/notificacoes/README.md (2026-10-11); despacho real segue em M2.28/29
@@ -273,9 +312,12 @@ Prazo sugerido: 2026-10-20
 - [x] M2.34 Testar o fluxo completo de ponta a ponta no Playwright — evidência: job e2e 114478041670/CI 38142154491 verde, 109 aprovados e sete omitidos somente no celular; 142 testes de banco, npm run check e advisors locais aprovados. Jornada em 375/1440 px e três pontes sintéticas documentadas em docs/jornada-local.md; docs/evidencias/git/ci.md e docs/evidencias/jornada-local/README.md
 - [x] M2.34a Corrigir os controles cortados ao concluir o checklist no celular — evidência: jornada repetida em 375/1440 px, todos os controles contidos no painel e captura celular/02-checklist.png em docs/evidencias/jornada-local; npm run check verde
 - [x] M2.34b Criar demonstração navegável com identidade e dados fictícios — evidência: rota /demonstracao, marca Marco/CRC DEMO-000000/O, oito testes de regras aprovados; autorização do Fábio em 2026-10-11; sem banco, pagamento ou envio real; docs/evidencias/demonstracao/README.md
-- [x] M2.34c Validar a demonstração em 375 e 1440 px — evidência: quatro e2e aprovados, jornada completa/checklist/proposta/timeline/calendário/reinício, axe WCAG A/AA sem violações e zero chamadas externas; 348 unitários/tipos/lint/formato/doze testes de scripts aprovados; build local limitado pela porta interna do Turbopack, CI pendente
-- [ ] M2.34d Publicar a demonstração no endereço original da Vercel — equipe Projeto Andre; fonte revisada da main, domínio `.vercel.app`, sem segredos; verificar a jornada pública antes de concluir
+- [x] M2.34c Validar a demonstração em 375 e 1440 px — evidência: quatro e2e próprios aprovados, jornada/checklist/proposta/timeline/calendário/reinício, axe sem violações e zero chamadas externas; CI 38153083358/SHA abe2fb4 aprovado: npm run check/build, 348 unitários, doze scripts, 142 RLS, 113 e2e/sete omissões e advisors sem achados; README da demonstração
+- [x] M2.34d Publicar a demonstração no endereço original da Vercel — evidência: fonte main 9a25f31, 158 arquivos conferidos, publicação MCP na equipe/projeto esperados; deploy dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 READY em gru1, https://project-rucji.vercel.app/demonstracao público sem login Vercel. Quatro testes hospedados em 375/1440 aprovados, axe sem violações e oito capturas; docs/evidencias/demonstracao/README.md e hospedada/validacao.json
 - [ ] M2.35 Fazer a revisão de segurança antes da publicação
+- [ ] M2.35a Tratar GHSA-vfj7-8cjw-p6xm nas ferramentas de qualidade — ⏳ preexistente na fonte 5173391; cinco registros high na cadeia ESLint/fast-glob/micromatch/braces, todos dev, sem patch oficial em 2026-10-11. Audit omitindo dev: zero vulnerabilidades. Coletor aprovado em dez testes próprios/22 scripts e 403 unitários; build/qualidade CI38169457310 da fonte b1a201f aprovados. Artefato real conferido: 35 traces/300 JS, zero referências/marcadores identificáveis, cobertura incompleta por um symlink; CI38169457310 integral aprovado com 315 banco/153 e2e/sete omissões e advisors sem achados; PR #8 pronto para revisão. Diagnóstico adicional de artefato/trace com motivo fixo passou em treze testes próprios/25 scripts; nova coleta aprovada na fonte03b4d77/CI38170815863: artifact_symlink_skipped em .next/node_modules/@react-pdf/renderer, sem seguir o alvo. Cobertura incompleta preservada. Referências ao código incorporado no Next têm versão indeterminada; ausência de marcador não prova ausência no bundle. Evidência: docs/evidencias/seguranca/audit-dependencias.md e inventario-build.md
+- [x] M2.35b Inspecionar a dependência externalizada com limites e destino conferido — evidência: fonte62c8def76cfc5bdc1a867f97ce591a320cb7aac5/PR #13, check/build CI38175897388/job114578103904 aprovado (461 unitários/43 scripts/31 próprios); JSON real/hash/source/checkout/lock/configuração conferidos. 35 traces/301 JS e quatro JS/39.932 bytes do alias PDF inspecionados, contadores zero. Parte técnica concluída; advisory M2.35a e revisão integral abertos. docs/evidencias/seguranca/inventario-build.md e build-dependencies-62c8def.json
+- [ ] M2.35c Revisar os avisos de lint SQL dos validadores de CPF/CNPJ — oito avisos preexistentes de variáveis sombreadas/não usadas, identificados no ensaio M2.28e. Preparar correção local versionada e regressões dos documentos antes de executar; não altera schema/Auth na nuvem
 - [ ] M2.36 Ensaiar com o André um processo antigo autorizado — responsável: André com o agente
 - [ ] M2.37 Publicar o MVP no domínio definido — D3; aprovação do Fábio antes de divulgar
 
@@ -293,11 +335,27 @@ Prazo sugerido: 2026-11-17 (a confirmar com o André)
 
 ### Planejamento do marco
 
-- [ ] M3.00 Detalhar as tarefas do M3 na especificação e pedir aprovação do Fábio — mesmo formato do M1 e do M2; incluir o que o ensaio e os primeiros pedidos ensinaram
+- [x] M3.00 Detalhar as tarefas do M3 na especificação e pedir aprovação do Fábio — evidência: 32 especificações da fonte b9b687d e aprovação registrada do Fábio em 2026-10-11: “Aprovar e continuar a implementação local”. Incorporadas lições dos ensaios fictícios; autoriza somente implementação local fictícia conforme condições do plano. Ensaio com André, operações reais e GATEs continuam pendentes
 
 ### Pagamento automático
 
 - [ ] M3.01 Integrar o Asaas em sandbox — cliente, cobrança do sinal e do saldo, link de Pix, boleto e cartão, webhook idempotente (RF-31)
+- [x] M3.01a Preparar o adaptador de pagamento e os cenários fictícios — evidência: partes M3.01d/e/f verificadas nas fontesa2cb04a/58f61cf/3dabd4d, PRs #16–18, check/build remoto aprovado;414 testes próprios/878 gerais/43 scripts na última fonte. Contratos precisos/porta fixture/normalização cumulativa sem efeitos. Preparo local concluído; conta autenticada, suporte real de documentos/formatos e driver/ensaio externo seguem em M3.01c. M3.01 permanece aberta
+- [x] M3.01d Preparar os contratos precisos do Asaas — evidência: fontea2cb04a87e23ae85581d2eb7f42881dfc24b7dae/PR #16, check/build CI38180969695/job114593253417 aprovado (596 unitários/47 arquivos e43 scripts), checkout0cb19ffdc2b7798582467a06d9629d637cc16d71/pais conferidos. Quatro módulos somente servidor/135 testes próprios, revisões sem bloqueador; sem driver/banco/operação financeira. docs/evidencias/pagamentos/contratos/README.md
+- [x] M3.01e Implementar o adaptador do Asaas com porta de transporte — evidência: fonte58f61cf291295672e8fa5c75d0cd1fa4b35a6893/PR #17, check/build CI38182349916/job114597378029 aprovado (732 unitários/49 arquivos e43 scripts), checkout3d803ab3b5083348dc2dad0f7cbe8be19ff4ac25/pais conferidos. Porta fixture explícita,136 casos novos, duas revisões sem bloqueador; sem driver/segredo/HTTP/banco/efeito financeiro. docs/evidencias/pagamentos/transporte/README.md
+- [x] M3.01f Normalizar os eventos financeiros do Asaas — evidência: fonte3dabd4dd888749f2dd0398fc2af0e85d5266083f/PR #18, check/build CI38183836577/job114601844053 aprovado (878 unitários/50 arquivos e43 scripts), checkout52650030f80793a5a4291af4504a3c5577dab10d/pais conferidos. 146 próprios/presença/fatos/reconciliação/comparação cumulativa, sem delta/efeitos; duas revisões finais sem bloqueador. docs/evidencias/pagamentos/eventos/README.md
+- [ ] M3.01b Persistir cobranças e reconciliar respostas do provedor — escopo aprovado desdobrado antes da implementação em M3.01g/h/i/j/k; parent permanece aberto até as cinco partes verificadas
+- [x] M3.01g Preparar obrigações e vínculos do provedor — preparo/verificação local concluídos; evidência: fonte86895f48d911c1f6365ca3a0461aaff6cb4e4c33/PR #19, migration0058, 50 unitários e19 banco próprios/403 gerais, advisors sem achados, duas revisões e check/build CI38185910157/job114608059274 aprovado com928 unitários/51 arquivos e43 scripts; sem emissão
+- [x] M3.01h Persistir intenções, reservas e recibos — preparo/verificação local concluídos; evidência: partes M3.01l/m verificadas nas fontes7daef30d/43e5096, migrations0059/0060, PRs #20–21; check/build remoto aprovado em ambas,24+20 casos próprios de banco e43+6 unitários, concorrência/rollback/replay, advisors e revisões sem bloqueador; duas jornadas375/1440 verificadas. Sem despacho ou operação de pagamento real
+- [x] M3.01l Persistir reserva, intenção e replay — preparo/verificação local concluídos; evidência: fonte7daef30d5d1f341f08cc0717074961559f433f18/PR #20, migration0059,43 unitários e24 banco próprios/427 gerais, advisors e duas revisões sem bloqueador; check/build CI38187868946/job114614038683 aprovado com971 unitários/52 arquivos e43 scripts; sem despacho/crédito
+- [x] M3.01m Coordenar reservas com Pix manual e contrato — preparo/verificação local concluídos; evidência: fonte43e5096bacd383b5628ca9c31c5e956897ab7148/PR #21, migration0060,6 unitários e20 banco próprios/447 gerais,63 focados finais, dois navegador375/1440 comAxe, advisors e duas revisões sem bloqueador; check/build CI38189462022/job114618881288 aprovado com977 unitários/53 arquivos e43 scripts; docs/evidencias/pagamentos/coordenacao/README.md
+- [ ] M3.01i Executar emissão e conciliação fictícias de forma retomável — parte de M3.01b; desdobrada antes da implementação em M3.01n/o/p; parent aberto até transporte, cliente e jornada de retomada integrais verificados
+- [x] M3.01n Persistir o transporte interno e o provedor fictício — preparo/verificação local concluídos; evidência: fonte ce6c3a211bee3110387664a345774a835a869d87/PR #22, migration0061,34 unitários e25 banco próprios/472 gerais em27 arquivos, novo processo recupera recibo, advisors e duas revisões sem bloqueador. Check/build CI38191659515/job114625508727 aprovado com1011 unitários/54 arquivos e43 scripts; suíte geral remota ainda em execução, fonte preservada. I/O/P continuam abertos. docs/evidencias/pagamentos/provedor-ficticio/README.md
+- [ ] M3.01o Criar e conferir o vínculo do cliente de forma retomável — ⏳0062 aplicada localmente; solicitação humana/operação única/etapas privadas, start consumível e fencing;19 unitários e25 banco próprios aprovados, novo processo recupera resposta perdida e preparaG sem binding pré-semeado. 497 regressões gerais em28 arquivos aprovadas, advisors e duas revisões sem bloqueador; read-back limpo/marker desligado. Fonte final/CI em verificação; docs/evidencias/pagamentos/vinculo-cliente/README.md
+- [ ] M3.01p Executar e reconciliar a cobrança com claim permanente — parte de i, depende de n/o; jornada completa, fencing, resposta perdida/zero/404/múltiplos e reserva conservada
+- [ ] M3.01j Preservar histórico e unificar projeção de crédito — parte de M3.01b; manual/Asaas sem dupla contagem, parcial/estorno/chargeback, sinal/fila/saldo/download/auditoria/avisos
+- [ ] M3.01k Mostrar fatura autenticada e verificar jornada — parte de M3.01b; proprietário/reconciliação, 375/1440 px e reenvio/rollback locais
+- [ ] M3.01c Processar webhooks e verificar a jornada em sandbox — parte de M3.01; autenticação, replay e liberação pelas regras do pedido
 - [ ] M3.02 Criar o botão do André para ligar ou desligar o pagamento automático — RF-31
 - [ ] M3.03 Ativar o Asaas em produção — conta conforme D9; aprovação do Fábio
 
@@ -317,7 +375,7 @@ Prazo sugerido: 2026-11-17 (a confirmar com o André)
 
 - [ ] M3.10 Criar a nova versão do PDF quando o processo volta, com as páginas já lidas marcadas — RF-46
 - [ ] M3.11 Criar o pedido de atualização sobre o .PJC guardado — reaproveita checklist, índice e decisões
-- [ ] M3.12 Criar a confirmação de acordo do cliente nas decisões técnicas — RF-47
+- [ ] M3.12 Reaproveitar a confirmação de acordo nas decisões técnicas e verificar a recorrência — RF-47 já implementado em M2.23; não duplicar confirmação nem transportar concordância para conteúdo novo
 
 ### Aquisição e medição
 
@@ -761,6 +819,7 @@ Prazo sugerido: a planejar
 
 #### M1.51 Fila de envios e Vercel Cron
 
+- **Divisão antes da implementação:** M1.51a/b verificam a preparação local dentro do M1/M2 já autorizado; M1.51c preserva a ativação externa. A fila canônica é `public.notifications`, criada em 0001 e usada pelos produtores transacionais. Não criar uma segunda fila `outbox`.
 - **Fazer:**
   1. Criar `src/modules/notifications` com:
      - `enqueue({channel, recipient, template, data, dedupKey})`;
@@ -773,13 +832,37 @@ Prazo sugerido: a planejar
   5. Escrever testes de fila, dedup e nova tentativa.
 - **Pronto quando:** os testes passam e o cron aparece no painel da Vercel.
 
+#### M1.51a Reservas e resultados persistentes da fila local
+
+- **Dependências:** partes locais verificadas de M1.42/M1.43 e modelos M2.28a. Não exige M1.50; não conclui as partes externas de M1.42 ou M1.51.
+- **Fazer:** versionar uma migration sobre `public.notifications`, com reservas exclusivas e recibos privados imutáveis, RLS e RPCs disponíveis somente ao sistema. Conservar `pending` durante a reserva para preservar o cancelamento dos lembretes. Usar relógio do banco, cinco tentativas no máximo e espera crescente apenas após falha comprovadamente repetível. Repetir a mesma requisição deve recuperar a mesma reserva/resultado, sem tomar outro aviso. Resultado de envio desconhecido ou reserva expirada deve ficar bloqueado para reconciliação, sem reenvio automático. Nunca restaurar avisos cancelados, concluídos ou falhos. Não imprimir destinatário, conteúdo, segredo ou erro bruto.
+- **Pronto quando:** testes no PostgreSQL local comprovam concorrência, deduplicação existente, repetição após resposta perdida, rollback, cancelamento, token antigo, espera crescente, quinta tentativa e resultado incerto; advisors locais executados e qualidade/build aprovados. Recibo fictício não comprova entrega externa; proteção do estado no banco não assegura entrega exatamente uma vez por um provedor.
+
+#### M1.51b Executor com transporte fictício
+
+- **Dependências:** M1.51a.
+- **Fazer:** implementar `processPending()` somente no servidor e no ambiente local confirmado, com lote de 1 a 25 posições. Persistir execução imutável vinculada a `runId`, canal, limite, alvos opcionais e versão; requestIds gerados uma vez e preservados na retomada, sem substituir posições já selecionadas. Consultar recibo antes do transporte e após corrida; nunca usar conclusão com sucesso como consulta. Transporte fictício sem rede persiste resultado por tentativa e aceitação única pela chave do aviso + hash do snapshot; revalida e grava na mesma transação. Resultado perdido/indeterminado interrompe o lote para retomada pelo mesmo runId; lease expirada continua bloqueada. Adaptador ausente bloqueia antes da reserva, sem sucesso ou tentativa. Saída somente com modo simulation, contagens e indicação de parada, sem dados privados. Não adicionar endpoint ou cron ativo. Destinatário/público e preferências exigem revalidação específica antes de habilitar transporte real.
+- **Pronto quando:** testes reais locais comprovam processamento, retomada após perda da resposta do transporte e da conclusão, mesmo/diferentes runIds concorrentes, limite e parâmetros imutáveis, resultados conhecidos e parada em desconhecido, cancelamento/expiração antes/depois da aceitação, ausência de rede externa/logs privados e RLS/grants. Recibos distinguem aceitação simulada de entrega real; evidência fictícia não renova lease nem restaura avisos bloqueados/cancelados.
+
+#### M1.51c Ativação autorizada do cron
+
+- **Dependências:** M1.51b, M1.50, contas/credenciais do cliente e autorização de infraestrutura/envio. Transporte real de e-mail/WhatsApp depende de M2.28b/M2.29 e de contrato de idempotência/reconciliação do provedor.
+- **Fazer:** preparar endpoint Bearer e cron descritos em M1.51, confirmar identidade/destino, revalidar público/preferências e ativar somente o adaptador aprovado. A rotina local e os recibos fictícios não autorizam produção.
+- **Pronto quando:** endpoint autenticado, cron no painel e jornada autorizada verificados, sem exposição da fila ou envio indevido; critérios externos de M1.51 concluídos.
+
 #### M1.52 Backup do banco
 
 - **Fazer:**
   1. Confirmar no painel do Supabase (plano Pro) que o backup diário está ativo.
-  2. Escrever `docs/operacao.md`: onde ver os backups, como restaurar (restaurar para um projeto novo e conferir), quem pode fazer.
+  2. Escrever `docs/operacao.md`: onde ver os backups, como restaurar (destino novo isolado e método conferido; restauração física exige plano pago/backups físicos e pode iniciar extensões externas; usar método lógico quando for necessário impedir efeitos antes de restaurar), quem pode fazer.
   3. Registrar que os arquivos do Storage terão cópia própria no M3 (M3.22).
 - **Pronto quando:** o documento existe e o backup aparece no painel.
+
+#### M1.52a Preparo documental de backup e restauração
+
+- **Dependências:** requisitos de M1.52/PRD operação e documentação oficial atual. Não depende da compra do plano, de acesso a backups reais ou de autorização para restaurar dados.
+- **Fazer:** escrever `docs/operacao.md` com conferência de identidade/backup no painel, responsabilidades e autorizações, procedimento de restauração para destino novo isolado quando o recurso/plano estiver disponível, verificações posteriores de banco/RLS/Auth/aplicação, limites da cobertura do Storage e evidências mínimas sem dados/segredos. Registrar divergências entre a especificação e o recurso atual. Conferência/execução reais continuam em M1.52/M3.22; não escolher plano/custo/retenção nem ativar integrações, cron, envio ou produção.
+- **Pronto quando:** documento em português conferido contra fontes oficiais e regras/arquivos do projeto, links/destinos e instruções revisados independentemente, sem segredo ou comando destrutivo executado; tarefa pai aberta, com confirmação/ensaio externo explicitamente separados.
 
 #### M1.60 Cadastro no Hub (Fábio)
 
@@ -854,6 +937,37 @@ Prazo sugerido: a planejar
   3. Exigir confirmação do e-mail.
   4. Mostrar as mensagens de erro em português, com o nome do campo.
 - **Pronto quando:** o e2e faz o cadastro, a confirmação (Mailpit local), o login e chega a `/app`.
+
+#### M2.04a Impedir cadastro direto sem aceite jurídico
+
+- **Origem/dependências:** RF-02/RF-10, M2.03/M2.04. Correção local de segurança; não aprova textos jurídicos nem ativa cadastro comercial.
+- **Fazer:**
+  1. Nova migration substitui o hook Auth. Antes de inserir perfil/cliente, exigir `accepted_legal` booleano JSON verdadeiro, configuração jurídica existente, versões textuais não vazias e correspondência exata com as duas versões aprovadas. Trancar a configuração até concluir a transação.
+  2. Criar perfil com papel `client`, cliente e dois consentimentos com versões da configuração e instante do banco; auditoria/aviso continuam transacionais. Ausência, falsidade, tipo inválido, versão divergente ou revogada recusam a criação, sem persistência parcial. Papel e condição de contrato nunca vêm de metadados públicos.
+  3. Bootstrap de fixtures usa autorização privada de uso único por UUID exato e validade curta, registrada exclusivamente pelo PostgreSQL administrativo local. Nenhum acesso ou RPC de concessão para `anon`, `authenticated` ou `service_role`; tabela com RLS. Hook consome a autorização atomicamente e audita provisionamento administrativo, sem inventar consentimentos ou aviso de cadastro público.
+  4. Helper local valida o destino, gera UUID, registra autorização, chama `auth.admin.createUser({ id, ... })`, confere a identidade retornada e limpa autorização residual no `finally`. Adaptar seed e usuários temporários. Sem exceções por e-mail, `user_metadata`, hostname ou variável de ambiente no hook de produção.
+  5. Não atribuir vigência aos rascunhos nem chamar aceite de fixture de aprovação jurídica. M2.03 continua aberta para publicação/revisão e correspondência entre conteúdo exibido e versão aceita; endurecimento do Auth não encerra essa tarefa.
+- **Pronto quando:** API Auth direta rejeita cadastro sem aceite/configuração/versões válidas; sucesso registra exatamente dois consentimentos sem elevar papel; UUID falso e marcadores públicos não concedem bootstrap. Uso único, expiração, disputa, rollback, seed repetível, usuários temporários e jornada completa verificados. `npm run check`, suíte real de banco e advisors locais aprovados; nenhuma mudança de Auth na nuvem nesta tarefa.
+
+#### M2.04b Validar o transporte público do cadastro no banco
+
+- **Origem/dependências:** RF-10, M2.04/M2.04a. O parser Next.js valida o formulário, mas não protege chamada direta ao Auth com aceite correto e dados obrigatórios ausentes.
+- **Fazer:**
+  1. Definir e documentar os tipos e formatos canônicos enviados pelo parser: nome e razão/nome do escritório, celular E.164, tipo pessoa/empresa e documento com dígitos válidos. OAB/UF continuam opcionais e coerentes entre si; cidade segue os limites existentes. Não conferir identidade ou inscrição real nesta tarefa.
+  2. Implementar validadores SQL determinísticos privados para CPF e CNPJ numérico/alfanumérico, usando os vetores e a regra documentada em docs/validacao-cadastro.md. Verificar tipo JSON, limite e formato antes dos inserts; não truncar entrada inválida para fazê-la parecer válida.
+  3. Substituir o hook por nova migration. Cadastro público sem campo obrigatório, com tipo inválido, documento/celular inválido ou par OAB/UF incoerente falha atomicamente. Bootstrap privado mantém o caminho administrativo de fixtures, sem aceitar papel/contrato dos metadados.
+  4. Comparar o transporte produzido pelo parser com o banco em testes, incluindo CNPJ alfanumérico e zeros iniciais. Metadados posteriores do Auth não alteram perfil nem consentimentos; edição continua pelo caso de uso de conta.
+- **Pronto quando:** negativos diretos de Auth não deixam conta/perfil/cliente/consentimento/aviso; dados válidos do formulário chegam sem perda ao banco. Seed/fixtures, suíte real de banco e cadastro/jornada em 375/1440 px continuam aprovados, npm run check e advisors locais verdes. Sem alteração Auth na nuvem ou uso de dados reais.
+
+#### M2.04c Falha de link e retorno automático
+
+- **Origem/dependências:** RF-10/12; M1.43 local e fluxos já implementados de M2.04/M2.06. O callback redireciona para `link=invalido`, mas a tela ignora o motivo; o ensaio Mailpit usa navegação manual depois do e-mail.
+- **Fazer:**
+  1. Mostrar mensagem portuguesa e orientação para solicitar novo link quando o callback recusar a tentativa. Nunca exibir código/token/URL, causa interna ou indicar existência de conta; parâmetros desconhecidos não viram conteúdo arbitrário.
+  2. Conferir callback sem código/código fictício inválido, reaproveitamento e navegador diferente, sem sessão indevida ou retorno externo. Preservar Cache-Control e filtro de destino; usar a mesma origem pública configurada do envio de links, ignorando origem interna do Next e cabeçalhos forjados. Aceitar HTTPS e HTTP local explícito, sem credenciais ou outros esquemas. O teste real encontrou troca de 127.0.0.1 por localhost quando o callback usava request.url.
+  3. Fortalecer a jornada local com Mailpit: recuperação chega automaticamente a /nova-senha e link de acesso chega a /app, sem page.goto que mascare o retorno. Usar só usuários/caixas fictícias e limpar fixtures; não registrar senhas, tokens ou cookies.
+  4. Conferir erro/orientação/foco/axe em 375/1440 px; não alterar Auth/SMTP, allowlist ou configuração em produção.
+- **Pronto quando:** erro compreensível e destinos reais locais são verificados sem navegação corretiva; regressões de login/senha passam e npm run check/build da fonte aprovado. O ensaio dos templates novos e SMTP real permanece em M2.28c.
 
 #### M2.05 Aviso ao André no cadastro
 
@@ -947,6 +1061,19 @@ Prazo sugerido: a planejar
   3. Gerar o PDF em `GET /api/quotes/[id]/pdf`, autenticado, com `@react-pdf/renderer`. Ele traz nome, CRC, contato, itens, total, validade, condições e data.
 - **Pronto quando:** o e2e gera a proposta e baixa o PDF, e o PDF mostra o CRC.
 
+#### M2.12a Recusa de proposta pelo cliente
+
+- **Origem/dependências:** botão previsto em M2.12; RF-23/RF-30, RN-01/RN-04/RN-09 e estrutura transacional de M2.15/M2.19a. Recusa pré-contratação; D5/reembolso permanecem abertos.
+- **Fazer:**
+  1. Criar evento puro `reject_quote`, exclusivo do cliente proprietário, de `quoted` para `cancelled`. Mostrar “Proposta recusada” no recibo e na timeline; preservar proposta/PDF, contextos, arquivos, valores, condição de contrato e histórico.
+  2. Conferir `canReject` no servidor, separadamente de `canAccept`: proprietário/papel atuais, proposta não simulada com contexto comercial canônico/hash íntegro e sem ambiguidade entre propostas do pedido. Exigir nenhum aceite privado nem qualquer campo `accepted_*` em qualquer proposta, nenhum recibo de recusa e nenhum pagamento vinculado, inclusive triagem e qualquer status. Proposta vencida ou versões jurídicas atuais alteradas podem ser recusadas, pois não há contratação/cobrança nessa ação.
+  3. Parser puro/testado e confirmação explícita desmarcada inicialmente. Receber proposta/hash, revisão esperada do pedido, UUID da tentativa, confirmação e motivo opcional aparado/limitado. Ator e origem HTTP vêm da sessão/headers; payload não escolhe identidade. Não usar cancelamento genérico de etapas posteriores.
+  4. Nova migration com recibo privado imutável por proposta e mapa de tentativas, RLS e nenhum acesso direto pelos papéis da aplicação. Guardar ator/instante/origem, contexto, revisão e motivo. Serializar na ordem usada pelo aceite: perfil SHARE, cliente UPDATE, pedido UPDATE e proposta UPDATE; reconferir propriedade/papel, estado, revisão, contexto e histórico financeiro depois dos locks. Escritas de pagamentos continuam serializadas pelo pedido.
+  5. Gravar recibo, `cancelled`, incremento de `status_revision` pelo trigger, evento compartilhado e auditoria na mesma transação. Reautorizar e recuperar replay antes de exigir estado/revisão atuais; UUID alterado conflita. Tentativas equivalentes recuperam um único recibo sem duplicar efeito. Um replay antigo não altera avanço posterior.
+  6. Aceitar e recusar disputam os mesmos locks: somente uma decisão vence. RPC de aceite deve recusar novo aceite quando existir recibo de recusa, inclusive se um administrador restaurar `quoted` no ensaio. Getter mostra a recusa; painel apenas consulta. Não enfileirar aviso novo, cobrar, estornar, apagar registros ou reabrir pedido nesta tarefa.
+  7. Interface preserva UUID, confirmação e motivo após perda de resposta; reenvio conserva a intenção original. Conflito definitivo pede recarga completa. Atualizar proposta/pasta/painel após sucesso, manter PDF/arquivos acessíveis e simulações bloqueadas. Positivos locais usam contexto sintético exclusivo, sem ativar contratação real.
+- **Pronto quando:** testes puros e reais de banco verificam proprietário/papéis, contexto/simulação, confirmação/revisão, aceite legado/privado e cada tipo/status de pagamento; vencimento/versão atual, reenvio/UUID divergente, recusas concorrentes, aceitar × recusar nas duas ordens, restaurar `quoted`, rollback de evento/auditoria e preservação de proposta/arquivos/contrato. Navegador 375/1440 px com axe verifica confirmação, resposta perdida, conflito, consulta pelo André e PDF preservado. npm run check, suíte real e advisors locais aprovados, evidência no plano. Nenhuma publicação, cobrança, configuração Auth ou migration de nuvem nesta tarefa.
+
 #### M2.13 Caminho "Só o PDF"
 
 - **Fazer:**
@@ -1003,6 +1130,17 @@ Prazo sugerido: a planejar
   3. Criar a função `transition(order, event, actor)`, que devolve o novo estado ou um erro em português.
   4. Escrever testes para cada transição válida e para as proibidas mais importantes.
 - **Pronto quando:** os testes passam. Toda mudança de status no app passa por essa função.
+
+#### M2.19a Operação das etapas do pedido
+
+- **Origem/dependências:** RN-09, M2.19, M2.20/21; fila já confirma as condições de RN-04. Não depende de provedores externos nem altera política comercial.
+- **Fazer:**
+  1. Calculista autorizado inicia análise, inicia cálculo, envia à revisão e devolve ao cálculo na aba Resumo. Cliente acompanha o estado e os eventos, sem comandar as etapas.
+  2. Permitir aguardar informações e retomar exatamente a etapa interrompida; motivo obrigatório fica na linha do tempo compartilhada. D11 continua aberta: nenhum prazo é pausado ou recalculado.
+  3. Parser puro e máquina de estados validam o comando; RPC exclusiva do calculista infere autoria, tranca perfil/cliente/pedido, confere estado/revisão e grava recibo privado imutável, estado, evento e auditoria atomicamente. Reenvio recupera o resultado histórico, sem desfazer ações posteriores.
+  4. Revisão não significa entrega aprovada: os arquivos obrigatórios e a declaração do André continuam exigidos por M2.26. Não criar cancelamento, reembolso ou ajuste de garantia nesta tarefa.
+  5. Explicitar o ID do usuário proprietário na máquina de estados; o ID da linha clients não é identidade de sessão.
+- **Pronto quando:** testes de banco cobrem permissões, isolamento, concorrência, revisão antiga após ciclo de retorno, replay e rollback; navegador em 375/1440 px percorre fila → análise → cálculo → revisão → entrega sem prepareTechnicalReview. Pausa/retorno e histórico são conferidos, npm run check aprovado e advisors locais sem achados críticos.
 
 #### M2.20 Pasta do processo
 
@@ -1121,6 +1259,51 @@ Prazo sugerido: a planejar
   4. Configurar no Supabase Auth o SMTP do Resend (o envio padrão do Supabase tem limite baixo) e os textos de confirmação, link de acesso e senha em português.
 - **Pronto quando:** e-mails reais chegam na caixa de teste, e o login usa o SMTP do Resend.
 
+#### M2.28a Modelos locais de e-mail
+
+- **Fazer:**
+  1. Criar componentes React Email com HTML/texto para as dez famílias da tarefa principal e mapear os onze nomes já produzidos. Conferir a API vigente: documentação atual usa pacote `react-email`; não adicionar pacotes antigos descontinuados.
+  2. Selecionar explicitamente somente código/número/data válidos e destino reconstruído. Ignorar nomes, OAB, cidade, textos, destinatário, payload bruto e `path` fornecido pelo evento. Corpo/assunto não contêm processo, parte, documento, valores, token ou URL assinada.
+  3. Usar apenas a origem pública confirmada deste projeto e rotas autenticadas conhecidas. Mensagem sem papel confiável remete a `/entrar`; data civil é apresentada sem conversão de fuso. Aviso de entrega não promete download liberado por D6, nem prazo relativo que envelhece durante retry.
+  4. Preservar nome/CRC/categoria no rodapé e identificar a prévia com marca/dados fictícios. Produzir HTML/texto sem imagens/fontes remotas, anexos, consulta de banco ou transporte.
+  5. Testar injeção, dados extras, destino indevido, template desconhecido, datas inválidas e nomes reais da fila. Renderizar em 375/1440 px, conferir links/teclado/axe/largura e inspecionar capturas.
+- **Pronto quando:** componentes e renderizador determinístico passam nos testes, todas as variantes são renderizadas e QA visual/axe está registrado; npm run check/build da fonte aprovado. Nada foi enviado e M2.28 integral permanece aberta.
+- **Dependências:** RF-70; inventário dos enfileiramentos existentes; identidade fictícia autorizada. Não exige conta Resend, segredo, SMTP ou dispatcher.
+
+#### M2.28b Transporte Resend
+
+- **Fazer:** integrar modelos à fila M1.51 com adaptador somente servidor, identidade/destinatário conferidos, idempotência e conciliação de resposta perdida. Configuração/chaves ficam no cofre/ambiente autorizados; Fábio aprova conta, domínio, conteúdo e destinatário do ensaio antes de envio real.
+- **Pronto quando:** aviso real autorizado chega à caixa correta, retry não duplica e falha/ambiguidade não registra recebimento inexistente.
+- **Dependências:** M2.28a; M1.51; conta/credenciais Resend, domínio quando necessário e autorização do envio. O produtor local `payment_confirmed` é preparado/verificado em M2.28e. O modelo `welcome` e outras variantes para cliente ainda sem produtor precisam ser vinculados por seus casos de uso, sem criar avisos em simulação.
+
+#### M2.28e Aviso local de sinal confirmado ao cliente
+
+- **Dependências:** partes locais verificadas de M2.16, M2.28a e M1.51a/b; RF-31/34/70 e matriz de notificações do PRD. Não depende de conta, segredo, autorização de envio ou cron externo.
+- **Fazer:**
+  1. Acrescentar ao caso de uso `confirm_manual_deposit` o aviso `payment_confirmed` somente quando um pagamento de sinal positivo for criado. Inferir destinatário pelo proprietário atual do cliente vinculado ao pedido, com papel cliente e e-mail disponível; nunca aceitar destinatário no comando.
+  2. Usar a fila existente `public.notifications`, canal e-mail, payload limitado a pedido/processo/código e chave estável por pagamento/cliente/canal. Nenhum valor, Pix, documento, parte, texto livre, URL assinada ou path informado pelo chamador. O renderizador existente reconstrói o destino autenticado.
+  3. Gravar aviso, pagamento, recibo, intenção, estado, timeline e auditoria na mesma transação. Replay original, nova intenção concorrente e recuperação após perda de resposta não criam novo aviso. Estorno seguido de novo pagamento mantém a distinção histórica; conciliação com valor zero/paymentId nulo não anuncia novo pagamento.
+  4. Preservar guardas de aceite/contexto comercial, contrato, simulação e permissões do calculista. Não criar preferências do cliente nem alterar as preferências do André, o transporte, Auth/SMTP, cron, variáveis, dados na nuvem ou publicação.
+  5. Ensaiar destinatário/isolamento, sinal antes/depois do documento, concorrência/replay, edição simultânea do perfil, parcelas/estorno/conciliação zero e falha do aviso com rollback integral. Adquirir o lock do perfil proprietário antes do cliente e reconferir a propriedade sob lock; validação de contato permanece somente no crédito novo. Conferir a compatibilidade com o modelo/fila locais e a limpeza das fixtures; executar regressões de banco, check/build da fonte e advisors locais.
+- **Pronto quando:** migration versionada aplicada somente localmente, testes reais de transação/acesso/reenvio e regressões aprovados, modelo reconstrói a pasta correta sem dados sensíveis, advisors e revisões independentes sem bloqueador. Sem despacho externo; M2.28b/M1.51c continuam pendentes.
+
+#### M2.28c SMTP e autenticação
+
+- **Fazer:** preparar textos portugueses de confirmação/link de acesso/recuperação e checklist; Fábio configura SMTP/segredos e aprova alteração Auth. Ensaiar cadastro, confirmação, acesso e recuperação nas contas corretas após autorização.
+- **Pronto quando:** autenticação usa o SMTP aprovado e mensagens reais do ensaio chegam com links de retorno corretos; não marcar pela existência de configuração.
+- **Dependências:** M2.28b; M1.43; conta/domínio e autorização específica para Auth; responsáveis humanos pelos segredos.
+
+#### M2.28d Modelos locais de autenticação
+
+- **Fazer:**
+  1. Preparar HTML nativo e assuntos em português de `confirmation`, `magic_link` e `recovery`, com a identidade fictícia autorizada e CRC/categoria. Não alterar `supabase/config.toml`, Auth, SMTP, variáveis ou contas.
+  2. Preservar somente `{{ .ConfirmationURL }}` como interpolador entre aspas em links. Não reconstruir URL, usar `RedirectTo` sozinho, incluir dados do usuário ou criar `/auth/confirm` inexistente. O callback atual recebe código PKCE; o destino da recuperação conserva `/nova-senha`.
+  3. Orientar a abertura no mesmo navegador/dispositivo da solicitação e não prometer prazo fixo ou acesso entre dispositivos. Usar link alternativo com texto legível, sem imprimir token/URL integral.
+  4. Verificar o subconjunto fixo dos interpoladores e criar prévias sintéticas com URL longa, caracteres especiais e retorno codificado. Conferir DOM, ausência de injeção/requisições, foco/axe/largura e capturas em 375/1440 px. A prévia JavaScript não comprova o renderer Go do Supabase.
+  5. Entregar checklist de aplicação pelo Fábio e de ensaio real posterior: domínio/destino corretos, retorno automático, link reutilizado/expirado, navegador distinto e tracking/scanners. Não afirmar SMTP funcionando pela existência dos arquivos.
+- **Pronto quando:** três HTMLs e assuntos ficam revisáveis, prévias/testes/QA passam e npm run check/build da fonte aprovado. Nenhuma mensagem enviada nem alteração Auth; M2.28c integral continua aberta.
+- **Dependências:** M1.43; M2.28a; RF-10/12/70; identidade fictícia autorizada e documentação oficial. Este preparo não depende do transporte real M2.28b; ativação e teste real preservam as dependências de M2.28c.
+
 #### M2.29 Alertas por WhatsApp ao André
 
 - **Fazer:**
@@ -1185,6 +1368,18 @@ Prazo sugerido: a planejar
   3. Corrigir o que achar e registrar.
 - **Pronto quando:** não há achado crítico ou alto aberto.
 
+#### M2.35a Dependências das ferramentas de qualidade
+
+- **Fazer:** conferir o advisory GHSA-vfj7-8cjw-p6xm e a cadeia do lock contra a fonte anterior à instalação do React Email; verificar alcance no build/bundle e obter correção compatível com Next.js 16.4 ou registrar a reclassificação oficial. Preparar inventário sanitizado imediatamente após build do CI: SHA da fonte/checkout, hash do lock/configuração/BUILD_ID, traces de produção incluindo extensões NFT, hashes dos JS server/browser e referências identificáveis dos cinco pacotes. Sem código, ambientes, traces brutos ou paths absolutos no artefato. Build incompleto falha; extensão desconhecida, referência ausente/externa ou symlink não resolvido registra cobertura incompleta. Ocorrências de symlink trazem motivo fixo e somente path relativo permitido de artefato, ou trace/índice/referência, sem alvo, path de dependência ou erro bruto. Marcadores ausentes não comprovam ausência de código minificado; inventário do CI não comprova equivalência à publicação Vercel. Não tratar downgrade incompatível do eslint-config-next como patch nem concluir segurança por audit omitindo dev.
+- **Pronto quando:** correção ou encerramento oficial do achado está documentado, lock/build/testes relevantes passam e a revisão M2.35 considera o resultado. O achado continua aberto enquanto isso não ocorrer.
+- **Dependências:** inventário/lock e advisory atual; encerramento da revisão integral depende da skill security-review de M2.35. Os cinco registros high do audit completo representam um advisory propagado na cadeia, não cinco falhas independentes.
+
+#### M2.35b Inspeção restrita de dependência externalizada
+
+- **Dependências:** coleta de M2.35a; não exige nem conclui a revisão integral M2.35.
+- **Fazer:** resolver somente o alias gerado `.next/node_modules/@react-pdf/renderer-<hash>` para a instalação exata/regular em `app/node_modules/@react-pdf/renderer`. Conferir dependência de produção nos manifestos/lock, nome/versão e ausência de link/workspace/local. Ler somente JSON de identificação e JavaScript regular limitado, sem executar o pacote; recusar links internos, ancestrais simbólicos, arquivos especiais/hardlinks/ocultos, destinos inesperados e limites excedidos. Habilitar a exceção somente no CI com opção explícita (API desativada por padrão; fixtures autorizadas habilitam). Limites compartilhados: quatro aliases, 512 entradas, 32 MiB totais, 8 MiB por arquivo e profundidade oito; orçamento confere bytes efetivamente lidos. Recusar alias como diretório comum antes de percorrer. Ordenação lexical independente de locale. Conferir identidade antes/depois da leitura e exportar só alias permitido, índices, versão, contagens e hashes, sem alvo/código/paths físicos/erros brutos. Árvore estável após npm ci/build é requisito; essas guardas não eliminam corrida adversarial de escrita concorrente. Diagnóstico recusado conserva cobertura incompleta. Versão declarada não comprova integridade dos bytes nem versão incorporada pelo Next.
+- **Pronto quando:** ensaios adversariais e de determinismo aprovados, check/build remoto e relatório real sanitizado conferidos contra fonte/lock/configuração/checkout. Evidência distingue resolução/inspeção dessa dependência, ausência de marcadores e conclusão de segurança. Advisory M2.35a permanece aberto sem patch/encerramento oficial; não comprova equivalência à Vercel.
+
 #### M2.36 Ensaio com o André
 
 - **Fazer:**
@@ -1202,6 +1397,424 @@ Prazo sugerido: a planejar
   5. Criar `sitemap.xml` e `robots.txt`.
   6. Pedir a aprovação do Fábio antes de divulgar.
 - **Pronto quando:** o domínio responde com HTTPS, os e-mails saem do domínio e o Fábio aprovou.
+
+### M3 — Validação comercial
+
+**Detalhamento aprovado de M3.00 para implementação local fictícia.** Este detalhamento não aprova o GATE M3 nem ativa operações comerciais. Fábio autorizou a implementação local com dados fictícios em 2026-10-11, a partir do detalhamento apresentado na fonte b9b687d. Contas, custos, textos jurídicos, decisões do André e ações externas mantêm os responsáveis e autorizações de `AGENTS.md`.
+
+**O que os ensaios já demonstraram:** aceite, recusa e pagamento precisam disputar o mesmo pedido e conservar a revisão; perda de resposta exige intenção e recibo imutáveis; dados e termos da proposta precisam continuar disponíveis apesar de mudanças posteriores; pagamentos parciais e estornos não podem liberar valores indevidos; nova versão de documento não herda referências ou concordâncias silenciosamente. Essas conclusões vêm dos testes fictícios de M2.15/16/17/23/24/27 e M2.12a. Não há evidência de ensaio real com André ou de primeiros pedidos pagos: resultados comerciais, preço, capacidade e política de garantia continuam pendentes.
+
+**Ordem aprovada para o preparo local:** M3.01a (desdobramento técnico M3.01d → M3.01e → M3.01f) → M3.01b → M3.01c → M3.02; M3.04 → M3.07; M3.05 → M3.06; M3.08 → M3.09; M3.10 → M3.11 → M3.12. M3.13–17 e M3.19–21 podem seguir por tarefa, respeitando os insumos próprios. Aprovar a política de M3.18 → preparar/verificar restauração em M3.22 → autorizar ativação destrutiva de M3.18. M3.23/24 são executadas por André/Fábio. M3.25 → M3.26 → M3.27/28 fecham a passagem. Produção de M3.03 depende da validação sandbox, dos requisitos comerciais e da autorização específica.
+
+#### M3.00 Detalhamento e aprovação do marco
+
+- **Fazer:**
+  1. Conferir cada RF citado contra o código e as evidências de M2; distinguir recurso existente, extensão, insumo humano e ativação externa.
+  2. Especificar Fazer, Pronto quando e Dependências para M3.01–28. Dividir M3.01 em entregas verificáveis, conservando seu escopo. Antes de implementar outra tarefa grande, subdividi-la se não couber numa sessão.
+  3. Registrar as lições dos ensaios fictícios e a ausência de ensaio/pedidos reais. Incorporar feedback real somente depois de recebido, sem inventar validação comercial.
+  4. Apresentar a especificação ao Fábio. Registrar o alcance e a data de sua aprovação antes de começar a implementação do M3; decisões comerciais abertas e GATEs permanecem humanos.
+- **Pronto quando:** todas as tarefas estão especificadas, sobreposições foram resolvidas e Fábio aprovou o detalhamento com evidência registrada.
+- **Dependências:** base e testes do M2; aprovação do Fábio. A preparação documental não exige concluir GATEs nem obter todos os dados comerciais.
+
+#### M3.01 Pagamento Asaas em sandbox
+
+- **Fazer:** executar M3.01a/b/c na ordem, reaproveitando aceite/sinal/fila/documentos e liberação existentes. Conta e ambiente do provedor fazem parte do vínculo de cada cobrança; dados de cartão permanecem na fatura hospedada do Asaas.
+- **Pronto quando:** três subtarefas verificadas e ensaio real em sandbox comprova os meios autorizados e webhook, sem documento permanecendo aguardando envio. Mocks locais não substituem integração com o provedor.
+- **Dependências:** M3.00; RF-31/34; RN-04/10; M2.12/15/16. Conta/credenciais sandbox exclusivas do cliente e insumos comerciais necessários para o ensaio. Aprovação de M3.00 não autoriza produção.
+- **Fontes para conferir na implementação:** [fatura/cartão hospedado](https://docs.asaas.com/docs/cobrancas-via-cartao-de-credito) e [recebimento de webhooks](https://docs.asaas.com/docs/receive-asaas-events-at-your-webhook-endpoint).
+
+#### M3.01a Adaptador e cenários fictícios
+
+- **Fazer:**
+  1. Criar adaptador somente servidor com identidade explícita de conta/ambiente e schemas de cliente, cobrança, consulta e eventos; evitar dados de cartão no portal.
+  2. Converter decimais do provedor para centavos por parser estrito, sem arredondamento silencioso ou soma em ponto flutuante. Distinguir valor bruto pago de taxa/valor líquido recebido: taxa do provedor não diminui o crédito do advogado. Validar suporte aos documentos fiscais aceitos pelo cadastro.
+  3. Definir eventos financeiros para pagamento parcial, devolução parcial/total e chargeback, conservando valor original. Eventos desconhecidos ou inconsistentes vão para reconciliação, sem conceder crédito automaticamente.
+  4. Testar respostas fictícias completas/ausentes/inválidas e falhas antes/depois da criação; valores, cliente, conta e ambiente divergentes são recusados.
+- **Pronto quando:** contrato do adaptador e testes determinísticos passam; centavos/identidade estão inequívocos e falha externa não cria confirmação local.
+- **Dependências:** M3.00; contratos de domínio de M2.12/15/16/27; documentação oficial vigente. Não precisa de segredo para testes locais.
+
+#### M3.01d Contratos precisos do Asaas
+
+- **Parte de:** M3.01a, sem aumento de escopo; primeira entrega do adaptador aprovado.
+- **Fazer:** preservar os lexemas numéricos do JSON antes de qualquer conversão; parser limitado e com chaves duplicadas recusadas; converter/serializar centavos por BigInt sem arredondamento ou ponto flutuante. Preparar schemas somente servidor de cliente, vínculo de cobrança/consulta e envelope de evento, descartando campos de cartão/contato não usados. Distinguir accountId de walletId, conta/ambiente do vínculo configurado e account.id da origem declarada pelo evento. Guardar originalValue/value/netValue e cada estorno/status como fatos separados; nenhuma projeção financeira ou confirmação de pagamento nesta parte.
+- **Pronto quando:** testes de JSON preciso, limites, campos ausentes/inválidos, CPF/CNPJ, conta/ambiente e valor/cliente/referência divergentes passam, com erros sanitizados e check/build da fonte. Suporte real de CNPJ alfanumérico e autenticação da conta não são comprovados por schemas/fixtures; ausência de confirmação ficará explícita para a porta e ensaio seguintes.
+- **Dependências:** M3.00 aprovado, contratos locais de M2.12/15/16/27 e fontes oficiais atuais. Sem segredo, API autenticada, migration, transporte externo ou publicação.
+
+#### M3.01e Adaptador somente servidor
+
+- **Parte de:** M3.01a; depende de M3.01d.
+- **Fazer:** criar porta com escopo configurado e operações de cliente/criação/consulta/fatura; produzir JSON numérico canônico, validar identidade/obrigação e origem das URLs do provedor. Testar porta fictícia e recusar divergências antes do despacho; falha/resposta perdida depois dele é indeterminada e exige conciliação sem auto-retry de criação. O driver futuro limita bytes antes de acumular resposta e comprova a associação de conta/credencial, sem tratar eco de configuração como autenticação. Campos de cartão e URLs arbitrárias não entram. Documentos preservam letras/zeros; suporte não confirmado exige conferir o provedor antes de enviar. Ausência de driver não inventa confirmação.
+- **Política da porta nesta entrega:** `mode: "fixture"` e escopo declarado explícitos, sem prova de autenticação. Busca de unicidade com `limit=2`, `offset=0`; somente envelope completo/coerente com um candidato retorna encontrado. Mais de um, página incompleta, erro ou zero após resposta perdida não autorizam criação. `404` pode indicar ID de outra conta. Criação de cobrança confere cliente e notificações desativadas antes do POST; requer vencimento/meio exatos na resposta. Uma chamada de criação por invocação não garante unicidade entre chamadas; persistência/concorrência seguem em M3.01b.
+- **Pronto quando:** testes determinísticos provam chamadas únicas, payloads mínimos, identidade, criação/consulta e falha antes/depois; sem banco financeiro, segredo, envio ou driver externo. Identidade declarada da porta não substitui comprovação real da conta em M3.01c.
+
+#### M3.01f Eventos financeiros
+
+- **Parte de:** M3.01a; depende de M3.01d/e.
+- **Fazer:** normalizar recebimento parcial/total, bruto/netValue/taxa, estornos múltiplos DONE/PENDING/CANCELLED e chargeback; conservar original e distinguir snapshot cumulativo de delta. Eventos desconhecidos, incompatíveis ou insuficientes, excedente e Pix CONFIRMED cautelar exigem reconciliação, sem crédito automático. Testar fontes completas/ausentes/inválidas, duplicação e ordem; não representar estorno parcial pelo status integral atual nem chamar confirmação manual.
+- **Política local de interpretação:** preservar presença missing/null/empty/present na decodificação. Normalizar evento e consulta contra o mesmo contexto da obrigação, com whitelist local de pares conhecidos e fatos/motivos explícitos; nunca retirar prefixo do evento para fabricar status. Comparar dois eventos brutos vinculados sem gerar delta: replay/conflito, projeção cumulativa igual, ordem temporal declarada e regressão de DONE/bruto/chargeback. Timestamp sem fuso/segundos não é sequência causal; candidato posterior exige consulta autoritativa em M3.01b/c antes de qualquer efeito. Nenhum documento, contato ou URL privada integra a projeção financeira.
+- **Pronto quando:** matriz determinística de observações/reconciliação passa e M3.01a integral está preparada/verificada, sem aplicar crédito, mudar histórico ou executar pagamentos reais. Persistência/ativação seguem em M3.01b/c.
+
+#### M3.01b Cobranças persistidas e reconciliação
+
+- **Fazer:**
+  1. Persistir intenção, dívida/pedido, conta/ambiente e referência de provedor antes de chamar a API; proteger criação concorrente com revisão/recibo e vínculo único pertinente.
+  2. Vincular cada obrigação à finalidade e fase: sinal = sinal capturado na contratação menos crédito elegível do sinal, dispensado pela condição vigente de cliente com contrato; saldo na entrega = total contratado menos créditos elegíveis confirmados. Crédito líquido significa descontar estornos/chargebacks, nunca taxas do provedor; triagem só abate mediante regra aprovada de D5. Não cobrar o total no aceite nem emitir para simulação, recusa, dívida quitada ou pedido sem contrato válido.
+  3. Executar criação fora da transação longa de banco, com processamento retomável. Depois de resposta perdida, reconciliar o que o provedor realmente criou antes de nova emissão; na impossibilidade de resolver, exigir conferência e não emitir às cegas.
+  4. Reconciliar cobranças/intenções anteriores ativas ou incertas antes de outra emissão para a mesma obrigação ou fase posterior; não contar pendente como crédito nem manter faturas pagáveis sobrepostas. Mudança da condição de contrato não cancela automaticamente cobrança externa.
+  5. Arquivar eventos financeiros imutáveis e atualizar projeções de crédito usadas por fila, saldo e download. Preservar pagamentos manuais/históricos; crédito excedente vai para conciliação, sem apagar recebimento ou devolver automaticamente.
+  6. Mostrar fatura autenticada ao proprietário e situação de reconciliação; nenhum payload, contato, token ou URL privada vai para log.
+- **Pronto quando:** criação concorrente/resposta perdida não duplica dívida, parcial/estorno/chargeback reconciliam sem apagar original e acesso cruzado é negado; rollback e replay de fila/auditoria/avisos conferidos.
+- **Dependências:** M3.01a; M2.15/16/17/27; fila de processamento de emissão preparada nesta subtarefa. Testes locais antecedem credenciais sandbox.
+
+#### M3.01g Obrigações e vínculos
+
+- **Parte de:** M3.01b; primeira entrega após M3.01a. Ordem técnica g → h → i → j → k, sem fechar o parent isoladamente.
+- **Fazer:** persistir metadados imutáveis de conta/ambiente/cliente do provedor e contexto da obrigação, vinculados a pedido/processo/cliente/aceite/hash/fase. Esta entrega usa apenas fixture/sandbox, sem segredo/autenticação/driver. Configuração privada seleciona o scope vigente; o formulário não troca conta. Derivar valores do contrato capturado e créditos legados: sinal menos crédito de sinal, dispensado pelo contrato vigente; saldo após entrega é total menos créditos de sinal/saldo. Triagem continua separada até D5. Pagamento Asaas antigo sem vínculo/projeção exige conciliação. Recusar vínculo cruzado, simulação, recusa, contrato inválido, fase indevida, dívida zero e excesso/valor inseguro. Capturar vencimento/meio fictícios não autoriza emissão. Registrar autor/contexto/recibo, sem documento/URL/segredo em logs; h/i revalidam dívida antes da intenção/POST.
+- **Pronto quando:** migration local/RLS/advisors e testes reais provam acesso proprietário/calculista, vínculo conta/cliente, valores por fase/contrato vigente/crédito legado e imutabilidade/replay. Casos de uso servidor têm authorize/auditoria e check/build da fonte. Não escreve pagamento/crédito nem altera fila/download; unificação da projeção permanece j.
+
+#### M3.01h Intenções, reservas e recibos
+
+- **Parte de:** M3.01b; depende de g. Desdobramento técnico l → m, conservando h aberta até ambas verificadas.
+- **Fazer:** intenção/referência/payload mínimo persistidos antes de POST, com revisão/tentativas/recibo imutáveis; revalidar contexto/contrato/saldo/binding. Serializar perfil → cliente → pedido → pagamentos → contexto/intenção. Bloquear emissão/fase posterior enquanto houver cobrança ativa/incerta; coordenar mudança contratual e confirmação manual sem presumir cancelamento.
+- **Pronto quando:** duas sessões, replay/resposta perdida, UUID com outros dados e confirmação manual concorrente não duplicam intenção/dívida; rollback/auditoria/reserva entre fases testados, sem POST externo.
+
+#### M3.01l Reserva, intenção e replay
+
+- **Parte de:** M3.01h; depende de g. Preparo local, sem despacho/crédito.
+- **Fazer:** derivar payload/contexto de g e revalidar dívida, contrato, proprietário e binding sob locks comuns. Persistir intenção/referência UUID imutáveis, revisão e recibo por solicitação. Reserva exclusiva por pedido abrange sinal/saldo e mudança de conta; UUID distinto não contorna reserva. Replay autorizado devolve recibo original antes dos gates atuais. Retirada local explícita somente com prova durável de que nunca houve claim de despacho; não representa cancelamento externo. Claim será persistido em i antes do POST; depois dele, timeout/ausência em consulta/queda não liberam reserva.
+- **Pronto quando:** proprietário/calculista, vínculo/fase/conta, mesmoUUID e UUIDs distintos concorrentes, retirada permitida/recusada, imutabilidade/RLS/advisors e rollback/auditoria verificados. Coordenação com operações existentes fica em m; nenhuma interface autoriza emissão antes desse fechamento.
+
+#### M3.01m Coordenação das reservas
+
+- **Parte de:** M3.01h; depende de l.
+- **Fazer:** evoluir por nova migration as RPCs de confirmação manual e condição contratual. Preservar replay/conciliação zero; bloquear novo recebimento positivo enquanto houver reserva pendente de resolução. Alteração de contrato confere todas as reservas do cliente, inclusive pedidos completed, após locks comuns e antes da flag; não presume cancelamento Asaas. Perfis ordenados → cliente → pedidos ordenados → pagamentos ordenados → configuração/contextos/intenção/reserva em todos os escritores.
+- **Pronto quando:** intenção/manual/contrato nas duas ordens, replay antigo, reserva entre fases e conta, rollback e avisos/auditoria conferidos no banco. Sem POST/crédito novo/efeito externo; fechamento de h exige l/m verificadas.
+
+#### M3.01i Executor fictício persistente
+
+- **Parte de:** M3.01b; depende de h; execução técnica n → o → p, sem redução do escopo.
+- **Fazer:** cliente/criação/consulta/conciliação pela porta fixture, fora de transação longa, com etapas/slots/contextos persistentes e retomada. Resultado indeterminado exige consulta; zero/404/múltiplos/incompleto não autoriza repetir POST. Comprovar resolução das cobranças anteriores antes de outra fase/emissão.
+- **Pronto quando:** quedas pré/pós-despacho/resposta perdida ensaiadas sem duplicação; não declara autenticação/cancelamento reais nem depende de segredo.
+- **Nota técnica para a execução:** 0059 mantém um claim por intenção e view com reserved/dispatch_claimed/withdrawn. Persistir runs/etapas/tentativas/resultados próprios e eventual resolução separada, preservando o claim/histórico; não reutilizar retirada pré-despacho como cancelamento. Transporte interno fixo com guarda local, sem callback livre/HTTP/segredo. Cobrança identificada não é recebimento: projeção/crédito seguem em j; consultas insuficientes conservam a reserva.
+
+#### M3.01n Provedor fictício durável
+
+- **Parte de:** M3.01i; depende de h.
+- **Fazer:** transporte interno fixo, restrito ao servidor e explicitamente opt-in em loopback. Persistir cliente/pagamento fictícios, chave/fingerprint/recibo de transporte e invocações em transações curtas separadas da futura gravação de resultado. RPCs internas negadas a public/anon/authenticated e marker SQL desativado por padrão. Não usar IDs determinísticos ou unicidade de referência para esconder POST duplicado; referências iguais podem ter candidatos múltiplos. Falhas internas controladas só na fixture; notificações desativadas. Conta/ambiente/path/body conferidos, resposta sem logs de documento ou URL.
+- **Pronto quando:** efeito fictício resiste à retomada por outro processo, replay da chave não cria novo efeito, fingerprint divergente conflita, duplicatas com chaves distintas aparecem na busca e contador de invocações permanece visível. Queda depois da criação, resposta inválida, indisponibilidade e listas insuficientes ensaiadas pela porta existente. Somente essa parte não prova um POST único pelo executor; isso é p.
+
+#### M3.01o Bootstrap do cliente
+
+- **Parte de:** M3.01i; depende de n.
+- **Fazer:** operação persistente única por(scope_id,client_id) e snapshot fiscal privado antes de G. Binding existente exige GET coerente e notificações desativadas, sem substituição por404. Sem binding, candidato único permite vincular; lista zero completa com ausência comprovada de POST anterior permite somente primeiro POST. Após resultado incerto, consulta insuficiente não permite novo POST. Autoria humana da solicitação separada do processamento de sistema; nenhuma emulação de auth.uid por JWT fabricado.
+- **Pronto quando:** jornada cria cliente sem binding pré-semeado, verifica/persiste o vínculo, prepara obrigaçãoG; concorrência/replay/queda/resposta perdida/doc ou conta alterados e autorização cruzada verificados sem cobrança ou crédito.
+- **Nota técnica:** cada nova observação usa novo slot persistido; repetir o slot da busca inicial em N recupera o resultado antigo, inclusive zero. Repetir a mesma tentativa conserva sua chave. A prova de POST único vem das tentativas do produtor, não do replay do transporte. Worker atrasado não sobrescreve resultado mais recente; binding final usa INSERT e nunca substitui vínculo existente.
+
+#### M3.01p Execução e retomada integradas
+
+- **Parte de:** M3.01i; depende de n/o.
+- **Fazer:** run/slots/tentativas/recibos por intenção e claim durável antes do POST, com locks perfis→cliente→pedido→pagamentos→configuração/contexto→intenção/reserva/run. Revalidar contexto/binding/reserva antes da primeira emissão; depois consultar conta/binding capturados. Token/revisão com fencing; replay ou lease vencido não autorizam POST incerto. Zero/404/múltiplos/incompleto/identidade divergente bloqueiam. ParaUNDEFINED aceitar método conhecido escolhido na observação, conservando o original. Resolução comprovada tem journal próprio e evolução da view sem apagar claim; cobrança identificada não é crédito e conserva reserva até resolução pertinente em j.
+- **Pronto quando:** cliente→G→L→I→consulta/recibo íntegros; quedas pré/pós-claim/despacho/resposta/gravação, workers concorrentes/atrasados, retirada versus claim, histórico e nenhuma duplicação comprovados com contador durável de POST. Nenhuma operação real/financeira/HTTP externo. Parenti fecha somente depois de n/o/p verificadas.
+
+#### M3.01j Histórico e projeção comum
+
+- **Parte de:** M3.01b; depende de g/h/i.
+- **Fazer:** observações mínimas imutáveis e caso interno transacional de aplicação com recibo. Projeção comum preserva manual/histórico, inclusive parcelas sem recibo; bruto menos devolução/chargeback comprovados, sem taxa e sem dupla contagem. Parcial/excesso/incerteza separados. Adaptar sinal/instruções/condição contratual, fila, saldo e guarda de download/UI. Não desfazer trabalho ativo por inferência. C autentica o webhook e reutiliza esse caso, sem segundo ledger.
+- **Pronto quando:** parcial/estorno/replay/ordem/rollback, manual concorrente, recibo/auditoria/avisos e todos os consumidores verificados. Falha na projeção não perde observação durável; nenhum efeito externo real.
+
+#### M3.01k Fatura do proprietário e jornada
+
+- **Parte de:** M3.01b; depende de g/h/i/j.
+- **Fazer:** cobrança/reconciliação do proprietário via authorize/binding atual/auditoria; URL validada somente na resposta autorizada, sem logs. Estados ativos/pagos/bloqueados/incertos explícitos.
+- **Pronto quando:** acesso cruzado e identidade/valor/URL insuficientes recusados; jornada cliente/calculista em 375/1440 px com perda/replay/rollback, sem driver externo. Parentb fecha só depois das cinco partes. Confirmação manual de saldo e cobrança before_balance continuam no escopo próprio de M3.09.
+
+#### M3.01c Webhook e jornada sandbox
+
+- **Fazer:**
+  1. Preparar entrada privada autenticada conforme mecanismo oficial, persistência durável e deduplicação por conta/ambiente/ID do evento; rejeitar token/identidade inválidos antes do processamento.
+  2. Processar de forma retomável e tratar duplicação/ordem invertida. Conferir pagamento contra cobrança/pedido/cliente/valor; consultar provedor quando o evento não for suficiente para decisão segura.
+  3. Aplicar crédito transacionalmente às regras de aceite, documento, contrato e fila; webhook não aprova termos, simulações, D6 ou revisão técnica.
+  4. Testar rollback, reenvio, pagamento manual concorrente, parcial, taxa, estorno/chargeback e eventos de outra conta/ambiente com transporte fictício.
+  5. Depois de Fábio configurar conta/credenciais sandbox do cliente, ensaiar Pix/boleto/cartão pelos mecanismos autorizados do sandbox e conferir emissão, evento, crédito e fila. Registrar somente IDs e resultados sanitizados.
+- **Pronto quando:** testes locais/isolamento/servidor e jornada em 375/1440 px passam; ensaio no sandbox real confirma fatura/webhook/reconciliação para os meios aprovados.
+- **Dependências:** M3.01b; conta/credenciais sandbox, endpoint e autorização do ensaio externo. Migration de nuvem e configuração de webhook são ações externas identificadas, não consequência implícita de testes locais.
+
+#### M3.02 Controle do pagamento automático
+
+- **Fazer:**
+  1. Criar comando exclusivo do calculista, desligado por padrão, com confirmação, revisão concorrente, UUID/recibo e auditoria; ligar exige configuração operacional válida do ambiente.
+  2. Desligar impede novas emissões automáticas, conservando cobranças emitidas e processamento de seus webhooks.
+  3. Conferir cobrança ativa/conciliação antes de oferecer Pix manual, evitando duas instruções simultâneas para a mesma dívida.
+- **Pronto quando:** papéis indevidos são recusados, falha preserva escolha, replay antigo não desfaz alteração nova e desligamento durante emissão/pagamento não perde evento nem duplica cobrança; navegador/axe em 375/1440 px aprovados.
+- **Dependências:** M3.01; RF-31. Uso em produção também exige M3.03.
+
+#### M3.03 Ativação Asaas em produção
+
+- **Fazer:**
+  1. Preparar checklist de titular/CNPJ/destino, segregação de ambientes, referências de segredos, webhook, observabilidade e retorno ao modo manual. Fábio configura variáveis de produção.
+  2. Obter autorização específica para ensaio controlado em produção, com pagador, valor e destino definidos. A aprovação de M3.00 não autoriza cobrança real.
+  3. Executar o ensaio autorizado e conferir cobrança, webhook, crédito, documento/fila e conciliação; comprovar que sandbox não altera produção.
+- **Pronto quando:** identidades e autorização registradas, pagamento real autorizado conciliado de ponta a ponta e monitoramento/retorno ao manual verificados.
+- **Dependências:** M3.01/02; confirmação manual do saldo verificada em M3.09 para retorno ao manual; D9; conta, credenciais e operação comercial aprovadas; M2.35. O GATE M3 exige webhook de produção, mas a regra geral limita pagamento a sandbox até o GATE: resolver por autorização específica deste ensaio, sem marcar o GATE antecipadamente.
+
+#### M3.04 Contrato PDF no aceite
+
+- **Fazer:**
+  1. Congelar identificação do contratante na transação do aceite, junto à proposta/textos/recibo. Para aceite histórico sem esses dados, usar somente o que foi efetivamente registrado e informar a lacuna; não reconstruir a identidade pela edição atual do perfil.
+  2. Gerar contrato a partir dos snapshots imutáveis com serviços/valores, nome/CRC/categoria, versões e prova do aceite.
+  3. Registrar intenção de geração com o aceite; processar idempotentemente, arquivar bytes/SHA e associação única à proposta aceita. Mostrar geração pendente/falha e download privado auditado.
+  4. Ensaiar PDF longo com dados fictícios e inspecionar texto, paginação e identificação. Mudanças posteriores de perfil/termos/settings não mudam o contrato histórico.
+- **Pronto quando:** PDF conferido, geração/resposta perdidas não repetem aceite, histórico é imutável e outro cliente/proposta recusada/simulada não obtêm contrato.
+- **Dependências:** M3.00; M2.15; produtor comercial M2.12 e textos aprovados M2.03; RF-30/RN-01/02. O contexto existente congela proposta/textos, mas não toda a identificação fiscal do contratante.
+
+#### M3.05 Garantia e reembolso
+
+- **Fazer:**
+  1. Obter política aprovada com duração/termo inicial, critérios de elegibilidade/culpa e efeitos da espera do cliente; versionar e capturar na contratação. Atraso isolado não prova culpa.
+  2. Registrar fatos, avaliação, responsável/motivo e decisão conforme política. Preparar estados solicitado, em processamento, recusado e devolvido comprovado.
+  3. Criar solicitação/recibo e conciliação do reembolso: provedor para pagamento Asaas e procedimento manual comprovado para Pix manual. Respeitar limite devolvível, parcial/total e preservar eventos históricos.
+  4. Testar atraso atribuível/indeterminado, dupla tentativa, falha, parcial e confirmação tardia. Publicação de política e devolução real requerem autorização específica.
+- **Pronto quando:** D5/texto aprovados, cenários fictícios passam e política publicada/execução autorizada têm evidência; pedido de devolução não é tratado como dinheiro devolvido.
+- **Dependências:** M3.00; D5; calendário/prazo e D11 quando pertinente; textos jurídicos aprovados; M3.01 para reembolso Asaas. M2.12a recusa sem contratação/pagamento não é reembolso.
+
+#### M3.06 Revisão na garantia
+
+- **Fazer:**
+  1. Criar formulário do proprietário vinculado ao pedido/entrega original, com motivo e anexos privados.
+  2. Conferir no servidor entrega revisada, política capturada e janela de garantia; registrar UUID/recibo, evento e aviso.
+  3. Aplicar ajuste conforme regra aprovada e exigir nova revisão para nova entrega. Conservar aceites, pagamentos e arquivos anteriores, sem cobrança automática nova.
+  4. Confirmar com André a disponibilidade das entregas históricas durante o ajuste: hoje `in_adjustment` bloqueia seu download; não mudar essa regra implicitamente.
+- **Pronto quando:** proprietário solicita, outro cliente/não entregue/janela inválida são recusados; limites de data, concorrência e resposta perdida não duplicam; jornada ajuste → revisão → nova entrega verificada.
+- **Dependências:** M3.00; M3.05; M2.26; M2.19a; RF-63/RN-03/09; definição de acesso histórico durante ajuste.
+
+#### M3.07 Ajuste manual e sucessão de propostas
+
+- **Fazer:**
+  1. Permitir calculista ajustar somente a proposta vigente de pedido `quoted`, sem contratação, pagamento ou recibo de recusa, com motivo obrigatório; conservar tabela-base e valores anteriores/novos. Não reabrir pedido recusado/cancelado como ajuste.
+  2. Criar versão/contexto/PDF novos com sucessão explícita; recomputar itens/total/sinal/saldo em centavos e manter discriminação.
+  3. Proteger revisão/UUID/recibo, evento/auditoria/aviso. Aceite, recusa e ajuste disputam o pedido; versão substituída não pode contratar nem cancelar a nova. Atualizar getters/RPCs de aceite/recusa de forma coordenada para a versão vigente: a guarda atual de 0051 exige uma única proposta por pedido e não pode simplesmente aceitar múltiplas versões sem sucessão comprovada.
+  4. Preservar PDF e prova anteriores; não editar proposta aceita nem pagamento existente.
+- **Pronto quando:** fechamento dos valores/motivo conferidos, papéis/conflitos falham, disputas ajuste/aceite e ajuste/recusa têm um vencedor e replay não cria versão adicional; nova versão pode aceitar e recusar pelas guardas corretas, antiga conserva leitura/recibos sem efeito sobre a vigente.
+- **Dependências:** M3.00; M2.12/15/12a; RF-26/RN-01/06. Imutabilidade atual não substitui vínculo explícito de sucessão.
+
+#### M3.08 Validação da assinatura ICP-Brasil
+
+- **Fazer:**
+  1. Escolher/documentar mecanismo hospedável e autorizado, critérios de cadeia/revogação/referência temporal e uso privado da identificação do signatário; não presumir API disponível a partir do site público VALIDAR.
+  2. Conferir assinatura PAdES presente, integridade, cadeia ICP-Brasil, referência temporal/revogação e CPF correspondente ao André; associar resultado ao arquivo/versão/SHA, mecanismo/data e relatório privado.
+  3. Bloquear confirmação da entrega se ausente/inválida/indeterminada; troca de bytes exige nova validação. Revisão explícita do André continua obrigatória.
+  4. Testar sem assinatura, adulteração, cadeia não confiável, signatário diferente, indisponibilidade de revogação e resultado de outro hash com fixtures criptográficas. Fixture sintética não comprova certificado ICP-Brasil real.
+  5. Realizar ensaio autorizado com certificado/arquivo reais em armazenamento privado; não guardar CPF/certificado/processo no Git nem enviá-los a terceiro sem autorização.
+- **Pronto quando:** negativos/indeterminados bloqueiam, resultados estão vinculados ao hash correto e ensaio real comprova mecanismo ICP-Brasil com evidência sanitizada.
+- **Dependências:** M3.00; M2.26; D6; identificação privada/mecanismo aprovados. Referências a conferir: [critérios do ITI](https://validar.iti.gov.br/Docs/cartilha-de-uso.pdf), [guia do desenvolvedor](https://validar.iti.gov.br/guia-desenvolvedor.html).
+
+#### M3.09 Cobrança do saldo na entrega
+
+- **Fazer:**
+  1. Gerar uma obrigação de saldo por pedido na entrega: total contratado menos créditos elegíveis confirmados, líquidos de estornos/chargebacks e sem descontar taxas do provedor. Triagem só abate conforme D5. Cliente com contrato sem sinal deve o total remanescente, não 50% fixos.
+  2. Cobrar também na política que permite download antecipado; reutilizar a regra capturada por entrega e aprovação individual de legado. Webhook não decide D6 nem altera a regra.
+  3. Reconciliar pagamentos manuais/automáticos concorrentes, estornos, várias entregas e replay; não emitir outra dívida pelo mesmo saldo.
+  4. Antes de emitir saldo, reconciliar cobranças/intenções de sinal ativas/incertas, inclusive após marcar cliente com contrato. Definir procedimento seguro de reutilização/substituição/cancelamento comprovado para impedir duas faturas pagáveis sobrepostas; bloquear emissão enquanto o resultado for incerto. Evento tardio de sinal exige reconciliação, não nova cobrança às cegas.
+  5. Ampliar instruções de cobrança hoje restritas a `after_balance`, conservando as guardas de download existentes.
+  6. Criar confirmação manual do saldo pelo calculista, com restante calculado no servidor, UUID/recibo, revisão concorrente, autoria/auditoria e a mesma projeção de crédito. O comando atual confirma apenas sinal; a ponte SQL sintética da jornada não é fluxo de saldo e não pode ser usada em operação real.
+- **Pronto quando:** ambas as políticas, contrato sem sinal, centavo ímpar, parcial, estorno e concorrência passam; caso sinal pendente → cliente com contrato → entrega e pagamento tardio concorrente/resposta perdida não cria cobranças sobrepostas; modo automático desligado permite confirmar saldo e liberar conforme regra pela UI, sem SQL administrativo; download antecipado mantém cobrança devida.
+- **Dependências:** M3.00; M3.01/02; M2.26/27; D6; RF-35/32.
+
+#### M3.10 Nova versão do PDF e páginas já lidas
+
+- **Fazer:**
+  1. Relacionar cada nova versão ao PDF anterior do mesmo processo, preservando arquivos, hashes e índices. Nome igual ou número da página não prova correspondência.
+  2. Definir com André a marcação de página lida e a confirmação da correspondência. Adotar conferência manual neste marco; leitura/classificação por IA pertencem ao M4.
+  3. Reaproveitar somente páginas cuja correspondência foi confirmada; destacar páginas novas ou alteradas. Inserção, exclusão, reordenação e páginas escaneadas mantêm incerteza até a conferência.
+  4. Copiar referências após confirmação, conservando arquivo/página de origem, responsável e data. Registrar evento/auditoria, revisão concorrente e recibo de reenvio.
+- **Pronto quando:** duas versões fictícias com inserções, remoções e reordenação preservam o original, não herdam referências incorretas e mostram o que precisa de leitura; isolamento, replay e navegador/axe em 375/1440 px aprovados.
+- **Dependências:** M3.00; M2.18/20/24; definição do André sobre marcação/correspondência. Hoje existe índice por `file_id` e campo `version`, sem cadeia explícita entre PDFs.
+
+#### M3.11 Atualização sobre o .PJC guardado
+
+- **Fazer:**
+  1. Criar pedido de atualização na pasta existente, vinculado ao pedido/cálculo anterior escolhido pelo cliente proprietário.
+  2. Selecionar .PJC confirmado e autorizado daquele processo, conservando a entrega original. Se ausente, permitir informar a ausência e solicitar envio.
+  3. Reaproveitar checklist como rascunho identificado; exigir revisão dos campos e nova data-base. Índice e decisões conservam origem; alterações exigem novo registro.
+  4. Usar tabela vigente para nova proposta, sem reutilizar aceite/sinal antigos. Percorrer as regras existentes de contratação, documentos, fila, revisão e entrega.
+- **Pronto quando:** atualização fictícia conserva pedido/.PJC originais, exige revisão, cria nova proposta e não referencia arquivo de outro cliente; replay, concorrência e jornada aprovados.
+- **Dependências:** M3.00; M3.10 para reaproveitar PDFs; M2.08/12/15–19/26. Preços, calendário, período e disponibilidade aprovados antes de uso real. Hoje há tipo `update` e pasta com vários pedidos, sem comando de atualização e vínculo verificável ao .PJC anterior.
+
+#### M3.12 Concordância técnica na recorrência
+
+- **Fazer:**
+  1. Reaproveitar RF-47 implementado em M2.23: confirmação explícita do proprietário, ator/data imutáveis, RPC idempotente e inclusão no PDF.
+  2. Conferir que a concordância continua vinculada ao conteúdo original. Referência reaproveitada não autoriza concordância automática com decisão nova ou modificada.
+  3. Repetir regressões de propriedade, concorrência, replay, imutabilidade, evento/auditoria e exportação depois de nova versão e novo pedido.
+- **Pronto quando:** somente o proprietário confirma, repetição não duplica a prova e conteúdo novo não recebe concordância indevida; evidência registrada para os cenários de recorrência.
+- **Dependências:** aprovação do reaproveitamento em M3.00; M2.23; M3.10/11. Manter aberta até verificar a extensão; não criar segunda confirmação.
+
+#### M3.13 GA4, consentimento e Search Console
+
+- **Fazer:**
+  1. Confirmar propriedade GA4/Search Console na conta-mãe do cliente e o domínio autorizado; Fábio configura os acessos.
+  2. Oferecer aceitar, recusar e rever consentimento com acessibilidade. Usar o modo básico: nenhum carregamento/envio ao Google antes de aceitar. Conferir a [documentação oficial do Consent Mode](https://developers.google.com/tag-platform/security/concepts/consent-mode) na implementação.
+  3. Medir somente páginas públicas e eventos aprovados com URLs/parâmetros sanitizados. Excluir áreas `/app`/`painel`, CNJ, documentos, contatos, CPF/CNPJ, textos livres, tokens e identificadores privados.
+  4. Verificar Search Console pelo método autorizado e sitemap de páginas públicas. Mudança de DNS exige ordem própria do Fábio.
+- **Pronto quando:** testes de rede comprovam ausência de envio antes de consentimento/depois de recusa, aceitação/revogação funcionam, eventos sanitizados chegam ao GA4 e Search Console confirma propriedade. Estado/cidade aparecem como agregado disponível, sem promessa de precisão individual.
+- **Dependências:** M3.00; conta Google, domínio e política aprovados. Preparar transporte fictício não comprova recebimento real no GA4.
+
+#### M3.14 Simulador público sem cadastro
+
+- **Fazer:**
+  1. Definir com André campos mínimos do checklist curto, sem documentos, dados pessoais ou número do processo.
+  2. Reutilizar motor determinístico e projeção pública mínima da tabela ativa aprovada. Mostrar itens, premissas, centavos e versão.
+  3. Identificar resultado como estimativa; encaminhar ao cadastro/checklist completo antes de proposta/contratação. Não prometer prazo sem calendário e disponibilidade confirmados.
+  4. Bloquear uso comercial de tabela fictícia e conservar a demonstração identificada como fictícia.
+- **Pronto quando:** mesmas entradas/versão produzem mesmos centavos, adicionais estão discriminados, não há contratação nem configuração privada exposta e navegador/axe passam em 375/1440 px.
+- **Dependências:** M3.00; M2.07/09/11/33; campos/textos aprovados. O motor e a demonstração existentes não comprovam simulador comercial.
+
+#### M3.15 Indicadores do André
+
+- **Fazer:**
+  1. Aprovar definições, período e denominadores de cadastros, propostas comerciais, conversão, recebimentos confirmados líquidos de estornos, prazo médio e entregas no prazo. Proposta emitida não é receita.
+  2. Excluir simulações, separar dado ausente de zero e conservar prazo prometido/timestamps usados na medição.
+  3. Calcular agregados no servidor, exclusivos do calculista, com filtros antes da agregação e America/Sao_Paulo.
+  4. Mostrar origem somente após M3.13, como agregado de analytics separado dos dados de processo.
+- **Pronto quando:** conjunto fictício conhecido, incluindo parcial/estorno/recusa e informação ausente, reconcilia com fórmulas aprovadas; isolamento, desempenho e navegador verificados.
+- **Dependências:** M3.00; M2.32; dados confiáveis de proposta/pagamento/entrega e fórmulas aprovadas; M3.13 para origem. As seis contagens atuais são operacionais.
+
+#### M3.16 Avaliação e convite para o Google
+
+- **Fazer:**
+  1. Permitir ao proprietário avaliar pedido entregue com nota 1–5 e comentário; proteger repetição/concorrência e definir com André se haverá edição.
+  2. Guardar avaliação privada e disponibilizá-la ao André. Publicação de depoimento exige autorização própria.
+  3. Oferecer convite neutro para perfil Google confirmado independentemente da nota interna, sem incentivo ou pressão por avaliação positiva; conferir a [política oficial](https://support.google.com/contributionpolicy/answer/7400114).
+  4. Eventual convite por mensagem usa fila, deduplicação e texto aprovado; envio real depende da autorização e do provedor do projeto.
+- **Pronto quando:** apenas dono de pedido entregue avalia; acesso cruzado, duplicidade e entrada inválida são recusados; convite funciona para notas baixas/altas sem publicar comentários privados.
+- **Dependências:** M3.00; M2.26; perfil Google e textos aprovados; M2.28 para e-mail. Existe tabela `reviews` com RLS; falta formulário/caso de uso.
+
+#### M3.17 Sugestões pelo DataJud
+
+- **Fazer:**
+  1. Consultar pelo servidor após validar CNJ/tribunal, com endpoints oficiais e referência de credencial no cofre. Testes usam respostas/processos fictícios.
+  2. Mapear tribunal, órgão julgador/vara, classe e movimentos disponíveis, preservando fonte/data. Conferir [acesso](https://datajud-wiki.cnj.jus.br/api-publica/acesso/) e [glossário](https://datajud-wiki.cnj.jus.br/api-publica/glossario/) oficiais; metadados não substituem documentos ou decisões.
+  3. Exibir sugestões para conferência antes de salvar; não sobrescrever edição manual nem escolher silenciosamente resultado ambíguo.
+  4. Tratar ausência, incompletude, indisponibilidade e timeout conservando preenchimento manual. Ausência de resultado não comprova inexistência/sigilo.
+  5. Não derivar prazo processual, mérito ou decisão técnica dos movimentos; logs sem CNJ, payload integral ou credencial.
+- **Pronto quando:** respostas completas/vazias/ambíguas e falhas mantêm o formulário utilizável; gravação exige conferência, credencial permanece no servidor e isolamento é verificado.
+- **Dependências:** M3.00; M2.08; configuração DataJud e campos aprovados. O checklist valida CNJ/TRT/vara; não existe cliente DataJud nem proveniência persistente de classe/movimentos.
+
+#### M3.18 Contrato de operador e retenção
+
+- **Fazer:**
+  1. Preparar minuta e matriz de tratamento com finalidade, responsáveis, classes de dados, exportação, retenção, exclusão e suspensão por litígio; revisão jurídica/humana e D8 continuam necessárias.
+  2. Definir critérios separados para arquivos/versões, cadastro, mensagens, auditoria, contratos, pagamentos e recibos. Exclusão de documento não apaga em cascata provas ou recibos necessários para impedir replay.
+  3. Implementar seleção determinística local, simulação, bloqueio por litígio e execução em lotes com recibo, concorrência e recuperação de falha entre banco/Storage. Não excluir pedido ativo nem presumir que entrega encerra o processo.
+  4. Auditar identificadores/motivos mínimos sem conteúdo ou URL; definir expiração de backups e reaplicação das exclusões após restauração.
+  5. Preparar job autenticado. Ativação e primeira exclusão real exigem autorização específica, política juridicamente aprovada e restauração de M3.22 verificada.
+- **Pronto quando:** contrato/política aprovados, guarda por litígio/replay/concorrência/recuperação testados e job autorizado elimina somente elegíveis com evidência sanitizada.
+- **Dependências:** M3.00; D8; M2.03/06; recibos de M2.15/16/19a; M1.51/52. M3.22 exige política aprovada desta tarefa, mas não a execução destrutiva, evitando dependência circular.
+
+#### M3.19 MFA e recuperação
+
+- **Fazer:**
+  1. Conferir opções atuais do Supabase Auth e preparar inscrição/desafio/validação local para calculista e administração.
+  2. Exigir autenticação suficiente no servidor/casos de uso/RPCs privilegiados; testar sessão antiga, acesso direto, inscrição incompleta e troca de papel.
+  3. Aprovar recuperação antes da exigência: responsável, prova de identidade, autorização, auditoria e reinscrição. Não presumir códigos de recuperação oferecidos pelo provedor.
+  4. Ensaiar perda/recuperação com contas fictícias. André/Fábio cadastram fatores reais e os guardam no cofre só de pessoas.
+  5. Alteração Auth/inscrição real/exigência em produção requer autorização específica. Nenhum QR, segredo TOTP ou código aparece no chat, captura, Git ou log.
+- **Pronto quando:** servidor nega operação privilegiada sem segundo fator, recuperação autorizada foi ensaiada e responsáveis confirmaram inscrição/acesso reais.
+- **Dependências:** M3.00; M1.43; M2.35; contas e recuperação humana aprovadas.
+
+#### M3.20 Consulta da auditoria de arquivos
+
+- **Fazer:**
+  1. Mostrar ao André consulta paginada com filtro por arquivo/período/autor/ação e ordem estável por data/UUID.
+  2. Exibir somente autor autorizado, horário, ação e referência; não incluir conteúdo, token, URL assinada ou payload bruto.
+  3. Proteger pelo papel/escopo sem ampliar o acesso administrativo a documentos definido em D13.
+  4. Verificar visualização, HEAD/Range e download auditados, paginação e negação aos demais papéis conforme suas permissões.
+- **Pronto quando:** André recupera registros do ensaio autorizado, isolamento/paginação e navegador/axe em 375/1440 px passam.
+- **Dependências:** M3.00; RN-11; D13; M2.18/20/27. Não requer política global mais ampla.
+
+#### M3.21 WhatsApp oficial com consentimento
+
+- **Fazer:**
+  1. Criar consentimento específico separado dos termos, com texto/versão, número normalizado, data/origem e retirada.
+  2. Usar adaptador oficial e fila; revalidar consentimento/destinatário no despacho e em cada tentativa. Retirada cancela pendentes pertinentes e conserva histórico enviado.
+  3. Enviar apenas código do pedido, data e link autenticado do portal; sem processo, partes, documentos ou URL assinada de arquivo.
+  4. Testar opt-in/opt-out, troca de número, replay, concorrência e falha com transporte fictício.
+  5. Fábio aprova/configura conta Meta, número, templates, custos e variáveis. Mesmo envio real de teste exige autorização registrada do destinatário/conteúdo.
+- **Pronto quando:** retirada impede novos despachos, retry não duplica e teste real autorizado chega ao destinatário correto com conteúdo aprovado.
+- **Dependências:** M3.00; RF-72/RN-07; D7; M1.51; M2.29/31; textos aprovados.
+
+#### M3.22 Backup externo e restauração
+
+- **Fazer:**
+  1. Conferir alcance do backup do banco e aprovar destino externo privado do cliente, periodicidade, retenção, criptografia, responsáveis/alertas. Não escolher plano pago sem aprovação.
+  2. Preparar cópia incremental com manifesto de arquivo/versão/tamanho/hash; conferir bytes e recuperação de cópia interrompida. Segredos ficam no ambiente/cofre autorizados.
+  3. Associar manifesto ao ponto de restauração do banco, conservando vínculos, metadados e recibos de idempotência.
+  4. Ensaiar localmente com arquivos fictícios. Restauração externa requer destino isolado aprovado e identidade/acesso próprios, confirmados antes da operação.
+  5. Conferir método/efeitos antes da restauração: clone físico pode iniciar extensões externas imediatamente e não permite pausá-las previamente; quando necessário, usar restauração lógica revisada que impeça esses efeitos antes da execução. Manter cron/envios isolados; reaplicar exclusões/restrições posteriores e verificar RLS, hashes, versões, download autorizado/negado e ausência de replay de cobrança/aviso.
+  6. Documentar ensaio mensal e resposta a falha sem substituir a produção.
+- **Pronto quando:** cópia externa autorizada existe, arquivos restaurados conferem por hash, vínculos/permissões/replays passam e rotina tem responsável.
+- **Dependências:** M1.44/52; política aprovada de M3.18; destino/custo/credenciais aprovados pelo Fábio. Não depende de exclusão real já ativada.
+
+#### M3.23 Entrevistas com advogados
+
+- **Fazer:**
+  1. Preparar roteiro para 10–15 advogados de SP/MG: frequência, dor, documentos, prazo, orçamento, objeções, experiência e confiança.
+  2. André/Fábio selecionam/entrevistam; contatos, convites, gravações ou mensagens do agente exigem autorização explícita.
+  3. Consolidar respostas autorizadas com método/contagem, separando observação, hipótese e recomendação. Identidades/relatos ficam privados; Git recebe roteiro e síntese anonimizada.
+  4. Propor decisões de preço/escopo sem ativá-las.
+- **Pronto quando:** 10–15 entrevistas concluídas, síntese conferida e decisões/pendências registradas. Preparar roteiro não conclui a tarefa.
+- **Dependências:** M3.00; roteiro aprovado; execução humana de André/Fábio.
+
+#### M3.24 Cliente oculto
+
+- **Fazer:**
+  1. Preparar cenário fictício padronizado e ficha para Office Perícia, MH Cálculos e Lagares: serviço, preço, sinal, prazo, garantia, atendimento e entregas.
+  2. Fábio realiza contatos/solicitações. Não usar processo real; mensagens, pagamentos ou envios pelo agente exigem autorização específica.
+  3. Consolidar evidências com data/condições/lacunas; não comparar como equivalentes preços de serviços diferentes.
+- **Pronto quando:** três experiências registradas e comparação revisada com limitações explícitas, sem dados privados no Git.
+- **Dependências:** M3.00; cenário aprovado e execução do Fábio.
+
+#### M3.25 Manual do dono
+
+- **Fazer:**
+  1. Inventariar serviços, titular, administradores, cobrança, região, domínio, finalidade e suporte oficial.
+  2. Registrar custos confirmados/data/responsável, distinguindo plano fixo, consumo e opcionais; não inventar valores.
+  3. Documentar login/recuperação, senha/2FA, manutenção, deploy/saúde, backup/restauração, incidentes, retenção e rotação.
+  4. Indicar onde humanos autorizados encontram os itens no cofre só de pessoas, sem copiar credenciais/dados de cobrança.
+  5. André percorre passos essenciais e informa lacunas; atualizar o manual a partir dessa conferência.
+- **Pronto quando:** André encontra serviços, reconhece cobrança/suporte e percorre recuperação/saúde/backup com orientação conferida.
+- **Dependências:** D14/D16; inventário real; M1.52; M3.19/22. Acesso preparado não comprova domínio humano da conta.
+
+#### M3.26 Passagem das contas
+
+- **Fazer:**
+  1. Preparar checklist de passagem/responsáveis/manutenção posterior para aprovação do Fábio.
+  2. Fábio/André transferem acesso por meio seguro/cofre de pessoas; o agente não recebe senha, QR, recuperação ou chave.
+  3. André confirma por login titularidade/administração/recuperação/cobrança no Gmail, Supabase, Vercel, Resend, domínio e demais serviços usados.
+  4. Registrar confirmação sanitizada por serviço e acordo de manutenção. Alterações de papel/recuperação/revogação requerem autorização própria.
+- **Pronto quando:** André confirma domínio/acesso e recuperação próprios, com manutenção acordada e nenhuma credencial na evidência.
+- **Dependências:** M3.25; D14/D16; aprovação do Fábio. Convite enviado/tela aberta não concluem passagem.
+
+#### M3.27 Rotação após passagem
+
+- **Fazer:**
+  1. Inventariar chaves/consumidores, ordem, testes, janela e recuperação; distinguir API, webhook e assinatura/Auth.
+  2. Fábio/André geram/guardam novas chaves no cofre de pessoas e atualizam consumidores/variáveis. Agente prepara roteiros sem manipular/revelar valores.
+  3. Conferir saúde/login/Storage/webhook idempotente/notificações após cada serviço por testes autorizados; Auth/cobrança/envio reais têm aprovação própria.
+  4. Revogar anteriores após validação e registrar somente IDs/revisões/horários. Não presumir reutilização de chave revogada na recuperação.
+- **Pronto quando:** consumidores novos funcionam, antigas deixam de autorizar e André confirma procedimento; replay não repete cobrança/aviso.
+- **Dependências:** M3.26; inventário de M3.25; plano e autorizações específicas.
+
+#### M3.28 Destino do repositório
+
+- **Fazer:**
+  1. Preparar alternativas de manutenção na Harmony ou transferência ao cliente, com responsabilidades/custos/acessos/continuidade CI e Vercel.
+  2. Registrar decisão da passagem de Fábio/André. D15 definiu desenvolvimento, não a futura passagem.
+  3. Para transferência, apresentar destinatário exato/checklist antes da aprovação; somente repositório público ID `1414349093`, excluindo arquivo privado ID `1413659875`.
+  4. Após operação autorizada, conferir dono/ID, acesso de André, proteção main, CI, integração Vercel/remoto e atualizar contas esperadas/instruções.
+  5. Visibilidade, novos acessos e revogação da manutenção não mudam implicitamente pela transferência.
+- **Pronto quando:** escolha registrada e, se transferido, destino/integrações conferidos; se mantido, propriedade e manutenção acordadas.
+- **Dependências:** M3.25/26; decisão de passagem D15; autorização específica para transferência/acessos.
 
 ## Decisões do Fábio e do André
 
@@ -1300,3 +1913,180 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-11 | Codex | M1.04 concluído após consentimento final autorizado somente para Projeto Andre, mantendo acesso a todos os projetos atuais/futuros desmarcado. Chamadas nativas confirmaram get_project_url esperado, list_teams com só Projeto Andre/projeto-andre1/team_4fdLDCsB0ROvP5ph50aFNvxm, get_team correto e list_projects dessa equipe vazio; preflight GitHub/remote/cofre aprovado | Evidência: docs/evidencias/mcp/validacao-2026-10-11.md e capturas apresentadas no chat. Limpeza de cache DNS autorizada, mas sudo -n exigiu senha e nenhum flush/HUP ocorreu; endpoint OAuth voltou a responder 200 sem intervenção. Revisão automática da confirmação de projetos resolvida após comprovar checkbox desmarcado, sem ampliar esse escopo; login terminou com código zero. Nenhuma revogação, alteração de rede, criação de projeto, migration, deploy, variável, cobrança ou envio. Ferramentas dedicadas agora disponíveis no chat. git diff --check e bash -n aprovados; código do produto idêntico ao aprovado no CI, sem repetir npm run check para documentos/metadados. M1.05 e demais insumos humanos permanecem pendentes. |
 
 | 2026-10-11 | Codex | Fábio autorizou domínio original Vercel e identidade/preços/calendário fictícios. M2.34b/M2.34c: demonstração isolada /demonstracao com Marco, advogado/calculista, checklist de nove etapas, proposta, aceite/sinal/documento simulados e timeline; oito testes de regras e quatro e2e em 375/1440 px aprovados, axe sem violações, zero chamadas externas | Evidência: docs/evidencias/demonstracao/README.md. Format/lint/tipos/348 unitários/doze scripts aprovados; build Turbopack local recusado por porta interna do ambiente, CI pendente. Preflight GitHub/cofre/destinos aprovado; MCP create_project na equipe correta respondeu403, nenhum projeto criado. Publicação M2.34d e demonstração hospedada ainda pendentes. Decisões comerciais/GATEs preservados. |
+
+| 2026-10-11 | Codex | M2.34c concluído no CI 38153083358/SHA abe2fb4: 348 unitários, doze scripts, build, 142 RLS, 113 e2e/sete omissões e advisors sem achados. PR #2 integrado normalmente na main em 9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd; pacote ZIP de 158 arquivos comparado byte a byte com a main, sem segredos/áudio/transcrição. Projeto Vercel andre-calculos criado na equipe Projeto Andre pelo painel, Next.js/Node22/raiz vazia salvos | Evidência: docs/evidencias/demonstracao/README.md e pacote-manifesto.json. MCP create_project respondeu403 e list_projects continuou vazio; não houve ampliação de acesso. M2.34d parcial: upload automatizado recusado por permissão de arquivos locais, depois Computer Use recusou vercel.com por permissão negada pelo usuário. Nenhuma alternativa tentada após essa proteção; publicação e jornada pública aguardam nova autorização. Demonstração local disponível em 127.0.0.1:3000/demonstracao; domínio próprio/dados reais/GATEs preservados. |
+
+| 2026-10-11 | Codex | Retomada M2.34d com nova autorização explícita do Fábio: "Autorizar acesso e publicação somente nesse projeto". Preflight GitHub/cofre/remoto aprovado. Leitura normal da mesma aba Vercel recusada por preferência salva que bloqueia vercel.com; nenhum caminho alternativo de acesso/publicação tentado. Auditoria independente repetiu bytes/tamanhos/hashes dos 158 arquivos do ZIP contra main9a25f31 e manifesto, sem divergências nem conteúdo privado reconhecido | Evidência: docs/evidencias/demonstracao/README.md. Nome/ID do projeto registrados em scripts/contas-esperadas.env (configuração local ignorada pelo Git) e AGENTS.md §7. Fábio orientado pela documentação oficial a remover somente vercel.com da lista de bloqueados e habilitar envio de arquivos pela extensão, com opção de envio manual do ZIP. git diff --check e bash -n aprovados; aplicativo idêntico à main testada, npm run check previamente verde no CI38153083358. Publicação e jornada pública continuam pendentes, sem concluir M2.34d. |
+
+| 2026-10-11 | Codex | Fábio informou os dois ajustes de permissão concluídos. Preflight GitHub/cofre/remoto aprovado; leitura normal da mesma aba Vercel continuou recusada por preferência salva. Inspeção somente de leitura das configurações do Codex recusada por política do próprio app. Não houve acesso alternativo à Vercel. Preparada cópia permanente do ZIP em .data/publicacao/andre-calculos-demo.zip, ignorada pelo Git e conferida com SHA-256 85d678b463ef38fe5d3e3ddfd36fe4fdf2cebf49c82cc85b9b808d56ba7a8859 | Evidência: docs/evidencias/demonstracao/README.md, com roteiro de envio manual pelo Fábio no projeto existente. Auditor independente conferiu novamente os 158 arquivos contra main9a25f31, sem divergências. Aplicativo inalterado, npm run check já aprovado no CI38153083358; git diff --check aprovado. M2.34d permanece parcial: envio e jornada pública ainda não verificados. |
+
+| 2026-10-11 | Codex | Fábio deixou a tela aberta e reiterou que o agente deve executar a publicação. Preflight GitHub/cofre/remoto aprovado; leitura normal da mesma aba Vercel novamente recusada por preferência salva de bloqueio de vercel.com. Não houve upload nem tentativa por outra superfície após a recusa | M2.34d parcial; pacote conferido/autorização preservados, publicação e jornada pública pendentes. Apenas registro no plano alterado; aplicativo idêntico à main aprovada no CI38153083358, sem repetir npm run check. git diff --check aprovado. |
+
+| 2026-10-11 | Codex | Fábio sugeriu navegador incorreto. Inventário atual mostrou um Chrome conectado à ferramenta e duas abas no endereço Projeto Andre/andre-calculos. Selecionada a aba mais recente indicada pelo inventário, no mesmo Chrome; a proteção recusou a leitura por preferência salva que bloqueia vercel.com. Nenhum acesso por outra superfície após essa recusa | M2.34d permanece parcial, sem upload/publicação. Preflight GitHub/cofre/remoto e git diff --check aprovados; aplicativo inalterado, npm run check já verde no CI38153083358. O inventário não confirma que outros perfis sem extensão estejam conectados. |
+
+| 2026-10-11 | Codex | Fábio informou o sistema reiniciado. Runtime CUA inicializado novamente; inventário identificou o mesmo Chrome pela instância da extensão e a aba Projeto Andre/andre-calculos. A proteção voltou a recusar acesso por preferência salva que bloqueia vercel.com. Nenhum upload ou acesso alternativo após a recusa | M2.34d parcial; reinício não resolveu. Preflight GitHub/cofre/remoto e git diff --check aprovados; aplicativo inalterado, npm run check já verde no CI38153083358. Pacote permanente .data/publicacao/andre-calculos-demo.zip pronto; publicação e jornada pública pendentes. Próximo passo de diagnóstico humano: /feedback ao suporte, conforme troubleshooting oficial, ou envio manual no projeto existente. |
+
+| 2026-10-11 | Codex | Fábio informou atualização e ativação do uso no computador, antes desativado. Novo teste normal da aba Vercel recusado por preferência salva que bloqueia vercel.com; nenhum upload/acesso alternativo após a recusa. Solicitada somente confirmação diagnóstica da presença do domínio na lista de sites bloqueados | M2.34d parcial; pacote/autorização preservados. Preflight GitHub/cofre/remoto e git diff --check aprovados. Aplicativo inalterado, npm run check já verde no CI38153083358; publicação/jornada pública pendentes. |
+
+| 2026-10-11 | Codex | Fábio questionou por que MCP Vercel conectado não dá acesso. Diagnóstico somente leitura no dedicado andre-calculos-vercel: list_teams confirmou apenas Projeto Andre/team_4fdLDCsB0ROvP5ph50aFNvxm; list_projects dessa equipe vazio; get_project com ID prj_tdmzmC6utVU2fHPz0iVhroMD8NtI/equipe correta respondeu 404 Project not found. Não testado outro MCP, CLI ou navegador; nenhuma publicação ou concessão | Evidência: docs/evidencias/mcp/validacao-2026-10-11.md. Autenticação confirmada, acesso ao recurso não confirmado. Ausência da autorização ao projeto criado depois é hipótese compatível, não causa comprovada. Nome da conexão vista pelo Fábio solicitado. Preflight e git diff --check aprovados; aplicativo inalterado, npm run check já verde no CI38153083358. M1.04a/M2.34d permanecem pendentes. |
+
+| 2026-10-11 | Codex | Fábio determinou priorizar MCP. Ambas as conexões andre-calculos-vercel/vercel confirmaram somente Projeto Andre; list_projects vazio, get_project por ID esperado404 e list_deployments403/sem permissão. Dedicado também confirmou404 pelo nome. Preparado payload local deployment-mcp.json com 158 arquivos, target production e IDs explícitos | Evidência: docs/evidencias/mcp/validacao-2026-10-11.md. Auditor independente confirmou todos os bytes contra ZIP e main9a25f31, sem env vars/projectSettings; ZIP SHA-256 85d678b463ef38fe5d3e3ddfd36fe4fdf2cebf49c82cc85b9b808d56ba7a8859. Preflight aprovado, aplicativo idêntico à main verificada no CI38153083358; git diff --check aprovado, sem repetir npm run check por alteração somente documental. Sem envio, concessão, navegador ou CLI/API alternativa. Revisar acesso somente ao recurso, confirmar ID pelo MCP antes da publicação; M1.04a/M2.34d permanecem parciais. |
+
+| 2026-10-11 | Codex | Fábio pediu resolver e confirmou consentimento somente ao projeto. OAuth oficial concluído; MCP dedicado listou somente equipe/projeto corretos e confirmou get_project/list_deployments. M1.04a e M2.34d concluídos: 158 arquivos da main9a25f31 publicados pelo MCP, deploy final dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 READY/production/gru1 e URL pública https://project-rucji.vercel.app/demonstracao | Evidência: docs/evidencias/mcp/validacao-2026-10-11.md e docs/evidencias/demonstracao/hospedada/validacao.json. Quatro testes hospedados em 375/1440 aprovados, axe A/AA sem violações, jornada completa fictícia e oito capturas. Primeira função em iad1 corrigida por update_project restrito à região e novo envio da mesma fonte; health HTTP200/gru1. Sem segredos novos, prodenv, compra, DNS próprio, banco ou comunicação real. Preflight aprovado, app idêntico à main com npm run check verde no CI38153083358; git diff --check e bash -n aprovados. Domínio temporário registrado no AGENTS e nos metadados locais. M1.50 comercial/integrado, GATEs e decisões humanas preservados. |
+
+| 2026-10-11 | Codex | Retomada do objetivo de construção integral; M2.19a implementada com seis comandos exclusivos do calculista, revisão/retorno persistidos, recibo privado e evento/auditoria atômicos. Removida ponte prepareTechnicalReview da jornada. Descobertas M2.04a e M2.12a registradas abertas. MCP Vercel novamente confirmou somente equipe/projeto corretos e deploy READY | Evidência parcial: docs/evidencias/pedidos/operacoes.md. 358 unitários/doze scripts, lint/tipos e 36 testes reais de comandos/aceite aprovados; advisors locais sem achados. Quatro e2e de recuperação aprovados; motivo do histórico corrigido e jornada em repetição. npm run check local bloqueado apenas no build por porta interna Turbopack; CI ainda necessário. Nenhuma publicação, migration de nuvem, compra, segredo ou envio real. |
+
+| 2026-10-11 | Codex | M2.19a concluída com comandos operacionais reais, histórico compartilhado e jornada sem preparação sintética da revisão. CI remoto completo aprovado; quatorze capturas locais inspecionadas e seis preservadas. M2.04a especificada com gate Auth e bootstrap por concessão privada de UUID | Fonte 45a32d9061f27de278981b120facfc98f3e5d732; CI38162207294: 358 unitários, doze scripts/build, 160 testes de banco, 117 e2e/sete omissões e advisors sem achados. PR #3; sem publicação das operações, migration na nuvem, compra, segredo ou envio real. |
+
+| 2026-10-11 | Codex | M2.04a implementada no banco local: aceite booleano/versões obrigatórias, duas gravações de consentimento transacionais e bootstrap privado por UUID/TTL. Revisão independente encontrou espera atravessando a expiração e cliente Auth opaco; corrigidos por migration 0048 e helper com destino confirmado. Seed/creators temporários adaptados, sem consentimento inventado. Descoberta M2.04b registrada aberta | 24 testes específicos e 184 testes reais de banco aprovados; advisors locais sem achados, 358 unitários/doze scripts, formato/lint/tipos aprovados. Build local recusado na porta interna do Turbopack; seis e2e/duas omissões aprovados em 54,2 s, incluindo jornada completa; CI da nova fonte em validação. Nenhuma migration/Auth/segredo/infra alterado na nuvem. |
+
+| 2026-10-11 | Codex | M2.04a verificada e PR #4 criado em rascunho, dependente de #3. Nova fonte passou no npm run check/build remoto; fonte local validada com Auth direto, grants privados e jornada responsiva. M2.04b detalhada para validar campos obrigatórios no banco antes de operação real | Fonte 2cab40d52b7adbd5e2f4e890400049c98fa202a7; qualidade do CI38163619398 aprovado. 24 específicos, 184 banco, seis e2e/duas omissões, advisors sem achados; suíte remota geral ainda em execução. Nenhuma publicação, migration, configuração Auth ou segredo alterado na nuvem. |
+
+| 2026-10-11 | Codex | MCP Vercel revalidado após autorização exclusiva: equipe Projeto Andre, projeto andre-calculos e deploy de produção READY; continuidade M2.04b preparada no banco local, com validação canônica e celular internacional corrigido. Teste do parser real identificou contagem Unicode diferente; 0050 corrige 0049 sem alterar histórico aplicado | Chamadas nativas list_teams/list_projects/get_project/list_deployments confirmam team_4fdLDCsB0ROvP5ph50aFNvxm/prj_tdmzmC6utVU2fHPz0iVhroMD8NtI/dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7. 121 específicos, 362 unitários/doze scripts e tipos/lint aprovados; build local recusado por porta interna Turbopack, nova fonte aguarda CI remoto. Suíte geral local em execução; nenhuma alteração na nuvem. |
+
+| 2026-10-11 | Codex | M2.04b verificada com transporte real do parser e campos obrigatórios também no hook Auth; CPF/CNPJ/DDD/Unicode/tipos, ausência de persistência parcial e metadata posterior conferidos. PR #5 em rascunho criado e anexado; PR #3 concluiu seu CI completo com sucesso | Fonte/remoto 4af6407ca7c43410abe7da107603e9f85c32579a; 98 campos/24 jurídicos/282 banco, seis e2e/duas omissões em 59,6 s, 362 unitários/doze scripts, advisors locais sem achados. npm run check/build remoto aprovado no job qualidade do CI38164584726; geral remota em execução. Nenhuma mudança de Auth/migration/publicação na nuvem. |
+
+| 2026-10-11 | Codex | M2.12a detalhada antes da próxima implementação, com revisão independente de PRD/RPCs: recusa pré-contratação, proprietário, ausência de qualquer aceite/pagamento, disputa serializada, recibo/replay, bloqueio de aceite posterior e preservação do PDF | Especificação em plan.md; somente preparo documental. D5/reembolso, produtor comercial, publicação e avisos externos continuam sujeitos às tarefas/insumos próprios. |
+
+| 2026-10-11 | Codex | CI do PR #4 concluído integralmente com sucesso na fonte 2cab40d e PR marcado pronto para revisão; testes locais pós-M2.04b preservaram somente os quatro usuários/perfis/clientes fictícios, sem consentimentos ou grants residuais | CI38163619398: qualidade, banco, navegador e advisors aprovados; CI38164584726 do PR #5 permanece em execução, com qualidade/build aprovados. Consulta local: Auth 4/perfis 4/clientes 4/consents 0/grants 0. Nenhuma publicação ou alteração na nuvem. |
+
+| 2026-10-11 | Codex | MCPs revalidados por chamadas nativas após confirmação do consentimento exclusivo; Vercel somente Projeto Andre/andre-calculos e Supabase qtofwbxujshroaafxowr. CI38164584726 completo aprovado e PR #5 pronto para revisão. M2.12a implementada e verificada no banco/navegador local, incluindo recusa imutável, disputa com aceite/pagamento e recuperação | 33 próprios/315 banco, 379 unitários/doze scripts, quatro e2e próprios e doze regressões de aceite/jornada em 375/1440 px; PDF textual preservado, axe/QA visual e advisors sem achados. docs/evidencias/orcamento/recusa/README.md. Build Turbopack local encontra restrição da porta interna; nova fonte aguarda CI remoto. Nenhuma alteração/publicação na nuvem. |
+
+| 2026-10-11 | Codex | M2.12a concluída com npm run check/build remoto na fonte exata 51733913a6c501841abe3fa3ca49333ed42b4932; PR #6 criado em rascunho e anexado, dependente de #5/#4/#3 | CI38166216291 qualidade success, 315 banco local, 379 unitários/doze scripts, quatro e2e próprios e doze regressões em 375/1440 px; PDF/axe/capturas/advisors verificados. Suíte remota geral em execução. Read-back mantém apenas quatro usuários/perfis/clientes fictícios; zero recibos/contextos/consents/grants residuais. Nenhuma publicação ou alteração na nuvem. |
+
+| 2026-10-11 | Codex | M3.00 preparada para aprovação: 32 especificações com Fazer/Pronto quando/Dependências, M3.01 dividida em três entregas e RF-47 reaproveitado de M2.23. Revisões independentes corrigiram sinal versus saldo, faturas sobrepostas após condição de contrato, confirmação manual de saldo e guardas de sucessão de propostas | Cobertura/formato e git diff --check aprovados; somente plan.md alterado na branch docs/especificacao-m3, código idêntico à fonte 5173391 com npm run check/build remoto aprovado. Aprovação do Fábio pendente; nenhum M3 implementado, decisão comercial/GATE marcado ou ação de produção executada. CI38166216291 geral preservado em execução; MCP nativo novamente confirmou somente equipe/projeto esperados e URL Supabase. |
+
+| 2026-10-11 | Codex | CI38166216291 do PR #6 concluído integralmente com sucesso; 315 banco, 121 e2e/sete omissões, qualidade/build e advisors aprovados na fonte 5173391; PR pronto para revisão. Enquanto a aprovação de M3.00 permanece pendente, M2.28 dividida e M2.28a preparada com 16 modelos React Email em português, HTML/texto e projeção mínima sem transporte | 24 testes específicos, 403 unitários/doze scripts, formato/lint/tipos e 32 e2e em 375/1440 px aprovados; revisão independente de conteúdo e todas as 32 capturas, axe/largura/teclado sem achados. Build local recusado por porta interna do Turbopack, nova fonte aguarda CI. M2.35a registra um advisory alto preexistente propagado em cinco pacotes dev; audit omitindo dev retorna zero, sem concluir alcance no bundle ou revisão integral. MCP Vercel confirmou novamente só Projeto Andre/andre-calculos; preflight aprovado. Sem envio, Auth/segredo/migration/compra/publicação na nuvem. |
+
+| 2026-10-11 | Codex | M2.28a concluída na fonte d065be6f0ffdc2e1f42f015d766ee79430cd5096: npm run check/build remoto aprovado no job qualidade 114555367460 do CI38168299312; 403 unitários/39 arquivos, doze scripts, 24 testes específicos e 32 e2e próprios/QA visual aprovados | PR #7 criado em rascunho e anexado, dependente de #6/#5/#4/#3; remoto e fonte conferidos. Suíte geral permanece em execução, fonte remota preservada. Preparada próxima coleta elegível de M2.35a: alcance no build/bundle, sem concluir ausência em produção ou revisão integral. M3.00 ainda aguarda aprovação; envio/SMTP/conta Resend e demais decisões humanas permanecem pendentes. |
+
+| 2026-10-11 | Codex | Preparada coleta de M2.35a após build bem-sucedido do CI: inventário de hashes, traces NFT e candidatos diretos/incorporados ao Next, sem conteúdo privado ou paths absolutos. SHA real do checkout e fonte conferidos; extensão desconhecida, referência externa/ausente e symlink divergente deixam cobertura incompleta | Dez testes próprios/22 scripts, 403 unitários e formato/lint/tipos aprovados localmente; build local ainda impedido pela porta interna do Turbopack, coleta real pendente do CI. Duas revisões independentes sem bloqueadores após correções. Advisory e revisão integral permanecem abertos. MCP novamente confirmou somente Projeto Andre/andre-calculos e URL Supabase esperada; sem publicação, segredo, Auth, migration ou envio real. |
+
+| 2026-10-11 | Codex | CI38168299312 do PR #7 concluído integralmente: qualidade/build, 315 banco, 153 e2e/sete omissões e advisors sem achados; PR pronto para revisão. Coleta real M2.35a no job qualidade 114558800055/CI38169457310, fonte b1a201f: 403 unitários/22 scripts/build aprovados e JSON sanitizado preservado | Fonte/checkout/pais do merge e hashes do lock/configuração conferidos. 35 traces/300 JS, zero referências/marcadores identificáveis; um symlink não resolvido mantém cobertura incompleta. Advisory/revisão integral abertos. PR #8 criado em rascunho e anexado; suíte geral em execução, fonte remota preservada. M3.00 ainda aguarda aprovação. |
+
+| 2026-10-11 | Codex | M2.35a: o único contador de symlink não resolvido no artefato real não permite identificar a causa. Preparados diagnósticos sanitizados por motivo/artefato ou trace/índice, conservando cobertura incompleta e sem ler alvos de artefatos | Treze testes próprios/25 scripts e git diff --check aprovados; revisão independente estática sem bloqueadores. Fixtures conferem walk de arquivo/diretório, ciclo de resolução, symlink físico omitido e destino divergente. Coleta da nova fonte ainda pendente; CI38169457310 permanece vivo em e2e na fonte anterior b1a201f, sem cancelamento. Nenhuma origem remota atribuída por inspeção local e nenhum achado encerrado. |
+
+| 2026-10-11 | Codex | M2.28c dividida para preparo local independente em M2.28d: três modelos nativos HTML/assuntos fictícios, ConfirmationURL integral preservada, CTA/alternativa e orientação do mesmo navegador/dispositivo. Renderizador comum com idioma pt-BR e título único; gerador resolve destino pelo arquivo e usa tsconfig explícito | Oito testes próprios/411 unitários/25 scripts, formato/lint/tipos e 38 e2e aprovados; seis capturas com QA visual e revisão de compatibilidade independentes sem bloqueadores. Build local impedido por porta do Turbopack, CI da nova fonte pendente. Templates não aplicados, nenhuma alteração Auth/SMTP/produção ou envio. M2.04c registra erro de link oculto e retorno automático ainda não provado pelo ensaio existente; M3.00 continua aguardando aprovação. |
+
+| 2026-10-11 | Codex | MCPs revalidados após confirmação do consentimento exclusivo: somente Projeto Andre/andre-calculos, produção READY e Supabase qtofwbxujshroaafxowr. CI38169457310 completo aprovado na fonte b1a201f: 315 banco/153 e2e/sete omissões/advisors sem achados; PR #8 pronto. M2.28d concluída no preparo local com npm run check/build remoto aprovado na fonte03b4d77/job114562860596/CI38170815863 | 411 unitários/25 scripts e coleta real com 35 traces/300 JS. Diagnóstico sanitizado identifica artefato symlink ignorado de @react-pdf/renderer neste novo build, sem seguir alvo; hashes/fonte/checkout conferidos e JSON preservado. Advisory/revisão integral permanecem abertos; PR #9 geral em execução, fonte preservada. Sem alteração Auth/SMTP/produção, envio ou compra. M2.04c próxima correção local; M3.00 continua aguardando aprovação. |
+
+| 2026-10-11 | Codex | M2.04c implementada e verificada localmente: aviso português fixo e formulário de novo link aberto; ensaio real descobriu retorno do callback para localhost apesar do acesso127.0.0.1. Callback usa agora APP_BASE_URL canônica, como o envio, com HTTP local/HTTPS e sem credenciais; caminhos seguros e no-store preservados | Sete testes próprios/418 unitários/25 scripts, formato/lint/tipos e 18 e2e/duas omissões planejadas aprovados; Mailpit confirma recovery→nova-senha, magic/cadastro→app sem navegação corretiva, inválido/replay com verifier e outro navegador sem sessão. Cadastro/jornada completa375/1440 e dois PNG com QA independente aprovados. Revisão estática sem bloqueadores; limpeza específica dos e-mails/usuários fictícios. Build local ainda impedido pela porta interna Turbopack; fonte aguarda CI. Nenhuma alteração Auth/SMTP/allowlist/credencial/produção. M3.00 permanece aguardando aprovação. |
+
+| 2026-10-11 | Codex | M2.04c concluída na fonte9843f5df385ef072ab762191bf4e50aaa67e9b85: npm run check/build remoto aprovado no job114565777210/CI38171804330, com 418 unitários/25 scripts. PR #10 criado em rascunho e anexado; fonte/conta/remoto/repositórioID1414349093 verificados | Sete unitários próprios e 18 e2e/duas omissões planejadas locais, axe/foco/largura e QA visual independente aprovados. Suíte geral em execução nessa fonte e no PR #9, sem cancelamento ou novo push. MCP get_deployment confirmou produção READY/gru1 e alias temporário; novas mudanças não publicadas. App inalterado após confirmação remota, apenas registro/evidência/descrição atualizados; git diff --check aprovado. M3.00 e demais decisões/insumos humanos continuam pendentes. |
+
+| 2026-10-11 | Codex | CI38170815863 do PR #9 concluído integralmente com sucesso na fonte03b4d778c8cc924ff2a3a25dd04911fb85e7899c; PR pronto para revisão após conferir jobs/logs completos | 411 unitários/25 scripts/check/build, 315 banco/159 e2e/sete omissões e advisors sem achados. Diagnóstico do inventário continua parcial pelo symlink ignorado; Auth/SMTP não alterados. M1.51 dividida antes do código em núcleo local, executor fictício e ativação externa; M3.00 segue aguardando aprovação. |
+
+| 2026-10-11 | Codex | CI38171804330 do PR #10 concluído integralmente com sucesso na fonte9843f5df385ef072ab762191bf4e50aaa67e9b85; PR pronto para revisão após logs/jobs conferidos | 418 unitários/25 scripts/check/build, 315 banco/165 e2e/sete omissões planejadas e advisors sem achados. Fonte/checkout de merge fe9ba1fa0c54290a7ed969bf77d3dd0063aa8745 registrados; sem Auth/SMTP/produção alterados. M1.51a em validação local; M3.00 permanece aguardando aprovação. |
+
+| 2026-10-11 | Codex | M1.51 dividida antes do código e M1.51a preparada no banco local: fila notifications existente, reservas exclusivas/replay, conteúdo congelado, recibos privados imutáveis em modo simulation, teto cinco e espera crescente; expiração/incerto bloqueados sem reenvio | 16 unitários próprios/434 totais/25 scripts, 25 próprios/340 banco gerais e advisors sem achados. Revisões independentes corrigiram lease/replay/vínculo/identidade held; migrations0052/53/54 preservam aplicação local. Lint só warnings preexistentes CPF/CNPJ. Docs/evidencias/notificacoes/fila/README.md. Build local encontra EPERM da porta Turbopack; nova fonte aguarda CI. Sem transporte, rota, cron, banco na nuvem, Auth/SMTP ou produção alterados. |
+
+| 2026-10-11 | Codex | M1.51a concluída na fonte558a5c7ebefad7150302280a86efa8340c43cb91 após npm run check/build remoto aprovado no job114571144088/CI38173586727; PR #11 criado em rascunho e anexado | 434 unitários/43 arquivos, 25 scripts, 16 próprios/340 banco gerais/25 próprios locais e advisors sem achados. Limpeza read-back: zero reservas/recibos/trigger temporário/processo residual das fixtures. Suíte geral remota em execução; nenhuma alteração do head durante o CI. Executor fictício M1.51b próximo; produção/transportes/M3.00 e decisões humanas continuam pendentes. |
+
+| 2026-10-11 | Codex | CI38173586727 do PR #11 completo aprovado na fonte558a5c7ebefad7150302280a86efa8340c43cb91, checkout73684941a06a1a018fdac0970428455e9d26dcbc; PR pronto para revisão. M1.51b implementada localmente: execução imutável de até25 posições, getters sem efeitos, transporte fictício persistente/idempotente e contagem de recibo efetivo | 434 unitários/25 scripts/build remoto do núcleo, 340 banco/165 e2e/sete omissões/advisors sem achados. Novo executor: 30 DB próprios/370 gerais, inclusive perda real da resposta e lote25/26; 43 unitários dos módulos/461 gerais/25 scripts, formato/lint/tipos e advisors sem achados. Revisões independentes sem bloqueadores. Build local EPERM preexistente; nova fonte aguarda CI. MCP dedicado confirmou somente Projeto Andre/andre-calculos e demonstração READY; nenhum transporte externo, endpoint, cron, nuvem, Auth/SMTP ou produção alterado. M3.00 segue aguardando aprovação. |
+
+| 2026-10-11 | Codex | M1.51b concluída na preparação local: npm run check/build remoto aprovado na fonte85568bcd004d387ab216bba5c23a95fbef52962e/job114574690764/CI38174754842; PR #12 em rascunho criado e anexado, dependente de #11 e anteriores | 461 unitários/44 arquivos, 25 scripts, 30 próprios/370 banco gerais locais e advisors sem achados. Revisões independentes aprovadas e read-back zero runs/calls/deliveries/requests/receipts/triggers de fixtures. Suíte geral remota em execução; fonte preservada, sem novo push. Ativação externa/infraestrutura e aprovação M3.00 pendentes; nenhum cron/transporte/SMTP/Auth/nuvem/produção alterado. |
+
+| 2026-10-11 | Codex | M2.35b especificada antes da implementação e coletor restrito preparado: somente alias PDF esperado, identidade manifestos/lock, opt-in CI, limites compartilhados, arquivos regulares e diagnóstico sanitizado | Revisões encontraram/corrigiram orçamento por alias, bytes reais, ordem lexical e diretório comum. 31 testes próprios/43 scripts/461 unitários e formato/lint/tipos aprovados; revisões independentes sem bloqueador. Build local EPERM; novo CI/relatório real pendentes; advisory e revisão integral abertos. MCP dedicado revalidado por chamadas reais: somente Projeto Andre/andre-calculos; projeto esperado e deploy dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 READY/gru1. CI38174754842 de #12 ainda em execução, fonte preservada. |
+
+| 2026-10-11 | Codex | M2.35b concluída no recorte técnico após npm run check/build remoto da fonte62c8def76cfc5bdc1a867f97ce591a320cb7aac5, job114578103904/CI38175897388; PR #13 em rascunho criado e anexado | 461 unitários/43 scripts/31 próprios, formato/lint/tipos e revisões independentes sem bloqueador. JSON real byte a byte com hash fc458c53af5c1092fe7ce787889936113f8fafdeb88400051063ce7f40dfe517, source/checkout/pais/lock/configuração conferidos: 35 traces/301 JS e quatro JS/39.932 bytes do alias PDF, contadores zero. Sem prova de ausência de código ou integridade/equivalência; advisory/revisão integral abertos. Suítes gerais #12/#13 em execução, fontes preservadas; M3.00 aguarda aprovação. |
+
+| 2026-10-11 | Codex | CI38174754842 completo aprovado na fonte85568bcd004d387ab216bba5c23a95fbef52962e, checkout447f99c42e34abff17f54ec1b7e98f455d645cf3 com pais main9a25 e fonte confirmados pela API; PR #12 pronto para revisão | 461 unitários/25 scripts/check/build e 370 banco/22 arquivos, 165 e2e/sete omissões planejadas/advisors sem achados. Logs conferidos; nenhum novo push no head. M2.35b também teve JSON real revisado independentemente sem bloqueador; PR #13 qualidade/build aprovados, suíte geral em execução e fonte62c8def preservada. Nenhuma publicação/infraestrutura/produção alterada. |
+
+| 2026-10-11 | Codex | M1.52a desdobrada e especificada antes do preparo documental de docs/operacao.md, dentro do escopo de M1.52 | Manual local não comprova plano Pro, backup ativo, destino autorizado ou restauração real; M1.52/M3.22 e decisões de custo/retenção permanecem abertas. Preflight aprovado; MCP dedicado confirmou qtofwbxujshroaafxowr. CI38175897388 de #13 vivo em e2e, fonte62c8def preservada. |
+
+| 2026-10-11 | Codex | M1.52a concluída no preparo documental: docs/operacao.md com fontes oficiais Supabase consultadas pelo MCP dedicado e páginas oficiais, responsáveis/destinos, backup/restore físico/lógico, matriz de conferência e ensaio mensal | Oito links/referências conferidos, diff --check e duas revisões independentes sem bloqueador. Corrigida especificação: clone físico inicia extensões externas imediatamente e não permite pausa prévia; inventário precisa corresponder ao ponto do backup. M1.52/M3.22 e decisões de custo/destino/retenção abertos; nenhuma cópia/restore/compra/segredo/nuvem/produção alterados. Código da aplicação idêntico à fonte62c8def com check/build remoto aprovado; CI38175897388 vivo em e2e, fonte preservada. |
+
+| 2026-10-11 | Codex | M1.52a entregue na fonte79fc356c8c56579cc4375214d2f2275504cef7b3/PR #14 em rascunho criado e anexado; conta fabioalmeidadigital, remoto e repositórioID1414349093 conferidos antes do push | Fonte remota idêntica; aplicação/scripts/workflow sem diferenças contra62c8def, cujo check/build remoto passou. CI38176671146 confirmado vivo em qualidade/e2e; CI38175897388 de #13 confirmado vivo em e2e. Sem atualização dos heads durante os jobs, publicação, restauração ou compra. M1.52/M3.22/GATEs e aprovação M3.00 continuam pendentes. |
+
+| 2026-10-11 | Codex | Revalidado o consentimento exclusivo pelo MCP andre-calculos-vercel: somente Projeto Andre/andre-calculos, IDs esperados e deploy dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7 READY/production/gru1 | GETs públicos /demonstracao e /api/health HTTP200; health ok/gru1/v0.1.0. Evidência em docs/evidencias/mcp/validacao-2026-10-11.md. Ajustado o manual para conferir SHA na fonte do deploy: health atual não o informa. Somente documentação local; fontes remotas62c8def/79fc356 preservadas. Qualidade de #13 conferida novamente: 461 unitários/44 arquivos, 43 scripts, formato/lint/tipos/check/build aprovados; e2e ainda em execução, sem conclusão presumida. |
+
+| 2026-10-11 | Codex | Qualidade da fonte79fc356/PR #14 confirmada por API/logs: CI38176671146/job114580408182 success, 461 unitários/44 arquivos e 43 scripts, formato/lint/tipos/check/build aprovados | Checkoute1e04c702bd6f2eab96b0d8992bd17f0ce95935d/pais main9a25f31 e fonte79fc356 conferidos; head remoto preservado e PR ainda rascunho. Suíte geral em execução, advisors não concluídos; sem marcar sucesso integral. Aplicação/scripts/workflow inalterados por esta revisão documental local. M1.52 real, M3.22 e aprovação M3.00 pendentes. |
+
+| 2026-10-11 | Codex | Fábio aprovou M3.00: “Aprovar e continuar a implementação local”, em resposta ao detalhamento da fonte b9b687d | M3.00 documental concluída; 32 especificações aprovadas para dados fictícios locais. Contas, custos, decisões do André, publicação, operações reais e GATEs conservam condições próprias. Sem ativação externa. |
+
+| 2026-10-11 | Codex | M2.28e desdobrada/especificada antes da implementação, para vincular payment_confirmed do cliente à confirmação manual de sinal | Branch feat/aviso-sinal-cliente, root único escritor e revisores somente leitura; preflight aprovado. Partes locais de M2.16/fila/modelos já verificadas permitem esse produtor sem Resend/nuvem/envio. M2.28b/M1.51c permanecem abertas; heads #13/#14 preservados, CIs e2e confirmados vivos. |
+
+| 2026-10-11 | Codex | M2.28e implementada inicialmente na migration0056 e verificada em 25 testes de banco; revisão encontrou inversão de locks com update_own_profile | Migration0057 adquire perfil antes do cliente, reconfere owner_id e não antecipa validação de contato em replay/zero. Especificação atualizada e ensaio concorrente acrescentado; remoção de asserção com número em UUID elimina flake. Sem alteração de permissões/transporte/nuvem. Check local passou formato/lint/tipos/461 unitários/43 scripts; build continua encontrando o EPERM preexistente da porta interna Turbopack, aguardando comprovação remota da nova fonte. |
+
+| 2026-10-11 | Codex | M2.28e: 383 testes gerais/23 arquivos aprovados; após ampliar contato inválido e limitar sessão SQL auxiliar, 26 testes próprios/regressões aprovados novamente | Advisors segurança/desempenho sem achados; lint SQL aponta oito avisos preexistentes nos validadores CPF/CNPJ, sem erro no caso alterado. Read-back57 migrations, 25 públicas/22 privadas todas RLS, zero intenções/recibos/avisos/reservas/triggers/sessões restantes. Formato/lint/tipos aprovados novamente; duas revisões por leitura sem bloqueador. Check/build remoto da nova fonte ainda pendente; M2.28e aberta e sem despacho real. |
+
+| 2026-10-11 | Codex | CIs #13/38175897388 e #14/38176671146 concluídos success; conta/repo/heads/checkouts/pais verificados, PRs prontos para revisão | Cada fonte: 370 banco/22 arquivos, 165 e2e/sete omissões planejadas, 461 unitários/44 arquivos, 43 scripts/check/build e advisors sem achados. PR #15 criado/anexado na fonte34fbd3342baeec5546b156dc11c8ee677a4271af, CI38178146136 em execução; heads remotos preservados. Sem merge/publicação. |
+
+| 2026-10-11 | Codex | M2.28e concluída no preparo/verificação local: check/build remoto aprovado na fonte34fbd3342baeec5546b156dc11c8ee677a4271af/PR #15, CI38178146136/job114584808935 | 461 unitários/44 arquivos, 43 scripts, formato/lint/tipos/build aprovados; checkout5e39ba39e6b1fb36f480141298c04133c9f682ec/pais main9a25f31+fonte conferidos. Log sanitizado hashbd4cbb6c4dc31884d04e5fc3fed38a353b6170a2a84ee14adcbe96a9615f813f. Suíte geral remota viva, PR rascunho/head preservado; sem claim de CI integral. Próxima M3.01a autorizada. |
+
+| 2026-10-11 | Codex | CI38178146136/e2e114584808772 terminou failure: 382/383 banco, teste de perfil concorrente lê phone nulo no seed limpo | M2.28e reaberta; check/build da fonte34fbd33 permanecem aprovados, mas navegador/advisors remotos foram omitidos. Correção do teste fornece campos fictícios válidos e restaura snapshots originais inclusive null; ampliar ensaio com perfil mínimo antes de nova fonte. Sem alteração da migration/produção. |
+
+| 2026-10-11 | Codex | Fixture concorrente M2.28e corrigida e ampliada para perfil completo/mínimo; 27 testes específicos/regressões aprovados, revisão final sem bloqueador | Campo reproduzido é profiles.phone nullable; clients.legal_name é NOT NULL e mantém snapshot original. Rodada intermediária383/384 identificou setup inválido com legal_name null, retirado antes da nova fonte. Finally restaura5 camposperfil e legal_name; migrations/caso de uso inalterados. Nova fonte aguarda CI. |
+
+| 2026-10-11 | Codex | Correção do ensaio M2.28e enviada na fonte5d3db8a1f63758e0a619605052f30e60e3af1153/PR #15; CI38178835637 iniciado | Rodada anterior38178146136 terminal failure antes do push; fonte nova preservada. 27 testes locais, formato/lint/tipos e revisão do delta aprovados. M2.28e aguarda check/build e banco remoto; M3.01a permanece próxima após concluir. |
+
+| 2026-10-11 | Codex | M2.28e concluída na fonte corrigida5d3db8a1f63758e0a619605052f30e60e3af1153/PR #15, CI38178835637 | Qualidade114586864386 success: 461 unitários/44 arquivos, 43 scripts/check/build; checkout8d74e4e2f6132189589b192264286b4ef1a2b65a/pais main9a25+fonte conferidos, log sanitizado hash929e55c55450462b521e5036b94968f9de09ee39c4eed9f0afc46825776412a0. Etapa banco114586864267 success22:08:30UTC confirmada pela API; número remoto aguarda log final. 27 específicos/regressões locais, revisão/cleanup aprovados. Navegador remoto vivo/advisors pendentes; sem CI integral/merge/publicação. Próxima M3.01a, com aprovação do Fábio registrada. |
+
+| 2026-10-11 | Codex | M3.01a desdobrada antes da implementação em M3.01d/e/f: contratos precisos, adaptador e eventos financeiros | Escopo aprovado preservado; parent permanece aberto até três entregas verificadas. Branch feat/adaptador-asaas, root único escritor; preflight aprovado. Documentação oficial consultada: account.id não é walletId, originalValue pode diferir do pago e refunds DONE são distintos de pendentes. M3.01d iniciada sem segredo/API autenticada/banco/publicação; CI15e2e vivo confirmado. |
+
+| 2026-10-11 | Codex | CI38178835637 do PR #15 inteiro success, fonte5d3db8a preservada; M3.01d contratos somente servidor preparados com135 testes específicos/596 unitários gerais | Logs/API confirmam384 banco/23 arquivos, 165 e2e/sete omissões e advisors sem achados para#15; checkout8d74e4/pais conferidos. M3.01d: JSON limitado/lossless, BigInt compatíveltarget, scopes/IDs distintos, documentos/DDD/nomeUnicode e observações financeiras; formato/lint/tipos/43scripts/revisões aprovados. Build local EPERM conhecido; fonte nova aguarda check/build remoto. Sem API/banco/segredo/operação financeira. |
+
+| 2026-10-11 | Codex | M3.01d concluída: qualidade114593253417/CI38180969695 success na fontea2cb04a87e23ae85581d2eb7f42881dfc24b7dae/PR #16 criado/anexado | Log real sanitizado confirma596 unitários/47 arquivos,43 scripts/check/build; checkout0cb19ffdc2b7798582467a06d9629d637cc16d71/pais main9a25+fonte conferidos, hashfa40a743571c83dfee8bb34007f73aaecd0db5911ba2ef3b1f834d200e236a5e. Fonte remota preservada enquanto e2e114593253251 vivo. Próxima M3.01e; parentM3.01a aberto. Sem driver/segredo/banco/pagamento/envio/publicação. |
+
+| 2026-10-11 | Codex | M3.01e iniciada: branch feat/transporte-asaas, root único escritor e preflight aprovado | Documentação/revisão confirmam ausência de garantia de idempotência, 404 possível por conta divergente e notificações reais até no sandbox. Política local refinada antes da implementação: fixture explícita, busca de unicidade limitada, vencimento/meio/cliente e resposta perdida sem repetição. Sem segredo/API autenticada/banco/publicação. |
+
+| 2026-10-11 | Codex | M3.01e preparada e ensaiada localmente: criação/consulta/busca/fatura com porta fixture explícita | 136 casos novos,732 unitários/49 arquivos e43 scripts, formato/lint/tipos aprovados. Corpo mínimo/centavos exatos, vínculos e listas, resposta perdida sem retry e fatura com valor divergente bloqueada. Duas revisões confirmam correção e ausência de bloqueador. Check local chega ao EPERM conhecido; falta check/build remoto. Sem driver externo/segredo/banco/pagamento/envio/publicação. |
+
+| 2026-10-11 | Codex | M3.01e concluída no preparo/verificação: qualidade114597378029/CI38182349916 success na fonte58f61cf291295672e8fa5c75d0cd1fa4b35a6893/PR #17 criado/anexado | Log real confirma732 unitários/49 arquivos,43 scripts/check/build, checkout3d803ab3b5083348dc2dad0f7cbe8be19ff4ac25/pais main9a25+fonte e hash773a8f23183863245596367206e725d76190d06fdb56baef609747e04f76d526. Fonte remota preservada enquanto suíte geral viva, PR rascunho. Próxima M3.01f; parentM3.01a aberto. Sem driver externo/segredo/banco/operação financeira/envio/publicação. |
+
+| 2026-10-11 | Codex | CI38180969695 do PR #16 integralmente success; fonte a2cb04a preservada | Logs/API confirmam384 banco/23 arquivos,165 e2e/sete omissões e dois advisors sem achados; checkout0cb19ff/pais main9a25+fonte/head conferidos. Sete test.skip limitados ao computador conferidos no código do head exato, não listados pelo reporter; contagem coincide. Extrato sanitizado hashf5d09836713b532caca09e53176cc88a06dfa34d5f7a655cebfaa5acd7d5c3d7. PR #16 pronto para revisão, sem merge/publicação. CI17geral vivo; próxima M3.01f. |
+
+| 2026-10-11 | Codex | M3.01f iniciada: branch feat/eventos-financeiros-asaas, root único escritor/preflight aprovado | Turno anterior foi progresso: M3.01e fonte58f61cf/check/build remoto aprovado. CI17geral confirmado vivo em e2e114597378161. Fontes oficiais/revisões fundamentam presença explícita, recebido vs confirmado, estornosDONE cumulativos, chargeback sem montante e comparação sem delta/ordenação causal inventada. Sem segredo/API/banco/efeito/publicação. |
+
+| 2026-10-11 | Codex | M3.01f preparada/ensaiada: normalização e comparação cumulativa somente servidor | 146 próprios/878 unitários gerais/50 arquivos e43 scripts/formato/lint/tipos aprovados. Revisões corrigiram estado/estorno em qualquer envelope, deniedsóBOLETO, semânticaVIEWED→RECEIVED, regressão e CONFIRMEDpermanente. Erro de patch sobrescreveu suíte antes decommit; recuperada da chamadaoriginal da sessão, todos os casos preservados e checkfinal executado. Build local EPERM conhecido; falta check/build remoto. Sem banco/segredo/driver/pagamento/efeito/publicação. |
+
+| 2026-10-11 | Codex | CI38182349916 do PR #17 integralmente success: fonte58f61cf preservada | Log/API confirmam384 banco/23 arquivos,165 e2e/sete omissões e dois advisors sem achados; checkout3d803ab3b5083348dc2dad0f7cbe8be19ff4ac25/pais main9a25+fonte/head conferidos. Sete test.skip no head mantêm a condição computador e não houve alteração de suíte e2e desde#16. Extrato hash3bc18c3cb5857618ad962693970762d1970f13077b929de8677836c202add2c0. PR #17 pronto para revisão, sem merge/publicação. CI18fonte3dabd4d viva; próxima M3.01b após verificarF. |
+
+| 2026-10-11 | Codex | M3.01f e preparo local de M3.01a concluídos: qualidade114601844053/CI38183836577 success na fonte3dabd4dd888749f2dd0398fc2af0e85d5266083f/PR #18 criado/anexado | Log real confirma878 unitários/50 arquivos,43scripts/check/build; checkout52650030f80793a5a4291af4504a3c5577dab10d/pais main9a25+fonte e hash3ffe25ab2a8944fd2b72987cf35d17e80572f9fb9ee1dea417674411b336ba7d. 146 novos/414Asaas, duas revisões finais sem bloqueador. Fonte remota preservada com e2e114601844105 vivo/PR rascunho. Próxima M3.01b; M3.01/driver/autenticidade/suporte real de documentos/ensaios continuam abertos. Sem banco/segredo/efeito financeiro/envio/publicação. |
+| 2026-10-11 | Codex | M3.01b dividida antes da implementação em g/h/i/j/k, preservando o escopo aprovado de cobrança, conciliação e crédito | Iniciada M3.01g: somente vínculos/obrigações fixture e contexto imutável local. Partes posteriores cobrem reservas, execução retomável, crédito comum e fatura/jornada. Revisões detectaram divergência de datas e proteção do getter; correções e testes locais em andamento. Parent e todas as partes permanecem abertas. |
+
+| 2026-10-11 | Codex | CI38183836577 de #18 fechado success, fonte3dabd4d preservada e PR pronto para revisão | Log/API:384 banco/23 arquivos,165 navegador/sete omissões planejadas, dois advisors sem achados; checkout52650030f80793a5a4291af4504a3c5577dab10d/pais main9a25+fonte/head conferidos. Extrato0410e60d9a84cf78aa5e8a9b0bfdac1cfa41742c0bc9209d9118030b62b1b528. Sem merge/publicação. M3.01g em implementação/verificação local. |
+
+| 2026-10-11 | Codex | M3.01g preparada localmente: obrigações fixture, contexto imutável e RPCs auditados; verificação final em andamento | Migration0058 reexecutada no banco dedicado local após corrigir datas1900/locks de autorização.50 unitários próprios,19 banco próprios/403 gerais em24 arquivos, advisors segurança/desempenho sem achados e duas revisões. Positivos proprietário/calculista, imutabilidade scope/cliente/contexto e corridas owner/role/crédito comprovadas. Duas falhas de fixture corrigidas; o check detectou tipagem da nova asserção e foi corrigida antes do commit. Build local sujeito ao EPERM conhecido, remoto será conferido na fonte preservada. Sem intenção/POST/crédito/publicação. |
+
+| 2026-10-11 | Codex | Fonte final de M3.01g verificada antes do push:50 unitários próprios/928 gerais,19 banco próprios/403 gerais | Formato/lint/tipos/43 scripts aprovados;19 casos finais reexecutados após reforços do calculista/imutabilidade/timeouts. Check local parou somente no build EPERM do Turbopack/porta interna PDF; extrato36758c9d10fd483a7a247a8c2c41bfac8ebb9647b8dffc3cffb0bd54cf7e69e9. Advisors sem achados; nova PR será rascunho até verificar a fonte no CI. M3.01g/parentM3.01b abertos. |
+
+| 2026-10-11 | Codex | M3.01g concluída no preparo/verificação local: qualidade114608059274/CI38185910157 success na fonte86895f48d911c1f6365ca3a0461aaff6cb4e4c33/PR #19 criado/anexado | Log real:928 unitários/51 arquivos,43 scripts/check/build e sete páginas; checkoutc241483a3db6cd7386b54d8d2d0045d104e52bec/pais main9a25+fonte conferidos, extratoc6cc3c41e8c37e5b79dc3274457a1297e9704cacd24d1228f2f872a36df2615e. 50 unitários/19 banco próprios/403 gerais locais, advisors e duas revisões sem bloqueador; read-back zero scopes/bindings/contextos/configuração e quatro perfis. E2e114608059025 vivo, head preservado/PR rascunho. H dividida antes de começar em l/m, preservando escopo; próxima l. ParentM3.01b e operação externa permanecem abertos. |
+
+| 2026-10-11 | Codex | Iniciada M3.01l na branch feat/reservas-cobranca: reserva por pedido e intenção/replay imutáveis | Preflight GitHub/origin/cofre exclusivo aprovado; M3.01g verificada. Escopo fixture, sem despacho/crédito. Retirada exige autorização vigente e ausência de claim durável; coordenação manual/contrato permanece em m. CI19fonte86895f4 segue vivo, sem restart ou mudança de head. |
+
+| 2026-10-11 | Codex | CI38185910157 de #19 fechado success na fonte86895f4; PR pronto para revisão | Logs reais:403 banco/24 arquivos,165 navegador/sete omissões planejadas, dois advisors sem achados; checkoutc241483a3db6cd7386b54d8d2d0045d104e52bec/pais main9a25+fonte/head conferidos, extrato5081b8ebd1052dd0c2d11975dfd3c906b5d2db05eeb969aaf0339de734e1b5d7. Fonte preservada, sem merge/publicação. |
+
+| 2026-10-11 | Codex | M3.01l preparada localmente: migration0059, intenção/reserva/requests/retirada/claim privado e getters auditados |43 unitários/22 banco próprios e971 unitários/425 banco gerais aprovados; setup transacional e snapshots protegidos corrigidos após revisão, FKs request/retirada testadas especificamente. Formato/lint/tipos/43 scripts aprovados, advisors sem achados e duas revisões finais sem bloqueador. Build local parou só no EPERM conhecido, extrato420a486f583572cffbf16cdd2edb29ec077c925d4b9452ec04024bc92c28e0d4. Read-back zero intenções/reservas/requests/claims/retiradas/contextos/scopes/bindings/configuração e quatro perfis. Dois novos casos de retirada concorrente exigem nova verificação; l/h/parentb abertos até fonte/check final. Sem despacho/crédito/nuven/publicação. |
+
+| 2026-10-11 | Codex | Fonte final de M3.01l verificada localmente:24 banco próprios/427 gerais e43 unitários próprios/971 gerais | Dois casos adicionais de retirada concorrente com UUID igual/diferente passaram;25 arquivos de banco e52 de unidade, formato final aprovado. Role/owner/conta/fase/replay e rollback físico; advisor/revisões sem bloqueador. L permanece aberta até check/build remoto da fonte; parenth/M3.01b e m/i/j/k abertos. |
+
+| 2026-10-11 | Codex | M3.01l concluída no preparo/verificação local: qualidade114614038683/CI38187868946 success na fonte7daef30d5d1f341f08cc0717074961559f433f18/PR #20 criado/anexado | Log real confirma971 unitários/52 arquivos,43 scripts/check/build/sete páginas; checkout49f87d56dec923aa904a2f296946c0e0aa87aa7b/pais main9a25+fonte e extratodac71b90476689e651e8a9056d58bae25f13a7f02ab4ba3b79289d1bfcfbf44d conferidos.43 unitários/24 banco próprios/427 gerais, advisors e duas revisões sem bloqueador; read-back limpo. E2e114614038541 vivo/PR rascunho/head preservado, sem declaração de CI integral. Próxima M3.01m; h/parentb e ativação externa abertos. Sem pagamento/POST/crédito/nuven/envio/publicação. |
+
+| 2026-10-11 | Codex | Iniciada M3.01m na branch feat/coordenacao-cobrancas, após preflight OK e aprovação local de M3.00 | Nova0060 evolui Pix manual/contrato, com guardas para qualquer reserva ativa e replay/zero preservados. Ensaios locais fictícios de concorrência, rollback, avisos e auditoria; sem provedor externo ou publicação. |
+
+| 2026-10-11 | Codex | CI38187868946 integralmente success na fonte7daef30d5d1f341f08cc0717074961559f433f18/PR #20 | Log e2e114614038541 confirma427 banco/25 arquivos,165 navegador/sete omissões planejadas e dois advisors sem achados. Checkout49f87d56dec923aa904a2f296946c0e0aa87aa7b/pais/head conferidos; extrato5908ce01659d10117065bc93f5d806e8dcb874b6ef32528b6d06d595862ea43b. Fonte preservada; PR pronto para revisão. |
+
+| 2026-10-11 | Codex | M3.01m verificada localmente:0060,20 banco próprios/447 gerais em26 arquivos,6 unitários próprios/977 gerais em53 arquivos,43 scripts; dois navegador375/1440 comAxe, advisors e revisões sem bloqueador | Fixture do navegador encontrou import server-only antes da coleta; schemas puros separados, mantendo entrada pública/casos de uso e leitor Asaas restritos ao servidor. Jornada final e tipos verificados. Check local chega ao build e falha na porta interna do Turbopack, sem contorno; log local69e6d14a15caaf18af176d3f623308b1dc2ddb5cfa5457d8dcc10061362c948a. Fonte final/CI ainda pendentes; sem migração na nuvem, POST, cobrança ou publicação reais. |
+
+| 2026-10-11 | Codex | Fonte final de M3.01m preparada para revisão na feat/coordenacao-cobrancas |63 casos de banco de obrigações/reservas/coordenação reexecutados após extração dos parsers, dois navegador375/1440 comAxe aprovados e quatro capturas preservadas/inspeção representativa. Read-back:60 migrations,25 tabelas públicas/31 privadas, zero metadados/reservas/recibos contratuais e quatro perfis. Ambas as revisões finais sem bloqueador. PR #20 marcado pronto após CI integral/head conferidos; fonte20 preservada. |
+
+| 2026-10-11 | Codex | M3.01m e M3.01h concluídas no preparo/verificação local:fonte43e5096bacd383b5628ca9c31c5e956897ab7148/PR #21 criado/anexado | Log real de qualidade114618881288/CI38189462022 success confirma977 unitários/53 arquivos,43 scripts/check/build/sete páginas; checkout01a4426a144caaa06cc739aad1f39cb239f8e038/pais main9a25+fonte e extrato736186962b7b954c027daea128dc379d8b81347436174d6e3c65f165376c0766 conferidos.447 banco/26 arquivos e63 focados finais, dois navegador/Axe375/1440, read-back limpo e revisões sem bloqueador. E2e114618881423 vivo/PR rascunho/head preservado; sem declaração de CI integral. Próxima i; parentb/M3.01 e ativação externa abertos. Sem mudança na nuvem, cobrança ou publicação reais. |
+
+| 2026-10-11 | Codex | Iniciada M3.01i e desdobrada tecnicamente em n/o/p antes da escrita de código; branch feat/provedor-ficticio-duravel, preflight OK | Leituras de0059/porta mostram bootstrap customer anterior aG, resultado interno separado de solicitação pública e simulador que não deve ocultar duplicatas. Ordem n→o→p mantém jornada completa e i/parentb abertas até provas integrais. Escopo local fictício aprovado de M3.00 preservado; sem operações externas reais. |
+
+| 2026-10-11 | Codex | CI38189462022/PR #21 integralmente success na fonte43e5096bacd383b5628ca9c31c5e956897ab7148 | Log real e2e114618881423 confirma447 banco/26 arquivos,167 navegador/sete omissões planejadas e dois advisors sem achados. Checkout01a4426a144caaa06cc739aad1f39cb239f8e038/pais main9a25+fonte/head conferidos; extrato6310605f488b0aecc2e122bbb41553e3b301a34f696441e41787fd7816d16675. Fonte preservada, PR pronto para revisão; sem merge/publicação. |
+
+| 2026-10-11 | Codex | M3.01n implementada/ensaiada localmente na feat/provedor-ficticio-duravel:0061+porta interna fixa |34 unitários próprios/1011 gerais/54 arquivos e25 banco próprios; replay com duas invocações/um fato, concorrência/novo processo, perdas pós-criação, duplicatas/hasMore, tipos JSON e scopes verificados. SQL draft foi corrigido/reaplicado antes de congelar fonte; getters conferem scope do resultado, candidatos da lista incompleta têm IDs distintos. Advisors e duas revisões sem bloqueador; regressões gerais/CI pendentes. I não fecha; customer bootstrapO e claim/retomadaP permanecem no escopo. |
+
+| 2026-10-11 | Codex | M3.01n:suíte geral local aprovada com472 banco/27 arquivos e1011 unitários/54 arquivos,43 scripts |Check local passa formato/lint/tipos/testes/scripts e esbarra na restrição conhecida de porta interna do Turbopack; log69199d388afc4ca59348461b497b30d1804e0d871d04605f4f275ca6eedba9dd. Fonte final/check-build no CI pendentes; sem contorno da restrição. |
+
+| 2026-10-11 | Codex | M3.01n concluída no preparo/verificação local na fonte ce6c3a211bee3110387664a345774a835a869d87/PR #22 criado e anexado | Qualidade114625508727/CI38191659515 success:1011 unitários/54 arquivos,43 scripts/check/build/sete páginas; checkout8cd4dee44c3d28f4682c9bcaef883ac77ce7985a/pais main9a25+fonte conferidos, extrato7c98fadb7758e3bfac24e99b4dec7961baba81fd267500bf16a93513cc2bacd3. 472 banco/27 arquivos locais,34 unitários/25 banco próprios, advisors/read-back limpo e duas revisões sem bloqueador. Suíte geral remota viva/PR rascunho/fonte preservada; fechamento documental local não reinicia CI. Próxima o; i/parentb/M3.01 e condições externas abertos. |
+
+| 2026-10-11 | Codex | Iniciada M3.01o após validação local de n; branch feat/vinculo-cliente-retomavel, preflight OK | Desenho revisto por dois agentes somente leitura: solicitação humana e processamento service_role separados, snapshot privado, claim monotônico, slot novo para consulta nova, notificações desativadas também em GET/find e referência clients.id. Fonte de n preservada enquanto CI geral38191659515 permanece vivo. Escopo local fictício aprovado mantido. |
+
+| 2026-10-11 | Codex | M3.01o implementada localmente:0062, solicitação/worker separados e operação por conta/cliente |19 unitários próprios/1030 gerais/55 arquivos e25 banco próprios aprovados. Corrigida guarda de POST anteriorN e corrida entre alocação/start: marco permanente só no start consumível, sem alterar revisão. Novo processo recupera resposta perdida; finalização confere recibo/scope/payload e não aceita resultado livre. Worker extraído das sessões Next para execução servidor independente. Full banco/advisors/fonte final/CI pendentes; condições externas mantidas. |
+
+| 2026-10-11 | Codex | Suíte geral local O aprovada:497 testes de banco/28 arquivos,1030 unitários/55 arquivos e43 scripts | Check final passa formato/lint/tipos/testes/scripts e encontra a restrição conhecida de porta interna do Turbopack no build; log4159a68269c69e25f1f2eeb38fe0ff5d498952e17bc020e86f337d688908cdba. Fonte final/compilação no CI pendentes; sem contorno. Limites do filho e cleanup aninhado ajustados; final próprio/read-back/advisors em coleta. |
+
+| 2026-10-11 | Codex | Fonte O preparada para revisão:25 banco próprios reexecutados no harness final, advisors de segurança/desempenho sem achados | Read-back62 migrations,25 tabelas públicas/40 privadas, markerfalse, zero work/requests/steps/fatos/recibos/scopes/bindings/contextos/intents e quatro perfis. Duas revisões sem bloqueador funcional; limites de filho/cleanup ajustados.497 banco gerais locais; fonte final e check/build no CI pendentes. Parent i/b/M3.01 permanecem abertos. |
