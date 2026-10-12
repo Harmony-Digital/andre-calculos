@@ -97,7 +97,10 @@ export function DeliveryRecords({
                       <strong>
                         {payment.remainingCents === null
                           ? "Saldo em conciliação"
-                          : `Saldo pendente: ${formatMoney(payment.remainingCents)}`}
+                          : (payment.credit.projection.totalExcessCents ?? 0) >
+                              0
+                            ? `Crédito excedente: ${formatMoney(payment.credit.projection.totalExcessCents!)}`
+                            : `Saldo pendente: ${formatMoney(payment.remainingCents)}`}
                       </strong>
                     </p>
                     {creditStateMessage(payment.credit) && (

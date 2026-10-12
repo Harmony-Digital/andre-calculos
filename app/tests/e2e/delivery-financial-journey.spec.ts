@@ -438,6 +438,14 @@ for (const policy of ["before_balance", "after_balance"] as const) {
           await expect(record).not.toContainText(
             "pix-ficticio-jornada-entrega",
           );
+          if (policy === "after_balance") {
+            await expect(record.locator(".delivery-payment")).toContainText(
+              "Crédito excedente: R$ 4,99",
+            );
+            await expect(record.locator(".delivery-payment")).not.toContainText(
+              "Saldo pendente",
+            );
+          }
         } else if (journey === "refund") {
           await move("refund_partial");
           await verify(insufficient, 11500, "02-estorno-parcial");
