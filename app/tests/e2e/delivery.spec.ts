@@ -445,8 +445,8 @@ for (const policy of [null, "after_balance"] as const) {
         });
       }
       if (policy === "after_balance") {
-        await expect(own).toContainText("Saldo pendente: R$ 1.234,56");
-        await expect(own).toContainText("Chave Pix: chave-pix-ficticia");
+        await expect(own).toContainText("Saldo em conciliação");
+        await expect(own).not.toContainText("Chave Pix: chave-pix-ficticia");
         await expect(
           own.getByRole("link", {
             name: "Abrir conversa do processo",
@@ -483,7 +483,7 @@ for (const policy of [null, "after_balance"] as const) {
           ).status(),
         ).toBe(404);
         await client.reload();
-        await expect(own).toContainText("Saldo pendente: R$ 617,28");
+        await expect(own).toContainText("Saldo em conciliação");
         expect(
           (
             await db
@@ -495,7 +495,9 @@ for (const policy of [null, "after_balance"] as const) {
         ).toBeNull();
         await client.reload();
         await expect(own).toContainText("Arquivos liberados para download.");
-        await expect(own.getByRole("link")).toHaveCount(3);
+        await expect(
+          own.locator(".delivery-file-list").getByRole("link"),
+        ).toHaveCount(3);
         const response = await client.request.get(
           `/api/files/${fileId}/download`,
           { maxRedirects: 0 },

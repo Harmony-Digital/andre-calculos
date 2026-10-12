@@ -34,8 +34,16 @@ const areaCodes = new Set([
   89, 91, 92, 93, 94, 95, 96, 97, 98, 99,
 ]);
 export function brazilMobile(value: string): string | null {
-  if (!/^[+\d\s().-]+$/.test(value)) return null;
-  let number = value.replace(/\D/g, "");
+  const input = value.trim();
+  if (!/^[+\d\s().-]+$/.test(input)) return null;
+  const international = input.includes("+");
+  if (
+    international &&
+    (!input.startsWith("+55") || input.indexOf("+", 1) !== -1)
+  )
+    return null;
+  let number = input.replace(/\D/g, "");
+  if (international && number.length !== 13) return null;
   if (number.length === 13 && number.startsWith("55")) number = number.slice(2);
   if (
     number.length !== 11 ||
