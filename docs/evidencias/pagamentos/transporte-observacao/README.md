@@ -1,0 +1,21 @@
+# Transporte e observação da cobrança fictícia
+
+A migration 0064 grava o protocolo esperado antes do start consumível: conta, cliente, operação, identificador, payload e fingerprint vêm do contexto privado. O worker fixo usa a porta durável fora da transação de estado. A retomada depois do start consulta com slot novo e preserva o claim permanente; resposta perdida não autoriza outro POST.
+
+A observação liga a etapa ao recibo original do transporte e ao hash do corpo. Leitores lossless e o normalizador financeiro existente validam o candidato sem reconstruir decimais a partir de centavos. A entrada interna exige objeto registrado pelo leitor; uma cópia arbitrária não é aceita. UNDEFINED permanece na expectativa original, enquanto o método observado é registrado separadamente. Valores, cliente, referência, método fixo, vencimento e conta divergentes ficam pendentes.
+
+O banco confere a origem, payload, fingerprint, hash, identidade e invariantes básicas contra o protocolo imutável. A classificação financeira confia no normalizador servidor privilegiado; não recebe fatos do usuário nem duplica o algoritmo financeiro em SQL. Observação, finalização e auditoria são atômicas e têm fencing. Resultado antigo fica no histórico sem sobrescrever estado recente. Replay idêntico retorna o mesmo resultado; fonte diferente é recusada.
+
+Identificar a cobrança não gera crédito, aviso financeiro, entrada na fila ou download. Ausência de recibo, zero,404, lista incompleta, múltiplas cobranças ou resposta incerta conservam a reserva. A resolução explícita de não despacho pertence a S; projeção financeira pertence a J. Nada foi aplicado na nuvem ou enviado ao Asaas.
+
+Os 24 ensaios próprios de banco cobrem cliente→G→L→I, resposta perdida recuperada em processo distinto, falhas antes/depois do transporte, concorrência, consulta insuficiente, método fixo/UNDEFINED, valor/data divergentes, status desconhecido, duplicatas visíveis, replay, rollback, autorização e grants. O protocolo é anterior à auditoria de start. O helper limpa setup incompleto e restaura marker e fixture base em finally separados; ensaio de falha confirma dados limpos e lease reutilizável. Oito novos unitários do normalizador verificam equivalência, objeto forjado, métodos, limite seguro e presença dos valores.
+
+Comandos de verificação: npm run check; bash scripts/dev-env.sh npm run test:rls; advisors locais de segurança e desempenho. Evidência da fonte final e resultados completos registrados no plan.md.
+
+Suíte geral local:541 testes de banco/30 arquivos,1067 unitários/56 arquivos e43 scripts. Duas revisões somente leitura sem bloqueador. Advisors de segurança/desempenho sem achados. Read-back:64 migrations,25 tabelas públicas,44 privadas com RLS,quatro perfis,marker desligado e zero protocolos/observações/execuções/etapas/recibos/fatos/intenções/reservas/claims/scopes/bindings/contextos. Banco SHA-2561ec76ae12dbf9ae9ff3260fb0f7ab67053cb10d2d36539ae45e38dcc9f7af8d6; advisors97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa; read-back61d505fd5c44d532a5d3fde4a27dd979719826a95f823ddda60ba6909500036e.
+
+Check local passa formato/lint/tipos/testes/scripts, mas o build encontra a restrição conhecida de porta interna do Turbopack. Extrato SHA-25633b5090eda6677b9e8c51434e715baecbeaa895068f0c765b0591629b87a0f5a. A compilação da fonte final será conferida no CI, sem contornar essa restrição.
+
+Fonte final9272dbd2084295e28ba23090dba45bd5280d3250/PR #25: qualidade114641137749/CI38196795022 success com1067 unitários/56 arquivos,43 scripts/check/build/sete páginas. Checkout4bd2b9d48132b70f8f0c9cc6231abe501c641509 tem pais main9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd e a fonte final conferidos; extrato SHA-256901a25658093f19fe03164a3763793d716bbb73a799916e3d2b6a8b7cc561a59. Suíte geral remota ainda em execução na coleta, PR rascunho/fonte preservada; sem declaração de CI integral. Resolução e liberação continuam em S.
+
+CI integral confirmado na mesma fonte:38196795022/e2e114641137499 com541 banco/30 arquivos,167 navegador/sete omissões planejadas e dois advisors sem achados. Checkout/pais/head conferidos; extrato SHA-25664b1d9eff28a91bee173a567c5e013092f3f6dec0d204bfcf05dfbdaf266ae2b. PR #25 pronto para revisão, fonte preservada, sem merge/publicação.

@@ -1,0 +1,29 @@
+{
+  "source": "8531d09cd3313fa153a1f9320090d623f7a42789",
+  "pr": 45,
+  "scope": "preparo/verificacao local da interface de fatura do sinal;saldo conserva escopo proprio",
+  "newBrowserTests": 14,
+  "focusedBrowserRegressions": 43,
+  "plannedLegacySkips": 1,
+  "focusedBankTests": 43,
+  "focusedBankFiles": 3,
+  "unitTests": 1432,
+  "unitFiles": 72,
+  "scriptTests": 43,
+  "captures": 34,
+  "visualQa": 12,
+  "axeAndWidthAllCaptures": true,
+  "readbackIdenticalToAq": true,
+  "controlsIdenticalToBaseline": true,
+  "temporaryObjectsAbsent": true,
+  "advisorsNoIssues": 2,
+  "checkBuild": {
+    "run": 38307722471,
+    "job": 115005709630,
+    "artifact": 11772944001,
+    "checkout": "993f0a14dc9534d959fda0ef3f6007ef5f854198",
+    "sourceAndParentsVerified": true,
+    "checkStepSuccess": true
+  },
+  "remoteGeneral": "em execucao,contagens remotas nao inferidas"
+}

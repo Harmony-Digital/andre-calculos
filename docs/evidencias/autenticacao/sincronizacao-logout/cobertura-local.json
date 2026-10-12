@@ -1,0 +1,89 @@
+{
+  "task": "M2.35d",
+  "mode": "fixture_local",
+  "before": "same click-only sequencing; delayed audit yielded cookie count1 instead0",
+  "delaySeconds": 2,
+  "productionCodeChanged": false,
+  "cookiesManuallyRemoved": false,
+  "afterRepeatPasses": 15,
+  "logoutRuns": 10,
+  "mailpitRuns": 5,
+  "repeatSkips": 5,
+  "skipReason": "omissao preexistente Mailpit celular repetida5vezes",
+  "retries": 0,
+  "regressionPasses": 11,
+  "regressionSkips": 1,
+  "newSkips": 0,
+  "cleanupAssertions": "per fake user profile/audit/grant and own Mailpit messages",
+  "unitTests": 1441,
+  "unitFiles": 72,
+  "scripts": 43,
+  "readbackAndControlsUnchanged": true,
+  "advisorsNoIssues": 2,
+  "localBuild": "EPERM; fonte/check-build exato ainda necessario",
+  "beforeHelperSha256": "782d4626dde77765a9d2c059e0f8cb14cd26429bdd7b7e8cbcf0582bbfd9c782",
+  "code": {
+    "app/tests/e2e/logout-helper.ts": "31cecbe5f117814d57ac38187daac0aac28cd7b94d1404d0cd6a649e21030109",
+    "app/tests/e2e/email-auth.spec.ts": "45f1408771080ac8f6f8d3a68c3a3e25b37580a4f07dad3740f4d9589bd898c4",
+    "app/tests/e2e/logout-synchronization.spec.ts": "9f7eceefc55a520164b07bc59266e9201fb23f83980b6ed871189ed41077b5a1"
+  },
+  "files": [
+    {
+      "origin": "logout-antes.log",
+      "artifact": "antes.log",
+      "originalSha256": "22efc3ae20d19cf38307bbd2d564eac97399852bc1f3d08c3feacafe8a5600a7",
+      "artifactSha256": "04b96d40075cb3ff8c7a743188ed7ed796bee2aaeb6677fbf790b6f9d953b0f3"
+    },
+    {
+      "origin": "logout-repeticoes-final.log",
+      "artifact": "repeticoes.log",
+      "originalSha256": "3b57a93c9c6df9959ca67a05ce6821393e5b0fca9ace7d805f352d29a7dabcc8",
+      "artifactSha256": "487684915a036e35ebb97f1ecf8604169595bfe432398dbbe63f7a89ee7e70d0"
+    },
+    {
+      "origin": "logout-auth-regressao.log",
+      "artifact": "regressao.log",
+      "originalSha256": "c76c384dd8dff7cdb81450d3c0b170577d4875a067d17de55968a0e24a07d668",
+      "artifactSha256": "cf8fea58d414dd57e457064d0c7cd4218615d7f3b5b041cb0b6bcc2fc4e2036d"
+    },
+    {
+      "origin": "logout-check-final2.log",
+      "artifact": "qualidade-local.log",
+      "originalSha256": "a4a7896f154a5d38ba43dc1eaf6dfb8217db66d2e4c4fd4943d2a6859730db5d",
+      "artifactSha256": "44a61dd740340c771baeb37d46bae8b481428418f1ec2844b49a75e299f0bb06"
+    },
+    {
+      "origin": "logout-readback-final2.log",
+      "artifact": "read-back.log",
+      "originalSha256": "7220ed5d5bb717c36a4b8428fe60f0b9eda0ef77a7c648a98f20dbf372c1d06c",
+      "artifactSha256": "7220ed5d5bb717c36a4b8428fe60f0b9eda0ef77a7c648a98f20dbf372c1d06c"
+    },
+    {
+      "origin": "logout-controles-final2.json",
+      "artifact": "controles.json",
+      "originalSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+      "artifactSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c"
+    },
+    {
+      "origin": "logout-limpeza-final2.json",
+      "artifact": "limpeza.json",
+      "originalSha256": "190f391c730c41f1aafae5d94f0fa12b8b96a4f430188886e4ee68f422edf832",
+      "artifactSha256": "190f391c730c41f1aafae5d94f0fa12b8b96a4f430188886e4ee68f422edf832"
+    },
+    {
+      "origin": "logout-advisors-final2.log",
+      "artifact": "advisors.log",
+      "originalSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+      "artifactSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+    },
+    {
+      "origin": "logout-auth-regressao-final.log",
+      "artifact": "regressao-final.log",
+      "originalSha256": "13a0a4eedc8a533a0edc32d3c716200bab2c03f75a94c0962ebd3286a9b41608",
+      "artifactSha256": "b59422bb9f85fb5ee7fd61f744c8fd8fdd5fe0a8d2076308d03e3fa4a763f801"
+    }
+  ],
+  "finalRegressionPasses": 11,
+  "finalRegressionSkips": 1,
+  "finalRegressionIncludesCleanupAssertions": true
+}

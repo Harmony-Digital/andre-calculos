@@ -33,9 +33,11 @@ export async function confirmDeposit(
     if (result.error)
       return {
         error:
-          result.error.code === "PT409"
-            ? "O pedido ou o sinal mudou em outra sessão. Recarregue para conferir."
-            : "Não foi possível registrar. O valor foi preservado; tente novamente.",
+          result.error.code === "PT423"
+            ? "Há uma cobrança pendente de resolução neste pedido. Confira a cobrança antes de registrar outro recebimento."
+            : result.error.code === "PT409"
+              ? "O pedido ou o sinal mudou em outra sessão. Recarregue para conferir."
+              : "Não foi possível registrar. O valor foi preservado; tente novamente.",
       };
     const receipt = depositReceiptSchema.safeParse(result.data);
     if (!receipt.success)
