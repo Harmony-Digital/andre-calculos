@@ -1,0 +1,15 @@
+{
+  "repositoryId": 1414349093,
+  "pr": 36,
+  "source": "e2342ce4d8ec54c6a6e86b965327b09bea44e011",
+  "run": 38262322935,
+  "qualityJob": 114855699883,
+  "qualityConclusion": "success",
+  "checkStepConclusion": "success",
+  "overallStatus": "in_progress",
+  "overallConclusion": null,
+  "nativeLogEvidence": "pendente: gh run view so disponibiliza logs apos encerramento integral",
+  "localUnitTests": 1303,
+  "localUnitFiles": 64,
+  "localScriptTests": 43
+}
