@@ -8,6 +8,11 @@ import {
 } from "@/modules/delivery/delivery";
 import { deliveryKinds } from "@/modules/delivery/forms";
 import type { getProcess } from "@/modules/processes/queries";
+import {
+  creditStateMessage,
+  observedCredit,
+} from "@/modules/payments/order-credit";
+import { formatMoney } from "@/lib/utils";
 const professionalSchema = z.object({
   name: z.string(),
   crcNumber: z.string(),
@@ -83,36 +88,63 @@ export function DeliveryRecords({
                 {record.index_month.split("-").reverse().join("/")}
               </p>
               <p className="field-help">{deliveryAccessLabels[access]}</p>
-              {!calculator && access === "balance_pending" && payment && (
-                <div className="delivery-payment">
-                  <p>
-                    <strong>
-                      Saldo pendente:{" "}
-                      {new Intl.NumberFormat("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                      }).format(payment.remaining_cents / 100)}
-                    </strong>
-                  </p>
-                  {payment.pix_key ? (
-                    <>
+              {!calculator &&
+                payment &&
+                (payment.remainingCents === null ||
+                  payment.remainingCents > 0 ||
+                  payment.credit.collectionState !== "clear") && (
+                  <div className="delivery-payment">
+                    <p>
+                      <strong>
+                        {payment.remainingCents === null
+                          ? "Saldo em conciliação"
+                          : `Saldo pendente: ${formatMoney(payment.remainingCents)}`}
+                      </strong>
+                    </p>
+                    {creditStateMessage(payment.credit) && (
+                      <p>{creditStateMessage(payment.credit)}</p>
+                    )}
+                    {payment.remainingCents === null &&
+                      observedCredit(payment.credit.projection, "total") !==
+                        null && (
+                        <p>
+                          Subtotal observado:{" "}
+                          {formatMoney(
+                            observedCredit(payment.credit.projection, "total")!,
+                          )}
+                          . Esse valor aguarda conciliação.
+                        </p>
+                      )}
+                    {(payment.credit.projection.totalExcessCents ?? 0) > 0 && (
                       <p>
-                        Chave Pix: <span>{payment.pix_key}</span>
+                        Excesso no pedido:{" "}
+                        {formatMoney(
+                          payment.credit.projection.totalExcessCents!,
+                        )}
+                        .
                       </p>
-                      <p>
-                        Confira o destinatário no seu banco e informe o código{" "}
-                        {payment.order_code} na descrição. Os arquivos serão
-                        liberados depois da confirmação do pagamento.
-                      </p>
-                    </>
-                  ) : (
-                    <p>Peça os dados de pagamento na conversa do processo.</p>
-                  )}
-                  <Link className="text-link" href={`${base}?aba=mensagens`}>
-                    Abrir conversa do processo
-                  </Link>
-                </div>
-              )}
+                    )}
+                    {payment.pixKey ? (
+                      <>
+                        <p>
+                          Chave Pix: <span>{payment.pixKey}</span>
+                        </p>
+                        <p>
+                          Confira o destinatário no seu banco e informe o código{" "}
+                          {payment.orderCode} na descrição. Os arquivos serão
+                          liberados depois da confirmação do pagamento.
+                        </p>
+                      </>
+                    ) : payment.credit.collectionState === "clear" &&
+                      payment.remainingCents !== null &&
+                      payment.remainingCents > 0 ? (
+                      <p>Peça os dados de pagamento na conversa do processo.</p>
+                    ) : null}
+                    <Link className="text-link" href={`${base}?aba=mensagens`}>
+                      Abrir conversa do processo
+                    </Link>
+                  </div>
+                )}
               {calculator &&
                 !record.release &&
                 ["delivered", "completed"].includes(record.order.status) && (
