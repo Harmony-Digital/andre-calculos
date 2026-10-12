@@ -19,5 +19,25 @@
   "advisors": {
     "originalSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
     "artifactSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+  },
+  "banco-integral": {
+    "originalSha256": "a8a4baf20ff92cfc149c4eb77fee55b71b7ab9bf5f6329f8fcdee0bfdbe68470",
+    "artifactSha256": "89cc4430cbf84f899dbbf8579500de749b20b7993e850059e8732ce36b280085",
+    "normalization": "Espacos e linhas em branco finais removidos;original preservado porhash"
+  },
+  "read-back-apos-geral": {
+    "originalSha256": "d2de5e9a49f41080c37a9d4ef71b53b9531a7701007807e4fd5b13e5ebf6dc23",
+    "artifactSha256": "d2de5e9a49f41080c37a9d4ef71b53b9531a7701007807e4fd5b13e5ebf6dc23",
+    "normalization": "Espacos e linhas em branco finais removidos;original preservado porhash"
+  },
+  "controles-apos-geral": {
+    "originalSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "artifactSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "normalization": "Espacos e linhas em branco finais removidos;original preservado porhash"
+  },
+  "advisors-apos-geral": {
+    "originalSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "artifactSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "normalization": "Espacos e linhas em branco finais removidos;original preservado porhash"
   }
 }
