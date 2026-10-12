@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-12",
+  "base": "a40b3e1ac9ce78bcfd949963c159e173036095de",
+  "scope": "funcoes puras e contrato de dados; consumidores SQL/UI/arquivos ainda exigem AN/AO",
+  "newPureTests": 49,
+  "focusedTests": 61,
+  "focusedFiles": 3,
+  "unitTests": 1370,
+  "unitFiles": 66,
+  "scripts": 43,
+  "coverage": {
+    "statementsCovered": 46,
+    "statementsTotal": 46,
+    "branchesCovered": 48,
+    "branchesTotal": 48,
+    "functionsCovered": 9,
+    "functionsTotal": 9
+  },
+  "check": {
+    "formatLintTypesUnitsScriptsPassed": true,
+    "exitCode": 1,
+    "build": "EPERM/Turbopack ao vincular porta; fonte exata ainda exige build CI"
+  },
+  "sqlChanges": false,
+  "runtimeConsumersChanged": false,
+  "originalLogsSha256": {
+    "am-check-local.log": "1129adab4653b0012b6022f41ebefc8aceebd3d6e7f0da86b845e8de0ddae86b",
+    "am-regras-foco.log": "edd83e9af48e9956a38759fef9d787f6e23e6a60f5116e76f82cdb3c923013d0"
+  },
+  "sourceFilesSha256": {
+    "app/src/modules/delivery/credit-access.ts": "391a90d14d8cb70d394670113e9ac7a543de390adc3b61c0b8667aa06436dc9a",
+    "app/src/modules/delivery/credit-access.test.ts": "4c209a5bbb43f69f16b98945214570b2690f348011f6e6a4922f4c5382399700"
+  }
+}

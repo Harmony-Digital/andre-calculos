@@ -3,11 +3,16 @@ import Link from "next/link";
 import { randomUUID } from "node:crypto";
 import { DeliveryPolicyForm } from "./delivery-policy-form";
 import {
-  deliveryAccess,
-  deliveryAccessLabels,
-} from "@/modules/delivery/delivery";
+  deriveDeliveryCreditAccess,
+  deliveryCreditAccessLabels,
+} from "@/modules/delivery/credit-access";
 import { deliveryKinds } from "@/modules/delivery/forms";
 import type { getProcess } from "@/modules/processes/queries";
+import {
+  creditStateMessage,
+  observedCredit,
+} from "@/modules/payments/order-credit";
+import { formatMoney } from "@/lib/utils";
 const professionalSchema = z.object({
   name: z.string(),
   crcNumber: z.string(),
@@ -26,6 +31,7 @@ export function DeliveryRecords({
   older,
   processId,
   payments,
+  accessContexts,
 }: {
   records: Awaited<ReturnType<typeof getProcess>>["deliveries"];
   calculator: boolean;
@@ -34,6 +40,7 @@ export function DeliveryRecords({
   older: string | null;
   processId: string;
   payments: Awaited<ReturnType<typeof getProcess>>["deliveryPayments"];
+  accessContexts: Awaited<ReturnType<typeof getProcess>>["deliveryAccess"];
 }) {
   if (!records.length && !before) return null;
   return (
@@ -58,14 +65,11 @@ export function DeliveryRecords({
       <ul className="process-records">
         {records.map((record) => {
           if (!record.order) throw new Error("Pedido da entrega indisponível.");
+          const context = accessContexts.get(record.id);
+          if (!context) throw new Error("Contexto da entrega indisponível.");
           const professional = professionalSchema.parse(record.professional),
             payment = payments.get(record.id),
-            access = deliveryAccess(
-              record.release?.policy ?? null,
-              record.order.status,
-              record.order.total_cents,
-              record.order.payments,
-            ),
+            access = deriveDeliveryCreditAccess(context),
             date = new Intl.DateTimeFormat("pt-BR", {
               dateStyle: "short",
               timeStyle: "short",
@@ -82,40 +86,67 @@ export function DeliveryRecords({
                 PJe-Calc {record.pje_version} · Tabela de índices{" "}
                 {record.index_month.split("-").reverse().join("/")}
               </p>
-              <p className="field-help">{deliveryAccessLabels[access]}</p>
-              {!calculator && access === "balance_pending" && payment && (
-                <div className="delivery-payment">
-                  <p>
-                    <strong>
-                      Saldo pendente:{" "}
-                      {new Intl.NumberFormat("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                      }).format(payment.remaining_cents / 100)}
-                    </strong>
-                  </p>
-                  {payment.pix_key ? (
-                    <>
+              <p className="field-help">{deliveryCreditAccessLabels[access]}</p>
+              {!calculator &&
+                payment &&
+                (payment.remainingCents === null ||
+                  payment.remainingCents > 0 ||
+                  payment.credit.collectionState !== "clear") && (
+                  <div className="delivery-payment">
+                    <p>
+                      <strong>
+                        {payment.remainingCents === null
+                          ? "Saldo em conciliação"
+                          : `Saldo pendente: ${formatMoney(payment.remainingCents)}`}
+                      </strong>
+                    </p>
+                    {creditStateMessage(payment.credit) && (
+                      <p>{creditStateMessage(payment.credit)}</p>
+                    )}
+                    {payment.remainingCents === null &&
+                      observedCredit(payment.credit.projection, "total") !==
+                        null && (
+                        <p>
+                          Subtotal observado:{" "}
+                          {formatMoney(
+                            observedCredit(payment.credit.projection, "total")!,
+                          )}
+                          . Esse valor aguarda conciliação.
+                        </p>
+                      )}
+                    {(payment.credit.projection.totalExcessCents ?? 0) > 0 && (
                       <p>
-                        Chave Pix: <span>{payment.pix_key}</span>
+                        Excesso no pedido:{" "}
+                        {formatMoney(
+                          payment.credit.projection.totalExcessCents!,
+                        )}
+                        .
                       </p>
-                      <p>
-                        Confira o destinatário no seu banco e informe o código{" "}
-                        {payment.order_code} na descrição. Os arquivos serão
-                        liberados depois da confirmação do pagamento.
-                      </p>
-                    </>
-                  ) : (
-                    <p>Peça os dados de pagamento na conversa do processo.</p>
-                  )}
-                  <Link className="text-link" href={`${base}?aba=mensagens`}>
-                    Abrir conversa do processo
-                  </Link>
-                </div>
-              )}
+                    )}
+                    {payment.pixKey ? (
+                      <>
+                        <p>
+                          Chave Pix: <span>{payment.pixKey}</span>
+                        </p>
+                        <p>
+                          Confira o destinatário no seu banco e informe o código{" "}
+                          {payment.orderCode} na descrição. Os arquivos serão
+                          liberados depois da confirmação do pagamento.
+                        </p>
+                      </>
+                    ) : payment.credit.collectionState === "clear" &&
+                      payment.remainingCents !== null &&
+                      payment.remainingCents > 0 ? (
+                      <p>Peça os dados de pagamento na conversa do processo.</p>
+                    ) : null}
+                    <Link className="text-link" href={`${base}?aba=mensagens`}>
+                      Abrir conversa do processo
+                    </Link>
+                  </div>
+                )}
               {calculator &&
-                !record.release &&
-                ["delivered", "completed"].includes(record.order.status) && (
+                context.releasePolicy === null &&
+                ["delivered", "completed"].includes(context.orderStatus) && (
                   <details className="delivery-form">
                     <summary>Definir regra desta entrega</summary>
                     <DeliveryPolicyForm

@@ -17,6 +17,7 @@ import { DecisionComposer } from "./decision-composer";
 import { DecisionConfirmation } from "./decision-confirmation";
 import { PageIndexEditor } from "./page-index-editor";
 import { DeliveryForm } from "./delivery-form";
+import { OrderOperations } from "./order-operations";
 import { DepositCard } from "./deposit-card";
 import { DeliveryRecords } from "./delivery-records";
 import { pieceLabel } from "@/modules/page-index/forms";
@@ -166,6 +167,17 @@ export async function ProcessFolder({
                       panel={panel}
                     />
                   )}
+                  {data.role === "calculator" && (
+                    <OrderOperations
+                      processId={id}
+                      orderId={order.id}
+                      code={order.code}
+                      status={order.status as OrderState}
+                      revision={order.status_revision}
+                      resumeStatus={order.resume_status}
+                      requestId={randomUUID()}
+                    />
+                  )}
                   {data.role === "calculator" &&
                     order.status === "in_review" && (
                       <DeliveryForm
@@ -190,6 +202,7 @@ export async function ProcessFolder({
             older={data.olderDeliveries}
             processId={id}
             payments={data.deliveryPayments}
+            accessContexts={data.deliveryAccess}
           />
         </section>
       )}
@@ -521,9 +534,12 @@ export async function ProcessFolder({
                       <time dateTime={event.created_at}>
                         {dateTime(event.created_at)}
                       </time>
-                      {event.kind === "note_added" && noteText(event.data) && (
-                        <p className="preserve-lines">{noteText(event.data)}</p>
-                      )}
+                      {["note_added", "status_changed"].includes(event.kind) &&
+                        noteText(event.data) && (
+                          <p className="preserve-lines">
+                            {noteText(event.data)}
+                          </p>
+                        )}
                     </div>
                   </li>
                 );

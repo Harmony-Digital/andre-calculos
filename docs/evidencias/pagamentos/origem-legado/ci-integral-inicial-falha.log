@@ -1,0 +1,4 @@
+e2e	Run bash ../scripts/dev-env.sh npm run test:rls	2026-10-12T08:47:24.8709564Z ^[[41m^[[1m FAIL ^[[22m^[[49m tests/integration/legacy-binding.test.ts^[[2m > ^[[22mfence de application posterior recusa vínculo antigo sem efeitos
+e2e	Run bash ../scripts/dev-env.sh npm run test:rls	2026-10-12T08:47:24.8713906Z ^[[31m^[[1mError^[[22m: Test timed out in 5000ms.
+e2e	Run bash ../scripts/dev-env.sh npm run test:rls	2026-10-12T08:47:24.8920012Z ^[[2m Test Files ^[[22m ^[[1m^[[31m1 failed^[[39m^[[22m^[[2m | ^[[22m^[[1m^[[32m36 passed^[[39m^[[22m^[[90m (37)^[[39m
+e2e	Run bash ../scripts/dev-env.sh npm run test:rls	2026-10-12T08:47:24.8991289Z ##[error]Error: Test timed out in 5000ms.

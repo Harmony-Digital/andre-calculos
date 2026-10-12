@@ -80,16 +80,18 @@ test("fila mostra prazos e pagamentos, filtra situações e exige calculista", a
         `${page.viewportSize()!.width < 900 ? ".queue-mobile > li" : ".queue-table tbody > tr"}[data-order-id="${fixture.orders[index].id}"]`,
       );
     await expect(own(0)).toContainText("Atrasado");
-    await expect(own(0)).toContainText("Sinal pendente");
+    // Estes pedidos não têm aceite/contexto comercial. Crédito comprovado
+    // e movimentos posteriores são exercitados em current-credit.spec.ts.
+    await expect(own(0)).toContainText("Valores em conciliação");
     await expect(own(1)).toContainText("Vence hoje");
-    await expect(own(1)).toContainText("Sinal confirmado");
+    await expect(own(1)).toContainText("Valores em conciliação");
     await expect(own(2)).toContainText("Próximo do prazo");
-    await expect(own(2)).toContainText("Sinal parcial");
+    await expect(own(2)).toContainText("Valores em conciliação");
     await expect(own(3)).toContainText("No prazo");
-    await expect(own(3)).toContainText("Quitado");
+    await expect(own(3)).toContainText("Valores em conciliação");
     await expect(own(4)).toContainText("Prazo a definir");
     await expect(own(4)).toContainText("A definir");
-    await expect(own(0)).toContainText("1.234,56");
+    await expect(own(0)).toContainText("Valor a conferir");
     await expect(own(0)).toContainText(
       yesterday.split("-").reverse().join("/"),
     );
