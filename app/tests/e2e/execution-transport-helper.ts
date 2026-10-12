@@ -11,7 +11,15 @@ export async function executionTransportFixture(billingType = "PIX") {
   const cleanup = async () => {
     try {
       const scopes = `'${fixture.scopeId}','${fixture.otherScopeId}'`;
-      sql(`delete from public.audit_log where action like 'payment_execution_%' and target_id in(
+      sql(`delete from public.audit_log where action like 'payment_financial_%' and target_id in(
+ select o.id from private.payment_financial_observations o join private.payment_financial_charges c on c.id=o.charge_id where c.scope_id in(${scopes})
+ union select f.id from private.payment_financial_conflicts f join private.payment_financial_observations o on o.id=f.observation_id join private.payment_financial_charges c on c.id=o.charge_id where c.scope_id in(${scopes}));
+ delete from private.payment_financial_conflicts where observation_id in(select o.id from private.payment_financial_observations o join private.payment_financial_charges c on c.id=o.charge_id where c.scope_id in(${scopes}));
+ delete from private.payment_financial_observations where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));
+ update private.payment_financial_charges set current_query=null where scope_id in(${scopes});
+ delete from private.payment_financial_queries where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));
+ delete from private.payment_financial_charges where scope_id in(${scopes});
+ delete from public.audit_log where action like 'payment_execution_%' and target_id in(
  select i.id from private.payment_intents i join private.payment_obligation_contexts c on c.id=i.context_id where c.client_id='${fixture.owner.id}'
  union select s.id from private.payment_execution_steps s join private.payment_execution_runs r on r.id=s.run_id where r.scope_id in(${scopes}));
  delete from private.payment_intent_resolutions where run_id in(select id from private.payment_execution_runs where scope_id in(${scopes}));

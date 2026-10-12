@@ -92,3 +92,7 @@ export function fixturePaymentFindRequest(
     offset: "0",
   });
 }
+
+export function fixturePaymentGetRequest(scope: AsaasScope, paymentId: string) {
+  return fixtureRequest(scope, "GET", "payments/" + paymentId);
+}

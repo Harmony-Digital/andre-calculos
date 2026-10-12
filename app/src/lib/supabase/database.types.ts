@@ -1568,6 +1568,43 @@ export type Database = {
         Args: { target_order: string };
         Returns: Json;
       };
+      get_financial_origin: {
+        Args: { target_observation: string };
+        Returns: Json;
+      };
+      capture_financial_origin: {
+        Args: {
+          target_observation: string;
+          body_hash: string;
+          facts: Json;
+          proof: Json;
+          source_order: number | null;
+        };
+        Returns: Json;
+      };
+      allocate_financial_query: {
+        Args: { target_charge: string; request_id: string };
+        Returns: Json;
+      };
+      start_financial_query: {
+        Args: { target_query: string; worker_id: string; protocol: Json };
+        Returns: boolean;
+      };
+      finish_financial_query: {
+        Args: {
+          target_query: string;
+          worker_id: string;
+          body_hash: string | null;
+          facts: Json;
+          proof: Json;
+          source_order: number | null;
+        };
+        Returns: Json;
+      };
+      get_financial_query_observation: {
+        Args: { target_query: string; worker_id: string };
+        Returns: Json;
+      };
       get_payment_execution_step: {
         Args: { target_step: string; worker_id: string };
         Returns: Json;

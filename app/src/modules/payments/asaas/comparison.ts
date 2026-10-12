@@ -109,53 +109,11 @@ export function compareAsaasFinancialEvents(
     relation = "cumulative_candidate";
     if (current.providerCreatedAt === previous.providerCreatedAt)
       found.add("equal_timestamp_conflict");
-    const priorDone = previous.snapshot.refunds.completedCents;
-    const nextDone = current.snapshot.refunds.completedCents;
-    if (priorDone === null || nextDone === null)
-      found.add("incomparable_refunds");
-    else if (nextDone < priorDone) found.add("completed_refund_regression");
-    const priorHistory = completedHistory(previous.snapshot);
-    const nextHistory = completedHistory(current.snapshot);
-    for (const [key, count] of priorHistory) {
-      if ((nextHistory.get(key) ?? 0) < count)
-        found.add("completed_refund_history_changed");
-    }
-    if (
-      [
-        "RECEIVED",
-        "CONFIRMED",
-        "REFUNDED",
-        "REFUND_REQUESTED",
-        "REFUND_IN_PROGRESS",
-      ].includes(previous.snapshot.status)
-    ) {
-      if (
-        current.snapshot.amounts.currentValueCents <
-        previous.snapshot.amounts.currentValueCents
-      )
-        found.add("received_amount_regression");
-      if (
-        !(
-          previous.snapshot.status === "CONFIRMED" &&
-          current.snapshot.status === "CONFIRMED"
-        ) &&
-        ![
-          "RECEIVED",
-          "REFUNDED",
-          "REFUND_REQUESTED",
-          "REFUND_IN_PROGRESS",
-          "CHARGEBACK_REQUESTED",
-          "CHARGEBACK_DISPUTE",
-          "AWAITING_CHARGEBACK_REVERSAL",
-        ].includes(current.snapshot.status)
-      )
-        found.add("received_state_regression");
-    }
-    if (
-      previous.snapshot.chargeback !== null &&
-      current.snapshot.chargeback === null
-    )
-      found.add("chargeback_history_disappeared");
+    for (const reason of cumulativeRegressions(
+      previous.snapshot,
+      current.snapshot,
+    ))
+      found.add(reason);
     if (found.size > 0) relation = "reconcile";
   }
   const orderedReasons = Object.freeze(
@@ -175,5 +133,83 @@ export function compareAsaasFinancialEvents(
       relation === "reconcile",
     previous,
     current,
+  });
+}
+
+function cumulativeRegressions(
+  previous: AsaasFinancialSnapshot,
+  current: AsaasFinancialSnapshot,
+) {
+  const found = new Set<AsaasComparisonReason>();
+  const priorDone = previous.refunds.completedCents;
+  const nextDone = current.refunds.completedCents;
+  if (priorDone === null || nextDone === null)
+    found.add("incomparable_refunds");
+  else if (nextDone < priorDone) found.add("completed_refund_regression");
+  const priorHistory = completedHistory(previous);
+  const nextHistory = completedHistory(current);
+  for (const [key, count] of priorHistory) {
+    if ((nextHistory.get(key) ?? 0) < count)
+      found.add("completed_refund_history_changed");
+  }
+  if (
+    [
+      "RECEIVED",
+      "CONFIRMED",
+      "REFUNDED",
+      "REFUND_REQUESTED",
+      "REFUND_IN_PROGRESS",
+    ].includes(previous.status)
+  ) {
+    if (current.amounts.currentValueCents < previous.amounts.currentValueCents)
+      found.add("received_amount_regression");
+    if (
+      !(previous.status === "CONFIRMED" && current.status === "CONFIRMED") &&
+      ![
+        "RECEIVED",
+        "REFUNDED",
+        "REFUND_REQUESTED",
+        "REFUND_IN_PROGRESS",
+        "CHARGEBACK_REQUESTED",
+        "CHARGEBACK_DISPUTE",
+        "AWAITING_CHARGEBACK_REVERSAL",
+      ].includes(current.status)
+    )
+      found.add("received_state_regression");
+  }
+  if (previous.chargeback !== null && current.chargeback === null)
+    found.add("chargeback_history_disappeared");
+  return found;
+}
+
+/** GET não tem relógio causal de evento. Compara fatos sem fabricar envelopes. */
+export function compareAsaasFinancialSnapshots(
+  previous: AsaasFinancialSnapshot,
+  current: AsaasFinancialSnapshot,
+) {
+  const found = cumulativeRegressions(previous, current);
+  const same = cumulativeView(previous) === cumulativeView(current);
+  if (
+    previous.disposition === "reconcile" ||
+    current.disposition === "reconcile"
+  )
+    found.add("observations_require_reconciliation");
+  if (
+    JSON.stringify(previous.scope) !== JSON.stringify(current.scope) ||
+    previous.paymentId !== current.paymentId ||
+    previous.customerId !== current.customerId ||
+    previous.reference !== current.reference
+  )
+    found.add("conflicting_replay");
+  return Object.freeze({
+    semantics: "cumulative_snapshot" as const,
+    effects: "none" as const,
+    relation: same
+      ? ("same_cumulative_view" as const)
+      : found.size
+        ? ("reconcile" as const)
+        : ("cumulative_candidate" as const),
+    reasons: Object.freeze(comparisonReasons.filter((r) => found.has(r))),
+    requiresAuthoritativeQuery: found.size > 0 || !same,
   });
 }
