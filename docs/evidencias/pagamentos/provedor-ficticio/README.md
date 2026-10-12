@@ -13,3 +13,7 @@ Ensaios próprios:34 unitários da guarda/protocolo/scopes/tokens exatos/recibos
 Recibos internos contêm documento e URL de fatura no bodyText, necessários à porta. São privados e restritos ao executor: não devem chegar à UI, logs, comentários, capturas ou extratos de evidência. Não autenticam a conta Asaas nem provam cobrança/cancelamento externos.
 
 Comandos: npm run check; bash scripts/dev-env.sh npm run test:rls; advisors locais de segurança/desempenho. Nenhuma migration ou configuração foi aplicada à nuvem.
+
+Fonte final ce6c3a211bee3110387664a345774a835a869d87, PR #22: qualidade114625508727 do CI38191659515 aprovada com1011 unitários/54 arquivos,43 scripts, npm run check/build e sete páginas. Checkout8cd4dee44c3d28f4682c9bcaef883ac77ce7985a tem pais main9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd e a fonte final conferidos; extrato sanitizado SHA-2567c98fadb7758e3bfac24e99b4dec7961baba81fd267500bf16a93513cc2bacd3. A suíte geral remota ainda estava em execução na coleta; não há declaração de CI integral. Localmente,472 testes de banco/27 arquivos passaram. Read-back sem fatos do simulador e marker desligado; duas revisões sem bloqueador.
+
+Uma nova consulta deve ter novo slot durável. Reutilizar o slot de uma consulta reproduz seu recibo anterior; isso não é uma observação nova. Os ensaios de O/P precisam distinguir tentativas do produtor e replay do transporte ao comprovar que houve somente um POST.
