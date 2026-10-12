@@ -2,6 +2,7 @@ import Link from "next/link";
 import { randomUUID } from "node:crypto";
 import type { QuoteDetailData } from "@/modules/quotes/queries";
 import { QuoteAcceptance } from "./quote-acceptance";
+import { QuoteRejection } from "./quote-rejection";
 import { formatMoney } from "@/lib/utils";
 const civil = (date: string) => date.split("-").reverse().join("/");
 const instant = (date: string) =>
@@ -81,12 +82,20 @@ export function QuoteDetail({
         </p>
       </section>
       {data.contract ? (
-        <QuoteAcceptance
-          quoteId={data.id}
-          context={data.contract}
-          requestId={randomUUID()}
-          panel={panel}
-        />
+        <>
+          <QuoteAcceptance
+            quoteId={data.id}
+            context={data.contract}
+            requestId={randomUUID()}
+            panel={panel}
+          />
+          <QuoteRejection
+            quoteId={data.id}
+            context={data.contract}
+            requestId={randomUUID()}
+            panel={panel}
+          />
+        </>
       ) : (
         <p className="notice">
           Esta proposta ainda não permite contratação. O ensaio não permite
@@ -99,9 +108,11 @@ export function QuoteDetail({
             Aceitar
           </button>
         )}
-        <button className="button" disabled>
-          Recusar
-        </button>
+        {!data.contract && (
+          <button className="button" disabled>
+            Recusar
+          </button>
+        )}
         <a className="button" href={`/api/quotes/${data.id}/pdf`}>
           Baixar proposta em PDF
         </a>
