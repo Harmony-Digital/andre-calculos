@@ -169,6 +169,22 @@ export async function ProcessFolder({
                       invoiceEnabled={fixtureInvoiceEnabled()}
                     />
                   )}
+                  {fixtureInvoiceEnabled() &&
+                    ["delivered", "completed"].includes(order.status) && (
+                      <section className="form-body">
+                        <h4>Saldo · {order.code}</h4>
+                        <p>
+                          Consulte o pagamento previsto após a entrega técnica.
+                        </p>
+                        <Link
+                          className="text-link"
+                          prefetch={false}
+                          href={`${panel ? "/painel" : "/app"}/processos/${id}/fatura?pedido=${order.id}&fase=balance`}
+                        >
+                          Consultar fatura do saldo
+                        </Link>
+                      </section>
+                    )}
                   {data.role === "calculator" && (
                     <OrderOperations
                       processId={id}

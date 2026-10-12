@@ -1,5 +1,6 @@
 import { beforeEach, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
+vi.mock("server-only", () => ({}));
 const mocks = vi.hoisted(() => ({ authorize: vi.fn(), invoice: vi.fn() }));
 vi.mock("@/modules/auth/session", () => ({ authorize: mocks.authorize }));
 vi.mock("@/modules/payments/invoice-page-data", () => ({
@@ -43,7 +44,7 @@ it("clique reconfere cobrança atual e ignora destino fornecido pelo navegador",
   expect(r.headers.get("location")).toBe(
     "https://sandbox.asaas.com/i/ficticio",
   );
-  expect(mocks.invoice).toHaveBeenCalledWith(orderId, id);
+  expect(mocks.invoice).toHaveBeenCalledWith(orderId, id, "deposit");
 });
 it.each(["paid", "blocked", "uncertain"])(
   "estado %s retorna à consulta sem URL antiga",
@@ -88,4 +89,48 @@ it("mudança durante espera ou falha de auditoria não retorna URL", async () =>
   expect(r.status).toBe(404);
   privateResponse(r);
   expect(r.headers.get("location")).toBeNull();
+});
+it("saldo é reconferido na fase explícita antes de abrir o link", async () => {
+  const r = await GET(
+    new NextRequest(
+      `http://127.0.0.1:3000/api/processes/${id}/orders/${orderId}/invoice?fase=balance`,
+    ),
+    { params: Promise.resolve({ id, orderId }) },
+  );
+  expect(r.status).toBe(303);
+  privateResponse(r);
+  expect(mocks.invoice).toHaveBeenCalledWith(orderId, id, "balance");
+});
+it.each(["paid", "blocked", "uncertain"])(
+  "saldo %s retorna à sua fase sem link externo",
+  async (state) => {
+    mocks.invoice.mockResolvedValue({
+      processId: id,
+      orderId,
+      state,
+      invoiceUrl: null,
+    });
+    const r = await GET(
+      new NextRequest(
+        `http://127.0.0.1:3000/api/processes/${id}/orders/${orderId}/invoice?fase=balance`,
+      ),
+      { params: Promise.resolve({ id, orderId }) },
+    );
+    expect(r.status).toBe(303);
+    privateResponse(r);
+    expect(r.headers.get("location")).toBe(
+      `http://127.0.0.1:3000/app/processos/${id}/fatura?pedido=${orderId}&fase=balance&aviso=atualizada`,
+    );
+  },
+);
+it("fase inválida é recusada antes da consulta", async () => {
+  const r = await GET(
+    new NextRequest(
+      `http://127.0.0.1:3000/api/processes/${id}/orders/${orderId}/invoice?fase=invalid`,
+    ),
+    { params: Promise.resolve({ id, orderId }) },
+  );
+  expect(r.status).toBe(404);
+  privateResponse(r);
+  expect(mocks.invoice).not.toHaveBeenCalled();
 });
