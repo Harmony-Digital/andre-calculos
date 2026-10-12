@@ -11,7 +11,7 @@ import {
 } from "./state-machine";
 const base: Order = {
   state: "draft",
-  clientId: "client-a",
+  clientOwnerId: "client-a",
   quoteAccepted: true,
   depositConfirmed: true,
   hasContract: false,
@@ -29,6 +29,7 @@ const valid: [OrderState, OrderEvent, OrderState, Actor][] = [
   ["in_triage", "create_quote", "quoted", calculator],
   ["draft", "create_quote", "quoted", { id: "server", role: "system" }],
   ["quoted", "accept_quote", "awaiting_payment", client],
+  ["quoted", "reject_quote", "cancelled", client],
   ["awaiting_payment", "queue", "queued", admin],
   ["queued", "start_analysis", "in_analysis", calculator],
   ["in_analysis", "request_information", "awaiting_client", calculator],
@@ -45,7 +46,22 @@ const valid: [OrderState, OrderEvent, OrderState, Actor][] = [
 ];
 describe("estados do pedido", () => {
   it.each(valid)("permite %s + %s → %s", (state, event, target, actor) =>
-    expect(transition({ ...base, state }, event, actor).state).toBe(target),
+    expect(
+      transition(
+        {
+          ...base,
+          state,
+          ...(event === "reject_quote"
+            ? { quoteAccepted: false, depositConfirmed: false }
+            : {}),
+          ...(state === "awaiting_client"
+            ? { resumeState: "in_analysis" as const }
+            : {}),
+        },
+        event,
+        actor,
+      ).state,
+    ).toBe(target),
   );
   it("cobre todos os eventos e rótulos", () => {
     expect(new Set(valid.map((v) => v[1])).size).toBe(

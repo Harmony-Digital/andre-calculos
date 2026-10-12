@@ -5,23 +5,31 @@ import { supabaseConfig } from "@/lib/supabase/config";
 export default async function Login({
   searchParams,
 }: {
-  searchParams: Promise<{ next?: string; senha?: string }>;
+  searchParams: Promise<{ next?: string; senha?: string; link?: string }>;
 }) {
   const params = await searchParams;
   const enabled = !!supabaseConfig();
+  const invalidLink = params.link === "invalido";
   return (
     <AuthPage
       title="Bem-vindo de volta."
       description="Acesse seus pedidos, documentos e entregas em um só lugar."
       cardTitle="Acessar minha conta"
     >
+      {invalidLink && (
+        <div className="notice" role="alert">
+          Não foi possível usar este link. Solicite um novo link abaixo ou use
+          “Esqueci minha senha” para redefinir a senha. Abra o e-mail no mesmo
+          navegador em que fez a solicitação.
+        </div>
+      )}
       {params.senha === "atualizada" && (
         <div className="notice" role="status">
           Senha atualizada. Entre com a nova senha.
         </div>
       )}
       <AuthForm next={params.next} enabled={enabled} />
-      <details style={{ marginTop: 24 }}>
+      <details open={invalidLink} style={{ marginTop: 24 }}>
         <summary>Entrar com um link por e-mail</summary>
         <AuthForm mode="link" enabled={enabled} />
       </details>
