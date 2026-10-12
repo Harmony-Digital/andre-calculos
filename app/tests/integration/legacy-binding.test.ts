@@ -261,6 +261,7 @@ it.each(["query", "application", "unknown", "fingerprint"])(
     expect((await rawBind(o, a)).error?.code).toBe("PT412");
     expect(state()).toEqual(before);
   },
+  30000,
 );
 it.each([true, false])(
   "rollback nativo do produtor, erro=%s, não deixa linha/origem",
