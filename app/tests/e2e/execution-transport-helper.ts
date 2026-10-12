@@ -11,14 +11,22 @@ export async function executionTransportFixture(billingType = "PIX") {
   const cleanup = async () => {
     try {
       const scopes = `'${fixture.scopeId}','${fixture.otherScopeId}'`;
+      if (priorEnabled !== undefined)
+        sql(
+          "update private.payment_fixture_environment set enabled=true where singleton;",
+        );
       sql(`delete from public.audit_log where action like 'payment_financial_%' and target_id in(
  select o.id from private.payment_financial_observations o join private.payment_financial_charges c on c.id=o.charge_id where c.scope_id in(${scopes})
  union select f.id from private.payment_financial_conflicts f join private.payment_financial_observations o on o.id=f.observation_id join private.payment_financial_charges c on c.id=o.charge_id where c.scope_id in(${scopes}));
  delete from public.audit_log where action='payment_financial_resolved' and target_id in(select request_id from private.payment_financial_resolutions where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes})));
  delete from private.payment_financial_resolutions where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));
+ delete from public.audit_log where action='payment_legacy_bound' and target_id in(select request_id from private.payment_legacy_binding_receipts where scope_id in(${scopes}));
+ delete from private.payment_legacy_binding_receipts where scope_id in(${scopes});
+ delete from private.payment_legacy_bindings where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));
+ delete from public.audit_log where action='payment_legacy_origin_created' and target_id in(select request_id from private.payment_legacy_origins where scope_id in(${scopes}));
+ with removed as(delete from private.payment_legacy_origins where scope_id in(${scopes}) returning payment_id) delete from public.payments where id in(select payment_id from removed);
  delete from public.audit_log where action='payment_financial_applied' and target_id in(select request_id from private.payment_financial_applications where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes})));
  delete from private.payment_financial_applications where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));
- delete from private.payment_legacy_bindings where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));
  delete from private.payment_financial_positions where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));
  delete from private.payment_financial_conflicts where observation_id in(select o.id from private.payment_financial_observations o join private.payment_financial_charges c on c.id=o.charge_id where c.scope_id in(${scopes}));
  delete from private.payment_financial_observations where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));

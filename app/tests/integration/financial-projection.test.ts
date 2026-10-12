@@ -7,6 +7,7 @@ import { localNotificationSql as sql } from "../e2e/notification-helper";
 import { localSystem } from "../e2e/local-helper";
 import { quoteSession } from "../e2e/quote-helper";
 import { advanceFixturePaymentExecution } from "@/modules/payments/execution-worker";
+import { createFixtureLegacyOrigin } from "@/modules/payments/legacy-binding";
 import {
   captureFixtureFinancialObservation,
   queryFixtureFinancialObservation,
@@ -19,7 +20,8 @@ import {
 let fixture: Awaited<ReturnType<typeof executionTransportFixture>>,
   charge: string,
   payment: string,
-  source: string;
+  source: string,
+  legacyOriginRequest: string;
 const reads = new Set<string>();
 const literal = (value: unknown) =>
   "'" + JSON.stringify(value).replaceAll("'", "''") + "'::jsonb";
@@ -70,8 +72,16 @@ function ledger(
 }
 function bind(id: string, scope = fixture.scopeId, obs = source) {
   sql(
-    `insert into private.payment_legacy_bindings(payment_id,charge_id,scope_id,observation_id,identity_proof) values('${id}','${charge}','${scope}','${obs}','fixture_explicit_source');`,
+    `begin;select set_config('request.jwt.claims','{"role":"service_role"}',true);insert into private.payment_legacy_bindings(payment_id,charge_id,scope_id,observation_id,identity_proof,origin_request_id) values('${id}','${charge}','${scope}','${obs}','fixture_explicit_source','${legacyOriginRequest}');commit;`,
   );
+}
+async function explicitLegacy(observationId = source) {
+  const receipt = await createFixtureLegacyOrigin({
+    observationId,
+    requestId: randomUUID(),
+  });
+  legacyOriginRequest = receipt.requestId;
+  return receipt.paymentId;
 }
 beforeEach(async () => {
   reads.clear();
@@ -237,7 +247,7 @@ it("legado Asaas sem conta comprovada mantém incerteza, mesmo provider_ref igua
 });
 it("legado explicitamente ligado usa posição uma vez e preserva linha", async () => {
   await seedPosition();
-  const id = ledger(12501, "deposit", "asaas", "confirmed", payment);
+  const id = await explicitLegacy();
   bind(id);
   expect(await project()).toMatchObject({
     unlinkedLegacyCount: 0,
@@ -251,7 +261,7 @@ it("legado explicitamente ligado usa posição uma vez e preserva linha", async 
 it("devolução da posição não revive valor do legado confirmado", async () => {
   await seedPosition();
   const receivedSource = source,
-    id = ledger(12501, "deposit", "asaas", "confirmed", payment);
+    id = await explicitLegacy();
   bind(id, fixture.scopeId, receivedSource);
   change(
     "status='REFUNDED',refunds=jsonb_build_array(jsonb_build_object('value',125.01,'status','DONE','dateCreated','2026-10-12 10:00:00'))",
@@ -268,7 +278,7 @@ it("devolução da posição não revive valor do legado confirmado", async () =
 });
 it("vínculo do legado recusa outra conta/fase/pedido/referência/fonte", async () => {
   await seedPosition();
-  const id = ledger(12501, "deposit", "asaas", "confirmed", payment);
+  const id = await explicitLegacy();
   expect(() => bind(id, fixture.otherScopeId)).toThrow();
   const other = ledger(12501, "balance", "asaas", "confirmed", payment);
   expect(() => bind(other)).toThrow();

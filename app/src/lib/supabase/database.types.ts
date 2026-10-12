@@ -1592,6 +1592,30 @@ export type Database = {
         Args: { target_application: string; request_id: string };
         Returns: Json;
       };
+      get_fixture_legacy_origin_receipt: {
+        Args: { target_observation: string; request_id: string };
+        Returns: Json;
+      };
+      create_fixture_legacy_origin: {
+        Args: { target_observation: string; request_id: string };
+        Returns: Json;
+      };
+      get_fixture_legacy_binding_receipt: {
+        Args: {
+          target_origin: string;
+          target_application: string;
+          request_id: string;
+        };
+        Returns: Json;
+      };
+      bind_fixture_legacy_payment: {
+        Args: {
+          target_origin: string;
+          target_application: string;
+          request_id: string;
+        };
+        Returns: Json;
+      };
       apply_financial_observation: {
         Args: {
           target_observation: string;
