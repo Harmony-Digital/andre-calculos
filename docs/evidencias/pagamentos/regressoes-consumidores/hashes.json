@@ -1,5 +1,5 @@
 {
-  "README.md": "befdc52a5fc37657caee6dfdf57e3331fd84524655f98ac8bee4439d6b0c1818",
+  "README.md": "6db7fdc4de3909d2b1f3e7308ca045e47dfc482b240fa8343db57da35f014f1b",
   "advisors.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
   "al-validacao-local.json": "5a487079312cb6fb1fb461afda97f5bf1ba784d968a48b7ff89d65e01983042a",
   "celular/historico-paginado-conciliacao.png": "df9f40c7415a0e1d035eeb84dfbfe6ff4976980c3f861c9d6780c5a8d64b1e27",
@@ -12,7 +12,10 @@
   "ci36-integral-cancelado.log": "d5f1bdb96de56f77ac63eef1c83bc9a9c0f0cbffcd17e62625bec0139f7c07ca",
   "ci36-qualidade.json": "f7730d0320396428c415a367ef892f497448d9740c28a1341cf48e51cbdb9cf0",
   "ci36-qualidade.log": "6c505bee3814c75d11988b21fcc2ae32148b4f482bfe33685a15c87d09922315",
-  "ci37-qualidade.json": "1ac9d80a4363edcc180dd79212014401ee56050868b47b610b92d499f939e41c",
+  "ci37-integral.json": "afa969bcaf75db3d6ccd3b00aed1fc5b3d7c12407ab3d332f6d9ef05300ae616",
+  "ci37-integral.log": "0deb185868e636369096ea66c811804193d24e0e33c9da5e636452b3e6f5f417",
+  "ci37-qualidade.json": "44771bb63c9913efeab33ca6d89d39cc2850131e8857f74c2889633c93c22a58",
+  "ci37-qualidade.log": "87f9d75d74a32c7ccdeaf25a91bddd595cf1fa18a552556d09e80e0c958bedca",
   "computador/historico-paginado-conciliacao.png": "f2c83a0b0956ddfac2bbaf5cf1523bf88ef02205325cc3a6f0856ae66e2a0aeb",
   "computador/pasta-documentos.png": "73fd0892829dda7385272c57ebbc7929d3b22464e236ea9d9c04a41a41b122fa",
   "computador/reserva-contrato-bloqueado.png": "bc75f02e415a4660c72893318a13de8402138a019b9852adb8ba4a538cd70968",

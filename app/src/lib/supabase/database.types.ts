@@ -1776,6 +1776,7 @@ export type Database = {
           technical_name: string;
         }[];
       };
+      get_public_price_table: { Args: never; Returns: Json };
       get_quote_contract_context: {
         Args: { target_quote: string };
         Returns: Json;

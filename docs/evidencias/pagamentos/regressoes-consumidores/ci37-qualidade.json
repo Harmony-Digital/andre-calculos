@@ -1,13 +1,19 @@
 {
-  "pr": 37,
-  "source": "81b7026c3ab1a8d0481bb3fe5afe537c26a26338",
   "run": 38269491889,
-  "qualityJob": 114879935067,
-  "qualityConclusion": "success",
-  "checkStepConclusion": "success",
-  "overallStatus": "in_progress",
-  "overallConclusion": null,
-  "nativeLogs": "pendentes ate encerramento integral",
-  "e2eJob": 114879934662,
-  "timeoutMinutes": 60
+  "job": 114879935067,
+  "kind": "quality",
+  "source": "81b7026c3ab1a8d0481bb3fe5afe537c26a26338",
+  "checkout": "d6ba5b9ddec1425f2c2918b6b82060e0bd54978e",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "81b7026c3ab1a8d0481bb3fe5afe537c26a26338"
+  ],
+  "jobConclusion": "success",
+  "overallStatus": "completed",
+  "overallConclusion": "success",
+  "unitTests": 1303,
+  "unitFiles": 64,
+  "scripts": 43,
+  "logSha256": "288e838ed055448c267dc8f9de1117d34e401c6d7be6ff659459dda7e9667bc4",
+  "artifactSha256": "87f9d75d74a32c7ccdeaf25a91bddd595cf1fa18a552556d09e80e0c958bedca"
 }
