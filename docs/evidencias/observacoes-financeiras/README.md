@@ -24,3 +24,9 @@ O SQL confirma hash, operação, scope, slot, fingerprint, payload e campos mone
 - Duas revisões independentes somente por leitura, com os achados corrigidos e sem bloqueador restante no recorte. Os revisores não executaram os ensaios.
 
 Os testes conferem antes/depois que não há crédito, aviso, resolução financeira, fila ou liberação de download nesta parte. U/V continuam necessários para a aplicação/projeção comum e a jornada do usuário. O registro geral e as próximas tarefas ficam exclusivamente em `plan.md`.
+
+A regressão completa local terminou com 621 testes de banco/32 arquivos aprovados. SHA-256 do log: `e673d83a42237be15a22ee86455c3b47b433d30ba97c897880cb3a511d758259`. Os 30 próprios têm log `eb3bfe1bf6994d165e950ce689555db755f99b27f481392e1f602ed83a93058c`.
+
+O check/build da fonte `4559f4de9dde80f928179c66eabfa177de161c48` passou no CI38201931012/job114657020221: 1138 unitários/59 arquivos, 43 scripts e sete páginas estáticas. Checkout `5d0abd258b1744db00a58b11045f12439d9eb404`, pais main9a25+fonte e head do PR #27 conferidos. Extrato sanitizado SHA-256 `25dc2622a5ba9f05e66ac53c8f7e023af978fcae972fa13eb27c56619d77fde1`. A suíte geral remota permanece em andamento; não é evidência de CI integral aprovado.
+
+Read-back após limpeza: 73 migrations, 25 tabelas públicas/49 privadas com RLS, quatro perfis, fixture desativada e zero charges/queries/observações/conflitos/recibos/fatos/reservas/contextos/scopes/bindings/configuração de pagamento. Log SHA-256 `f8a362534fb68fd44b06624daf7e62eb7a522fe4653e6eec9b4e890ec7dd7e51`. Advisors finais sem achados, log `97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa`.
