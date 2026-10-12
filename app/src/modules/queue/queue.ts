@@ -1,5 +1,9 @@
 import { z } from "zod";
 import { addBusinessDays, isCivilDate } from "@/modules/deadlines/calendar";
+import {
+  observedCredit,
+  type CurrentOrderCredit,
+} from "@/modules/payments/order-credit";
 export const queueStates = [
   "queued",
   "in_analysis",
@@ -52,42 +56,43 @@ export function encodeQueueCursor(value: {
   const v = cursorSchema.parse({ due: value.internal_due_date, id: value.id });
   return `${v.due ?? "sem-data"}~${v.id}`;
 }
-type Payment = { amount_cents: number; kind: string; status: string };
 function cents(value: number) {
   if (!Number.isSafeInteger(value) || value < 0)
     throw new Error("Valor inválido.");
   return value;
 }
-export function queuePaymentStatus(
-  total: number,
-  deposit: number,
-  hasContract: boolean,
-  payments: Payment[],
-) {
-  cents(total);
-  cents(deposit);
-  if (deposit > total) throw new Error("Sinal inválido.");
-  let paid = 0,
-    signal = 0;
-  for (const payment of payments) {
-    cents(payment.amount_cents);
-    if (
-      payment.status !== "confirmed" ||
-      !["deposit", "balance"].includes(payment.kind)
-    )
-      continue;
-    paid = cents(paid + payment.amount_cents);
-    if (payment.kind === "deposit")
-      signal = cents(signal + payment.amount_cents);
-  }
-  if (total > 0 && paid >= total) return "Quitado";
-  if (hasContract) return "Contrato";
-  if (deposit > 0 && signal >= deposit) return "Sinal confirmado";
-  if (signal > 0) return "Sinal parcial";
-  if (deposit === 0) return "Sinal a conferir";
+export function queuePaymentStatus(credit: CurrentOrderCredit) {
+  const p = credit.projection;
+  if (credit.collectionState === "reconcile") return "Valores em conciliação";
+  if (credit.collectionState === "excess") return "Crédito excedente";
+  if (p.totalCents !== null && p.totalCents > 0 && p.remainingTotalCents === 0)
+    return "Quitado";
+  if (credit.hasContract) return "Contrato";
+  if (
+    p.requiredDepositCents !== null &&
+    p.requiredDepositCents > 0 &&
+    p.remainingDepositCents === 0
+  )
+    return "Sinal confirmado";
+  if (p.depositCreditCents !== null && p.depositCreditCents > 0)
+    return "Sinal parcial";
+  if (p.requiredDepositCents === 0) return "Sinal a conferir";
   return "Sinal pendente";
 }
-export function queueMoney(value: number) {
+export function queuePaymentNote(credit: CurrentOrderCredit) {
+  const p = credit.projection;
+  if (credit.collectionState === "reconcile") {
+    const observed = observedCredit(p, "total");
+    return observed === null
+      ? "Aguarda conferência financeira."
+      : `Subtotal observado: ${queueMoney(observed)}. Aguarda conferência.`;
+  }
+  if (credit.collectionState === "excess")
+    return `Excesso: ${queueMoney(Math.max(p.depositExcessCents ?? 0, p.totalExcessCents ?? 0))}. Aguarda conferência.`;
+  return credit.activeReservation ? "Cobrança em andamento." : null;
+}
+export function queueMoney(value: number | null) {
+  if (value === null) return "Valor a conferir";
   return new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",

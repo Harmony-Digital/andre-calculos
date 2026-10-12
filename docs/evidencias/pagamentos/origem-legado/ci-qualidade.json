@@ -1,0 +1,19 @@
+{
+  "run": 38223644784,
+  "job": 114725721665,
+  "kind": "quality",
+  "source": "fe55a63b308d8378e3629f4a53a121c77d6ccc9d",
+  "checkout": "402c31ad4974203b5ee12b5301074595ef14595a",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "fe55a63b308d8378e3629f4a53a121c77d6ccc9d"
+  ],
+  "jobConclusion": "success",
+  "overallStatus": "in_progress",
+  "overallConclusion": null,
+  "unitTests": 1284,
+  "unitFiles": 62,
+  "scripts": 43,
+  "logSha256": "220495253b123e0d3f51d4047232d08d5d84989335b0357fa06e9b55a41657f7",
+  "artifactLogSha256": "cca15d57af6d992b98333d076f4242c80ce778fbbbbeba2c86bc41ad0a2ef256"
+}

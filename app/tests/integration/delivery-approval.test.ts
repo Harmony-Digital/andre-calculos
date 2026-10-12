@@ -407,11 +407,13 @@ it("configuração não libera entrega antiga; Pix/saldo são restritos ao proce
       target,
     );
     expect(first.error).toBeNull();
+    // A fixture técnica não tem contexto comercial aceito. O saldo permanece
+    // desconhecido; as fontes elegíveis são verificadas em current-credit-readers.
     expect(first.data).toEqual([
       {
         delivery_id: old.request_id,
-        pix_key: "chave-pix-ficticia",
-        remaining_cents: 123456,
+        pix_key: null,
+        remaining_cents: null,
         order_code: f.order.code,
       },
     ]);
@@ -475,7 +477,7 @@ it("configuração não libera entrega antiga; Pix/saldo são restritos ao proce
     expect(
       (await sessions.client.rpc("get_delivery_payment_instructions", target))
         .data?.[0].remaining_cents,
-    ).toBe(61728);
+    ).toBeNull();
     expect(
       (
         await sessions.client
@@ -496,7 +498,7 @@ it("configuração não libera entrega antiga; Pix/saldo são restritos ao proce
     expect(
       (await sessions.client.rpc("get_delivery_payment_instructions", target))
         .data,
-    ).toEqual([]);
+    ).toEqual([{ ...first.data![0], delivery_id: duplicateId }]);
     expect(
       (
         await sessions.client
@@ -504,7 +506,15 @@ it("configuração não libera entrega antiga; Pix/saldo são restritos ao proce
           .select("id")
           .eq("process_id", f.process.id)
       ).data,
-    ).toHaveLength(4);
+    ).toEqual([]);
+    // Confirmação manual antiga não cria o aceite/valores reconhecidos ausentes.
+    expect(
+      (
+        await sessions.client.rpc("record_file_access", {
+          target_file: f.ids[0],
+        })
+      ).error,
+    ).not.toBeNull();
     expect(
       (
         await db
@@ -517,7 +527,7 @@ it("configuração não libera entrega antiga; Pix/saldo são restritos ao proce
     expect(
       (await sessions.client.rpc("get_delivery_payment_instructions", target))
         .data?.[0].remaining_cents,
-    ).toBe(61728);
+    ).toBeNull();
     expect(
       (
         await sessions.client

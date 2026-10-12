@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { authorize, getSessionProfile } from "@/modules/auth/session";
 import { createSessionClient } from "@/lib/supabase/server";
 import { depositInfoSchema } from "@/modules/payments/deposit";
+import { parseDeliveryDisplay } from "@/modules/delivery/display-context";
 import type { ProcessTab } from "./tabs";
 import { messageCursor, encodeMessageCursor } from "@/modules/messages/cursor";
 import { eventFilter } from "@/modules/timeline/types";
@@ -89,7 +90,7 @@ export async function getProcess(
   let deliveryQuery = supabase
     .from("deliveries")
     .select(
-      "id,order_id,pje_version,index_month,professional,created_at,files:delivery_files(file_id,kind,snapshot),release:delivery_releases(policy),order:orders!deliveries_order_id_process_id_fkey(code,status,total_cents,payments!payments_order_id_fkey(amount_cents,kind,status))",
+      "id,order_id,pje_version,index_month,professional,created_at,files:delivery_files(file_id,kind,snapshot),order:orders!deliveries_order_id_process_id_fkey(code)",
     )
     .eq("process_id", id)
     .order("created_at", { ascending: false })
@@ -122,7 +123,7 @@ export async function getProcess(
       ? supabase
           .from("orders")
           .select(
-            "id,code,calc_type,status,delivery_date,quotes(id,number,is_simulation,proposal_snapshot)",
+            "id,code,calc_type,status,status_revision,resume_status,delivery_date,quotes(id,number,is_simulation,proposal_snapshot)",
           )
           .eq("process_id", id)
           .order("created_at", { ascending: false })
@@ -182,17 +183,26 @@ export async function getProcess(
     : { data: [], error: null };
   if (profiles.error)
     throw new Error("Não foi possível carregar os responsáveis.");
-  const paymentInstructions =
-    tab === "resumo" &&
-    session.profile.role === "client" &&
-    deliveries.data?.length
-      ? await supabase.rpc("get_delivery_payment_instructions", {
+  const deliveryRecords = (deliveries.data ?? []).slice(0, 50);
+  const displayResult =
+    tab === "resumo" && deliveryRecords.length
+      ? await supabase.rpc("get_delivery_display_context", {
           target_process: id,
-          target_deliveries: deliveries.data.slice(0, 50).map((row) => row.id),
+          target_deliveries: deliveryRecords.map((row) => row.id),
         })
-      : { data: [], error: null };
-  if (paymentInstructions.error)
-    throw new Error("Não foi possível consultar as instruções de pagamento.");
+      : {
+          data: {
+            schemaVersion: 1,
+            semantics: "delivery_display",
+            effects: "none",
+            contexts: [],
+            payments: [],
+          },
+          error: null,
+        };
+  if (displayResult.error)
+    throw new Error("Não foi possível conferir as entregas e o saldo.");
+  const display = parseDeliveryDisplay(displayResult.data, id, deliveryRecords);
   return {
     deposits: new Map(
       depositInfoSchema
@@ -207,14 +217,13 @@ export async function getProcess(
     contractQuoteIds: new Set(
       (contractQuotes.data ?? []).map((row) => row.quote_id),
     ),
-    deliveries: (deliveries.data ?? []).slice(0, 50),
+    deliveries: deliveryRecords,
     olderDeliveries:
       (deliveries.data?.length ?? 0) > 50
         ? encodeMessageCursor(deliveries.data![49])
         : null,
-    deliveryPayments: new Map(
-      (paymentInstructions.data ?? []).map((row) => [row.delivery_id, row]),
-    ),
+    deliveryAccess: display.contexts,
+    deliveryPayments: display.payments,
     messages: (messages.data ?? []).slice(0, 50).reverse(),
     olderMessages:
       (messages.data?.length ?? 0) > 50
