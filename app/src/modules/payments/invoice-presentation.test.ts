@@ -21,12 +21,52 @@ const active = {
   state: "active",
   reason: "pending",
   remainingCents: 12501,
+  invoiceAmountCents: 12501,
   dueDate: "2026-10-20",
   billingType: "PIX",
   invoiceUrl: "https://sandbox.asaas.com/i/ficticio",
 };
 const parse = (patch: Record<string, unknown> = {}) =>
-  parseInvoicePresentation({ ...active, ...patch }, expected);
+  parseInvoicePresentation(
+    {
+      ...active,
+      ...(patch.state && patch.state !== "active"
+        ? { invoiceAmountCents: null }
+        : {}),
+      ...patch,
+    },
+    expected,
+  );
+it("provedor ausente informa bloqueio sem inventar escopo", () => {
+  const result = parseInvoicePresentation(
+    {
+      ...active,
+      state: "blocked",
+      reason: "provider_not_ready",
+      invoiceUrl: null,
+      dueDate: null,
+      billingType: null,
+      invoiceAmountCents: null,
+    },
+    { ...expected, scope: null },
+  );
+  expect(result.invoiceUrl).toBeNull();
+  expect(result.state).toBe("blocked");
+});
+it("fatura ativa não admite escopo ausente", () => {
+  expect(() =>
+    parseInvoicePresentation(active, { ...expected, scope: null }),
+  ).toThrow();
+});
+it("valor da fatura é separado do crédito ainda desconhecido", () => {
+  expect(parse({ remainingCents: null })).toMatchObject({
+    state: "active",
+    invoiceAmountCents: 12501,
+    remainingCents: null,
+  });
+  expect(() => parse({ invoiceAmountCents: null })).toThrow();
+  expect(() => parse({ invoiceAmountCents: 0 })).toThrow();
+});
 it("fatura ativa exige valor, vencimento, meio e URL privados conferidos", () => {
   expect(parse()).toEqual(active);
 });
@@ -163,7 +203,8 @@ it("valores inseguros, data impossível, meio ausente ou resposta parcial ficam 
     { remainingCents: 0 },
     { remainingCents: 1.1 },
     { remainingCents: Number.MAX_SAFE_INTEGER + 1 },
-    { remainingCents: null },
+    { invoiceAmountCents: null },
+    { invoiceAmountCents: Number.MAX_SAFE_INTEGER + 1 },
     { dueDate: "2025-02-29" },
     { dueDate: null },
     { billingType: null },

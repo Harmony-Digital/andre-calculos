@@ -55,6 +55,7 @@ const schema = z
     state: z.enum(invoiceStates),
     reason: z.enum(invoiceReasons),
     remainingCents: cents.nullable(),
+    invoiceAmountCents: cents.nullable(),
     dueDate: z.string().refine(isCivilDate).nullable(),
     billingType: z
       .enum(["PIX", "BOLETO", "CREDIT_CARD", "UNDEFINED"])
@@ -66,9 +67,11 @@ const schema = z
       !reasonsByState[v.state].includes(v.reason) ||
       (v.dueDate === null) !== (v.billingType === null) ||
       (v.state !== "active" && v.invoiceUrl !== null) ||
+      (v.state !== "active" && v.invoiceAmountCents !== null) ||
       (v.state === "active" &&
-        (v.remainingCents === null ||
-          v.remainingCents <= 0 ||
+        ((v.remainingCents !== null && v.remainingCents <= 0) ||
+          v.invoiceAmountCents === null ||
+          v.invoiceAmountCents <= 0 ||
           v.invoiceUrl === null ||
           v.dueDate === null ||
           v.billingType === null)) ||
@@ -90,17 +93,20 @@ export function parseInvoicePresentation(
   const identifiers = z
     .strictObject({ orderId: id, processId: id })
     .parse({ orderId: expected.orderId, processId: expected.processId });
-  const scope = readAsaasScope(expected.scope);
-  if (scope.environment !== "sandbox") throw new Error(unavailable);
+  const scope = expected.scope === null ? null : readAsaasScope(expected.scope);
+  if (scope !== null && scope.environment !== "sandbox")
+    throw new Error(unavailable);
   const parsed = schema.parse(value);
   if (
+    (parsed.state === "active" && scope === null) ||
     parsed.orderId !== identifiers.orderId ||
     parsed.processId !== identifiers.processId
   )
     throw new Error(unavailable);
   return {
     ...parsed,
-    invoiceUrl: readAsaasInvoiceUrl(parsed.invoiceUrl, scope),
+    invoiceUrl:
+      scope === null ? null : readAsaasInvoiceUrl(parsed.invoiceUrl, scope),
   };
 }
 export const invoiceStateLabels: Record<InvoicePresentation["state"], string> =
@@ -114,7 +120,8 @@ export const invoiceReasonLabels: Record<
   InvoicePresentation["reason"],
   string
 > = {
-  pending: "Use a fatura conferida para pagar o sinal.",
+  pending:
+    "Consulte a fatura conferida. A disponibilidade do link não comprova pagamento ou crédito recebido.",
   credit_confirmed: "O sinal já está coberto pelo crédito confirmado.",
   provider_not_ready: "O pagamento automático ainda não está disponível.",
   client_contract: "O sinal está dispensado pelo contrato vigente.",

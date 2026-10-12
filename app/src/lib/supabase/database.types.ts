@@ -1552,6 +1552,22 @@ export type Database = {
         Args: { target_order: string; target_phase: string };
         Returns: Json;
       };
+      prepare_payment_invoice: {
+        Args: { target_order: string };
+        Returns: Json;
+      };
+      read_payment_invoice_fixture: {
+        Args: { target_query: string };
+        Returns: Json;
+      };
+      record_payment_invoice_result: {
+        Args: { target_query: string; available: boolean };
+        Returns: undefined;
+      };
+      finish_payment_invoice: {
+        Args: { target_query: string };
+        Returns: Json;
+      };
       prepare_payment_obligation: {
         Args: {
           target_order: string;

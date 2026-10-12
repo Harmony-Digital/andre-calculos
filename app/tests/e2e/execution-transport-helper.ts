@@ -11,6 +11,9 @@ export async function executionTransportFixture(billingType = "PIX") {
   const cleanup = async () => {
     try {
       const scopes = `'${fixture.scopeId}','${fixture.otherScopeId}'`;
+      sql(
+        `delete from private.payment_invoice_queries where charge_id in(select id from private.payment_financial_charges where scope_id in(${scopes}));`,
+      );
       if (priorEnabled !== undefined)
         sql(
           "update private.payment_fixture_environment set enabled=true where singleton;",
