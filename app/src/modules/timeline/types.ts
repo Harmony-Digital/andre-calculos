@@ -10,6 +10,7 @@ export const eventLabels = {
   quote_created: "Proposta emitida",
   quote_accepted: "Proposta aceita",
   payment_confirmed: "Pagamento confirmado",
+  payment_updated: "Situação financeira atualizada",
   status_changed: "Situação atualizada",
   delivered: "Entrega confirmada",
 } as const;
@@ -20,6 +21,38 @@ export function eventFilter(value?: string): EventKind | null {
   return value as EventKind;
 }
 export function eventLabel(kind: string, data?: unknown) {
+  if (
+    kind === "payment_updated" &&
+    data &&
+    typeof data === "object" &&
+    "effect" in data
+  ) {
+    if (data.effect === "debited") return "Estorno registrado";
+    if (data.effect === "restored") return "Crédito restabelecido";
+    if (data.effect === "reconciled") return "Conciliação concluída";
+    if (data.effect === "reconcile") return "Pagamento em conciliação";
+  }
+  if (
+    kind === "status_changed" &&
+    data &&
+    typeof data === "object" &&
+    "operation" in data &&
+    data.operation === "reject_quote"
+  )
+    return "Proposta recusada";
+  if (
+    kind === "status_changed" &&
+    data &&
+    typeof data === "object" &&
+    "operation" in data &&
+    "from" in data &&
+    "to" in data &&
+    typeof data.from === "string" &&
+    typeof data.to === "string" &&
+    Object.hasOwn(orderStateLabels, data.from) &&
+    Object.hasOwn(orderStateLabels, data.to)
+  )
+    return `${orderStateLabels[data.from as OrderState]} → ${orderStateLabels[data.to as OrderState]}`;
   if (
     kind === "status_changed" &&
     data &&
@@ -58,3 +91,7 @@ export function noteText(data: unknown): string | null {
     return null;
   return data.note;
 }
+import {
+  orderStateLabels,
+  type OrderState,
+} from "@/modules/orders/state-machine";

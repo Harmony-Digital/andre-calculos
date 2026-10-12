@@ -1,0 +1,18 @@
+Running 20 tests using 1 worker
+  ✓   1 [computador] › tests/e2e/email-auth.spec.ts:38:5 › recuperação de senha e link de acesso pelo Mailpit (4.0s)
+  ✓   2 [computador] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.8s)
+  ✓   3 [computador] › tests/e2e/email-auth.spec.ts:38:5 › recuperação de senha e link de acesso pelo Mailpit (3.1s)
+  ✓   4 [computador] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.8s)
+  ✓   5 [computador] › tests/e2e/email-auth.spec.ts:38:5 › recuperação de senha e link de acesso pelo Mailpit (3.1s)
+  ✓   6 [computador] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.8s)
+  ✓   7 [computador] › tests/e2e/email-auth.spec.ts:38:5 › recuperação de senha e link de acesso pelo Mailpit (3.0s)
+  ✓   8 [computador] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.8s)
+  ✓   9 [computador] › tests/e2e/email-auth.spec.ts:38:5 › recuperação de senha e link de acesso pelo Mailpit (3.0s)
+  ✓  10 [computador] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.8s)
+  ✓  12 [celular] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.8s)
+  ✓  14 [celular] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.8s)
+  ✓  16 [celular] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.8s)
+  ✓  18 [celular] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.8s)
+  ✓  20 [celular] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.8s)
+  5 skipped
+  15 passed (59.7s)

@@ -1,0 +1,38 @@
+{
+  "run": 38289543458,
+  "job": 114946032801,
+  "kind": "e2e",
+  "source": "21fc90dfc8adb489a00396f127e7c4f2e844fa82",
+  "checkout": "16e33b8e2b3d408c24d80d30507d201207c9b828",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "21fc90dfc8adb489a00396f127e7c4f2e844fa82"
+  ],
+  "jobConclusion": "success",
+  "overallStatus": "completed",
+  "overallConclusion": "success",
+  "bankTests": 863,
+  "bankFiles": 43,
+  "e2ePassed": 203,
+  "e2eSkipped": 7,
+  "advisorsNoIssues": 2,
+  "logSha256": "86e9b6f92345a0ba812afa0ed4f6c853518c2c03c6b7d54faf046b44c57ad6d1",
+  "artifactSha256": "86e9b6f92345a0ba812afa0ed4f6c853518c2c03c6b7d54faf046b44c57ad6d1",
+  "artifactNormalization": "Somente espacos finais removidos; logSha256 conserva o extrato original.",
+  "artifacts": [
+    {
+      "id": 11768925072,
+      "name": "evidencias-de-testes",
+      "expired": false,
+      "size_in_bytes": 41275603,
+      "digest": "sha256:e43549534e04600f10be8dae0e0f9cd20176b1753a1a3490559a6169bdfe11b9"
+    },
+    {
+      "id": 11763694881,
+      "name": "inventario-dependencias",
+      "expired": false,
+      "size_in_bytes": 22078,
+      "digest": "sha256:012eb65554e5c8dc69c228a5eed2befc48e5d05bf4d724b1c3c91a59894105e6"
+    }
+  ]
+}
