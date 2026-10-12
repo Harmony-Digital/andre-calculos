@@ -48,7 +48,13 @@ function safeNumber(value: bigint): number {
   return Number(value);
 }
 /** Não consulta rede ou IA. A versão e os preços usados acompanham o resultado. */
-export function calculateQuote(answers: PricingAnswers, table: PriceTable) {
+export type PricingInputs = Omit<PricingAnswers, "processPages">;
+export type PricingTable = Omit<
+  PriceTable,
+  "businessDays" | "complexitySettings"
+>;
+
+export function calculatePrice(answers: PricingInputs, table: PricingTable) {
   if (!table.version.trim())
     throw new Error("A tabela de preços precisa de uma versão.");
   const base = table.base[answers.calculationType];
@@ -70,14 +76,7 @@ export function calculateQuote(answers: PricingAnswers, table: PriceTable) {
     integer(value, name);
   if (!["month", "page"].includes(table.timecardUnit))
     throw new Error("Informe a unidade dos cartões de ponto.");
-  for (const days of Object.values(table.businessDays))
-    integer(days, "o prazo de entrega", 1);
-  const complexity = classifyComplexity(answers, table.complexitySettings);
-  const businessDays = integer(
-    table.businessDays[complexity.level],
-    "o prazo desta complexidade",
-    1,
-  );
+  integer(answers.claimants, "a quantidade de reclamantes", 1);
   const items: QuoteItem[] = [];
   const add = (
     code: string,
@@ -159,7 +158,18 @@ export function calculateQuote(answers: PricingAnswers, table: PriceTable) {
     totalCents,
     depositCents,
     balanceCents: totalCents - depositCents,
-    complexity,
-    businessDays,
   };
+}
+
+/** O orçamento completo acrescenta classificação e prazo ao mesmo preço. */
+export function calculateQuote(answers: PricingAnswers, table: PriceTable) {
+  for (const days of Object.values(table.businessDays))
+    integer(days, "o prazo de entrega", 1);
+  const complexity = classifyComplexity(answers, table.complexitySettings);
+  const businessDays = integer(
+    table.businessDays[complexity.level],
+    "o prazo desta complexidade",
+    1,
+  );
+  return { ...calculatePrice(answers, table), complexity, businessDays };
 }

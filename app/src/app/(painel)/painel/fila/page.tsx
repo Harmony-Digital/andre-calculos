@@ -122,9 +122,14 @@ export default async function WorkQueue({
                         <td>{v.type}</td>
                         <td>{v.complexity}</td>
                         <td className="queue-money">
-                          {queueMoney(row.total_cents)}
+                          {queueMoney(row.totalCents)}
                         </td>
-                        <td>{row.payment}</td>
+                        <td>
+                          {row.payment}
+                          {row.paymentNote && (
+                            <p className="field-help">{row.paymentNote}</p>
+                          )}
+                        </td>
                         <td>{v.status}</td>
                         <td>
                           <time dateTime={row.internal_due_date ?? undefined}>
@@ -169,7 +174,7 @@ export default async function WorkQueue({
                       {[
                         ["Tipo", v.type],
                         ["Complexidade", v.complexity],
-                        ["Valor", queueMoney(row.total_cents)],
+                        ["Valor", queueMoney(row.totalCents)],
                         ["Pagamento", row.payment],
                         ["Situação", v.status],
                         ["Prazo interno", date(row.internal_due_date)],
@@ -180,6 +185,9 @@ export default async function WorkQueue({
                         </div>
                       ))}
                     </dl>
+                    {row.paymentNote && (
+                      <p className="field-help">{row.paymentNote}</p>
+                    )}
                   </li>
                 );
               })}

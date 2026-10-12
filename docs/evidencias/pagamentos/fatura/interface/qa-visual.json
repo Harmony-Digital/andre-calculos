@@ -1,0 +1,37 @@
+{
+  "inspected": [
+    "invoice-journey-client-con-33499-preservam-crédito-e-emissão-celular/04-parcial.png",
+    "invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-computador/02-incerta.png",
+    "invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-celular/05-paga.png",
+    "invoice-journey-client-con-33499-preservam-crédito-e-emissão-computador/06-estorno.png",
+    "invoice-journey-client-con-33499-preservam-crédito-e-emissão-computador/01-ativa.png",
+    "invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-celular/01-ativa.png",
+    "invoice-journey-dispensa-p-5545f-agamento-ou-oferecem-fatura-celular/07-contrato.png",
+    "invoice-journey-dispensa-p-5545f-agamento-ou-oferecem-fatura-computador/08-sem-sinal.png",
+    "invoice-journey-CREDIT-CAR-3c7ac-rtão-ou-emite-nova-cobrança-celular/metodo-CREDIT_CARD.png",
+    "invoice-journey-BOLETO-fat-a1a2b-rtão-ou-emite-nova-cobrança-computador/metodo-BOLETO.png",
+    "invoice-journey-UNDEFINED--79ee5-rtão-ou-emite-nova-cobrança-computador/metodo-UNDEFINED.png",
+    "invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-celular/03-bloqueada.png"
+  ],
+  "count": 12,
+  "viewports": [
+    375,
+    1440
+  ],
+  "roles": [
+    "client",
+    "calculator"
+  ],
+  "findings": [
+    "Pedido identificado pelo código, valores e controles legíveis sem cortes.",
+    "Ativa separa valor da emissão e recebimento a confirmar.",
+    "Parcial mostra R$25,01; incerteza permanece A conferir.",
+    "Pagamento, dispensa e proposta gratuita não oferecem nova fatura.",
+    "Campos de cartão ausentes; métodos e vencimento apresentados na mesma hierarquia."
+  ],
+  "scope": "12 capturas representativas da apresentação final inspecionadas; Axe/largura nas34",
+  "earlierCorrections": [
+    "Código do pedido incluído após primeira revisão.",
+    "Restante financeiro dos estados inativos incluído após segunda revisão."
+  ]
+}
