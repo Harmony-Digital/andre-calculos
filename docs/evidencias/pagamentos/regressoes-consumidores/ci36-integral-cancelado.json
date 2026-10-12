@@ -1,0 +1,19 @@
+{
+  "run": 38262322935,
+  "source": "e2342ce4d8ec54c6a6e86b965327b09bea44e011",
+  "e2eJob": 114855699700,
+  "overall": "cancelled",
+  "annotation": "The job has exceeded the maximum execution time of 45m0s",
+  "bankTests": 836,
+  "bankFiles": 40,
+  "browserTests": 191,
+  "browserSkipped": 7,
+  "advisorsNoIssues": 2,
+  "bankSeconds": 1209,
+  "browserSeconds": 1321,
+  "setupSeconds": 166,
+  "advisorsSeconds": 2,
+  "watchSession": 13156,
+  "scope": "todos os testes e advisors passaram; limpeza/upload final sem tempo no limite45min",
+  "rawLogSha256": "be9202ac1d8e9e92323021361d3c0e9964f19825b6b9af2155d91691051741b2"
+}

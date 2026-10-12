@@ -1,0 +1,13 @@
+# Fatura nas áreas privadas — M3.01ar
+
+A pasta do processo oferece “Consultar fatura do sinal” somente no preparo local. Cliente e calculista usam páginas próprias com o código do pedido, quantia da emissão/vencimento/meio, recebimento ainda a confirmar e restante atual do sinal. Incerteza conserva “A conferir”, sem zero fictício; pagamento, contrato e proposta gratuita apresentam razões distintas sem nova fatura.
+
+A URL Asaas não integra o DOM da página. O botão abre a rota interna por pedido/processo, que revalida identidade visível sob RLS, autorização e consulta atual AQ antes de redirecionar. Não usa endereço fornecido pelo navegador. Respostas de abertura são privadas sem cache/referrer; pagamento/bloqueio/conciliação voltam à consulta do usuário. A origem de retorno vem da configuração validada do portal; NextRequest normaliza127.0.0.1 para localhost e não serve como essa fonte.
+
+14 percursos novos no navegador375/1440 passaram. Os43 aprovados/uma omissão planejada na regressão incluem os14,16 financeiros,login/isolamento/pasta/PDF;sem omitir os cenários novos. 34 capturas comAxe/largura,12 finais inspecionadas;QA documentada no JSON. Cobertura:cliente/calculista,Pix/boleto/cartão/escolha na fatura,parcial/recebimento/estorno/provedor indisponível,dispensa/proposta gratuita,navegação e resposta perdidas/reenvio,cliente B/admin/anon,UUID e pedido-processo trocados,erro de auditoria/rollback e nova consulta recuperada. Os redirects foram inspecionados com redirects desativados;nenhuma chamada ao host Asaas.
+
+43 regressões de banco emtrês arquivos (26 da consulta mais jornadas financeiras) passaram após ampliar helpers só para os métodos fictícios. Sem migration nova;96/25/56RLS/quatro perfis econtroles idênticos ao baseline,sem queries/auditorias/grants/usuários/trigger/função temporários. Dois advisors semachados.1432 unitários72arquivos/43 scripts/formato/lint/tipos aprovados. Build local mantém EPERM de portaTurbopack;check-build da fonte final no CI pendente.
+
+Correções encontradas durante o ensaio:rotas internas passaram a usar a origem validada;seleção de campo ficou restrita à fatura (Sair possui input oculto legítimo do Next);pedido e valor restante foram incluídos na revisão visual. Nenhum controle de autenticação,crédito ou emissão foi enfraquecido. AR/K/parentB permanecem abertos até check-build exato;operações externas/C/M3.09 eGATEs humanos permanecem condicionados. Prova de perdas,rollback eespera entre transações também está emAQ.
+
+Manifest preserva SHA-256 dos logs originais locais e extratos;capturas.json preserva hashes dos pixels finais. Só dados fictícios locais,sem publicação ou cobrança real.
