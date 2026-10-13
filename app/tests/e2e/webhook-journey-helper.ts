@@ -10,6 +10,18 @@ export const webhookJourneyToken =
 export const webhookJourneyCronSecret =
   "ficticio-cron-jornada-distinto-do-webhook-2026";
 
+export function clearWebhookJourneyScopes(
+  scopeId: string,
+  otherScopeId: string,
+) {
+  const scopes = `'${scopeId}','${otherScopeId}'`;
+  sql(`update private.payment_fixture_environment set enabled=true where singleton;
+          delete from public.audit_log where action in('payment_webhook_claimed','payment_webhook_queried','payment_webhook_finalized') and target_id in(select request_id from private.payment_webhook_claims where run_id in(select id from private.payment_webhook_runs where scope_id in(${scopes})) union select id from private.payment_webhook_runs where scope_id in(${scopes}));
+          delete from private.payment_webhook_claims where run_id in(select id from private.payment_webhook_runs where scope_id in(${scopes}));delete from private.payment_webhook_runs where scope_id in(${scopes});
+          delete from public.audit_log where action in('payment_webhook_received','payment_webhook_conflict') and target_id in(select id from private.payment_webhook_events where scope_id in(${scopes}) union select x.id from private.payment_webhook_conflicts x join private.payment_webhook_events e on e.id=x.event_id where e.scope_id in(${scopes}));
+          delete from private.payment_webhook_queue where event_id in(select id from private.payment_webhook_events where scope_id in(${scopes}));delete from private.payment_webhook_conflicts where event_id in(select id from private.payment_webhook_events where scope_id in(${scopes}));delete from private.payment_webhook_events where scope_id in(${scopes});`);
+}
+
 /** Produtor existente e origem real do banco local; nenhum pagamento paralelo. */
 export async function webhookJourneyFixture() {
   const base = await executionTransportFixture();
@@ -81,12 +93,7 @@ export async function webhookJourneyFixture() {
     },
     async cleanup() {
       try {
-        const scopes = `'${base.scopeId}','${base.otherScopeId}'`;
-        sql(`update private.payment_fixture_environment set enabled=true where singleton;
-          delete from public.audit_log where action in('payment_webhook_claimed','payment_webhook_queried','payment_webhook_finalized') and target_id in(select request_id from private.payment_webhook_claims where run_id in(select id from private.payment_webhook_runs where scope_id in(${scopes})) union select id from private.payment_webhook_runs where scope_id in(${scopes}));
-          delete from private.payment_webhook_claims where run_id in(select id from private.payment_webhook_runs where scope_id in(${scopes}));delete from private.payment_webhook_runs where scope_id in(${scopes});
-          delete from public.audit_log where action in('payment_webhook_received','payment_webhook_conflict') and target_id in(select id from private.payment_webhook_events where scope_id in(${scopes}) union select x.id from private.payment_webhook_conflicts x join private.payment_webhook_events e on e.id=x.event_id where e.scope_id in(${scopes}));
-          delete from private.payment_webhook_queue where event_id in(select id from private.payment_webhook_events where scope_id in(${scopes}));delete from private.payment_webhook_conflicts where event_id in(select id from private.payment_webhook_events where scope_id in(${scopes}));delete from private.payment_webhook_events where scope_id in(${scopes});`);
+        clearWebhookJourneyScopes(base.scopeId, base.otherScopeId);
       } finally {
         await base.cleanup();
       }

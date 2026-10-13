@@ -1,0 +1,67 @@
+{
+  "task": "M3.01c3c2a",
+  "mode": "local ficticio",
+  "focused": {
+    "basicSixMethodsAndPhases": 6,
+    "basicSeconds": 14.45,
+    "finalMatrixTests": 32,
+    "finalMatrixSeconds": 86.45,
+    "firstCombined": {
+      "tests": 88,
+      "passed": 74,
+      "failed": 14,
+      "oldFilesPassed": 3,
+      "oldCasesPassed": 56,
+      "failure": "new oracle expected null private subtotal; effective public credit correctly blocked"
+    },
+    "oldTestsByteUnchanged": {
+      "app/tests/integration/financial-journey.test.ts": true,
+      "app/tests/integration/balance-journey.test.ts": true,
+      "app/tests/integration/webhook-queue.test.ts": true
+    }
+  },
+  "readback": {
+    "migrations": 106,
+    "publicRls": 25,
+    "privateRls": 61,
+    "profiles": 4,
+    "sameAsWorkerFinalReadback": true,
+    "sameControls": true,
+    "sameGrants": true,
+    "temporaryObjects": 0,
+    "advisorsNoIssues": 2
+  },
+  "localCheck": {
+    "format": "passed",
+    "lint": "passed",
+    "types": "passed",
+    "units": 1490,
+    "unitFiles": 74,
+    "scripts": 43,
+    "build": "EPERM binding internal Turbopack port"
+  },
+  "wholeBank": {
+    "status": "running",
+    "sessionId": 14013,
+    "pid": 66164,
+    "log": ".data/revisao/webhook-c3c2a-banco-geral.log"
+  },
+  "originalSha256": {
+    "seis-primeira.log": "d15b81c63f6e3b9d2f93ef3dd021c62448d3df5062edfed8b2e825980aae6df6",
+    "seis-percursos.log": "a7b819668c16f985d78ffd787c1e116be05b13a416c535788d2adc5cc01a5a88",
+    "primeira-matriz.log": "9cee332071e9a42cf19b8f85f51d70754ad8f836699bb16b23627ba166d5c2d6",
+    "matriz-32-casos.log": "5bcf84d3d4bfd624aba106b3ad55b635a67ab5fcf413f4d2efd4b55c3b53f2ea",
+    "readback-focado.log": "5bacec851e00219a29b21de2564ea4779c519332c8289d8e83f722c4ec9cda88",
+    "controles-focados.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "grants-focados.jsonl": "ad4eee5e2041c00dad88a0d682e33388fe39d4ae40b408108b064506577e3a09",
+    "advisors-focados.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "check-local-completo": "1d0640600c643342a44040b6da69d478cee3bc689a9c20c9a5bf929b15329370"
+  },
+  "remaining": [
+    "whole bank/final readback/exact source build",
+    "C3c2b consumers/preconditions",
+    "C3c2c concurrency/loss/consolidation",
+    "C3c3 browser widths/Axe",
+    "C4 authorized real sandbox"
+  ]
+}
