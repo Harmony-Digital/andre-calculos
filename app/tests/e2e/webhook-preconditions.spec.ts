@@ -187,7 +187,21 @@ for (const scenario of scenarios) {
                 exact: true,
               }),
             ).toHaveCount(0);
-          } else expect(response?.status()).toBe(404);
+          } else {
+            expect(response?.status()).toBe(404);
+            await expect(
+              viewer.getByRole("heading", {
+                name: "Página não encontrada",
+                exact: true,
+              }),
+            ).toBeVisible();
+            await expect(viewer.locator("main")).not.toContainText(
+              quote.quoteId,
+            );
+            await expect(viewer.locator("main")).not.toContainText(
+              quote.processId,
+            );
+          }
           await captureWebhookScreen(viewer, info, `01-proposta-${role}`);
           await viewer.goto(
             `${prefix}/processos/${quote.processId}?aba=resumo`,
