@@ -35,9 +35,14 @@
     "build": "EPERM"
   },
   "wholeBank": {
-    "status": "running",
+    "status": "passed",
     "sessionId": 18102,
-    "log": ".data/revisao/webhook-c3b-banco-geral.log"
+    "exitCode": 0,
+    "tests": 1013,
+    "files": 51,
+    "seconds": 1048.89,
+    "log": "banco-geral.log",
+    "all25FinalizationCasesIncluded": true
   },
   "originalLogSha256": {
     "primeira-verificacao.log": "439e00bdbffa42ccbe5d0f61f59a0357782b22f58f4e7ee825986d6ec119f5f5",
@@ -47,12 +52,25 @@
     "advisors105.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
     "readback-focado.log": "d1da1645cbd41075b521f04ceb09886814b9b70bb2c5b333a106b938e351a8ee",
     "controles-focados.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
-    "grants-focados.jsonl": "bce2e1bab6ba45d6372e02980ccc4c9753a962625bf668a207d51a9a36425446"
+    "grants-focados.jsonl": "bce2e1bab6ba45d6372e02980ccc4c9753a962625bf668a207d51a9a36425446",
+    "banco-geral.log": "d6cc8721507c92a0d8eb84b274ac4d103186c7483edc58ff1664d2f0751d8450",
+    "readback-final.log": "d1da1645cbd41075b521f04ceb09886814b9b70bb2c5b333a106b938e351a8ee",
+    "controles-finais.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "grants-finais.jsonl": "bce2e1bab6ba45d6372e02980ccc4c9753a962625bf668a207d51a9a36425446",
+    "advisors-finais.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
   },
   "remaining": [
-    "wholeBank/readback",
-    "exactRemoteCheckBuild",
-    "C3c full consumer journeys",
+    "C3c worker and full consumer journeys",
     "C4 authorized real sandbox"
-  ]
+  ],
+  "finalReadback": {
+    "sameAsFocused": true,
+    "sameControls": true,
+    "sameGrants": true,
+    "migrations": 105,
+    "publicRls": 25,
+    "privateRls": 61,
+    "profiles": 4,
+    "temporaryObjects": 0
+  }
 }
