@@ -2,6 +2,8 @@
 
 Portal para advogados contratarem e acompanharem cálculos judiciais realizados e revisados pelo André. Requisitos em `PRD.md`, instruções em `AGENTS.md` e andamento exclusivamente em `plan.md`.
 
+Para retomar em uma nova sessão, comece por [plan.md — Onde estamos](plan.md#onde-estamos), que reúne o ponto de continuidade, evidências e pendências. Leia também o protocolo de sessão de `AGENTS.md`.
+
 ## Desenvolvimento
 
 Requer Node.js 22 ou superior. Na pasta `app`, execute `npm ci`. Execute `npm run check` para formatação, lint, tipos, testes e build. Copie `scripts/contas-esperadas.example` para `scripts/contas-esperadas.env` e confira os identificadores antes de usar o preflight.
@@ -43,6 +45,10 @@ Calculista e admin usam `/painel/configuracoes` para editar identificação prof
 O calculista registra clientes que pagam no final em `/painel/clientes`, com motivo, revisão e histórico privado. O contrato dispensa sinal, preserva pagamentos/aceites e exige documento confirmado para a fila. Regras de retirada e reenvio em `docs/clientes-com-contrato.md`.
 
 O fluxo do checklist prepara proposta numerada, snapshot imutável e PDF privado com CRC. A emissão comercial exige calendário, disponibilidade, período e dados reais confirmados. O ensaio fictício tem opt-in exclusivo do servidor local, indicação em tela/PDF e contratação bloqueada. Recuperação, regras e comandos em `docs/propostas.md`.
+
+### Contratos
+
+O aceite registra uma intenção de geração e congela os dados do contrato. O processador confere os bytes arquivados antes de disponibilizar o PDF privado na proposta e na pasta do processo. Recuperação, permissões, restrição do produtor ao ambiente local e comandos de verificação em [docs/contratos.md](docs/contratos.md).
 
 ### Lembretes de prazo
 

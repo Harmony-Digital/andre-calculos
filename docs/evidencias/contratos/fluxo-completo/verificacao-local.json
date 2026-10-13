@@ -30,7 +30,7 @@
   "unitFiles": 77,
   "scriptTests": 43,
   "formatLintTypes": "pass",
-  "localBuild": "EPERM interno do Turbopack; build da fonte final no CI pendente",
+  "localBuild": "EPERM interno do Turbopack no ambiente local; check/build da fonte e9b204f aprovado no CI, conforme ci-build.json",
   "ciPending": false,
   "baselinePreserved": true,
   "storageAndJobsEmptyAfterCleanup": true,
