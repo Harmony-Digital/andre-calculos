@@ -10,6 +10,11 @@ import {
   type AcceptanceReceipt,
 } from "./acceptance";
 import { acceptanceMetadata } from "./http-metadata";
+import { after } from "next/server";
+import {
+  localContractWorkerEnabled,
+  processContractPdf,
+} from "./contract-worker";
 export async function acceptQuote(
   input: unknown,
 ): Promise<
@@ -69,6 +74,10 @@ export async function acceptQuote(
     revalidatePath(`/app/orcamentos/${parsed.data.quoteId}`);
     revalidatePath("/app");
     revalidatePath("/painel");
+    if (localContractWorkerEnabled())
+      after(async () => {
+        await processContractPdf(parsed.data.quoteId).catch(() => undefined);
+      });
     return { receipt: receipt.data };
   } catch {
     return {

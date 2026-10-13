@@ -1856,6 +1856,59 @@ export type Database = {
         Args: { target_quote: string };
         Returns: Json;
       };
+      claim_quote_contract_pdf: {
+        Args: { target_quote: string; request_id: string };
+        Returns: Json;
+      };
+      prepare_quote_contract_pdf: {
+        Args: {
+          target_quote: string;
+          worker_claim: string;
+          expected_epoch: number;
+          pdf_sha256: string;
+          pdf_size: number;
+        };
+        Returns: boolean;
+      };
+      complete_quote_contract_pdf: {
+        Args: {
+          target_quote: string;
+          worker_claim: string;
+          expected_epoch: number;
+          observed_sha256: string;
+          observed_size: number;
+        };
+        Returns: boolean;
+      };
+      fail_quote_contract_pdf: {
+        Args: {
+          target_quote: string;
+          worker_claim: string;
+          expected_epoch: number;
+          failure_code: string;
+        };
+        Returns: boolean;
+      };
+      get_quote_contract_pdf_state: {
+        Args: { target_quote: string };
+        Returns: Json;
+      };
+      select_pending_quote_contract_pdfs: {
+        Args: { batch_limit: number };
+        Returns: Json;
+      };
+      authorize_quote_contract_download: {
+        Args: { target_quote: string };
+        Returns: Json;
+      };
+      record_quote_contract_download: {
+        Args: { target_quote: string; expected_sha256: string };
+        Returns: boolean;
+      };
+      record_quote_contract_download_system: {
+        Args: { target_quote: string; actor: string; expected_sha256: string };
+        Returns: boolean;
+      };
       get_quote_contract_snapshot: {
         Args: { target_quote: string };
         Returns: Json;

@@ -7,6 +7,8 @@ import type {
   ContractContext,
 } from "@/modules/quotes/acceptance";
 import { formatMoney } from "@/lib/utils";
+import { ContractPdfCard } from "./contract-pdf-card";
+import type { ContractPdfState } from "@/modules/quotes/contract-generation";
 const subscribe = () => () => {};
 const ready = () => true;
 const waiting = () => false;
@@ -22,11 +24,13 @@ export function QuoteAcceptance({
   context,
   requestId,
   panel = false,
+  contractPdfState,
 }: {
   quoteId: string;
   context: ContractContext;
   requestId: string;
   panel?: boolean;
+  contractPdfState?: ContractPdfState;
 }) {
   const id = useId(),
     hydrated = useSyncExternalStore(subscribe, ready, waiting),
@@ -60,6 +64,9 @@ export function QuoteAcceptance({
             ? "Documentos da proposta"
             : "Confirmar contratação"}
       </h2>
+      {receipt && (
+        <ContractPdfCard quoteId={quoteId} initialState={contractPdfState} />
+      )}
       {receipt && (
         <div role="status" className="notice">
           <p>

@@ -22,6 +22,7 @@ import { DepositCard } from "./deposit-card";
 import { fixtureInvoiceEnabled } from "@/modules/payments/invoice-mode";
 import { DeliveryRecords } from "./delivery-records";
 import { pieceLabel } from "@/modules/page-index/forms";
+import { ContractPdfFolderCard } from "./contract-pdf-folder-card";
 import {
   parameterLabel,
   sourceLabel,
@@ -150,7 +151,7 @@ export async function ProcessFolder({
                         data.contractQuoteIds.has(quote.id),
                     )
                     .map((quote) => (
-                      <p key={quote.id}>
+                      <div key={quote.id}>
                         <Link
                           className="text-link"
                           href={`${panel ? "/painel" : "/app"}/orcamentos/${quote.id}`}
@@ -158,7 +159,8 @@ export async function ProcessFolder({
                           {quote.number}
                           {quote.is_simulation ? " · Ensaio fictício" : ""}
                         </Link>
-                      </p>
+                        <ContractPdfFolderCard quoteId={quote.id} />
+                      </div>
                     ))}
                   {data.deposits.has(order.id) && (
                     <DepositCard

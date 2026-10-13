@@ -223,6 +223,27 @@ values('${id}'::uuid,${literal(JSON.stringify(proposal))}::jsonb,${literal(terms
       cleanup: async () => {
         try {
           for (const entry of ids) {
+            // O aceite agora pode gerar o contrato fora da resposta. Limpar só após o worker terminar.
+            const deadline = Date.now() + 10000;
+            while (
+              localNotificationSql(
+                `select exists(select 1 from private.quote_contract_pdf_jobs where quote_id='${entry.quote}' and state in('processing','prepared') and lease_until>clock_timestamp())::text;`,
+              ) === "true"
+            ) {
+              if (Date.now() >= deadline)
+                throw new Error(
+                  "Geração contratual fictícia ainda ativa; limpeza não executada.",
+                );
+              await new Promise((resolve) => setTimeout(resolve, 100));
+            }
+            const contractPath = localNotificationSql(
+              `select 'contracts/'||quote_id::text||'/'||snapshot_sha256||'/contract-pdf-v1.pdf' from private.quote_contract_snapshots where quote_id='${entry.quote}';`,
+            );
+            if (
+              contractPath &&
+              (await db.storage.from("processos").remove([contractPath])).error
+            )
+              throw new Error("Contrato fictício não removido do Storage.");
             localNotificationSql(
               `delete from public.audit_log where action='manual_deposit_confirmed' and target_id in (select id from private.manual_deposit_receipts where quote_id='${entry.quote}'::uuid); delete from private.manual_deposit_requests where quote_id='${entry.quote}'::uuid; delete from private.manual_deposit_receipts where quote_id='${entry.quote}'::uuid; delete from public.payments where order_id='${entry.order}'::uuid; delete from private.quote_acceptance_requests where quote_id='${entry.quote}'::uuid; delete from private.quote_acceptances where quote_id='${entry.quote}'::uuid; delete from private.quote_rejection_requests where quote_id='${entry.quote}'::uuid; delete from private.quote_rejections where quote_id='${entry.quote}'::uuid; delete from private.quote_contract_contexts where quote_id='${entry.quote}'::uuid;`,
             );

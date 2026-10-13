@@ -88,6 +88,7 @@ export function QuoteDetail({
             context={data.contract}
             requestId={randomUUID()}
             panel={panel}
+            contractPdfState={data.contractPdfState}
           />
           <QuoteRejection
             quoteId={data.id}

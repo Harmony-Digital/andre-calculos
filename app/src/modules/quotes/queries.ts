@@ -5,6 +5,8 @@ import { createSessionClient } from "@/lib/supabase/server";
 import { authorize, getSessionProfile } from "@/modules/auth/session";
 import { proposalSchema } from "./proposal";
 import { contractContextSchema, type ContractContext } from "./acceptance";
+import { getContractPdfState } from "./contract-queries";
+import type { ContractPdfState } from "./contract-generation";
 export const quoteExportSchema = z.strictObject({
   id: z.uuid(),
   number: z.string().regex(/^ORC-\d{4}-\d{4,}$/),
@@ -13,6 +15,7 @@ export const quoteExportSchema = z.strictObject({
 export type QuoteExport = z.infer<typeof quoteExportSchema>;
 export type QuoteDetailData = QuoteExport & {
   contract: ContractContext | null;
+  contractPdfState?: ContractPdfState;
 };
 export async function getQuote(id: string): Promise<QuoteDetailData> {
   const session = await getSessionProfile();
@@ -47,7 +50,15 @@ export async function getQuote(id: string): Promise<QuoteDetailData> {
       (contract?.success ? contract.data.proposal : null),
   });
   if (!parsed.success) notFound();
-  return { ...parsed.data, contract: contract?.success ? contract.data : null };
+  const pdfState =
+    contract?.success && contract.data.receipt
+      ? await getContractPdfState(id)
+      : null;
+  return {
+    ...parsed.data,
+    contract: contract?.success ? contract.data : null,
+    contractPdfState: pdfState?.data?.state,
+  };
 }
 export async function getQuotePdfExport(
   id: string,
