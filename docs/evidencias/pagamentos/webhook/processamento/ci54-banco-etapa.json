@@ -1,0 +1,21 @@
+{
+  "source": "9a39602566ee8c97bb33a07689f0e54c9d614427",
+  "run": 38325150275,
+  "job": 115061968298,
+  "bankStep": {
+    "name": "Run bash ../scripts/dev-env.sh npm run test:rls",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 9,
+    "started_at": "2026-10-13T00:03:56Z",
+    "completed_at": "2026-10-13T00:31:12Z"
+  },
+  "wholeJobStatus": "in_progress",
+  "wholeJobConclusion": null,
+  "counts": "not inferred; await native logs after job completion",
+  "e2eCheckout": "not yet read; local claims26/source build54 verified separately",
+  "localIntegrationCases": 26,
+  "checkBuildProof": "docs/evidencias/pagamentos/webhook/processamento/ci54-build.json",
+  "localReadback": "104 migrations/25public/61privateRLS/4profiles;controls preserved",
+  "scope": "claims and durable query only;C3b/C3c/C4 still required"
+}

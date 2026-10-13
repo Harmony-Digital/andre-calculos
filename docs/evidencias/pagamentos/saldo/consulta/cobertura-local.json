@@ -1,0 +1,100 @@
+{
+  "task": "M3.01au",
+  "mode": "fixture_local",
+  "newBankTests": 25,
+  "bankTests": 82,
+  "bankFiles": 4,
+  "newUnitTests": 4,
+  "unitTests": 1436,
+  "unitFiles": 72,
+  "scripts": 43,
+  "migrations": [
+    97,
+    98
+  ],
+  "readbackBaselineUnchangedExceptMigrationCount": true,
+  "controlsByteIdentical": true,
+  "temporaryTriggersFunctions": 0,
+  "advisorsNoIssuesAfterEachAndFinal": true,
+  "build": "local EPERM; fonte exata no CI ainda necessária",
+  "code": {
+    "app/src/modules/payments/invoice-query.ts": "7f69ba474f032396d16fb6e6cfc4016498b226b7ec212b95b47c016588f7ba38",
+    "app/src/modules/payments/invoice-presentation.ts": "4f7c279f0bdc802cf43cd121be6a552550e252ae550e79d2e7cc0d29cd1f4594",
+    "app/tests/integration/balance-invoice-query.test.ts": "d6ead48b6ec71cbce10ae1b3fd88ab5e961bb4917ea059ce1ed871fed01b8c63",
+    "supabase/migrations/20261012009700_andre_calculos_0097_balance_invoice_queries.sql": "27c2e7bb50ceec31dd430358a8a5b2593cc0940bf3ebb0e0174ce5bcb720a0ab",
+    "supabase/migrations/20261012009800_andre_calculos_0098_current_balance_invoice.sql": "f7e988480913cc4ce808a3d5b50da6580351cdffbf2564ca00d39ce62594e418"
+  },
+  "files": [
+    {
+      "origin": "au-banco-final.log",
+      "artifact": "regressao.log",
+      "originalSha256": "df94d470670c6b2b95b4f23a004d044fe885d1ef316327b30b030985ba9f7bbf",
+      "artifactSha256": "b9e4a68ede099d3596cdceba6551352f44264fe258818cb0c93a375489b1c5cd"
+    },
+    {
+      "origin": "au-casos-adicionais97.log",
+      "artifact": "diagnostico97.log",
+      "originalSha256": "6f4a2c4819ce4226c3f0c9f91d3bbbc38f03f527a06255b8b624d93ca6b0c5b5",
+      "artifactSha256": "6f7b9ba0306fc96a8589defd290103cb1cd71d90c5a7927b77a639e5ae4bd6f7"
+    },
+    {
+      "origin": "au-unidades-primeiro.log",
+      "artifact": "unidades-focais.log",
+      "originalSha256": "11c0184d925e2bbd08bcb4ce38c0951b3186638659b62058f2bc4ab0bcbc8fac",
+      "artifactSha256": "5e6fe9ba001836c4ef97c083507c6ef6107571db3280de37dbae9e5b5d54549f"
+    },
+    {
+      "origin": "au-check-final.log",
+      "artifact": "qualidade-local.log",
+      "originalSha256": "1364fe081dafa2fe955732a771b6b4ff66e1394420f616ce83c0951f58df9778",
+      "artifactSha256": "2ea4de5776dd2490aa24aee28bd672716a14ce8e5d56d0fc63fe71d33b8a7e7c"
+    },
+    {
+      "origin": "au-readback-final.log",
+      "artifact": "read-back.log",
+      "originalSha256": "7220ed5d5bb717c36a4b8428fe60f0b9eda0ef77a7c648a98f20dbf372c1d06c",
+      "artifactSha256": "7220ed5d5bb717c36a4b8428fe60f0b9eda0ef77a7c648a98f20dbf372c1d06c"
+    },
+    {
+      "origin": "au-controles-final.json",
+      "artifact": "controles.json",
+      "originalSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+      "artifactSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c"
+    },
+    {
+      "origin": "au-advisors97.log",
+      "artifact": "advisors97.log",
+      "originalSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+      "artifactSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+    },
+    {
+      "origin": "au-advisors98.log",
+      "artifact": "advisors98.log",
+      "originalSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+      "artifactSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+    },
+    {
+      "origin": "au-advisors-final.log",
+      "artifact": "advisors-final.log",
+      "originalSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+      "artifactSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+    },
+    {
+      "origin": "au-migration97.log",
+      "artifact": "migration97.log",
+      "originalSha256": "4903295d99a208365eb51c928f0c566284d6eb87fa05ad7d71e7d2a5b8cfc032",
+      "artifactSha256": "4903295d99a208365eb51c928f0c566284d6eb87fa05ad7d71e7d2a5b8cfc032"
+    },
+    {
+      "origin": "au-migration98.log",
+      "artifact": "migration98.log",
+      "originalSha256": "636e49cc66f158017a827768b3473ffdae919fabf5d7a18d9bead4ee76bc8505",
+      "artifactSha256": "636e49cc66f158017a827768b3473ffdae919fabf5d7a18d9bead4ee76bc8505"
+    }
+  ],
+  "migration98EofNormalization": {
+    "appliedSourceSha256": "07b349a075bcd74892d23f5e35ceb4d78f01c0b5d8e34eaa37d919a24eb3f80b",
+    "committedSourceSha256": "f7e988480913cc4ce808a3d5b50da6580351cdffbf2564ca00d39ce62594e418",
+    "onlyChange": "removida uma linha vazia final; mesmos comandos SQL aplicados e testados"
+  }
+}

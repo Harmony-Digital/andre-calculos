@@ -5,8 +5,13 @@ export function portalOrigin() {
     throw new Error("Origem do portal indisponível.");
   const url = new URL(configured ?? "http://127.0.0.1:3000");
   if (
-    url.protocol !== "https:" &&
-    !["127.0.0.1", "localhost"].includes(url.hostname)
+    (url.protocol !== "https:" &&
+      !(
+        url.protocol === "http:" &&
+        ["127.0.0.1", "localhost"].includes(url.hostname)
+      )) ||
+    url.username ||
+    url.password
   )
     throw new Error("Origem do portal indisponível.");
   return url.origin;

@@ -1,0 +1,21 @@
+
+> andre-calculos@0.1.0 check
+> npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run test:scripts && npm run build
+
+
+> andre-calculos@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> andre-calculos@0.1.0 lint
+> eslint . --max-warnings=0
+
+
+/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts
+  1:50  warning  'Page' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
+ESLint found too many warnings (maximum: 0).

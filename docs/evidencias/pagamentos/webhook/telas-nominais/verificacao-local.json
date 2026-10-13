@@ -1,0 +1,58 @@
+{
+  "task": "M3.01c3c3b",
+  "widths": [
+    375,
+    1440
+  ],
+  "methods": [
+    "PIX",
+    "BOLETO",
+    "CREDIT_CARD"
+  ],
+  "firstAttempt": {
+    "testsRun": 0,
+    "reason": "filtro ^PIX: incompatível com título completo do Playwright",
+    "exit": 1
+  },
+  "firstDesktopPix": {
+    "passed": 1,
+    "duration": "18.5s",
+    "exit": 0,
+    "retries": 0
+  },
+  "firstSixJourneys": {
+    "passed": 6,
+    "duration": "1.3m",
+    "exit": 0,
+    "retries": 0,
+    "capturesReviewed": 60
+  },
+  "finalSixJourneys": {
+    "passed": 6,
+    "duration": "1.4m",
+    "exit": 0,
+    "retries": 0,
+    "captures": 60,
+    "auditedDownloads": 18
+  },
+  "preconditions": "aceite e contexto fictícios declarados; upload/revisão/entrega/D6 pela UI; saldo pelo receptor e worker existentes",
+  "realPayment": false,
+  "cloudChanges": false,
+  "readbackControlsGrantsEqualBaseline": true,
+  "baseline": "106 migrations / 25 public / 61 private / all RLS / 4 profiles / fixture false / original manual pending 12500",
+  "advisors": "security and performance: No issues found",
+  "localCheck": {
+    "unitTests": 1494,
+    "unitFiles": 75,
+    "scriptTests": 43,
+    "formatLintTypes": "pass",
+    "build": "EPERM Turbopack internal port; check-build exact source pending CI"
+  },
+  "productSqlScriptsWorkflowChanged": false,
+  "scopeStillPending": [
+    "M3.01c3c3c",
+    "M3.01c3c3d",
+    "M3.01c4",
+    "production gates"
+  ]
+}

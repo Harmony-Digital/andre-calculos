@@ -1,0 +1,34 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:e2e
+> playwright test tests/e2e/preference-diagnostic.spec.ts --workers=1 --retries=0
+
+[WebServer] (node:18462) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:18467) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:18482) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+(node:18487) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":1440,"height":1000},"event":"new_message","channel":"E-mail","elapsedMs":7,"pageClosed":false,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"requestStartedMs":5,"responseHeadersMs":6,"responseFinishedMs":6,"database":{"receiptExists":false,"preference":null},"browser":{"firstSavedMs":null,"history":[{"atMs":4,"pending":false,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false}]},"form":{"pending":false,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false}}
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":1440,"height":1000},"event":"new_message","channel":"E-mail","elapsedMs":123,"pageClosed":false,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"requestStartedMs":5,"responseHeadersMs":6,"responseFinishedMs":6,"database":{"receiptExists":false,"preference":null},"browser":{"firstSavedMs":123,"history":[{"atMs":4,"pending":false,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false},{"atMs":122,"pending":true,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false},{"atMs":123,"pending":false,"revision":"1","selected":"no","requestIdChanged":false,"statusEmpty":false,"successMessage":true}]},"form":{"pending":false,"revision":"1","selected":"no","requestIdChanged":false,"statusEmpty":false,"successMessage":true}}
+{"diagnostic":"notification_preference_cleanup_stage","resource":"failure","phase":"start","elapsedMs":0}
+{"diagnostic":"notification_preference_cleanup_stage","resource":"failure","phase":"failed","elapsedMs":0}
+{"diagnostic":"notification_preference_cleanup_stage","resource":"next-resource","phase":"start","elapsedMs":0}
+{"diagnostic":"notification_preference_cleanup_stage","resource":"next-resource","phase":"complete","elapsedMs":0}
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":1440,"height":1000},"event":"new_message","channel":"E-mail","elapsedMs":240,"pageClosed":true,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"requestStartedMs":5,"responseHeadersMs":6,"responseFinishedMs":6,"database":{"receiptExists":false,"preference":null}}
+·(node:18589) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":375,"height":812},"event":"new_message","channel":"E-mail","elapsedMs":7,"pageClosed":false,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"requestStartedMs":6,"responseHeadersMs":7,"responseFinishedMs":7,"database":{"receiptExists":false,"preference":null},"browser":{"firstSavedMs":null,"history":[{"atMs":5,"pending":false,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false}]},"form":{"pending":false,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false}}
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":375,"height":812},"event":"new_message","channel":"E-mail","elapsedMs":133,"pageClosed":false,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"requestStartedMs":6,"responseHeadersMs":7,"responseFinishedMs":7,"database":{"receiptExists":false,"preference":null},"browser":{"firstSavedMs":133,"history":[{"atMs":5,"pending":false,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false},{"atMs":132,"pending":true,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false},{"atMs":133,"pending":false,"revision":"1","selected":"no","requestIdChanged":false,"statusEmpty":false,"successMessage":true}]},"form":{"pending":false,"revision":"1","selected":"no","requestIdChanged":false,"statusEmpty":false,"successMessage":true}}
+{"diagnostic":"notification_preference_cleanup_stage","resource":"failure","phase":"start","elapsedMs":0}
+{"diagnostic":"notification_preference_cleanup_stage","resource":"failure","phase":"failed","elapsedMs":1}
+{"diagnostic":"notification_preference_cleanup_stage","resource":"next-resource","phase":"start","elapsedMs":0}
+{"diagnostic":"notification_preference_cleanup_stage","resource":"next-resource","phase":"complete","elapsedMs":0}
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":375,"height":812},"event":"new_message","channel":"E-mail","elapsedMs":248,"pageClosed":true,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"requestStartedMs":6,"responseHeadersMs":7,"responseFinishedMs":7,"database":{"receiptExists":false,"preference":null}}
+·
+  2 passed (3.9s)
+::notice title=🎭 Playwright Run Summary::  2 passed (3.9s)

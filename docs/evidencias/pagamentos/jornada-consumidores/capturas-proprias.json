@@ -1,0 +1,674 @@
+[
+  {
+    "path": "delivery-financial-journey-48182-ga-ou-cobrar-em-duplicidade-computador/01-inicial-cliente.png",
+    "journey": "excess",
+    "sha256": "1fc8446c082aae139df734d915941a2cfe56f64cb25f47b80b96eb2794f312e9",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-48182-ga-ou-cobrar-em-duplicidade-computador/01-inicial-calculista.png",
+    "journey": "excess",
+    "sha256": "1ab8c3745bb17daa93730969ac00af981a90266ee4d0e4e78f7714116274e0a2",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-ae197-ga-ou-cobrar-em-duplicidade-computador/01-inicial-cliente.png",
+    "journey": "excess",
+    "sha256": "aa07457ef23527a6b73ed7b6baef79d19829c28c855a20f8a108fdb3a92a388f",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-ae197-ga-ou-cobrar-em-duplicidade-computador/01-inicial-calculista.png",
+    "journey": "excess",
+    "sha256": "ccd3d2c47b73a1490abb8b4c51bd9c9af3b98ffee693351a63589debf51a0d9a",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-computador/03-estorno-integral-calculista.png",
+    "journey": "refund",
+    "sha256": "dbafd4268b9da85cbb353b13ed399274b6c78d35eedb7ffae98bb2b634bf51ac",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-computador/01-inicial-cliente.png",
+    "journey": "refund",
+    "sha256": "4c61d07e0b8a18f6f0cf4b6142ab889c73215e3000e084171e09136d6a16cf53",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-computador/03-estorno-integral-cliente.png",
+    "journey": "refund",
+    "sha256": "b7e724311ba8b469392c4339e15c75ba227332764b9187149e29da3dc984dc23",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-computador/02-estorno-parcial-calculista.png",
+    "journey": "refund",
+    "sha256": "bc89c7cb51d3b03351119696b6097ba8a8e562a0ef2358f9c0b08cb3ef13a826",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-computador/02-estorno-parcial-cliente.png",
+    "journey": "refund",
+    "sha256": "2c6219c05b2ac067a531c15c04772cc3bdcf6def07af2bf9e333b103b2e15ae2",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-computador/01-inicial-calculista.png",
+    "journey": "refund",
+    "sha256": "9644a56224ccb2e54d72010ab27cc2d783b5eb92ac66fbe79ec0344168ef162c",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-computador/04-reversao-parcial-calculista.png",
+    "journey": "chargeback",
+    "sha256": "24b6beda5e9a530ce4cf57aa4a627886844b78e87de4dc9e9cef8df080219fb9",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-computador/03-debito-calculista.png",
+    "journey": "chargeback",
+    "sha256": "cf27fae63a0f9f9c8b5faed761fd3002c66da6ab9d0f645d01b731e3d0305ada",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-computador/02-disputa-calculista.png",
+    "journey": "chargeback",
+    "sha256": "2348cdca76d32543eadbeaa040f396f48d158ce6aa4e1b41a54a9800b2f21026",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-computador/01-inicial-cliente.png",
+    "journey": "chargeback",
+    "sha256": "87320da954ff330b994318a22120e6ecba26cf5ea54e7afdcf0fb4012668f1cd",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-computador/05-reversao-integral-calculista.png",
+    "journey": "chargeback",
+    "sha256": "e565108d24af171df0cd5a07073f5eaeee78d153a09fe821bfae0292cbf40b8e",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-computador/03-debito-cliente.png",
+    "journey": "chargeback",
+    "sha256": "ba0692aa7c13bb9b350514c934178b8f68b090ad5486f0747cb67f1ca7c0fcf1",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-computador/04-reversao-parcial-cliente.png",
+    "journey": "chargeback",
+    "sha256": "27b86a0ee043f2df8af53d9e95f3c6d1d45a3f855b99da07d9500a4693070bd4",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-computador/05-reversao-integral-cliente.png",
+    "journey": "chargeback",
+    "sha256": "87320da954ff330b994318a22120e6ecba26cf5ea54e7afdcf0fb4012668f1cd",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-computador/01-inicial-calculista.png",
+    "journey": "chargeback",
+    "sha256": "e565108d24af171df0cd5a07073f5eaeee78d153a09fe821bfae0292cbf40b8e",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-computador/02-disputa-cliente.png",
+    "journey": "chargeback",
+    "sha256": "72c6460efe516aeb6b2a78188f7ccf7cf3910ddf5b832e8c868ec9228c497063",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-celular/04-contrato-cliente.png",
+    "journey": "partial",
+    "sha256": "51aae50a7a195a3d378ba4d9dc11d5c1b2ea98c85c43b8dc2884a212fc420ca2",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-celular/03-conciliacao-cliente.png",
+    "journey": "partial",
+    "sha256": "5515eac1a8aa4513b83a790eb91879f67ed00d236e01c86c00a77af9a88c03c5",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-celular/03-conciliacao-calculista.png",
+    "journey": "partial",
+    "sha256": "e6b5fb481b82f6a8d02e862130955ee5acae4f70c152521646dc2a85906a2e44",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-celular/01-inicial-cliente.png",
+    "journey": "partial",
+    "sha256": "de740c859f3924919fad128e284b38f519327a449cce289d0403f5f657f7ae3f",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-celular/04-contrato-calculista.png",
+    "journey": "partial",
+    "sha256": "cddcda7bb3252755a13937cdfdf306abf9f6bcb950d258436d77b0bd355f6a39",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-celular/06-conciliado-calculista.png",
+    "journey": "partial",
+    "sha256": "92b057041ac948d66d655497cb3eb0901e41334ef6685985f5fe4c018753fafd",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-celular/06-conciliado-cliente.png",
+    "journey": "partial",
+    "sha256": "7a8f689bffc05d68e652e3720d9380588af26e93cb548714f2102aea3eb37f72",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-celular/02-recebido-calculista.png",
+    "journey": "partial",
+    "sha256": "c96581e52d491335f7d645ee7577ec452f9863d706a8f0e2a3945ae12f58f2e6",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-celular/01-inicial-calculista.png",
+    "journey": "partial",
+    "sha256": "24e12c09d472afdf29a989f3d9b971074513c2ac0ea1a8440e2fea9b2f2a20b8",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-celular/02-recebido-cliente.png",
+    "journey": "partial",
+    "sha256": "124ae21866c08cfde4089284212af659d26b657693d1d4cf06cbbe6956ff2b01",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-ae197-ga-ou-cobrar-em-duplicidade-celular/01-inicial-cliente.png",
+    "journey": "excess",
+    "sha256": "37fb5252d6dc3612fa81c303b54f5121542401facf638b865d7ef02e773bf2a3",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-ae197-ga-ou-cobrar-em-duplicidade-celular/01-inicial-calculista.png",
+    "journey": "excess",
+    "sha256": "be883b34a4514fcecfe3ac96215ea528c0b810cf4acc45b162a353b678ef0a19",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-celular/04-reversao-parcial-calculista.png",
+    "journey": "chargeback",
+    "sha256": "9cf8c21aa90595d6024253a2f26a51279c9486f2878a3e738f9ef8e389433e50",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-celular/03-debito-calculista.png",
+    "journey": "chargeback",
+    "sha256": "8851a8f21fa209c5bf71d64eb77a21dba373b7dbca96626ea3cad3ac402d4a56",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-celular/02-disputa-calculista.png",
+    "journey": "chargeback",
+    "sha256": "4f16429ab7de127b34cee146fd209f6b8dc188b32874e8b5d5c13922bc8a2298",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-celular/01-inicial-cliente.png",
+    "journey": "chargeback",
+    "sha256": "2d8f86c3993e9c1604549e06686bbb39abbd76d8cd9e0ea164114c606d37184b",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-celular/05-reversao-integral-calculista.png",
+    "journey": "chargeback",
+    "sha256": "ac165acd7bed8308884c2d6923a84ffc81e9c238f57ee0e75fd9812d16697804",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-celular/03-debito-cliente.png",
+    "journey": "chargeback",
+    "sha256": "acb9e974578ccf9c86a9b72145b7c28de915c25a2df159a7950ee7145ecf6034",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-celular/04-reversao-parcial-cliente.png",
+    "journey": "chargeback",
+    "sha256": "8c12fe803009264902f84b18a2dd60c04882e2592302e5d11ecee481ac81a86b",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-celular/05-reversao-integral-cliente.png",
+    "journey": "chargeback",
+    "sha256": "2d8f86c3993e9c1604549e06686bbb39abbd76d8cd9e0ea164114c606d37184b",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-celular/01-inicial-calculista.png",
+    "journey": "chargeback",
+    "sha256": "ac165acd7bed8308884c2d6923a84ffc81e9c238f57ee0e75fd9812d16697804",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-celular/02-disputa-cliente.png",
+    "journey": "chargeback",
+    "sha256": "629bb11bcc7a2dad278908f9f0ce7b4602183aec691a5e3e885547557b10f870",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-computador/04-reversao-parcial-calculista.png",
+    "journey": "chargeback",
+    "sha256": "4e146f87bbc511cf184df4459c0d1cda9e80a72855f158ec6e11e435db83367b",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-computador/03-debito-calculista.png",
+    "journey": "chargeback",
+    "sha256": "86a75ab4bd4795f4ff48b0f29c220af6e32a3702ea2bcf5022ee5251e4b9eafb",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-computador/02-disputa-calculista.png",
+    "journey": "chargeback",
+    "sha256": "c50fd575bff46f299bbee0ce78f894d560408e5b62cf8294618a95a3a0974639",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-computador/01-inicial-cliente.png",
+    "journey": "chargeback",
+    "sha256": "5629ca5883107ab02503740b212833a456f250d7b7b4372bb1204bfbb569e8d8",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-computador/05-reversao-integral-calculista.png",
+    "journey": "chargeback",
+    "sha256": "a5e626062ee9eca44c40b50009f42c044804a3b14b561ef6d29070d70a328a65",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-computador/03-debito-cliente.png",
+    "journey": "chargeback",
+    "sha256": "b588022dffe6ca719c41736d656d4e209a175f3132a5c9351964c0c969d7aabb",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-computador/04-reversao-parcial-cliente.png",
+    "journey": "chargeback",
+    "sha256": "4fcff28726b6fc486c56570e169e41a91a7565dfc3214f3a764e15fa6c0d1f0a",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-computador/05-reversao-integral-cliente.png",
+    "journey": "chargeback",
+    "sha256": "5629ca5883107ab02503740b212833a456f250d7b7b4372bb1204bfbb569e8d8",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-computador/01-inicial-calculista.png",
+    "journey": "chargeback",
+    "sha256": "a5e626062ee9eca44c40b50009f42c044804a3b14b561ef6d29070d70a328a65",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-3d974-ga-ou-cobrar-em-duplicidade-computador/02-disputa-cliente.png",
+    "journey": "chargeback",
+    "sha256": "4392458aebc0ad7a7bb6315b56aee2ce6e49d891e2fe2e0bc5cc27033a26d231",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-celular/04-contrato-cliente.png",
+    "journey": "partial",
+    "sha256": "9ddb1d0b8e5597070f894c96f0a0345c34cc1f2dbb697340ddd4719787f1867c",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-celular/03-conciliacao-cliente.png",
+    "journey": "partial",
+    "sha256": "bb3b511e170935d26ec306f7b5c587ebf333d804d3a0b6eb773689b5b54e9662",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-celular/03-conciliacao-calculista.png",
+    "journey": "partial",
+    "sha256": "298f05b17ed4ddd1613339fab8b27ee31b23319a1abde2130f8b6b155db2949d",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-celular/01-inicial-cliente.png",
+    "journey": "partial",
+    "sha256": "9a131783b17e64583485d4897228f2b873f09ce94e02d8a60728c5a239f591ee",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-celular/04-contrato-calculista.png",
+    "journey": "partial",
+    "sha256": "67040640f521d12603ab0307ccd55b88d1e524acf8c3299bad12c78f8d8d01cc",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-celular/06-conciliado-calculista.png",
+    "journey": "partial",
+    "sha256": "1cd73a6fdb9c1dc2a102ba7a4ad64b8608625ea55da8b1ecde3f2790ae584e32",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-celular/06-conciliado-cliente.png",
+    "journey": "partial",
+    "sha256": "a55367ec824c413edd995647795f46b889f8c9b11c5ca401d2ca147515d43673",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-celular/02-recebido-calculista.png",
+    "journey": "partial",
+    "sha256": "1149d3886a85d7d7fcf3908ea7788c14099bd92caac0a63d6d02b3704e80ccb7",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-celular/01-inicial-calculista.png",
+    "journey": "partial",
+    "sha256": "203d27c6e3c9c1856567d78f655fa06c8d6741329d1208323fe790a957cba46e",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-celular/02-recebido-cliente.png",
+    "journey": "partial",
+    "sha256": "aa2f4d0b245b7bbd31aee2567eb38b0579248e2ba7f69f81bcbed23e66dca58a",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-celular/03-estorno-integral-calculista.png",
+    "journey": "refund",
+    "sha256": "076ad092cd9732839047e892921b54931f6406f08b6792ced63f55c11135eb8a",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-celular/01-inicial-cliente.png",
+    "journey": "refund",
+    "sha256": "ca53dfb7918977abcc8b18eea267772015932a66416992f4f9a042a81d1edb6e",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-celular/03-estorno-integral-cliente.png",
+    "journey": "refund",
+    "sha256": "fbe5c87ba5a0981b6c93d56f5c54fbc8b990c0d55bbf1839ebc81e525bff007e",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-celular/02-estorno-parcial-calculista.png",
+    "journey": "refund",
+    "sha256": "62fa1509e09628510dd64661534ecb86839cbba9bee3ff6d071d897f5b95ce1c",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-celular/02-estorno-parcial-cliente.png",
+    "journey": "refund",
+    "sha256": "c1359f4e39a4f6a156449eb2c1802bf53f7d4e718c0a8245463bf8985bf14611",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-celular/01-inicial-calculista.png",
+    "journey": "refund",
+    "sha256": "83d406a053ccde7f9193948660418a802dcae496aebd545afe50118e2d8ca64f",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-computador/04-contrato-cliente.png",
+    "journey": "partial",
+    "sha256": "7ce6bf3ef91cc7540b683bfc5191e2c98f483e323192d341360b73857f5c5950",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-computador/03-conciliacao-cliente.png",
+    "journey": "partial",
+    "sha256": "29b391e09025bb262447c73c6b87d77e626dd23a5d64c3d10a15ddb7d2ee9489",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-computador/03-conciliacao-calculista.png",
+    "journey": "partial",
+    "sha256": "7b8de15860d5aad2aa93114f39bf92b371685f8467cce878b507f006dff80c16",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-computador/01-inicial-cliente.png",
+    "journey": "partial",
+    "sha256": "b82a2e7887f4327543d1d9383cb58facf6c012a220b0efb412306a8e5bf9e0e9",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-computador/04-contrato-calculista.png",
+    "journey": "partial",
+    "sha256": "4d9d9ad11c74196472f1ed9b093da0bef1ecb0f186825fcc5f8d555b1339904f",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-computador/06-conciliado-calculista.png",
+    "journey": "partial",
+    "sha256": "c358de28012039e273e10b2447ec5720277c80e4da4805616d1c00a6806e40ae",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-computador/06-conciliado-cliente.png",
+    "journey": "partial",
+    "sha256": "dd3e0974324644964ffc369b43923f3c1f28fa2452fb426aaf40ecc3aaf48709",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-computador/02-recebido-calculista.png",
+    "journey": "partial",
+    "sha256": "1e5fc12d93c53429b02e8109d51ce001eaed51a1cf3ad4343a480064580873d0",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-computador/01-inicial-calculista.png",
+    "journey": "partial",
+    "sha256": "1ce2b0ba022fc9e4738c5d1504d9f2019706f22cf52f6a2440bcb6020b41322d",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-acbad-ga-ou-cobrar-em-duplicidade-computador/02-recebido-cliente.png",
+    "journey": "partial",
+    "sha256": "5d95cef239cda1b2fd55a3726c68c0adbfb0b122c5c03fa87cfc9f3627f6afe0",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-48182-ga-ou-cobrar-em-duplicidade-celular/01-inicial-cliente.png",
+    "journey": "excess",
+    "sha256": "6378da9e24daf84ff725533695f537215bad0ddf09649fc3e3f578eb99bdbac9",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-48182-ga-ou-cobrar-em-duplicidade-celular/01-inicial-calculista.png",
+    "journey": "excess",
+    "sha256": "17463d1d18701b28511b1d0dfde48a8595878da37aaf070d21af29a6408e3400",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-computador/04-contrato-cliente.png",
+    "journey": "partial",
+    "sha256": "a64e4bdc4a32adacd968823ff3873ec88567af13a56c65fded2bc9e59acd2753",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-computador/03-conciliacao-cliente.png",
+    "journey": "partial",
+    "sha256": "489a5aa9a94b3abed979edb1e91273a063206facf3b679849acfbcf4fff4e1c0",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-computador/03-conciliacao-calculista.png",
+    "journey": "partial",
+    "sha256": "9201a6194b8cfdf3ebd879fd69b3fc4bb8a914ec28af5309c6da4141422c7b74",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-computador/01-inicial-cliente.png",
+    "journey": "partial",
+    "sha256": "d9888f3176085014b79200ee3278256bb6b6be53fc38560df38813f9ac546bf7",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-computador/04-contrato-calculista.png",
+    "journey": "partial",
+    "sha256": "4e34d5732da0f9bc0acc3fb46ec5e1559ce37600295a5c66050a02314f58ffbc",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-computador/06-conciliado-calculista.png",
+    "journey": "partial",
+    "sha256": "df10af50f67015f0e087411337d1cf4041f3c7a546ace0b22876a98a198f6937",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-computador/06-conciliado-cliente.png",
+    "journey": "partial",
+    "sha256": "1302ffbb0908e4fb0c1c06ba9757c92bf6255436faaf2e9473832a5d60ef6f4f",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-computador/02-recebido-calculista.png",
+    "journey": "partial",
+    "sha256": "088af92e873cac960d018cc82d5772b0bca274cd14a18927fd84ba485b12b76c",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-computador/01-inicial-calculista.png",
+    "journey": "partial",
+    "sha256": "115427c53d511818838901b771e5f3e45bef6313b3005640b719bee4d44dfc53",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-a870a-ga-ou-cobrar-em-duplicidade-computador/02-recebido-cliente.png",
+    "journey": "partial",
+    "sha256": "6264bc8c49eb046b2d4790b577e4d5102a7ee1eefce6bd62831c406e1c832d7a",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-celular/03-estorno-integral-calculista.png",
+    "journey": "refund",
+    "sha256": "f9d943c601a09fcc8b8a66359b0615c412e5f958f1fd5904bf6e41db4d0380f6",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-celular/01-inicial-cliente.png",
+    "journey": "refund",
+    "sha256": "34512a3200245f284d22157a6a51b30c1108f8fb1781230b3201852f17758a7c",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-celular/03-estorno-integral-cliente.png",
+    "journey": "refund",
+    "sha256": "0eff64bc34fa2450c68e49e45b56f706aa9c9595f766b59ab4b8450d19cb0f64",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-celular/02-estorno-parcial-calculista.png",
+    "journey": "refund",
+    "sha256": "d6d667ac8162504f607d88f27452834ae27877e016966ec4ecb8d7e3377ce3fc",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-celular/02-estorno-parcial-cliente.png",
+    "journey": "refund",
+    "sha256": "aa4b7b3d44b66d20e5c7af5656a6c8b8b2f9be3269cf43b3224ec114c491a4c2",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-47127-ga-ou-cobrar-em-duplicidade-celular/01-inicial-calculista.png",
+    "journey": "refund",
+    "sha256": "8d8fcc0d9221f652689b0ede185ab19042d5bbdc666afafe8075c8d3aebe5814",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-computador/03-estorno-integral-calculista.png",
+    "journey": "refund",
+    "sha256": "65e68fe62b19372288ebcfa4ef5a7abcc0564478c3870bd7dac78091e15d065a",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-computador/01-inicial-cliente.png",
+    "journey": "refund",
+    "sha256": "90d3c129c13bfde4dc01da41fdfbb45baed7bb20e9dcae97ff188279512ea655",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-computador/03-estorno-integral-cliente.png",
+    "journey": "refund",
+    "sha256": "073113cf146e58245f6fd855c610f9883cc4957f73deaab7d6271edd104f3948",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-computador/02-estorno-parcial-calculista.png",
+    "journey": "refund",
+    "sha256": "b44981799231a7da99233c6572983cad8983600f283fdf60d296ba98fe8524fe",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-computador/02-estorno-parcial-cliente.png",
+    "journey": "refund",
+    "sha256": "05007677ea369b2ed46f9009880d38ec3e2d3b98d170174e4e4a36339cd2fecc",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-24a22-ga-ou-cobrar-em-duplicidade-computador/01-inicial-calculista.png",
+    "journey": "refund",
+    "sha256": "973ee6b62c54011ebddcd78be586c92b137372022e074b9db37ca51c8fd80a89",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-celular/04-reversao-parcial-calculista.png",
+    "journey": "chargeback",
+    "sha256": "52813a362c79e5dfb2d750f0a5fb7abf99fadb1d76ea34b16471baff431053f1",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-celular/03-debito-calculista.png",
+    "journey": "chargeback",
+    "sha256": "de1740a0e4d46e7519571eda9142bbc2a4215d79275ad9f553bcb1bd3df2e7b2",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-celular/02-disputa-calculista.png",
+    "journey": "chargeback",
+    "sha256": "ace77999fc351796735c6933fc94cad5d7e4f7fc99db7704e2d7e9f7c5b1c37c",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-celular/01-inicial-cliente.png",
+    "journey": "chargeback",
+    "sha256": "9261d5a5ffab4ee6df044efb6a9edc96f13bfc6896a773be9503ac7bfbb8adf3",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-celular/05-reversao-integral-calculista.png",
+    "journey": "chargeback",
+    "sha256": "9f33ccebd3a0544d15d09f5d43ced1bd6102ca799b9971eee1c6be890500cf91",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-celular/03-debito-cliente.png",
+    "journey": "chargeback",
+    "sha256": "0c2fac9553f7f68433c035660519614fbade5b90194ceb902e934275c0d9587d",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-celular/04-reversao-parcial-cliente.png",
+    "journey": "chargeback",
+    "sha256": "b7d1e70487e29a7f4df1e094cbe59556680abbf58b9edae25a6b9cad70b7bea6",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-celular/05-reversao-integral-cliente.png",
+    "journey": "chargeback",
+    "sha256": "9261d5a5ffab4ee6df044efb6a9edc96f13bfc6896a773be9503ac7bfbb8adf3",
+    "selectedForVisualInspection": true
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-celular/01-inicial-calculista.png",
+    "journey": "chargeback",
+    "sha256": "9f33ccebd3a0544d15d09f5d43ced1bd6102ca799b9971eee1c6be890500cf91",
+    "selectedForVisualInspection": false
+  },
+  {
+    "path": "delivery-financial-journey-7507c-ga-ou-cobrar-em-duplicidade-celular/02-disputa-cliente.png",
+    "journey": "chargeback",
+    "sha256": "ecde134929a308c8a1940f4113ab73c32b5313295c8836fed3711e28a2095bca",
+    "selectedForVisualInspection": false
+  }
+]

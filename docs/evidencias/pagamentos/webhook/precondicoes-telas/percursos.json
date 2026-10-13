@@ -1,0 +1,114 @@
+[
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "simulation",
+    "width": 1440,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "no_context",
+    "width": 1440,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "prerequisites",
+    "width": 1440,
+    "noDocumentNoQueue": true,
+    "noReviewNoDelivery": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "unchecked_review",
+    "width": 1440,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "delivery_loss_before",
+    "width": 1440,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "delivery_loss_after",
+    "width": 1440,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "policy_loss_before",
+    "width": 1440,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "policy_loss_after",
+    "width": 1440,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "simulation",
+    "width": 375,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "no_context",
+    "width": 375,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "prerequisites",
+    "width": 375,
+    "noDocumentNoQueue": true,
+    "noReviewNoDelivery": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "unchecked_review",
+    "width": 375,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "delivery_loss_before",
+    "width": 375,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "delivery_loss_after",
+    "width": 375,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "policy_loss_before",
+    "width": 375,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  },
+  {
+    "diagnostic": "webhook_preconditions",
+    "scenario": "policy_loss_after",
+    "width": 375,
+    "snapshotPreserved": true,
+    "foreignAccessDenied": true
+  }
+]
