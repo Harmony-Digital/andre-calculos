@@ -1,0 +1,9 @@
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T08:00:37.3471866Z ##[error]  1) [celular] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Error: expect(locator).toContainText(expected) failed
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Locator: getByRole('form', { name: /Etapas do pedido/ }).getByRole('status')
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Expected substring: "Etapa registrada"
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Timeout: 5000ms
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Error: element(s) not found
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	       at webhook-screen-helper.ts:91
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	        at deliverWebhookScreen (/home/runner/work/andre-calculos/andre-calculos/app/tests/e2e/webhook-screen-helper.ts:91:44)
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	        at /home/runner/work/andre-calculos/andre-calculos/app/tests/e2e/webhook-financial-screens.spec.ts:155:24

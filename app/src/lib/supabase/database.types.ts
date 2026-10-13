@@ -1856,6 +1856,10 @@ export type Database = {
         Args: { target_quote: string };
         Returns: Json;
       };
+      get_quote_contract_snapshot: {
+        Args: { target_quote: string };
+        Returns: Json;
+      };
       get_quote_pdf_export: { Args: { target_quote: string }; Returns: Json };
       is_admin: { Args: never; Returns: boolean };
       is_calculator: { Args: never; Returns: boolean };

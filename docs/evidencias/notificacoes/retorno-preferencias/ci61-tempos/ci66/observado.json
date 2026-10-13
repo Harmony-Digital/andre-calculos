@@ -1,0 +1,35 @@
+{
+  "run": 38357490448,
+  "source": "1527fc94c37fbfdbb46ebc417786a291918bef67",
+  "overallConclusion": "success",
+  "bankTests": 1140,
+  "bankFiles": 56,
+  "browserPassed": 328,
+  "browserFlaky": 1,
+  "browserSkipped": 7,
+  "units": 1494,
+  "unitFiles": 75,
+  "scriptTests": 43,
+  "originalPreferences": "Duas larguras passaram na primeira tentativa; dez pares start/complete de cleanup, nenhum failed real. Diagnosticos de transicao de formulario neste log pertencem aos casos controlados, sem atribuir causa original.",
+  "flakyCase": "celular deposit/after_balance/chargeback_debit: helper de etapa nao encontrou status Etapa registrada no limite5000ms, antes do evento de chargeback; retry passou",
+  "originalFailureScreenshot": "O catch desta fonte so rethrow/cleanup; nao captura a pagina da falha. Capturas do retry nao demonstram a pagina original.",
+  "causalRequirements": "M2.35f/g continuam abertos; ocorrencia financeira recebe M3.01c3c3d2",
+  "artifacts": [
+    {
+      "id": 11796794334,
+      "name": "evidencias-de-testes",
+      "size": 139024593,
+      "expired": false,
+      "digest": "sha256:c4055f162a46b5f5513f781fe5a58248348a0750c291c62af679ed702efcb749"
+    },
+    {
+      "id": 11793556488,
+      "name": "inventario-dependencias",
+      "size": 24275,
+      "expired": false,
+      "digest": "sha256:f3502c7e666be52c9ab77bb06788c6720945d8ce51969e54d0fc6478e125460e"
+    }
+  ],
+  "artifactDownloadScope": "Inventario exato conferido anteriormente; arquivo e2e teve upload e metadados nativos confirmados, sem download/QA integral inferidos.",
+  "rawLogsRemainIgnoredAndPrivate": true
+}
