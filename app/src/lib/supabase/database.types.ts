@@ -1356,6 +1356,14 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      select_fixture_payment_webhooks: {
+        Args: {
+          batch_limit: number;
+          expected_account: string;
+          target_scope: string;
+        };
+        Returns: Json;
+      };
       finalize_fixture_payment_webhook: {
         Args: {
           decision_action: string;

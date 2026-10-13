@@ -1,0 +1,59 @@
+{
+  "task": "M3.01c3c1",
+  "mode": "local ficticio",
+  "focused": {
+    "tests": 102,
+    "files": 4,
+    "seconds": 159.66,
+    "newWorkerCases": 25,
+    "realHttpJourneyIncluded": true
+  },
+  "readback": {
+    "migrations": 106,
+    "publicRls": 25,
+    "privateRls": 61,
+    "profiles": 4,
+    "sameOldMetadata": true,
+    "sameControls": true,
+    "privateWebhookGrants": 0,
+    "temporaryObjects": 0
+  },
+  "advisors": {
+    "afterMigration": "no issues in security and performance",
+    "afterFocus": "no issues in security and performance"
+  },
+  "localCheck": {
+    "units": 1490,
+    "unitFiles": 74,
+    "scripts": 43,
+    "format": "passed",
+    "lint": "passed",
+    "types": "passed",
+    "build": "EPERM binding internal Turbopack port"
+  },
+  "wholeBank": {
+    "status": "running",
+    "sessionId": 64473,
+    "log": ".data/revisao/webhook-c3c1-banco-geral.log"
+  },
+  "originalSha256": {
+    "banco-combinado.log": "a2e74eb3006871db347c86c047a8732ea9ae5d8dd3ac1660fc36784e70b059e8",
+    "primeira-verificacao.log": "eff94d732e8d0ff07bbc11145e2fd55c06e70e32b1fc7b798ad89e811ab3be71",
+    "segunda-verificacao.log": "96b2f5b24496a04bbd1ead49650c8c5cfb15da6b132d34e39c6cafd7da524c1a",
+    "migration106.log": "68b2eae18bc3b57e4b02ebf570faf50ab63566d9dcb77ed7518c3a57f7f74580",
+    "advisors106.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "advisors-focados.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "readback-focado.log": "5bacec851e00219a29b21de2564ea4779c519332c8289d8e83f722c4ec9cda88",
+    "controles-focados.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "grants-focados.jsonl": "ad4eee5e2041c00dad88a0d682e33388fe39d4ae40b408108b064506577e3a09",
+    "tipos-sha.json": "797f400bcfd95c7d8ead9a789217167eed66cc0ec3d57ea01d855ebcc1538721",
+    "check-local-completo": "3b93a59f0666b8a9b33e21dfd64796d1d9d8aba98ee3ca1901185e3eb7d70889"
+  },
+  "remaining": [
+    "whole bank and final read-back",
+    "exact source check/build in CI",
+    "C3c2 full methods/phases/consumer journeys",
+    "C3c3 browser 375/1440/Axe",
+    "C4 authorized real sandbox"
+  ]
+}

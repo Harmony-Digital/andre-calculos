@@ -4,7 +4,12 @@ import { once } from "node:events";
 
 /** Servidor próprio em porta efêmera; não reutiliza apps abertos de outros projetos. */
 export async function withWebhookHttpServer(
-  configuration: { scopeId: string; accountId: string; token: string },
+  configuration: {
+    scopeId: string;
+    accountId: string;
+    token: string;
+    cronSecret?: string;
+  },
   verify: (url: string) => Promise<void>,
 ) {
   const reservation = createServer();
@@ -38,6 +43,7 @@ export async function withWebhookHttpServer(
         ANDRE_WEBHOOK_FIXTURE_SCOPE_ID: configuration.scopeId,
         ANDRE_WEBHOOK_FIXTURE_ACCOUNT_ID: configuration.accountId,
         ANDRE_WEBHOOK_FIXTURE_TOKEN: configuration.token,
+        ANDRE_WEBHOOK_FIXTURE_CRON_SECRET: configuration.cronSecret ?? "",
       },
       stdio: ["ignore", "pipe", "pipe"],
     },
@@ -68,6 +74,10 @@ export async function withWebhookHttpServer(
     await verify(base + "/api/webhooks/asaas");
     if (startup.includes(configuration.token))
       throw new Error("Token fictício exposto no log do servidor.");
+    if (configuration.cronSecret && startup.includes(configuration.cronSecret))
+      throw new Error(
+        "Credencial fictícia do cron exposta no log do servidor.",
+      );
   } finally {
     if (child.pid && child.exitCode === null) {
       try {
