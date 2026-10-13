@@ -68,4 +68,3 @@ AssertionError: expected { schemaVersion: 1, …(23) } to match object { deposit
       Tests  2 failed | 25 passed (27)
    Start at  00:44:31
    Duration  70.76s (tests 100%)
-

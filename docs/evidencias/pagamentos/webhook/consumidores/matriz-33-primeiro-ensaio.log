@@ -40,4 +40,3 @@ AssertionError: expected { status: 'awaiting_payment', …(3) } to deeply equal 
       Tests  1 failed | 32 passed (33)
    Start at  00:47:36
    Duration  87.84s (tests 100%)
-
