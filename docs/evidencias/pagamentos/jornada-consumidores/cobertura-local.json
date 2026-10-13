@@ -1,0 +1,38 @@
+{
+  "scope": "preparo local ficticio de AI/V/J; nao ativa operacao real",
+  "source": "57eb21fa05a2c3c86bcfea9a515f6614498b57db",
+  "currentSourceBank": {
+    "tests": 865,
+    "files": 44,
+    "exitCode": 0
+  },
+  "currentSourceFinancialUi": {
+    "tests": 42,
+    "exitCode": 0,
+    "includesNewJourneys": 16
+  },
+  "previousSourceGeneralUi": {
+    "source": "314a92c8113ee1d43126f77f033a494bfa28ed3d",
+    "tests": 219,
+    "skipped": 7,
+    "exitCode": 0
+  },
+  "requirements": {
+    "partial_complement_unknown_contract_both_policies": "16 novos percursos incluidos nas42 regressoes apos titulo",
+    "refund_chargeback_cumulative_restoration_excess_no_pix": "16 novos percursos + 2 banco proprios e regressoes de financial-journey",
+    "historical_records_replay_rollback_later_reservation_claim_run_post": "financial-journey.test.ts,delivery-financial-journey.test.ts e demais regressoes dentro dos865 gerais",
+    "client_calculator_mobile_desktop_accessibility_isolation": "112 capturas comAxe/largura,40 inspecionadas + 2 titulo corrigido;clienteB/rotas privados verificados",
+    "delivery_snapshots_hash_bytes_head_range_signed_url_audit": "delivery-financial-journey.spec.ts e regressao delivery-credit-access.spec.ts",
+    "manual_obligation_reservation_contract_upload_queue_readers": "regressoes das44 suites de banco e42 financeiras de navegador,AF/AG/AH preservadas",
+    "currentSourceCheckBuild": "CI38297497134/job114972014576 success;inventario11768394587/checkoutace486a3/pais/arvore/hashes",
+    "cleanup_readback_controls_rls_advisors": "93 migrations,25 tabelas publicas/55 privadas RLS,4 perfis,baseline identico,2 advisors semachados"
+  },
+  "remoteGeneralCi": "em execucao;nao comprova sucesso integral nem contagens remotas",
+  "remainingOutsideScope": [
+    "K/fatura do proprietario",
+    "C/webhooks e sandbox externo",
+    "D5/D6 reais",
+    "M3.09/comando comercial de saldo",
+    "demais marcos e gates humanos"
+  ]
+}

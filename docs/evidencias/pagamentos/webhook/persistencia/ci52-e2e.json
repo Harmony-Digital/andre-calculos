@@ -1,0 +1,23 @@
+{
+  "run": 38321803876,
+  "job": 115051368818,
+  "kind": "e2e",
+  "source": "bfb56298349b70ce62da2c44cbad02b48c1edbfd",
+  "checkout": "222b737e21ec83acc1a1a0401a9b4a103a5a598c",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "bfb56298349b70ce62da2c44cbad02b48c1edbfd"
+  ],
+  "jobConclusion": "success",
+  "overallStatus": "completed",
+  "overallConclusion": "success",
+  "bankTests": 962,
+  "bankFiles": 49,
+  "e2ePassed": 255,
+  "e2eSkipped": 7,
+  "advisorsNoIssues": 2,
+  "e2eFlaky": 0,
+  "logSha256": "45603fa87d3de4f3a536636b457bfc4f24d3265c23a4a4198684fd69324f53fe",
+  "archivedNormalizedLogSha256": "45603fa87d3de4f3a536636b457bfc4f24d3265c23a4a4198684fd69324f53fe",
+  "normalization": "trailing whitespace and single EOF only; original filtered log hash retained"
+}
