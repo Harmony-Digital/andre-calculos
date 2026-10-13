@@ -13,6 +13,24 @@ type Attempt = {
   responseStatus: number | null;
   responseFinished: boolean;
   requestFailed: boolean;
+  requestStartedMs: number | null;
+  responseHeadersMs: number | null;
+  responseFinishedMs: number | null;
+};
+type BrowserState = {
+  atMs: number;
+  pending: boolean;
+  revision: string | null;
+  selected: "yes" | "no" | "other";
+  requestIdChanged: boolean;
+  statusEmpty: boolean;
+  successMessage: boolean;
+};
+type BrowserTiming = {
+  startedAt: number;
+  firstSavedMs: number | null;
+  history: BrowserState[];
+  observer?: MutationObserver;
 };
 
 export function preferenceDiagnostic() {
@@ -33,15 +51,22 @@ export function preferenceDiagnostic() {
       )
         return;
       current.postStarted = true;
+      current.requestStartedMs = Date.now() - current.startedAt;
       requests.set(request, current);
     });
     page.on("response", (response) => {
       const attempt = requests.get(response.request());
-      if (attempt) attempt.responseStatus = response.status();
+      if (attempt) {
+        attempt.responseStatus = response.status();
+        attempt.responseHeadersMs = Date.now() - attempt.startedAt;
+      }
     });
     page.on("requestfinished", (request) => {
       const attempt = requests.get(request);
-      if (attempt) attempt.responseFinished = true;
+      if (attempt) {
+        attempt.responseFinished = true;
+        attempt.responseFinishedMs = Date.now() - attempt.startedAt;
+      }
       requests.delete(request);
     });
     page.on("requestfailed", (request) => {
@@ -54,7 +79,7 @@ export function preferenceDiagnostic() {
     stage: (name: string) => {
       stage = name;
     },
-    begin: (
+    begin: async (
       page: Page,
       event: Attempt["event"],
       channel: Channel,
@@ -77,7 +102,105 @@ export function preferenceDiagnostic() {
         responseStatus: null,
         responseFinished: false,
         requestFailed: false,
+        requestStartedMs: null,
+        responseHeadersMs: null,
+        responseFinishedMs: null,
       };
+      try {
+        const form = page.getByRole("form", {
+          name: `${channel} para ${event === "new_message" ? "Nova mensagem" : "Situação financeira atualizada"}`,
+          exact: true,
+        });
+        await form.evaluate(
+          (node, { key, startedAt }) => {
+            const surface = window as Window & {
+              __andrePreferenceTiming?: BrowserTiming;
+            };
+            surface.__andrePreferenceTiming?.observer?.disconnect();
+            const timing: BrowserTiming = {
+              startedAt,
+              firstSavedMs: null,
+              history: [],
+            };
+            let last = "";
+            const sample = () => {
+              const revision =
+                node.querySelector<HTMLInputElement>('input[name="revision"]')
+                  ?.value ?? "";
+              const selected =
+                node.querySelector<HTMLSelectElement>("select")?.value;
+              const state: Omit<BrowserState, "atMs"> = {
+                pending:
+                  !!node.querySelector<HTMLFieldSetElement>("fieldset")
+                    ?.disabled,
+                revision: /^\d{1,10}$/.test(revision) ? revision : null,
+                selected:
+                  selected === "yes" || selected === "no"
+                    ? selected
+                    : ("other" as const),
+                requestIdChanged:
+                  node.querySelector<HTMLInputElement>(
+                    'input[name="requestId"]',
+                  )?.value !== key,
+                statusEmpty: !node
+                  .querySelector('[role="status"]')
+                  ?.textContent?.trim(),
+                successMessage:
+                  node.querySelector('[role="status"]')?.textContent?.trim() ===
+                  "Preferência salva.",
+              };
+              const serialized = JSON.stringify(state);
+              if (serialized === last) return;
+              last = serialized;
+              const atMs = Date.now() - startedAt;
+              if (
+                state.successMessage &&
+                !state.pending &&
+                state.requestIdChanged &&
+                timing.firstSavedMs === null
+              )
+                timing.firstSavedMs = atMs;
+              if (timing.history.length < 16)
+                timing.history.push({ atMs, ...state });
+            };
+            timing.observer = new MutationObserver(sample);
+            timing.observer.observe(node, {
+              subtree: true,
+              childList: true,
+              characterData: true,
+              attributes: true,
+              attributeFilter: ["disabled", "value"],
+            });
+            surface.__andrePreferenceTiming = timing;
+            sample();
+          },
+          { key, startedAt: current.startedAt },
+          { timeout: 1000 },
+        );
+      } catch {
+        // Instrumentação indisponível não altera a tentativa nem o limite original.
+      }
+    },
+    cleanup: async (name: string, run: () => Promise<unknown>) => {
+      const startedAt = Date.now();
+      const emit = (phase: "start" | "complete" | "failed") =>
+        console.info(
+          JSON.stringify({
+            diagnostic: "notification_preference_cleanup_stage",
+            resource: name,
+            phase,
+            elapsedMs: Date.now() - startedAt,
+          }),
+        );
+      emit("start");
+      try {
+        const result = await run();
+        emit("complete");
+        return result;
+      } catch (error) {
+        emit("failed");
+        throw error;
+      }
     },
     capture: async (
       fixture: Awaited<ReturnType<typeof notificationFixture>>,
@@ -98,6 +221,9 @@ export function preferenceDiagnostic() {
               responseStatus: attempt.responseStatus,
               responseFinished: attempt.responseFinished,
               requestFailed: attempt.requestFailed,
+              requestStartedMs: attempt.requestStartedMs,
+              responseHeadersMs: attempt.responseHeadersMs,
+              responseFinishedMs: attempt.responseFinishedMs,
             }
           : {}),
       };
@@ -118,6 +244,25 @@ export function preferenceDiagnostic() {
             name: `${attempt.channel} para ${attempt.event === "new_message" ? "Nova mensagem" : "Situação financeira atualizada"}`,
             exact: true,
           });
+          try {
+            report.browser = await form.evaluate(
+              (_node, startedAt) => {
+                const timing = (
+                  window as Window & { __andrePreferenceTiming?: BrowserTiming }
+                ).__andrePreferenceTiming;
+                return timing?.startedAt === startedAt
+                  ? {
+                      firstSavedMs: timing.firstSavedMs,
+                      history: timing.history,
+                    }
+                  : null;
+              },
+              attempt.startedAt,
+              { timeout: 1000 },
+            );
+          } catch {
+            report.browserUnavailable = true;
+          }
           try {
             report.form = await form.evaluate(
               (node, key) => ({

@@ -33,7 +33,7 @@ test("diagnóstico das preferências omite payload e preserva limpeza com págin
       (node as HTMLInputElement).value = value;
     }, key);
     diagnostic.stage("controlled-diagnostic-only");
-    diagnostic.begin(page, "new_message", "E-mail", key);
+    await diagnostic.begin(page, "new_message", "E-mail", key);
     await page.evaluate(async (requestId) => {
       const response = await fetch("/painel/configuracoes", {
         method: "POST",
@@ -68,6 +68,85 @@ test("diagnóstico das preferências omite payload e preserva limpeza com págin
     ]) {
       expect(JSON.stringify(report)).not.toContain(privateValue);
     }
+    const firstTiming = report.browser as {
+      firstSavedMs: number | null;
+      history: { atMs: number; successMessage: boolean }[];
+    };
+    expect(firstTiming.firstSavedMs).toBeNull();
+    expect(firstTiming.history[0]).toMatchObject({ successMessage: false });
+    expect(report.requestStartedMs).toBeGreaterThanOrEqual(0);
+    expect(report.responseHeadersMs).toBeGreaterThanOrEqual(
+      report.requestStartedMs as number,
+    );
+    expect(report.responseFinishedMs).toBeGreaterThanOrEqual(
+      report.responseHeadersMs as number,
+    );
+    const newKey = randomUUID();
+    await page.evaluate(() => {
+      const form = document.querySelector("form")!;
+      form.querySelector("fieldset")!.disabled = true;
+    });
+    await page.evaluate((newKey) => {
+      const form = document.querySelector("form")!;
+      (form.querySelector('input[name="revision"]') as HTMLInputElement).value =
+        "1";
+      (
+        form.querySelector('input[name="requestId"]') as HTMLInputElement
+      ).value = newKey;
+      form.querySelector('[role="status"]')!.textContent = "Preferência salva.";
+      form.querySelector("fieldset")!.disabled = false;
+    }, newKey);
+    const saved = await diagnostic.capture(fixture, info);
+    const timing = saved.browser as {
+      firstSavedMs: number;
+      history: {
+        atMs: number;
+        pending: boolean;
+        revision: string;
+        successMessage: boolean;
+      }[];
+    };
+    expect(timing.firstSavedMs).toBeGreaterThanOrEqual(
+      report.responseFinishedMs as number,
+    );
+    expect(timing.history).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ pending: true, successMessage: false }),
+        expect.objectContaining({
+          pending: false,
+          revision: "1",
+          successMessage: true,
+        }),
+      ]),
+    );
+    for (const privateValue of [
+      key,
+      newKey,
+      fixture.id,
+      "conteudo-privado-ficticio",
+      "header-privado-ficticio",
+      "Resposta fictícia",
+    ])
+      expect(JSON.stringify(saved)).not.toContain(privateValue);
+    await diagnostic.begin(page, "new_message", "E-mail", newKey);
+    const oldSuccess = await diagnostic.capture(fixture, info);
+    expect(oldSuccess.browser).toMatchObject({ firstSavedMs: null });
+    expect(oldSuccess.form).toMatchObject({
+      successMessage: true,
+      requestIdChanged: false,
+    });
+    const cleanupOrder: string[] = [];
+    const originalError = new Error("Falha fictícia decleanup");
+    await expect(
+      diagnostic.cleanup("failure", async () => {
+        cleanupOrder.push("failure");
+        throw originalError;
+      }),
+    ).rejects.toBe(originalError);
+    await diagnostic.cleanup("next-resource", async () => {
+      cleanupOrder.push("next-resource");
+    });
+    expect(cleanupOrder).toEqual(["failure", "next-resource"]);
     await page.close();
     expect(await diagnostic.capture(fixture, info)).toMatchObject({
       pageClosed: true,

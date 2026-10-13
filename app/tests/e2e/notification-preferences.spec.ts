@@ -74,7 +74,7 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
       const requestId = fixture.remember(
         await f.locator('input[name="requestId"]').inputValue(),
       );
-      diagnostic.begin(p, "new_message", channel, requestId);
+      await diagnostic.begin(p, "new_message", channel, requestId);
       await f.getByRole("button", { name: "Salvar", exact: true }).click();
       return f;
     };
@@ -101,7 +101,7 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
     const financialRequest = fixture.remember(
       await financial.locator('input[name="requestId"]').inputValue(),
     );
-    diagnostic.begin(page, "payment_updated", "E-mail", financialRequest);
+    await diagnostic.begin(page, "payment_updated", "E-mail", financialRequest);
     await financial
       .getByRole("button", { name: "Salvar", exact: true })
       .click();
@@ -315,7 +315,10 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
           },
         },
         { name: "fixture", run: () => fixture.cleanup() },
-      ],
+      ].map((step) => ({
+        name: step.name,
+        run: () => diagnostic.cleanup(step.name, step.run),
+      })),
       primaryFailed,
       (failed) => {
         console.info(
