@@ -1,0 +1,146 @@
+[
+  {
+    "diagnostic": "webhook_nominal_bytes",
+    "method": "PIX",
+    "width": 1440,
+    "files": [
+      {
+        "name": "Cálculo fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      },
+      {
+        "name": "Projeto fictício do webhook.pjc",
+        "sha256": "222cc409eb9d47ff39c3d4bdba1f65d5cd832c55039303c0148a3efc078c4603",
+        "bytes": 44
+      },
+      {
+        "name": "Parecer fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      }
+    ],
+    "signedLifetimeSeconds": 120,
+    "auditedDownloads": 3
+  },
+  {
+    "diagnostic": "webhook_nominal_bytes",
+    "method": "BOLETO",
+    "width": 1440,
+    "files": [
+      {
+        "name": "Cálculo fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      },
+      {
+        "name": "Projeto fictício do webhook.pjc",
+        "sha256": "222cc409eb9d47ff39c3d4bdba1f65d5cd832c55039303c0148a3efc078c4603",
+        "bytes": 44
+      },
+      {
+        "name": "Parecer fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      }
+    ],
+    "signedLifetimeSeconds": 120,
+    "auditedDownloads": 3
+  },
+  {
+    "diagnostic": "webhook_nominal_bytes",
+    "method": "CREDIT_CARD",
+    "width": 1440,
+    "files": [
+      {
+        "name": "Cálculo fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      },
+      {
+        "name": "Projeto fictício do webhook.pjc",
+        "sha256": "222cc409eb9d47ff39c3d4bdba1f65d5cd832c55039303c0148a3efc078c4603",
+        "bytes": 44
+      },
+      {
+        "name": "Parecer fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      }
+    ],
+    "signedLifetimeSeconds": 120,
+    "auditedDownloads": 3
+  },
+  {
+    "diagnostic": "webhook_nominal_bytes",
+    "method": "PIX",
+    "width": 375,
+    "files": [
+      {
+        "name": "Cálculo fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      },
+      {
+        "name": "Projeto fictício do webhook.pjc",
+        "sha256": "222cc409eb9d47ff39c3d4bdba1f65d5cd832c55039303c0148a3efc078c4603",
+        "bytes": 44
+      },
+      {
+        "name": "Parecer fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      }
+    ],
+    "signedLifetimeSeconds": 120,
+    "auditedDownloads": 3
+  },
+  {
+    "diagnostic": "webhook_nominal_bytes",
+    "method": "BOLETO",
+    "width": 375,
+    "files": [
+      {
+        "name": "Cálculo fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      },
+      {
+        "name": "Projeto fictício do webhook.pjc",
+        "sha256": "222cc409eb9d47ff39c3d4bdba1f65d5cd832c55039303c0148a3efc078c4603",
+        "bytes": 44
+      },
+      {
+        "name": "Parecer fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      }
+    ],
+    "signedLifetimeSeconds": 120,
+    "auditedDownloads": 3
+  },
+  {
+    "diagnostic": "webhook_nominal_bytes",
+    "method": "CREDIT_CARD",
+    "width": 375,
+    "files": [
+      {
+        "name": "Cálculo fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      },
+      {
+        "name": "Projeto fictício do webhook.pjc",
+        "sha256": "222cc409eb9d47ff39c3d4bdba1f65d5cd832c55039303c0148a3efc078c4603",
+        "bytes": 44
+      },
+      {
+        "name": "Parecer fictício do webhook.pdf",
+        "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+        "bytes": 2709
+      }
+    ],
+    "signedLifetimeSeconds": 120,
+    "auditedDownloads": 3
+  }
+]

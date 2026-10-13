@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "task": "M3.01c3a",
+  "scope": "local ficticio; claims e consulta T; sem aplicacao de credito",
+  "focusedBank": {
+    "passed": 26,
+    "files": 1,
+    "seconds": 40.1,
+    "file": "app/tests/integration/webhook-worker.test.ts"
+  },
+  "earlierReceptionRegression": {
+    "passed": 26,
+    "migration": 103,
+    "migration104ChangesOnlyClaim": true
+  },
+  "wholeBank": {
+    "status": "running",
+    "session": 78709,
+    "log": ".data/revisao/webhook-c3a-banco-geral.log"
+  },
+  "localCheck": {
+    "format": "passed",
+    "lint": "passed",
+    "types": "passed",
+    "unitPassed": 1490,
+    "unitFiles": 74,
+    "scriptPassed": 43,
+    "build": "EPERM: Turbopack tentou abrir porta interna; build remoto da fonte nova ainda necessario"
+  },
+  "migrations": {
+    "20261012010100_andre_calculos_0101_webhook_claims.sql": "e793aa764716ff4500d193c4f074e6d6df7bb3bebc616a6bc21092929e33a328",
+    "20261012010400_andre_calculos_0104_webhook_identity_union.sql": "4f53a769643397240f1c37aa0fa61e9e14d1d85e90634eaad517b8f24a7c4f41",
+    "20261012010000_andre_calculos_0100_webhook_numeric_tokens.sql": "40e89fd5e16095be8ed0553bab04031169b7fce5e65bc7fb8716bc3f4d8cb464",
+    "20261012010300_andre_calculos_0103_webhook_payment_identity.sql": "caa4df907df79bccc3cb21e59a1f723e2af6b75340287c36cfd90de7479afe12",
+    "20261012010200_andre_calculos_0102_webhook_resume_identity.sql": "eaff2396e69f179c89c44b100b978f631bf9ac59a19e856dcb38a2ba99fab3e0"
+  },
+  "readback": {
+    "migrations": 104,
+    "publicRls": 25,
+    "privateRls": 61,
+    "profiles": 4,
+    "oldMetadataUnchanged": true,
+    "controlsUnchanged": true,
+    "newJournalsEmpty": true,
+    "temporaryObjects": 0,
+    "privateGrants": 0
+  },
+  "advisors": {
+    "security": "no issues",
+    "performance": "no issues",
+    "afterEachMigration": true
+  },
+  "reproducedAndFixed": [
+    "consulta T superada reutilizava query antiga no reclaim",
+    "identidade divergente apenas em conflito customer/reference nao era verificada",
+    "conflito payment.id divergente era admitido e usava barreira diferente",
+    "migration103 projetava apenas dois campos no primeiro lado da uniao;104 corrige sem editar aplicada103"
+  ],
+  "nextRequired": [
+    "regressao geral do banco",
+    "check/build remoto exato",
+    "c3b credito e fila atomicos",
+    "c3c jornadas completas",
+    "c4 sandbox real autorizado"
+  ],
+  "migration104FinalFormatting": {
+    "onlyTrailingBlankRemoved": true,
+    "sqlContentUnchanged": true,
+    "appliedRawSha256": "daf24510360d7afdd25e290e60d5b6192bac5f716220385058e8456e4405eca7",
+    "finalRawSha256": "4f53a769643397240f1c37aa0fa61e9e14d1d85e90634eaad517b8f24a7c4f41"
+  }
+}

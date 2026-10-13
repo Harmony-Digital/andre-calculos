@@ -394,7 +394,7 @@ it("snapshots e arquivos confirmados são imutáveis; replay continua após indi
     await f.cleanup();
   }
 });
-it("política ausente bloqueia; aprovação é capturada e saldo ignora triagem, pendência e estorno", async () => {
+it("fixture técnica sem aceite conserva bloqueio com política capturada e soma manual antiga", async () => {
   for (const policy of [null, "before_balance", "after_balance"]) {
     await db
       .from("settings")
@@ -413,7 +413,20 @@ it("política ausente bloqueia; aprovação é capturada e saldo ignora triagem,
             access_kind: "file_download",
           })
         ).error;
-      expect(await allowed()).toBe(policy === "before_balance");
+      // A fixture técnica não possui aceite comercial reconhecido. Política,
+      // contrato ou soma manual não substituem os valores aceitos da projeção.
+      expect(await allowed()).toBe(false);
+      const context = await sessions.client.rpc(
+        "get_current_delivery_access_contexts",
+        {
+          target_process: f.process.id,
+          target_deliveries: [args.request_id],
+        },
+      );
+      expect(context.error).toBeNull();
+      expect(JSON.stringify(context.data)).toContain(
+        '"requiredDepositCents":null',
+      );
       if (policy === null) {
         await db
           .from("settings")
@@ -454,7 +467,7 @@ it("política ausente bloqueia; aprovação é capturada e saldo ignora triagem,
               .eq("kind", "balance")
           ).error,
         ).toBeNull();
-        expect(await allowed()).toBe(true);
+        expect(await allowed()).toBe(false);
         expect(
           (
             await db
@@ -473,11 +486,10 @@ it("política ausente bloqueia; aprovação é capturada e saldo ignora triagem,
           .eq("id", f.order.id);
         expect(await allowed()).toBe(false);
       }
-      if (policy !== "before_balance")
-        expect(
-          (await sessions.client.from("files").select("id").eq("id", f.ids[0]))
-            .data,
-        ).toEqual([]);
+      expect(
+        (await sessions.client.from("files").select("id").eq("id", f.ids[0]))
+          .data,
+      ).toEqual([]);
       expect(
         (
           await sessions.calculator.rpc("record_file_access", {

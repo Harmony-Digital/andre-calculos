@@ -1,0 +1,18 @@
+{
+  "inspected": 12,
+  "artifacts": [
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-computador/01-ativa.png",
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-computador/01-ativa.png",
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-computador/02-incerta.png",
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-ca-e2f6c-atuita-têm-estados-próprios-computador/05-paga.png",
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-ca-63eec-ada-bloqueia-abertura-atual-computador/07-parcial.png",
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-CR-71706-fatura-sem-campos-de-cartão-computador/09-credit_card.png",
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-celular/01-ativa.png",
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-celular/01-ativa.png",
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-celular/02-incerta.png",
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-ca-e2f6c-atuita-têm-estados-próprios-celular/05-paga.png",
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-ca-63eec-ada-bloqueia-abertura-atual-celular/07-parcial.png",
+    "/Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/docs/evidencias/pagamentos/saldo/interface/capturas/balance-invoice-journey-CR-71706-fatura-sem-campos-de-cartão-celular/09-credit_card.png"
+  ],
+  "findings": "Sem corte, sobreposicao ou texto ilegivel nas amostras inspecionadas; titulo e recebimento por fase, valor 12500 separado de credito desconhecido, parcial 1000 e quitacao zero. Estilo existente preservado. Axe e largura conferidos em todas as 38 capturas."
+}

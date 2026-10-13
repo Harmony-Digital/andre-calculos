@@ -1,0 +1,18 @@
+2026-10-13T02:44:41.8578739Z [command]/usr/bin/git log -1 --format=%H
+2026-10-13T02:44:41.8602508Z 0c3e8eb60fc42a0b82ba9fc8bfb5bf0f0f6bd5a9
+2026-10-13T02:44:58.3871694Z ##[group]Run npm run check
+2026-10-13T02:44:58.3871886Z npm run check
+2026-10-13T02:45:03.2760807Z All matched files use Prettier code style!
+2026-10-13T02:45:29.6630628Z  Test Files  74 passed (74)
+2026-10-13T02:45:29.6633626Z       Tests  1490 passed (1490)
+2026-10-13T02:45:30.0139415Z All matched files use Prettier code style!
+2026-10-13T02:45:30.0972132Z # tests 12
+2026-10-13T02:45:30.3423516Z All matched files use Prettier code style!
+2026-10-13T02:45:31.5947589Z # tests 31
+2026-10-13T02:45:38.2498551Z ✓ Compiled successfully in 6.1s
+2026-10-13T02:45:47.9050809Z   Finished TypeScript in 9.6s ...
+2026-10-13T02:45:48.7542069Z   Generating static pages using 3 workers (0/10) ...
+2026-10-13T02:45:48.7824375Z   Generating static pages using 3 workers (2/10)
+2026-10-13T02:45:48.7835162Z   Generating static pages using 3 workers (4/10)
+2026-10-13T02:45:48.8843296Z   Generating static pages using 3 workers (7/10)
+2026-10-13T02:45:48.9413920Z ✓ Generating static pages using 3 workers (10/10) in 185ms

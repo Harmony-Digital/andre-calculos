@@ -1,0 +1,54 @@
+{
+  "run": 38338334828,
+  "source": "e66c1a00c538263a5f9fb0717e58e995de1a3cf3",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 115103428997,
+      "name": "qualidade",
+      "conclusion": "success",
+      "finalSteps": [
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115103429127,
+      "name": "e2e",
+      "conclusion": "success",
+      "finalSteps": [
+        {
+          "name": "Advisors locais",
+          "conclusion": "success"
+        },
+        {
+          "name": "Encerrar Supabase local",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 11787676754,
+      "name": "evidencias-de-testes",
+      "expired": false,
+      "size_in_bytes": 76587231,
+      "digest": "sha256:f43b14c503a647f969e310ba94cde8efcb28ba3320b670f549bdd0c077278fa9"
+    },
+    {
+      "id": 11786550339,
+      "name": "inventario-dependencias",
+      "expired": false,
+      "size_in_bytes": 24265,
+      "digest": "sha256:c3b91581bdc183928126b952910ed862d913bbccfc9224452ea051bd498772cc"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "command": "npm run check",
+  "logSha256": "41b1822334428ba774a2ea9cdf9c2b0a606d2c1df0205075e7e10a5a9ca9891d",
+  "artifactSha256": "d6ee29804da897cf85edc6b446a7cac3b920e0acf69403bd6dd0e2f3f07fe542",
+  "selection": "Comandos, resultados e diagnostico do build; sem log completo ou URL do panic",
+  "result": "format/lint/types/1417 unitarios/70 arquivos/43 scripts passaram; build local EPERM/Turbopack; check/build final no CI pendente"
+}
