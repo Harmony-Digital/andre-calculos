@@ -15,3 +15,5 @@ Os primeiros ensaios tiveram2pass/3falhas no encerramento. O diagnóstico do mes
 Read-back, controles e grants finais são idênticos ao baseline106/25/61RLS/4perfis/markerfalse; dois advisors sem achados. Formato/lint/tipos,1.494 unidades em75 arquivos e43 scripts passaram. Build local impedido por EPERM na porta interna do Turbopack; a fonte exata precisa do check/build no CI. Provas em `verificacao-local.json` e arquivos associados.
 
 Estes casos verificam o driver. Eles não demonstram as telas nem a transferência de bytes pelo navegador: isso permanece nas partes b/c/d. No modo de telas, revisão, entrega e política são confirmadas pelos comandos do produto com pessoas e documentos fictícios.
+
+O check/build da fonte9c2c011 foi aprovado no CI38349871224/job115139573138. Prova em `ci63-build.json`: artefato11790257343, checkout2dfdaa17, pais main9a25+fonte, árvore, lock/config e inventário conferidos. A execução integral remota mantém comprovação própria.
