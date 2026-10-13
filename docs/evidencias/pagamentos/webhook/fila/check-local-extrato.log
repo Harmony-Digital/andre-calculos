@@ -1,0 +1,12 @@
+> npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run test:scripts && npm run build
+All matched files use Prettier code style!
+> eslint . --max-warnings=0
+> andre-calculos@0.1.0 typecheck
+ Test Files  74 passed (74)
+      Tests  1490 passed (1490)
+All matched files use Prettier code style!
+# tests 12
+All matched files use Prettier code style!
+# tests 31
+- Operation not permitted (os error 1)
+- Operation not permitted (os error 1)

@@ -1,0 +1,24 @@
+{
+  "login": "fabioalmeidadigital",
+  "repositoryId": 1414349093,
+  "pr": 47,
+  "source": "bbf3c0e90b8182e378e91fc761e973bdb8ce14b8",
+  "base": "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+  "isDraft": true,
+  "artifacts": [
+    {
+      "id": 11775694554,
+      "name": "evidencias-de-testes",
+      "bytes": 70579670,
+      "expired": false,
+      "digest": "sha256:d73cc8dabfc735d15710d60c6559d98b88d43161fcfa8f84e989abddf9f64ef5"
+    },
+    {
+      "id": 11774369169,
+      "name": "inventario-dependencias",
+      "bytes": 23317,
+      "expired": false,
+      "digest": "sha256:3fdd4a85deca5af0ca079754bad472d6a059a1ebd9fd7f62a9118acebfd531ef"
+    }
+  ]
+}
