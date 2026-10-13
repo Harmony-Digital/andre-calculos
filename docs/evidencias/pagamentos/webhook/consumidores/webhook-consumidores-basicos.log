@@ -1,0 +1,56 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-consumers.test.ts -t sinal só|saldo não
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/webhook-consumers.test.ts (25 tests | 6 failed | 19 skipped) 11396ms
+   × PIX/sinal só entra na fila após documento mínimo; recibo e avisos não se repetem 1709ms
+   × BOLETO/sinal só entra na fila após documento mínimo; recibo e avisos não se repetem 1607ms
+   × CREDIT_CARD/sinal só entra na fila após documento mínimo; recibo e avisos não se repetem 1583ms
+   × PIX/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual 2137ms
+   × BOLETO/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual 2194ms
+   × CREDIT_CARD/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual 2165ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-consumers.test.ts > PIX/sinal só entra na fila após documento mínimo; recibo e avisos não se repetem
+ FAIL  tests/integration/webhook-consumers.test.ts > BOLETO/sinal só entra na fila após documento mínimo; recibo e avisos não se repetem
+ FAIL  tests/integration/webhook-consumers.test.ts > CREDIT_CARD/sinal só entra na fila após documento mínimo; recibo e avisos não se repetem
+Error: Consulta das fixtures de aviso não concluída.
+ ❯ Module.localNotificationSql tests/e2e/notification-helper.ts:40:11
+     38|     ).trim();
+     39|   } catch {
+     40|     throw new Error("Consulta das fixtures de aviso não concluída.");
+       |           ^
+     41|   }
+     42| }
+ ❯ commercialState tests/integration/webhook-consumers.test.ts:90:10
+ ❯ tests/integration/webhook-consumers.test.ts:259:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  tests/integration/webhook-consumers.test.ts > PIX/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual
+ FAIL  tests/integration/webhook-consumers.test.ts > BOLETO/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual
+ FAIL  tests/integration/webhook-consumers.test.ts > CREDIT_CARD/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual
+Error: Consulta das fixtures de aviso não concluída.
+ ❯ Module.localNotificationSql tests/e2e/notification-helper.ts:40:11
+     38|     ).trim();
+     39|   } catch {
+     40|     throw new Error("Consulta das fixtures de aviso não concluída.");
+       |           ^
+     41|   }
+     42| }
+ ❯ commercialState tests/integration/webhook-consumers.test.ts:90:10
+ ❯ tests/integration/webhook-consumers.test.ts:312:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 19 skipped (25)
+   Start at  00:42:25
+   Duration  11.68s (tests 98%, transform 1%, import 1%)
+

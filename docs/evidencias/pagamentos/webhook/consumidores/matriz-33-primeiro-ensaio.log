@@ -1,0 +1,43 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-consumers.test.ts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/webhook-consumers.test.ts (33 tests | 1 failed) 87544ms
+   × sinal partial: consumidores e documento respeitam crédito 10000 sem aprovação automática 2202ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-consumers.test.ts > sinal partial: consumidores e documento respeitam crédito 10000 sem aprovação automática
+AssertionError: expected { status: 'awaiting_payment', …(3) } to deeply equal { status: 'awaiting_documents', …(3) }
+
+- Expected
++ Received
+
+  {
+    "audits": 0,
+    "deliveries": 0,
+    "notices": 0,
+-   "status": "awaiting_documents",
++   "status": "awaiting_payment",
+  }
+
+ ❯ tests/integration/webhook-consumers.test.ts:400:26
+    398|     expect((await j.db.rpc("complete_file_system", d.args)).error).toB…
+    399|     const eligible = expected !== null && expected >= 12501;
+    400|     expect(queueState()).toEqual({
+       |                          ^
+    401|       status: eligible ? "queued" : "awaiting_documents",
+    402|       audits: eligible ? 1 : 0,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 32 passed (33)
+   Start at  00:47:36
+   Duration  87.84s (tests 100%)
+
