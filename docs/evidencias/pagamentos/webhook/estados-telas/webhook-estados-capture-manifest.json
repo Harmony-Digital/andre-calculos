@@ -1,0 +1,596 @@
+[
+  {
+    "title": "deposit/after_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--c064b-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "deposit/after_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--39f59-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "deposit/after_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--dc9e4-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "deposit/after_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--338d0-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "deposit/after_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--b7c8e-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "deposit/after_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--56907-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "deposit/after_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--f90c6-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "deposit/after_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--3c0fc-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "deposit/after_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--ee9e8-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "deposit/after_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--1a461-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--9f157-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/before_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--084fd-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/before_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--9e8bf-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/before_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--bc052-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/before_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--07ad4-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/before_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--1a420-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/before_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--91273-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/before_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--03362-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/before_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--b0041-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/before_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--b9bc9-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/before_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--c823c-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--cf3bf-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/after_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--eafff-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/after_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--d336a-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/after_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--a5eb8-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/after_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--556f4-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/after_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--2ab97-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/after_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--a4ce7-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/after_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--0427e-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/after_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--afed0-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/after_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--cfa03-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/after_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--ef9b9-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--51171-ondem-ao-crédito-do-webhook-computador"
+  },
+  {
+    "title": "deposit/after_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--c064b-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "deposit/after_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--39f59-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "deposit/after_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--dc9e4-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "deposit/after_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--338d0-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "deposit/after_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--b7c8e-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "deposit/after_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--56907-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "deposit/after_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--f90c6-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "deposit/after_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--3c0fc-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "deposit/after_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--ee9e8-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "deposit/after_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--1a461-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--9f157-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/before_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--084fd-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/before_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--9e8bf-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/before_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--bc052-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/before_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--07ad4-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/before_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--1a420-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/before_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--91273-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/before_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--03362-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/before_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--b0041-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/before_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--b9bc9-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/before_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--c823c-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--cf3bf-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/after_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--eafff-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/after_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--d336a-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/after_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--a5eb8-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/after_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--556f4-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/after_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--2ab97-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/after_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--a4ce7-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/after_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--0427e-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/after_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--afed0-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/after_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--cfa03-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/after_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--ef9b9-ondem-ao-crédito-do-webhook-celular"
+  },
+  {
+    "title": "balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--51171-ondem-ao-crédito-do-webhook-celular"
+  }
+]

@@ -46,6 +46,10 @@ it.each(["PIX", "BOLETO", "CREDIT_CARD"])(
       const receipt = await driver.command("replay");
       expect(receipt?.chargeId).toBe(balance.chargeId);
       expect(await driver.command("view")).toEqual(paid);
+      expect((await driver.command("signalReplay"))?.chargeId).toBe(
+        driver.metadata.signalChargeId,
+      );
+      expect(await driver.command("view")).toEqual(paid);
       expect((await driver.command("receiveOnly", "unknown")).queueState).toBe(
         "pending",
       );

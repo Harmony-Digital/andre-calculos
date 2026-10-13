@@ -13,6 +13,7 @@ export type WebhookUiAction =
   | "process"
   | "view"
   | "replay"
+  | "signalReplay"
   | "prepareBalance"
   | "prepareSyntheticDelivery"
   | "close";
@@ -34,6 +35,7 @@ type Actions = {
   process: Awaited<ReturnType<Fixture["process"]>>;
   view: ReturnType<Fixture["view"]>;
   replay: Awaited<ReturnType<Fixture["replay"]>> | null;
+  signalReplay: Awaited<ReturnType<Fixture["replay"]>> | null;
   prepareBalance: {
     chargeId: string;
     paymentId: string;

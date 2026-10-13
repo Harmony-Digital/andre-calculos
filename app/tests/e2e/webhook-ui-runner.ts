@@ -21,6 +21,7 @@ const commandSchema = z.strictObject({
     "process",
     "view",
     "replay",
+    "signalReplay",
     "prepareBalance",
     "prepareSyntheticDelivery",
     "close",
@@ -158,8 +159,11 @@ async function run() {
           case "view":
             data = view();
             break;
-          case "replay": {
-            const receipt = fixture.receipt(target());
+          case "replay":
+          case "signalReplay": {
+            const receipt = fixture.receipt(
+              command.action === "signalReplay" ? fixture.signal : target(),
+            );
             data = receipt ? await fixture.replay(receipt.runId) : null;
             break;
           }
