@@ -28,3 +28,5 @@ Os 28 percursos de workers/perdas/atualizações passaram em 70,75 segundos. Os 
 ## Matriz final conjunta
 
 Os32 casos passaram em79,08s/exit0. Read-back/controles/grants finais idênticos ao baseline106/25/61RLS/4perfis/markerfalse; dois advisors sem achados. Formato/lint/tipos1494unidades75arquivos e43scripts passaram. Build local impedido pela restrição EPERM de porta interna; check/build da fonte final e regressão geral mantêm comprovações próprias. Provas em `verificacao-foco.json` e arquivos associados. Nenhuma regra da aplicação ou migration foi alterada.
+
+O check/build da fonte2792f93 foi aprovado no CI38346971121/job115130522542. Prova exata em `ci62-build.json`: artefato11789536886, checkout8c2d7724, pais main9a25+fonte, árvore, lock/config e inventário sanitizado conferidos. App/SQL/scripts/workflow locais ainda correspondem à fonte congelada. A regressão geral local e a integral remota conservam resultados próprios.
