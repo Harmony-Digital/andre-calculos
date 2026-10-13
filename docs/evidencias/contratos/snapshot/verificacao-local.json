@@ -63,5 +63,10 @@
     "telas/download auditado"
   ],
   "cloudChanges": false,
-  "realOperations": false
+  "realOperations": false,
+  "exactCheckBuild": "ci69-build.json",
+  "source": "24b9d7f304b5aaf4a19f6a9f82212363dd352ca8",
+  "oldMigrationVerification": "Todas106migrations do tree97f938c comparadas byte a byte com os arquivos locais, sem diferença.",
+  "remoteOverallRun": 38370677082,
+  "remoteOverallConclusion": "Em execução; resultado geral ainda não inferido."
 }

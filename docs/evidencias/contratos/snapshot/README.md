@@ -6,4 +6,4 @@ O preenchimento de aceites anteriores usa somente contexto e recibo congelados. 
 
 O getter exige sessão de proprietário ou calculista e recusa proposta não aceita, simulada, recusada, outro cliente, admin, anônimo e serviço. Os testes usam dados declaradamente fictícios; fixtures/intenções/snapshots/faults são removidos ao final.
 
-Evidências: `verificacao-local.json`, logs focados, read-back, controles e advisors. A geração/arquivamento do PDF, estados, telas e download auditado são os próximos componentes previstos em M3.04b/c/d. O build local encontrou EPERM no processo interno do Turbopack; a fonte exige check/build remoto próprio.
+Evidências: `verificacao-local.json`, logs focados, read-back, controles e advisors. A geração/arquivamento do PDF, estados, telas e download auditado são os próximos componentes previstos em M3.04b/c/d. O build local encontrou EPERM no processo interno do Turbopack. A fonte24b9d7f passou no check/build69; checkout/pais/árvore/lock/config/inventário conferidos em `ci69-build.json`. A execução geral conserva resultado próprio.
