@@ -1,0 +1,17 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:e2e
+> playwright test tests/e2e/settings.spec.ts --project=computador --grep salva dados profissionais --retries=0 --workers=1
+
+[WebServer] (node:19617) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:19630) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:19666) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [computador] › tests/e2e/settings.spec.ts:42:5 › salva dados profissionais, ativa preços e conserva histórico (20.1s)
+
+  1 passed (22.2s)

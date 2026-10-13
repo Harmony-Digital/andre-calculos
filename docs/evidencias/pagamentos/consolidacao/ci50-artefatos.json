@@ -1,0 +1,18 @@
+{
+  "artifacts": [
+    {
+      "id": 11778548073,
+      "name": "evidencias-de-testes",
+      "expired": false,
+      "digest": "sha256:6419e555d82881e54ac255efb80e2c8629b6fd2e494a387b7dc1ebb08b9fdcf4",
+      "bytes": 76346557
+    },
+    {
+      "id": 11777906860,
+      "name": "inventario-dependencias",
+      "expired": false,
+      "digest": "sha256:e0b7c1d24dff11645756008a17f29f7f4a05eb6af3111e484ee749690cfa7b66",
+      "bytes": 23340
+    }
+  ]
+}

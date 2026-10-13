@@ -1,0 +1,42 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-financial-journey.test.ts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/webhook-financial-journey.test.ts (6 tests | 6 failed) 13120ms
+   × PIX/deposit recebe somente pelo worker, conserva taxa/sinal e recupera receipt 2494ms
+   × BOLETO/deposit recebe somente pelo worker, conserva taxa/sinal e recupera receipt 1914ms
+   × CREDIT_CARD/deposit recebe somente pelo worker, conserva taxa/sinal e recupera receipt 2233ms
+   × PIX/balance recebe somente pelo worker, conserva taxa/sinal e recupera receipt 2173ms
+   × BOLETO/balance recebe somente pelo worker, conserva taxa/sinal e recupera receipt 2145ms
+   × CREDIT_CARD/balance recebe somente pelo worker, conserva taxa/sinal e recupera receipt 2161ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-financial-journey.test.ts > PIX/deposit recebe somente pelo worker, conserva taxa/sinal e recupera receipt
+ FAIL  tests/integration/webhook-financial-journey.test.ts > BOLETO/deposit recebe somente pelo worker, conserva taxa/sinal e recupera receipt
+ FAIL  tests/integration/webhook-financial-journey.test.ts > CREDIT_CARD/deposit recebe somente pelo worker, conserva taxa/sinal e recupera receipt
+ FAIL  tests/integration/webhook-financial-journey.test.ts > PIX/balance recebe somente pelo worker, conserva taxa/sinal e recupera receipt
+ FAIL  tests/integration/webhook-financial-journey.test.ts > BOLETO/balance recebe somente pelo worker, conserva taxa/sinal e recupera receipt
+ FAIL  tests/integration/webhook-financial-journey.test.ts > CREDIT_CARD/balance recebe somente pelo worker, conserva taxa/sinal e recupera receipt
+Error: Consulta das fixtures de aviso não concluída.
+ ❯ localNotificationSql tests/e2e/notification-helper.ts:39:11
+     37|     ).trim();
+     38|   } catch {
+     39|     throw new Error("Consulta das fixtures de aviso não concluída.");
+       |           ^
+     40|   }
+     41| }
+ ❯ Object.view tests/e2e/webhook-financial-journey-helper.ts:188:9
+ ❯ tests/integration/webhook-financial-journey.test.ts:39:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed (6)
+   Start at  23:16:23
+   Duration  13.65s (tests 97%, transform 2%, import 1%)

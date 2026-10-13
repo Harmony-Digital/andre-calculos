@@ -1,0 +1,3 @@
+{"temporaryTriggers": 0, "temporaryFunctions": 0, "webhookTablesGrants": 0}
+{"function": "finalize_fixture_payment_webhook", "searchPath": ["search_path=\"\""], "anonExecute": false, "publicExecute": false, "serviceExecute": true, "securityDefiner": true, "authenticatedExecute": false}
+{"function": "get_fixture_webhook_finalization_receipt", "searchPath": ["search_path=\"\""], "anonExecute": false, "publicExecute": false, "serviceExecute": true, "securityDefiner": true, "authenticatedExecute": false}

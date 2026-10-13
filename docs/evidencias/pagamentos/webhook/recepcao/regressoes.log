@@ -1,0 +1,7 @@
+RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+
+ Test Files  4 passed (4)
+      Tests  285 passed (285)
+   Start at  19:44:50
+   Duration  212ms (transform 53%, import 25%, tests 20%, worker 1%)

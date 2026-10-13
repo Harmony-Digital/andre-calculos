@@ -1,5 +1,10 @@
 import { expect, it } from "vitest";
 import {
+  currentOrderCreditSchema,
+  collectionState,
+} from "@/modules/payments/order-credit";
+import { creditFixture } from "@/modules/payments/order-credit-fixture";
+import {
   deadlineBadge,
   todayInSaoPaulo,
   queueFilter,
@@ -7,6 +12,7 @@ import {
   encodeQueueCursor,
   queuePaymentStatus,
   queueMoney,
+  queuePaymentNote,
 } from "./queue";
 it("usa a data de São Paulo sem mudar a data civil interna", () => {
   expect(todayInSaoPaulo(new Date("2026-10-11T01:30:00Z"))).toBe("2026-10-10");
@@ -46,28 +52,55 @@ it("filtro e cursor não aceitam estados fora da fila nem interpolação", () =>
   for (const value of ["invalid", `2026-02-30~${id}`, `sem-data~${id}~extra`])
     expect(() => queueCursor(value)).toThrow();
 });
-it("só pagamentos confirmados de sinal/saldo contam; contrato não é quitação", () => {
-  const p = (amount_cents: number, kind = "deposit", status = "confirmed") => ({
-    amount_cents,
-    kind,
-    status,
-  });
+it("fila usa crédito corrente; contrato não é quitação e reserva não é pagamento", () => {
+  const pending = creditFixture();
+  expect(queuePaymentStatus(pending)).toBe("Sinal pendente");
+  const change = (
+    patch: Partial<typeof pending.projection>,
+    hasContract = false,
+    activeReservation = false,
+  ) => {
+    const projection = { ...pending.projection, ...patch };
+    return currentOrderCreditSchema.parse({
+      ...pending,
+      projection,
+      hasContract,
+      activeReservation,
+      collectionState: collectionState(projection, activeReservation),
+    });
+  };
   expect(
-    queuePaymentStatus(1000, 500, false, [
-      p(1000, "triage"),
-      p(500, "deposit", "pending"),
-      p(500, "deposit", "refunded"),
-    ]),
-  ).toBe("Sinal pendente");
-  expect(queuePaymentStatus(1000, 500, false, [p(200)])).toBe("Sinal parcial");
-  expect(queuePaymentStatus(1000, 500, false, [p(200), p(300)])).toBe(
-    "Sinal confirmado",
-  );
+    queuePaymentStatus(
+      change({
+        depositCreditCents: 10000,
+        totalCreditCents: 10000,
+        remainingDepositCents: 2501,
+        remainingTotalCents: 15002,
+        partial: true,
+      }),
+    ),
+  ).toBe("Sinal parcial");
   expect(
-    queuePaymentStatus(1000, 500, false, [p(500), p(500, "balance")]),
+    queuePaymentStatus(
+      change({
+        depositCreditCents: 12501,
+        totalCreditCents: 12501,
+        remainingDepositCents: 0,
+        remainingTotalCents: 12501,
+        partial: false,
+      }),
+    ),
+  ).toBe("Sinal confirmado");
+  expect(
+    queuePaymentStatus(
+      change({ totalCreditCents: 25002, remainingTotalCents: 0 }),
+    ),
   ).toBe("Quitado");
-  expect(queuePaymentStatus(1000, 500, true, [])).toBe("Contrato");
-  expect(queuePaymentStatus(0, 0, false, [])).toBe("Sinal a conferir");
+  expect(queuePaymentStatus(change({}, true))).toBe("Contrato");
+  const active = change({}, false, true);
+  expect(queuePaymentStatus(active)).toBe("Sinal pendente");
+  expect(queuePaymentNote(active)).toBe("Cobrança em andamento.");
+  expect(queueMoney(null)).toBe("Valor a conferir");
   expect(queueMoney(199)).toContain("1,99");
   for (const value of [-1, 1.1, Number.MAX_SAFE_INTEGER + 1])
     expect(() => queueMoney(value)).toThrow();

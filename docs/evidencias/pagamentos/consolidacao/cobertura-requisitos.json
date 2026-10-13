@@ -1,0 +1,137 @@
+{
+  "scope": "seis itens originais M3.01b,sem redefinir escopo",
+  "codeMatchesVerifiedSource": "0bdb403a2a2ea842bb20ae840d03194983eef51e",
+  "generalBankSession": 44617,
+  "generalBankSource": "0bdb403a2a2ea842bb20ae840d03194983eef51e",
+  "additionalCaseFile": "app/tests/integration/payment-phase-journey.test.ts",
+  "additionalCases": 4,
+  "realDriverWebhookCommercialCommand": "pertencem aC/M3.09,nao demonstrados porfixtures",
+  "requirements": [
+    {
+      "originalItem": 1,
+      "requirement": "Intencao/divida/conta/referencia antes do transporte,concorrencia",
+      "code": {
+        "app/src/modules/payments/obligation-data.ts": "4649c02e0122455451e383115f414b5dc4ddd755202f511fd97994571069e545",
+        "app/src/modules/payments/intents.ts": "fa9d3d1f42687851ed91a334ffc27075d5ad64dd5faa98c96175bafead179f08",
+        "app/src/modules/payments/execution-system.ts": "61d1b29d3753173a021979b4b9271756442d54be794192eab9c44d0bde7e1ead",
+        "app/src/modules/payments/execution-protocol.ts": "4903eb39c7110759c91d0c00162f7902c327079dd9334487c63cd7a10ed37693"
+      },
+      "tests": [
+        "app/tests/integration/payment-intents.test.ts",
+        "app/tests/integration/payment-execution-start.test.ts",
+        "app/tests/integration/customer-bootstrap.test.ts"
+      ]
+    },
+    {
+      "originalItem": 2,
+      "requirement": "Fases,sinal capturado,saldo total menos credito liquido,contrato,taxa e casos recusados",
+      "code": {
+        "app/src/modules/payments/obligation-data.ts": "4649c02e0122455451e383115f414b5dc4ddd755202f511fd97994571069e545",
+        "app/src/modules/payments/order-credit.ts": "bd3243513115d52d3d1ff6e605ab78b3dc770396a65453f486cea63ba01e3510"
+      },
+      "tests": [
+        "app/tests/integration/payment-obligations.test.ts",
+        "app/tests/integration/balance-journey.test.ts",
+        "app/tests/integration/payment-phase-journey.test.ts"
+      ]
+    },
+    {
+      "originalItem": 3,
+      "requirement": "Criacao retomavel fora de transacao longa,busca depois de resposta perdida",
+      "code": {
+        "app/src/modules/payments/execution-worker.ts": "f337534af4c0354bbede785464b29aba731bcba0649c2f0f2a1d57dd04d0e797",
+        "app/src/modules/payments/asaas/fixture-port.ts": "6be80b6dd4c84330fb5e8f8041016c250ea552fbee60a675cf0a35c5fa2eb493"
+      },
+      "tests": [
+        "app/tests/integration/payment-execution-transport.test.ts",
+        "app/tests/integration/payment-execution-resolution.test.ts",
+        "app/tests/integration/balance-journey.test.ts"
+      ]
+    },
+    {
+      "originalItem": 4,
+      "requirement": "Reserva exclusiva,conciliação antes de outra fase,contrato nao cancela provedor",
+      "code": {
+        "app/src/modules/payments/intents.ts": "fa9d3d1f42687851ed91a334ffc27075d5ad64dd5faa98c96175bafead179f08",
+        "app/src/modules/payments/financial-resolution.ts": "468c5b282c3b291b91eab6e1f5009f2e9f4216fc5b45e32de56fde1394b36d67"
+      },
+      "tests": [
+        "app/tests/integration/payment-reservation-coordination.test.ts",
+        "app/tests/integration/financial-creation-guards.test.ts",
+        "app/tests/integration/financial-execution-resolution.test.ts"
+      ]
+    },
+    {
+      "originalItem": 5,
+      "requirement": "Historico imutavel,projecao comum,manual/legado,excesso,estorno/chargeback",
+      "code": {
+        "app/src/modules/payments/financial-position.ts": "4293bfd819721f41d9b9cff79669cf66e68663302a8b813d1b58f7cd86078103",
+        "app/src/modules/payments/financial-application.ts": "0d137c62efe59f4ded4cc52d1232a089d86bc879491a358a9094527e4de4be4c",
+        "app/src/modules/payments/legacy-binding.ts": "95cc7542dff401160feb89625c6d181b9819ef1e1ebb088021e87389cb016db9"
+      },
+      "tests": [
+        "app/tests/integration/payment-financial-observations.test.ts",
+        "app/tests/integration/financial-application.test.ts",
+        "app/tests/integration/financial-projection.test.ts",
+        "app/tests/integration/financial-journey.test.ts",
+        "app/tests/integration/payment-phase-journey.test.ts"
+      ]
+    },
+    {
+      "originalItem": 6,
+      "requirement": "Fatura do dono,reconciliação,isolamento,sem URL privada/payload em log",
+      "code": {
+        "app/src/modules/payments/invoice-query.ts": "7f69ba474f032396d16fb6e6cfc4016498b226b7ec212b95b47c016588f7ba38",
+        "app/src/modules/payments/invoice-page-data.ts": "33cc6fa4489e79d023236b186057011b6a16ad4032f0afe96cfcf60cb70efd50",
+        "app/src/components/invoice-view.tsx": "50ea7d057e949a98be979b8329cf579919cd86e98b1c4f94776acccff6ae7c2d"
+      },
+      "tests": [
+        "app/tests/integration/invoice-query.test.ts",
+        "app/tests/integration/balance-invoice-query.test.ts",
+        "app/tests/e2e/invoice-journey.spec.ts",
+        "app/tests/e2e/balance-invoice-journey.spec.ts"
+      ]
+    }
+  ],
+  "additionalCasesIncludedInGeneralBankRun": false,
+  "generalBankResult": {
+    "passed": 932,
+    "files": 47,
+    "durationSeconds": 912.3,
+    "exitCode": 0,
+    "source": "0bdb403a2a2ea842bb20ae840d03194983eef51e"
+  },
+  "additionalCaseResult": {
+    "passed": 4,
+    "files": 1,
+    "durationSeconds": 8.94,
+    "exitCode": 0,
+    "newFileSha256": "bd4a77a0f6a800b2483c39d1b847143676e5d093c1f58e43413fb8189477807a"
+  },
+  "controls": {
+    "readbackByteIdenticalToGeneralSuite": true,
+    "financialControlsByteIdenticalToAjAkBaseline": true,
+    "advisorsNoIssues": 2,
+    "publicTables": 25,
+    "privateTables": 56,
+    "migrations": 98,
+    "profiles": 4
+  },
+  "evidenceFiles": {
+    "docs/evidencias/pagamentos/consolidacao/check-local.log": "e373998744f4c7763add0e35afbf12a225c74a3d6c8eeb05c98996f18c2022bd",
+    "docs/evidencias/pagamentos/consolidacao/controles.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "docs/evidencias/pagamentos/consolidacao/README.md": "687011513933c28d8272c31ad66b0ebbeb0e09c6c5ff52b54760829dd7acbae2",
+    "docs/evidencias/pagamentos/consolidacao/readback.log": "7220ed5d5bb717c36a4b8428fe60f0b9eda0ef77a7c648a98f20dbf372c1d06c",
+    "docs/evidencias/pagamentos/consolidacao/fases-adicionais.log": "42b8ff1aadda5f573ad6ef1c2821986e4d93042025bc17642013c4cae05a0792",
+    "docs/evidencias/pagamentos/consolidacao/advisors.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "docs/evidencias/pagamentos/consolidacao/banco-geral.log": "85790b08c982d28c885dc38b28602577d291f2829a920406b7662348d5a3ba28"
+  },
+  "localCheck": {
+    "unitTests": 1441,
+    "unitFiles": 72,
+    "scriptTests": 43,
+    "formatLintTypes": "passed",
+    "build": "EPERM Turbopack criando processo e vinculando porta CSS react-pdf",
+    "exitCode": 1
+  }
+}

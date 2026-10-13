@@ -1,0 +1,17 @@
+{
+  "source": "21fc90dfc8adb489a00396f127e7c4f2e844fa82",
+  "scope": "preparo local ficticio de AO",
+  "bankTests": 863,
+  "bankFiles": 43,
+  "bankExitCode": 0,
+  "browserTests": 203,
+  "browserSkipped": 7,
+  "browserExitCode": 0,
+  "unitTests": 1392,
+  "unitFiles": 69,
+  "scriptTests": 43,
+  "readback": "93 migrations,25 tabelas publicas,55 privadas,todas RLS,4 perfis e controles identicos ao baseline",
+  "advisorsNoIssues": 2,
+  "checkBuildRemote": "job114946032580 success; inventario nativo conferido",
+  "overallCi": "CI38289543458 em execucao; nao comprova sucesso integral"
+}
