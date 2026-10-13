@@ -1,0 +1,28 @@
+> andre-calculos@0.1.0 check
+> npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run test:scripts && npm run build
+> andre-calculos@0.1.0 format:check
+> prettier --check .
+All matched files use Prettier code style!
+> andre-calculos@0.1.0 lint
+> eslint . --max-warnings=0
+> andre-calculos@0.1.0 typecheck
+> next typegen && tsc --noEmit
+> andre-calculos@0.1.0 test:coverage
+> vitest run --coverage
+ Test Files  72 passed (72)
+      Tests  1432 passed (1432)
+> andre-calculos@0.1.0 test:scripts
+> bash -n ../scripts/sincronizar-vercel.sh && prettier --check ../scripts/sincronizar-vercel.mjs ../scripts/sincronizar-vercel.test.mjs && node --test ../scripts/sincronizar-vercel.test.mjs && prettier --check ../scripts/inventariar-build.mjs ../scripts/inventariar-build.test.mjs && node --test ../scripts/inventariar-build.test.mjs
+All matched files use Prettier code style!
+# tests 12
+All matched files use Prettier code style!
+# tests 31
+> andre-calculos@0.1.0 build
+> node scripts/copy-pdf-assets.mjs && next build
+> Build error occurred
+- creating new process
+- binding to a port
+- Operation not permitted (os error 1)
+- creating new process
+- binding to a port
+- Operation not permitted (os error 1)

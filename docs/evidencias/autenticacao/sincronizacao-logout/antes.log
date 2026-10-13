@@ -1,0 +1,6 @@
+Running 1 test using 1 worker
+  ✘  1 [computador] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.1s)
+    Expected: 0
+    Received: 1
+    > 55 |     expect(sessions).toBe(0);
+  1 failed

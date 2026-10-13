@@ -1,0 +1,17 @@
+log=y-browser
+  14 passed (1.5m)
+log=y-browser-preferences-final
+  2 passed (1.3m)
+log=y-browser-timeline-final
+  2 passed (6.8s)
+log=y-check
+All matched files use Prettier code style!
+ Test Files  60 passed (60)
+      Tests  1195 passed (1195)
+All matched files use Prettier code style!
+# tests 12
+All matched files use Prettier code style!
+# tests 31
+> Build error occurred
+- Operation not permitted (os error 1)
+- Operation not permitted (os error 1)

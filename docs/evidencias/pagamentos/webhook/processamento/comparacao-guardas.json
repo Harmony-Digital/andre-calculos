@@ -1,0 +1,11 @@
+{
+  "file": "app/tests/integration/financial-creation-guards.test.ts",
+  "sources": {
+    "3f65269594a464de0a9b70eceaac9583670c24ef": "d5da831313e821f9ccdba0cd6529462efb2fe427200c10cc3109fc968a347431",
+    "9a39602566ee8c97bb33a07689f0e54c9d614427": "d5da831313e821f9ccdba0cd6529462efb2fe427200c10cc3109fc968a347431"
+  },
+  "currentIdentical": true,
+  "previousRemoteBankJob": 115056636895,
+  "previousRemoteBankStep": "success",
+  "currentLocalFailure": "reconcile;diagnostico final ainda pendente"
+}
