@@ -5,16 +5,21 @@ import { randomUUID } from "node:crypto";
 import { notificationFixture } from "./notification-helper";
 import { createMessageProcess, removeMessageProcess } from "./messages-helper";
 import { loginAs } from "./auth-helper";
+import { independentCleanup } from "../../src/lib/testing/independent-cleanup";
+import { preferenceDiagnostic } from "./preference-diagnostic-helper";
 test.setTimeout(90000);
 test("preferências por canal preservam escolha, recusam edição antiga e controlam novos avisos", async ({
   page,
   browser,
 }, info) => {
   const fixture = await notificationFixture();
+  const diagnostic = preferenceDiagnostic();
+  let primaryFailed = false;
   let context: BrowserContext | undefined,
     temporaryProcess: string | undefined,
     sessionClient: SupabaseClient | undefined;
   try {
+    diagnostic.stage("create-process-and-context");
     const fixtureProcess = await createMessageProcess();
     temporaryProcess = fixtureProcess.id;
     context = await browser.newContext({
@@ -36,6 +41,7 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
         exact: true,
       });
     const send = async () => {
+      diagnostic.stage("send-and-read-notifications");
       const id = randomUUID();
       expect(
         (
@@ -60,14 +66,19 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
       value: "yes" | "no",
     ) => {
       const f = form(p, channel);
+      diagnostic.stage(`save-new-message-${channel}-${value}`);
       await expect(
         f.getByRole("button", { name: "Salvar", exact: true }),
       ).toBeEnabled();
       await f.getByRole("combobox").selectOption(value);
-      fixture.remember(await f.locator('input[name="requestId"]').inputValue());
+      const requestId = fixture.remember(
+        await f.locator('input[name="requestId"]').inputValue(),
+      );
+      diagnostic.begin(p, "new_message", channel, requestId);
       await f.getByRole("button", { name: "Salvar", exact: true }).click();
       return f;
     };
+    diagnostic.stage("sign-in-and-load-configurations");
     expect(
       (
         await client.auth.signInWithPassword({
@@ -86,15 +97,18 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
       exact: true,
     });
     await financial.getByRole("combobox").selectOption("no");
-    fixture.remember(
+    diagnostic.stage("save-financial-email-no");
+    const financialRequest = fixture.remember(
       await financial.locator('input[name="requestId"]').inputValue(),
     );
+    diagnostic.begin(page, "payment_updated", "E-mail", financialRequest);
     await financial
       .getByRole("button", { name: "Salvar", exact: true })
       .click();
     await expect(financial.getByRole("status")).toHaveText(
       "Preferência salva.",
     );
+    diagnostic.stage("reload-financial-preference");
     await page.reload();
     await expect(financial.getByRole("combobox")).toHaveValue("no");
     await expect(form(page, "E-mail").getByRole("combobox")).toHaveValue("yes");
@@ -142,6 +156,7 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
     await expect(whatsapp.getByRole("combobox")).toHaveValue("yes");
     await expect(whatsapp.locator('input[name="requestId"]')).toHaveValue(key);
     await page.unroute("**/painel/configuracoes");
+    diagnostic.stage("configure-loss-after-commit");
     let loseReceipt = true,
       receiptDropped = false;
     await page.route("**/painel/configuracoes", async (route) => {
@@ -186,6 +201,7 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
       "a preferência mudou depois. Recarregue",
     );
     expect((await send()).rows.map((r) => r.channel)).toEqual(["email"]);
+    diagnostic.stage("reload-before-new-whatsapp-choice");
     await page.reload();
     await save(page, "WhatsApp", "yes");
     await expect(whatsapp.getByRole("status")).toHaveText("Preferência salva.");
@@ -209,6 +225,7 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
           .eq("dedup_key", `message:${omitted.id}:email`)
       ).data,
     ).toEqual([]);
+    diagnostic.stage("accessibility-and-screenshots");
     await page.reload();
     await expect(form(page, "WhatsApp").getByRole("combobox")).toHaveValue(
       "yes",
@@ -244,6 +261,7 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
       .locator("#avisos")
       .screenshot({ path: info.outputPath("preferencias-avisos.png") });
     await page.setViewportSize(originalViewport);
+    diagnostic.stage("admin-and-client-access-denied");
     await other.getByRole("button", { name: "Sair", exact: true }).click();
     await loginAs(other, "admin");
     await other.goto("/painel/configuracoes");
@@ -257,14 +275,56 @@ test("preferências por canal preservam escolha, recusam edição antiga e contr
     await loginAs(page, "client");
     await page.goto("/painel/configuracoes");
     await expect(page).toHaveURL(/\/acesso-negado$/);
-  } finally {
+  } catch (error) {
+    primaryFailed = true;
     try {
-      await page.unrouteAll({ behavior: "wait" });
-      await context?.close();
-      await sessionClient?.auth.signOut({ scope: "local" });
-      if (temporaryProcess) await removeMessageProcess(temporaryProcess);
-    } finally {
-      await fixture.cleanup();
+      await diagnostic.capture(fixture, info);
+    } catch {
+      console.info(
+        JSON.stringify({
+          diagnostic: "notification_preference_return",
+          unavailable: true,
+        }),
+      );
     }
+    throw error;
+  } finally {
+    await independentCleanup(
+      [
+        { name: "routes", run: () => page.unrouteAll({ behavior: "wait" }) },
+        {
+          name: "context",
+          run: async () => {
+            await context?.close();
+          },
+        },
+        {
+          name: "session",
+          run: async () => {
+            const result = await sessionClient?.auth.signOut({
+              scope: "local",
+            });
+            if (result?.error)
+              throw new Error("Sessão fictícia não encerrada.");
+          },
+        },
+        {
+          name: "process",
+          run: async () => {
+            if (temporaryProcess) await removeMessageProcess(temporaryProcess);
+          },
+        },
+        { name: "fixture", run: () => fixture.cleanup() },
+      ],
+      primaryFailed,
+      (failed) => {
+        console.info(
+          JSON.stringify({
+            diagnostic: "notification_preference_cleanup",
+            failed,
+          }),
+        );
+      },
+    );
   }
 });
