@@ -456,6 +456,9 @@ Prazo sugerido: 2026-11-17 (a confirmar com o André)
 - [ ] M3.01c3c Verificar jornadas do webhook e consumidores — parte de c3; depende de c3b; Pix/boleto/cartão, parcial/taxa/refund/CB/UNKNOWN, duplicidade/ordem/perda/conflito/manual concorrente, 375/1440/Axe
 - [x] M3.01c3c1 Ligar o worker à fila privada — evidência: fonte95506a1/PR58;25próprios incluídos em1.038banco52arquivos/1.057,33s/exit0,102focados4arquivos/159,66s/HTTP real/reclaim/concurrency/conta/marker/roles/quarentena/lote20+1/erro parcial aprovados.106 aplicada intacta;read-back106/25/61RLS/4perfis/metadados/controles/grants finais idênticos ao foco,zero temporários/dois advisors finais sem achados.1.490unidades74arquivos/43scripts/formato-lint-tipos echeck-build exatoCI38333974324/job115089806115/artefato11782844951/checkouta07759ac/pais/árvore/hashes aprovados. Somente preparo/verificação local;CIgeral58 próprio,C3c2/3/C4 obrigatórias. docs/evidencias/pagamentos/webhook/fila/
 - [ ] M3.01c3c2 Verificar percursos completos no banco — parte de c3c;depende de c3c1;métodos/fases/estados financeiros epré-condições de contrato,aceite,documento,simulação/revisão
+- [ ] M3.01c3c2a Preparar jornadas por meio/fase e verificar estados financeiros — parte de c3c2;depende de c3c1;produtor existente,sinal/saldo pelo worker,parcial/taxa/refunds/chargeback/UNKNOWN/ordem/replay sem ledger paralelo
+- [ ] M3.01c3c2b Verificar consumidores e pré-condições do webhook — parte de c3c2;depende de c3c2a;contrato/aceite/simulação/upload/fatura/download/revisão/D6/fila/timeline/avisos,sem aprovação implícita por eventos
+- [ ] M3.01c3c2c Verificar concorrência, perdas e consolidar regressão — parte de c3c2;depende de c3c2b;manual/recepção/consulta/callbacks/perda antes-depois decommit,controles/recibos preservados/regressão geral/read-back/advisors/check-build exatos
 - [ ] M3.01c3c3 Verificar visão do cliente e do André — parte de c3c;depende de c3c2;375/1440/Axe/capturas,sinal/saldo/download/fila/timeline eavisos
 - [ ] M3.01c4 Verificar transporte e jornada no sandbox real do cliente — parte de c; depende de c3, conta/credenciais/endpoint e autorização específica; inclui identidade real do driver, emissão/evento/fatura/crédito/fila e validação em 375/1440 px
 - [ ] M3.02 Criar o botão do André para ligar ou desligar o pagamento automático — RF-31
@@ -1925,6 +1928,21 @@ Prazo sugerido: a planejar
 - **Fazer:** percorrer recepção→worker→T/Y→fila pelos meios Pix/boleto/cartão e fases sinal/saldo. Cobrir parcial/taxa/refund/chargeback/UNKNOWN,duplicidade/ordem/perda/conflito/concorrência,notificações únicas epré-condições;eventos não aprovam contrato,termos,simulação,revisão técnica ouD6. Usar produtores/entrega explicitamente fictícios existentes.
 - **Pronto quando:** componentes e consumidores de crédito/contrato/download/fila/avisos conferidos com dados sintéticos,read-back/advisors/regressão echeck/build exatos.
 
+#### M3.01c3c2a Meios, fases e estados financeiros
+
+- **Fazer:** extrair somente mutação de fatos do provedor emhelper local,conservando observe antigo como mutação→T. Novo helper prepara fonte de sinal e,depois de sinal recebido pelo próprio worker,entrega explicitamente fictícia/obrigação/reserva/fonte de saldo. Nenhuma origem/binding legado ou pagamento público alimenta o crédito novo. Receber envelope autenticado real do módulo,executar fila e reler aplicação/posição/recibos atuais. CobrirPIX/BOLETO/CREDIT_CARD nas duas fases,parcial/excesso/taxa/refundparcial-integral-pendente/chargebackdisputa-débito-restaurações/UNKNOWN/ordem/duplicidade com valores esperados emcentavos independentes da implementação.
+- **Pronto quando:** percursos e GET/POST/aplicações/receipts/conservação do sinal/restante/saldo/ausência de ledger paralelo conferidos,helpers anteriores preservados emregressões,read-back/advisors/check-build exato. Parentc3c2 aberto para b/c.
+
+#### M3.01c3c2b Consumidores e pré-condições
+
+- **Fazer:** conferir fontes/projeções e comandos de contrato,upload,documentos privados/fatura/fila/timeline/avisos nos dois papéis/fases. Positivos possuem termos/revisão/entrega/política explicitamente fictícios;negativos conservam ausência deaceite/contrato/simulação/revisão/D6. Evento não cria aprovação,entrega ouliberação debytes. Histórico,contatos eavisos deduplicados permanecem comseus contratos atuais.
+- **Pronto quando:** consumidores correspondem aos estados financeiros da matriz,pré-condições e acesso entreclientes respeitados,nenhuma preparação financeira paralela/read-back/advisors/check-build exatos.
+
+#### M3.01c3c2c Concorrência e consolidação
+
+- **Fazer:** verificar novas fontes/consulta emcurso/perda e callback antigos,sinal manual concorrente e consumidores relendo crédito soblocks. Replay recupera recibos privados,sem outroPOST/GET/efeito/aviso quandojáconfirmados. Preservar integralmente as partes a/b eexecutar regressão geral/fonte exata/controles/read-back/advisors.
+- **Pronto quando:** escopo originalc3c2 completo eparentencerrada com evidência,conservando c3c3 telas eC4 real como obrigações próprias.
+
 #### M3.01c3c3 Jornadas nas telas
 
 - **Fazer:** usar contextos independentes de cliente/calculista e driver Node server-only para produzir os eventos e executar o mesmo worker de aplicação. Verificar fatura/projeção/linha do tempo/fila/documentos/avisos em375/1440px;Axe,largura e capturas. Não usar ledger alternativo nem corrigir navegação para fazer o teste passar.
@@ -2855,3 +2873,5 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-12 | Codex | PR56 pronto para revisão;head eisdraftfalse conferidos porAPI | Corpo reescrito emtorno do default20s final comCI56 completo e50testes-fonte preservados. Head4d4180ea/isdraftfalse confirmado;M1.13d encerrada com prova própria55/56,sem relaxar produto ouapagar falhas. Geral64473 continua vivo;C3c1/2/3/C4 eobjetivo integral abertos,nenhum merge/publicação. |
 
 | 2026-10-12 | Codex | C3c1 concluída no preparo/verificação local após geral64473 terminal0 |1.038passed52arquivos/1.057,33s,incluindo25worker;read-back/grants/controles finais idênticos ao foco106/25/61RLS/4perfis/metadados anteriores preservados,zero temporários/dois advisors finais sem achados.106SHA preservado;app-SQL-scripts-workflow idênticos àfonte95506a1/check-build58exato. Nenhum writer local ativo. PróximaC3c2 com protocolo já registrado,C3c3/C4 eobjetivo integral abertos;CI58 geral próprio,sem inferir sucesso integral nem publicar. |
+
+| 2026-10-12 | Codex | C3c2 dividida antes do código em a/b/c na feat/jornadas-webhook | C3c1 concluída comgeral1.038/read-back/advisors/check-build58;nenhum writer local ativo. Matriz por meio/fase/fatos fica em2a,consumidores/pré-condições em2b,concorrência/perda/regressão final em2c. Escopo original eparent preservados;próxima2a,C3c3/C4 eobjetivo integral abertos. |
