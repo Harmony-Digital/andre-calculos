@@ -1,0 +1,27 @@
+{
+  "artifacts": [
+    {
+      "id": 11778827442,
+      "name": "evidencias-de-testes",
+      "expired": false,
+      "digest": "sha256:ff70c1855aa5977b7e088b7d7a2ccb91d779693e10421e626bdaaff729729d63",
+      "bytes": 76437774
+    },
+    {
+      "id": 11776553072,
+      "name": "inventario-dependencias",
+      "expired": false,
+      "digest": "sha256:385466a2296169a5d1c72fc9dea26be121bb3fab6d43de57cf8c8b9a38805cf9",
+      "bytes": 23314
+    }
+  ],
+  "cleanupUpload": [
+    {
+      "Run actions/upload-artifact@v4": "success"
+    },
+    {
+      "Encerrar Supabase local": "success",
+      "Run actions/upload-artifact@v4": "success"
+    }
+  ]
+}

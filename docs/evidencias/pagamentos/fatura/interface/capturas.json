@@ -1,0 +1,138 @@
+[
+  {
+    "path": "capturas/invoice-journey-BOLETO-fat-a1a2b-rtão-ou-emite-nova-cobrança-celular/metodo-BOLETO.png",
+    "sha256": "effbd6da214557b5782d90ea26b506d05925a7ad015a00c24002869e4a5d4a51"
+  },
+  {
+    "path": "capturas/invoice-journey-BOLETO-fat-a1a2b-rtão-ou-emite-nova-cobrança-computador/metodo-BOLETO.png",
+    "sha256": "f21d617d1f8d46497cb8ab6039ad47d4b5e21d6a6cd258d1d88fca2f74aeb836"
+  },
+  {
+    "path": "capturas/invoice-journey-CREDIT-CAR-3c7ac-rtão-ou-emite-nova-cobrança-celular/metodo-CREDIT_CARD.png",
+    "sha256": "13221306bf192c5f0868b518c0443f35508f7337b1d7993f392c847f64a12081"
+  },
+  {
+    "path": "capturas/invoice-journey-CREDIT-CAR-3c7ac-rtão-ou-emite-nova-cobrança-computador/metodo-CREDIT_CARD.png",
+    "sha256": "931d78bdd28da5259125d2622f4ba18491a25f5ddee7aafe31f0e27291a49e7d"
+  },
+  {
+    "path": "capturas/invoice-journey-UNDEFINED--79ee5-rtão-ou-emite-nova-cobrança-celular/metodo-UNDEFINED.png",
+    "sha256": "98e3bc96e185ff4dc6326d58cb57ac95046673307aafd72d7dd2d4ef6b75436b"
+  },
+  {
+    "path": "capturas/invoice-journey-UNDEFINED--79ee5-rtão-ou-emite-nova-cobrança-computador/metodo-UNDEFINED.png",
+    "sha256": "9d86c58199c2cb3b0101eea3473e04434e1620450fd69033dcbff711827e3358"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-celular/01-ativa.png",
+    "sha256": "240b83c7374045a27f0fe57ada587ba471b09ea08c4c24a03f789e8398acdf2f"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-celular/02-incerta.png",
+    "sha256": "a53b9d58c892027257bd512299a5804dd04fa8b1b57716e50fb2ddaacd10676f"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-celular/03-bloqueada.png",
+    "sha256": "7d363e2dc08b692a4567536efcc85eccd7d4658a42d40ef12e2cb7efe98f246d"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-celular/04-parcial.png",
+    "sha256": "dc02aa1bdf8b093fb58fb7f642446309dde882a98541835a9601f665afe827e8"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-celular/05-paga.png",
+    "sha256": "66e594eeda1a5f6c471f2fd7ee42a5a2d0809a7cc6b87f78e7b2f7fb2048e026"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-celular/06-estorno.png",
+    "sha256": "c3d99c920e68ecbe4a8c2627aa441467e39ff826fedbe668c8a9187713125471"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-computador/01-ativa.png",
+    "sha256": "112fbc923ae11af16ae018aff9eef1f5e623daf80b64952a9c6035e220a65fe1"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-computador/02-incerta.png",
+    "sha256": "5723fcafeb1ae6981eb031052cdcc50df194065011bbcaab53e51145f0778027"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-computador/03-bloqueada.png",
+    "sha256": "7d02dc4b58826821f82d319c1a42984ffdf4013eb8296d4999b6248a83f82dd8"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-computador/04-parcial.png",
+    "sha256": "1df1c49ca53aef25a886260f3941b213371632889dd8245a8177659bb4ecae67"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-computador/05-paga.png",
+    "sha256": "c449fd9905602d5a933b55aecbc9fbe64e9ab0810a8c84bb7e73cf860dafede5"
+  },
+  {
+    "path": "capturas/invoice-journey-calculator-f81f2-preservam-crédito-e-emissão-computador/06-estorno.png",
+    "sha256": "e9d720e2c3a311cb8ec927ec53401a1318d27e668f7974b2ae194f735f8d41de"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-celular/01-ativa.png",
+    "sha256": "bc30029c8e125950e4118716aa67997bc11a2509b9e4310a5da6b5459bd65e88"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-celular/02-incerta.png",
+    "sha256": "fa5a88a75a7c2beb4c25453046e0147183a57f53efdc16a1b22264831571384b"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-celular/03-bloqueada.png",
+    "sha256": "241d022d815c507a44cab6db168330a3f9030d7a73b61bc088cb692f18e8f0b2"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-celular/04-parcial.png",
+    "sha256": "84e1d52e6ba67679a10ea57914b82dd6fec06a61e949f19a6a4fb3ba6a4eb36b"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-celular/05-paga.png",
+    "sha256": "bcac7501eb13a632e6252b6e76a6b6c9df7addb06ae31d34a0b3331cc4f5a3d4"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-celular/06-estorno.png",
+    "sha256": "8a0d0ad1d76b9604fd7400deb10b238f2a1a4661263d56f36d6b8892764d1af6"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-computador/01-ativa.png",
+    "sha256": "9461aba0624ae2df8ca99307353474606b4f0864116236401bc6b9ed6e41337c"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-computador/02-incerta.png",
+    "sha256": "3106ef231a1eacce0e429e49794d4573628a189f6a0590879bb2e3010492cc6e"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-computador/03-bloqueada.png",
+    "sha256": "a4fd21af5e822df78d5db4e8d3bdf53df4e267a40dcd922aa02cc4bc79414544"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-computador/04-parcial.png",
+    "sha256": "beacaba68ea08b57d5ec7966c15a399d19735a422991bab7d6cd77d94be59fa5"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-computador/05-paga.png",
+    "sha256": "a651e1eb00fab08e2220d0bec759b35737b0fb8767b665409d94d46de71f786d"
+  },
+  {
+    "path": "capturas/invoice-journey-client-con-33499-preservam-crédito-e-emissão-computador/06-estorno.png",
+    "sha256": "3dc8e9cb2c07528b26aaba2c94a8e265dd816d25e4fac333e00d19fdabdd5214"
+  },
+  {
+    "path": "capturas/invoice-journey-dispensa-p-5545f-agamento-ou-oferecem-fatura-celular/07-contrato.png",
+    "sha256": "f4f3d2c70bc85287081a1a74af4698f69875578cf4b653dd1300905e584843a8"
+  },
+  {
+    "path": "capturas/invoice-journey-dispensa-p-5545f-agamento-ou-oferecem-fatura-celular/08-sem-sinal.png",
+    "sha256": "1a41049926a2d6ada9aaa4aac2576a9593061f3f7a9844fb927549d41c3fc0cd"
+  },
+  {
+    "path": "capturas/invoice-journey-dispensa-p-5545f-agamento-ou-oferecem-fatura-computador/07-contrato.png",
+    "sha256": "2832a15a5d5cf095031365409dff1d79a64a0143f946002d2eae49ad6b700e45"
+  },
+  {
+    "path": "capturas/invoice-journey-dispensa-p-5545f-agamento-ou-oferecem-fatura-computador/08-sem-sinal.png",
+    "sha256": "f02ae895847a331b5baa29702c645e7b225196d712d3bd157c887a8232b9aff5"
+  }
+]

@@ -1,0 +1,7 @@
+Running 4 tests using 1 worker
+  ✓  1 [computador] › tests/e2e/files.spec.ts:16:5 › upload de 300 MB retoma do offset após cortar a rede (8.6s)
+  ✓  2 [computador] › tests/e2e/files.spec.ts:93:5 › arquivo privado, integridade, auditoria e isolamento (2.7s)
+  -  3 [celular] › tests/e2e/files.spec.ts:16:5 › upload de 300 MB retoma do offset após cortar a rede
+  ✓  4 [celular] › tests/e2e/files.spec.ts:93:5 › arquivo privado, integridade, auditoria e isolamento (1.7s)
+  1 skipped
+  3 passed (16.2s)

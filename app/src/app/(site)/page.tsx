@@ -37,8 +37,8 @@ export default async function Home() {
                 Solicitar meu orçamento{" "}
                 <ArrowUpRight size={18} aria-hidden="true" />
               </Link>
-              <Link className="text-link" href="#como-funciona">
-                Conhecer o processo <ArrowRight size={16} aria-hidden="true" />
+              <Link className="text-link" href="/simular">
+                Simular valor <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
             <p className="hero-note">

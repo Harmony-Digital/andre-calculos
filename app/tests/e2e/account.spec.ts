@@ -1,6 +1,7 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type BrowserContext } from "@playwright/test";
 import { randomUUID, randomBytes } from "node:crypto";
 import AxeBuilder from "@axe-core/playwright";
+import { provisionLocalUser } from "../../scripts/provision-local-user";
 import {
   localSystem,
   removeLocalUser,
@@ -16,19 +17,17 @@ test("perfil, senha e solicitação de exclusão auditados", async ({
     release = await leaseLocalSettings();
   const email = `conta-${randomUUID()}@exemplo.com`;
   const password = process.env.ANDRE_TEST_PASSWORD!;
-  const created = await db.auth.admin.createUser({
-    email,
-    password,
-    email_confirm: true,
-    user_metadata: { full_name: "Pessoa fictícia" },
-  });
-  if (created.error || !created.data.user) {
-    await release();
-    throw new Error("Conta fictícia não criada.");
-  }
-  const id = created.data.user!.id;
-  const otherDevice = await browser.newContext();
+  let userId: string | undefined, otherDevice: BrowserContext | undefined;
   try {
+    const created = await provisionLocalUser({
+      email,
+      password,
+      email_confirm: true,
+      user_metadata: { full_name: "Pessoa fictícia" },
+    });
+    const id = created.data.user!.id;
+    userId = id;
+    otherDevice = await browser.newContext();
     const otherPage = await otherDevice.newPage();
     await otherPage.goto("http://127.0.0.1:3000/entrar");
     await otherPage.locator("#login-email").fill(email);
@@ -121,8 +120,8 @@ test("perfil, senha e solicitação de exclusão auditados", async ({
     await context.clearCookies();
   } finally {
     try {
-      await otherDevice.close();
-      await removeLocalUser(id);
+      await otherDevice?.close();
+      if (userId) await removeLocalUser(userId);
     } finally {
       await release();
     }

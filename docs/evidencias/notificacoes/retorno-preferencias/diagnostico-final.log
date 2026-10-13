@@ -1,0 +1,24 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:e2e
+> playwright test tests/e2e/preference-diagnostic.spec.ts --workers=1 --retries=0
+
+[WebServer] (node:8062) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:8067) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:8075) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+(node:8079) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":1440,"height":1000},"event":"new_message","channel":"E-mail","elapsedMs":3,"pageClosed":false,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":false,"preference":null},"form":{"pending":false,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false}}
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":1440,"height":1000},"event":"new_message","channel":"E-mail","elapsedMs":117,"pageClosed":true,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":false,"preference":null}}
+·(node:8172) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":375,"height":812},"event":"new_message","channel":"E-mail","elapsedMs":3,"pageClosed":false,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":false,"preference":null},"form":{"pending":false,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false}}
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":375,"height":812},"event":"new_message","channel":"E-mail","elapsedMs":119,"pageClosed":true,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":false,"preference":null}}
+·
+  2 passed (2.8s)
+::notice title=🎭 Playwright Run Summary::  2 passed (2.8s)

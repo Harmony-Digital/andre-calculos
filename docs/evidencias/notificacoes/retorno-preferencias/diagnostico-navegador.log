@@ -1,0 +1,50 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:e2e
+> playwright test tests/e2e/notification-preferences.spec.ts tests/e2e/preference-diagnostic.spec.ts --workers=1 --retries=0
+
+[WebServer] (node:6356) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:6358) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:6364) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+(node:6366) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] ⨯ Error: Acesso não autorizado.
+[WebServer]     at authorize (src/modules/auth/session.ts:39:11)
+[WebServer]     at async getConfiguration (src/modules/settings/queries.ts:34:19)
+[WebServer]     at async Configuration (src/app/(painel)/painel/configuracoes/page.tsx:18:5)
+[WebServer]   37 |   const session = await getSessionProfile();
+[WebServer]   38 |   if (!session || !roles.includes(session.profile.role))
+[WebServer] > 39 |     throw new Error("Acesso não autorizado.");
+[WebServer]      |           ^
+[WebServer]   40 |   return session;
+[WebServer]   41 | }
+[WebServer]   42 | {
+[WebServer]   digest: '4216174405'
+[WebServer] }
+·{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":1440,"height":1000},"event":"new_message","channel":"E-mail","elapsedMs":2,"pageClosed":false,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":false,"preference":null},"form":{"pending":false,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false}}
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":1440,"height":1000},"event":"new_message","channel":"E-mail","elapsedMs":107,"pageClosed":true,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":false,"preference":null}}
+·(node:6538) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] ⨯ Error: Acesso não autorizado.
+[WebServer]     at authorize (src/modules/auth/session.ts:39:11)
+[WebServer]     at async getConfiguration (src/modules/settings/queries.ts:34:19)
+[WebServer]     at async Configuration (src/app/(painel)/painel/configuracoes/page.tsx:18:5)
+[WebServer]   37 |   const session = await getSessionProfile();
+[WebServer]   38 |   if (!session || !roles.includes(session.profile.role))
+[WebServer] > 39 |     throw new Error("Acesso não autorizado.");
+[WebServer]      |           ^
+[WebServer]   40 |   return session;
+[WebServer]   41 | }
+[WebServer]   42 | {
+[WebServer]   digest: '4216174405'
+[WebServer] }
+·{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":375,"height":812},"event":"new_message","channel":"E-mail","elapsedMs":2,"pageClosed":false,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":false,"preference":null},"form":{"pending":false,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false}}
+{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":375,"height":812},"event":"new_message","channel":"E-mail","elapsedMs":105,"pageClosed":true,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":false,"preference":null}}
+·
+  4 passed (1.3m)
+::notice title=🎭 Playwright Run Summary::  4 passed (1.3m)
