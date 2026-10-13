@@ -7,6 +7,8 @@ Nome provisório até a marca (D3).
 
 ## Onde estamos
 
+- **Auditoria da execução (2026-10-13):** Fábio apontou falta de avanço visível. Histórico das12h até11:21:57UTC:85commits,64 somente plan.md/docs;69PRs abertos (18drafts),main ainda9a25f31. Construção excessivamente fragmentada e validações reiteradas. Método corrigido para concluir um fluxo utilizável antes da próxima consolidação/PR. Próxima entrega: contrato armazenado, recuperável e disponível para download privado no ambiente local fictício; publicação conserva autorização própria.
+
 - **CI68/69 terminais:** ambos cancelled no limite oficial de2h, com anotação doGitHub conferida. Banco1142/56arquivos em68 e1152/57 em69 aprovados; navegador interrompido, advisors omitidos,cleanup/upload passaram. Anotações confirmam seletores antigos procurando título404 em decisões/índice após a tradução da página. CI69 qualidade nativa1494/75/43scripts/build aprovada. Não há aprovação integral; f/g e falha financeira d2 conservam investigação própria. Evidências sanitizadas emci61-tempos/ci68 eci69.
 
 - **Atualizado em:** 2026-10-13, por Codex.
@@ -155,6 +157,12 @@ Não é preciso ler o arquivo inteiro.
 Se todas as disponíveis estiverem travadas, dizer ao Fábio exatamente o que falta.
 
 **Uma tarefa por vez.** Cada tarefa cabe numa sessão. Os commits citam o ID, por exemplo: `Cria o app base (M1.30)`.
+
+**Correção do método de execução, após feedback do Fábio em 2026-10-13:**
+- Organizar a entrega por funcionalidade utilizável. O próximo resultado revisável é o fluxo completo de contrato: geração, arquivamento privado, recuperação, disponibilidade nas telas e download auditado (M3.04b2/b3/b4/c/d). Executar as dependências em sequência, preservando todo o escopo original e as condições comerciais.
+- Rodar testes pertinentes a cada alteração e a regressão completa na consolidação da funcionalidade; repetir ou ampliar apenas por falha, nova alteração ou preocupação concreta. Preservar RLS/advisors após migrations, verificações de acesso/imutabilidade/concorrência e os checks exigidos para a fonte final. Não criar novo PR apenas para evidências, observações de CI ou ajustes intermediários; manter as fontes anteriores e suas provas.
+- Relatar o que funciona e pode ser demonstrado, o que está apenas implementado, o que está publicado e o que falta. O percentual40% foi uma estimativa sem pesos de escopo definidos e não deve ser apresentado como medição objetiva. Quantidade de testes, commits e capturas não representa funcionalidades entregues.
+
 
 **Formato do Hub da Harmony** (regras completas em `docs/plan-md.md` do repositório do Hub):
 
@@ -500,7 +508,7 @@ Prazo sugerido: 2026-11-17 (a confirmar com o André)
 - [x] M3.04a Congelar os dados do contrato e registrar intenção no aceite — evidência: preparo/verificação local dafonte24b9d7f/PR69draft;107 nova/106 anteriores byte a byte intactas,61banco comdez próprios/14navegador375-1440/semretry/foco final1constraint passaram. Snapshot/SHA/intenção únicos/identidade pessoa-empresa/legado sem reconstrução/replay/concorrência/rollback/alterações posteriores/RLS/negações conferidos. Baseline107/controles/grants anteriores preservados,registros/faults vazios/advisors após migration e final semachados. Formato/lint/tipos1494unidades75/43scripts locais passam;check/build exatoCI38370677082/job115206601823/artefato11798558577/checkout1fa9cdfc/pais/árvore/lock/config/inventário aprovados. CI69 geral vivo/fonte preservada;sem aprovação integral inferida. PDF/arquivamento/telas/download obrigatórios em b/c/d. docs/evidencias/contratos/snapshot/ci69-build.json
 - [ ] M3.04b Gerar e arquivar o PDF de modo retomável — depende de a; bytes/SHA imutáveis, associação única e estados de geração; PDF longo fictício com QA visual
 - [x] M3.04b1 Renderizar o contrato exclusivamente do snapshot — evidência: fonte839a6fd/PR70draft; sete próprios/1.501 unitários em76 arquivos/43scripts/integração1pass, formato/lint/tipos e check/build exatoCI38385736816/job115256947318/artefato11805097928/checkout7cb3d864/pais/árvore/lock/config/inventário conferidos. PDFs fictícios2/43/2páginas,64k+64ktextos completos,bytes repetidos/após edição iguais, datas do aceite,CRC/identidade/numeração/margens e47páginas QA comprovados. Baseline107/controles/grants/advisors preservados. Somente renderer local; arquivamento/b2-b4/c/d e operação real permanecem abertos. docs/evidencias/contratos/renderizacao/ci70-build.json
-- [ ] M3.04b2 Persistir ciclo retomável de geração e associação do arquivo — depende de b1; claims/fences, estados/recibos únicos, SHA/bytes imutáveis e autorização mínima
+- [ ] M3.04b2 Persistir ciclo retomável de geração e associação do arquivo — ⏳ em implementação local fictícia: migration108 com reserva/epoch/recibo, metadados imutáveis e estado de falha; nenhum ready antes da prova de transporte em b3. Depende de b1 concluída;1–107 serão preservadas.
 - [ ] M3.04b3 Integrar transporte privado de arquivamento ao processador — depende de b2; upload sem sobrescrita, conferência de objeto existente, perdas antes/depois da gravação e recuperação
 - [ ] M3.04b4 Ligar consumo das intenções ao aceite e consolidar geração — depende de b3; execução fora da resposta, intenção durável/retomada/lote autorizado e regressão integral do arquivamento
 - [ ] M3.04c Integrar contrato privado às telas e ao download auditado — depende de b; pendência/falha/recuperação, leitura por cliente/calculista, resposta perdida sem duplicação
@@ -2110,6 +2118,7 @@ Prazo sugerido: a planejar
 
 - **Fazer:** migration nova após107, mantendo as anteriores intactas. Criar ciclo privado com RLS/claims/fences/recibos/estados e associação única ao snapshot/versão do renderer; preparar metadados de tamanho/SHA antes do transporte e fechar arquivo imutável só depois da conferência. Getters e comandos mínimos por ator/serviço autorizado.
 - **Verificar:** concorrência, replay, perda de resposta, recuperação de claim vencido, rollback, substituição de arquivo recusada, estrangeiros/papéis indevidos e limpeza; nenhum estado ready sem prova do transporte em b3.
+- **Recorte de108:** reserva privada por proposta/snapshot/renderer, recibo de claim e contador monotônico, metadados de destino/SHA/tamanho preparados uma única vez e estados de processamento/falha. Reclaim preserva os metadados e invalida o worker anterior. Nenhum caminho de108 produz ready: b3 acrescentará a confirmação após transporte e conferência dos bytes. Getter do cliente/calculista não retorna caminho privado nem concede download.
 
 #### M3.04b3 Transporte de arquivamento privado
 
@@ -3150,3 +3159,5 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-13 | Codex | Seletores antigos404 corrigidos e jornadas verificadas (M2.35h) | Três seletores passam a procurar Página não encontrada;12 percursos/45,5s/sem retries/375-1440 aprovados. Oito capturas revisadas por dois hashes idênticos em cada largura; negações e API404 preservadas. Read-back107/controles/grants idênticos,advisors sem achados;1.501 unidades76/43scripts/formato/lint/tipos aprovados,buildlocalEPERM. Check/build próprio pendente; não fecha f/g/d2 nem o objetivo integral. |
 
 | 2026-10-13 | Codex | Correção de seletores conferida no build exato (M2.35h) | Fontee153aee/PR71draft,CI38388687687/job115266740388 success; artefato11807404140,checkout73dbfcf5,pais/árvore/lock/config/inventário e fonte local conferidos. M2.35h concluída no recorte local com12 percursos/45,5s/sem retries,8capturas e baseline107 preservado. CI70/job115256947552 eCI71/job115266740022 confirmados vivos na etapa de banco; contagens remotas não inferidas. Fontes preservadas, main9a25f31 inalterada. Próxima M3.04b2, sem implementação iniciada nesta sessão; f/g/d2/arquivamento/download/GATEs e objetivo integral abertos. |
+
+| 2026-10-13 | Codex | Auditoria e correção do método após feedback do Fábio | Consulta ao histórico das12h confirmou85commits,64somente plano/evidências;GitHub69PRs abertos/18drafts e main9a25f31 inalterada. Reconhecida fragmentação e validação excessivas, sem medir progresso por número de testes. Correção registrada: próxima entrega completa M3.04b2/b3/b4/c/d no ambiente local fictício, testes pertinentes durante a implementação e regressão na consolidação; não criar PRs de evidência/observação. Todas as regras de acesso, integridade, migrations, qualidade e aprovações preservadas; não altera o escopo integral. |
