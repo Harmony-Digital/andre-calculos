@@ -41,10 +41,15 @@
     "build": "EPERM binding internal Turbopack port"
   },
   "wholeBank": {
-    "status": "running",
+    "status": "passed",
     "sessionId": 87664,
-    "log": ".data/revisao/webhook-c3c2a-banco-geral-retake.log",
-    "sameSource": "e66c1a00c538263a5f9fb0717e58e995de1a3cf3"
+    "exitCode": 0,
+    "tests": 1070,
+    "files": 53,
+    "seconds": 1174.07,
+    "all32OwnIncluded": true,
+    "sameSource": "e66c1a00c538263a5f9fb0717e58e995de1a3cf3",
+    "log": "banco-geral-retake.log"
   },
   "originalSha256": {
     "seis-primeira.log": "d15b81c63f6e3b9d2f93ef3dd021c62448d3df5062edfed8b2e825980aae6df6",
@@ -63,10 +68,16 @@
     "repro-acesso-entrega.log": "fa91272c0e24c65bd74a1b3eb74ef5da2b8fae7a962d28b4c46011f05630a8b1",
     "readback-repro.log": "5bacec851e00219a29b21de2564ea4779c519332c8289d8e83f722c4ec9cda88",
     "controles-repro.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
-    "advisors-repro.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+    "advisors-repro.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "banco-geral-retake.log": "2a81299e289b6689a738614d65d0d6843daafd481be4b8237eb25590de1509f8",
+    "readback-final.log": "5bacec851e00219a29b21de2564ea4779c519332c8289d8e83f722c4ec9cda88",
+    "controles-finais.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "grants-finais.jsonl": "ad4eee5e2041c00dad88a0d682e33388fe39d4ae40b408108b064506577e3a09",
+    "advisors-finais.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
   },
   "remaining": [
-    "whole bank/final readback/exact source build",
+    "CI59 whole remote result remains separate",
+    "M2.35f preference instability",
     "C3c2b consumers/preconditions",
     "C3c2c concurrency/loss/consolidation",
     "C3c3 browser widths/Axe",
@@ -99,6 +110,17 @@
     "passed": true,
     "noLimitsOrTestsChanged": true,
     "readbackAndControlsIntact": true,
+    "advisorsNoIssues": 2
+  },
+  "finalReadback": {
+    "identicalToFocus": true,
+    "controlsIdentical": true,
+    "grantsIdentical": true,
+    "migrations": 106,
+    "publicRls": 25,
+    "privateRls": 61,
+    "profiles": 4,
+    "temporaryObjects": 0,
     "advisorsNoIssues": 2
   }
 }
