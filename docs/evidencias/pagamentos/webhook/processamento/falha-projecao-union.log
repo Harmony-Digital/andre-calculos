@@ -1,0 +1,246 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-worker.test.ts tests/integration/webhook-receipts.test.ts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/webhook-worker.test.ts (24 tests | 18 failed) 35455ms
+   × recepção→claim→GET T conserva origem e consulta durável sem aplicar crédito 1656ms
+   × claim e consulta retomados conservam recibo original e apenas um GET 1496ms
+   × dois workers concorrentes recebem um claim e um busy 1463ms
+   × lease expirado renova epoch/worker e conserva query para replay 1419ms
+   × evento novo invalida o lote e novo claim usa outro run/query 1431ms
+   × conflito após GET impede registrar uma consulta para fonte antiga 1404ms
+   × identidade divergente em customer não consulta nem aplica 1462ms
+   × identidade divergente em externalReference não consulta nem aplica 1584ms
+   × mesma solicitação com outro evento é recusada e preserva recibo 1377ms
+   × rollback da auditoria não deixa run/claim nem fila em processamento 1653ms
+   × consulta mais recente fora do run exige run/query novos para retomar 1394ms
+   × identidade divergente em conflito de id também isola a charge sem GET 1413ms
+   × identidade divergente em conflito de customer também isola a charge sem GET 1470ms
+   × identidade divergente em conflito de externalReference também isola a charge sem GET 1437ms
+   × conflito com pagamento diferente espera a barreira do pagamento original 1593ms
+   × evento mínimo e evento antigo consultam o estado atual sem decidir por timestamp 1454ms
+   × falha ao auditar consulta conserva GET durável e retry não consulta novamente 1358ms
+   × claim expirado não inicia GET e recepção continua pendente 1392ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 18 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > recepção→claim→GET T conserva origem e consulta durável sem aplicar crédito
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:162:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > claim e consulta retomados conservam recibo original e apenas um GET
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:185:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > dois workers concorrentes recebem um claim e um busy
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ tests/integration/webhook-worker.test.ts:192:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > lease expirado renova epoch/worker e conserva query para replay
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:200:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > evento novo invalida o lote e novo claim usa outro run/query
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:217:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > conflito após GET impede registrar uma consulta para fonte antiga
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:232:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > identidade divergente em customer não consulta nem aplica
+ FAIL  tests/integration/webhook-worker.test.ts > identidade divergente em externalReference não consulta nem aplica
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:259:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > mesma solicitação com outro evento é recusada e preserva recibo
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:294:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > rollback da auditoria não deixa run/claim nem fila em processamento
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:316:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > consulta mais recente fora do run exige run/query novos para retomar
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:331:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > identidade divergente em conflito de id também isola a charge sem GET
+ FAIL  tests/integration/webhook-worker.test.ts > identidade divergente em conflito de customer também isola a charge sem GET
+ FAIL  tests/integration/webhook-worker.test.ts > identidade divergente em conflito de externalReference também isola a charge sem GET
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:360:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > conflito com pagamento diferente espera a barreira do pagamento original
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:374:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > evento mínimo e evento antigo consultam o estado atual sem decidir por timestamp
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ tests/integration/webhook-worker.test.ts:385:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > falha ao auditar consulta conserva GET durável e retry não consulta novamente
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:399:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/18]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > claim expirado não inicia GET e recepção continua pendente
+Error: Processamento de webhook indisponível.
+ ❯ Module.claimFixturePaymentWebhook src/modules/payments/webhook-worker.ts:85:11
+     83|     return receipt;
+     84|   } catch {
+     85|     throw new Error(unavailable);
+       |           ^
+     86|   }
+     87| }
+ ❯ claim tests/integration/webhook-worker.test.ts:53:26
+ ❯ tests/integration/webhook-worker.test.ts:425:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/18]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  18 failed | 32 passed (50)
+   Start at  20:56:24
+   Duration  70.90s (tests 100%)

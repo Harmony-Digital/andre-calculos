@@ -1,0 +1,109 @@
+{
+  "run": 38307722471,
+  "source": "8531d09cd3313fa153a1f9320090d623f7a42789",
+  "job": 115005709775,
+  "conclusion": "success",
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm ci",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npx playwright install --with-deps chromium",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run sudo apt-get update && sudo apt-get install -y poppler-utils",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run supabase/setup-cli@v3",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run node scripts/start-local.mjs",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run bash ../scripts/dev-env.sh npm run test:rls",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Advisors locais",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Encerrar Supabase local",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run supabase/setup-cli@v3",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 11774864610,
+      "name": "evidencias-de-testes",
+      "expired": false,
+      "size_in_bytes": 69773805,
+      "digest": "sha256:4177c6792d6522b0b86eb03519569c1174151ad903e2621d292760f686d5a0e4"
+    },
+    {
+      "id": 11772944001,
+      "name": "inventario-dependencias",
+      "expired": false,
+      "size_in_bytes": 23350,
+      "digest": "sha256:cd35d05c68ba001cc0a8386e6f4032819b799fa1ab5730c457ca1db7b3883a23"
+    }
+  ]
+}

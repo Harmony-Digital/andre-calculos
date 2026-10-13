@@ -1,0 +1,14 @@
+Running 12 tests using 1 worker
+  ✓   1 [computador] › tests/e2e/auth.spec.ts:3:5 › sessão server, logout e área protegida (998ms)
+  ✓   2 [computador] › tests/e2e/auth.spec.ts:19:5 › cliente não entra no painel (558ms)
+  ✓   3 [computador] › tests/e2e/auth.spec.ts:27:5 › calculista entra no painel e conta anônima recebe login (590ms)
+  ✓   4 [computador] › tests/e2e/auth.spec.ts:35:5 › senha incorreta recebe mensagem genérica (308ms)
+  ✓   5 [computador] › tests/e2e/email-auth.spec.ts:38:5 › recuperação de senha e link de acesso pelo Mailpit (3.2s)
+  ✓   6 [computador] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.7s)
+  ✓   7 [celular] › tests/e2e/auth.spec.ts:3:5 › sessão server, logout e área protegida (805ms)
+  ✓   8 [celular] › tests/e2e/auth.spec.ts:19:5 › cliente não entra no painel (522ms)
+  ✓   9 [celular] › tests/e2e/auth.spec.ts:27:5 › calculista entra no painel e conta anônima recebe login (474ms)
+  ✓  10 [celular] › tests/e2e/auth.spec.ts:35:5 › senha incorreta recebe mensagem genérica (295ms)
+  ✓  12 [celular] › tests/e2e/logout-synchronization.spec.ts:12:5 › logout atrasado conclui sessão antes de iniciar recuperação (3.7s)
+  1 skipped
+  11 passed (17.4s)
