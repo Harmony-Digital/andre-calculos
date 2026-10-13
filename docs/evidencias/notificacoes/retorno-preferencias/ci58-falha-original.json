@@ -1,0 +1,12 @@
+{
+  "run": 38333974324,
+  "source": "95506a1500f8b6379b035f5ce817e5c3a37f18a8",
+  "job": 115089806250,
+  "originalLogSha256": "1fe87d73cbc95055a3b57dd321c34a77f96731df9f6caa8b0a74cf57110a4f9f",
+  "case": "notification-preferences.spec.ts/celular",
+  "globalTestTimeoutMs": 90000,
+  "cleanupError": "page.unrouteAll target page/context/browser closed",
+  "passedOnRetry": true,
+  "primaryStageAtTimeout": "unknown; no stage diagnostic captured",
+  "sameCauseAsCI57Proven": false
+}
