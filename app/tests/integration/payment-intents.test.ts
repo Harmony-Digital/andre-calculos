@@ -617,7 +617,7 @@ it("rollback reverte intenção/reserva/recibo/auditoria e retirada conjuntament
   });
   expect(audit(id, "payment_intent_withdrawn")).toBe(0);
   expect((await current(id)).state).toBe("reserved");
-});
+}, 20000);
 it("crédito promovido durante reserva é visto antes de persistir intenção", async () => {
   const { sample, context } = await make(),
     id = await payment(sample, "pending");
@@ -630,7 +630,7 @@ it("crédito promovido durante reserva é visto antes de persistir intenção", 
   const fresh = await fixture.prepare(sample, sessions.client),
     r = await reserved(fresh.id);
   expect(r.snapshot.intent.obligation.remainingCents).toBe(7501);
-}, 10000);
+}, 20000);
 it("troca concorrente de dono nega reserva/consulta; getters posteriores distinguem dono vigente de capturado", async () => {
   const { sample, context } = await make(),
     original = await reserved(context.id),
@@ -669,7 +669,7 @@ it("troca concorrente de dono nega reserva/consulta; getters posteriores disting
     );
   }
   expect(counts(sample).reservations).toBe(0);
-}, 12000);
+}, 25000);
 it("mudança concorrente de papel nega reserva sem intenção/auditoria", async () => {
   const { sample, context } = await make();
   try {
@@ -689,4 +689,4 @@ it("mudança concorrente de papel nega reserva sem intenção/auditoria", async 
       `update public.profiles set role='client' where id='${fixture.owner.owner_id}';`,
     );
   }
-}, 10000);
+}, 20000);

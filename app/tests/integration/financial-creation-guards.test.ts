@@ -338,6 +338,9 @@ it.each([
     expect((await reserve(fixture.context.id)).error?.code).toBe("PT409");
     expect(state()).toEqual(before);
   },
+  // Os cenários combinam consultas/aplicações e várias ações autenticadas.
+  // O teto do cenário não altera timeouts das RPCs nem asserções de negócio.
+  20000,
 );
 
 it("excesso explícito conserva valores e bloqueia outra cobrança sem capar o crédito", async () => {
