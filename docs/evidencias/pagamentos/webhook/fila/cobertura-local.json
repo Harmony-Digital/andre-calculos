@@ -32,9 +32,14 @@
     "build": "EPERM binding internal Turbopack port"
   },
   "wholeBank": {
-    "status": "running",
+    "status": "passed",
     "sessionId": 64473,
-    "log": ".data/revisao/webhook-c3c1-banco-geral.log"
+    "exitCode": 0,
+    "tests": 1038,
+    "files": 52,
+    "seconds": 1057.33,
+    "includesAll25WorkerCases": true,
+    "log": "banco-geral.log"
   },
   "originalSha256": {
     "banco-combinado.log": "a2e74eb3006871db347c86c047a8732ea9ae5d8dd3ac1660fc36784e70b059e8",
@@ -47,16 +52,32 @@
     "controles-focados.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
     "grants-focados.jsonl": "ad4eee5e2041c00dad88a0d682e33388fe39d4ae40b408108b064506577e3a09",
     "tipos-sha.json": "797f400bcfd95c7d8ead9a789217167eed66cc0ec3d57ea01d855ebcc1538721",
-    "check-local-completo": "3b93a59f0666b8a9b33e21dfd64796d1d9d8aba98ee3ca1901185e3eb7d70889"
+    "check-local-completo": "3b93a59f0666b8a9b33e21dfd64796d1d9d8aba98ee3ca1901185e3eb7d70889",
+    "banco-geral.log": "85aaa6c1acedb66bfaf80199d60a263543a42ef8a7b31f05c435cfd6095fc03a",
+    "readback-final.log": "5bacec851e00219a29b21de2564ea4779c519332c8289d8e83f722c4ec9cda88",
+    "controles-finais.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "grants-finais.jsonl": "ad4eee5e2041c00dad88a0d682e33388fe39d4ae40b408108b064506577e3a09",
+    "advisors-finais.log": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
   },
   "remaining": [
-    "whole bank and final read-back",
-    "exact source check/build in CI",
+    "CI58 whole remote run has separate tracking",
     "C3c2 full methods/phases/consumer journeys",
     "C3c3 browser 375/1440/Axe",
     "C4 authorized real sandbox"
   ],
   "source": "95506a1500f8b6379b035f5ce817e5c3a37f18a8",
   "pullRequest": "https://github.com/Harmony-Digital/andre-calculos/pull/58",
-  "ciRun": 38333974324
+  "ciRun": 38333974324,
+  "finalReadback": {
+    "identicalToFocus": true,
+    "controlsIdentical": true,
+    "grantsIdentical": true,
+    "migrations": 106,
+    "publicRls": 25,
+    "privateRls": 61,
+    "profiles": 4,
+    "temporaryObjects": 0,
+    "privateWebhookGrants": 0,
+    "advisorsNoIssues": 2
+  }
 }
