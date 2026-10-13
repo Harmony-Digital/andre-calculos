@@ -32,10 +32,11 @@
   "advisors": "security and performance: No issues found",
   "noDatabaseBusinessOrAuthChange": true,
   "stillPending": [
-    "exact CI build",
     "d remaining visual/full regression",
     "C4",
     "f/g root cause",
     "overall goal"
-  ]
+  ],
+  "exactCiBuildProof": "ci68-build.json",
+  "source": "97f938cb53161bf78eb79b251f65cd2576f9f574"
 }

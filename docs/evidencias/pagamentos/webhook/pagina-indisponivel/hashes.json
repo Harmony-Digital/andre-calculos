@@ -1,7 +1,7 @@
 [
   {
     "path": "README.md",
-    "sha256": "b07ff272cabcc67be9b022ce6b60e2c0f41ae46d00c29061d3bb49729dca26df"
+    "sha256": "1237b05d9216e9d7b2a7a5416217dbdfcd75056284a6290991a93cbe69f3df4b"
   },
   {
     "path": "advisors.log",
@@ -52,6 +52,10 @@
     "sha256": "7c4397a37a6c9b824549984615ba781a3e55404c95debd447b423188bd965aa9"
   },
   {
+    "path": "ci68-build.json",
+    "sha256": "716bcdae8699bd45b03d8a7a8d4ae68a65378c28ebca7944d6069d9c318671ef"
+  },
+  {
     "path": "controles.log",
     "sha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c"
   },
@@ -69,6 +73,6 @@
   },
   {
     "path": "verificacao-local.json",
-    "sha256": "740126d0a1ac1036cc3db65b3761f49d5cb096b74a56c8ddb2df03a4b53b52ea"
+    "sha256": "2c08f2bb19d31995f89ea2725cd137cea4b3060dad212dbe498cc34873aff76a"
   }
 ]
