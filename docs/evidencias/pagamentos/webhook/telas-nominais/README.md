@@ -11,3 +11,5 @@ O primeiro filtro de nome não encontrou testes e terminou com exit1; foi corrig
 Read-back, controles e grants finais são idênticos ao baseline: 106 migrations, 25 tabelas públicas e 61 privadas com RLS, quatro perfis, fixture desativada e pagamento manual original pendente de 12.500 centavos. Ambos os advisors retornaram `No issues found`. Os contextos, runner, arquivos e fixtures foram encerrados e limpos.
 
 Formato, lint, tipos, 1.494 testes unitários em 75 arquivos e 43 testes de scripts passaram. O build local encontrou a restrição EPERM da porta interna do Turbopack; a prova do check/build da fonte exata deve vir do CI. Produto, SQL, scripts e workflow não foram alterados. Estados financeiros adversos, consolidação visual final e ensaio externo permanecem nos recortes próprios c/d/C4. Nenhum pagamento, assinatura ou publicação real foi realizado.
+
+O check/build exato da fonteae54918 passou no CI38351265047/job115143975651. `ci64-build.json` confere artefato11791172162, checkout791e9564, pais main9a25+fonte, árvore, lock/config e inventário. A execução integral remota conserva comprovação própria.
