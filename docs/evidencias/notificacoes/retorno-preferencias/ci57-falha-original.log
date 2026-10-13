@@ -1,0 +1,44 @@
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:27:47.7119829Z ##[error]  1) [celular] › tests/e2e/notification-preferences.spec.ts:9:5 › preferências por canal preservam escolha, recusam edição antiga e controlam novos avisos
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Error: expect(locator).toHaveText(expected) failed
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Locator:  getByRole('form', { name: 'E-mail para Nova mensagem', exact: true }).getByRole('status')
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Expected: "Preferência salva."
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Received: ""
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Timeout:  5000ms
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Call log:
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	      - Expect "toHaveText" getByRole('form', { name: 'E-mail para Nova mensagem', exact: true }).getByRole('status') with timeout 5000ms
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	      - waiting for getByRole('form', { name: 'E-mail para Nova mensagem', exact: true }).getByRole('status')
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	        10 × locator resolved to <p role="status" aria-live="polite"></p>
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	           - unexpected value ""
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	      105 |     expect(pending.rows).toEqual([{ channel: "email", status: "pending" }]);
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	      106 |     const email = await save(page, "E-mail", "no");
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    > 107 |     await expect(email.getByRole("status")).toHaveText("Preferência salva.");
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	          |                                             ^
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	      108 |     await expect(email.locator('input[name="revision"]')).toHaveValue("1");
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	      109 |     const omitted = await send();
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	      110 |     expect(omitted.rows).toEqual([]);
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	        at /home/runner/work/andre-calculos/andre-calculos/app/tests/e2e/notification-preferences.spec.ts:107:45
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:28:49.8537451Z ······
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7796010Z [WebServer] ⨯ Error: Acesso não autorizado.
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7796996Z [WebServer]     at authorize (src/modules/auth/session.ts:39:11)
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7798054Z [WebServer]     at async getConfiguration (src/modules/settings/queries.ts:34:19)
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7799345Z [WebServer]     at async Configuration (src/app/(painel)/painel/configuracoes/page.tsx:18:5)
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7800404Z [WebServer]   37 |   const session = await getSessionProfile();
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7801332Z [WebServer]   38 |   if (!session || !roles.includes(session.profile.role))
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7802490Z [WebServer] > 39 |     throw new Error("Acesso não autorizado.");
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7803231Z [WebServer]      |           ^
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7803795Z [WebServer]   40 |   return session;
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7804322Z [WebServer]   41 | }
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7804779Z [WebServer]   42 | {
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7805275Z [WebServer]   digest: '2720577604'
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:30:50.7806035Z [WebServer] }
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:31:12.8498481Z ·°·······°·····°°······
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:31:12.8505533Z
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:31:12.8514519Z   1) [celular] › tests/e2e/notification-preferences.spec.ts:9:5 › preferências por canal preservam escolha, recusam edição antiga e controlam novos avisos
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:31:12.8517406Z
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:31:12.8518060Z     Error: expect(locator).toHaveText(expected) failed
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:31:12.8518668Z
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T02:31:12.8519410Z     Locator:  getByRole('form', { name: 'E-mail para Nova mensagem', exact: true }).getByRole('status')

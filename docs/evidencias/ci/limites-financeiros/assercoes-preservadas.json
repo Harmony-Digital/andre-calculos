@@ -1,0 +1,19 @@
+{
+  "source": "9a39602566ee8c97bb33a07689f0e54c9d614427",
+  "changes": [
+    {
+      "file": "app/tests/integration/financial-creation-guards.test.ts",
+      "assertionsFixturesAndLockBudgetsIdentical": true,
+      "normalizedSha256": "d2b69c80f1a6a1b31042fe1515fd38b8b782505c6555900fa6d0b651f24a2d9e"
+    },
+    {
+      "file": "app/tests/integration/payment-intents.test.ts",
+      "assertionsFixturesAndLockBudgetsIdentical": true,
+      "normalizedSha256": "952dc2efa40a6d26d6226a8610aa49b214d20eb17d0e4aceed0aee6d28c725f9"
+    }
+  ],
+  "applicationSqlScriptsWorkflowUnchanged": true,
+  "lockPollMilliseconds": 3000,
+  "statementAndIdleTransactionMilliseconds": 8000,
+  "leasesAndSettingsAssertionUnchanged": true
+}

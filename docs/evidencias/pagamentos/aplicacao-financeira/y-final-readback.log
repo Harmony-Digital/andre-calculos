@@ -1,0 +1,37 @@
+Connecting to local database...
+No issues found
+{"results":[],"message":"db advisors"}
+Connecting to local database...
+No issues found
+{"results":[],"message":"db advisors"}
+{"migrations" : 84, "public_tables" : 25, "private_tables" : 52, "public_rls" : 25, "private_rls" : 52, "profiles" : 4, "fixture_enabled" : false, "payments" : 1}
+payment_customer_requests=0
+payment_customer_steps=0
+payment_customer_work=0
+payment_execution_observations=0
+payment_execution_protocols=0
+payment_execution_runs=0
+payment_execution_steps=0
+payment_financial_applications=0
+payment_financial_charges=0
+payment_financial_conflicts=0
+payment_financial_observations=0
+payment_financial_positions=0
+payment_financial_queries=0
+payment_fixture_controls=0
+payment_fixture_customers=0
+payment_fixture_environment=1
+payment_fixture_invocations=0
+payment_fixture_payments=0
+payment_fixture_requests=0
+payment_intent_dispatch_claims=0
+payment_intent_requests=0
+payment_intent_reservations=0
+payment_intent_resolutions=0
+payment_intent_withdrawals=0
+payment_intents=0
+payment_legacy_bindings=0
+payment_obligation_contexts=0
+payment_provider_configuration=0
+payment_provider_customers=0
+payment_provider_scopes=0

@@ -1,0 +1,13 @@
+All matched files use Prettier code style!
+> eslint . --max-warnings=0
+> next typegen && tsc --noEmit
+ Test Files  69 passed (69)
+      Tests  1392 passed (1392)
+All matched files use Prettier code style!
+# tests 12
+All matched files use Prettier code style!
+# tests 31
+- binding to a port
+- Operation not permitted (os error 1)
+- binding to a port
+- Operation not permitted (os error 1)

@@ -1,0 +1,70 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-consumers.test.ts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/webhook-consumers.test.ts (27 tests | 2 failed) 70477ms
+   × sinal partial: consumidores e documento respeitam crédito 10000 sem aprovação automática 2021ms
+   × saldo partial: liberação posterior usa crédito 10000 e preserva sinal 2493ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-consumers.test.ts > sinal partial: consumidores e documento respeitam crédito 10000 sem aprovação automática
+AssertionError: expected { schemaVersion: 1, …(23) } to match object { depositCreditCents: 10000, …(2) }
+(21 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "depositCreditCents": 10000,
++   "depositCreditCents": null,
+    "manualDepositCents": 0,
+-   "totalCreditCents": 10000,
++   "totalCreditCents": null,
+  }
+
+ ❯ readings tests/integration/webhook-consumers.test.ts:217:35
+    215|     calculatorCredit = await current(calc);
+    216|   expect(clientCredit).toEqual(calculatorCredit);
+    217|   expect(clientCredit.projection).toMatchObject({
+       |                                   ^
+    218|     depositCreditCents: expectedDeposit,
+    219|     totalCreditCents: expectedTotal,
+ ❯ tests/integration/webhook-consumers.test.ts:369:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/integration/webhook-consumers.test.ts > saldo partial: liberação posterior usa crédito 10000 e preserva sinal
+AssertionError: expected { schemaVersion: 1, …(23) } to match object { depositCreditCents: 12501, …(2) }
+(21 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "depositCreditCents": 12501,
+    "manualDepositCents": 0,
+-   "totalCreditCents": 22501,
++   "totalCreditCents": null,
+  }
+
+ ❯ readings tests/integration/webhook-consumers.test.ts:217:35
+    215|     calculatorCredit = await current(calc);
+    216|   expect(clientCredit).toEqual(calculatorCredit);
+    217|   expect(clientCredit.projection).toMatchObject({
+       |                                   ^
+    218|     depositCreditCents: expectedDeposit,
+    219|     totalCreditCents: expectedTotal,
+ ❯ tests/integration/webhook-consumers.test.ts:402:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 25 passed (27)
+   Start at  00:44:31
+   Duration  70.76s (tests 100%)

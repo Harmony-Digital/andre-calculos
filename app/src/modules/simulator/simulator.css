@@ -1,0 +1,191 @@
+.simulator-page {
+  padding-block: clamp(2rem, 5vw, 4.5rem);
+}
+.simulator-intro {
+  max-width: 760px;
+  margin-bottom: 2.5rem;
+}
+.simulator-intro h1 {
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  line-height: 1.08;
+  margin: 1rem 0;
+}
+.simulator-intro p {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+.simulator-professional {
+  font-size: 0.95rem !important;
+}
+.simulator-back {
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+.simulator-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+.simulator-form {
+  border-top: 1px solid var(--border);
+  padding-top: 1.75rem;
+}
+.simulator-sectionNumber {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.simulator-sectionNumber span {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+}
+.simulator-sectionNumber h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+.simulator-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+.simulator-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+.simulator-fields input,
+.simulator-fields select {
+  width: 100%;
+  min-width: 0;
+}
+.simulator-full {
+  grid-column: 1 / -1;
+}
+.simulator-help {
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 1.25rem 0;
+}
+.simulator-result {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--primary);
+  padding: 2rem;
+  position: sticky;
+  top: 1.5rem;
+}
+.simulator-totalLabel {
+  margin-top: 1.8rem;
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+}
+.simulator-total {
+  font-family: var(--font-source-serif), Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
+  line-height: 1.15;
+  color: var(--primary);
+  margin: 0.25rem 0 1.75rem;
+}
+.simulator-items {
+  padding: 0;
+  list-style: none;
+}
+.simulator-items li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-block: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+.simulator-items li div {
+  min-width: 0;
+}
+.simulator-items strong {
+  font-weight: 600;
+}
+.simulator-items small {
+  display: block;
+  color: var(--muted-foreground);
+  margin-top: 0.2rem;
+}
+.simulator-items li > span {
+  white-space: nowrap;
+  font-weight: 600;
+}
+.simulator-version {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  letter-spacing: 0.03em;
+}
+.simulator-empty {
+  padding: 1.5rem 0;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+.simulator-empty p:first-child {
+  font-family: var(--font-source-serif), Georgia, serif;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  color: var(--foreground);
+}
+.simulator-rule {
+  width: 3rem;
+  border-top: 2px solid var(--primary);
+  margin: 2rem 0;
+}
+.simulator-example {
+  margin: 1.5rem 0 0;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+@media (max-width: 850px) {
+  .simulator-workspace {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .simulator-result {
+    position: static;
+  }
+}
+@media (max-width: 450px) {
+  .simulator-fields {
+    grid-template-columns: 1fr;
+  }
+  .simulator-result {
+    padding: 1.25rem;
+  }
+  .simulator-sectionNumber h2 {
+    font-size: 1.35rem;
+  }
+  .simulator-items li {
+    flex-wrap: wrap;
+  }
+}
+
+.simulator-fields input,
+.simulator-fields select {
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.3rem;
+  background: var(--card);
+  color: var(--foreground);
+}
+.simulator-fields [aria-invalid="true"] {
+  border-color: var(--destructive);
+}
+
+.simulator-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}

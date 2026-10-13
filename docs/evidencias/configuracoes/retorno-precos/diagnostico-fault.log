@@ -1,0 +1,45 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:e2e
+> playwright test tests/e2e/settings.spec.ts --project=computador --grep salva dados profissionais --retries=0 --workers=1
+
+[WebServer] (node:19248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:19252) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:19262) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"diagnostic":"settings_example_return","path":"/painel/configuracoes","invalidFields":[],"alertPresent":1,"statusPresent":0,"pending":false,"versionCreated":false}
+  ✘  1 [computador] › tests/e2e/settings.spec.ts:42:5 › salva dados profissionais, ativa preços e conserva histórico (16.8s)
+
+
+  1) [computador] › tests/e2e/settings.spec.ts:42:5 › salva dados profissionais, ativa preços e conserva histórico
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('form', { name: 'Tabela de preços' }).getByRole('status')
+    Expected substring: "exemplo inativo"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByRole('form', { name: 'Tabela de preços' }).getByRole('status') with timeout 5000ms
+      - waiting for getByRole('form', { name: 'Tabela de preços' }).getByRole('status')
+
+
+      122 |       .click();
+      123 |     try {
+    > 124 |       await expect(priceForm.getByRole("status")).toContainText(
+          |                                                   ^
+      125 |         "exemplo inativo",
+      126 |       );
+      127 |     } catch (error) {
+        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/settings.spec.ts:124:51
+
+    Error Context: test-results/settings-salva-dados-profi-40961-preços-e-conserva-histórico-computador/error-context.md
+
+  1 failed
+    [computador] › tests/e2e/settings.spec.ts:42:5 › salva dados profissionais, ativa preços e conserva histórico

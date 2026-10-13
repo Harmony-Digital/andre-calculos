@@ -1,0 +1,60 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-queue.test.ts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/webhook-queue.test.ts (25 tests | 3 failed) 45386ms
+   × outro scope não entra no lote da conta configurada 2478ms
+   × cron desligado em ANDRE_LOCAL_TESTS=0 1389ms
+   × cron desligado em NEXT_PUBLIC_SUPABASE_URL=https://example.test 1411ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-queue.test.ts > outro scope não entra no lote da conta configurada
+AssertionError: expected { code: 'P0001', details: null, …(2) } to be null
+
+- Expected:
+null
+
++ Received:
+{
+  "code": "P0001",
+  "details": null,
+  "hint": null,
+  "message": "Notificação financeira indisponível",
+}
+
+ ❯ tests/integration/webhook-queue.test.ts:238:19
+    236|     source_hash: "a".repeat(64),
+    237|   });
+    238|   expect(r.error).toBeNull();
+       |                   ^
+    239|   expect((await runFixturePaymentWebhookQueue()).complete).toBe(1);
+    240|   expect(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/integration/webhook-queue.test.ts > cron desligado em ANDRE_LOCAL_TESTS=0
+ FAIL  tests/integration/webhook-queue.test.ts > cron desligado em NEXT_PUBLIC_SUPABASE_URL=https://example.test
+Error: Fixtures somente no banco local do André.
+ ❯ localSystem tests/e2e/local-helper.ts:33:11
+     31|     process.env.NEXT_PUBLIC_SUPABASE_URL !== "http://127.0.0.1:54321"
+     32|   )
+     33|     throw new Error("Fixtures somente no banco local do André.");
+       |           ^
+     34|   return createClient(
+     35|     process.env.NEXT_PUBLIC_SUPABASE_URL,
+ ❯ localNotificationSql tests/e2e/notification-helper.ts:14:3
+ ❯ Object.counts tests/e2e/webhook-journey-helper.ts:71:9
+ ❯ tests/integration/webhook-queue.test.ts:367:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 22 passed (25)
+   Start at  22:42:44
+   Duration  45.74s (tests 99%)

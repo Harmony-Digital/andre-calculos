@@ -2,6 +2,7 @@ import "server-only";
 import { notFound } from "next/navigation";
 import { authorize } from "@/modules/auth/session";
 import { createSessionClient } from "@/lib/supabase/server";
+import { parseCurrentOrderCredits } from "@/modules/payments/order-credit";
 import {
   dashboardWindow,
   deadlineFilter,
@@ -14,6 +15,7 @@ import {
   queueCursor,
   encodeQueueCursor,
   queuePaymentStatus,
+  queuePaymentNote,
 } from "./queue";
 export async function getWorkQueue(
   filter?: string,
@@ -35,7 +37,7 @@ export async function getWorkQueue(
   let query = db
     .from("orders")
     .select(
-      "id,code,process_id,calc_type,complexity,total_cents,deposit_cents,status,internal_due_date,process:processes!orders_process_id_client_id_fkey(client:clients!processes_client_id_fkey(legal_name,has_contract)),payments!payments_order_id_fkey(amount_cents,kind,status)",
+      "id,code,process_id,calc_type,complexity,status,internal_due_date,process:processes!orders_process_id_client_id_fkey(client:clients!processes_client_id_fkey(legal_name))",
     )
     .in("status", status ? [status] : [...queueStates])
     .order("internal_due_date", { ascending: true, nullsFirst: false })
@@ -55,18 +57,25 @@ export async function getWorkQueue(
   }
   const result = await query;
   if (result.error) throw new Error("Não foi possível carregar a fila.");
-  const rows = result.data.slice(0, 50).map((row) => {
+  const selected = result.data.slice(0, 50);
+  const ids = selected.map((row) => row.id);
+  const response = ids.length
+    ? await db.rpc("get_current_order_credits", { target_orders: ids })
+    : { data: [], error: null };
+  if (response.error)
+    throw new Error("Não foi possível conferir os valores da fila.");
+  const credits = parseCurrentOrderCredits(response.data, ids);
+  const rows = selected.map((row) => {
     if (!row.process?.client)
       throw new Error("Não foi possível carregar o cliente.");
+    const credit = credits.get(row.id)!;
     return {
       ...row,
       clientName: row.process.client.legal_name || "Cliente",
-      payment: queuePaymentStatus(
-        row.total_cents,
-        row.deposit_cents,
-        row.process.client.has_contract,
-        row.payments,
-      ),
+      credit,
+      totalCents: credit.projection.totalCents,
+      payment: queuePaymentStatus(credit),
+      paymentNote: queuePaymentNote(credit),
     };
   });
   return {
