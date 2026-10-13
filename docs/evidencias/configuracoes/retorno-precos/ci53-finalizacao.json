@@ -1,0 +1,93 @@
+{
+  "run": 38323467507,
+  "job": {
+    "conclusion": "success",
+    "id": 115056636895,
+    "steps": [
+      {
+        "conclusion": "success",
+        "name": "Set up job"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/checkout@v4"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/setup-node@v4"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npm ci"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npx playwright install --with-deps chromium"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run sudo apt-get update && sudo apt-get install -y poppler-utils"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run supabase/setup-cli@v3"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run node scripts/start-local.mjs"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run bash ../scripts/dev-env.sh npm run test:rls"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1"
+      },
+      {
+        "conclusion": "success",
+        "name": "Advisors locais"
+      },
+      {
+        "conclusion": "success",
+        "name": "Encerrar Supabase local"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/upload-artifact@v4"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run supabase/setup-cli@v3"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run actions/setup-node@v4"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run actions/checkout@v4"
+      },
+      {
+        "conclusion": "success",
+        "name": "Complete job"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "digest": "sha256:c02b7de3868d251547748ee90c5355f7227ff4eb971a4bd42721e92ecd1db973",
+      "expired": false,
+      "id": 11782283025,
+      "name": "evidencias-de-testes",
+      "size_in_bytes": 76151402
+    },
+    {
+      "digest": "sha256:3b4b07c7790d54a04bcb080fbc46093f2e9a72f4ea3f63c9cb5e693cfb80ef5b",
+      "expired": false,
+      "id": 11780335232,
+      "name": "inventario-dependencias",
+      "size_in_bytes": 23642
+    }
+  ]
+}

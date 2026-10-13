@@ -1,0 +1,11 @@
+{
+  "httpStatus": 200,
+  "mailboxTotal": 251,
+  "matchingCount": 0,
+  "pageCount": 0,
+  "returnedCount": 0,
+  "offset": 0,
+  "requestedLimit": 100,
+  "recipient": "aj-inexistente-fixture@exemplo.com",
+  "reference": "https://raw.githubusercontent.com/axllent/mailpit/master/server/ui/api/v1/swagger.json"
+}

@@ -1,0 +1,47 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-worker.test.ts -t consulta mais recente|identidade divergente em conflito
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/webhook-worker.test.ts (17 tests | 2 failed | 15 skipped) 3017ms
+   × consulta mais recente fora do run exige run/query novos para retomar 1588ms
+   × identidade divergente em conflito também isola a charge sem GET 1428ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > consulta mais recente fora do run exige run/query novos para retomar
+AssertionError: expected '4ecf7d65-d85e-4c65-82ab-8de625ac9863' not to be '4ecf7d65-d85e-4c65-82ab-8de625ac9863' // Object.is equality
+ ❯ tests/integration/webhook-worker.test.ts:282:26
+    280|   );
+    281|   const next = await claim();
+    282|   expect(next.runId).not.toBe(old.runId);
+       |                          ^
+    283|   expect(next.queryId).not.toBe(old.queryId);
+    284|   expect((await queryFixturePaymentWebhook(next)).run.state).toBe("que…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > identidade divergente em conflito também isola a charge sem GET
+AssertionError: expected 'claimed' to be 'identity_mismatch' // Object.is equality
+
+Expected: "identity_mismatch"
+Received: "claimed"
+
+ ❯ tests/integration/webhook-worker.test.ts:293:24
+    291|   await receive(text(id, { customer: "cus_other_fixture" }));
+    292|   const result = await claim();
+    293|   expect(result.state).toBe("identity_mismatch");
+       |                        ^
+    294|   expect(counts().gets).toBe(0);
+    295| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 15 skipped (17)
+   Start at  20:51:10
+   Duration  3.24s (tests 95%, transform 4%, import 2%)
