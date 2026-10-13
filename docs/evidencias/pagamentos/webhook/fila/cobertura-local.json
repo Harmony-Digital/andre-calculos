@@ -55,5 +55,8 @@
     "C3c2 full methods/phases/consumer journeys",
     "C3c3 browser 375/1440/Axe",
     "C4 authorized real sandbox"
-  ]
+  ],
+  "source": "95506a1500f8b6379b035f5ce817e5c3a37f18a8",
+  "pullRequest": "https://github.com/Harmony-Digital/andre-calculos/pull/58",
+  "ciRun": 38333974324
 }
