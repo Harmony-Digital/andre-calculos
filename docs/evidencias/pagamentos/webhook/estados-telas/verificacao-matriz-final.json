@@ -1,0 +1,29 @@
+{
+  "task": "M3.01c3c3c1",
+  "source": "961508819b1530aff55a529b69fd7bd7c5cd0c96",
+  "session": 16720,
+  "process": 49706,
+  "exit": 0,
+  "passed": 66,
+  "failed": 0,
+  "retries": 0,
+  "duration": "12.5m",
+  "captures": 302,
+  "widths": [
+    375,
+    1440
+  ],
+  "readbackControlsGrantsEqualBaseline": true,
+  "baseline": "106/25/61 RLS/4 profiles/fixture false/original manual 12500 pending",
+  "advisors": "security and performance: No issues found",
+  "sameAppSqlScriptsWorkflowAsCheckedCiSource": true,
+  "ciBuildProof": "ci65-build.json",
+  "finalVisualConsolidation": "scope d, not inferred from Axe or test pass",
+  "stillPending": [
+    "c2",
+    "d",
+    "C4",
+    "CI65 full",
+    "overall goal"
+  ]
+}

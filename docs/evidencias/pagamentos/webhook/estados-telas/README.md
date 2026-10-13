@@ -19,3 +19,5 @@ Read-back/controles/grants do foco são idênticos ao baseline106/25/61RLS/4perf
 Logs anteriores, diagnóstico e hashes foram conservados. O manifesto de capturas usa o algoritmo local de diretório do Playwright e foi conferido com o foco real; não foi necessário iniciar outra execução para listar casos. Nenhum token, URL assinada, cookie ou contato real foi arquivado. Pré-condições/perda de resposta, consolidação visual/regressão integral e sandbox externo conservam os recortes c2/d/C4.
 
 Check/build exato da fonte9615088 aprovado no CI38353635010/job115151421694: artefato11791519006, checkout42c049dd/pais main9a25+fonte, árvore/lock/config/inventário conferidos em `ci65-build.json`. Matriz final local e execução geral remota mantêm comprovação própria.
+
+A matriz final da fonte9615088 terminou com66pass/12,5min/exit0, sem retries. Os66 diretórios e302 capturas correspondem ao manifesto e aos resultados; hashes, read-back/controles/grants finais idênticos ao baseline e dois advisors estão arquivados. `verificacao-matriz-final.json` conserva a consolidação visual no recorte d e a execução integral doCI65 como provas próprias.
