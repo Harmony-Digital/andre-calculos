@@ -1,0 +1,37 @@
+{
+  "navegador-regressao": {
+    "originalSha256": "02087a173f08deeae662f5b9cbed6327d29678cc70eb0689daea86991094144b",
+    "artifactSha256": "834be2ce5f5751c9379fca3ad66563687c1006e6e9cbcfdd1fd10d44169fae43",
+    "selection": "Resultados/comandos/diagnostico selecionados quando aplicavel,espacos finais removidos"
+  },
+  "banco-regressao": {
+    "originalSha256": "481d514e4c77bc230b7388e29e2ba2a16153f0b177ac3529f239c3515f23e944",
+    "artifactSha256": "543fbfbca6e6e929d08064a53baa970615a8a3ce092d0872c7dfbbb7afe7f8cc",
+    "selection": "Resultados/comandos/diagnostico selecionados quando aplicavel,espacos finais removidos"
+  },
+  "check-local": {
+    "originalSha256": "40a21e2f2135f2f99275bd9acaf553d5d9f62c5f4511e44c48fc86cb50ac8dd7",
+    "artifactSha256": "5e5c1af459174cf0851a25f744783a549abf02410f9a74263a2e14efffedd7f2",
+    "selection": "Resultados/comandos/diagnostico selecionados quando aplicavel,espacos finais removidos"
+  },
+  "read-back": {
+    "originalSha256": "d2de5e9a49f41080c37a9d4ef71b53b9531a7701007807e4fd5b13e5ebf6dc23",
+    "artifactSha256": "d2de5e9a49f41080c37a9d4ef71b53b9531a7701007807e4fd5b13e5ebf6dc23",
+    "selection": "Resultados/comandos/diagnostico selecionados quando aplicavel,espacos finais removidos"
+  },
+  "controles": {
+    "originalSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "artifactSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "selection": "Resultados/comandos/diagnostico selecionados quando aplicavel,espacos finais removidos"
+  },
+  "advisors": {
+    "originalSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "artifactSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "selection": "Resultados/comandos/diagnostico selecionados quando aplicavel,espacos finais removidos"
+  },
+  "temporarios": {
+    "originalSha256": "91e6a7d823ff38f5f8fe44e71ffdb7f77b340f6bd489c43c1694f4ee4a6ac12f",
+    "artifactSha256": "91e6a7d823ff38f5f8fe44e71ffdb7f77b340f6bd489c43c1694f4ee4a6ac12f",
+    "selection": "Resultados/comandos/diagnostico selecionados quando aplicavel,espacos finais removidos"
+  }
+}

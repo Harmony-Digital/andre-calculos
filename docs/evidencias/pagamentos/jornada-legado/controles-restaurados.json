@@ -1,0 +1,37 @@
+{
+  "before": {
+    "recipient": "f1c6fc07-ec2e-4334-bd4b-44fd8e5bb3e8",
+    "financial_preferences": [],
+    "preference_changes": [],
+    "fixture_enabled": false,
+    "release_policy": null,
+    "profiles": 4,
+    "files": {
+      "pending": 1,
+      "uploaded": 0
+    },
+    "original_payment": {
+      "amount": 12500,
+      "status": "pending",
+      "method": "pix_manual"
+    }
+  },
+  "after": {
+    "recipient": "f1c6fc07-ec2e-4334-bd4b-44fd8e5bb3e8",
+    "financial_preferences": [],
+    "preference_changes": [],
+    "fixture_enabled": false,
+    "release_policy": null,
+    "profiles": 4,
+    "files": {
+      "pending": 1,
+      "uploaded": 0
+    },
+    "original_payment": {
+      "amount": 12500,
+      "status": "pending",
+      "method": "pix_manual"
+    }
+  },
+  "equal": true
+}

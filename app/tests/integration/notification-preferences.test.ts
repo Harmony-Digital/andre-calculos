@@ -1,6 +1,7 @@
 import { beforeAll, beforeEach, afterAll, it, expect } from "vitest";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { randomUUID } from "node:crypto";
+import { provisionLocalUser } from "../../scripts/provision-local-user";
 import {
   notificationFixture,
   localNotificationSql,
@@ -283,7 +284,7 @@ it("a escolha controla novas mensagens sem cancelar fila anterior nem repor ocor
 });
 it("outro calculista não sobrepõe o destinatário nem usa seus contatos globais", async () => {
   const email = `calculista-ficticio-${randomUUID()}@exemplo.com`,
-    created = await fixture.db.auth.admin.createUser({
+    created = await provisionLocalUser({
       email,
       password: process.env.ANDRE_TEST_PASSWORD!,
       email_confirm: true,

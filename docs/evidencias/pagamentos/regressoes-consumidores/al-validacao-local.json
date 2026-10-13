@@ -1,0 +1,10 @@
+{
+  "change": "somente timeout-minutes e2e45 para60",
+  "appTreeIdenticalTo": "e2342ce4d8ec54c6a6e86b965327b09bea44e011",
+  "localUnitTests": 1303,
+  "localUnitFiles": 64,
+  "localScripts": 43,
+  "formatLintTypes": "passed",
+  "localBuild": "EPERM/Turbopack port binding",
+  "rawLogSha256": "24fd669ac136adfb5ca618069c9d1f6099845c82ad7f9d2325b7c62724ba276e"
+}
