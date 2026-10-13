@@ -1,0 +1,243 @@
+{
+  "pages": 47,
+  "sheetsReviewed": 24,
+  "method": "47 páginas PNG100dpi conferidas em24folhas, duas páginas nativas por folha sem recorte/redimensionamento.",
+  "observedClippingOrOverlap": [],
+  "captures": [
+    {
+      "path": "capturas/normal-1.png",
+      "sha256": "d18ab5767a9d8e8da3855ad6df7f2196168b2fe0711b6ee998307e9526f2bca5",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/normal-2.png",
+      "sha256": "3b8e70f6e726bc7e92c4cb7693568bba06d2506d8792cbda0d547995243b97c7",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-01.png",
+      "sha256": "a19be3688cbc06eb13243f1e11cfd5229d058cc6e420bb19fcf0910a38469ddd",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-02.png",
+      "sha256": "cb0c940c1ba9ada9746181f4c9ab853bc741b3b8f095a54c78766d3a12c0844a",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-03.png",
+      "sha256": "8324e44046b4205ef5ce2f08a4161f14236696c98f0d30fd52525484fe9ea766",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-04.png",
+      "sha256": "62a4e9c09d585a0b8ef7140dfdfc0be25c52d4f1db6c1ece517f1a7097726575",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-05.png",
+      "sha256": "37cf926de83bf9ef82786f3808754d1f7fc6e891873143c434cd5d5655dd85c3",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-06.png",
+      "sha256": "b22501545d58b7939bdacf41a44a09db8111ca5f1f214f1b03291932188cbcf4",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-07.png",
+      "sha256": "9cec19a535d3cf22140ec3f4644488da2d1d15e7de2c1e7c0f89def664d2331d",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-08.png",
+      "sha256": "aab033b78baea22ac3d4ef4578d1a1ead47fd27319ed39cccda1cec779c689d7",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-09.png",
+      "sha256": "c2a3fa4fe5e7f03fa406d975914cd70fa2524d19a050ebe7b14320459988cd14",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-10.png",
+      "sha256": "d9bf5609c5ddc60d9673a6e0322907de28c080a6339f3b21ab567519d6c64bf6",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-11.png",
+      "sha256": "ec640c0955832dc058bcfa77daf197437967d7a96d70d0f12fe1f8769561523f",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-12.png",
+      "sha256": "4341958d43618f1c02ddda4d2c80e5364472ad7e1181d22d6d65f08fccef030b",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-13.png",
+      "sha256": "9fc7b7d835fc9546101793c5a6075901769d39e32fce1a51b5a2f87c945c8d42",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-14.png",
+      "sha256": "bbeaec7ed63796d1c0939f0599de91900e14aa8de6f89b42d09f4e2c08bd3fca",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-15.png",
+      "sha256": "11eeb98c379b8d357ce54366304012ba4b180e487bb87c9f6075d518e28452a3",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-16.png",
+      "sha256": "b9ec9ce8ca6cd5dd7f27ed832d2ce019ceb6b80cfe85a6129c6d097af59e4d2c",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-17.png",
+      "sha256": "dae757167685bf608726832e4c266b6f46affbd0179ad62197bc28ca57d49d51",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-18.png",
+      "sha256": "f5a8a251080af5146ffc961028a688cc79e2357027399d2f0d291ffacc7d112e",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-19.png",
+      "sha256": "baaaf6d62e1c35b87c2f8011e11588ca86d18800b2ad6f045d0b360e9b9307a0",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-20.png",
+      "sha256": "deac5d6b574231ce9292b9b984eb3bf87b6444fcf090b9ba6b071049b8eb9e38",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-21.png",
+      "sha256": "84de0381ee3affd9f0018ca57f6ddb23c2f4fda1f52677062cc27404d5cc4925",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-22.png",
+      "sha256": "6569d50570604bc0b2645bc98f46f2be1ab373439c50c1f0e27f10168ce8f35a",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-23.png",
+      "sha256": "bc179cbc79af5cfb0ec1760c05df72049e603cba70184792b631947348365ec6",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-24.png",
+      "sha256": "d7696588373d6690de8ae867f062a8fd751970ed165143e8fa1892ad89b2ad72",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-25.png",
+      "sha256": "08ef07b7affd20899c12c62c55766c46001eee3bddab772bfa72bf72ea1b18a5",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-26.png",
+      "sha256": "40ea44a91cf30f53b5e6453fc76864ba954bd1354ec4ca903df0d13b19b942f0",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-27.png",
+      "sha256": "bf65e606bd572c3c12c65cbcdba3b29c84d0b84825b803a910355a6ecfaf5467",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-28.png",
+      "sha256": "c57bf13d5c5c6833cc33e326ec7b44b8abaa20139845721f14eca7378b63d1ad",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-29.png",
+      "sha256": "96bcf878a4f388b57a8bc3b98e6dd21e7276f0f5ee90f6a2e9c7cc68200d7c67",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-30.png",
+      "sha256": "47f2672fe76d817c556506e2a28ae8d373e27649521a9aebb1ae6713fe46853d",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-31.png",
+      "sha256": "fd783e4c7cc35b26a6896a41d481bda82447ca284811f3f1a4962f4cbeb3393e",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-32.png",
+      "sha256": "6de8444614efe983a0b155a601231f1271fc577c690c826eabbd3bf97789eadc",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-33.png",
+      "sha256": "1a5692a7386649d2c28e9b6e2749e9eb7d3eb449df6942cddba56938fe3b9892",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-34.png",
+      "sha256": "14c6ef170e6e3cfad990d4205d77b958134a80c3d8715e3f87cd7b418a50f014",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-35.png",
+      "sha256": "a3c0fc50cc16e2ffb369c3102074853867c1e8c66e581abdbc5255646b64d89f",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-36.png",
+      "sha256": "490dd46aee1204b0bb0011989450891dfd8ae38dec00ad6ccb181d26300e2e7f",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-37.png",
+      "sha256": "d7ee0b6fb61d09f2f5142106577cc468b85add9dbc0dc0d7291c778aad085ff1",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-38.png",
+      "sha256": "d6b9cdd0c75ca17d95639540e1da166a08c7b3fea550e68855205e1dd993ca37",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-39.png",
+      "sha256": "b7f6c568888837aa9289854678f7fc365de24883d42962fdd757ab74a4606e01",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-40.png",
+      "sha256": "83928d523efbc3278e298395a815e5db061373c712b301849008c2bfbaca03d4",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-41.png",
+      "sha256": "3ef5ada606619531ef44b8b0953d91de2d6cc21c6dd5d6f49640586990309a4b",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-42.png",
+      "sha256": "22d9d935e2b3f7d90bd62455dee7889d3d7185cb4b426fb0c700f456f07e5c80",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/empresa-longa-43.png",
+      "sha256": "ebe55355be924e55e1b06737ebd8a372e4fbe08ab2f1125bbeecfe352cca8547",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/legado-1.png",
+      "sha256": "3d5f1c8e6173335229d93f5d6bca7a738d66dd296d6112bb74d130cf99e11a31",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/legado-2.png",
+      "sha256": "ac7b41f89caf0c072497795d6d24f1597161647bb04b20cf102cb620f30693cb",
+      "reviewed": true
+    }
+  ]
+}

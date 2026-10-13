@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
     fontFamily: "SourceSansProposal",
     fontSize: 10.5,
     color: "#233c36",
-    lineHeight: 1.35,
   },
   brand: { fontSize: 9, fontWeight: 600, color: "#49685b", marginBottom: 12 },
   title: { fontFamily: "Times-Roman", fontSize: 26, marginBottom: 8 },
@@ -74,7 +73,6 @@ const styles = StyleSheet.create({
     right: 48,
     height: 66,
     fontSize: 7.5,
-    lineHeight: 1.25,
     borderTopWidth: 0.5,
     borderTopColor: "#c9d2c7",
     paddingTop: 6,
@@ -93,7 +91,6 @@ const styles = StyleSheet.create({
     width: 74,
     height: 12,
     fontSize: 7.5,
-    lineHeight: 1.25,
     textAlign: "right",
     color: "#496057",
   },
@@ -287,12 +284,10 @@ export function ContractDocument({ data }: { data: ContractArchive }) {
         <Text
           fixed
           style={styles.pageNumber}
-          render={({ pageNumber, totalPages }) => {
-            return `Página ${pageNumber} de ${totalPages}`;
-          }}
-        >
-          Página
-        </Text>
+          render={({ pageNumber, totalPages }) =>
+            `Página ${pageNumber} de ${totalPages}`
+          }
+        />
       </Page>
     </Document>
   );

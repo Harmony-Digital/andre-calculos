@@ -1,0 +1,35 @@
+{
+  "task": "M3.04b1",
+  "localRenderingVerified": true,
+  "unitTests": 7,
+  "overallUnits": 1501,
+  "unitFiles": 76,
+  "scriptTests": 43,
+  "formatLintTypes": "pass",
+  "integrationPassed": 1,
+  "examples": [
+    {
+      "file": "normal.pdf",
+      "pages": 2,
+      "sha256": "e2733ac33ea55a66ee1c2a88a899ff2b300f98c50cb181f860b2ff8805f021a2"
+    },
+    {
+      "file": "empresa-longa.pdf",
+      "pages": 43,
+      "sha256": "3db9d8e9c05339da62ab3fa462576aa09ee20eaf3189da4376e5311fb7c5c12d"
+    },
+    {
+      "file": "legado.pdf",
+      "pages": 2,
+      "sha256": "17b6e8a743bbe055112ed4a8d3fba342fd13089ba58877cdf916329692c6530e"
+    }
+  ],
+  "repeatedAndAfterEditBytesEqual": true,
+  "allTextAndGeometryChecksPass": true,
+  "all47PagesVisuallyReviewed": true,
+  "readbackControlsGrantsEqualsBaseline107": true,
+  "advisorsNoIssues": 2,
+  "currentSourceCiCheckBuild": "Pendente; build local bloqueado por EPERM no processo interno do Turbopack.",
+  "scope": "Somente renderer com dados fictícios; b2/b3/b4/c/d e operações externas conservam requisitos próprios.",
+  "metadataDatesMatchFrozenAcceptance": true
+}
