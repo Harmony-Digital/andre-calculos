@@ -1,0 +1,29 @@
+{
+  "source": "b3970012a52c8a255d8551e6d7c4a862294067c1",
+  "pr": 44,
+  "scope": "preparo/verificacao local ficticio de AP/AQ, sem interface AR ou operacao externa",
+  "focusedBank": 26,
+  "generalBank": 891,
+  "bankFiles": 45,
+  "unitTests": 1425,
+  "unitFiles": 71,
+  "scriptTests": 43,
+  "migrations": 96,
+  "publicTables": 25,
+  "privateTables": 56,
+  "rlsAll": true,
+  "profiles": 4,
+  "readbackAfterGeneralIdenticalToFocused": true,
+  "controlsIdenticalToBaseline": true,
+  "advisorsAfterGeneralNoIssues": 2,
+  "finalCheckBuild": {
+    "run": 38302969918,
+    "job": 114990120244,
+    "artifact": 11771587347,
+    "checkout": "b1ab05d4435d58d168b2744b3798503d1cd84203",
+    "sourceAndParentsVerified": true,
+    "checkStepSuccess": true
+  },
+  "remoteGeneral": "em execucao,nao atribuir contagens locais ao remoto",
+  "next": "M3.01ar interface e jornadas 375/1440;K conserva escopo aberto"
+}

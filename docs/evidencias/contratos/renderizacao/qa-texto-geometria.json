@@ -1,0 +1,267 @@
+[
+  {
+    "file": "normal.pdf",
+    "pages": 2,
+    "sha256": "e2733ac33ea55a66ee1c2a88a899ff2b300f98c50cb181f860b2ff8805f021a2",
+    "checks": {
+      "conditions": true,
+      "terms": true,
+      "privacy": true,
+      "contextHash": true,
+      "snapshotHash": true,
+      "fullName": true,
+      "legalName": true,
+      "document": true,
+      "email": true,
+      "legacyGap": true,
+      "professionalOnEveryPage": true,
+      "crcOnEveryPage": true,
+      "categoryOnEveryPage": true,
+      "pageNumbers": true,
+      "visibleGlyphsWithinMargins": true,
+      "metadataMatchesAcceptance": true
+    },
+    "outOfMargin": [
+      {
+        "page": 1,
+        "count": 0
+      },
+      {
+        "page": 2,
+        "count": 0
+      }
+    ],
+    "creationDate": "D:20261013102526Z",
+    "modificationDate": "D:20261013102526Z"
+  },
+  {
+    "file": "empresa-longa.pdf",
+    "pages": 43,
+    "sha256": "3db9d8e9c05339da62ab3fa462576aa09ee20eaf3189da4376e5311fb7c5c12d",
+    "checks": {
+      "conditions": true,
+      "terms": true,
+      "privacy": true,
+      "contextHash": true,
+      "snapshotHash": true,
+      "fullName": true,
+      "legalName": true,
+      "document": true,
+      "email": true,
+      "legacyGap": true,
+      "professionalOnEveryPage": true,
+      "crcOnEveryPage": true,
+      "categoryOnEveryPage": true,
+      "pageNumbers": true,
+      "visibleGlyphsWithinMargins": true,
+      "metadataMatchesAcceptance": true
+    },
+    "outOfMargin": [
+      {
+        "page": 1,
+        "count": 0
+      },
+      {
+        "page": 2,
+        "count": 0
+      },
+      {
+        "page": 3,
+        "count": 0
+      },
+      {
+        "page": 4,
+        "count": 0
+      },
+      {
+        "page": 5,
+        "count": 0
+      },
+      {
+        "page": 6,
+        "count": 0
+      },
+      {
+        "page": 7,
+        "count": 0
+      },
+      {
+        "page": 8,
+        "count": 0
+      },
+      {
+        "page": 9,
+        "count": 0
+      },
+      {
+        "page": 10,
+        "count": 0
+      },
+      {
+        "page": 11,
+        "count": 0
+      },
+      {
+        "page": 12,
+        "count": 0
+      },
+      {
+        "page": 13,
+        "count": 0
+      },
+      {
+        "page": 14,
+        "count": 0
+      },
+      {
+        "page": 15,
+        "count": 0
+      },
+      {
+        "page": 16,
+        "count": 0
+      },
+      {
+        "page": 17,
+        "count": 0
+      },
+      {
+        "page": 18,
+        "count": 0
+      },
+      {
+        "page": 19,
+        "count": 0
+      },
+      {
+        "page": 20,
+        "count": 0
+      },
+      {
+        "page": 21,
+        "count": 0
+      },
+      {
+        "page": 22,
+        "count": 0
+      },
+      {
+        "page": 23,
+        "count": 0
+      },
+      {
+        "page": 24,
+        "count": 0
+      },
+      {
+        "page": 25,
+        "count": 0
+      },
+      {
+        "page": 26,
+        "count": 0
+      },
+      {
+        "page": 27,
+        "count": 0
+      },
+      {
+        "page": 28,
+        "count": 0
+      },
+      {
+        "page": 29,
+        "count": 0
+      },
+      {
+        "page": 30,
+        "count": 0
+      },
+      {
+        "page": 31,
+        "count": 0
+      },
+      {
+        "page": 32,
+        "count": 0
+      },
+      {
+        "page": 33,
+        "count": 0
+      },
+      {
+        "page": 34,
+        "count": 0
+      },
+      {
+        "page": 35,
+        "count": 0
+      },
+      {
+        "page": 36,
+        "count": 0
+      },
+      {
+        "page": 37,
+        "count": 0
+      },
+      {
+        "page": 38,
+        "count": 0
+      },
+      {
+        "page": 39,
+        "count": 0
+      },
+      {
+        "page": 40,
+        "count": 0
+      },
+      {
+        "page": 41,
+        "count": 0
+      },
+      {
+        "page": 42,
+        "count": 0
+      },
+      {
+        "page": 43,
+        "count": 0
+      }
+    ],
+    "creationDate": "D:20261013102526Z",
+    "modificationDate": "D:20261013102526Z"
+  },
+  {
+    "file": "legado.pdf",
+    "pages": 2,
+    "sha256": "17b6e8a743bbe055112ed4a8d3fba342fd13089ba58877cdf916329692c6530e",
+    "checks": {
+      "conditions": true,
+      "terms": true,
+      "privacy": true,
+      "contextHash": true,
+      "snapshotHash": true,
+      "legacyGap": true,
+      "professionalOnEveryPage": true,
+      "crcOnEveryPage": true,
+      "categoryOnEveryPage": true,
+      "pageNumbers": true,
+      "visibleGlyphsWithinMargins": true,
+      "metadataMatchesAcceptance": true
+    },
+    "outOfMargin": [
+      {
+        "page": 1,
+        "count": 0
+      },
+      {
+        "page": 2,
+        "count": 0
+      }
+    ],
+    "creationDate": "D:20261013102526Z",
+    "modificationDate": "D:20261013102526Z"
+  }
+]

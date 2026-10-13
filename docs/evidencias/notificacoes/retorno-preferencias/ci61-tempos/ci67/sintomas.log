@@ -1,0 +1,25 @@
+e2e	Run bash ../scripts/dev-env.sh npm run test:rls	2026-10-13T07:54:01.7698917Z  Test Files  56 passed (56)
+e2e	Run bash ../scripts/dev-env.sh npm run test:rls	2026-10-13T07:54:01.7705577Z       Tests  1142 passed (1142)
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T09:08:53.3106009Z   1 failed
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T09:08:53.3107503Z   1 flaky
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T09:08:53.3109322Z   7 skipped
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T09:08:53.3109639Z   343 passed (1.2h)
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T09:08:53.3269726Z ##[notice]  1 failed
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	  1 flaky
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	  7 skipped
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	  343 passed (1.2h)
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T08:46:32.4087853Z ##[error]  1) [celular] › tests/e2e/notification-preferences.spec.ts:11:5 › preferências por canal preservam escolha, recusam edição antiga e controlam novos avisos
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Error: expect(locator).toHaveValue(expected) failed
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Timeout:  5000ms
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	        at /home/runner/work/andre-calculos/andre-calculos/app/tests/e2e/notification-preferences.spec.ts:193:59
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T08:46:32.4122673Z ##[error]  1) [celular] › tests/e2e/notification-preferences.spec.ts:11:5 › preferências por canal preservam escolha, recusam edição antiga e controlam novos avisos
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Error: expect(locator).toHaveText(expected) failed
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	        at /home/runner/work/andre-calculos/andre-calculos/app/tests/e2e/notification-preferences.spec.ts:121:45
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T08:46:32.4137258Z ##[error]  1) [celular] › tests/e2e/notification-preferences.spec.ts:11:5 › preferências por canal preservam escolha, recusam edição antiga e controlam novos avisos
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-13T08:52:28.4492787Z ##[error]  2) [celular] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/refund_pending: telas e bytes correspondem ao crédito do webhook
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Error: expect(locator).toBeVisible() failed
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Timeout: 5000ms
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	    Error: element(s) not found
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	       at webhook-screen-helper.ts:188
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	        at deliverWebhookScreen (/home/runner/work/andre-calculos/andre-calculos/app/tests/e2e/webhook-screen-helper.ts:188:24)
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	        at /home/runner/work/andre-calculos/andre-calculos/app/tests/e2e/webhook-financial-screens.spec.ts:155:24

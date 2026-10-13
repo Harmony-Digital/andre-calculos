@@ -1,0 +1,10 @@
+All matched files use Prettier code style!
+ Test Files  76 passed (76)
+      Tests  1500 passed (1500)
+   Duration  2.17s (import 41%, tests 28%, transform 25%, worker 6%)
+All matched files use Prettier code style!
+# tests 12
+All matched files use Prettier code style!
+# tests 31
+- Operation not permitted (os error 1)
+- Operation not permitted (os error 1)

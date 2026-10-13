@@ -115,8 +115,15 @@ test("cliente vê Pix privado; André confirma uma vez após resposta perdida", 
     await loginAs(page, "clientB");
     await page.goto(`/app/processos/${sample.process_id}?aba=resumo`);
     await expect(
-      page.getByRole("heading", { name: "404", exact: true }),
+      page.getByRole("heading", {
+        name: "Página não encontrada",
+        exact: true,
+      }),
     ).toBeVisible();
+    await page.screenshot({
+      path: testInfo.outputPath("sinal-outro-cliente-indisponivel.png"),
+      fullPage: true,
+    });
   } finally {
     await fixture.cleanup();
   }

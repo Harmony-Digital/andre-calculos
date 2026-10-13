@@ -1,0 +1,47 @@
+{
+  "task": "M2.35g",
+  "control": {
+    "passed": 2,
+    "duration": "3.7s",
+    "retries": 0,
+    "privacyAndPriorSuccessDistinction": true
+  },
+  "originalFinal": {
+    "passed": 2,
+    "duration": "1.4m",
+    "retries": 0,
+    "widths": [
+      375,
+      1440
+    ],
+    "cleanupResourcesEachCase": [
+      "routes",
+      "context",
+      "session",
+      "process",
+      "fixture"
+    ]
+  },
+  "readbackControlsEqualBaseline106": true,
+  "settingsQueueLocksAbsent": true,
+  "advisors": "security and performance: No issues found",
+  "check": {
+    "unitTests": 1494,
+    "unitFiles": 75,
+    "scripts": 43,
+    "formatLintTypes": "pass",
+    "localBuild": "EPERM internal Turbopack port; exact CI source pending"
+  },
+  "originalLimitsUnchanged": [
+    5000,
+    90000
+  ],
+  "originalAssertionsUnchanged": true,
+  "productUnchanged": true,
+  "causalFix": "not proven",
+  "tasksRemainOpen": [
+    "M2.35f",
+    "M2.35g",
+    "overall goal"
+  ]
+}

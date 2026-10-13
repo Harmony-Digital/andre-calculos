@@ -1,0 +1,44 @@
+{
+  "run": 38343908798,
+  "job": 115120821414,
+  "source": "8f4212ae2dd8c5bf5a0cc34afeb4a870cba93932",
+  "pr": 61,
+  "headMatches": true,
+  "overallStatus": "completed",
+  "overallConclusion": "failure",
+  "quality": "success confirmed by native job metadata",
+  "failedSteps": [
+    {
+      "name": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1",
+      "conclusion": "failure"
+    }
+  ],
+  "bank": {
+    "passed": 1103,
+    "files": 54
+  },
+  "browser": {
+    "failed": 14,
+    "passed": 243,
+    "skipped": 7,
+    "duration": "1.2h"
+  },
+  "failureContext": "mobile preference case first; following mobile cases hit timeouts; cause not attributed",
+  "sanitizedLogSha256": "cebc61002c971273e70d1a31f0b74e43738ce42886973dbebf197b53ff4d7b50",
+  "artifacts": [
+    {
+      "id": 11791757053,
+      "name": "evidencias-de-testes",
+      "expired": false,
+      "size_in_bytes": 73973954,
+      "digest": "sha256:0c65e27bb836390e3aa709b9ea7926467c6efc81234ffc48e6e043d60ddda25e"
+    },
+    {
+      "id": 11788032042,
+      "name": "inventario-dependencias",
+      "expired": false,
+      "size_in_bytes": 24262,
+      "digest": "sha256:d459fca521470944c9ac3cc82e044e9e4bf4c2f5dcb4a7cdb45c486654e37466"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:e2e
+> playwright test tests/e2e/settings.spec.ts --project=computador --grep salva dados profissionais --repeat-each=5 --retries=0 --workers=1
+
+[WebServer] (node:15615) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:15616) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:15638) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [computador] › tests/e2e/settings.spec.ts:42:5 › salva dados profissionais, ativa preços e conserva histórico (19.6s)
+(node:15738) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [computador] › tests/e2e/settings.spec.ts:42:5 › salva dados profissionais, ativa preços e conserva histórico (19.3s)
+(node:15905) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [computador] › tests/e2e/settings.spec.ts:42:5 › salva dados profissionais, ativa preços e conserva histórico (19.6s)
+(node:15917) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [computador] › tests/e2e/settings.spec.ts:42:5 › salva dados profissionais, ativa preços e conserva histórico (20.3s)
+(node:15963) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [computador] › tests/e2e/settings.spec.ts:42:5 › salva dados profissionais, ativa preços e conserva histórico (20.1s)
+
+  5 passed (1.7m)

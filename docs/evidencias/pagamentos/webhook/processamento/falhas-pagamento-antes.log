@@ -1,0 +1,51 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-worker.test.ts -t conflito de id|pagamento diferente
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/webhook-worker.test.ts (24 tests | 2 failed | 22 skipped) 6240ms
+   × identidade divergente em conflito de id também isola a charge sem GET 1669ms
+   × conflito com pagamento diferente espera a barreira do pagamento original 4570ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > identidade divergente em conflito de id também isola a charge sem GET
+AssertionError: expected 'claimed' to be 'identity_mismatch' // Object.is equality
+
+Expected: "identity_mismatch"
+Received: "claimed"
+
+ ❯ tests/integration/webhook-worker.test.ts:321:24
+    319|   await receive(text(id, { [field]: field === "id" ? "pay_other_fixtur…
+    320|   const result = await claim();
+    321|   expect(result.state).toBe("identity_mismatch");
+       |                        ^
+    322|   expect(counts().gets).toBe(0);
+    323| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/integration/webhook-worker.test.ts > conflito com pagamento diferente espera a barreira do pagamento original
+AssertionError: expected '0' to be '1' // Object.is equality
+
+Expected: "1"
+Received: "0"
+
+ ❯ whilePaymentLocked tests/integration/webhook-worker.test.ts:81:247
+
+ ❯ tests/integration/webhook-worker.test.ts:327:13
+
+Caused by: Error: Matcher did not succeed in time.
+ ❯ whilePaymentLocked tests/integration/webhook-worker.test.ts:81:5
+ ❯ tests/integration/webhook-worker.test.ts:327:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 22 skipped (24)
+   Start at  20:55:48
+   Duration  6.49s (tests 97%, transform 2%, import 1%)

@@ -1,0 +1,97 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/financial-creation-guards.test.ts (27 tests | 1 failed) 58719ms
+   × reconcile conserva incerteza sem novo manual/G/reserva nem zero inventado 7477ms
+ ❯ tests/integration/payment-intents.test.ts (24 tests | 4 failed) 50422ms
+   × rollback reverte intenção/reserva/recibo/auditoria e retirada conjuntamente 6874ms
+   × crédito promovido durante reserva é visto antes de persistir intenção 10550ms
+   × troca concorrente de dono nega reserva/consulta; getters posteriores distinguem dono vigente de capturado 14613ms
+   × mudança concorrente de papel nega reserva sem intenção/auditoria 4801ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/financial-creation-guards.test.ts > reconcile conserva incerteza sem novo manual/G/reserva nem zero inventado
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/integration/financial-creation-guards.test.ts:292:12
+    290|   "reconcile",
+    291|   "legacy",
+    292| ] as const)(
+       |            ^
+    293|   "%s conserva incerteza sem novo manual/G/reserva nem zero inventado",
+    294|   async (mode) => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  tests/integration/payment-intents.test.ts > rollback reverte intenção/reserva/recibo/auditoria e retirada conjuntamente
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/integration/payment-intents.test.ts:573:1
+    571|   expect(counts(b.sample).withdrawals).toBe(0);
+    572| });
+    573| it("rollback reverte intenção/reserva/recibo/auditoria e retirada conj…
+       | ^
+    574|   const { sample, context } = await make(),
+    575|     request = randomUUID();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  tests/integration/payment-intents.test.ts > crédito promovido durante reserva é visto antes de persistir intenção
+Error: Test timed out in 10000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/integration/payment-intents.test.ts:621:1
+    619|   expect((await current(id)).state).toBe("reserved");
+    620| });
+    621| it("crédito promovido durante reserva é visto antes de persistir inten…
+       | ^
+    622|   const { sample, context } = await make(),
+    623|     id = await payment(sample, "pending");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  tests/integration/payment-intents.test.ts > troca concorrente de dono nega reserva/consulta; getters posteriores distinguem dono vigente de capturado
+Error: Test timed out in 12000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/integration/payment-intents.test.ts:634:1
+    632|   expect(r.snapshot.intent.obligation.remainingCents).toBe(7501);
+    633| }, 10000);
+    634| it("troca concorrente de dono nega reserva/consulta; getters posterior…
+       | ^
+    635|   const { sample, context } = await make(),
+    636|     original = await reserved(context.id),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  tests/integration/payment-intents.test.ts > mudança concorrente de papel nega reserva sem intenção/auditoria
+AssertionError: expected '2' to be '1' // Object.is equality
+
+Expected: "1"
+Received: "2"
+
+ ❯ whileLocked tests/integration/payment-intents.test.ts:135:8
+    133|         { timeout: 3000 },
+    134|       )
+    135|       .toBe("1");
+       |        ^
+    136|     child.stdin.end(`${releaseSql}\n\\q\n`);
+    137|     expect(await done).toBe(0);
+ ❯ tests/integration/payment-intents.test.ts:676:20
+
+Caused by: Error: Matcher did not succeed in time.
+ ❯ whileLocked tests/integration/payment-intents.test.ts:127:5
+ ❯ tests/integration/payment-intents.test.ts:676:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  2 failed | 48 passed (50)
+      Tests  5 failed | 983 passed (988)
+   Start at  20:59:15
+   Duration  1069.27s (tests 100%)
+

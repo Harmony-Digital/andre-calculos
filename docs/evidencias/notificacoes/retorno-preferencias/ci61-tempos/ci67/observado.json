@@ -1,0 +1,588 @@
+{
+  "run": 38361434444,
+  "source": "420f94343d9f06bd4b519511c032689ec37640cb",
+  "job": {
+    "completed_at": "2026-10-13T09:09:29Z",
+    "conclusion": "failure",
+    "id": 115176313518,
+    "run_id": 38361434444,
+    "started_at": "2026-10-13T07:14:39Z",
+    "status": "completed",
+    "steps": [
+      {
+        "conclusion": "success",
+        "name": "Set up job",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/checkout@v4",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/setup-node@v4",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npm ci",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npx playwright install --with-deps chromium",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run sudo apt-get update && sudo apt-get install -y poppler-utils",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run supabase/setup-cli@v3",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run node scripts/start-local.mjs",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run bash ../scripts/dev-env.sh npm run test:rls",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "name": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1",
+        "status": "completed"
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Advisors locais",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Encerrar Supabase local",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/upload-artifact@v4",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run supabase/setup-cli@v3",
+        "status": "completed"
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Post Run actions/setup-node@v4",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Complete job",
+        "status": "completed"
+      }
+    ]
+  },
+  "bankTests": 1142,
+  "bankFiles": 56,
+  "browserPassed": 343,
+  "browserFailed": 1,
+  "browserFlaky": 1,
+  "browserSkipped": 7,
+  "diagnostics": [
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "save-new-message-E-mail-yes",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 5126,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": 105,
+      "responseHeadersMs": 285,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": true,
+        "preference": {
+          "enabled": true,
+          "revision": 3
+        }
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 29,
+            "pending": false,
+            "revision": "2",
+            "selected": "yes",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          },
+          {
+            "atMs": 98,
+            "pending": true,
+            "revision": "2",
+            "selected": "yes",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": true,
+        "revision": "2",
+        "selected": "yes",
+        "requestIdChanged": false,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "save-new-message-E-mail-no",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 5124,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": 105,
+      "responseHeadersMs": 1027,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": true,
+        "preference": {
+          "enabled": false,
+          "revision": 1
+        }
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 41,
+            "pending": false,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          },
+          {
+            "atMs": 95,
+            "pending": true,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          }
+        ]
+      },
+      "form": {
+        "pending": true,
+        "revision": "0",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": true,
+        "successMessage": false
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "save-new-message-E-mail-no",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 5132,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": 114,
+      "responseHeadersMs": 1008,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": true,
+        "preference": {
+          "enabled": false,
+          "revision": 1
+        }
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 50,
+            "pending": false,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          },
+          {
+            "atMs": 108,
+            "pending": true,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          }
+        ]
+      },
+      "form": {
+        "pending": true,
+        "revision": "0",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": true,
+        "successMessage": false
+      }
+    }
+  ],
+  "cleanup": [
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "complete",
+      "elapsedMs": 2
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "complete",
+      "elapsedMs": 9
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "complete",
+      "elapsedMs": 54
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "complete",
+      "elapsedMs": 40
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "complete",
+      "elapsedMs": 196
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "failure",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "failure",
+      "phase": "failed",
+      "elapsedMs": 1
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "next-resource",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "next-resource",
+      "phase": "complete",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "complete",
+      "elapsedMs": 4
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "complete",
+      "elapsedMs": 13
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "complete",
+      "elapsedMs": 67
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "complete",
+      "elapsedMs": 56
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "complete",
+      "elapsedMs": 387
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "complete",
+      "elapsedMs": 2
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "complete",
+      "elapsedMs": 9
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "complete",
+      "elapsedMs": 66
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "complete",
+      "elapsedMs": 46
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "complete",
+      "elapsedMs": 205
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "complete",
+      "elapsedMs": 4
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "complete",
+      "elapsedMs": 12
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "complete",
+      "elapsedMs": 67
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "complete",
+      "elapsedMs": 49
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "complete",
+      "elapsedMs": 211
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "failure",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "failure",
+      "phase": "failed",
+      "elapsedMs": 1
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "next-resource",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "next-resource",
+      "phase": "complete",
+      "elapsedMs": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "digest": "sha256:bf81537f5ce92ee229e8e96c82edec0a10dde823b4ab94d976f1ea0cd3d07a2c",
+      "expired": false,
+      "id": 11799794164,
+      "name": "evidencias-de-testes",
+      "size_in_bytes": 146991944
+    },
+    {
+      "digest": "sha256:d046d4efac1920e583dd212c4c6be833ed0f51493ffacbdabb0d85f4e6d2466b",
+      "expired": false,
+      "id": 11795181285,
+      "name": "inventario-dependencias",
+      "size_in_bytes": 24275
+    }
+  ],
+  "cause": "Não comprovada. Preferência gravada, headers200, responseFinishedfalse e pendingtrue no limite5s; três tentativas. Caso financeiro refund_pending teve entrega ausente no helper e passou no retry. Não atribuir ambos à mesma causa.",
+  "rawLogRemainsIgnoredAndPrivate": true,
+  "sanitizedLogSha256": "27bd19da7011236c351c2cb534c124a9278a944ddeeb2659650caddac8034c71",
+  "noRerunStarted": true
+}

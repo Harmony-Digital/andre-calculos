@@ -8,7 +8,7 @@ import { createDeliveryFixture, deliveryProfessional } from "./delivery-helper";
 import { pdfFixture } from "./pdf-helper";
 test.setTimeout(90000);
 for (const policy of [null, "after_balance"] as const) {
-  test(`entrega conferida preserva versões e ${policy === null ? "bloqueia sem regra aprovada" : "libera só após saldo confirmado"}`, async ({
+  test(`entrega técnica sem aceite preserva versões e ${policy === null ? "bloqueia sem regra aprovada" : "mantém bloqueio com soma manual antiga"}`, async ({
     page,
     browser,
   }, info) => {
@@ -212,7 +212,7 @@ for (const policy of [null, "after_balance"] as const) {
       await expect(own).toContainText(
         policy === null
           ? "aguarda a definição da regra de pagamento"
-          : "aguarda a confirmação do saldo",
+          : "valores aceitos e o crédito precisam ser conferidos",
       );
       await expect(own.locator('a[href^="/api/files/"]')).toHaveCount(0);
       await expect(client.locator(".delivery-form")).toHaveCount(0);
@@ -416,15 +416,16 @@ for (const policy of [null, "after_balance"] as const) {
           .click();
         await expect(existing).toHaveCount(0);
         await client.reload();
-        await expect(own).toContainText("Arquivos liberados para download.");
-        await expect(own.locator('a[href^="/api/files/"]')).toHaveCount(3);
-        expect(
-          (
-            await client.request.get(`/api/files/${fileId}/download`, {
-              maxRedirects: 0,
-            })
-          ).status(),
-        ).toBe(307);
+        await expect(own).toContainText(
+          "valores aceitos e o crédito precisam ser conferidos",
+        );
+        await expect(own.locator('a[href^="/api/files/"]')).toHaveCount(0);
+        const denied = await client.request.get(
+          `/api/files/${fileId}/download`,
+          { maxRedirects: 0 },
+        );
+        expect(denied.status()).toBe(404);
+        expect(denied.headers()["cache-control"]).toBe("private, no-store");
         expect(
           (
             await db
@@ -434,19 +435,15 @@ for (const policy of [null, "after_balance"] as const) {
               .eq("action", "file_download")
               .eq("actor_id", fixture.process.authorId)
           ).data,
-        ).toHaveLength(1);
-        await client.evaluate(() => {
-          (document.activeElement as HTMLElement | null)?.blur();
-          window.scrollTo(0, 0);
-        });
+        ).toHaveLength(0);
         await client.screenshot({
-          path: info.outputPath("entrega-cliente-liberada-antes-saldo.png"),
+          path: info.outputPath("entrega-legada-antes-saldo-bloqueada.png"),
           fullPage: true,
         });
       }
       if (policy === "after_balance") {
-        await expect(own).toContainText("Saldo pendente: R$ 1.234,56");
-        await expect(own).toContainText("Chave Pix: chave-pix-ficticia");
+        await expect(own).toContainText("Saldo em conciliação");
+        await expect(own).not.toContainText("Chave Pix: chave-pix-ficticia");
         await expect(
           own.getByRole("link", {
             name: "Abrir conversa do processo",
@@ -483,7 +480,7 @@ for (const policy of [null, "after_balance"] as const) {
           ).status(),
         ).toBe(404);
         await client.reload();
-        await expect(own).toContainText("Saldo pendente: R$ 617,28");
+        await expect(own).toContainText("Saldo em conciliação");
         expect(
           (
             await db
@@ -494,33 +491,19 @@ for (const policy of [null, "after_balance"] as const) {
           ).error,
         ).toBeNull();
         await client.reload();
-        await expect(own).toContainText("Arquivos liberados para download.");
-        await expect(own.getByRole("link")).toHaveCount(3);
+        await expect(own).toContainText(
+          "valores aceitos e o crédito precisam ser conferidos",
+        );
+        await expect(
+          own.locator(".delivery-file-list").getByRole("link"),
+        ).toHaveCount(0);
         const response = await client.request.get(
           `/api/files/${fileId}/download`,
           { maxRedirects: 0 },
         );
-        expect(response.status()).toBe(307);
-        expect(response.headers()["cache-control"]).toContain("no-store");
-        const location = response.headers().location,
-          url = new URL(location);
-        expect(url.origin).toBe("http://127.0.0.1:54321");
-        const token = url.searchParams.get("token")!,
-          claims = JSON.parse(
-            Buffer.from(token.split(".")[1], "base64url").toString(),
-          ) as { exp: number };
-        const remaining = claims.exp - Math.floor(Date.now() / 1000);
-        expect(remaining).toBeGreaterThan(110);
-        expect(remaining).toBeLessThanOrEqual(120);
-        let bytes: Buffer;
-        try {
-          const download = await client.request.get(location);
-          if (!download.ok()) throw new Error();
-          bytes = await download.body();
-        } catch {
-          throw new Error("Download fictício da entrega não concluído.");
-        }
-        expect(bytes.equals(pdf)).toBe(true);
+        expect(response.status()).toBe(404);
+        expect(response.headers()["cache-control"]).toBe("private, no-store");
+        expect(response.headers().location).toBeUndefined();
         expect(
           (
             await db
@@ -530,13 +513,9 @@ for (const policy of [null, "after_balance"] as const) {
               .eq("action", "file_download")
               .eq("actor_id", fixture.process.authorId)
           ).data,
-        ).toHaveLength(1);
-        await client.evaluate(() => {
-          (document.activeElement as HTMLElement | null)?.blur();
-          window.scrollTo(0, 0);
-        });
+        ).toHaveLength(0);
         await client.screenshot({
-          path: info.outputPath("entrega-cliente-liberada.png"),
+          path: info.outputPath("entrega-legada-soma-antiga-bloqueada.png"),
           fullPage: true,
         });
         expect(

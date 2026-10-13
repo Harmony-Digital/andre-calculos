@@ -1,0 +1,508 @@
+
+> andre-calculos@0.1.0 check
+> npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run test:scripts && npm run build
+
+
+> andre-calculos@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> andre-calculos@0.1.0 lint
+> eslint . --max-warnings=0
+
+
+> andre-calculos@0.1.0 typecheck
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+
+> andre-calculos@0.1.0 test:coverage
+> vitest run --coverage
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+      Coverage enabled with v8
+
+
+ Test Files  75 passed (75)
+      Tests  1494 passed (1494)
+   Start at  02:23:34
+   Duration  1.56s (import 43%, transform 32%, tests 17%, worker 7%)
+
+  Transform  transforming modules took 3.08s · 32% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   63.08 |    62.86 |   63.37 |   63.28 |
+ modules/account   |      20 |       10 |   66.66 |   20.83 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-46
+  forms.ts         |     100 |       50 |     100 |     100 | 38
+ modules/auth      |   17.04 |     31.5 |   36.36 |   18.75 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-114
+  session.ts       |       0 |        0 |       0 |       0 | 8-47
+ modules/checklist |      56 |    54.45 |   71.42 |   57.44 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-53
+  draft.ts         |   84.37 |       80 |     100 |    86.2 | 61,74,81,87
+  queries.ts       |       0 |        0 |       0 |       0 | 8-58
+ modules/clients   |   64.28 |    43.75 |     100 |   64.28 |
+  actions.ts       |   52.38 |    43.75 |     100 |   52.38 | 27,56-91
+ modules/dashboard |   10.38 |    20.33 |   21.42 |    8.69 |
+  lists.ts         |       0 |        0 |       0 |       0 | 8-119
+  queries.ts       |       0 |        0 |       0 |       0 | 8-55
+  window.ts        |     100 |     92.3 |     100 |     100 | 24
+ modules/deadlines |   98.63 |    98.55 |     100 |   98.52 |
+  calendar.ts      |   98.63 |    98.55 |     100 |   98.52 | 113
+ modules/decisions |   20.58 |    14.89 |   36.36 |   21.21 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-83
+  export.ts        |       0 |        0 |       0 |       0 | 5-65
+  pdf.tsx          |       0 |        0 |       0 |       0 | 13-155
+  types.ts         |     100 |    83.33 |     100 |     100 | 25
+ modules/delivery  |   67.29 |    67.14 |   90.32 |      66 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-116
+  ...al-actions.ts |       0 |        0 |       0 |       0 | 1-108
+  delivery.ts      |   85.71 |    79.31 |     100 |   84.61 | 31,50
+  ...ay-context.ts |   96.66 |       84 |     100 |     100 | 29,51-56
+ modules/demo      |   22.87 |    15.35 |    8.33 |   23.46 |
+  model.ts         |   94.59 |       94 |   84.61 |   95.83 | 299,317,321
+  portal.tsx       |       0 |        0 |       0 |       0 | 1-2085
+ modules/files     |   44.33 |     44.7 |      80 |   43.68 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-119
+  validation.ts    |     100 |       50 |     100 |     100 | 36-47
+ modules/messages  |      50 |       50 |   83.33 |   45.83 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-43
+ .../notifications |   89.06 |     89.2 |   95.45 |   88.13 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-81
+  ...ine-runner.ts |   93.33 |    92.59 |     100 |    92.3 | 24,46
+  ...tion-store.ts |    95.4 |    92.47 |     100 |   95.29 | 61,160,179,200
+  ...ss-pending.ts |    93.1 |     93.1 |     100 |   92.45 | 77,80-82
+  queries.ts       |       0 |        0 |       0 |       0 | 7-20
+ modules/orders    |   71.56 |     80.7 |   88.88 |   73.46 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-106
+  state-machine.ts |     100 |     98.3 |     100 |     100 | 165
+ ...les/page-index |    62.5 |    52.94 |    90.9 |    62.5 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-56
+  forms.ts         |   92.59 |      100 |     100 |   92.59 | 43-47
+ modules/payments  |   64.62 |    67.62 |   75.81 |    65.2 |
+  actions.ts       |      44 |    64.28 |     100 |      44 | 16,24,42-57
+  ...strap-data.ts |   83.33 |       75 |     100 |   81.81 | 56,62
+  ...rap-worker.ts |   79.48 |    77.77 |     100 |   81.08 | 35,43,61,76-78,93
+  ...-bootstrap.ts |   96.29 |    93.75 |     100 |   96.15 | 65
+  ...ution-data.ts |     100 |    89.13 |     100 |     100 | 48,114
+  ...n-protocol.ts |    87.5 |    66.66 |     100 |   85.71 | 16
+  ...resolution.ts |   95.23 |    92.85 |     100 |   98.03 | 121
+  ...ion-system.ts |   86.36 |    81.81 |     100 |   97.43 | 60
+  ...ion-worker.ts |    2.17 |        0 |       0 |    2.22 | 23-148
+  ...pplication.ts |       0 |        0 |       0 |       0 | 11-101
+  ...ition-data.ts |   88.09 |     94.8 |     100 |   87.17 | ...13,151,178-179
+  ...l-position.ts |   91.73 |    90.18 |   88.88 |    92.3 | ...79,285,309,361
+  ...projection.ts |    6.25 |        0 |       0 |    6.66 | 34-120
+  ...resolution.ts |   95.34 |    94.28 |     100 |     100 | 86,107
+  ...ial-worker.ts |   44.68 |    29.03 |      90 |   46.59 | ...36-237,244-268
+  ...-use-cases.ts |     100 |    98.14 |     100 |     100 | 63
+  invoice-mode.ts  |       0 |        0 |       0 |       0 | 5
+  ...-page-data.ts |       0 |        0 |       0 |       0 | 11-45
+  invoice-query.ts |   24.61 |    14.51 |    37.5 |   27.11 | ...80-123,136-183
+  ...cy-binding.ts |   96.42 |    94.28 |     100 |     100 | 109,141
+  ...ation-data.ts |   91.11 |    95.52 |     100 |   90.47 | 79-80,107,128
+  order-credit.ts  |   96.29 |    92.68 |     100 |   95.91 | 187,190
+  ...nalization.ts |       0 |        0 |       0 |       0 | 9-136
+  webhook-queue.ts |       0 |        0 |       0 |       0 | 12-151
+  ...ok-receipt.ts |     100 |    93.75 |     100 |     100 | 87
+  ...ook-worker.ts |       0 |        0 |       0 |       0 | 7-146
+ ...payments/asaas |   96.72 |    95.12 |   97.76 |   97.39 |
+  adapter.ts       |   99.06 |     98.5 |     100 |   99.02 | 181
+  comparison.ts    |    98.5 |    97.18 |     100 |   98.41 | 204
+  contracts.ts     |   99.18 |       99 |     100 |   99.11 | 327
+  financial.ts     |    97.6 |    96.66 |     100 |   97.36 | 305,335,364
+  ...comparison.ts |    87.5 |    92.85 |      75 |    90.9 | 66-68
+  ...cial-proof.ts |   97.05 |       90 |     100 |   96.96 | 50
+  fixture-port.ts  |   87.37 |    80.24 |      90 |   89.47 | ...75-177,179-183
+  json.ts          |    97.7 |    95.74 |     100 |     100 | 67,72
+  ...-reception.ts |   98.83 |    98.07 |   93.33 |     100 | 128
+ modules/processes |       0 |        0 |       0 |       0 |
+  queries.ts       |       0 |        0 |       0 |       0 | 12-245
+  tabs.ts          |       0 |        0 |       0 |       0 | 1-11
+ modules/queue     |   61.05 |    66.66 |   78.57 |   61.03 |
+  queries.ts       |       0 |        0 |       0 |       0 | 26-81
+  queue.ts         |   96.66 |    91.17 |     100 |     100 | 47,79,86,91-92
+ modules/quotes    |   52.47 |    54.27 |   51.51 |   53.57 |
+  ...ce-actions.ts |       0 |        0 |       0 |       0 | 1-74
+  actions.ts       |       0 |        0 |       0 |       0 | 1-155
+  ...l-fixtures.ts |     100 |       70 |     100 |     100 | 18-37
+  pdf.tsx          |       0 |        0 |       0 |       0 | 13-193
+  proposal.ts      |   94.73 |    95.78 |     100 |   96.36 | 127,217
+  queries.ts       |       0 |        0 |       0 |       0 | 8-75
+  ...on-actions.ts |   89.65 |    78.94 |     100 |   89.65 | 22,27,78
+ modules/settings  |   25.92 |    21.27 |   52.63 |   26.92 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-65
+  queries.ts       |       0 |        0 |       0 |       0 | 10-113
+ modules/signup    |    7.89 |     5.55 |   28.57 |    8.82 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-51
+  forms.ts         |      50 |       50 |      50 |      50 | 33-50
+  legal.ts         |       0 |        0 |       0 |       0 | 6-29
+  metadata.ts      |       0 |      100 |       0 |       0 | 9
+ modules/simulator |      25 |       20 |   35.71 |   26.53 |
+  form.tsx         |       0 |        0 |       0 |       0 | 1-200
+  queries.ts       |       0 |        0 |       0 |       0 | 7-15
+  styles.ts        |       0 |      100 |     100 |       0 | 1
+ modules/timeline  |   46.66 |    54.16 |   83.33 |   48.71 |
+  actions.ts       |       0 |        0 |       0 |       0 | 1-42
+  types.ts         |   62.06 |    57.35 |     100 |   69.56 | 30-33,55,71,79
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 63.08% ( 2644/4191 )
+Branches     : 62.86% ( 2578/4101 )
+Functions    : 63.37% ( 455/718 )
+Lines        : 63.28% ( 2454/3878 )
+================================================================================
+
+> andre-calculos@0.1.0 test:scripts
+> bash -n ../scripts/sincronizar-vercel.sh && prettier --check ../scripts/sincronizar-vercel.mjs ../scripts/sincronizar-vercel.test.mjs && node --test ../scripts/sincronizar-vercel.test.mjs && prettier --check ../scripts/inventariar-build.mjs ../scripts/inventariar-build.test.mjs && node --test ../scripts/inventariar-build.test.mjs
+
+Checking formatting...
+All matched files use Prettier code style!
+TAP version 13
+# Subtest: metadados são dados; linhas executáveis e campos duplicados são recusados
+ok 1 - metadados são dados; linhas executáveis e campos duplicados são recusados
+  ---
+  duration_ms: 0.813959
+  type: 'test'
+  ...
+# Subtest: destinos ausentes ou divergentes bloqueiam a preparação
+ok 2 - destinos ausentes ou divergentes bloqueiam a preparação
+  ---
+  duration_ms: 0.2875
+  type: 'test'
+  ...
+# Subtest: preview exige banco e origem próprios; cofre de produção não é presumido
+ok 3 - preview exige banco e origem próprios; cofre de produção não é presumido
+  ---
+  duration_ms: 0.116416
+  type: 'test'
+  ...
+# Subtest: contas de serviço/Connect e nomes reservados/futuros são recusados
+ok 4 - contas de serviço/Connect e nomes reservados/futuros são recusados
+  ---
+  duration_ms: 0.127875
+  type: 'test'
+  ...
+# Subtest: origem ou Supabase errados não iniciam conexão nem escrita
+ok 5 - origem ou Supabase errados não iniciam conexão nem escrita
+  ---
+  duration_ms: 0.17625
+  type: 'test'
+  ...
+# Subtest: equipe diferente, token com outras equipes ou inventário incompleto bloqueiam escrita
+ok 6 - equipe diferente, token com outras equipes ou inventário incompleto bloqueiam escrita
+  ---
+  duration_ms: 0.205291
+  type: 'test'
+  ...
+# Subtest: projeto, proprietário ou diretório divergentes bloqueiam toda escrita
+ok 7 - projeto, proprietário ou diretório divergentes bloqueiam toda escrita
+  ---
+  duration_ms: 0.182041
+  type: 'test'
+  ...
+# Subtest: existentes, inclusive em branch de preview, bloqueiam antes da primeira escrita
+ok 8 - existentes, inclusive em branch de preview, bloqueiam antes da primeira escrita
+  ---
+  duration_ms: 0.149584
+  type: 'test'
+  ...
+# Subtest: cadastro usa stdin, destino explícito e nunca valores em argv ou log
+ok 9 - cadastro usa stdin, destino explícito e nunca valores em argv ou log
+  ---
+  duration_ms: 0.340292
+  type: 'test'
+  ...
+# Subtest: falha parcial relata apenas nomes; não sobrescreve nem tenta rollback
+ok 10 - falha parcial relata apenas nomes; não sobrescreve nem tenta rollback
+  ---
+  duration_ms: 0.95375
+  type: 'test'
+  ...
+# Subtest: CLI recebe somente token/IDs e infraestrutura; outras chaves não são herdadas
+ok 11 - CLI recebe somente token/IDs e infraestrutura; outras chaves não são herdadas
+  ---
+  duration_ms: 0.158541
+  type: 'test'
+  ...
+# Subtest: erros brutos da CLI não entram em mensagens
+ok 12 - erros brutos da CLI não entram em mensagens
+  ---
+  duration_ms: 0.056291
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 40.576875
+Checking formatting...
+All matched files use Prettier code style!
+TAP version 13
+# Subtest: inventário liga produção à fonte/lock e exporta somente metadados determinísticos
+ok 1 - inventário liga produção à fonte/lock e exporta somente metadados determinísticos
+  ---
+  duration_ms: 12.890334
+  type: 'test'
+  ...
+# Subtest: extensões NFT incluem raiz adicional e symlink sem perder referências
+ok 2 - extensões NFT incluem raiz adicional e symlink sem perder referências
+  ---
+  duration_ms: 5.760625
+  type: 'test'
+  ...
+# Subtest: extensão desconhecida e referências externas/ausentes deixam cobertura incompleta sem paths privados
+ok 3 - extensão desconhecida e referências externas/ausentes deixam cobertura incompleta sem paths privados
+  ---
+  duration_ms: 5.050667
+  type: 'test'
+  ...
+# Subtest: hashes desalinhados, raiz escapada e symlink inválido não produzem relatório
+ok 4 - hashes desalinhados, raiz escapada e symlink inválido não produzem relatório
+  ---
+  duration_ms: 7.014792
+  type: 'test'
+  ...
+# Subtest: BUILD_ID ausente e pasta dev ou build parcial não são aceitos como produção
+ok 5 - BUILD_ID ausente e pasta dev ou build parcial não são aceitos como produção
+  ---
+  duration_ms: 4.095666
+  type: 'test'
+  ...
+# Subtest: symlink de artefato não exporta conteúdo e caminho indireto externo é contado
+ok 6 - symlink de artefato não exporta conteúdo e caminho indireto externo é contado
+  ---
+  duration_ms: 5.457666
+  type: 'test'
+  ...
+# Subtest: identidade ausente ou divergente falha com erro público fixo na CLI
+ok 7 - identidade ausente ou divergente falha com erro público fixo na CLI
+  ---
+  duration_ms: 42.675375
+  type: 'test'
+  ...
+# Subtest: CLI confere o checkout real e rejeita fonte que não corresponde à árvore testada
+ok 8 - CLI confere o checkout real e rejeita fonte que não corresponde à árvore testada
+  ---
+  duration_ms: 236.368167
+  type: 'test'
+  ...
+# Subtest: alvo declarado externo, ausente ou divergente não afirma cobertura; raiz cruzada válida é conferida
+ok 9 - alvo declarado externo, ausente ou divergente não afirma cobertura; raiz cruzada válida é conferida
+  ---
+  duration_ms: 8.762916
+  type: 'test'
+  ...
+# Subtest: candidato incorporado ao Next não recebe a versão declarada do pacote original
+ok 10 - candidato incorporado ao Next não recebe a versão declarada do pacote original
+  ---
+  duration_ms: 5.202417
+  type: 'test'
+  ...
+# Subtest: symlink de output informa somente motivo e path relativo, sem seguir arquivo ou diretório
+ok 11 - symlink de output informa somente motivo e path relativo, sem seguir arquivo ou diretório
+  ---
+  duration_ms: 4.160375
+  type: 'test'
+  ...
+# Subtest: falha de resolução do trace informa posição sem exportar erro ou alvo
+ok 12 - falha de resolução do trace informa posição sem exportar erro ou alvo
+  ---
+  duration_ms: 4.0265
+  type: 'test'
+  ...
+# Subtest: symlink físico omitido dos metadados tem motivo próprio sem expor o alvo
+ok 13 - symlink físico omitido dos metadados tem motivo próprio sem expor o alvo
+  ---
+  duration_ms: 4.106917
+  type: 'test'
+  ...
+# Subtest: alias permitido resolve instalação exata e inspeciona JS/CJS/MJS com hashes sem paths físicos
+ok 14 - alias permitido resolve instalação exata e inspeciona JS/CJS/MJS com hashes sem paths físicos
+  ---
+  duration_ms: 10.476208
+  type: 'test'
+  ...
+# Subtest: alvo externo, arquivo privado, diretório do repo e outro pacote são recusados
+ok 15 - alvo externo, arquivo privado, diretório do repo e outro pacote são recusados
+  ---
+  duration_ms: 21.155917
+  type: 'test'
+  ...
+# Subtest: instalação ou ancestral simbólico não se torna permitido por igualdade de realpath
+ok 16 - instalação ou ancestral simbólico não se torna permitido por igualdade de realpath
+  ---
+  duration_ms: 10.89475
+  type: 'test'
+  ...
+# Subtest: nome/versão e package.json simbólico, hardlink ou diretório não autorizam leitura
+ok 17 - nome/versão e package.json simbólico, hardlink ou diretório não autorizam leitura
+  ---
+  duration_ms: 32.565541
+  type: 'test'
+  ...
+# Subtest: lock/declaração de desenvolvimento, local, link ou identidade incompatível é recusado
+ok 18 - lock/declaração de desenvolvimento, local, link ou identidade incompatível é recusado
+  ---
+  duration_ms: 36.682042
+  type: 'test'
+  ...
+# Subtest: alias quebrado ou encadeado e link válido fora do contexto permanecem incompletos
+ok 19 - alias quebrado ou encadeado e link válido fora do contexto permanecem incompletos
+  ---
+  duration_ms: 16.457875
+  type: 'test'
+  ...
+# Subtest: links internos e ciclos não são seguidos nem exportam alvos/nomes de dependência
+ok 20 - links internos e ciclos não são seguidos nem exportam alvos/nomes de dependência
+  ---
+  duration_ms: 5.594709
+  type: 'test'
+  ...
+# Subtest: arquivos ocultos, env, dependência aninhada e hardlinks conservam lacuna sem conteúdo
+ok 21 - arquivos ocultos, env, dependência aninhada e hardlinks conservam lacuna sem conteúdo
+  ---
+  duration_ms: 7.48475
+  type: 'test'
+  ...
+# Subtest: FIFO não bloqueia ou entra no inventário de JavaScript
+ok 22 - FIFO não bloqueia ou entra no inventário de JavaScript
+  ---
+  duration_ms: 9.567042
+  type: 'test'
+  ...
+# Subtest: limites de quantidade, tamanho individual, total e profundidade mantêm cobertura incompleta
+ok 23 - limites de quantidade, tamanho individual, total e profundidade mantêm cobertura incompleta
+  ---
+  duration_ms: 149.326917
+  type: 'test'
+  ...
+# Subtest: dois aliases diretos recuperam os mesmos hashes sem confundir aceitação da instalação
+ok 24 - dois aliases diretos recuperam os mesmos hashes sem confundir aceitação da instalação
+  ---
+  duration_ms: 10.821083
+  type: 'test'
+  ...
+# Subtest: alias sem JavaScript admitido não afirma inspeção completa
+ok 25 - alias sem JavaScript admitido não afirma inspeção completa
+  ---
+  duration_ms: 5.51575
+  type: 'test'
+  ...
+# Subtest: inspeção externalizada exige habilitação explícita e conserva recusa por padrão
+ok 26 - inspeção externalizada exige habilitação explícita e conserva recusa por padrão
+  ---
+  duration_ms: 8.737333
+  type: 'test'
+  ...
+# Subtest: alias esperado como diretório comum é recusado sem percorrer seu conteúdo
+ok 27 - alias esperado como diretório comum é recusado sem percorrer seu conteúdo
+  ---
+  duration_ms: 4.868291
+  type: 'test'
+  ...
+# Subtest: CLI habilita a exceção somente no CI com opção explícita
+ok 28 - CLI habilita a exceção somente no CI com opção explícita
+  ---
+  duration_ms: 302.940542
+  type: 'test'
+  ...
+# Subtest: aliases compartilham limites de quantidade, entradas e bytes
+ok 29 - aliases compartilham limites de quantidade, entradas e bytes
+  ---
+  duration_ms: 169.506709
+  type: 'test'
+  ...
+# Subtest: ordem lexical de nomes Unicode independe da colação por locale
+ok 30 - ordem lexical de nomes Unicode independe da colação por locale
+  ---
+  duration_ms: 9.827459
+  type: 'test'
+  ...
+# Subtest: arquivo de identificação especial ou hardlink não passa como build
+ok 31 - arquivo de identificação especial ou hardlink não passa como build
+  ---
+  duration_ms: 8.928417
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1204.921042
+
+> andre-calculos@0.1.0 build
+> node scripts/copy-pdf-assets.mjs && next build
+
+Recursos locais do PDF.js 6.3.289 preparados.
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.ts took 13ms
+
+  Creating an optimized production build ...
+
+-----
+[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to /var/folders/zy/_dmg04ln4qgghctnlfyd4xnm0000gn/T/next-panic-98e0559a51299adc372691ba983c20a5.log.
+
+To help make Turbopack better, report this error by clicking here: https://bugs.nextjs.org/search?category=turbopack-error-report&title=Turbopack%20Error%3A%20%5Bproject%5D%2Fnode_modules%2Freact-pdf%2Fdist%2FPage%2FTextLayer.css.css%20%5Bapp-client%5D%20%28css%29&body=Turbopack%20version%3A%20%60e273d5b2%60%0ANext.js%20version%3A%20%600.0.0%60%0A%0AError%20message%3A%0A%60%60%60%0A%5Bproject%5D%2Fnode_modules%2Freact-pdf%2Fdist%2FPage%2FTextLayer.css.css%20%5Bapp-client%5D%20%28css%29%0A%0ACaused%20by%3A%0A-%20creating%20new%20process%0A-%20binding%20to%20a%20port%0A-%20Operation%20not%20permitted%20%28os%20error%201%29%0A%0ADebug%20info%3A%0A-%20Execution%20of%20get_all_written_entrypoints_with_issues_operation%20failed%0A-%20Execution%20of%20EntrypointsOperation%3A%3Anew%20failed%0A-%20Execution%20of%20all_entrypoints_write_to_disk_operation%20failed%0A-%20Execution%20of%20output_assets_operation%20failed%0A-%20Execution%20of%20%3CMiddlewareEndpoint%20as%20Endpoint%3E%3A%3Aoutput%20failed%0A-%20Execution%20of%20MiddlewareEndpoint%3A%3Aoutput_assets%20failed%0A-%20Execution%20of%20MiddlewareEndpoint%3A%3Anode_chunk%20failed%0A-%20Execution%20of%20%2A%3CNodeJsChunkingContext%20as%20ChunkingContext%3E%3A%3Aentry_chunk_group%20failed%0A-%20Execution%20of%20Project%3A%3Aserver_chunking_context%20failed%0A-%20Execution%20of%20%2Aget_server_chunking_context%20failed%0A-%20Execution%20of%20Project%3A%3Amodule_ids%20failed%0A-%20Execution%20of%20whole_app_module_graph_operation%20failed%0A-%20Execution%20of%20%2AProject%3A%3Aget_all_additional_entries%20failed%0A-%20Execution%20of%20ModuleGraph%3A%3Afrom_graphs%20failed%0A-%20Execution%20of%20ModuleGraph%3A%3Afrom_graphs_inner%20failed%0A-%20Execution%20of%20SingleModuleGraph%3A%3Anew_with_entries%20failed%0A-%20%5Bproject%5D%2Fnode_modules%2Freact-pdf%2Fdist%2FPage%2FTextLayer.css.css%20%5Bapp-client%5D%20%28css%29%0A-%20Execution%20of%20primary_chunkable_referenced_modules%20failed%0A-%20Execution%20of%20%3CCssModule%20as%20Module%3E%3A%3Areferences%20failed%0A-%20Execution%20of%20parse_css%20failed%0A-%20Execution%20of%20%3CPostCssTransformedAsset%20as%20Asset%3E%3A%3Acontent%20failed%0A-%20Execution%20of%20PostCssTransformedAsset%3A%3Aprocess%20failed%0A-%20Execution%20of%20%3CWebpackLoadersProcessedAsset%20as%20Asset%3E%3A%3Acontent%20failed%0A-%20Execution%20of%20WebpackLoadersProcessedAsset%3A%3Aprocess%20failed%0A-%20Execution%20of%20evaluate_webpack_loader%20failed%0A-%20creating%20new%20process%0A-%20binding%20to%20a%20port%0A-%20Operation%20not%20permitted%20%28os%20error%201%29%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace
+-----
+
+
+> Build error occurred
+Error [TurbopackInternalError]: [project]/node_modules/react-pdf/dist/Page/TextLayer.css.css [app-client] (css)
+
+Caused by:
+- creating new process
+- binding to a port
+- Operation not permitted (os error 1)
+
+Debug info:
+- Execution of get_all_written_entrypoints_with_issues_operation failed
+- Execution of EntrypointsOperation::new failed
+- Execution of all_entrypoints_write_to_disk_operation failed
+- Execution of output_assets_operation failed
+- Execution of <MiddlewareEndpoint as Endpoint>::output failed
+- Execution of MiddlewareEndpoint::output_assets failed
+- Execution of MiddlewareEndpoint::node_chunk failed
+- Execution of *<NodeJsChunkingContext as ChunkingContext>::entry_chunk_group failed
+- Execution of Project::server_chunking_context failed
+- Execution of *get_server_chunking_context failed
+- Execution of Project::module_ids failed
+- Execution of whole_app_module_graph_operation failed
+- Execution of *Project::get_all_additional_entries failed
+- Execution of ModuleGraph::from_graphs failed
+- Execution of ModuleGraph::from_graphs_inner failed
+- Execution of SingleModuleGraph::new_with_entries failed
+- [project]/node_modules/react-pdf/dist/Page/TextLayer.css.css [app-client] (css)
+- Execution of primary_chunkable_referenced_modules failed
+- Execution of <CssModule as Module>::references failed
+- Execution of parse_css failed
+- Execution of <PostCssTransformedAsset as Asset>::content failed
+- Execution of PostCssTransformedAsset::process failed
+- Execution of <WebpackLoadersProcessedAsset as Asset>::content failed
+- Execution of WebpackLoadersProcessedAsset::process failed
+- Execution of evaluate_webpack_loader failed
+- creating new process
+- binding to a port
+- Operation not permitted (os error 1)
+    at ignore-listed frames {
+  location: undefined
+}

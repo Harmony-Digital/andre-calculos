@@ -1,0 +1,6 @@
+{
+  "execution": "aj-ak-navegador-integral-final.log",
+  "rawLogSha256": "d6e405eff9157f86949bdabfc35f22bbbc73f8c6cb962c49b421eedb1b2bcd77",
+  "artifactSha256": "7fcc00ddeba6c18ee373f188172323bb61aa9538232ba060de90fbb00904f3c3",
+  "scope": "AJ completa e limpeza inicial AK; refino de eventos/upload300MB depois, coberto no foco final e CI integral obrigatorio"
+}

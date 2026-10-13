@@ -1,0 +1,21 @@
+{
+  "scope": "M3.01c1 recepcao somente servidor; sem persistencia ou credito",
+  "ownUnitTests": 35,
+  "focusedRegressionTests": 285,
+  "focusedRegressionFiles": 4,
+  "allUnitTests": 1476,
+  "allUnitFiles": 73,
+  "scriptTests": 43,
+  "formatLintTypes": "passed",
+  "build": "EPERM no ambiente local; pendente CI exato",
+  "databaseEndpointRealCredentialsDeployment": false,
+  "code": {
+    "app/src/modules/payments/asaas/webhook-reception.ts": "7437f5a7152053a4686373698530bbc9029f0867c628d955a8713acd9d95f335",
+    "app/src/modules/payments/asaas/webhook-reception.test.ts": "c83a549e3a40bbb33695b7cd3b53e83a824b5b8c47341300c278476500cfb062"
+  },
+  "evidence": {
+    "docs/evidencias/pagamentos/webhook/recepcao/check-local.log": "52be5de156cd70e8e316ea753eeb93c5aa7ce22fdd14ecb2cf26c7855eb4ca6d",
+    "docs/evidencias/pagamentos/webhook/recepcao/README.md": "ac74ffef78f0fae3dd88447a8a362624d358a4ba4464d26b22b5cb5ebc13e019",
+    "docs/evidencias/pagamentos/webhook/recepcao/regressoes.log": "504b5d169408902889a0e67f65306bdea25c28c24398d9a3d1338898969bb853"
+  }
+}

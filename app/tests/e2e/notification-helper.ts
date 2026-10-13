@@ -10,7 +10,7 @@ const uuid = (value: string) => {
     throw new Error("Identificador fictício inválido.");
   return `'${value}'::uuid`;
 };
-export function localNotificationSql(sql: string) {
+export function localNotificationSql(sql: string, timeout?: number) {
   localSystem();
   try {
     return execFileSync(
@@ -33,6 +33,7 @@ export function localNotificationSql(sql: string) {
         input: sql,
         stdio: ["pipe", "pipe", "pipe"],
         encoding: "utf8",
+        timeout,
       },
     ).trim();
   } catch {

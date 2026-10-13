@@ -1,0 +1,23 @@
+{
+  "run": 38351265047,
+  "source": "ae5491863fc74d9c86866ed3245cb20654d5775e",
+  "job": 115143975845,
+  "status": "completed",
+  "conclusion": "cancelled",
+  "startedAt": "2026-10-13T05:25:03Z",
+  "completedAt": "2026-10-13T07:25:47Z",
+  "githubAnnotation": "The job has exceeded the maximum execution time of 2h0m0s",
+  "checkBuild": "previously verified success:job115143975651",
+  "bankStep": "success",
+  "browserStep": "cancelled",
+  "advisors": "skipped",
+  "cleanup": "success",
+  "artifactUpload": "success",
+  "observedFirstMobileFailure": "notification-preferences Test timeout of90000ms; retry1/2 leaseLocalSettings unavailable",
+  "diagnosticObserved": "admin-and-client-access-denied;pageClosed true;POST200/finished;receiptExists true;enabled true/revision3",
+  "causeOfTimeoutAndLeaseRetention": "not established; g temporal diagnostics inCI66 remains live",
+  "sanitizedExcerptSha256": "2a3697bcc2ac16baaab3050630d070b3ac889798d88bc494c4ebc7bafdaee448",
+  "rawLogRemainsIgnoredAndPrivate": true,
+  "browserCounts": "incomplete run; no final counts inferred",
+  "rerun": "not started; source and evidence preserved"
+}

@@ -1,0 +1,22 @@
+{
+  "source": "8f4212ae2dd8c5bf5a0cc34afeb4a870cba93932",
+  "run": 38343908798,
+  "job": 115120821414,
+  "artifact": 11791757053,
+  "artifactSize": 73973954,
+  "artifactDigest": "sha256:0c65e27bb836390e3aa709b9ea7926467c6efc81234ffc48e6e043d60ddda25e",
+  "downloadedPngs": 386,
+  "originalFormSha256": "34ff68d30e5a52a99ccb254ead98e49642f062e78ceab52cde1daa5edb0bf21e",
+  "imageObserved": "E-mail Desligado; Preferência salva.",
+  "nativeInitialFailure": "status empty at5000ms",
+  "diagnosticAfterInitialFailure": {
+    "elapsedMs": 5110,
+    "responseStatus": 200,
+    "responseFinished": true,
+    "receiptExists": true,
+    "revision": 1,
+    "successMessage": true
+  },
+  "followingFailures": "settings lease acquisition errors/timeouts",
+  "cause": "not attributed; no fixture lock owner/cleanup step captured in original evidence"
+}

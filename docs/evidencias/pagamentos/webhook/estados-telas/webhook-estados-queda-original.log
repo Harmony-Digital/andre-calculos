@@ -1,0 +1,217 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:e2e
+> playwright test tests/e2e/webhook-financial-screens.spec.ts -g value_decline: --project=computador --workers=1 --retries=0
+
+[WebServer] (node:33189) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33190) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33205) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+(node:33208) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33497) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33530) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33531) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33597) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33630) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33631) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33632) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33633) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33634) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33635) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33669) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33670) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33671) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+{"diagnostic":"webhook_value_decline_original","phase":"deposit","policy":"after_balance","certainty":"reconcile","creditCents":12501,"lastKnownCreditCents":12501,"observedDepositCents":12501,"observedTotalCents":25001,"pendingChargeCount":0,"conflictedChargeCount":0}
+F
+::error file=tests/e2e/webhook-financial-screens.spec.ts,title=[computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook,line=202,col=36::  1) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook %0A    Error: expect(received).toMatchObject(expected)%0A%0A    - Expected  - 2%0A    + Received  + 2%0A%0A      Object {%0A        "depositCreditCents": null,%0A        "manualDepositCents": 0,%0A        "manualTotalCents": 0,%0A    -   "providerObservedDepositCents": 10000,%0A    -   "providerObservedTotalCents": 22500,%0A    +   "providerObservedDepositCents": 12501,%0A    +   "providerObservedTotalCents": 25001,%0A        "remainingDepositCents": null,%0A        "remainingTotalCents": null,%0A        "totalCreditCents": null,%0A        "uncertain": true,%0A      }%0A%0A      200 |             );%0A      201 |           }%0A    > 202 |           expect(state.projection).toMatchObject({%0A          |                                    ^%0A      203 |             depositCreditCents: deposit,%0A      204 |             totalCreditCents: total,%0A      205 |             providerObservedDepositCents:%0A        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:202:36
+(node:34042) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34322) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34323) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34356) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34389) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34422) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34455) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34456) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34458) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34459) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34460) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34461) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34495) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34497) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+{"diagnostic":"webhook_value_decline_original","phase":"balance","policy":"before_balance","certainty":"reconcile","creditCents":12500,"lastKnownCreditCents":12500,"observedDepositCents":12501,"observedTotalCents":25001,"pendingChargeCount":0,"conflictedChargeCount":0}
+F
+::error file=tests/e2e/webhook-financial-screens.spec.ts,title=[computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook,line=202,col=36::  2) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook %0A    Error: expect(received).toMatchObject(expected)%0A%0A    - Expected  - 1%0A    + Received  + 1%0A%0A      Object {%0A        "depositCreditCents": 12501,%0A        "manualDepositCents": 0,%0A        "manualTotalCents": 0,%0A        "providerObservedDepositCents": 12501,%0A    -   "providerObservedTotalCents": 22501,%0A    +   "providerObservedTotalCents": 25001,%0A        "remainingDepositCents": 0,%0A        "remainingTotalCents": null,%0A        "totalCreditCents": null,%0A        "uncertain": true,%0A      }%0A%0A      200 |             );%0A      201 |           }%0A    > 202 |           expect(state.projection).toMatchObject({%0A          |                                    ^%0A      203 |             depositCreditCents: deposit,%0A      204 |             totalCreditCents: total,%0A      205 |             providerObservedDepositCents:%0A        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:202:36
+(node:34874) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35156) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35157) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35190) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35223) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35256) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35290) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35291) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35292) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35293) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35294) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35327) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35329) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+{"diagnostic":"webhook_value_decline_original","phase":"balance","policy":"after_balance","certainty":"reconcile","creditCents":12500,"lastKnownCreditCents":12500,"observedDepositCents":12501,"observedTotalCents":25001,"pendingChargeCount":0,"conflictedChargeCount":0}
+F
+::error file=tests/e2e/webhook-financial-screens.spec.ts,title=[computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook,line=202,col=36::  3) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook %0A    Error: expect(received).toMatchObject(expected)%0A%0A    - Expected  - 1%0A    + Received  + 1%0A%0A      Object {%0A        "depositCreditCents": 12501,%0A        "manualDepositCents": 0,%0A        "manualTotalCents": 0,%0A        "providerObservedDepositCents": 12501,%0A    -   "providerObservedTotalCents": 22501,%0A    +   "providerObservedTotalCents": 25001,%0A        "remainingDepositCents": 0,%0A        "remainingTotalCents": null,%0A        "totalCreditCents": null,%0A        "uncertain": true,%0A      }%0A%0A      200 |             );%0A      201 |           }%0A    > 202 |           expect(state.projection).toMatchObject({%0A          |                                    ^%0A      203 |             depositCreditCents: deposit,%0A      204 |             totalCreditCents: total,%0A      205 |             providerObservedDepositCents:%0A        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:202:36
+
+
+  1) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+
+    Error: expect(received).toMatchObject(expected)
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+        "depositCreditCents": null,
+        "manualDepositCents": 0,
+        "manualTotalCents": 0,
+    -   "providerObservedDepositCents": 10000,
+    -   "providerObservedTotalCents": 22500,
+    +   "providerObservedDepositCents": 12501,
+    +   "providerObservedTotalCents": 25001,
+        "remainingDepositCents": null,
+        "remainingTotalCents": null,
+        "totalCreditCents": null,
+        "uncertain": true,
+      }
+
+      200 |             );
+      201 |           }
+    > 202 |           expect(state.projection).toMatchObject({
+          |                                    ^
+      203 |             depositCreditCents: deposit,
+      204 |             totalCreditCents: total,
+      205 |             providerObservedDepositCents:
+        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:202:36
+
+    Error Context: test-results/webhook-financial-screens--9f157-ondem-ao-crédito-do-webhook-computador/error-context.md
+
+  2) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+
+    Error: expect(received).toMatchObject(expected)
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "depositCreditCents": 12501,
+        "manualDepositCents": 0,
+        "manualTotalCents": 0,
+        "providerObservedDepositCents": 12501,
+    -   "providerObservedTotalCents": 22501,
+    +   "providerObservedTotalCents": 25001,
+        "remainingDepositCents": 0,
+        "remainingTotalCents": null,
+        "totalCreditCents": null,
+        "uncertain": true,
+      }
+
+      200 |             );
+      201 |           }
+    > 202 |           expect(state.projection).toMatchObject({
+          |                                    ^
+      203 |             depositCreditCents: deposit,
+      204 |             totalCreditCents: total,
+      205 |             providerObservedDepositCents:
+        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:202:36
+
+    Error Context: test-results/webhook-financial-screens--cf3bf-ondem-ao-crédito-do-webhook-computador/error-context.md
+
+  3) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+
+    Error: expect(received).toMatchObject(expected)
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "depositCreditCents": 12501,
+        "manualDepositCents": 0,
+        "manualTotalCents": 0,
+        "providerObservedDepositCents": 12501,
+    -   "providerObservedTotalCents": 22501,
+    +   "providerObservedTotalCents": 25001,
+        "remainingDepositCents": 0,
+        "remainingTotalCents": null,
+        "totalCreditCents": null,
+        "uncertain": true,
+      }
+
+      200 |             );
+      201 |           }
+    > 202 |           expect(state.projection).toMatchObject({
+          |                                    ^
+      203 |             depositCreditCents: deposit,
+      204 |             totalCreditCents: total,
+      205 |             providerObservedDepositCents:
+        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:202:36
+
+    Error Context: test-results/webhook-financial-screens--51171-ondem-ao-crédito-do-webhook-computador/error-context.md
+
+  3 failed
+    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+::notice title=🎭 Playwright Run Summary::  3 failed%0A    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook %0A    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook %0A    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook
