@@ -1,0 +1,171 @@
+{
+  "run": 38362392157,
+  "source": "97f938cb53161bf78eb79b251f65cd2576f9f574",
+  "checkout": "8ccabe314bf00398ce259110ebfc40da9dff6f3a",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "97f938cb53161bf78eb79b251f65cd2576f9f574"
+  ],
+  "job": {
+    "id": 115179422549,
+    "run_id": 38362392157,
+    "status": "completed",
+    "conclusion": "cancelled",
+    "started_at": "2026-10-13T07:23:59Z",
+    "completed_at": "2026-10-13T09:24:42Z"
+  },
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm ci",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npx playwright install --with-deps chromium",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run sudo apt-get update && sudo apt-get install -y poppler-utils",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run supabase/setup-cli@v3",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run node scripts/start-local.mjs",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run bash ../scripts/dev-env.sh npm run test:rls",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1",
+      "status": "completed",
+      "conclusion": "cancelled"
+    },
+    {
+      "name": "Advisors locais",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Encerrar Supabase local",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run supabase/setup-cli@v3",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "githubAnnotation": "The job has exceeded the maximum execution time of 2h0m0s",
+  "bankTests": 1142,
+  "bankFiles": 56,
+  "browserComplete": false,
+  "diagnostics": [],
+  "cleanup": [],
+  "failureAnnotations": [
+    {
+      "title": "[computador] › tests/e2e/page-index.spec.ts:177:5 › índice pagina sem perder empates e preserva campos quando outra sessão altera a entrada",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/notification-preferences.spec.ts:11:5 › preferências por canal preservam escolha",
+      "outdated404Assertion": false
+    },
+    {
+      "title": "[computador] › tests/e2e/notification-preferences.spec.ts:11:5 › preferências por canal preservam escolha",
+      "outdated404Assertion": false
+    },
+    {
+      "title": "[computador] › tests/e2e/notification-preferences.spec.ts:11:5 › preferências por canal preservam escolha",
+      "outdated404Assertion": false
+    },
+    {
+      "title": "[computador] › tests/e2e/manual-deposit.spec.ts:6:5 › cliente vê Pix privado; André confirma uma vez após resposta perdida",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/manual-deposit.spec.ts:6:5 › cliente vê Pix privado; André confirma uma vez após resposta perdida",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/manual-deposit.spec.ts:6:5 › cliente vê Pix privado; André confirma uma vez após resposta perdida",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/decisions.spec.ts:19:5 › decisões preservam fonte",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/decisions.spec.ts:19:5 › decisões preservam fonte",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/decisions.spec.ts:19:5 › decisões preservam fonte",
+      "outdated404Assertion": true
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 11801071971,
+      "name": "evidencias-de-testes",
+      "size_in_bytes": 19813983,
+      "expired": false,
+      "digest": "sha256:2e49c5dfcf32740fe5f81d6753035d9738526c7d801f62b870cb0916ced02b37"
+    },
+    {
+      "id": 11795651030,
+      "name": "inventario-dependencias",
+      "size_in_bytes": 24174,
+      "expired": false,
+      "digest": "sha256:63dcec016ef9f11861f7a55b2922d43bb864a426a5863ff8714977a94d619eee"
+    }
+  ],
+  "sanitizedLogSha256": "7048c4f4e8ba09f8ae7b63a6bb606e1e787eb853f2c9114c74d3d1eb4119322f",
+  "rawLogsPrivate": true,
+  "noRerunStarted": true
+}
