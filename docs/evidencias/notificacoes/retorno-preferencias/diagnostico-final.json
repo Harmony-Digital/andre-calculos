@@ -1,0 +1,11 @@
+{
+  "controlled_tests": 2,
+  "widths": [
+    1440,
+    375
+  ],
+  "retries": 0,
+  "result": "2 passed (2.8s)",
+  "readback_unchanged": true,
+  "log_sha256": "1ba6d912ce68830e5f92e57b20852ccab232087e09b0d4b8c5144d7806dd2a5b"
+}

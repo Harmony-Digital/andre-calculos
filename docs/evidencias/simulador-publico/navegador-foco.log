@@ -1,0 +1,10 @@
+Running 8 tests using 1 worker
+  ✓  1 [computador] › tests/e2e/simulator.spec.ts:46:5 › estimativa anônima discrimina adicionais sem prazo, envio ou contratação (951ms)
+  ✓  2 [computador] › tests/e2e/simulator.spec.ts:98:5 › quantidades inválidas preservam campos e não deixam estimativa antiga visível (832ms)
+  ✓  3 [computador] › tests/e2e/simulator.spec.ts:134:5 › rota comercial sem tabela ativa não inventa preço nem usa a tabela demonstrativa (556ms)
+  ✓  4 [computador] › tests/e2e/simulator.spec.ts:185:5 › projeção ativa e identificação fictícias exercitam a estimativa comercial sem emitir proposta (585ms)
+  ✓  5 [celular] › tests/e2e/simulator.spec.ts:46:5 › estimativa anônima discrimina adicionais sem prazo, envio ou contratação (708ms)
+  ✓  6 [celular] › tests/e2e/simulator.spec.ts:98:5 › quantidades inválidas preservam campos e não deixam estimativa antiga visível (672ms)
+  ✓  7 [celular] › tests/e2e/simulator.spec.ts:134:5 › rota comercial sem tabela ativa não inventa preço nem usa a tabela demonstrativa (420ms)
+  ✓  8 [celular] › tests/e2e/simulator.spec.ts:185:5 › projeção ativa e identificação fictícias exercitam a estimativa comercial sem emitir proposta (591ms)
+  8 passed (7.9s)

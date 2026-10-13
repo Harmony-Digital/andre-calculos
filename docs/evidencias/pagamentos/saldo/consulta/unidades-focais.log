@@ -1,0 +1,11 @@
+> andre-calculos@0.1.0 test
+> vitest run src/modules/payments/invoice-presentation.test.ts src/modules/payments/invoice-query.test.ts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+
+ Test Files  2 passed (2)
+      Tests  37 passed (37)
+   Start at  18:24:30
+   Duration  187ms (import 55%, transform 37%, tests 7%, worker 2%)
