@@ -1,0 +1,45 @@
+{
+  "artifactId": 11796506654,
+  "digest": "c82d2c10b4546d21319a925a44f2ae9a283551a21f20eebb25e7294051c064ae",
+  "source": "961508819b1530aff55a529b69fd7bd7c5cd0c96",
+  "captures": [
+    {
+      "pathInArtifact": "notification-preferences-p-9a1a4-ga-e-controlam-novos-avisos-celular/preferencia-retorno-falha.png",
+      "sha256": "c20d26b6d7e8a8033ea1ec9d512d33145b1e75c4b2da17a3b78d56a752dc7b9e",
+      "pixelDimensions": [
+        759,
+        294
+      ],
+      "path": "ci65-capturas/ci65-preferencias-mobile-falha.png",
+      "crop": "formulario",
+      "reviewed": true,
+      "observation": "E-mail Desligado; botao Salvando; ausencia de mensagem de sucesso."
+    },
+    {
+      "pathInArtifact": "notification-preferences-p-9a1a4-ga-e-controlam-novos-avisos-computador/preferencias-avisos.png",
+      "sha256": "1b503dcc8b811bb99a6c58883219133f632134625b12be844fe1a08b82ec9704",
+      "pixelDimensions": [
+        1108,
+        1575
+      ],
+      "path": "ci65-capturas/ci65-preferencias-desktop-primeira.png",
+      "crop": "secao de preferencias",
+      "reviewed": true,
+      "observation": "E-mail financeiro Desligado; WhatsApp de nova mensagem Ligado; botoes Salvar; textos e controles legiveis. Recorte nao identifica a etapa posterior do timeout."
+    },
+    {
+      "pathInArtifact": "notification-preferences-p-9a1a4-ga-e-controlam-novos-avisos-computador-retry1/preferencias-avisos.png",
+      "sha256": "1b503dcc8b811bb99a6c58883219133f632134625b12be844fe1a08b82ec9704",
+      "pixelDimensions": [
+        1108,
+        1575
+      ],
+      "path": "ci65-capturas/ci65-preferencias-desktop-retry1.png",
+      "crop": "secao de preferencias",
+      "reviewed": true,
+      "observation": "E-mail financeiro Desligado; WhatsApp de nova mensagem Ligado; botoes Salvar; textos e controles legiveis. Recorte nao identifica a etapa posterior do timeout.",
+      "reviewMethod": "pixels identicos ao recorte desktop anterior, conferidos por SHA-256"
+    }
+  ],
+  "scope": "Somente capturas ficticias; sao recortes de elementos, nao viewports completos. Nao demonstram causa do atraso ou retencao da lease."
+}

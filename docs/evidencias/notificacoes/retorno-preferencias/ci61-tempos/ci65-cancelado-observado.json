@@ -1,0 +1,132 @@
+{
+  "run": 38353635010,
+  "source": "961508819b1530aff55a529b69fd7bd7c5cd0c96",
+  "job": 115151421613,
+  "checkout": "42c049dd9973bf80e506baff520e7403fe13f433",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "startedAt": "2026-10-13T05:52:25Z",
+  "completedAt": "2026-10-13T07:53:10Z",
+  "githubAnnotation": "The job has exceeded the maximum execution time of 2h0m0s",
+  "bankStep": "success",
+  "bankTests": 1140,
+  "bankFiles": 56,
+  "browserStep": "cancelled",
+  "advisors": "skipped",
+  "cleanup": "success",
+  "artifactUpload": "success",
+  "observedFirstFailure": "notification-preferences computador: Test timeout90000ms",
+  "observedFirstMobilePreferenceFailure": "financial email: status vazio no limite5000ms; diagnostic5273ms headers200/responseFinishedfalse/receipttrue/pendingtrue/revision0; retry timeout90000ms emaccessibility-and-screenshots",
+  "diagnostics": [
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 5,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": true,
+      "requestFailed": false,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "form": {
+        "pending": false,
+        "revision": "0",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": true,
+        "successMessage": false
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 158,
+      "pageClosed": true,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": true,
+      "requestFailed": false,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "save-financial-email-no",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "payment_updated",
+      "channel": "E-mail",
+      "elapsedMs": 5273,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": false,
+      "requestFailed": false,
+      "database": {
+        "receiptExists": true,
+        "preference": {
+          "enabled": false,
+          "revision": 1
+        }
+      },
+      "form": {
+        "pending": true,
+        "revision": "0",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": true,
+        "successMessage": false
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "accessibility-and-screenshots",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "WhatsApp",
+      "elapsedMs": 20650,
+      "pageClosed": true,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": true,
+      "requestFailed": false,
+      "database": {
+        "receiptExists": true,
+        "preference": {
+          "enabled": true,
+          "revision": 3
+        }
+      }
+    }
+  ],
+  "causeOfTimeoutAndLeaseRetention": "nao comprovada; prova temporal deCI66 conserva requisito proprio",
+  "sanitizedExcerptSha256": "54e8670fbc1fc55837342aaed614e7bafce7b9c8947cc7ea715decf11e43bd41",
+  "rawLogRemainsIgnoredAndPrivate": true,
+  "browserCounts": "execucao interrompida; nenhuma contagem final inferida",
+  "rerun": "nenhum novo rerun; fonte preservada",
+  "visualEvidence": "ci65-capturas.json",
+  "nativeSanitizedExcerptSha256": "d3d75bcbee7e3a5b589d3753b8ad7b0f712c0299af03b37ecf0216833e3f957a",
+  "normalization": "Espacos ao final das linhas removidos; trecho nativo preservado somente local."
+}
