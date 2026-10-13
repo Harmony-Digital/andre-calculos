@@ -39,3 +39,5 @@ A evidência reunida não demonstra a causa real da intermitência. Nenhuma alte
 - `npm run check`: formato, lint, tipos, 1.494 testes unitários em 75 arquivos e 43 testes de scripts passaram. O build local falhou pela restrição EPERM ao abrir uma porta interna do Turbopack; a fonte exata precisa de confirmação do build no CI. A falha foi preservada, sem troca de bundler ou ajuste de permissões.
 
 Após restringir a validação do UUID e proteger a criação do contexto no ensaio controlado, os dois ensaios controlados foram repetidos na fonte final: 2 passed em 2,8 segundos, sem retry. Read-back final idêntico ao anterior. Tipos e `npm run check` repetidos: mesmas etapas aprovadas e mesma restrição EPERM no build. Logs finais preservados nesta pasta.
+
+O check/build da fonte final `5255cdcc5addb35b1e5993fc9e9532bab6304ef3` passou no CI38342525910/job115116495150. Artefato11787333186, checkout04e8ec9d, pais, árvore, lock/config e inventário sanitizado foram conferidos; prova em `ci60-build.json`. Isso não comprova o resultado integral da regressão remota.
