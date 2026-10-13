@@ -33,3 +33,7 @@ Na matriz de 33 casos, 32 passaram; o restante conservou `awaiting_payment` depo
 Os 33 casos passaram em 88,31 segundos, exit0. Read-back, controles e grants finais são idênticos ao baseline106/25/61RLS/4perfis/markerfalse, com journals próprios restaurados; dois advisors sem achados. Formato/lint/tipos, 1.494 unidades em 75 arquivos e 43 testes de scripts passaram. Build local impedido pela mesma restrição EPERM de porta interna; check/build da nova fonte e regressão geral são verificações próprias, ainda sem conclusão neste foco. Provas e hashes em `verificacao-foco.json`.
 
 O check/build da fonte8f4212a passou no CI38343908798/job115120821592. Prova exata em `ci61-build.json`: artefato11788032042, checkout4826511a, pais, árvore, lock/config e inventário conferidos. A regressão geral continua sendo uma verificação própria.
+
+## Regressão geral da fonte final
+
+A fonte congelada8f4212a terminou com 1.103 testes aprovados em54 arquivos/1.266,58s/exit0, incluindo os33 novos. Read-back, controles e grants após a geral são idênticos ao foco; dois advisors finais sem achados. App, SQL, scripts eworkflow ficaram idênticos à fonte do PR61 durante a execução. Provas em `regressao-geral.json` e arquivos associados. A execução integral remota mantém comprovação própria; os percursos de concorrência e de telas não são substituídos por este resultado.

@@ -1,0 +1,14 @@
+{
+  "source": "8f4212ae2dd8c5bf5a0cc34afeb4a870cba93932",
+  "tests": 1103,
+  "files": 54,
+  "duration_seconds": 1266.58,
+  "exit": 0,
+  "focused_tests_included": 33,
+  "readback_controls_grants_identical_to_focus": true,
+  "advisors_no_issues": 2,
+  "current_app_sql_scripts_workflow_match_source": true,
+  "original_log_sha256": "4f7d77d95390b80c6fae6e50f3bd114b68947a92e9fb6933600c518df2f2332f",
+  "normalized_log_sha256": "985d82ab01539987b5c11e0eb32796f11976204bed98939dcb2417ecb45bf52a",
+  "remote_overall_result": "not yet concluded"
+}
