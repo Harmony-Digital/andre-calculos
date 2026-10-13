@@ -399,7 +399,7 @@ Prazo sugerido: 2026-10-20
 - [ ] M2.36 Ensaiar com o André um processo antigo autorizado — responsável: André com o agente
 - [ ] M2.37 Publicar o MVP no domínio definido — D3; aprovação do Fábio antes de divulgar
 
-- [ ] M2.35h Atualizar seletores dos testes para a página indisponível em português — ⏳ descoberto por anotações nativasCI68/69: decisões e índice procuram heading404; sinal manual tem o mesmo seletor. Manter negações por papel e HTTP404 da API, rodar percursos nas duas larguras, sem ampliar limites.
+- [ ] M2.35h Atualizar seletores dos testes para a página indisponível em português — ⏳ três seletores corrigidos;12 percursos em45,5s/sem retries nas duas larguras passaram. Oito capturas (dois hashes) revisadas, API404 e negações por papel preservadas. Banco107/controles/grants iguais ao baseline,advisors sem achados;1.501 unitários/76arquivos/43scripts/formato/lint/tipos passam. BuildlocalEPERM; check/build da fonte noCI pendente. docs/evidencias/qualidade/seletores-pagina-indisponivel/verificacao-local.json
 
 ### 🔒 GATE M2 (aprovação do Fábio e do André)
 
@@ -1557,6 +1557,12 @@ Prazo sugerido: a planejar
 
 - **Fazer:** preservar fonte8f4212a/CI38343908798/job115120821414/artefato11791757053 e as falhas originais. O log comprova preferência sem mensagem no limite5s, captura posterior com HTTP200/recibo/revisão1/sucesso e erro de aquisição do lock de settings nos casos posteriores; ainda não comprova qual etapa deixou a fixture ativa nem a causa do atraso inicial. Acrescentar apenas metadados de tempo relativos ao início da tentativa: início/resposta/fim dePOST, primeira transição do estado da forma e etapas de cleanup. Usar observer somente no formulário, dados limitados a pending/revisão/escolha/sucesso/requestIdChanged; não armazenar valores deIDs,headers,payload,contatos ouHTML. Teardown registra início/fim/falha de cada recurso sem reordenar,repetir ou omitir operações. Conferir os observadores em páginas fictícias controladas, reproduzir o teste original em375/1440 semretry e registrarread-back/advisors. Não remover lock de writer vivo, não aumentar5000/90000 e não atribuir correção aoCI62/63 quepassou.
 - **Pronto quando:** a sequência causal e a correção têm prova real, com privacidade e limpeza preservadas. Se apenas os sintomas forem alcançados, g/f ficam abertos com a prova temporal, sem inventar causa nem reduzir o escopo da construção.
+
+#### M2.35h Seletores da página indisponível
+
+- **Fazer:** atualizar os três seletores antigos do título404 para o heading em português já publicado no código, em decisões, índice de páginas e sinal manual. Preservar cenários de papéis indevidos, cursor inválido e status404 da API. Sem mudança de aplicação, limites, retries, helpers ou políticas.
+- **Verificar:** os seis casos desses três arquivos nas larguras375/1440, capturas das oito páginas recusadas, limpeza/read-back107/controles/grants/advisors e check/build exato da fonte. Não encerrar f/g nem a falha financeira d2 com esta correção.
+- **Pronto quando:** percursos existentes e build da fonte aprovados; o CI integral conserva resultado próprio.
 
 ### M3 — Validação comercial
 
@@ -3140,3 +3146,5 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-13 | Codex | Conferência final do renderer antes do CI (M3.04b1) | Metadados de criação e modificação dos três PDFs conferidos contra o aceite congelado, resolvendo referências indiretas na leitura. Assertiva de data adicionada à repetição determinística; check local passa formato/lint/tipos/1.501 unitários/76 arquivos/43 scripts e encontra o EPERM conhecido no build. Hashes das 47 capturas conferidos. Fonte pronta para draft PR; b1 aguarda check/build próprio, restante do contrato e objetivo integral abertos. |
 
 | 2026-10-13 | Codex | Renderer conferido no CI e falhas antigas de404 identificadas | M3.04b1 concluída no recorte local, fonte839a6fd/PR70draft/check-build exatoCI38385736816/job115256947318/artefato11805097928; pais/árvore/lock/config/inventário conferidos. CI68/69 cancelados por2h, banco1142/56 e1152/57 aprovado; anotações provam seletores antigos404 em decisões/índice, sinal manual também contém o seletor. M2.35h registrada antes da correção; nenhuma alteração de limite/retry/publicação, f/g/d2 e restante do contrato abertos. |
+
+| 2026-10-13 | Codex | Seletores antigos404 corrigidos e jornadas verificadas (M2.35h) | Três seletores passam a procurar Página não encontrada;12 percursos/45,5s/sem retries/375-1440 aprovados. Oito capturas revisadas por dois hashes idênticos em cada largura; negações e API404 preservadas. Read-back107/controles/grants idênticos,advisors sem achados;1.501 unidades76/43scripts/formato/lint/tipos aprovados,buildlocalEPERM. Check/build próprio pendente; não fecha f/g/d2 nem o objetivo integral. |
