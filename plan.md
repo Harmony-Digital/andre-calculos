@@ -452,6 +452,9 @@ Prazo sugerido: 2026-11-17 (a confirmar com o André)
 - [x] M3.01c3a Preparar claims e consulta retomável do webhook — evidência: preparo/verificação local da fonte9a39602/PR54;26 próprios passed,26recepção/76legados conferidos,read-back104/25/61RLS/4perfis/controles preservados/zero temporários/advisors sem achados. Check/build exatoCI38325150275/job115061968697/artefato11780222775/checkout038afec1/pais/árvore/hashes conferidos. Etapa remota test:rls/job115061968298 concluída success,sem inferir contagens antes dos logs nativos. Falhas de duração gerais preservadas em M1.13d,que continua aberta para a estabilidade do runner20s/CI56. Não aplica crédito;C3b/C3c/C4 obrigatórias. docs/evidencias/pagamentos/webhook/processamento/
 - [ ] M3.01c3b Aplicar consulta e finalizar fila atomicamente — ⏳ migration105 local,25 casos únicos verificados(24 juntos/43,50s +manual concorrente1/2,45s),1.490unidades74arquivos/43scripts/formato-lint-tipos passaram. Fences/replay/lease/UNKNOWN/rollback/avisos/atomicidade/concorrência de recepção emanual conferidos;read-back105/25/61RLS/4perfis/controles/metadados preservados,zero temporários/grants diretos/advisors sem achados. Geral18102 vivo;fonte d5755a1/PR57/check-build exatoCI38331649428/job115082482818/artefato11783396334/checkout92dc2973/pais/árvore/hashes conferidos;C3c/C4 continuam obrigatórias. docs/evidencias/pagamentos/webhook/finalizacao/
 - [ ] M3.01c3c Verificar jornadas do webhook e consumidores — parte de c3; depende de c3b; Pix/boleto/cartão, parcial/taxa/refund/CB/UNKNOWN, duplicidade/ordem/perda/conflito/manual concorrente, 375/1440/Axe
+- [ ] M3.01c3c1 Ligar o worker à fila privada — parte de c3c;depende de c3b;seleção por conta/pagamento,processador de lote,quarentena e retomada;cron local autenticado,desligado fora do perfil fictício
+- [ ] M3.01c3c2 Verificar percursos completos no banco — parte de c3c;depende de c3c1;métodos/fases/estados financeiros epré-condições de contrato,aceite,documento,simulação/revisão
+- [ ] M3.01c3c3 Verificar visão do cliente e do André — parte de c3c;depende de c3c2;375/1440/Axe/capturas,sinal/saldo/download/fila/timeline eavisos
 - [ ] M3.01c4 Verificar transporte e jornada no sandbox real do cliente — parte de c; depende de c3, conta/credenciais/endpoint e autorização específica; inclui identidade real do driver, emissão/evento/fatura/crédito/fila e validação em 375/1440 px
 - [ ] M3.02 Criar o botão do André para ligar ou desligar o pagamento automático — RF-31
 - [ ] M3.03 Ativar o Asaas em produção — conta conforme D9; aprovação do Fábio
@@ -1908,6 +1911,21 @@ Prazo sugerido: a planejar
 - **Fazer:** percursos completos recepção→claim→consulta→Y→fila, parcial/taxa/refund/CB/UNKNOWN, mensagem/avisos deduplicados e consumidores de sinal/saldo/download/contrato nos dois papéis/fases. Verificar 375/1440/Axe/capturas, evento sem contrato/aceite/simulação e nenhuma aprovação D6/revisão técnica fabricada.
 - **Pronto quando:** escopo original c3 integralmente provado, regressão geral e read-back/advisors/build exato conferidos. Parent c conserva transporte e sandbox real de c4.
 
+#### M3.01c3c1 Worker de fila
+
+- **Fazer:** unir claim/consulta/finalização existentes em um caso de uso server-only e ligá-lo a um lote restrito à conta configurada pelo servidor. Selecionar por pagamento,com relógio do banco;processamento perdido volta após lease,sem novo POST/GET quando T possui receipt. Novo evento/conflicto exige fonte atual;unmatched/identidade divergente ficam em quarentena,sem criar tentativas ilimitadas para a mesma fonte. Reavaliar unmatched quando surgir vínculo real da charge. Não aceitar scope,clock ou identidade de visitante. Entrada cron usa token distinto do webhook,sem valores versionados;continua desabilitada fora do perfil local fictício até C4.
+- **Pronto quando:** endpoint/comando executa a fila real do banco local,replay/retomada/concorrência/quarentena/conta/marker/erro de lote passam,sem endpoint HTTP de teste na aplicação ou dispatch pago.
+
+#### M3.01c3c2 Percursos no banco
+
+- **Fazer:** percorrer recepção→worker→T/Y→fila pelos meios Pix/boleto/cartão e fases sinal/saldo. Cobrir parcial/taxa/refund/chargeback/UNKNOWN,duplicidade/ordem/perda/conflito/concorrência,notificações únicas epré-condições;eventos não aprovam contrato,termos,simulação,revisão técnica ouD6. Usar produtores/entrega explicitamente fictícios existentes.
+- **Pronto quando:** componentes e consumidores de crédito/contrato/download/fila/avisos conferidos com dados sintéticos,read-back/advisors/regressão echeck/build exatos.
+
+#### M3.01c3c3 Jornadas nas telas
+
+- **Fazer:** usar contextos independentes de cliente/calculista e driver Node server-only para produzir os eventos e executar o mesmo worker de aplicação. Verificar fatura/projeção/linha do tempo/fila/documentos/avisos em375/1440px;Axe,largura e capturas. Não usar ledger alternativo nem corrigir navegação para fazer o teste passar.
+- **Pronto quando:** visão de cada papel/fase corresponde aos efeitos reais e a falta de pré-condição continua bloqueada. Parent C3 fica aberto até cobertura de toda a especificação original;C4 conserva autorização/driver externos.
+
 #### M3.01c4 Driver e sandbox real
 
 - **Parte de:** c; depende de c3 e dos insumos/autorização externa.
@@ -2805,3 +2823,5 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-12 | Codex | Fonte d5755a1 enviada;PR57 criado/anexado eCI38331649428 confirmado | C3b local25casos únicos/read-back/advisors/1.490unidades74arquivos/43scripts registrados. Fonte congelada;qualidade115082482818 emcheck,e2e115082483028 preparaSupabase. Geral local18102/PID40324 confirmado vivo,não reiniciar nem aplicar outra migration enquanto ativo. Source/check-build exatos egeral ainda pendentes;C3b/3c/C4/objetivo integral abertos,sem publicação ou operação real. |
 
 | 2026-10-12 | Codex | Check/build exato C3b confirmado na fonte d5755a1/PR57 | CI38331649428/job115082482818/artefato11783396334 não expirado/digest/checkout92dc2973/pais main9a25+fonte/árvore/lock/config/app-SQL-scripts-workflow conferidos. Geral local18102/PID40324 ainda vivo;CI e2e57/job115082483028 em execução. Fonte congelada;C3b aguarda geral/read-back final,C3c/C4 eobjetivo integral abertos. Nenhuma publicação ou operação real. |
+
+| 2026-10-12 | Codex | CI53/54 integral success verificado;C3c dividido antes do código |54:988banco50arquivos/255navegador7omissões/zero flaky/1.490unidades74arquivos/43scripts/check-build/dois advisors/cleanup/upload/artefatos não expirados/digests/checkout038afec1/pais/head.53:962banco49arquivos/255navegador7omissões/zero flaky/1.490unidades74arquivos/43scripts efinalização iguais;diagnóstico não atribui causa originalM2.35e. Busca emapp/src confirmou ausência de caller declaim/consulta/finalização;C3c1 liga worker àfila,C3c2 banco,C3c3 telas. GeralC3b18102 ainda vivo;sem nova migration ououtro writer local. Objetivo integral aberto. |
