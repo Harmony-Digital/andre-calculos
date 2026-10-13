@@ -1,0 +1,9 @@
+authorize_quote_contract_download|f|t|f
+claim_quote_contract_pdf|f|f|t
+complete_quote_contract_pdf|f|f|t
+fail_quote_contract_pdf|f|f|t
+get_quote_contract_pdf_state|f|t|f
+prepare_quote_contract_pdf|f|f|t
+record_quote_contract_download|f|f|f
+record_quote_contract_download_system|f|f|t
+select_pending_quote_contract_pdfs|f|f|t

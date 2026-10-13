@@ -31,7 +31,7 @@
   "scriptTests": 43,
   "formatLintTypes": "pass",
   "localBuild": "EPERM interno do Turbopack; build da fonte final no CI pendente",
-  "ciPending": true,
+  "ciPending": false,
   "baselinePreserved": true,
   "storageAndJobsEmptyAfterCleanup": true,
   "advisorsNoIssues": 2,
@@ -46,5 +46,8 @@
     "proposta e pasta com download por teclado",
     "bytes/hash/cabeçalhos privados e auditoria exclusiva do servidor",
     "outro cliente/admin/anônimo recusados"
-  ]
+  ],
+  "ciBuildProof": "ci-build.json",
+  "source": "e9b204f2fd939a6f1550a1b06fc86b9658cbee2c",
+  "fullCiResult": "Ainda em execução; resultado próprio, sem aprovação integral inferida."
 }
