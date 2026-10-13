@@ -1,0 +1,967 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:e2e
+> playwright test tests/e2e/webhook-financial-screens.spec.ts -g value_decline:|balance/before_balance/(partial|excess|refund_pending): --project=computador --workers=1 --retries=0
+
+[WebServer] (node:35929) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35932) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35935) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+(node:35945) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36231) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36265) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36266) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36299) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36332) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36365) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36366) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36367) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36368) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36369) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36370) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36371) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36404) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36405) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36406) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+{"diagnostic":"webhook_value_decline_original","phase":"deposit","policy":"after_balance","certainty":"reconcile","creditCents":12501,"lastKnownCreditCents":12501,"observedDepositCents":12501,"observedTotalCents":25001,"pendingChargeCount":0,"conflictedChargeCount":0}
+[WebServer] (node:36567) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36569) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36571) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36573) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36575) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36577) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36674) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+F
+::error file=tests/e2e/webhook-financial-screens.spec.ts,title=[computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook,line=455,col=15::  1) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook %0A    Error: expect(locator).toHaveText(expected) failed%0A%0A    Locator: locator('.process-timeline')%0A    Timeout: 5000ms%0A    - Expected  - 80%0A    + Received  +  1%0A%0A    - Pagamento em conciliação%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:46%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:46%0A    - Regra de liberação aprovada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Entrega confirmada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Em cálculo → Em revisão%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Em análise → Em cálculo%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Na fila → Em análise%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Documento enviado%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Pedido entrou na fila%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:46%0A    - Situação atualizada%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:46%0A    - Proposta aceita%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Checklist salvo%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:46%0A    + Pagamento em conciliaçãoSistema13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Regra de liberação aprovadaCalculista de teste13/10/2026, 02:46Entrega confirmadaCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:46Em análise → Em cálculoCalculista de teste13/10/2026, 02:46Na fila → Em análiseCalculista de teste13/10/2026, 02:46Documento enviadoCliente A de teste13/10/2026, 02:46Pedido entrou na filaCliente A de teste13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Situação atualizadaSistema13/10/2026, 02:46Proposta aceitaCliente A de teste13/10/2026, 02:46Checklist salvoCliente A de teste13/10/2026, 02:46%0A%0A    Call log:%0A      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms%0A      - waiting for locator('.process-timeline')%0A        14 × locator resolved to <ol class="process-timeline">…</ol>%0A           - unexpected value "Pagamento em conciliaçãoSistema13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Regra de liberação aprovadaCalculista de teste13/10/2026, 02:46Entrega confirmadaCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:46Em análise → Em cálculoCalculista de teste13/10/2026, 02:46Na fila → Em análiseCalculista de teste13/10/2026, 02:46Documento enviadoCliente A de teste13/10/2026, 02:46Pedido entrou na filaCliente A de teste13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Situação atualizadaSistema13/10/2026, 02:46Proposta aceitaCliente A de teste13/10/2026, 02:46Checklist salvoCliente A de teste13/10/2026, 02:46"%0A%0A%0A      453 |             await expect(%0A      454 |               timeline.viewer.locator(".process-timeline"),%0A    > 455 |             ).toHaveText(timeline.text);%0A          |               ^%0A      456 |             if (row.name === "unknown")%0A      457 |               await captureWebhookScreen(%0A      458 |                 timeline.viewer,%0A        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+(node:36886) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37165) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37166) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37199) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37265) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37299) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37300) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37301) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37302) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37303) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37307) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37341) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37342) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37455) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37457) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37459) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37461) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37463) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37464) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37465) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37562) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+F
+::error file=tests/e2e/webhook-financial-screens.spec.ts,title=[computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/partial: telas e bytes correspondem ao crédito do webhook,line=455,col=15::  2) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/partial: telas e bytes correspondem ao crédito do webhook %0A    Error: expect(locator).toHaveText(expected) failed%0A%0A    Locator: locator('.process-timeline')%0A    Timeout: 5000ms%0A    - Expected  - 75%0A    + Received  +  1%0A%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:46%0A    - Regra de liberação aprovada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Entrega confirmada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Em cálculo → Em revisão%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Em análise → Em cálculo%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Na fila → Em análise%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Documento enviado%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Pedido entrou na fila%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:46%0A    - Situação atualizada%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:46%0A    - Proposta aceita%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:46%0A    - Checklist salvo%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:46%0A    + Pagamento confirmadoSistema13/10/2026, 02:46Regra de liberação aprovadaCalculista de teste13/10/2026, 02:46Entrega confirmadaCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:46Em análise → Em cálculoCalculista de teste13/10/2026, 02:46Na fila → Em análiseCalculista de teste13/10/2026, 02:46Documento enviadoCliente A de teste13/10/2026, 02:46Pedido entrou na filaCliente A de teste13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Situação atualizadaSistema13/10/2026, 02:46Proposta aceitaCliente A de teste13/10/2026, 02:46Checklist salvoCliente A de teste13/10/2026, 02:46%0A%0A    Call log:%0A      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms%0A      - waiting for locator('.process-timeline')%0A        14 × locator resolved to <ol class="process-timeline">…</ol>%0A           - unexpected value "Pagamento confirmadoSistema13/10/2026, 02:46Regra de liberação aprovadaCalculista de teste13/10/2026, 02:46Entrega confirmadaCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:46Em análise → Em cálculoCalculista de teste13/10/2026, 02:46Na fila → Em análiseCalculista de teste13/10/2026, 02:46Documento enviadoCliente A de teste13/10/2026, 02:46Pedido entrou na filaCliente A de teste13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Situação atualizadaSistema13/10/2026, 02:46Proposta aceitaCliente A de teste13/10/2026, 02:46Checklist salvoCliente A de teste13/10/2026, 02:46"%0A%0A%0A      453 |             await expect(%0A      454 |               timeline.viewer.locator(".process-timeline"),%0A    > 455 |             ).toHaveText(timeline.text);%0A          |               ^%0A      456 |             if (row.name === "unknown")%0A      457 |               await captureWebhookScreen(%0A      458 |                 timeline.viewer,%0A        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+(node:37774) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38053) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38054) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38087) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38120) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38153) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38186) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38187) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38188) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38189) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38190) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38191) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38225) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38226) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38387) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38389) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38391) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38393) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38395) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38396) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38397) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38494) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+F
+::error file=tests/e2e/webhook-financial-screens.spec.ts,title=[computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/excess: telas e bytes correspondem ao crédito do webhook,line=455,col=15::  3) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/excess: telas e bytes correspondem ao crédito do webhook %0A    Error: expect(locator).toHaveText(expected) failed%0A%0A    Locator: locator('.process-timeline')%0A    Timeout: 5000ms%0A    - Expected  - 80%0A    + Received  +  1%0A%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Regra de liberação aprovada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Entrega confirmada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Em cálculo → Em revisão%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Em análise → Em cálculo%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Na fila → Em análise%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Pedido entrou na fila%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Situação atualizada%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Proposta aceita%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Checklist salvo%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    + Pagamento confirmadoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47%0A%0A    Call log:%0A      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms%0A      - waiting for locator('.process-timeline')%0A        14 × locator resolved to <ol class="process-timeline">…</ol>%0A           - unexpected value "Pagamento confirmadoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47"%0A%0A%0A      453 |             await expect(%0A      454 |               timeline.viewer.locator(".process-timeline"),%0A    > 455 |             ).toHaveText(timeline.text);%0A          |               ^%0A      456 |             if (row.name === "unknown")%0A      457 |               await captureWebhookScreen(%0A      458 |                 timeline.viewer,%0A        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+(node:38708) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38987) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38989) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39022) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39088) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39121) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39123) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39124) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39125) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39126) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39127) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39160) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39161) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39162) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39339) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39341) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39343) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39345) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39347) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39348) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39350) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+F
+::error file=tests/e2e/webhook-financial-screens.spec.ts,title=[computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/refund_pending: telas e bytes correspondem ao crédito do webhook,line=455,col=15::  4) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/refund_pending: telas e bytes correspondem ao crédito do webhook %0A    Error: expect(locator).toHaveText(expected) failed%0A%0A    Locator: locator('.process-timeline')%0A    Timeout: 5000ms%0A    - Expected  - 80%0A    + Received  +  1%0A%0A    - Pagamento em conciliação%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Regra de liberação aprovada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Entrega confirmada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Em cálculo → Em revisão%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Em análise → Em cálculo%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Na fila → Em análise%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Pedido entrou na fila%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Situação atualizada%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Proposta aceita%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Checklist salvo%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    + Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47%0A%0A    Call log:%0A      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms%0A      - waiting for locator('.process-timeline')%0A        14 × locator resolved to <ol class="process-timeline">…</ol>%0A           - unexpected value "Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47"%0A%0A%0A      453 |             await expect(%0A      454 |               timeline.viewer.locator(".process-timeline"),%0A    > 455 |             ).toHaveText(timeline.text);%0A          |               ^%0A      456 |             if (row.name === "unknown")%0A      457 |               await captureWebhookScreen(%0A      458 |                 timeline.viewer,%0A        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+(node:39659) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39938) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39939) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:39972) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40005) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40038) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40071) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40072) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40073) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40074) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40075) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40076) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40109) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40110) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40111) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+{"diagnostic":"webhook_value_decline_original","phase":"balance","policy":"before_balance","certainty":"reconcile","creditCents":12500,"lastKnownCreditCents":12500,"observedDepositCents":12501,"observedTotalCents":25001,"pendingChargeCount":0,"conflictedChargeCount":0}
+[WebServer] (node:40279) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40281) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40283) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40285) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40287) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40386) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+F
+::error file=tests/e2e/webhook-financial-screens.spec.ts,title=[computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook,line=455,col=15::  5) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook %0A    Error: expect(locator).toHaveText(expected) failed%0A%0A    Locator: locator('.process-timeline')%0A    Timeout: 5000ms%0A    - Expected  - 80%0A    + Received  +  1%0A%0A    - Pagamento em conciliação%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Regra de liberação aprovada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Entrega confirmada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Em cálculo → Em revisão%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Em análise → Em cálculo%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Na fila → Em análise%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Pedido entrou na fila%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Situação atualizada%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Proposta aceita%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Checklist salvo%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    + Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47%0A%0A    Call log:%0A      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms%0A      - waiting for locator('.process-timeline')%0A        14 × locator resolved to <ol class="process-timeline">…</ol>%0A           - unexpected value "Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47"%0A%0A%0A      453 |             await expect(%0A      454 |               timeline.viewer.locator(".process-timeline"),%0A    > 455 |             ).toHaveText(timeline.text);%0A          |               ^%0A      456 |             if (row.name === "unknown")%0A      457 |               await captureWebhookScreen(%0A      458 |                 timeline.viewer,%0A        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+(node:40597) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40877) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40878) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40911) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40945) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:40978) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41011) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41013) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41014) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41015) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41017) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41050) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41051) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41052) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+{"diagnostic":"webhook_value_decline_original","phase":"balance","policy":"after_balance","certainty":"reconcile","creditCents":12500,"lastKnownCreditCents":12500,"observedDepositCents":12501,"observedTotalCents":25001,"pendingChargeCount":0,"conflictedChargeCount":0}
+[WebServer] (node:41213) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41215) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41217) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41219) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41221) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41222) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41223) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:41320) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+F
+::error file=tests/e2e/webhook-financial-screens.spec.ts,title=[computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook,line=455,col=15::  6) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook %0A    Error: expect(locator).toHaveText(expected) failed%0A%0A    Locator: locator('.process-timeline')%0A    Timeout: 5000ms%0A    - Expected  - 80%0A    + Received  +  1%0A%0A    - Pagamento em conciliação%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Regra de liberação aprovada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Entrega confirmada%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Em cálculo → Em revisão%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Em análise → Em cálculo%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Na fila → Em análise%0A    -%0A    - Calculista de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Pedido entrou na fila%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Documento enviado%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Pagamento confirmado%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Situação atualizada%0A    -%0A    - Sistema%0A    -%0A    - 13/10/2026, 02:47%0A    - Proposta aceita%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    - Checklist salvo%0A    -%0A    - Cliente A de teste%0A    -%0A    - 13/10/2026, 02:47%0A    + Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47%0A%0A    Call log:%0A      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms%0A      - waiting for locator('.process-timeline')%0A        14 × locator resolved to <ol class="process-timeline">…</ol>%0A           - unexpected value "Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47"%0A%0A%0A      453 |             await expect(%0A      454 |               timeline.viewer.locator(".process-timeline"),%0A    > 455 |             ).toHaveText(timeline.text);%0A          |               ^%0A      456 |             if (row.name === "unknown")%0A      457 |               await captureWebhookScreen(%0A      458 |                 timeline.viewer,%0A        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+
+
+  1) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.process-timeline')
+    Timeout: 5000ms
+    - Expected  - 80
+    + Received  +  1
+
+    - Pagamento em conciliação
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:46
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:46
+    - Regra de liberação aprovada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Entrega confirmada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Em cálculo → Em revisão
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Em análise → Em cálculo
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Na fila → Em análise
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Documento enviado
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:46
+    - Pedido entrou na fila
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:46
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:46
+    - Situação atualizada
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:46
+    - Proposta aceita
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:46
+    - Checklist salvo
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:46
+    + Pagamento em conciliaçãoSistema13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Regra de liberação aprovadaCalculista de teste13/10/2026, 02:46Entrega confirmadaCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:46Em análise → Em cálculoCalculista de teste13/10/2026, 02:46Na fila → Em análiseCalculista de teste13/10/2026, 02:46Documento enviadoCliente A de teste13/10/2026, 02:46Pedido entrou na filaCliente A de teste13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Situação atualizadaSistema13/10/2026, 02:46Proposta aceitaCliente A de teste13/10/2026, 02:46Checklist salvoCliente A de teste13/10/2026, 02:46
+
+    Call log:
+      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms
+      - waiting for locator('.process-timeline')
+        14 × locator resolved to <ol class="process-timeline">…</ol>
+           - unexpected value "Pagamento em conciliaçãoSistema13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Regra de liberação aprovadaCalculista de teste13/10/2026, 02:46Entrega confirmadaCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:46Em análise → Em cálculoCalculista de teste13/10/2026, 02:46Na fila → Em análiseCalculista de teste13/10/2026, 02:46Documento enviadoCliente A de teste13/10/2026, 02:46Pedido entrou na filaCliente A de teste13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Situação atualizadaSistema13/10/2026, 02:46Proposta aceitaCliente A de teste13/10/2026, 02:46Checklist salvoCliente A de teste13/10/2026, 02:46"
+
+
+      453 |             await expect(
+      454 |               timeline.viewer.locator(".process-timeline"),
+    > 455 |             ).toHaveText(timeline.text);
+          |               ^
+      456 |             if (row.name === "unknown")
+      457 |               await captureWebhookScreen(
+      458 |                 timeline.viewer,
+        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+
+    Error Context: test-results/webhook-financial-screens--9f157-ondem-ao-crédito-do-webhook-computador/error-context.md
+
+  2) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/partial: telas e bytes correspondem ao crédito do webhook
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.process-timeline')
+    Timeout: 5000ms
+    - Expected  - 75
+    + Received  +  1
+
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:46
+    - Regra de liberação aprovada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Entrega confirmada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Em cálculo → Em revisão
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Em análise → Em cálculo
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Na fila → Em análise
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:46
+    - Documento enviado
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:46
+    - Pedido entrou na fila
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:46
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:46
+    - Situação atualizada
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:46
+    - Proposta aceita
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:46
+    - Checklist salvo
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:46
+    + Pagamento confirmadoSistema13/10/2026, 02:46Regra de liberação aprovadaCalculista de teste13/10/2026, 02:46Entrega confirmadaCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:46Em análise → Em cálculoCalculista de teste13/10/2026, 02:46Na fila → Em análiseCalculista de teste13/10/2026, 02:46Documento enviadoCliente A de teste13/10/2026, 02:46Pedido entrou na filaCliente A de teste13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Situação atualizadaSistema13/10/2026, 02:46Proposta aceitaCliente A de teste13/10/2026, 02:46Checklist salvoCliente A de teste13/10/2026, 02:46
+
+    Call log:
+      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms
+      - waiting for locator('.process-timeline')
+        14 × locator resolved to <ol class="process-timeline">…</ol>
+           - unexpected value "Pagamento confirmadoSistema13/10/2026, 02:46Regra de liberação aprovadaCalculista de teste13/10/2026, 02:46Entrega confirmadaCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Documento enviadoCalculista de teste13/10/2026, 02:46Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:46Em análise → Em cálculoCalculista de teste13/10/2026, 02:46Na fila → Em análiseCalculista de teste13/10/2026, 02:46Documento enviadoCliente A de teste13/10/2026, 02:46Pedido entrou na filaCliente A de teste13/10/2026, 02:46Pagamento confirmadoSistema13/10/2026, 02:46Situação atualizadaSistema13/10/2026, 02:46Proposta aceitaCliente A de teste13/10/2026, 02:46Checklist salvoCliente A de teste13/10/2026, 02:46"
+
+
+      453 |             await expect(
+      454 |               timeline.viewer.locator(".process-timeline"),
+    > 455 |             ).toHaveText(timeline.text);
+          |               ^
+      456 |             if (row.name === "unknown")
+      457 |               await captureWebhookScreen(
+      458 |                 timeline.viewer,
+        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+
+    Error Context: test-results/webhook-financial-screens--084fd-ondem-ao-crédito-do-webhook-computador/error-context.md
+
+  3) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/excess: telas e bytes correspondem ao crédito do webhook
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.process-timeline')
+    Timeout: 5000ms
+    - Expected  - 80
+    + Received  +  1
+
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Regra de liberação aprovada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Entrega confirmada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Em cálculo → Em revisão
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Em análise → Em cálculo
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Na fila → Em análise
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Pedido entrou na fila
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Situação atualizada
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Proposta aceita
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Checklist salvo
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    + Pagamento confirmadoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47
+
+    Call log:
+      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms
+      - waiting for locator('.process-timeline')
+        14 × locator resolved to <ol class="process-timeline">…</ol>
+           - unexpected value "Pagamento confirmadoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47"
+
+
+      453 |             await expect(
+      454 |               timeline.viewer.locator(".process-timeline"),
+    > 455 |             ).toHaveText(timeline.text);
+          |               ^
+      456 |             if (row.name === "unknown")
+      457 |               await captureWebhookScreen(
+      458 |                 timeline.viewer,
+        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+
+    Error Context: test-results/webhook-financial-screens--9e8bf-ondem-ao-crédito-do-webhook-computador/error-context.md
+
+  4) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/refund_pending: telas e bytes correspondem ao crédito do webhook
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.process-timeline')
+    Timeout: 5000ms
+    - Expected  - 80
+    + Received  +  1
+
+    - Pagamento em conciliação
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Regra de liberação aprovada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Entrega confirmada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Em cálculo → Em revisão
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Em análise → Em cálculo
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Na fila → Em análise
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Pedido entrou na fila
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Situação atualizada
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Proposta aceita
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Checklist salvo
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    + Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47
+
+    Call log:
+      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms
+      - waiting for locator('.process-timeline')
+        14 × locator resolved to <ol class="process-timeline">…</ol>
+           - unexpected value "Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47"
+
+
+      453 |             await expect(
+      454 |               timeline.viewer.locator(".process-timeline"),
+    > 455 |             ).toHaveText(timeline.text);
+          |               ^
+      456 |             if (row.name === "unknown")
+      457 |               await captureWebhookScreen(
+      458 |                 timeline.viewer,
+        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+
+    Error Context: test-results/webhook-financial-screens--1a420-ondem-ao-crédito-do-webhook-computador/error-context.md
+
+  5) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.process-timeline')
+    Timeout: 5000ms
+    - Expected  - 80
+    + Received  +  1
+
+    - Pagamento em conciliação
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Regra de liberação aprovada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Entrega confirmada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Em cálculo → Em revisão
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Em análise → Em cálculo
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Na fila → Em análise
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Pedido entrou na fila
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Situação atualizada
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Proposta aceita
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Checklist salvo
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    + Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47
+
+    Call log:
+      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms
+      - waiting for locator('.process-timeline')
+        14 × locator resolved to <ol class="process-timeline">…</ol>
+           - unexpected value "Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47"
+
+
+      453 |             await expect(
+      454 |               timeline.viewer.locator(".process-timeline"),
+    > 455 |             ).toHaveText(timeline.text);
+          |               ^
+      456 |             if (row.name === "unknown")
+      457 |               await captureWebhookScreen(
+      458 |                 timeline.viewer,
+        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+
+    Error Context: test-results/webhook-financial-screens--cf3bf-ondem-ao-crédito-do-webhook-computador/error-context.md
+
+  6) [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.process-timeline')
+    Timeout: 5000ms
+    - Expected  - 80
+    + Received  +  1
+
+    - Pagamento em conciliação
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Regra de liberação aprovada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Entrega confirmada
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Em cálculo → Em revisão
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Em análise → Em cálculo
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Na fila → Em análise
+    -
+    - Calculista de teste
+    -
+    - 13/10/2026, 02:47
+    - Pedido entrou na fila
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Documento enviado
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Pagamento confirmado
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Situação atualizada
+    -
+    - Sistema
+    -
+    - 13/10/2026, 02:47
+    - Proposta aceita
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    - Checklist salvo
+    -
+    - Cliente A de teste
+    -
+    - 13/10/2026, 02:47
+    + Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47
+
+    Call log:
+      - Expect "toHaveText" locator('.process-timeline') with timeout 5000ms
+      - waiting for locator('.process-timeline')
+        14 × locator resolved to <ol class="process-timeline">…</ol>
+           - unexpected value "Pagamento em conciliaçãoSistema13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Regra de liberação aprovadaCalculista de teste13/10/2026, 02:47Entrega confirmadaCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Documento enviadoCalculista de teste13/10/2026, 02:47Em cálculo → Em revisãoCalculista de teste13/10/2026, 02:47Em análise → Em cálculoCalculista de teste13/10/2026, 02:47Na fila → Em análiseCalculista de teste13/10/2026, 02:47Pedido entrou na filaCliente A de teste13/10/2026, 02:47Documento enviadoCliente A de teste13/10/2026, 02:47Pagamento confirmadoSistema13/10/2026, 02:47Situação atualizadaSistema13/10/2026, 02:47Proposta aceitaCliente A de teste13/10/2026, 02:47Checklist salvoCliente A de teste13/10/2026, 02:47"
+
+
+      453 |             await expect(
+      454 |               timeline.viewer.locator(".process-timeline"),
+    > 455 |             ).toHaveText(timeline.text);
+          |               ^
+      456 |             if (row.name === "unknown")
+      457 |               await captureWebhookScreen(
+      458 |                 timeline.viewer,
+        at /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app/tests/e2e/webhook-financial-screens.spec.ts:455:15
+
+    Error Context: test-results/webhook-financial-screens--51171-ondem-ao-crédito-do-webhook-computador/error-context.md
+
+  6 failed
+    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/partial: telas e bytes correspondem ao crédito do webhook
+    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/excess: telas e bytes correspondem ao crédito do webhook
+    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/refund_pending: telas e bytes correspondem ao crédito do webhook
+    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook
+::notice title=🎭 Playwright Run Summary::  6 failed%0A    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook %0A    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/partial: telas e bytes correspondem ao crédito do webhook %0A    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/excess: telas e bytes correspondem ao crédito do webhook %0A    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/refund_pending: telas e bytes correspondem ao crédito do webhook %0A    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook %0A    [computador] › tests/e2e/webhook-financial-screens.spec.ts:104:11 › balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook

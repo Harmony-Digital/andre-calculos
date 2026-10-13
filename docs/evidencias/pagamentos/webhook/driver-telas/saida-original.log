@@ -1,0 +1,67 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-ui-driver.test.ts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+stdout | tests/integration/webhook-ui-driver.test.ts > PIX: driver recebe sinal e saldo pelo mesmo worker sem ledger paralelo
+{"diagnostic":"webhook_ui_exit","code":null,"signal":"SIGTERM"}
+
+stdout | tests/integration/webhook-ui-driver.test.ts > PIX: driver recebe sinal e saldo pelo mesmo worker sem ledger paralelo
+{"diagnostic":"webhook_ui_cleanup","failed":["runner"]}
+
+stdout | tests/integration/webhook-ui-driver.test.ts > BOLETO: driver recebe sinal e saldo pelo mesmo worker sem ledger paralelo
+{"diagnostic":"webhook_ui_exit","code":null,"signal":"SIGTERM"}
+
+stdout | tests/integration/webhook-ui-driver.test.ts > BOLETO: driver recebe sinal e saldo pelo mesmo worker sem ledger paralelo
+{"diagnostic":"webhook_ui_cleanup","failed":["runner"]}
+
+stdout | tests/integration/webhook-ui-driver.test.ts > driver recusa preparo sintético no modo de telas e continua após comando inválido
+{"diagnostic":"webhook_ui_exit","code":null,"signal":"SIGTERM"}
+
+stdout | tests/integration/webhook-ui-driver.test.ts > driver recusa preparo sintético no modo de telas e continua após comando inválido
+{"diagnostic":"webhook_ui_cleanup","failed":["runner"]}
+
+ ❯ tests/integration/webhook-ui-driver.test.ts (5 tests | 3 failed) 12436ms
+   × PIX: driver recebe sinal e saldo pelo mesmo worker sem ledger paralelo 3710ms
+   × BOLETO: driver recebe sinal e saldo pelo mesmo worker sem ledger paralelo 3471ms
+   × driver recusa preparo sintético no modo de telas e continua após comando inválido 1777ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-ui-driver.test.ts > PIX: driver recebe sinal e saldo pelo mesmo worker sem ledger paralelo
+ FAIL  tests/integration/webhook-ui-driver.test.ts > BOLETO: driver recebe sinal e saldo pelo mesmo worker sem ledger paralelo
+Error: Limpeza incompleta: runner.
+ ❯ independentCleanup src/lib/testing/independent-cleanup.ts:23:13
+     21|     report(failed);
+     22|     if (!primaryFailed)
+     23|       throw new Error(`Limpeza incompleta: ${failed.join(", ")}.`);
+       |             ^
+     24|   }
+     25| }
+ ❯ tests/e2e/webhook-ui-driver.ts:191:9
+ ❯ tests/integration/webhook-ui-driver.test.ts:61:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/integration/webhook-ui-driver.test.ts > driver recusa preparo sintético no modo de telas e continua após comando inválido
+Error: Limpeza incompleta: runner.
+ ❯ independentCleanup src/lib/testing/independent-cleanup.ts:23:13
+     21|     report(failed);
+     22|     if (!primaryFailed)
+     23|       throw new Error(`Limpeza incompleta: ${failed.join(", ")}.`);
+       |             ^
+     24|   }
+     25| }
+ ❯ tests/e2e/webhook-ui-driver.ts:191:9
+ ❯ tests/integration/webhook-ui-driver.test.ts:82:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 2 passed (5)
+   Start at  02:01:27
+   Duration  12.56s (tests 100%)

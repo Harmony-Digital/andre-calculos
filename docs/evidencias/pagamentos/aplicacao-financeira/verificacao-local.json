@@ -1,0 +1,46 @@
+{
+  "authorization": "M3 local ficticio b9b687d",
+  "migrations": "0078-0084",
+  "bankGeneralThrough0082": {
+    "passed": 688,
+    "files": 34
+  },
+  "bankFinalAfter0084": {
+    "passed": 36,
+    "files": 1
+  },
+  "unitTests": 1195,
+  "unitFiles": 60,
+  "scriptTests": 43,
+  "browserDistinctTests": 14,
+  "browserPreferenceFinal": 2,
+  "browserTimelineFinal": 2,
+  "readback": {
+    "migrations": 84,
+    "publicTables": 25,
+    "privateTables": 52,
+    "allRls": true,
+    "profiles": 4,
+    "fixtureEnabled": false,
+    "originalSeedPayment": 1,
+    "originalSeedPaymentStatus": "pending"
+  },
+  "logsSha256": {
+    "y-bank-general": "4a4d11165a3a0711b63b5db45b82f1d06b21afc614bbd4764c5ab01e9746ab12",
+    "y-bank-final-focused": "602c16ceac52a17d7c8d0176e4a1614f8b9de52b5cdfae23d4e8610909d388f2",
+    "y-browser": "3a467fd2bd369b3527e0a261b32cd15abfb7e09bcd3d86e009596da17feae8f7",
+    "y-browser-preferences-final": "472c90bd83cda67c46e04c33cfb0fa8e0fb28edec0fec263e089b71bc722acff",
+    "y-browser-timeline-final": "efdc5f0f3bad87e467909f9d67d0aa59d0debd61cc6f123fac83aa8d676ebeb4",
+    "y-check": "e882f24f15f5f66401c16893c0019502b2f4a77ce06c3f7606c299e5075b43d7",
+    "y-types": "9671050a065e8fdcea0bb34cbec01351600275d171d5b2ac2d83600a1f786778",
+    "y-final-readback": "19d1fd00870c5766b7ec09b2f63419b86de49958a362d450abdb9a5233d13611",
+    "y-origin-readback": "c77dfe22e6f83869d98395fb2ab7b840b39c24ef8bc5d3888d754f0e77e3105a",
+    "y-advisors78": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "y-advisors79": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "y-advisors80": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "y-advisors81": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "y-advisors82": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "y-advisors83": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+    "y-advisors84": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+  }
+}

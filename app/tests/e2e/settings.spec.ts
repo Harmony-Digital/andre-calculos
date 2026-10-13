@@ -120,9 +120,56 @@ test("salva dados profissionais, ativa preços e conserva histórico", async ({
     await priceForm
       .getByRole("button", { name: "Salvar exemplo inativo" })
       .click();
-    await expect(priceForm.getByRole("status")).toContainText(
-      "exemplo inativo",
-    );
+    try {
+      await expect(priceForm.getByRole("status")).toContainText(
+        "exemplo inativo",
+      );
+    } catch (error) {
+      // Diagnóstico de estado, sem valores dos campos, cookies ou payloads.
+      try {
+        const fields = await priceForm.evaluate(
+          (form) =>
+            Array.from(form.querySelectorAll<HTMLInputElement>("input"))
+              .filter((input) => !input.checkValidity())
+              .map((input) => input.name),
+          undefined,
+          { timeout: 1000 },
+        );
+        const latestVersion = (
+          await db
+            .from("price_tables")
+            .select("version")
+            .order("version", { ascending: false })
+            .limit(1)
+            .single()
+        ).data?.version;
+        console.info(
+          JSON.stringify({
+            diagnostic: "settings_example_return",
+            path: new URL(page.url()).pathname,
+            invalidFields: fields,
+            alertPresent: await priceForm.getByRole("alert").count(),
+            statusPresent: await priceForm.getByRole("status").count(),
+            pending: await priceForm
+              .locator("fieldset")
+              .isDisabled({ timeout: 1000 }),
+            versionCreated: (latestVersion ?? 0) > (before[0]?.version ?? 0),
+          }),
+        );
+        await priceForm.screenshot({
+          path: testInfo.outputPath("precos-retorno-falha.png"),
+          timeout: 1000,
+        });
+      } catch {
+        console.info(
+          JSON.stringify({
+            diagnostic: "settings_example_return",
+            unavailable: true,
+          }),
+        );
+      }
+      throw error;
+    }
     const example = (
       await db
         .from("price_tables")

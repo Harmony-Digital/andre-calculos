@@ -65,21 +65,38 @@ export async function quoteFixture(
   conditions = cfg.conditions,
   parameters = fictionalPriceParameters,
 ) {
-  const release = await leaseLocalSettings(),
-    db = localSystem();
-  const prior = (
-    await db.from("settings").select("*").eq("singleton", true).single()
-  ).data!;
-  const history = (
-    await db
-      .from("price_tables")
-      .select("id,version,active")
-      .order("version", { ascending: false })
-  ).data!;
+  const db = localSystem(),
+    release = await leaseLocalSettings();
+  const { prior, history, calculator } = await (async () => {
+    try {
+      const [settings, prices, actor] = await Promise.all([
+        db.from("settings").select("*").eq("singleton", true).single(),
+        db
+          .from("price_tables")
+          .select("id,version,active")
+          .order("version", { ascending: false }),
+        db.from("profiles").select("id").eq("role", "calculator").single(),
+      ]);
+      if (
+        settings.error ||
+        !settings.data ||
+        prices.error ||
+        !prices.data ||
+        actor.error ||
+        !actor.data
+      )
+        throw new Error("Preparação fictícia indisponível.");
+      return {
+        prior: settings.data,
+        history: prices.data,
+        calculator: actor.data,
+      };
+    } catch {
+      await release();
+      throw new Error("Preparação fictícia indisponível.");
+    }
+  })();
   const oldActive = history.find((row) => row.active)?.id;
-  const calculator = (
-    await db.from("profiles").select("id").eq("role", "calculator").single()
-  ).data!;
   const result = await db
     .from("settings")
     .update({

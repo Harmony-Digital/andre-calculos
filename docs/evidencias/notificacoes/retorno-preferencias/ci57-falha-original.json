@@ -1,0 +1,12 @@
+{
+  "run": 38331649428,
+  "source": "d5755a19f9ec13c06454509883cbfd0799265053",
+  "job": 115082483028,
+  "originalLogSha256": "435e9294d335acd79225405a435d06c7ba05ce725b71bd4a413c257cc355b2e9",
+  "case": "notification-preferences.spec.ts:107/celular",
+  "expected": "Prefer\u00eancia salva.",
+  "observed": "empty p role=status",
+  "assertionTimeoutMs": 5000,
+  "passedOnRetry": true,
+  "causeProven": false
+}

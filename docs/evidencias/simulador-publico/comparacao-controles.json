@@ -1,0 +1,9 @@
+{
+  "baseline": "aj-ak-readback-final.log",
+  "migrationsBefore": 90,
+  "migrationsAfter": 91,
+  "priorReadbackIdenticalExceptMigrationCount": true,
+  "financialControlsUnchanged": true,
+  "publicPriceGrantsConfirmed": true,
+  "activePriceAndProfessionalRestored": true
+}

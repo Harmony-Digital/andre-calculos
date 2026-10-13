@@ -1,0 +1,11 @@
+{
+  "run": 38297497134,
+  "job": 114972014362,
+  "source": "57eb21fa05a2c3c86bcfea9a515f6614498b57db",
+  "test": "computador/email-auth.spec.ts/recuperacao de senha e link de acesso pelo Mailpit",
+  "result": "flaky, aprovado no retry;cookie count esperado0 recebido1 na primeira tentativa",
+  "followup": "M2.35d;hipotese de navegacao antes de concluir logout, ainda sem reproducao independente",
+  "originalSelectedSha256": "40faa0e7e16511f89373bcd5fa533814be53fb4198146712b014a5fdafb914c8",
+  "artifactSha256": "65b196021078c1aba79662144e4ecd407227fe269a48e264da843f763cb5a968",
+  "normalization": "Espacos finais removidos"
+}

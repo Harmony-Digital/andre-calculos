@@ -1,0 +1,70 @@
+{
+  "task": "M3.01at",
+  "mode": "fixture_local",
+  "newBankTests": 16,
+  "regressionBankTests": 57,
+  "bankFiles": 3,
+  "unitTests": 1432,
+  "unitFiles": 72,
+  "scripts": 43,
+  "formatLintTypes": "passed",
+  "localBuild": "EPERM Turbopack; fonte exata precisa CI",
+  "readbackByteIdenticalToAR": true,
+  "controlsByteIdenticalToAJAK": true,
+  "advisorsNoIssues": 2,
+  "code": {
+    "app/tests/e2e/balance-journey-helper.ts": "1d2599177fc31336739c3fe2bb8bcb7f50e2ceacc3f4383af788fa5b920a79a9",
+    "app/tests/integration/balance-journey.test.ts": "58d9fe8d32cb8acbea66cdff78e94f786a5f8442f5e948152dce73a0e14e9444"
+  },
+  "files": [
+    {
+      "origin": "at-banco-final.log",
+      "artifact": "focado.log",
+      "originalSha256": "c784df196483a9f401e3ad63e7320a5831780b4e30484d8bab96b073e578adee",
+      "artifactSha256": "4d1ed9809c018d5bba6cd0c59f690b137d170861bf49bb06ead576714494fe9f",
+      "normalization": "extrato de comandos/contagens/erro no check; linhas sem espacos finais e EOF unico"
+    },
+    {
+      "origin": "at-regressao-final.log",
+      "artifact": "regressao.log",
+      "originalSha256": "4456c5b124c3c9790663ec21f40cb986431d25b8e9b8c29424f641d0fbc7c782",
+      "artifactSha256": "00b79b7cf2ecda011b92f4bb764dd68c0d9fa045feeb134d156811e160af2aa8",
+      "normalization": "extrato de comandos/contagens/erro no check; linhas sem espacos finais e EOF unico"
+    },
+    {
+      "origin": "at-check-final.log",
+      "artifact": "qualidade-local.log",
+      "originalSha256": "04293400a4627a756954ef0b1f631249c2e0e5fddbc6bd8cd19dc4363c1a92a5",
+      "artifactSha256": "2b9463cc3ee1c74fbd892b5f094a325e43f76a24dd9fe90bf7412eb2c5cd0695",
+      "normalization": "extrato de comandos/contagens/erro no check; linhas sem espacos finais e EOF unico"
+    },
+    {
+      "origin": "at-readback-final.log",
+      "artifact": "read-back.log",
+      "originalSha256": "d2de5e9a49f41080c37a9d4ef71b53b9531a7701007807e4fd5b13e5ebf6dc23",
+      "artifactSha256": "d2de5e9a49f41080c37a9d4ef71b53b9531a7701007807e4fd5b13e5ebf6dc23",
+      "normalization": "extrato de comandos/contagens/erro no check; linhas sem espacos finais e EOF unico"
+    },
+    {
+      "origin": "at-controles-final.json",
+      "artifact": "controles.json",
+      "originalSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+      "artifactSha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+      "normalization": "extrato de comandos/contagens/erro no check; linhas sem espacos finais e EOF unico"
+    },
+    {
+      "origin": "at-advisors-final.log",
+      "artifact": "advisors.log",
+      "originalSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+      "artifactSha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+      "normalization": "extrato de comandos/contagens/erro no check; linhas sem espacos finais e EOF unico"
+    },
+    {
+      "origin": "at-temporarios-final.json",
+      "artifact": "temporarios.json",
+      "originalSha256": "cb06ec63ac7b2002bfb91b7aa70344e7d045b7a8c1b73061ee2e3a30e82772d5",
+      "artifactSha256": "cb06ec63ac7b2002bfb91b7aa70344e7d045b7a8c1b73061ee2e3a30e82772d5",
+      "normalization": "extrato de comandos/contagens/erro no check; linhas sem espacos finais e EOF unico"
+    }
+  ]
+}

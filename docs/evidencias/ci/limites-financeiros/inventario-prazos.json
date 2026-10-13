@@ -1,0 +1,16 @@
+{
+  "summary": {
+    "files": 50,
+    "testDeclarations": 678,
+    "defaultMilliseconds": 5000,
+    "implicitDeclarations": 621,
+    "explicitBelow20000": 10,
+    "explicitAtLeast20000": 47
+  },
+  "config": "app/vitest.rls.config.mts",
+  "configSha256": "33bdcfdab84434cb9051f786022b00fafa6d0bfa0214a32c1d369cb97a236be3",
+  "nodeVitestDefaultMilliseconds": 5000,
+  "declarationsAreNotExpandedTestCount": true,
+  "currentObservation": "balance-invoice-query/status desconhecido do saldo: falha observada,diagnostico final ainda pendente",
+  "nextAction": "aguardar9138 terminal e reproduzir antes de ajustar politica do runner"
+}

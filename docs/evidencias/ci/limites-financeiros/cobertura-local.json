@@ -1,0 +1,53 @@
+{
+  "task": "M1.13d",
+  "sourceBefore": "9a39602566ee8c97bb33a07689f0e54c9d614427",
+  "unchangedReproduction": {
+    "tests": 51,
+    "files": 2,
+    "seconds": 64.88
+  },
+  "focusedAfterChange": {
+    "tests": 51,
+    "files": 2,
+    "seconds": 72.22
+  },
+  "externalCaseBudgetsMilliseconds": {
+    "uncertaintyGroup": 20000,
+    "rollback": 20000,
+    "concurrentCredit": 20000,
+    "concurrentOwner": 25000,
+    "concurrentRole": 20000
+  },
+  "unchanged": {
+    "allAssertionsFixturesAndBodyCode": true,
+    "pollMilliseconds": 3000,
+    "statementAndIdleMilliseconds": 8000,
+    "productTimeouts": true,
+    "applicationSqlScriptsWorkflow": true
+  },
+  "localCheck": {
+    "format": "passed",
+    "lint": "passed",
+    "types": "passed",
+    "units": 1490,
+    "unitFiles": 74,
+    "scripts": 43,
+    "build": "EPERM"
+  },
+  "wholeBank": {
+    "status": "running",
+    "sessionId": 9138,
+    "log": ".data/revisao/limites-banco-geral.log"
+  },
+  "readbackAndControlsUnchanged": true,
+  "causeOfAdditionalWaiter": "not proven",
+  "nextRequired": [
+    "wholeBank",
+    "exactRemoteCheckBuild",
+    "C3b/C3c/C4"
+  ],
+  "nativeLogOriginalSha256": {
+    "banco-focado.log": "841dcd0b31bbffd6672fee0e5cb203e21708d70b570c271ea00888dbd0141e3f",
+    "reproducao-inalterada.log": "4c25549479316410bfcb11d0ac57e9ae714f6f3573f3e4488874f6ca5afb2cd7"
+  }
+}
