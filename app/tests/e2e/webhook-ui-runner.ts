@@ -9,6 +9,7 @@ import { quoteSession } from "./quote-helper";
 import { paymentIntentReceiptSchema } from "@/modules/payments/intents";
 import { advanceFixturePaymentExecution } from "@/modules/payments/execution-worker";
 import { captureFixtureFinancialObservation } from "@/modules/payments/financial-worker";
+import { proposalSchema } from "@/modules/quotes/proposal";
 
 type Fixture = Awaited<ReturnType<typeof webhookFinancialJourneyFixture>>;
 type Target = Fixture["target"];
@@ -22,6 +23,10 @@ const commandSchema = z.strictObject({
     "view",
     "replay",
     "signalReplay",
+    "prepareSimulation",
+    "prepareNoContext",
+    "mismatchSimulation",
+    "mismatchNoContext",
     "prepareBalance",
     "prepareSyntheticDelivery",
     "close",
@@ -51,6 +56,79 @@ async function run() {
       .parse(process.env.ANDRE_WEBHOOK_UI_METHOD);
     f = await webhookFinancialJourneyFixture(method, "deposit");
     const fixture = f;
+    const negativeQuotes = new Map<
+      "simulation" | "no_context",
+      {
+        quoteId: string;
+        orderId: string;
+        processId: string;
+        simulation: boolean;
+      }
+    >();
+    const prepareNegative = async (kind: "simulation" | "no_context") => {
+      const existing = negativeQuotes.get(kind);
+      if (existing) return existing;
+      const before = await fixture.db.from("quotes").select("id");
+      assert(before.error === null, "Propostas fictícias indisponíveis.");
+      let refused = false;
+      try {
+        await fixture.create(
+          kind === "simulation" ? { simulation: true } : { context: false },
+        );
+      } catch (error) {
+        refused =
+          error instanceof Error &&
+          error.message === "Aceite da fixture indisponível.";
+      }
+      assert(refused, "Pré-condição fictícia não recusada.");
+      const after = await fixture.db
+        .from("quotes")
+        .select("id,order_id,is_simulation,accepted_at");
+      assert(after.error === null, "Proposta fictícia não consultada.");
+      const priorIds = new Set(before.data!.map((q) => q.id));
+      const added = after.data!.filter((q) => !priorIds.has(q.id));
+      assert(
+        added.length === 1 && added[0].accepted_at === null,
+        "Proposta negativa não preservada.",
+      );
+      const quote = added[0],
+        order = await fixture.db
+          .from("orders")
+          .select("process_id,status")
+          .eq("id", quote.order_id)
+          .single();
+      assert(
+        order.error === null && order.data?.status === "quoted",
+        "Estado fictício inesperado.",
+      );
+      const value = {
+        quoteId: z.uuid().parse(quote.id),
+        orderId: z.uuid().parse(quote.order_id),
+        processId: z.uuid().parse(order.data.process_id),
+        simulation: quote.is_simulation,
+      };
+      assert(
+        value.simulation === (kind === "simulation"),
+        "Tipo fictício inesperado.",
+      );
+      if (kind === "simulation") {
+        const presentation = proposalSchema.parse({
+          ...fixture.sample.proposal,
+          mode: "fixture",
+          orderId: value.orderId,
+          processId: value.processId,
+        });
+        const saved = await fixture.db
+          .from("quotes")
+          .update({ proposal_snapshot: presentation })
+          .eq("id", value.quoteId)
+          .eq("is_simulation", true)
+          .is("accepted_at", null);
+        assert(saved.error === null, "Apresentação fictícia não preparada.");
+      }
+      negativeQuotes.set(kind, value);
+      return value;
+    };
     const target = () => balance ?? fixture.signal;
     const prepareBalance = async () => {
       if (balance) return balance;
@@ -165,6 +243,30 @@ async function run() {
               command.action === "signalReplay" ? fixture.signal : target(),
             );
             data = receipt ? await fixture.replay(receipt.runId) : null;
+            break;
+          }
+          case "prepareSimulation":
+          case "prepareNoContext":
+            if (command.scenario) throw new Error("Cenário não permitido.");
+            data = await prepareNegative(
+              command.action === "prepareSimulation"
+                ? "simulation"
+                : "no_context",
+            );
+            break;
+          case "mismatchSimulation":
+          case "mismatchNoContext": {
+            if (command.scenario) throw new Error("Cenário não permitido.");
+            const quote = await prepareNegative(
+              command.action === "mismatchSimulation"
+                ? "simulation"
+                : "no_context",
+            );
+            data = await fixture.move(
+              "current",
+              { patch: { externalReference: quote.orderId } },
+              fixture.signal,
+            );
             break;
           }
           case "prepareBalance":

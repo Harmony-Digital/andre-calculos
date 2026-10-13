@@ -1,0 +1,49 @@
+{
+  "task": "M3.01c3c3c2",
+  "driver": {
+    "passed": 7,
+    "duration": "17.04s",
+    "exit": 0
+  },
+  "firstLossAfterCommit": {
+    "passed": 1,
+    "duration": "14.3s",
+    "exit": 0
+  },
+  "full": {
+    "passed": 16,
+    "duration": "2.2m",
+    "exit": 0,
+    "retries": 0,
+    "widths": [
+      375,
+      1440
+    ],
+    "captures": 44
+  },
+  "defaultHelperRegression": {
+    "passed": 4,
+    "duration": "45.3s",
+    "exit": 0,
+    "retries": 0
+  },
+  "readbackControlsGrantsEqualBaseline106": true,
+  "advisors": "security and performance: No issues found",
+  "check": {
+    "formatLintTypes": "pass",
+    "unitTests": 1494,
+    "unitFiles": 75,
+    "scripts": 43,
+    "localBuild": "EPERM internal Turbopack port; exact CI source pending"
+  },
+  "scope": "negative proposals, no minimum document/review/D6, technical checkbox, loss before/after delivery/policy commit, preserved nonce/fields/receipt/snapshot/bytes/audit, foreign access denied without audit",
+  "productSqlOldFinancialHelpersUnchanged": true,
+  "realPayments": false,
+  "stillPending": [
+    "exact CI build",
+    "d visual/full regression",
+    "C4",
+    "f/g causal diagnostics",
+    "overall goal"
+  ]
+}

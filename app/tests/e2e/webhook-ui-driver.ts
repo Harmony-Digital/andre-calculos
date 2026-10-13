@@ -14,6 +14,10 @@ export type WebhookUiAction =
   | "view"
   | "replay"
   | "signalReplay"
+  | "prepareSimulation"
+  | "prepareNoContext"
+  | "mismatchSimulation"
+  | "mismatchNoContext"
   | "prepareBalance"
   | "prepareSyntheticDelivery"
   | "close";
@@ -36,6 +40,10 @@ type Actions = {
   view: ReturnType<Fixture["view"]>;
   replay: Awaited<ReturnType<Fixture["replay"]>> | null;
   signalReplay: Awaited<ReturnType<Fixture["replay"]>> | null;
+  prepareSimulation: NegativeQuote;
+  prepareNoContext: NegativeQuote;
+  mismatchSimulation: Awaited<ReturnType<Fixture["move"]>>;
+  mismatchNoContext: Awaited<ReturnType<Fixture["move"]>>;
   prepareBalance: {
     chargeId: string;
     paymentId: string;
@@ -45,6 +53,12 @@ type Actions = {
   };
   prepareSyntheticDelivery: string;
   close: string;
+};
+type NegativeQuote = {
+  quoteId: string;
+  orderId: string;
+  processId: string;
+  simulation: boolean;
 };
 
 /** IPC apenas entre processos de teste locais; nenhum endpoint ou segredo na página. */

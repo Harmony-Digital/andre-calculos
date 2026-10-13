@@ -1,4 +1,9 @@
-import { expect, type Page, type TestInfo } from "@playwright/test";
+import {
+  expect,
+  type Page,
+  type TestInfo,
+  type Locator,
+} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
@@ -59,7 +64,11 @@ export async function deliverWebhookScreen(
   client: Page,
   calculator: Page,
   driver: WebhookScreenDriver,
-  policy: "before_balance" | "after_balance",
+  policy: "before_balance" | "after_balance" | null,
+  hooks: {
+    submitDelivery?: (form: Locator, requestId: string) => Promise<void>;
+    submitPolicy?: (form: Locator, requestId: string) => Promise<void>;
+  } = {},
 ) {
   const m = driver.metadata,
     db = localSystem(),
@@ -170,9 +179,11 @@ export async function deliverWebhookScreen(
     "Revisei o cálculo e conferi a assinatura do parecer, o nome e o CRC nos arquivos.",
   ])
     await form.getByLabel(label, { exact: true }).check();
-  await form
-    .getByRole("button", { name: "Confirmar entrega", exact: true })
-    .click();
+  if (hooks.submitDelivery) await hooks.submitDelivery(form, deliveryId);
+  else
+    await form
+      .getByRole("button", { name: "Confirmar entrega", exact: true })
+      .click();
   const record = calculator.locator(`[data-delivery-id="${deliveryId}"]`);
   await expect(record).toBeVisible();
   expect((await driver.command("view")).status).toBe("delivered");
@@ -188,6 +199,15 @@ export async function deliverWebhookScreen(
         })
       ).status(),
     ).toBe(404);
+  const context = {
+    deliveryId,
+    files,
+    pdf,
+    fileId: files.find((f) => f.name === assets[0].name)!.id,
+    clientBase,
+    panelBase,
+  };
+  if (policy === null) return context;
   await record
     .getByText("Definir regra desta entrega", { exact: true })
     .click();
@@ -203,9 +223,15 @@ export async function deliverWebhookScreen(
       "Confirmei a regra com o responsável técnico e aprovo sua aplicação.",
     )
     .check();
-  await rule
-    .getByRole("button", { name: "Aprovar regra desta entrega", exact: true })
-    .click();
+  if (hooks.submitPolicy)
+    await hooks.submitPolicy(
+      rule,
+      await rule.locator('input[name="requestId"]').inputValue(),
+    );
+  else
+    await rule
+      .getByRole("button", { name: "Aprovar regra desta entrega", exact: true })
+      .click();
   await expect(rule).toHaveCount(0);
   return {
     deliveryId,

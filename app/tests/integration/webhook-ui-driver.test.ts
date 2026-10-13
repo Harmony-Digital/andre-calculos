@@ -92,3 +92,38 @@ it("driver recusa meio fora da lista antes de abrir processo", async () => {
     "Meio fictício inválido.",
   );
 });
+
+it.each(["simulation", "no_context"] as const)(
+  "driver prepara proposta negativa %s e recusa referência incompatível",
+  async (kind) => {
+    const driver = await webhookUiDriver();
+    try {
+      const action =
+        kind === "simulation" ? "prepareSimulation" : "prepareNoContext";
+      const quote = await driver.command(action);
+      expect(quote.simulation).toBe(kind === "simulation");
+      expect(quote.orderId).not.toBe(driver.metadata.orderId);
+      expect(await driver.command(action)).toEqual(quote);
+      const before = await driver.command("view");
+      const result = await driver.command(
+        kind === "simulation" ? "mismatchSimulation" : "mismatchNoContext",
+      );
+      expect(result.report).toMatchObject({
+        complete: 0,
+        quarantined: 1,
+        failed: 0,
+      });
+      const after = await driver.command("view");
+      expect(after.projection).toEqual(before.projection);
+      expect(after).toMatchObject({
+        publicPayments: 0,
+        legacyOrigins: 0,
+        legacyBindings: 0,
+        totalPosts: 1,
+      });
+    } finally {
+      await driver.close();
+    }
+  },
+  60000,
+);
