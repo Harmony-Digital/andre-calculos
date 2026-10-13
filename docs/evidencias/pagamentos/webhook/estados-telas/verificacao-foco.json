@@ -1,0 +1,55 @@
+{
+  "task": "M3.01c3c3c1",
+  "matrixCases": 66,
+  "firstMatrix": {
+    "passed": 42,
+    "failed": 24,
+    "duration": "11.9m",
+    "exit": 1,
+    "retries": 0
+  },
+  "valueDeclineDiagnostic": {
+    "failed": 3,
+    "assertionsUnchanged": true,
+    "depositObservedCents": 12501,
+    "balanceObservedCents": 12500,
+    "certainty": "reconcile"
+  },
+  "timelineComparatorBefore": {
+    "failed": 6,
+    "cause": "innerText read versus default textContent matcher"
+  },
+  "finalFocus": {
+    "passed": 6,
+    "duration": "1.1m",
+    "exit": 0,
+    "retries": 0,
+    "captures": 26
+  },
+  "driver": {
+    "passed": 5,
+    "duration": "14.62s",
+    "exit": 0
+  },
+  "readbackControlsGrantsEqualBaseline": true,
+  "advisors": "security and performance: No issues found",
+  "check": {
+    "formatLintTypes": "pass",
+    "units": 1494,
+    "unitFiles": 75,
+    "scripts": 43,
+    "localBuild": "EPERM internal Turbopack port"
+  },
+  "finalMatrix": "pending",
+  "exactSourceCiBuild": "pending",
+  "productSqlOldHelpersScriptsWorkflowChanged": false,
+  "cloudChanges": false,
+  "realPayments": false,
+  "stillPending": [
+    "c1 full matrix",
+    "c2",
+    "d",
+    "C4",
+    "overall objective"
+  ]
+}

@@ -1,0 +1,46 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:e2e
+> playwright test tests/e2e/notification-preferences.spec.ts --workers=1 --retries=0
+
+[WebServer] (node:4857) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:4860) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:4870) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+(node:4873) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] ⨯ Error: Acesso não autorizado.
+[WebServer]     at authorize (src/modules/auth/session.ts:39:11)
+[WebServer]     at async getConfiguration (src/modules/settings/queries.ts:34:19)
+[WebServer]     at async Configuration (src/app/(painel)/painel/configuracoes/page.tsx:18:5)
+[WebServer]   37 |   const session = await getSessionProfile();
+[WebServer]   38 |   if (!session || !roles.includes(session.profile.role))
+[WebServer] > 39 |     throw new Error("Acesso não autorizado.");
+[WebServer]      |           ^
+[WebServer]   40 |   return session;
+[WebServer]   41 | }
+[WebServer]   42 | {
+[WebServer]   digest: '4216174405'
+[WebServer] }
+·(node:4971) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] ⨯ Error: Acesso não autorizado.
+[WebServer]     at authorize (src/modules/auth/session.ts:39:11)
+[WebServer]     at async getConfiguration (src/modules/settings/queries.ts:34:19)
+[WebServer]     at async Configuration (src/app/(painel)/painel/configuracoes/page.tsx:18:5)
+[WebServer]   37 |   const session = await getSessionProfile();
+[WebServer]   38 |   if (!session || !roles.includes(session.profile.role))
+[WebServer] > 39 |     throw new Error("Acesso não autorizado.");
+[WebServer]      |           ^
+[WebServer]   40 |   return session;
+[WebServer]   41 | }
+[WebServer]   42 | {
+[WebServer]   digest: '4216174405'
+[WebServer] }
+·
+  2 passed (1.5m)
+::notice title=🎭 Playwright Run Summary::  2 passed (1.5m)

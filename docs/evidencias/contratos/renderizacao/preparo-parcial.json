@@ -1,0 +1,49 @@
+{
+  "task": "M3.04b1",
+  "partial": true,
+  "unitTests": 6,
+  "localCheck": {
+    "formatLintTypes": "pass",
+    "units": 1500,
+    "unitFiles": 76,
+    "scripts": 43,
+    "build": "EPERM internal Turbopack port; current source not verified in CI"
+  },
+  "integration": {
+    "passed": 1,
+    "duration": "2.35s on v8; v9 report passed",
+    "data": "actual accepted snapshots from fictional local flow"
+  },
+  "examples": {
+    "normalPages": 2,
+    "longCompanyPages": 42,
+    "legacyPages": 2,
+    "termsCharacters": 64000,
+    "privacyCharacters": 64000,
+    "repeatBytesEqual": true,
+    "afterProfileSettingsEditBytesEqual": true
+  },
+  "observations": {
+    "fullNameEncoding": "Nested bold label caused U to decode incorrectly; plain field text preserves it in v7/v8",
+    "pageNumbers": "Still absent in v5/v7/v8/v9. Callback executes (controlled exception proved it), but output omits numbers. Original/nested, direct fixed Text, experimental pagination and placeholder did not prove correction.",
+    "initialHarness": "tsx CJS/ESM exports error before fixtures; actual proof now uses Vitest integration harness and explicit local fixture flag",
+    "geometry": "Initial verifier counted trailing whitespace outside margin; no visible glyph overflow confirmed yet. Final visual QA remains incomplete."
+  },
+  "database": {
+    "readbackEqualsBaseline107": true,
+    "financialControlsAndGrantsPreserved": true,
+    "securityAdvisor": "No issues found",
+    "performanceAdvisor": "No issues found",
+    "leaseAbsent": true
+  },
+  "stillRequired": [
+    "Correct page numbers without dropping data",
+    "Final text/geometry and full visual QA",
+    "Exact current source CI check/build",
+    "b2 lifecycle",
+    "b3 private storage",
+    "b4 durable consumption",
+    "c private audited download",
+    "d full validation"
+  ]
+}

@@ -1,0 +1,14 @@
+All matched files use Prettier code style!
+> andre-calculos@0.1.0 lint
+> andre-calculos@0.1.0 typecheck
+> andre-calculos@0.1.0 test:coverage
+ Test Files  75 passed (75)
+      Tests  1494 passed (1494)
+> andre-calculos@0.1.0 test:scripts
+All matched files use Prettier code style!
+# tests 12
+All matched files use Prettier code style!
+# tests 31
+> andre-calculos@0.1.0 build
+- Operation not permitted (os error 1)
+- Operation not permitted (os error 1)

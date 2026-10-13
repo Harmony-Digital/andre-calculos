@@ -1,0 +1,55 @@
+{
+  "captures": [
+    {
+      "path": "capturas/computador-sinal-outro-cliente-indisponivel.png",
+      "sha256": "57d380df35cf96d9a3fa2b5b9160f1a11b7630ee7d33109db214ab63f4691131",
+      "viewport": "computador",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/computador-indice-cursor-invalido-indisponivel.png",
+      "sha256": "57d380df35cf96d9a3fa2b5b9160f1a11b7630ee7d33109db214ab63f4691131",
+      "viewport": "computador",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/celular-decisoes-admin-indisponivel.png",
+      "sha256": "58b2b62e3e83c160ff9c7467e7d4b5c9ead88991a8aa006910e3e1ae01576f55",
+      "viewport": "celular",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/celular-decisoes-clientB-indisponivel.png",
+      "sha256": "58b2b62e3e83c160ff9c7467e7d4b5c9ead88991a8aa006910e3e1ae01576f55",
+      "viewport": "celular",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/computador-decisoes-admin-indisponivel.png",
+      "sha256": "57d380df35cf96d9a3fa2b5b9160f1a11b7630ee7d33109db214ab63f4691131",
+      "viewport": "computador",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/computador-decisoes-clientB-indisponivel.png",
+      "sha256": "57d380df35cf96d9a3fa2b5b9160f1a11b7630ee7d33109db214ab63f4691131",
+      "viewport": "computador",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/celular-sinal-outro-cliente-indisponivel.png",
+      "sha256": "58b2b62e3e83c160ff9c7467e7d4b5c9ead88991a8aa006910e3e1ae01576f55",
+      "viewport": "celular",
+      "reviewed": true
+    },
+    {
+      "path": "capturas/celular-indice-cursor-invalido-indisponivel.png",
+      "sha256": "58b2b62e3e83c160ff9c7467e7d4b5c9ead88991a8aa006910e3e1ae01576f55",
+      "viewport": "celular",
+      "reviewed": true
+    }
+  ],
+  "uniqueHashesReviewed": 2,
+  "sameBytesPerViewport": true,
+  "observedClippingOrOverlap": []
+}

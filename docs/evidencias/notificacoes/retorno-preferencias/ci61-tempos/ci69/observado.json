@@ -1,0 +1,695 @@
+{
+  "run": 38370677082,
+  "source": "24b9d7f304b5aaf4a19f6a9f82212363dd352ca8",
+  "checkout": "1fa9cdfc41bdd8e76dd1dc0ca6b8cc6448abde61",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "24b9d7f304b5aaf4a19f6a9f82212363dd352ca8"
+  ],
+  "job": {
+    "id": 115206602066,
+    "run_id": 38370677082,
+    "status": "completed",
+    "conclusion": "cancelled",
+    "started_at": "2026-10-13T08:38:53Z",
+    "completed_at": "2026-10-13T10:40:51Z"
+  },
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm ci",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npx playwright install --with-deps chromium",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run sudo apt-get update && sudo apt-get install -y poppler-utils",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run supabase/setup-cli@v3",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run node scripts/start-local.mjs",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run bash ../scripts/dev-env.sh npm run test:rls",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1",
+      "status": "completed",
+      "conclusion": "cancelled"
+    },
+    {
+      "name": "Advisors locais",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Encerrar Supabase local",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run supabase/setup-cli@v3",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "githubAnnotation": "The job has exceeded the maximum execution time of 2h0m0s",
+  "bankTests": 1152,
+  "bankFiles": 57,
+  "browserComplete": false,
+  "diagnostics": [
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 16,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": true,
+      "requestFailed": false,
+      "requestStartedMs": 13,
+      "responseHeadersMs": 16,
+      "responseFinishedMs": 16,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 9,
+            "pending": false,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "0",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": true,
+        "successMessage": false
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 183,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": true,
+      "requestFailed": false,
+      "requestStartedMs": 13,
+      "responseHeadersMs": 16,
+      "responseFinishedMs": 16,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": 182,
+        "history": [
+          {
+            "atMs": 9,
+            "pending": false,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          },
+          {
+            "atMs": 181,
+            "pending": true,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          },
+          {
+            "atMs": 182,
+            "pending": false,
+            "revision": "1",
+            "selected": "no",
+            "requestIdChanged": true,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "1",
+        "selected": "no",
+        "requestIdChanged": true,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 7,
+      "pageClosed": false,
+      "postStarted": false,
+      "responseStatus": null,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": null,
+      "responseHeadersMs": null,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 7,
+            "pending": false,
+            "revision": "1",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "1",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 151,
+      "pageClosed": true,
+      "postStarted": false,
+      "responseStatus": null,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": null,
+      "responseHeadersMs": null,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "save-new-message-E-mail-yes",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 5155,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": 125,
+      "responseHeadersMs": 294,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": true,
+        "preference": {
+          "enabled": true,
+          "revision": 3
+        }
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 36,
+            "pending": false,
+            "revision": "2",
+            "selected": "yes",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          },
+          {
+            "atMs": 114,
+            "pending": true,
+            "revision": "2",
+            "selected": "yes",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": true,
+        "revision": "2",
+        "selected": "yes",
+        "requestIdChanged": false,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "save-new-message-E-mail-yes",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 5120,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": 100,
+      "responseHeadersMs": 274,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": true,
+        "preference": {
+          "enabled": true,
+          "revision": 2
+        }
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 32,
+            "pending": false,
+            "revision": "1",
+            "selected": "yes",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          },
+          {
+            "atMs": 90,
+            "pending": true,
+            "revision": "1",
+            "selected": "yes",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": true,
+        "revision": "1",
+        "selected": "yes",
+        "requestIdChanged": false,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "save-new-message-E-mail-yes",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 5117,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": 102,
+      "responseHeadersMs": 303,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": true,
+        "preference": {
+          "enabled": true,
+          "revision": 2
+        }
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 41,
+            "pending": false,
+            "revision": "1",
+            "selected": "yes",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          },
+          {
+            "atMs": 91,
+            "pending": true,
+            "revision": "1",
+            "selected": "yes",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": true,
+        "revision": "1",
+        "selected": "yes",
+        "requestIdChanged": false,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 21,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": true,
+      "requestFailed": false,
+      "requestStartedMs": 19,
+      "responseHeadersMs": 21,
+      "responseFinishedMs": 21,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 14,
+            "pending": false,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "0",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": true,
+        "successMessage": false
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 180,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": true,
+      "requestFailed": false,
+      "requestStartedMs": 19,
+      "responseHeadersMs": 21,
+      "responseFinishedMs": 21,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": 179,
+        "history": [
+          {
+            "atMs": 14,
+            "pending": false,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          },
+          {
+            "atMs": 178,
+            "pending": true,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          },
+          {
+            "atMs": 179,
+            "pending": false,
+            "revision": "1",
+            "selected": "no",
+            "requestIdChanged": true,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "1",
+        "selected": "no",
+        "requestIdChanged": true,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 7,
+      "pageClosed": false,
+      "postStarted": false,
+      "responseStatus": null,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": null,
+      "responseHeadersMs": null,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 6,
+            "pending": false,
+            "revision": "1",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "1",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 171,
+      "pageClosed": true,
+      "postStarted": false,
+      "responseStatus": null,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": null,
+      "responseHeadersMs": null,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      }
+    }
+  ],
+  "cleanup": [],
+  "failureAnnotations": [
+    {
+      "title": "[celular] › tests/e2e/decisions.spec.ts:19:5 › decisões preservam fonte",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/page-index.spec.ts:177:5 › índice pagina sem perder empates e preserva campos quando outra sessão altera a entrada",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/page-index.spec.ts:177:5 › índice pagina sem perder empates e preserva campos quando outra sessão altera a entrada",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/page-index.spec.ts:177:5 › índice pagina sem perder empates e preserva campos quando outra sessão altera a entrada",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/manual-deposit.spec.ts:6:5 › cliente vê Pix privado; André confirma uma vez após resposta perdida",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/manual-deposit.spec.ts:6:5 › cliente vê Pix privado; André confirma uma vez após resposta perdida",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/manual-deposit.spec.ts:6:5 › cliente vê Pix privado; André confirma uma vez após resposta perdida",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/decisions.spec.ts:19:5 › decisões preservam fonte",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/decisions.spec.ts:19:5 › decisões preservam fonte",
+      "outdated404Assertion": true
+    },
+    {
+      "title": "[computador] › tests/e2e/decisions.spec.ts:19:5 › decisões preservam fonte",
+      "outdated404Assertion": true
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 11805586201,
+      "name": "evidencias-de-testes",
+      "size_in_bytes": 136518788,
+      "expired": false,
+      "digest": "sha256:8cc1c281e648f2e1bca9324649d63ca7a3b867b54faa2b1908ab1bb30285e7bd"
+    },
+    {
+      "id": 11798558577,
+      "name": "inventario-dependencias",
+      "size_in_bytes": 24157,
+      "expired": false,
+      "digest": "sha256:ac28008e212b41768e5c457e772d7e92ba296341035cb6c7c7514095ff92172a"
+    }
+  ],
+  "sanitizedLogSha256": "ddf49bb839e1047ea583af422f0e7f8053c7801f766ed0e73017618ef6ba7016",
+  "rawLogsPrivate": true,
+  "noRerunStarted": true
+}

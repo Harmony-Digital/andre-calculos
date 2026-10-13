@@ -1,0 +1,31 @@
+{
+  "widths": [
+    1440,
+    375
+  ],
+  "workers": 1,
+  "retries": 0,
+  "tests_passed": 4,
+  "original_journey_tests": 2,
+  "controlled_diagnostic_tests": 2,
+  "original_cause_reproduced": false,
+  "log_sha256": "0ebd23ff5a07100dec1bb0d4deebf32fcc675a0c38ebebb503b80dbd3f15b0ae",
+  "screenshots": [
+    {
+      "file": "preferencias-computador.png",
+      "sha256": "647feed8afbf0c52cefc486e15c35fe3004225bfc006339a4892eff571ab19f0"
+    },
+    {
+      "file": "preferencias-celular.png",
+      "sha256": "d48b7d78595b6a93a3f62403bbe63e5780847bd6957a732b2c7866619433ab9c"
+    },
+    {
+      "file": "diagnostico-controlado-computador.png",
+      "sha256": "f43521628f68f4ef796cedc207bd56feec716e18f6460c46e9bc0ef35e6b7f97"
+    },
+    {
+      "file": "diagnostico-controlado-celular.png",
+      "sha256": "44e700bb9057be3116723096f87e5ee3fd95d4641c71f888cd24b960908fb828"
+    }
+  ]
+}

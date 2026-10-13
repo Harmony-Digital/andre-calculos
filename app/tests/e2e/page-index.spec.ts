@@ -177,7 +177,7 @@ test("calculista cria, edita e remove referências da versão certa; cliente lê
 test("índice pagina sem perder empates e preserva campos quando outra sessão altera a entrada", async ({
   page,
   browser,
-}) => {
+}, testInfo) => {
   const process = await createMessageProcess(),
     db = localSystem(),
     fileId = randomUUID(),
@@ -281,7 +281,16 @@ test("índice pagina sem perder empates e preserva campos quando outra sessão a
       .click();
     await expect(page.locator(".process-records > li")).toHaveCount(50);
     await page.goto(`/app/processos/${process.id}?aba=indice&antes=invalid`);
-    await expect(page.getByRole("heading", { name: "404" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", {
+        name: "Página não encontrada",
+        exact: true,
+      }),
+    ).toBeVisible();
+    await page.screenshot({
+      path: testInfo.outputPath("indice-cursor-invalido-indisponivel.png"),
+      fullPage: true,
+    });
   } finally {
     await other.close();
     await removeMessageProcess(process.id);

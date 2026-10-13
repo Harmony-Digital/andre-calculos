@@ -1,0 +1,16 @@
+{
+  "tokenStatusCounts": {
+    "200": 3155,
+    "504": 1
+  },
+  "failedTokenRequests": [
+    {
+      "time": "2026-10-13T02:45:26Z",
+      "path": "/token",
+      "method": "POST",
+      "status": 504,
+      "error_code": "request_timeout"
+    }
+  ],
+  "healthInspection": "Only status/path/method/time/code; no body, headers, identifiers or messages."
+}

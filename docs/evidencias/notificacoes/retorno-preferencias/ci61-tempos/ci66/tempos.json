@@ -1,0 +1,528 @@
+{
+  "originalPreferenceCleanup": [
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "complete",
+      "elapsedMs": 4
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "complete",
+      "elapsedMs": 15
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "complete",
+      "elapsedMs": 47
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "complete",
+      "elapsedMs": 128
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "complete",
+      "elapsedMs": 258
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "routes",
+      "phase": "complete",
+      "elapsedMs": 5
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "context",
+      "phase": "complete",
+      "elapsedMs": 6
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "session",
+      "phase": "complete",
+      "elapsedMs": 65
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "process",
+      "phase": "complete",
+      "elapsedMs": 57
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "fixture",
+      "phase": "complete",
+      "elapsedMs": 183
+    }
+  ],
+  "controlledObserverDiagnostics": [
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 10,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": true,
+      "requestFailed": false,
+      "requestStartedMs": 8,
+      "responseHeadersMs": 10,
+      "responseFinishedMs": 10,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 6,
+            "pending": false,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "0",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": true,
+        "successMessage": false
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 140,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": true,
+      "requestFailed": false,
+      "requestStartedMs": 8,
+      "responseHeadersMs": 10,
+      "responseFinishedMs": 10,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": 140,
+        "history": [
+          {
+            "atMs": 6,
+            "pending": false,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          },
+          {
+            "atMs": 139,
+            "pending": true,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          },
+          {
+            "atMs": 140,
+            "pending": false,
+            "revision": "1",
+            "selected": "no",
+            "requestIdChanged": true,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "1",
+        "selected": "no",
+        "requestIdChanged": true,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 5,
+      "pageClosed": false,
+      "postStarted": false,
+      "responseStatus": null,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": null,
+      "responseHeadersMs": null,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 5,
+            "pending": false,
+            "revision": "1",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "1",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 135,
+      "pageClosed": true,
+      "postStarted": false,
+      "responseStatus": null,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": null,
+      "responseHeadersMs": null,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 11,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": true,
+      "requestFailed": false,
+      "requestStartedMs": 9,
+      "responseHeadersMs": 10,
+      "responseFinishedMs": 10,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 6,
+            "pending": false,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "0",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": true,
+        "successMessage": false
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 153,
+      "pageClosed": false,
+      "postStarted": true,
+      "responseStatus": 200,
+      "responseFinished": true,
+      "requestFailed": false,
+      "requestStartedMs": 9,
+      "responseHeadersMs": 10,
+      "responseFinishedMs": 10,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": 153,
+        "history": [
+          {
+            "atMs": 6,
+            "pending": false,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          },
+          {
+            "atMs": 152,
+            "pending": true,
+            "revision": "0",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": true,
+            "successMessage": false
+          },
+          {
+            "atMs": 153,
+            "pending": false,
+            "revision": "1",
+            "selected": "no",
+            "requestIdChanged": true,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "1",
+        "selected": "no",
+        "requestIdChanged": true,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 4,
+      "pageClosed": false,
+      "postStarted": false,
+      "responseStatus": null,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": null,
+      "responseHeadersMs": null,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      },
+      "browser": {
+        "firstSavedMs": null,
+        "history": [
+          {
+            "atMs": 4,
+            "pending": false,
+            "revision": "1",
+            "selected": "no",
+            "requestIdChanged": false,
+            "statusEmpty": false,
+            "successMessage": true
+          }
+        ]
+      },
+      "form": {
+        "pending": false,
+        "revision": "1",
+        "selected": "no",
+        "requestIdChanged": false,
+        "statusEmpty": false,
+        "successMessage": true
+      }
+    },
+    {
+      "diagnostic": "notification_preference_return",
+      "stage": "controlled-diagnostic-only",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "event": "new_message",
+      "channel": "E-mail",
+      "elapsedMs": 152,
+      "pageClosed": true,
+      "postStarted": false,
+      "responseStatus": null,
+      "responseFinished": false,
+      "requestFailed": false,
+      "requestStartedMs": null,
+      "responseHeadersMs": null,
+      "responseFinishedMs": null,
+      "database": {
+        "receiptExists": false,
+        "preference": null
+      }
+    }
+  ],
+  "controlledCleanup": [
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "failure",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "failure",
+      "phase": "failed",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "next-resource",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "next-resource",
+      "phase": "complete",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "failure",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "failure",
+      "phase": "failed",
+      "elapsedMs": 1
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "next-resource",
+      "phase": "start",
+      "elapsedMs": 0
+    },
+    {
+      "diagnostic": "notification_preference_cleanup_stage",
+      "resource": "next-resource",
+      "phase": "complete",
+      "elapsedMs": 0
+    }
+  ]
+}

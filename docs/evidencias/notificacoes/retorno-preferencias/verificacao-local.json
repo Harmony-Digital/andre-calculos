@@ -1,0 +1,16 @@
+{
+  "unit_tests_passed": 1494,
+  "unit_files": 75,
+  "script_tests_passed": 43,
+  "format_lint_types": "passed",
+  "check_exit": 1,
+  "build": "blocked_by_local_port_EPERM",
+  "readback_unchanged": true,
+  "controls_unchanged": true,
+  "advisors": "security and performance no issues",
+  "screenshots_visually_inspected": 4,
+  "check_original_sha256": "a8ee54dcf6ca2acebca550695c7509b0c454b83a383d10e20bcee822e1f9819c",
+  "original_cause_proven": false,
+  "final_check_original_sha256": "b82fb542ee90af9c81964363b08860d4d7adc091300be87f2f5ebfcd51c8eb12",
+  "controlled_final_tests_passed": 2
+}

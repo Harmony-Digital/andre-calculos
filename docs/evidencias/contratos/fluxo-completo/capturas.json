@@ -1,0 +1,62 @@
+[
+  {
+    "path": "capturas/celular-retomada-contrato-disponivel.png",
+    "sha256": "c1a212637be5f6748e7c03e6af7486ba0b9abffa506148d6a2757b066914324c",
+    "viewport": "celular",
+    "scenario": "retomada"
+  },
+  {
+    "path": "capturas/celular-retomada-contrato-na-pasta.png",
+    "sha256": "c0e5a1bfd11df219c265bd35cc52e71ab9241a21b39d84aecc0963bf2a89dcda",
+    "viewport": "celular",
+    "scenario": "retomada"
+  },
+  {
+    "path": "capturas/celular-retomada-contrato-pendente.png",
+    "sha256": "024ca0a1f91018b16eae89027d9d8343560a0fbbef2add271c22ee635d7074c4",
+    "viewport": "celular",
+    "scenario": "retomada"
+  },
+  {
+    "path": "capturas/computador-retomada-contrato-disponivel.png",
+    "sha256": "21820e03e02cbb49484b733f5105baea43a95c8794e61bf2e1147baf26dcdae8",
+    "viewport": "computador",
+    "scenario": "retomada"
+  },
+  {
+    "path": "capturas/computador-retomada-contrato-na-pasta.png",
+    "sha256": "2b55633317b339c5491d1c1c8097c998e191c12a376b2982451e0f2488170921",
+    "viewport": "computador",
+    "scenario": "retomada"
+  },
+  {
+    "path": "capturas/computador-retomada-contrato-pendente.png",
+    "sha256": "3185a35434c3c17f2f3684cb31b1257ac556acd57a76e9ab0053f7577339cb28",
+    "viewport": "computador",
+    "scenario": "retomada"
+  },
+  {
+    "path": "capturas/celular-aceite-retorno-perdido-contrato-disponivel.png",
+    "sha256": "135dcf984b0c4dc960ff04ea4fa5998a96087723a5a27673e16aed8c4c35fbed",
+    "viewport": "celular",
+    "scenario": "aceite-retorno-perdido"
+  },
+  {
+    "path": "capturas/celular-aceite-retorno-perdido-contrato-na-pasta.png",
+    "sha256": "3f212e8dff5488231c561ab8eee60dcd1b3e70e6da01c6fd53a92f4e52dc4450",
+    "viewport": "celular",
+    "scenario": "aceite-retorno-perdido"
+  },
+  {
+    "path": "capturas/computador-aceite-retorno-perdido-contrato-disponivel.png",
+    "sha256": "756633a073491166f6d9871049d7122c2e043a3fd0a48feee924bb233877e86f",
+    "viewport": "computador",
+    "scenario": "aceite-retorno-perdido"
+  },
+  {
+    "path": "capturas/computador-aceite-retorno-perdido-contrato-na-pasta.png",
+    "sha256": "51d8d8cfeee3dce32e81c8630961f7d4043a7cf81f283fff388780b39488b903",
+    "viewport": "computador",
+    "scenario": "aceite-retorno-perdido"
+  }
+]

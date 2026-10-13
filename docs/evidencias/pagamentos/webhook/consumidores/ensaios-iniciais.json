@@ -1,0 +1,21 @@
+{
+  "logs": [
+    {
+      "file": "webhook-consumidores-basicos.log",
+      "sha256_original": "de0d345d12459aadb3137b84a9226acc77dd2e858c7634bf64b332dfeefb9966"
+    },
+    {
+      "file": "webhook-consumidores-basicos-corrigidos.log",
+      "sha256_original": "668c9e7319e973e0b3acc2549dfebc21f90c21290c19464c8dbe39d96dab39fc"
+    },
+    {
+      "file": "webhook-consumidores-matriz.log",
+      "sha256_original": "a5abc3217b7b3a1612da554058d972cc51b26d3b0da99d77897c81e2a8f5113d"
+    }
+  ],
+  "first_failure": "Nova consulta do teste usava a.id; chave real e quote_id. Seis casos falharam antes das assercoes funcionais.",
+  "second_failure": "Uploader do arquivo de entrega diferia do ator. Protecao de autoria recusou tres casos; tres passaram.",
+  "matrix_initial": "25 passaram, dois casos de reducao de valor integral sem estorno ficaram em conciliacao. Preparo de parcial corrigido e casos negativos separados mantidos.",
+  "application_or_migrations_changed": false,
+  "readback_after_failures_unchanged": true
+}

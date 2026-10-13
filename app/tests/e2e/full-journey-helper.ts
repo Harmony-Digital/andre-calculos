@@ -187,21 +187,6 @@ commit;`);
 values(${uuid(id)},${literal(JSON.stringify(proposal))}::jsonb,${literal(terms)},'CONTEÚDO SINTÉTICO SEM VIGÊNCIA. Termos fictícios exclusivos da jornada local.',${literal(privacy)},'CONTEÚDO SINTÉTICO SEM VIGÊNCIA. Privacidade fictícia da jornada local.',${uuid(calculator.data.id)});`);
       return { ...order, id, number, proposal };
     },
-    prepareTechnicalReview: async (orderId: string) => {
-      const order = await ownedOrder(orderId);
-      if (order.status !== "queued")
-        throw new Error("Fila do ensaio não confirmada.");
-      // Ponte explícita: execução manual no PJe-Calc ainda não tem transição UI.
-      if (
-        (
-          await db
-            .from("orders")
-            .update({ status: "in_review" })
-            .eq("id", orderId)
-        ).error
-      )
-        throw new Error("Revisão sintética não preparada.");
-    },
     prepareBalance: async (orderId: string) => {
       const order = await ownedOrder(orderId);
       if (order.status !== "delivered")
@@ -273,6 +258,7 @@ delete from public.audit_log where target_id in (
  union select id from public.decisions where process_id=${p}
  union select id from public.deliveries where process_id=${p}
  union select id from private.manual_deposit_receipts where order_id in(select id from public.orders where process_id=${p})
+ union select id from private.order_operation_receipts where process_id=${p}
 );
 delete from public.notifications where data->>'process_id'=${literal(process.id)};
 delete from private.manual_deposit_requests where quote_id in(select id from public.quotes where order_id in(select id from public.orders where process_id=${p}));

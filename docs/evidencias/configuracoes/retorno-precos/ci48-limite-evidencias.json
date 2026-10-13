@@ -1,0 +1,16 @@
+{
+  "scope": "M2.35e investigation; no cause or product fix proven",
+  "originalRun": 38313323166,
+  "originalSource": "840d6a37b1e54908aed50dde9b33d12b741660cb",
+  "originalArtifactId": 11777993969,
+  "originalArtifactDigest": "sha256:ae02168b5c7d46ea7d9fbdbbf44bce2c19f2b891cddb8d6d6c0b485e63ef70d2",
+  "originalConfigTrace": "off",
+  "originalWorkflowUploadsOnlyPng": true,
+  "originalTestHasFailureDiagnostic": false,
+  "localExtractedPngCount": 370,
+  "localFailedPriceFormCaptureCount": 0,
+  "currentFailureDiagnosticAndScreenshotPresent": true,
+  "currentSettingsTestSha256": "37f8b683bd19ecf54607457c87ec977889d118639c948b61c77acdcdee2068f5",
+  "originalFailureReproduced": false,
+  "conclusion": "The available original artifact cannot establish DOM/request/database state at failure. Keep the cause unresolved and retain current diagnostic; do not change assertions or manufacture a product fix."
+}

@@ -1,0 +1,42 @@
+{
+  "task": "M3.01c3c3d1",
+  "browser": {
+    "passed": 4,
+    "duration": "17.1s",
+    "exit": 0,
+    "retries": 0,
+    "widths": [
+      375,
+      1440
+    ],
+    "captures": 10,
+    "capturesVisuallyReviewed": 10,
+    "axe": "no violations",
+    "overflow": "none"
+  },
+  "checks": [
+    "HTTP404 preserved",
+    "Portuguese document and heading",
+    "generic content without quote/process IDs or query reflection",
+    "keyboard focus and return to login",
+    "home link works",
+    "proposals without context remain404",
+    "foreign client access remains denied"
+  ],
+  "formatLintTypes": "pass",
+  "units": 1494,
+  "unitFiles": 75,
+  "scripts": 43,
+  "localBuild": "EPERM internal Turbopack port; exact CI source pending",
+  "readbackControlsGrantsEqualBaseline106": true,
+  "advisors": "security and performance: No issues found",
+  "noDatabaseBusinessOrAuthChange": true,
+  "stillPending": [
+    "d remaining visual/full regression",
+    "C4",
+    "f/g root cause",
+    "overall goal"
+  ],
+  "exactCiBuildProof": "ci68-build.json",
+  "source": "97f938cb53161bf78eb79b251f65cd2576f9f574"
+}

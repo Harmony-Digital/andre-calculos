@@ -1,0 +1,94 @@
+{
+  "run": 38321803876,
+  "source": "bfb56298349b70ce62da2c44cbad02b48c1edbfd",
+  "job": 115051368818,
+  "jobSeconds": 4046.0,
+  "configuredTimeoutMinutes": 120,
+  "workflowSha256": "29a1838442b73acdef8663a285c3e140a3c79d1c68be2db1d92ead69f859a9b3",
+  "steps": [
+    {
+      "conclusion": "success",
+      "name": "Set up job"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run actions/checkout@v4"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run actions/setup-node@v4"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run npm ci"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run npx playwright install --with-deps chromium"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run sudo apt-get update && sudo apt-get install -y poppler-utils"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run supabase/setup-cli@v3"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run node scripts/start-local.mjs"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run bash ../scripts/dev-env.sh npm run test:rls"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1"
+    },
+    {
+      "conclusion": "success",
+      "name": "Advisors locais"
+    },
+    {
+      "conclusion": "success",
+      "name": "Encerrar Supabase local"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run actions/upload-artifact@v4"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Run supabase/setup-cli@v3"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Run actions/setup-node@v4"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Run actions/checkout@v4"
+    },
+    {
+      "conclusion": "success",
+      "name": "Complete job"
+    }
+  ],
+  "artifacts": [
+    {
+      "digest": "sha256:d723e32ab04b1af5634f7a3016c4f33d8f209d90f08f097a858dc3c02bcd562d",
+      "expired": false,
+      "id": 11782065206,
+      "name": "evidencias-de-testes",
+      "size_in_bytes": 76118834
+    },
+    {
+      "digest": "sha256:cf06a066405838451033737e1bd3bfd83c6777ee8b81a9cfa3e0c0836c77b1af",
+      "expired": false,
+      "id": 11778908112,
+      "name": "inventario-dependencias",
+      "size_in_bytes": 23633
+    }
+  ]
+}

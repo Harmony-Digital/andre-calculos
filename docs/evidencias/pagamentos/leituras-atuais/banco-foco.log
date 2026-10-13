@@ -1,0 +1,13 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/current-credit-readers.test.ts tests/integration/manual-deposit.test.ts tests/integration/delivery-approval.test.ts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+
+ Test Files  3 passed (3)
+      Tests  31 passed (31)
+   Start at  08:58:07
+   Duration  37.11s (tests 99%, import 1%)

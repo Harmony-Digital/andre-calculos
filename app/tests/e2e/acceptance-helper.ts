@@ -60,6 +60,7 @@ export async function acceptanceFixture(
           expiresInSeconds?: number;
           context?: boolean;
           zero?: boolean;
+          simulation?: boolean;
         } = {},
       ) => {
         const draft = await createQuoteDraft(),
@@ -164,11 +165,12 @@ export async function acceptanceFixture(
               valid_until: proposal.validUntil,
               checklist_revision: draft.revision,
               price_table_id: fixture.price.id,
+              is_simulation: options.simulation ?? false,
             })
           ).error
         )
           throw new Error("Proposta contratual sintética não preparada.");
-        if (options.context !== false)
+        if (options.context !== false && !options.simulation)
           localNotificationSql(`insert into private.quote_contract_contexts(quote_id,proposal,terms_version,terms_text,privacy_version,privacy_text,prepared_by)
 values('${id}'::uuid,${literal(JSON.stringify(proposal))}::jsonb,${literal(terms)},'CONTEÚDO SINTÉTICO SEM VIGÊNCIA. Termos fictícios exclusivos para testar a contratação local.',${literal(privacy)},'CONTEÚDO SINTÉTICO SEM VIGÊNCIA. Informação de privacidade fictícia para o ensaio local.','${calculator.id}'::uuid);`);
         if (options.documents) {
@@ -194,7 +196,7 @@ values('${id}'::uuid,${literal(JSON.stringify(proposal))}::jsonb,${literal(terms
             throw new Error("Documento sintético não preparado.");
         }
         const contextHash =
-          options.context === false
+          options.context === false || options.simulation
             ? "0".repeat(64)
             : localNotificationSql(
                 `select context_hash from private.quote_contract_contexts where quote_id='${id}'::uuid;`,
@@ -221,8 +223,29 @@ values('${id}'::uuid,${literal(JSON.stringify(proposal))}::jsonb,${literal(terms
       cleanup: async () => {
         try {
           for (const entry of ids) {
+            // O aceite agora pode gerar o contrato fora da resposta. Limpar só após o worker terminar.
+            const deadline = Date.now() + 10000;
+            while (
+              localNotificationSql(
+                `select exists(select 1 from private.quote_contract_pdf_jobs where quote_id='${entry.quote}' and state in('processing','prepared') and lease_until>clock_timestamp())::text;`,
+              ) === "true"
+            ) {
+              if (Date.now() >= deadline)
+                throw new Error(
+                  "Geração contratual fictícia ainda ativa; limpeza não executada.",
+                );
+              await new Promise((resolve) => setTimeout(resolve, 100));
+            }
+            const contractPath = localNotificationSql(
+              `select 'contracts/'||quote_id::text||'/'||snapshot_sha256||'/contract-pdf-v1.pdf' from private.quote_contract_snapshots where quote_id='${entry.quote}';`,
+            );
+            if (
+              contractPath &&
+              (await db.storage.from("processos").remove([contractPath])).error
+            )
+              throw new Error("Contrato fictício não removido do Storage.");
             localNotificationSql(
-              `delete from public.audit_log where action='manual_deposit_confirmed' and target_id in (select id from private.manual_deposit_receipts where quote_id='${entry.quote}'::uuid); delete from private.manual_deposit_requests where quote_id='${entry.quote}'::uuid; delete from private.manual_deposit_receipts where quote_id='${entry.quote}'::uuid; delete from public.payments where order_id='${entry.order}'::uuid; delete from private.quote_acceptance_requests where quote_id='${entry.quote}'::uuid; delete from private.quote_acceptances where quote_id='${entry.quote}'::uuid; delete from private.quote_contract_contexts where quote_id='${entry.quote}'::uuid;`,
+              `delete from public.audit_log where action='manual_deposit_confirmed' and target_id in (select id from private.manual_deposit_receipts where quote_id='${entry.quote}'::uuid); delete from private.manual_deposit_requests where quote_id='${entry.quote}'::uuid; delete from private.manual_deposit_receipts where quote_id='${entry.quote}'::uuid; delete from public.payments where order_id='${entry.order}'::uuid; delete from private.quote_acceptance_requests where quote_id='${entry.quote}'::uuid; delete from private.quote_acceptances where quote_id='${entry.quote}'::uuid; delete from private.quote_rejection_requests where quote_id='${entry.quote}'::uuid; delete from private.quote_rejections where quote_id='${entry.quote}'::uuid; delete from private.quote_contract_contexts where quote_id='${entry.quote}'::uuid;`,
             );
             for (const result of [
               await db

@@ -211,7 +211,16 @@ test("decisões preservam fonte, premissa e autoria; cliente confirma e exporta 
       await page.goto(
         `${role === "admin" ? "/painel" : "/app"}/processos/${process.id}?aba=decisoes`,
       );
-      await expect(page.getByRole("heading", { name: "404" })).toBeVisible();
+      await expect(
+        page.getByRole("heading", {
+          name: "Página não encontrada",
+          exact: true,
+        }),
+      ).toBeVisible();
+      await page.screenshot({
+        path: testInfo.outputPath(`decisoes-${role}-indisponivel.png`),
+        fullPage: true,
+      });
       expect(
         (
           await page.request.get(`/api/processes/${process.id}/decisions/pdf`)

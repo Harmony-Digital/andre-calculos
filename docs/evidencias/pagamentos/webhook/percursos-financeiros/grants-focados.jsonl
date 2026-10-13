@@ -1,0 +1,2 @@
+{"temporaryTriggers": 0, "temporaryFunctions": 0, "webhookTablesGrants": 0}
+{"function": "select_fixture_payment_webhooks", "searchPath": ["search_path=\"\""], "anonExecute": false, "publicExecute": false, "serviceExecute": true, "securityDefiner": true, "authenticatedExecute": false}

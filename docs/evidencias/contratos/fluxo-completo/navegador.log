@@ -1,0 +1,6 @@
+Running 4 tests using 1 worker
+  ✓  1 [computador] › tests/e2e/contract-archive.spec.ts:10:7 › contrato privado fica disponível e baixa os bytes arquivados pela retomada (10.5s)
+  ✓  2 [computador] › tests/e2e/contract-archive.spec.ts:10:7 › contrato privado fica disponível e baixa os bytes arquivados após perda da resposta do aceite (4.0s)
+  ✓  3 [celular] › tests/e2e/contract-archive.spec.ts:10:7 › contrato privado fica disponível e baixa os bytes arquivados pela retomada (6.3s)
+  ✓  4 [celular] › tests/e2e/contract-archive.spec.ts:10:7 › contrato privado fica disponível e baixa os bytes arquivados após perda da resposta do aceite (3.8s)
+  4 passed (27.9s)

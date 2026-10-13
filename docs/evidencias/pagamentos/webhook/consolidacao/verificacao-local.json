@@ -1,0 +1,75 @@
+{
+  "task": "M3.01c3c3d",
+  "source": "97f938cb53161bf78eb79b251f65cd2576f9f574",
+  "localAppSqlScriptsWorkflowMatchSource": true,
+  "browser": {
+    "passed": 90,
+    "duration": "15.8m",
+    "workers": 1,
+    "retries": 0,
+    "widthsCssPx": [
+      375,
+      1440
+    ],
+    "specs": [
+      "webhook-nominal.spec.ts",
+      "webhook-financial-screens.spec.ts",
+      "webhook-preconditions.spec.ts",
+      "not-found.spec.ts"
+    ],
+    "lastRun": {
+      "status": "passed",
+      "failedTests": []
+    },
+    "terminalEvidence": "Handle82550 encerrado e indisponivel; PIDs76542/76638 ausentes; report Playwright passed com zero failedTests. Exit do wrapper nao preservado."
+  },
+  "driver": {
+    "passed": 7,
+    "duration": "17.26s",
+    "exit": 0
+  },
+  "baselineFiles": {
+    "readback-final.log": {
+      "sha256": "5bacec851e00219a29b21de2564ea4779c519332c8289d8e83f722c4ec9cda88",
+      "equalsBaseline106": true
+    },
+    "controles-final.json": {
+      "sha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+      "equalsBaseline106": true
+    },
+    "grants-final.jsonl": {
+      "sha256": "ad4eee5e2041c00dad88a0d682e33388fe39d4ae40b408108b064506577e3a09",
+      "equalsBaseline106": true
+    }
+  },
+  "advisors": {
+    "security": "No issues found",
+    "performance": "No issues found",
+    "exit": 0
+  },
+  "settingsFixtureLeaseAbsent": true,
+  "visualQa": {
+    "matrix": 302,
+    "nominalFinal": 60,
+    "preconditions": 44,
+    "corrected404": 10,
+    "manifests": [
+      "../estados-telas/qa-matriz-integral.json",
+      "../telas-nominais/qa-capturas-finais.json",
+      "../precondicoes-telas/qa-capturas.json",
+      "../pagina-indisponivel/verificacao-local.json"
+    ],
+    "notes": "Capturas originais inspecionadas; produto identico na regressao. Novas capturas desta regressao nao substituem os manifestos visuais."
+  },
+  "exactCheckBuild": "../pagina-indisponivel/ci68-build.json",
+  "remoteOverallRun": 38362392157,
+  "remoteOverallConclusion": "Ainda em execucao em 2026-10-13T08:05Z; nao inferida",
+  "openRequirements": [
+    "M2.35f/g: causa da instabilidade de preferencias",
+    "CI68 integral: resultado final proprio",
+    "C4 sandbox externo",
+    "GATEs humanos"
+  ],
+  "realPayments": false,
+  "publication": false
+}

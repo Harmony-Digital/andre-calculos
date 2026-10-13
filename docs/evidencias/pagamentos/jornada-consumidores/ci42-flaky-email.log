@@ -1,0 +1,16 @@
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:13:48.9757446Z [WebServer]     at authorize (src/modules/auth/session.ts:39:11)
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:13:48.9758523Z [WebServer]     at async getConfiguration (src/modules/settings/queries.ts:34:19)
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:13:48.9759638Z [WebServer]     at async Configuration (src/app/(painel)/painel/configuracoes/page.tsx:18:5)
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5886024Z
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5886414Z     Error: expect(received).toBe(expected) // Object.is equality
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5887005Z
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5887189Z     Expected: 0
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5888103Z     Received: 1
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5888332Z
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5888677Z       30 |       !cookie.name.includes("-code-verifier"),
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5889188Z       31 |   ).length;
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5895395Z
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5895515Z   1 flaky
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5896270Z     [computador] › tests/e2e/email-auth.spec.ts:37:5 › recuperação de senha e link de acesso pelo Mailpit
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5897386Z   7 skipped
+e2e	Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1	2026-10-12T20:14:06.5897697Z   218 passed (25.2m)
