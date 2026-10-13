@@ -1,0 +1,9 @@
+{
+  "passed": 32,
+  "failed": 1,
+  "tests": 33,
+  "duration_seconds": 87.84,
+  "failure": "Pagamento parcial inicial continuou awaiting_payment; documento nao confirma o sinal. Oraculo do teste corrigido para RF34 e verificado junto com residual2501/reserva ativa.",
+  "product_changed": false,
+  "original_log_sha256": "de765c9a2a9920495d6f21fd3c6129b4f36680776f56b6213c3c9310984246b9"
+}

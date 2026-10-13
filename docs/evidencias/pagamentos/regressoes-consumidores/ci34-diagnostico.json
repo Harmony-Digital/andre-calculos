@@ -1,0 +1,16 @@
+{
+  "run": 38248514809,
+  "source": "b77a8c880e4a9ff1a8e74f5669c53b7b146301bc",
+  "quality": "success",
+  "bankTests": 814,
+  "bankFiles": 39,
+  "overall": "cancelled",
+  "annotation": "The job has exceeded the maximum execution time of 45m0s",
+  "causeObserved": [
+    "delivery-history esperava valor de legado sem aceite",
+    "payment-reservation clicava em confirmação ausente e excedeu90s",
+    "retries posteriores não obtiveram lease de settings"
+  ],
+  "browserComplete": false,
+  "ci35CancelledVoluntarily": 38253724198
+}

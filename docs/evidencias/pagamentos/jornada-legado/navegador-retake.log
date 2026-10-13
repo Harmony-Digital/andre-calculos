@@ -1,0 +1,12 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:e2e
+> playwright test tests/e2e/financial-journey.spec.ts --workers=1 --grep jornada financeira produz
+
+
+Running 2 tests using 1 worker
+
+  ✓  1 [computador] › tests/e2e/financial-journey.spec.ts:63:5 › jornada financeira produz histórico real, fila, preferências e download auditado (22.2s)
+  ✓  2 [celular] › tests/e2e/financial-journey.spec.ts:63:5 › jornada financeira produz histórico real, fila, preferências e download auditado (20.2s)
+
+  2 passed (45.1s)

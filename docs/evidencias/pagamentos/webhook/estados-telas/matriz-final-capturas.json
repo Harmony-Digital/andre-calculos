@@ -1,0 +1,1936 @@
+[
+  {
+    "title": "deposit/after_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--c064b-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "be2c6e39b91339c968b22f31be080a35e42b82f6da323283c49e33d3742c3cf5"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "e0b631e840881f32bbe619b6fd28b762cf1a0094b98c508f51bceaa541755e52"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "d64e53e98ca53708c651033cfeed58f819a2ea9ba4630a16c6bfddcc66b54b6d"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "29837658eaf4c1a988258cae2261cf2ac7646987350f852edcc945df0c5403c1"
+      },
+      {
+        "name": "03-sem-fila-parcial.png",
+        "sha256": "49e43f4efc3b28c910534c47a744c1638b57f070ae73778c621149556297a45e"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--39f59-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "e73fc3aaf769a8c7b8cad8ff42eb522224d33039ebbb4996bc0c9184026149e5"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "0d4ca3febb8d656f7f21033a294cd1c17781378fbeaa0354022e562aa9f18368"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "007e07d6b218c127f108e4fb44cf71743d7eecc3618c27be8a4387973f0abfdf"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "b8cb74a785404368b345c3b4581ff6bba41a17c984efee0ff31391fc06ad4db3"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--dc9e4-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "33a7cd428aa72b1271f3a8f44cb2e3e055ac8b4cf1884c1ce31c76b7601498ae"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "5684ef780b88a9a0d1fd02d64fc2930afa5af31995b4c84d218f5ba263106e7c"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "8f9a0ddab748584fb55df42ffb32777a9f873dd7d42b4de775dc8dbf8551b065"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "2b4dffdc3f3ddefa54089390510d3fe9192eb73ca535993a62f97e28bd5947e1"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--338d0-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "789b3b277cd6bd4d7e3aef4cf2a2818ff4afd517e3788106ad85d8b52401bba5"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "b22f569028f5c76cc59974a1b58a7d4a3d34f76b7ffb9bb0f3cf6679131791e8"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "7aac2ecef604a94d910ccbbaf73146050b2506eca83421784fc7eb3e420ed161"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "5a85b9d13a4d584953e17ba1b875051930fe26934e13bb842cf313f09240331c"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--b7c8e-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "b8bc92c9b8991747770e37b07a5266d03b191d9ddd02a41ff1739bd1ed160afe"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "4f3b28120a93e152879e78dfb8169eeaa1ab0ebe29da831947b5f506ccaa1194"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "56fa717d4cd570468342b8f4bd72902048406770296aecff7f9a222892e19550"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "417a3bd05cbfdf24b812344252e9717e0558c8541cd397c6abe26c09946a6da9"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "b2ea0b7a7b0b9dac38cd3b795a159a04c603d3aede47efca5356fcc57115c1da"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "c4e1bc559ce5c53698fe8fc5f39e0a69f1c0d192ffa39891cbc92075e36aaa33"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--56907-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "ede83adf4173ec2b6e4bf50d9b9be4c056ef3b703697cd89d13ddab4ad3513c7"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "ccdf3a33bee8e75967256f01fc8c2b2fa31b3ad268a9bbcd592bb0f05daa92c0"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "68fc32c81356c7d844fc67430631390041ffddd9f5937bfaf1d0073589c483c9"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "d07cea77296255add6886d0087050b571d3b83c1a3f3ba6754ff577b37e39345"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--f90c6-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "52bf348fbf09578d31ff489521e1c57c3045c5390abc88def950e415ed69ab14"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "8cf9623fd09867eedb205eae8074699180f0786478757cea127973cbe66a4fe6"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "1c8b291dac7caf65c9cefbad505e60f1d2e0ccc965bb3961d86d88a7263ca76d"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "6f61f29f8cd79a7a2b28c76944d3a49ba53002013c1b657907a5f3f6d5e7451a"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--3c0fc-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "9ce15ee6790733ea7025a2a30a74eeada2a4e3e55e785d63dcad184724925b1c"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "945aab7e246b266190250dfc06f4b10d00d9f9b299d69b4dcfd7db97c10541b4"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "b927c93bb8d5202ca22057f025445deb8e3ce8a0def096d117f175015890bedf"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "d81ad236a5072cccea3d939da625598adb97dd29baa9b4477df73e9f33932c27"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--ee9e8-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "c7cbbb5fce19db19c2d7896511cc62adc3ed05c767932d2c20855a3ba4466416"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "2ad94709f9dbb145dfca3c013f39a36f21a82c7aec625601f2e7c7aab0e00c39"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "71eda1d6d5e9afb772fd12a3d0c8c46bf17abe84b66d23b4efc26070b42b46cf"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "be5a25054159663a79ab724130bb55b8971f753b6e1fb4e0e3b4dfe1e8665c01"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--1a461-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "a76a26b5f031c906beec9026cd0bcd063cf3203a6f1e67a187609576c2adc460"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "1d6e7f9c7da9e404477189cd794f1245fb1862cf9d30c667a1e13e0db869bdbe"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "b69ff90270f47acffb1f8b83051ae0f6603b94bc024f631c58797ce1e3d67964"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "b862196432f1a69c6ce169a474a00901274c1346c81010c82b3706371cb9b93c"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "edcfa138c4719dacd5fe62fdc781c60b43f56f2b429907de4f182065458e33e2"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "318a1b7380bb0995b31144eef58fb8dafaa87ea5d7060f7af3f3046d35845eb4"
+      },
+      {
+        "name": "03-replay-historico-calculista.png",
+        "sha256": "ec4947ce0c94974809799eccd4d1c7db722c927cd4ff5c7b2f6a11a534256e8a"
+      },
+      {
+        "name": "03-replay-historico-cliente.png",
+        "sha256": "3d6e8543835c8417c761a614ff2780775b64c3eadea45dc0c784a8a8602a5baf"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--9f157-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "6c4f25fbcbea5936a758b67555d26254377b70688871c2cc862ae27dbef2f63e"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "97b04f59fdf01c9dd9cdd43b474cc58f88b8b82516f9424a80f5e9d7623afdce"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "a4e4b4b6013449971c4def6a473767c81a37dc89f586123bff203b6dbf581057"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "dcd6ce48eab850955fdd2c134cbf780ecee98156187d5f488f67753884ddf140"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--084fd-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "63562314effc28ecf7268fa4159600fc750291f212bc2719969d68d9f119e3e9"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "aaf646d3ee88a188d6cce9ee361bcdb493e7cad74ab738d850f7b99be0bb8a38"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "56c129495b0456763069063bc43e7ebb9b08c1815aa8f66d38c3c7c8fc70bff2"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "ac3e610bbd3b49f12b443ae037773dbfd2f83b876eca7f7a187a9101e702bcff"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--9e8bf-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "e95688045a735d0a29f0157c058fe0f6421eda3db4641f13c0b55dd9be14b126"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "4815d6a58afe9d44f19170f5d055bf505ea50ac65ccda2fbd1f75d10e18ade84"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "648174f4a0cb6393ec374854e14f9a810309096d39043bc46457a4d0b9d07ecd"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "b2c48a1c575879828bae65c0af5c27fcd1288a6d1adcf248220f04173e7142d5"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--bc052-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "b6533c526b7a6f487b9b9ed31aac1e1d1b63b63aa2139c6fb5cb5cfb399981bd"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "008ccc95fb3fc31e24752127fb2e6aa6785408f5b0501deff68daebd74389eab"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "b7f0407fc8ae1e0542dbd976c6520fc427fd108e52e3e4532a2971fa2f5ad54a"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "53adfe3a260c226a40dd6c32379023463d74564d2210ee3d8009e0cefe0fbfad"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--07ad4-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "0eaba6e5b20dbfb4d0e8fc43bc4b493108658b5e58594bcc197e5f60f24919bc"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "ae53b0b63754d0999c2c5ebca411dbc82edb6a7205762c77fe0c662ff688706a"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "f5435d1e96bdbf4e8bb3172bdd2d33d50a01b3671d0e72b8c00c23cc8abf6b5c"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "f505d4dfe3ddd380c267ab8dcdefb00d7acce41d05490eb4b427fad64a976f83"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--1a420-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "7c9ab24256cc28c7a337e11a94c7786c390f8df80caab45ffd103eb7a8e60f4b"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "e38eaa38c0b79c91e17807e6c421b4b76d4c59400c26330babf03726ef9faa84"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "2b6d2c2a3e544cb0ab392708aa0f40cbe3ba24d4a7ff579bcf3bdfb03cc5cc51"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "26e9d9cba9573e278f9d067f6f2a3cf9fc5c3c8929552eefb01effe668cdbe06"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "6a87b991989bbad03b4cc0f9911c9fb39264f690ef8f762d274e7739216fc0e3"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "bfca9b4ab916a649b62be538b9ad537bea404f8bade2ced627341761eee3d03e"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--91273-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "1473cba116d4c1b9bed620c6e8f587cb9a52aa082c8e5a563f45f19d550d23ca"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "17e4fa8def1bbd858e1e1c7384e2325c4d5a40bf0253e9cef8c4521688f6f15c"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "2a2ceaa31ae5f1a6291953b6e6c7a87eb43a9f325192902b7c667d7e15e9accc"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "d4e3a395c4342112e20b7a8830cf5624e16683b6554414a3b34e669378b30cf2"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--03362-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "bf4cdab83c9ff0290a293c716b5e312e222ea8c8aee5c920608d3d8aeb07e3f6"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "fa76886adaeff787508975f2b2dad418d5c65dd95f64be83f52f19c42d150ede"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "145482d5d66fc0c616c7a0c140496bcd7460e26114ef67e40f63a70f9680944a"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "435978ec81e93d12ada9f52d2ba0d170cddb64a053ed5b327d1129d415bb471e"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--b0041-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "74529d27487a43d576c82fa5d811f7fd70c56258e717096180bc5ea9c9ca9527"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "804f02a3ff3adc8cc9b93c9699028c25030ef7a7d2e5861be392cf0b36b3ecbd"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "29c3fc4a6139d66605294c3b69cb07d3427d0a266be45d5479cc2a392a10fcc7"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "95936d404a337e49c2c8f39c2078df1ea5c39931fa8e462b37c66a63876117f8"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--b9bc9-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "119f72feaf8d59acabce352e68bbb0058748aa52f875f791238d8a122dc277d8"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "14505a39dfb1ba506a41e9ba04a0559a380b59c2527efd917b3332bb47ce13e2"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "ec7d2551527a44e6681930ae5dc08a57b69aa4f2983608d2fdd3829dfb0cad3e"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "b9ca55bdba283a6904b2508ff68a72e027bb111679eafbcea5e5740a52fa437d"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--c823c-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "88f2d0ae86b3d996a06fc244afc25eba661d510116ef671e217d6e760602b8fd"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "93884eb72bc638fc02a616d7d82577e24a18309c1f6719725b5decc7351cd755"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "4fd6c8661aacb22150a430edf8d3a17db057f7f231146ce87f11db163fdbfa34"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "958453b51a1c3eb89dca0776bdb0d4027e30e988bba69ef71ef6de59bb5d7331"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "da0d1a36e481a9f9a7893b6d8bbb04881fdf6c4cf54b2558df18c9fc5c27d7b0"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "a2dfb3b077afdc5fc36950d46f2b4d2062459ea8dfbf26935d1efa858aee78eb"
+      },
+      {
+        "name": "03-replay-historico-calculista.png",
+        "sha256": "c195824cf6da94d6e3b6c46e5d068dc4dd6e8f3d3fc502dc5071e9ddc43752c2"
+      },
+      {
+        "name": "03-replay-historico-cliente.png",
+        "sha256": "1d4639266a5f71fc5eaa3de69be2a4433b26cf38a3021ae3538f498d9fce4074"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--cf3bf-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "af7d8fcfdb2e9924258353ae4ba2ef94c850c275a132c7201ed9f78a3ed430a9"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "5b11a2d259c0a51f280f6015d1c43cf1379dce87217baf09706a0f8548c70a42"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "8bdf5e59c75e9c6820a2813eef9daab2bb9aa59cbe1f7a4fa88b7d674d1c9645"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "06aa5f7d75774ca40659887f241818d7eafacee1aa5b8a5e74a023c86e22556f"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--eafff-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "f61476da3c6f4fee7039fc38c9d0401fe0290ed312e883b726b53f4b1b8bb2a3"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "806dc51228e8357824f914fca41ddabd0c932fd848e286e020698225a99321db"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "bad59775c749284993533780663e1202f98f51cf1afad42c232c2872c20f7031"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "bf2b48a7a16ad93d7a56f51d258d0d83881cdfb896f7d2b44fad4a9cbb635e1b"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--d336a-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "a4473ba8cc83e97dca1d2281f47327235139307e0219d9965341c8c7e72fc9f1"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "ad605fcec892cf6817d8d0b8ec12292ba9742ccd97f5056888386ca392a471f8"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "b06cb696d914feab4aa897ba71d40756e1cea194240c1b0277617423587daf13"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "87e93daec78ce8e5f1faa008b8d3ede0574cbaffa63422608855d7a191a5f3c7"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--a5eb8-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "52b9641d706eb9c560c756ca2e361d71dd31b2750e4364b0ccbe1ca8a91bbc0a"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "45dad6063ddf3d265c84ac0735073ce818dcb06836b35570a219589dcc5c3092"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "ae3c6c4775c5924652e9009b9f71b653aa73c6a58607f4860d93274f4daac28e"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "638e795d6b2a236c759fcb14830abf504bb2ddd3699d8b8c06e85a79307fd0e7"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--556f4-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "d53093edb002bd21594941c71dced5855a3e57c73c0338fb5adf1ff0e6926f65"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "38444111a61dd7dc71b8fa9c744b9b98d9b1851961750748d81ea7e72093dbff"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "0645a43920b5cba0883d185b4f6a0eb4dbb3612c06be5047b598379b2821ca12"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "f8dff0fcb6990d05ba67a88d5ade34812db45fe87e0195fcd799304f8e05c415"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--2ab97-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "9b55efe7d07c5832082eb0381f6d0da6af6122ebf69952112f5971cfed6fa3a3"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "224cb421a8f6a1d9bbe5325f9305a1f93968e669691a647b2a7939f855b69c8d"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "dea8d0bfeca7786c00e6f013a58e24cdf475644cd01954c34649307cf5cef5fc"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "58d7feb8ba9593618a5840397c3ac754dc55f99dde4e7e3add68beade5b605b7"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "937513f97f6242d044d7ba10d22b1366a2f2605790adecacf1a8d4b5b24b8a3d"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "6dbc0e62f85472d98762d6f7a5327046b959d9dcb4c1eda4285d22be4409cb3f"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--a4ce7-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "4b5c9a42cb58f0c49ca281f79426cd61636adb68df2d9f91f1a3767b96169f46"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "96f0f94c4f0dc3355def40b40be0bb98cdbc95d2f6f11ed4bd6a77e2fa7cd4e7"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "135079822b4b2778d066a82249437bfd67bb448527cbf5750df58b1b275e6a5e"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "187fa155003185e6a8e18e7c43e3b79f4b3cfa5bf1f901991800442b5364ab92"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--0427e-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "3de68204184677ec074fb8d6de8f5b0a4b917031a527771fe08c45dea7b57165"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "f2429d8f6c0cfee2b30206b6ed156fe02975e74d5d1d7db284acb81418995c76"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "a82b925386068c89eb8293c42905971a26df84a39ffbab013556bcbc7cdb0c1f"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "1c3b999e1fe35041bd606ac434314d1b2e88a0e4659e6a367f7822b7f5b8016e"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--afed0-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "ab406702fd15be1a1a77b4c9ba322b92c51437c94d4844ebf9b2a4543005012f"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "eeee63d1224d7415c5309d51aa1191591f11bb8f833ca4eb3871cc27786f96b6"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "921a21ec29054e5f38006ac14f59316d770f4c11a985daca259d8940c6f20e28"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "d3250943170c356cea52f51dc06fbf6523e2cdbe2de02c18f61a13c6f2085853"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--cfa03-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "4dbeb006794eee9e7755dc707bce01a1d1617b2291377a64be8bbf4455811c77"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "2ea6b30e751ff71720e20428b7ad3144b980d2ddd7dde717361e6866a0ae745c"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "07e6426984ff34a6ecd6036fb5cc6549f6511ab5568999791fdec182ca847821"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "199aeb5fc91678833decee702c97aa094f81ad51485376d4156521ae3c235afc"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--ef9b9-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "5d042a213d360215ca032e7c79c885a4e948c59c84c0c8b9ae56ee6cc2dcfb5b"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "eda52afce3a58bb05bcfa06d67f9452db6bb59aa7beed20a7ae17f8c21df2eb0"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "cb1b0f87ef30e01b269a3baddefd078b1ec0b65648b545605ef42e291d460983"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "82edc8f5dc5e895affee99b5e2450cf6c2341e5b3dc6252eddc7582640bc09af"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "2735317447af8554dc61a022681a651c144dfb944d9d6010f0c3aeae6d0261df"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "181a0cd607c7b89577a57cfb2893e344b503225eba57821a2237687ecddf9d94"
+      },
+      {
+        "name": "03-replay-historico-calculista.png",
+        "sha256": "4949afec2be371e75ae785fee2ff56d46bca11c291b56a2dbca7821b344e6364"
+      },
+      {
+        "name": "03-replay-historico-cliente.png",
+        "sha256": "9255b38e2a72f3e962fa051385666a6ce4747632ad928c54688ae97170e44334"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "computador",
+    "width": 1440,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--51171-ondem-ao-crédito-do-webhook-computador",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "6f4dc96226e4d449d4c20e0496ddae004f167ed8617c8f374294869769e0c86c"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "24c509764749c466c8783e85f2848199977ff457889b3725e69daa276fd4416c"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "92a0e32aafe841dafb275abad081752fd51c2fa8c33aa1d29778dbf3ee0317e9"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "021f487a8e2fd40ccf4f4739af2c479701d79aa0b943befb79e3a2841a15d071"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--c064b-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "7e134850dd57f812ec52ef4c1df2357813f0387cab8882b5271ec4bb816f0eb3"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "de7ff62c5e87b9a495af2c928897aa7c60c0077a84f1b403b135e7314519acca"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "9a71f2e635c5335ae68a86bb469151cd2aba6fd24518cd91cc8242ce19c88856"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "a3d4be4b7137386ec2a0fc61b58b8fffc817d4132c10607d9b0b9dfacfac865e"
+      },
+      {
+        "name": "03-sem-fila-parcial.png",
+        "sha256": "cdd4b2dbe18e1be7f4f5cc3b59e470971fb07c9a7400d178a1962ee3a32d5818"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--39f59-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "7d7e6d2399889674b5472b1e4ea8163381b9532fb9ea904535b44d648362e527"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "9649e576bea7b257cb390f4c4eb7036de0fd076ca3f15711798b0477bee3d2fa"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "92493d71b719d0c23ecd960349b1c8b8a20c8acd817bc3e39a874ddfe295f566"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "2dfd07a4d28a762184aa1f8725ea4041e198f8e0fd17a6a47a0445bc8f158742"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--dc9e4-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "fddeda88f2a969b5d98facf68f012ac6a99ce53609c864b2f935d71b5f64fb1e"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "15b9f825148cab09bad97341e3fd0ef225cc847fbd803ecde06728c14e547d86"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "7e6d01fc455cc5f051283ce470ee14e99279a5e3f7343b6f863e8a7bbe24c49c"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "7fd65fa05ef19fe453a982011b00b9f94dd4c32e8f056ddd1904cc7b80bb1e93"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--338d0-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "caa51bd0adda31e60559316c78e09e21a5f1f01ad972c7dd23f1ab8f67047e57"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "9adae0ff3d7e21627cb72349573aa8478486d4a748a88234d2022deaa5b646c4"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "37d0022c4e0e6f8c2d90d5a7966006bde6dc14ae8a533d41bf33a642926f6623"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "18977864ebaed433b32023924981c4dcc997ff69adf7a85e45e3005f46bba5b1"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--b7c8e-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "7afeaa99d48b1f5b67d6f04642b4fcd25cdb3ad098ec2f1784f0acd88e21ba0b"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "6f5dbd8ed5d07591591bc54388135a6ea52e6aa27e6d5beceaf3d8ddf8541901"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "e87b9f277c18c5b6d29da9fd8aac9c6ca0ac6513bd050065f1c8b65fc5034b8c"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "cb9dad523b6100a0b9613fadc17bb07e4a4618a4188d300a53ab0d3a4571b67d"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "48a2373757358949128193b90d5e47fde1e243de30a29171ff983d5c9654b272"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "3de55942c426cc12ff01044ee552b9e736160e6760c6533a062dafaab7e27d70"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--56907-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "b8f87ad1d66e2728b98259b27c0d4595e5cdb806edd9d0d3417547afd5f67f23"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "e20c4f1f46b25a24173a47f090423700ee6b8b6794f3a964135f534cf30f9597"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "6d87b533b2b59b2efff333e814298aab0b48aae181889f921d5509eafaa4d065"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "a07020485a4b33b1795e2ac1aff1bb691a59266f23364cd1887aaa94ed58fef9"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--f90c6-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "3dfe35a965787c26d91cfcac33c3b2bf1b07c882f1f45dcf87ee15c32ed79172"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "cb986cf9a8ca5bfd6a7ed1ae5c9db8cfc56f1dc0999bb11b42873a2d7e1dbb10"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "ad36aca7bc08f8c196f2c0a1859753e2404ade4307846ea91bcb3520583d114c"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "e33265e16b69a9df49056f6382b4247a2f2b1393513c396e55553337a8c4bb9c"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--3c0fc-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "6dd547fb1e2eba7cdce0e6d124a8701273ae7be3bc113a1a055e8ae6ff092173"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "041dd71a1004eac8c8b4c75614676993b87f25b86765ce6bc389eb0da4ef13b4"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "0838c66ff7c20172bf3f9b8bdd995dda62297815cc321012e4367a67b2e2af64"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "848ced47a17febd635910d795642eacea0591a099d400291767c622ce40cef3a"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--ee9e8-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "0bd36ea4518c84226b395dc80c4c0596717b8899694c6f6e1b990f4845bcf293"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "5ef4965476bff83c2c7b9253ea661f22ca26a10088bc5de116861d7b9f4eb73d"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "bb705cdc7438f6e5cb0c03a350777b5ba4b4c1827d42249fc3c57e29ad96a9df"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "85a719a709df776ce19b9c43a442a9173cc094d677d9aa91cb454d9e174469ff"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--1a461-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "033278220ab51526ffa72265741af8d27b9fb84f3e8b81636188804e346fbbbe"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "0d1f00a600ed5fa8cfb1d413669f5615a9f70027edf57d455ece41a7bef7d9b3"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "809200d74bcaa7b4ab6706153426cae387ab6e8a451e46321273bc5aabb8b276"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "4557babd62e94af4600f83c731b6ab0f404bfa19f530fe70049edc071539e843"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "5299f22152b3e6efaa15e74b6e8808fb3dbcb4312c8eff9f421c55543de68215"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "a8dfbd981950d4af51242e5790f487bdfb41780aa20e0aeca61fb33c1e373600"
+      },
+      {
+        "name": "03-replay-historico-calculista.png",
+        "sha256": "02711008a02b63ea0fc8ad4c074668595c30868ac77290a8d87e4b1d40ed85b6"
+      },
+      {
+        "name": "03-replay-historico-cliente.png",
+        "sha256": "903e289e476af1a1be3cdcb424b03bf55dca3b17f9b2baf3cbd51efef066722d"
+      }
+    ]
+  },
+  {
+    "title": "deposit/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "deposit",
+    "policy": "after_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--9f157-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "1a4b10c7689a0fde258f8e8e22865f9296864263bf7b7bceeadac5124b3a2b8e"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "cca96f4f826968a976b1cd713e46b1fec2771bf51e4a6a6329bab6797a0c38b2"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "c63b07832cd7cd482830898c19e4b1a4cdf160612b4bca9024010b2699c3e740"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "ba9bd8fdf51485fb6d22ea9c80f631258a8ec9407e8be657b5d437382e87d476"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--084fd-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "b8eaf673ec97d9ecc6f1f72f0bb569be5b84e122cd3b23e2796b199ade3443b1"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "92b293097838ad6e69908aac4fb16c02d3b67424c6741275c05ee3398dafe6b5"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "445e19fd098e0c4c293bca17cb3e589c618858a5268b48a4d1a18d9dbfa1f6b8"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "214331ad47323b8309c8654be6fae13b3e327347d7c51449ce89d82231b78a20"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--9e8bf-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "0e9d9bddebfd19f49ee28f42efa6bef6b24bd7be283469040ae383cc32f2c2bc"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "7b11b1b57e22badfac4db80e4aed8cd9e4b4832fd4aac8bb9894ba4f984ae9d4"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "d6d2ed0b86f333f3b53fb397cdfae6549de8d40a6c8f30a37c7b33ff5d25d032"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "db989cc662153f8e85d7d1f86a27091a1a0f45452ec3c4cf0a80d7e2e853eefc"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--bc052-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "d2edb0e44ef4223c8acb349c1cb3a2fcf5baf26d22c35554ddc8f73c948c06bf"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "a56dddd9ac5870d2d758eee548bf48b1c335333b59b865fe00ba9c37d18bb99c"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "a0c8971a4e5950e3204fe6cc7aa873b0b0c521e615ab78815288f39d2d1db20f"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "6d9a9f7bf2d5e3186287f38590d0eb0584a41c9170c204b30a0cd4c77d3e0094"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--07ad4-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "e0b2dd0e6c8b358741795ad8d41f38e849af4b5c1ca70f3b53cb16d9105dfbb7"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "e5ea0460c5a738ad5a93b64f08345711a927d6c87bf9d2658f14b5c45fc80733"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "f170852d326c367fb76f556832b9b0462152b4e648e6c34b05943b43470be20b"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "f2649923800f3d34c477e7571d17399b82b39587e667a59a864b57fef96779fe"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--1a420-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "073c6714e4ff1fd6bfeddad8e7e5f76f72c2433872318f484213b6f20ff3b04f"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "bcb092329daad2404a64d8d27f5433b7c1c5aa2567a3f69f812588525eed69fe"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "abc857e09797bb033b3857608c86485215edc7bb2d1f6df9c530041fb1804ea2"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "178fc8e545330848b002207169d9aaba0c4bc03fa57b5ca3e7a526f23b2bd71e"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "9bf4989be33d3339b691178835e25fb83654890e02b169464c6980811e855c89"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "d7b2160b2406629ba761b70a7270d92596b64be3c036deb36f5987e27ac45bab"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--91273-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "08974fc578c5f9ed0130807909aa3d42884e64503d559599de0d9cde45ece8cc"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "cdde8418817958eb33c9f7a2c0badfb3bf3b79f8b2799c4d81b2ad8cbcaf8577"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "6d39eb780641cc6255f752702bd92f45e5700fde68b627bf80386b5a0d61d1c9"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "f89ef862993ba9ae3a83152b41c10417cb6112f108f1781c807f02b87cb29760"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--03362-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "28e8211c2c4b28766166037a82deea1e7892ce7a6bb7fafa5863b64ea40fc402"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "a8e0627d52dca1a3b6b000622f768bee56d66f524dcb4ab45e52665bf24a47d2"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "4d5c87031f03564617ebdc7aead2289304fd1bfb06334d92870f87345f585cde"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "4ff354c3f05060b354d72e6f0a43fabc671f49e7bc28040e5b3a0c80e5d4a0ba"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--b0041-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "9a38e37cf207c76fb4e8e654c96cf6fc000207464d95bc7bb98beadebd944216"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "8c8cbdaf8b3db4ee4f2d6b4c109cb40dd604c7b8fa60c75a6d8a8f86ab7992c1"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "6df55af5ff5861c08a70af762a4b99d18dcb98384978adf9e431bf9b442ca5e7"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "7bf4aaf8551b5b10206882ba8d90f95220808a39fb25cecbfc25c71c1032d68f"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--b9bc9-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "60a8930a87fedc323c793702b1f81e9c0efc3add45e39b4706f6e90933e6e3e5"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "c5f32b4835521f26fa72472845afc99842a654a88a80d28d61b5f660b42d6cff"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "81c75cbe6e99244dbfdab71ca486ff023cb8622981213520552c559f0c483fe4"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "074da8b4859bf5ae2c9bae4deb85af63514f8823969725350ab392cc98e80b5e"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--c823c-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "ab932a16b7f30a33c54818857cecc7614c69b070a530a4c551dff3fde5818ae8"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "905f8eefaf92687a4f59d5cce61c07f1f249aa4b2f008f60b9c2969e9d6316c5"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "d77098f83a6bf3a2d4a6a2c7e3f66b35a58ce1c1a39c77598964dc9dd6c194f6"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "bcbdc744041ed007ed627b3ed0bf032cad6aa5f3457d96aad71d6f55821a16d8"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "f1e6aa982df529b49fcb47b69b7d9d1e44f67ae48ba2e8aaa6561c49565105a6"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "f43e5c1fdad69fd91c29638c784fb287431977e08ed8e248360fc42f03810c41"
+      },
+      {
+        "name": "03-replay-historico-calculista.png",
+        "sha256": "791992635161645d777004e1830cccf71268bd0d4a5bb585d1dfb3f95f454bc2"
+      },
+      {
+        "name": "03-replay-historico-cliente.png",
+        "sha256": "72984f0e524f7800a4c9fac6e806a60657791f0ea2e3b00f9e1bf16bfff6cf6e"
+      }
+    ]
+  },
+  {
+    "title": "balance/before_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "before_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--cf3bf-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "ff861ad55a7f925de7c134ead13d7fd5eb639a8c6d47b852a3cd07509aa2b34a"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "240134d819ca9a2774521e2466de5a5ef597aab0ff39935e7bbf19c079b6f661"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "d77da6b4f55e6c8ea2880e7f5b53228c4d529b5378a40aebef9251bfa4f698b0"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "aedbbc9f2e5e9f7b00b6c7dfb8c4861a522f6b2b3fc64ec29428aee90bbe3cf6"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "partial",
+    "directory": "webhook-financial-screens--eafff-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "841097fa719f1bb84e27c9b85cda250cdb75b659f420f67ea1c266dc159288b6"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "c451d95fb0cc487d94300b02a7ba0b520b23898010173eaad8f3cbc3f5463a36"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "01a79344be65154a287b4ea8fba8f3deb0920eed90bec3f23427eabc70e1723c"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "4be50352d2479a22adbac5ef626b2283abda19dc71c7792e45b6d5896e6ec3ae"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/excess: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "excess",
+    "directory": "webhook-financial-screens--d336a-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "5672f157a33c31b663bc19836b369e5e3516830e866c1c8377c19e2f3bba7ddc"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "749d4e1bb484e391ac97dd4d4e704ae927e26e6ef42c68019de8d90f4e9484a7"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "c194a3656e7541e68f848e40a5e00d22550ab767b85d6904fbb47e2317897388"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "6fbea3c9025de397258c14e5e397bbbdd6bc4efe85a497446b4116907c6cede2"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/refund_partial: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_partial",
+    "directory": "webhook-financial-screens--a5eb8-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "8e2aadc85b44a5a736f55881abe297eb882f77b133596e7f687f0eca39431cee"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "22cb34da8360fd22c004923a4602b12777147d9c34c5cd34f9ba90de94491660"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "1646caf2de7c7498d6cb5e25754710b02921ff0355b0a60839c23fa129363eaf"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "46e15c7130a2966716f7db9583166cd6a1b100ef14633a299d471ba3ce0622c9"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/refund_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_full",
+    "directory": "webhook-financial-screens--556f4-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "645970d3c93a05396b76ef3914aba51a8fc98fe141e18fe1e65ee39a2169fd9b"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "26007f514bd3f0f8358d5ac9bd4d63cfc5acf32fb0d5b9f3703e14c94eade7ba"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "6bffa5c7905153cb192de18e01697a5b1566f0cb3e901f227d8779df0e34c8ef"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "aa3524419cd573dda465a285765b1edc2a83146a4a41a8bc33dee9b73065e9e3"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/refund_pending: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "refund_pending",
+    "directory": "webhook-financial-screens--2ab97-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "4fbc297d1852ebfcb966e11e6a59b794685f2b93a2b7eb57bd1139e3de17b40b"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "5f0222043500dedf0d2f38329da9c75e9dcb1c3e13d7142c41fb54395470496e"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "5fc47c29f3ddcea1132cf25001d0f29a8a37a278f68fb40760b9bfda23b12633"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "c4e38187ce495d28a883f5803b0f706ec654ccfcf4c725dff705ddf2e3aff7f3"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "af32dde8c177647f0a51e414ad7e16e782b13c5ccdf7a4e5e3785fd68f834b4e"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "65bbb10b03c35de95209735304e58514c1acda9a8ea9450a692e09ce22a44bb3"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/chargeback_dispute: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_dispute",
+    "directory": "webhook-financial-screens--a4ce7-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "ea0fe64e5b4cf17e5cfd17a17b10f99da83f6834268b003dddebc1e2db74463a"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "b835682f4e65f6ed4b99aa0f88df35e0230480611cba7fc9bc03523f309036b5"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "c9ada0f6215097cb0ff00d27bea70d2ff3ba2770990001a2d5e81e9e9ac5745b"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "9ad744b4e0a05870f51fe14aafc1800adf98e035411c621e4fd4c14f8db1f6d0"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/chargeback_debit: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_debit",
+    "directory": "webhook-financial-screens--0427e-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "b5018b00cc829df3869a9bf42766836ac6ec3786ff96dc386a4c1b6bac07cc0a"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "c4ca48db0346762c655753904ed606f42fdefba81bf38f7c8a55f2d61b51f90a"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "d00b70ab023d4b2c2e6d6ada5dd529b2bfd7b1a0318fab1106199128d42bf421"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "c78095299be141b5a28abcbf04c739b54cdad54051e9dcb22508f3e9fcba6dee"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/chargeback_restore: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore",
+    "directory": "webhook-financial-screens--afed0-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "3aad0f6cc897afd2d00d5bf5e94b4c1633092a6eae421d4d3567e31b770055a3"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "a1bea7849fa5df4812c254d5f0ebb09af3c82f2842ccb234ffc6d6112451005a"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "3bfd665a9e9e1191882e3b61ac230e483a16997de7632e570ab564fb5b499710"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "155615815cb52f01417531586ab5035a6ea42e52bad99def26cdee34683dc95b"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/chargeback_restore_full: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "chargeback_restore_full",
+    "directory": "webhook-financial-screens--cfa03-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "abfea781390a9e26bbb3c985d1fab7458eb86f74e79c05bd3293b5f99501117e"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "65711de7fc7a1c1561b1c49c546623149f014ad70a1a6c4f9d380df982663a29"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "4325f2154084111c3cebbffe4c46eacd21b33811efa58d9594ba0f9a98f6cf77"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "2d6457b281d28085ec5d825f10710fae9c27a3ccac50c96ebd10ce40e82ef96e"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/unknown: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "unknown",
+    "directory": "webhook-financial-screens--ef9b9-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "26ac6b7bec9e4d20809d7d80fb365d1e124012c8254abfe3f915a1d07d9a8ee2"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "6370aa3cf6955d011129541d5ea1c27b79d5b67380e771dee79be7d91192a5ec"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "46f24797ea5645cf390791fd9ffebccd2af1efcd6be75bd6af23c2f008b442e4"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "55526d8bfbe35c0b77af7b1973f71828144469c30496d818edb995b6767be020"
+      },
+      {
+        "name": "03-recuperado-calculista.png",
+        "sha256": "0e89ea1bb8ddeb310f9da81b66f363bddde2207c4d547506662fa184a502e75e"
+      },
+      {
+        "name": "03-recuperado-cliente.png",
+        "sha256": "b9f8a3489bf68047f42bb31ccd0e9a4e99c3ad483d54b3a5a0cd7e8d070f2fd8"
+      },
+      {
+        "name": "03-replay-historico-calculista.png",
+        "sha256": "7c5836dff741c7e3e578ca45ed9cecf1be97c7b44f602e55b646c106baad198f"
+      },
+      {
+        "name": "03-replay-historico-cliente.png",
+        "sha256": "59d1f8c375330ea4845f8003094cbf7b702a8420df1ea8bed41d9320e8f57178"
+      }
+    ]
+  },
+  {
+    "title": "balance/after_balance/value_decline: telas e bytes correspondem ao crédito do webhook",
+    "project": "celular",
+    "width": 375,
+    "phase": "balance",
+    "policy": "after_balance",
+    "scenario": "value_decline",
+    "directory": "webhook-financial-screens--51171-ondem-ao-crédito-do-webhook-celular",
+    "files": [
+      {
+        "name": "01-resumo-calculista.png",
+        "sha256": "ad7cede1e6ff5831ef8afa76bfe6e67d3c00f426f7b39f2fce0c6e9db511bec1"
+      },
+      {
+        "name": "01-resumo-cliente.png",
+        "sha256": "4f4f71b662d58e5175b7ca702f714b67468fab0ca4faca5e12e0cd1fb6f68e2e"
+      },
+      {
+        "name": "02-fatura-calculista.png",
+        "sha256": "c609746170b522972e3a40bfc7c5dfbf4252109a1259afedf0df32fa701e5688"
+      },
+      {
+        "name": "02-fatura-cliente.png",
+        "sha256": "e48b158e3a67b1462d24d424e1e1295f18ef38d61ea73a068c9d4d846f5eeb9d"
+      }
+    ]
+  }
+]

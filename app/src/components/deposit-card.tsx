@@ -4,6 +4,10 @@ import { useActionState, useId, useState, useSyncExternalStore } from "react";
 import { confirmDeposit } from "@/modules/payments/actions";
 import type { DepositInfo, DepositReceipt } from "@/modules/payments/deposit";
 import { formatMoney } from "@/lib/utils";
+import {
+  creditStateMessage,
+  observedCredit,
+} from "@/modules/payments/order-credit";
 const subscribe = () => () => {};
 const ready = () => true;
 const waiting = () => false;
@@ -17,26 +21,28 @@ export function DepositCard({
   info,
   requestId,
   panel,
+  invoiceEnabled = false,
 }: {
   info: DepositInfo;
   requestId: string;
   panel: boolean;
+  invoiceEnabled?: boolean;
 }) {
   const id = useId(),
     hydrated = useSyncExternalStore(subscribe, ready, waiting),
-    [key] = useState(requestId);
+    [intent] = useState(() => ({
+      quoteId: info.quoteId,
+      contextHash: info.contextHash,
+      remainingCents: info.remainingCents,
+      requestId,
+      confirmed: true as const,
+    }));
   const [state, action, pending] = useActionState<
     { receipt?: DepositReceipt; error?: string },
     FormData
   >(async () => {
     try {
-      return await confirmDeposit({
-        quoteId: info.quoteId,
-        contextHash: info.contextHash,
-        remainingCents: info.remainingCents,
-        requestId: key,
-        confirmed: true,
-      });
+      return await confirmDeposit(intent);
     } catch {
       return {
         error:
@@ -49,9 +55,23 @@ export function DepositCard({
     info.status,
   );
   const path = `${panel ? "/painel" : "/app"}/processos/${info.processId}`;
+  const message = creditStateMessage(info.credit);
+  const observed = observedCredit(info.credit.projection, "deposit");
+  const excess = info.credit.projection.depositExcessCents;
   return (
     <section className="form-body deposit-card" aria-labelledby={`${id}-title`}>
       <h4 id={`${id}-title`}>Sinal · {info.code}</h4>
+      {invoiceEnabled && (
+        <p>
+          <Link
+            className="text-link"
+            href={`${path}/fatura?pedido=${info.orderId}`}
+            prefetch={false}
+          >
+            Consultar fatura do sinal
+          </Link>
+        </p>
+      )}
       {info.hasContract ? (
         <p>Sinal dispensado. Pagamento no final, conforme contrato.</p>
       ) : info.requiredCents === 0 ? (
@@ -66,14 +86,36 @@ export function DepositCard({
             <dd>{formatMoney(info.requiredCents)}</dd>
           </div>
           <div>
-            <dt>Atualmente confirmado</dt>
-            <dd>{formatMoney(info.confirmedCents)}</dd>
+            <dt>Crédito atual do sinal</dt>
+            <dd>
+              {info.confirmedCents === null
+                ? "Em conciliação"
+                : formatMoney(info.confirmedCents)}
+            </dd>
           </div>
           <div>
             <dt>Falta para o sinal</dt>
-            <dd>{formatMoney(info.remainingCents)}</dd>
+            <dd>
+              {info.remainingCents === null
+                ? "A conferir"
+                : formatMoney(info.remainingCents)}
+            </dd>
           </div>
         </dl>
+      )}
+      {message && (
+        <div className="notice" role="status">
+          <p>{message}</p>
+          {info.confirmedCents === null && observed !== null && (
+            <p>
+              Subtotal observado: {formatMoney(observed)}. Esse valor aguarda
+              conciliação.
+            </p>
+          )}
+          {excess !== null && excess > 0 && (
+            <p>Excesso no sinal: {formatMoney(excess)}.</p>
+          )}
+        </div>
       )}
       {receipt && (
         <div className="notice" role="status">
@@ -94,7 +136,9 @@ export function DepositCard({
       )}
       {!info.hasContract &&
         info.requiredCents > 0 &&
-        info.remainingCents === 0 && (
+        info.remainingCents === 0 &&
+        info.credit.collectionState !== "reconcile" &&
+        info.credit.collectionState !== "excess" && (
           <p>
             {!receipt && info.status === "awaiting_payment"
               ? "Montante do sinal já registrado; André precisa conferir a entrada na fila."
@@ -108,7 +152,9 @@ export function DepositCard({
         active &&
         !info.hasContract &&
         info.requiredCents > 0 &&
-        info.remainingCents > 0 && (
+        info.remainingCents !== null &&
+        info.remainingCents > 0 &&
+        info.credit.collectionState === "clear" && (
           <>
             {info.pixKey ? (
               <>
@@ -142,8 +188,8 @@ export function DepositCard({
         >
           <p>
             Confirme após conferir o recebimento
-            {info.remainingCents > 0
-              ? ` de ${formatMoney(info.remainingCents)}`
+            {intent.remainingCents !== null && intent.remainingCents > 0
+              ? ` de ${formatMoney(intent.remainingCents)}`
               : " já registrado"}
             . Esta confirmação libera a fila quando houver documento do
             processo.

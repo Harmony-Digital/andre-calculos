@@ -1,0 +1,88 @@
+2026-10-13T04:47:44.2273631Z ···························{"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":1440,"height":1000},"event":"new_message","channel":"E-mail","elapsedMs":5,"pageClosed":false,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":false,"preference":null},"form":{"pending":false,"revision":"0","selected":"no","requestIdChanged":false,"statusEmpty":true,"successMessage":false}}
+2026-10-13T04:47:44.2934942Z {"diagnostic":"notification_preference_return","stage":"controlled-diagnostic-only","viewport":{"width":1440,"height":1000},"event":"new_message","channel":"E-mail","elapsedMs":154,"pageClosed":true,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":false,"preference":null}}
+2026-10-13T05:05:08.3058062Z ·°·················°·····················°·······························{"diagnostic":"notification_preference_return","stage":"save-new-message-E-mail-no","viewport":{"width":375,"height":812},"event":"new_message","channel":"E-mail","elapsedMs":5110,"pageClosed":false,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":true,"preference":{"enabled":false,"revision":1}},"form":{"pending":false,"revision":"1","selected":"no","requestIdChanged":true,"statusEmpty":false,"successMessage":true}}
+2026-10-13T05:06:40.1504260Z ×{"diagnostic":"notification_preference_return","stage":"admin-and-client-access-denied","viewport":{"width":375,"height":812},"event":"new_message","channel":"WhatsApp","elapsedMs":25722,"pageClosed":true,"postStarted":true,"responseStatus":200,"responseFinished":true,"requestFailed":false,"database":{"receiptExists":true,"preference":{"enabled":true,"revision":3}}}
+2026-10-13T05:07:41.7217154Z ##[error]  1) [celular] › tests/e2e/notification-preferences.spec.ts:11:5 › preferências por canal preservam escolha, recusam edição antiga e controlam novos avisos 
+    Error: expect(locator).toHaveText(expected) failed
+2026-10-13T05:07:41.7239341Z ##[error]  1) [celular] › tests/e2e/notification-preferences.spec.ts:11:5 › preferências por canal preservam escolha, recusam edição antiga e controlam novos avisos 
+    Test timeout of 90000ms exceeded.
+2026-10-13T05:07:41.7252664Z ##[error]  1) [celular] › tests/e2e/notification-preferences.spec.ts:11:5 › preferências por canal preservam escolha, recusam edição antiga e controlam novos avisos 
+2026-10-13T05:11:16.1877630Z ##[error]  2) [celular] › tests/e2e/payment-reservation.spec.ts:8:5 › reserva informa bloqueio de Pix e contrato preservando a tentativa 
+2026-10-13T05:11:16.1898070Z ##[error]  2) [celular] › tests/e2e/payment-reservation.spec.ts:8:5 › reserva informa bloqueio de Pix e contrato preservando a tentativa 
+2026-10-13T05:11:16.1913633Z ##[error]  2) [celular] › tests/e2e/payment-reservation.spec.ts:8:5 › reserva informa bloqueio de Pix e contrato preservando a tentativa 
+2026-10-13T05:12:48.1706977Z ##[error]  3) [celular] › tests/e2e/preference-diagnostic.spec.ts:7:5 › diagnóstico das preferências omite payload e preserva limpeza com página fechada 
+    Test timeout of 30000ms exceeded.
+2026-10-13T05:12:48.1714929Z ##[error]  3) [celular] › tests/e2e/preference-diagnostic.spec.ts:7:5 › diagnóstico das preferências omite payload e preserva limpeza com página fechada 
+    Test timeout of 30000ms exceeded.
+2026-10-13T05:12:48.1719430Z ##[error]  3) [celular] › tests/e2e/preference-diagnostic.spec.ts:7:5 › diagnóstico das preferências omite payload e preserva limpeza com página fechada 
+    Test timeout of 30000ms exceeded.
+2026-10-13T05:16:31.1231778Z ##[error]  4) [celular] › tests/e2e/quote-acceptance.spec.ts:7:5 › aceite pela pasta recupera resposta perdida, preserva recibo e restringe acesso 
+2026-10-13T05:16:31.1249297Z ##[error]  4) [celular] › tests/e2e/quote-acceptance.spec.ts:7:5 › aceite pela pasta recupera resposta perdida, preserva recibo e restringe acesso 
+2026-10-13T05:16:31.1268296Z ##[error]  4) [celular] › tests/e2e/quote-acceptance.spec.ts:7:5 › aceite pela pasta recupera resposta perdida, preserva recibo e restringe acesso 
+2026-10-13T05:19:35.2144474Z ##[error]  5) [celular] › tests/e2e/quote-acceptance.spec.ts:194:5 › contrato libera a fila só com documento confirmado 
+2026-10-13T05:19:35.2162966Z ##[error]  5) [celular] › tests/e2e/quote-acceptance.spec.ts:194:5 › contrato libera a fila só com documento confirmado 
+2026-10-13T05:19:35.2179896Z ##[error]  5) [celular] › tests/e2e/quote-acceptance.spec.ts:194:5 › contrato libera a fila só com documento confirmado 
+2026-10-13T05:22:39.2662137Z ##[error]  6) [celular] › tests/e2e/quote-acceptance.spec.ts:250:5 › validade e documentos legais divergentes impedem contratação 
+2026-10-13T05:22:39.2681774Z ##[error]  6) [celular] › tests/e2e/quote-acceptance.spec.ts:250:5 › validade e documentos legais divergentes impedem contratação 
+2026-10-13T05:22:39.2697489Z ##[error]  6) [celular] › tests/e2e/quote-acceptance.spec.ts:250:5 › validade e documentos legais divergentes impedem contratação 
+2026-10-13T05:25:43.3352266Z ##[error]  7) [celular] › tests/e2e/quote-acceptance.spec.ts:311:5 › versões legais extensas permanecem legíveis e acessíveis 
+2026-10-13T05:25:43.3364330Z ##[error]  7) [celular] › tests/e2e/quote-acceptance.spec.ts:311:5 › versões legais extensas permanecem legíveis e acessíveis 
+2026-10-13T05:25:43.3375493Z ##[error]  7) [celular] › tests/e2e/quote-acceptance.spec.ts:311:5 › versões legais extensas permanecem legíveis e acessíveis 
+2026-10-13T05:28:47.2804322Z ##[error]  8) [celular] › tests/e2e/quote-acceptance.spec.ts:349:5 › primeiro upload após contrato libera fila e recupera confirmação perdida 
+2026-10-13T05:28:47.2818990Z ##[error]  8) [celular] › tests/e2e/quote-acceptance.spec.ts:349:5 › primeiro upload após contrato libera fila e recupera confirmação perdida 
+2026-10-13T05:28:47.2837637Z ##[error]  8) [celular] › tests/e2e/quote-acceptance.spec.ts:349:5 › primeiro upload após contrato libera fila e recupera confirmação perdida 
+2026-10-13T05:31:51.5740134Z ##[error]  9) [celular] › tests/e2e/quote-rejection.spec.ts:8:5 › recusa recupera resposta perdida, preserva PDF e aparece ao André 
+2026-10-13T05:31:51.5753263Z ##[error]  9) [celular] › tests/e2e/quote-rejection.spec.ts:8:5 › recusa recupera resposta perdida, preserva PDF e aparece ao André 
+2026-10-13T05:31:51.5766745Z ##[error]  9) [celular] › tests/e2e/quote-rejection.spec.ts:8:5 › recusa recupera resposta perdida, preserva PDF e aparece ao André 
+2026-10-13T05:34:55.6393227Z ##[error]  10) [celular] › tests/e2e/quote-rejection.spec.ts:167:5 › conflito definitivo conserva escolha e exige recarga completa 
+2026-10-13T05:34:55.6409387Z ##[error]  10) [celular] › tests/e2e/quote-rejection.spec.ts:167:5 › conflito definitivo conserva escolha e exige recarga completa 
+2026-10-13T05:34:55.6421631Z ##[error]  10) [celular] › tests/e2e/quote-rejection.spec.ts:167:5 › conflito definitivo conserva escolha e exige recarga completa 
+2026-10-13T05:37:59.6959284Z ##[error]  11) [celular] › tests/e2e/quotes.spec.ts:11:5 › gera proposta fictícia, recupera resposta perdida e baixa PDF privado 
+2026-10-13T05:37:59.6974662Z ##[error]  11) [celular] › tests/e2e/quotes.spec.ts:11:5 › gera proposta fictícia, recupera resposta perdida e baixa PDF privado 
+2026-10-13T05:37:59.6989860Z ##[error]  11) [celular] › tests/e2e/quotes.spec.ts:11:5 › gera proposta fictícia, recupera resposta perdida e baixa PDF privado 
+2026-10-13T05:41:03.6867081Z ##[error]  12) [celular] › tests/e2e/quotes.spec.ts:185:5 › checklist sem término contratual mantém bloqueio e não emite proposta 
+2026-10-13T05:41:03.6878255Z ##[error]  12) [celular] › tests/e2e/quotes.spec.ts:185:5 › checklist sem término contratual mantém bloqueio e não emite proposta 
+2026-10-13T05:41:03.6887991Z ##[error]  12) [celular] › tests/e2e/quotes.spec.ts:185:5 › checklist sem término contratual mantém bloqueio e não emite proposta 
+2026-10-13T05:43:04.9025879Z ##[error]  13) [celular] › tests/e2e/simulator.spec.ts:134:5 › rota comercial sem tabela ativa não inventa preço nem usa a tabela demonstrativa 
+    Test timeout of 30000ms exceeded.
+2026-10-13T05:43:04.9032764Z ##[error]  13) [celular] › tests/e2e/simulator.spec.ts:134:5 › rota comercial sem tabela ativa não inventa preço nem usa a tabela demonstrativa 
+    Test timeout of 30000ms exceeded.
+2026-10-13T05:43:04.9039462Z ##[error]  13) [celular] › tests/e2e/simulator.spec.ts:134:5 › rota comercial sem tabela ativa não inventa preço nem usa a tabela demonstrativa 
+    Test timeout of 30000ms exceeded.
+2026-10-13T05:44:37.3026818Z ##[error]  14) [celular] › tests/e2e/simulator.spec.ts:185:5 › projeção ativa e identificação fictícias exercitam a estimativa comercial sem emitir proposta 
+    Test timeout of 30000ms exceeded.
+2026-10-13T05:44:37.3031582Z ##[error]  14) [celular] › tests/e2e/simulator.spec.ts:185:5 › projeção ativa e identificação fictícias exercitam a estimativa comercial sem emitir proposta 
+    Test timeout of 30000ms exceeded.
+2026-10-13T05:44:37.3035287Z ##[error]  14) [celular] › tests/e2e/simulator.spec.ts:185:5 › projeção ativa e identificação fictícias exercitam a estimativa comercial sem emitir proposta 
+    Test timeout of 30000ms exceeded.
+2026-10-13T05:44:53.8227805Z   1) [celular] › tests/e2e/notification-preferences.spec.ts:11:5 › preferências por canal preservam escolha, recusam edição antiga e controlam novos avisos 
+2026-10-13T05:44:53.8230064Z     Error: expect(locator).toHaveText(expected) failed
+2026-10-13T05:44:53.8256965Z     Test timeout of 90000ms exceeded.
+2026-10-13T05:44:53.8275888Z   2) [celular] › tests/e2e/payment-reservation.spec.ts:8:5 › reserva informa bloqueio de Pix e contrato preservando a tentativa 
+2026-10-13T05:44:53.8322733Z   3) [celular] › tests/e2e/preference-diagnostic.spec.ts:7:5 › diagnóstico das preferências omite payload e preserva limpeza com página fechada 
+2026-10-13T05:44:53.8324295Z     Test timeout of 30000ms exceeded.
+2026-10-13T05:44:53.8327795Z     Test timeout of 30000ms exceeded.
+2026-10-13T05:44:53.8331845Z     Test timeout of 30000ms exceeded.
+2026-10-13T05:44:53.8335112Z   4) [celular] › tests/e2e/quote-acceptance.spec.ts:7:5 › aceite pela pasta recupera resposta perdida, preserva recibo e restringe acesso 
+2026-10-13T05:44:53.8377796Z   5) [celular] › tests/e2e/quote-acceptance.spec.ts:194:5 › contrato libera a fila só com documento confirmado 
+2026-10-13T05:44:53.8420855Z   6) [celular] › tests/e2e/quote-acceptance.spec.ts:250:5 › validade e documentos legais divergentes impedem contratação 
+2026-10-13T05:44:53.8463548Z   7) [celular] › tests/e2e/quote-acceptance.spec.ts:311:5 › versões legais extensas permanecem legíveis e acessíveis 
+2026-10-13T05:44:53.8505570Z   8) [celular] › tests/e2e/quote-acceptance.spec.ts:349:5 › primeiro upload após contrato libera fila e recupera confirmação perdida 
+2026-10-13T05:44:53.8548248Z   9) [celular] › tests/e2e/quote-rejection.spec.ts:8:5 › recusa recupera resposta perdida, preserva PDF e aparece ao André 
+2026-10-13T05:44:53.8596329Z   10) [celular] › tests/e2e/quote-rejection.spec.ts:167:5 › conflito definitivo conserva escolha e exige recarga completa 
+2026-10-13T05:44:53.8648026Z   11) [celular] › tests/e2e/quotes.spec.ts:11:5 › gera proposta fictícia, recupera resposta perdida e baixa PDF privado 
+2026-10-13T05:44:53.8704374Z   12) [celular] › tests/e2e/quotes.spec.ts:185:5 › checklist sem término contratual mantém bloqueio e não emite proposta 
+2026-10-13T05:44:53.8727422Z   13) [celular] › tests/e2e/simulator.spec.ts:134:5 › rota comercial sem tabela ativa não inventa preço nem usa a tabela demonstrativa 
+2026-10-13T05:44:53.8728099Z     Test timeout of 30000ms exceeded.
+2026-10-13T05:44:53.8730417Z     Test timeout of 30000ms exceeded.
+2026-10-13T05:44:53.8732640Z     Test timeout of 30000ms exceeded.
+2026-10-13T05:44:53.8734973Z   14) [celular] › tests/e2e/simulator.spec.ts:185:5 › projeção ativa e identificação fictícias exercitam a estimativa comercial sem emitir proposta 
+2026-10-13T05:44:53.8736235Z     Test timeout of 30000ms exceeded.
+2026-10-13T05:44:53.8738793Z     Test timeout of 30000ms exceeded.
+2026-10-13T05:44:53.8741060Z     Test timeout of 30000ms exceeded.
+2026-10-13T05:44:53.8743086Z   14 failed
+2026-10-13T05:44:53.8760238Z   7 skipped
+2026-10-13T05:44:53.8760457Z   243 passed (1.2h)
+2026-10-13T05:44:53.8780748Z ##[notice]  14 failed
+  7 skipped
+  243 passed (1.2h)

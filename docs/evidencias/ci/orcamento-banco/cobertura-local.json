@@ -1,0 +1,45 @@
+{
+  "task": "M1.13d",
+  "originalLogSha256": {
+    "geral-default-anterior-falha.log": "0044f49accaa62c3cd3ad678cab28af1db46a702b655e6d8a83a2c5fd9e92caa",
+    "readback-geral-anterior.log": "1ebefd25232a5f064b5fc18c1e8661fe9a9bad81ce5267a17c1ebcea9f205c59",
+    "controles-geral-anterior.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+    "saldo-reproducao-inalterada.log": "bea0d02110880d67c0da0f3f003380f6c18245486a0622f16c11ce43ecc2d32f",
+    "banco-focado.log": "aa94e83cd65695e42cf67572d03d1f23eaf77f197845907381ddce277cb56e89",
+    "preservacao.json": "c3047ca60edf9f57ec4aedaef4d9f66d55154ec67ae54bc932244e7a6f33819c",
+    "readback-focado.log": "1ebefd25232a5f064b5fc18c1e8661fe9a9bad81ce5267a17c1ebcea9f205c59",
+    "controles-focados.json": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c"
+  },
+  "previousWholeBank": {
+    "passed": 987,
+    "failed": 1,
+    "files": 50,
+    "seconds": 993.37,
+    "failure": "balance-invoice-query/unknown status: external test deadline5000ms"
+  },
+  "unchangedBalanceReproduction": {
+    "passed": 25,
+    "files": 1,
+    "seconds": 53.26
+  },
+  "focusedNewDefault": {
+    "passed": 76,
+    "files": 3,
+    "seconds": 119.44
+  },
+  "defaultBankMilliseconds": 20000,
+  "all50IntegrationFilesUnchanged": true,
+  "hooksExplicitLimitsAssertionsPollSqlLeasesUnitBrowserAndAppUnchanged": true,
+  "readbackAndControlsUnchanged": true,
+  "localCheck": {
+    "units": 1490,
+    "unitFiles": 74,
+    "scripts": 43,
+    "format": "passed",
+    "lint": "passed",
+    "types": "passed",
+    "build": "EPERM"
+  },
+  "remoteExactCheckBuild": "pending",
+  "wholeBankNewDefault": "pending"
+}

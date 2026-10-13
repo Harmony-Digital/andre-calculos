@@ -1,0 +1,47 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-consumers.test.ts -t sinal só|saldo não
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/webhook-consumers.test.ts (25 tests | 3 failed | 19 skipped) 15309ms
+   × PIX/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual 2375ms
+   × BOLETO/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual 2195ms
+   × CREDIT_CARD/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual 2218ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-consumers.test.ts > PIX/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual
+ FAIL  tests/integration/webhook-consumers.test.ts > BOLETO/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual
+ FAIL  tests/integration/webhook-consumers.test.ts > CREDIT_CARD/saldo não aprova D6 nem revisão técnica; RLS e autorização acompanham crédito atual
+AssertionError: expected { code: 'P0001', details: null, …(2) } to be null
+
+- Expected:
+null
+
++ Received:
+{
+  "code": "P0001",
+  "details": null,
+  "hint": null,
+  "message": "Acesso não autorizado",
+}
+
+ ❯ deliveryFile tests/integration/webhook-consumers.test.ts:151:5
+    149|       })
+    150|     ).error,
+    151|   ).toBeNull();
+       |     ^
+    152|   expect(
+    153|     (
+ ❯ tests/integration/webhook-consumers.test.ts:313:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 3 passed | 19 skipped (25)
+   Start at  00:43:01
+   Duration  15.63s (tests 98%, transform 1%, import 1%)

@@ -1,0 +1,7 @@
+{
+  "command": "npx vitest run src/modules/payments/invoice-presentation.test.ts src/modules/payments/asaas/contracts.test.ts src/modules/payments/asaas/adapter.test.ts",
+  "logSha256": "d78dba0c5addfccd7e318c8ec94c76dc8962ce6c789fbaad04e67ac9b8717c1f",
+  "artifactSha256": "623aa7b2957d587d55056f1561e684d0bd76fba30f9865f8db1946078ef31443",
+  "selection": "Comandos, resultados e diagnostico do build; sem log completo ou URL do panic",
+  "result": "success: 209 testes focados, incluindo 25 novos"
+}

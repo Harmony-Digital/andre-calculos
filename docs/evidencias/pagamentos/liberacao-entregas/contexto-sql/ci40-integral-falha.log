@@ -1,0 +1,14 @@
+2026-10-12T17:37:21.2536693Z [command]/usr/bin/git log -1 --format=%H
+2026-10-12T18:01:32.3808370Z  Test Files  42 passed (42)
+2026-10-12T18:01:32.3811403Z       Tests  858 passed (858)
+2026-10-12T18:24:36.1810733Z   6 failed
+2026-10-12T18:24:36.1817904Z   7 skipped
+2026-10-12T18:24:36.1818140Z   193 passed (23.0m)
+2026-10-12T18:24:36.1834912Z ##[notice]  6 failed
+Divergências das seis falhas: Expected: 307; Received: 404.
+[computador] › tests/e2e/delivery.spec.ts:11:7 › entrega conferida preserva versões e bloqueia sem regra aprovada
+[computador] › tests/e2e/delivery.spec.ts:11:7 › entrega conferida preserva versões e libera só após saldo confirmado
+[computador] › tests/e2e/financial-journey.spec.ts:63:5 › jornada financeira produz histórico real, fila, preferências e download auditado
+[celular] › tests/e2e/delivery.spec.ts:11:7 › entrega conferida preserva versões e bloqueia sem regra aprovada
+[celular] › tests/e2e/delivery.spec.ts:11:7 › entrega conferida preserva versões e libera só após saldo confirmado
+[celular] › tests/e2e/financial-journey.spec.ts:63:5 › jornada financeira produz histórico real, fila, preferências e download auditado

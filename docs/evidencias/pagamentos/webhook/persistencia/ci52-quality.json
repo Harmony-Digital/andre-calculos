@@ -1,0 +1,20 @@
+{
+  "run": 38321803876,
+  "job": 115051368692,
+  "kind": "quality",
+  "source": "bfb56298349b70ce62da2c44cbad02b48c1edbfd",
+  "checkout": "222b737e21ec83acc1a1a0401a9b4a103a5a598c",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "bfb56298349b70ce62da2c44cbad02b48c1edbfd"
+  ],
+  "jobConclusion": "success",
+  "overallStatus": "completed",
+  "overallConclusion": "success",
+  "unitTests": 1490,
+  "unitFiles": 74,
+  "scripts": 43,
+  "logSha256": "0d929beac2a569796288d009982675fe4480ba50f17f487d288997c13c449057",
+  "archivedNormalizedLogSha256": "5e9ddd9c09ba6d641a6a992ee48efbf3321160b6147a913f2047107e5efef36e",
+  "normalization": "trailing whitespace and single EOF only; original filtered log hash retained"
+}

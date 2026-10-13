@@ -1,0 +1,117 @@
+{
+  "job": {
+    "completed_at": "2026-10-13T03:02:31Z",
+    "conclusion": "success",
+    "id": 115089806250,
+    "started_at": "2026-10-13T01:49:40Z",
+    "status": "completed",
+    "steps": [
+      {
+        "conclusion": "success",
+        "name": "Set up job",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/checkout@v4",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/setup-node@v4",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npm ci",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npx playwright install --with-deps chromium",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run sudo apt-get update && sudo apt-get install -y poppler-utils",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run supabase/setup-cli@v3",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run node scripts/start-local.mjs",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run bash ../scripts/dev-env.sh npm run test:rls",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Advisors locais",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Encerrar Supabase local",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/upload-artifact@v4",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run supabase/setup-cli@v3",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run actions/setup-node@v4",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Complete job",
+        "status": "completed"
+      }
+    ]
+  },
+  "artifacts": {
+    "artifacts": [
+      {
+        "digest": "sha256:c9825334da9c2b840e2f297c9817fddce464ffc6eeae3361a24b6dffbbff30d9",
+        "expired": false,
+        "id": 11785882342,
+        "name": "evidencias-de-testes",
+        "size_in_bytes": 76889029
+      },
+      {
+        "digest": "sha256:a670f1eaa1bd124e33a127af6357769998a0ea05ed6d82833b1d2058ef4aa7b0",
+        "expired": false,
+        "id": 11782844951,
+        "name": "inventario-dependencias",
+        "size_in_bytes": 24299
+      }
+    ]
+  },
+  "browserPassed": 254,
+  "browserFlaky": 1,
+  "browserSkipped": 7
+}
