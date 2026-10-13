@@ -1,0 +1,25 @@
+{
+  "task": "M3.01c3c3d",
+  "captureSource": "961508819b1530aff55a529b69fd7bd7c5cd0c96",
+  "captures": 302,
+  "invoices": 132,
+  "summaries": 132,
+  "recoveryReplayQueue": 38,
+  "widthsCssPx": [
+    375,
+    1440
+  ],
+  "manifestHashes": {
+    "qa-faturas-after-balance.json": "4cef1c47354c3dbd46e4caa1076a282f22519ff5d011a72c97b8efc7cdfa05f2",
+    "qa-faturas-restantes.json": "5237258b2350a8f80e63148f9a867a16f419581f92e2eadb482fe3bdde69e3d0",
+    "qa-resumos-sinal.json": "3f434acda644d5178bf98bc019bc233ccae7d0c86b79286389eac37f058471dd",
+    "qa-resumos-saldo.json": "b080359776b6e3c20ec6394e389e50ae19abe2206480105bd30bc5e9633e6d97",
+    "qa-resumos-recuperacao.json": "c150402f02df0e7f93bc86d66b71000a19e2f9c44681d103329c95e009435809"
+  },
+  "allPathsUnique": true,
+  "allOriginalPngCovered": true,
+  "allReviewed": true,
+  "allCurrentPngHashesMatch": true,
+  "observedLayoutDefects": [],
+  "scope": "QA visual da matriz financeira ficticia; resultados de testes/bytes/auditoria/read-back/advisors eCI conservam evidencias proprias"
+}

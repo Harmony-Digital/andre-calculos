@@ -1,0 +1,4 @@
+{"privateGrants": 0, "temporaryTriggers": 0, "temporaryFunctions": 0}
+{"function": "claim_fixture_payment_webhook", "searchPath": ["search_path=\"\""], "anonExecute": false, "publicExecute": false, "serviceExecute": true, "securityDefiner": true, "authenticatedExecute": false}
+{"function": "get_fixture_webhook_context", "searchPath": ["search_path=\"\""], "anonExecute": false, "publicExecute": false, "serviceExecute": true, "securityDefiner": true, "authenticatedExecute": false}
+{"function": "record_fixture_webhook_query", "searchPath": ["search_path=\"\""], "anonExecute": false, "publicExecute": false, "serviceExecute": true, "securityDefiner": true, "authenticatedExecute": false}

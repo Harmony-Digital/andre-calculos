@@ -1,0 +1,13 @@
+{
+  "browserTests": 16,
+  "exitCode": 0,
+  "capturesGenerated": 112,
+  "capturesVisuallyInspected": 40,
+  "automatedAxeAndWidth": "passed em todas as capturas",
+  "visualFindings": [
+    "Cartao de excesso exibe titulo Saldo pendente R$0; ajuste de titulo registrado no plan.md antes de implementar."
+  ],
+  "readbackAndControlsEqualToAo": true,
+  "localCheck": "formato/lint/tipos/1392 unitarios69arquivos/43 scripts passaram; build EPERM",
+  "scope": "Percursos proprios ficticios; nao comprova a suite geral da fonte final."
+}

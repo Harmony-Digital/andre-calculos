@@ -1,0 +1,14 @@
+{
+  "source": "2792f934c7b96cdeccafb02178f33f397ed12f61",
+  "tests": 1135,
+  "files": 55,
+  "duration_seconds": 1371.17,
+  "exit": 0,
+  "focused_cases": 32,
+  "readback_controls_grants_preserved": true,
+  "advisors_no_issues": 2,
+  "app_sql_scripts_workflow_unchanged_during_run": true,
+  "original_log_sha256": "759d87a953613ef0f319a3569c1729fb56d4adeafe5f8604f1360524e3d3f0c0",
+  "normalized_log_sha256": "b3dee0e77a6ad24102c80e7fbc470d786f66b3fd8af5326edb617414a980f593",
+  "remote_overall_result": "pending"
+}

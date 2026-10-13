@@ -1,0 +1,195 @@
+{
+  "captures": 38,
+  "files": [
+    {
+      "source": "app/test-results/balance-invoice-journey-BO-06bbb-fatura-sem-campos-de-cartão-celular/09-boleto.png",
+      "artifact": "capturas/balance-invoice-journey-BO-06bbb-fatura-sem-campos-de-cartão-celular/09-boleto.png",
+      "sha256": "3dafbe0881040da093d6a7b7554e1eb9c1dcac47b137c9f8688d00cf8119b309"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-BO-06bbb-fatura-sem-campos-de-cartão-computador/09-boleto.png",
+      "artifact": "capturas/balance-invoice-journey-BO-06bbb-fatura-sem-campos-de-cartão-computador/09-boleto.png",
+      "sha256": "427da152fc2f9904b8008a44ae839d18ed8f7dab2de859ed8804cf6a930c5809"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-CR-71706-fatura-sem-campos-de-cartão-celular/09-credit_card.png",
+      "artifact": "capturas/balance-invoice-journey-CR-71706-fatura-sem-campos-de-cartão-celular/09-credit_card.png",
+      "sha256": "537d5beb785ee7ebb26510ba12cce2fd7006ff1dee35e4ff26bdc4eaddb79678"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-CR-71706-fatura-sem-campos-de-cartão-computador/09-credit_card.png",
+      "artifact": "capturas/balance-invoice-journey-CR-71706-fatura-sem-campos-de-cartão-computador/09-credit_card.png",
+      "sha256": "10cde68149bddc2ba26ee7867af9887772f250484abf7e31913b6921ad018219"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-UN-d0085-fatura-sem-campos-de-cartão-celular/09-undefined.png",
+      "artifact": "capturas/balance-invoice-journey-UN-d0085-fatura-sem-campos-de-cartão-celular/09-undefined.png",
+      "sha256": "4903b61409c469fd74237d7842f69467da3443aa94e35d3589ad841532209e87"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-UN-d0085-fatura-sem-campos-de-cartão-computador/09-undefined.png",
+      "artifact": "capturas/balance-invoice-journey-UN-d0085-fatura-sem-campos-de-cartão-computador/09-undefined.png",
+      "sha256": "3a509feb55edcd8e3900f9354402d769a68ed5f55594bdd90baa3cc0d518cdd9"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-celular/01-ativa.png",
+      "artifact": "capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-celular/01-ativa.png",
+      "sha256": "73192152e2742cfa21790dae082f33f39275ccff4cf36885d134fd374ecfca97"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-celular/02-incerta.png",
+      "artifact": "capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-celular/02-incerta.png",
+      "sha256": "a3df343f2116675c72fd69ee48d65e1aae27512990f8c0d60962c7c2d0181399"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-celular/03-reenvio.png",
+      "artifact": "capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-celular/03-reenvio.png",
+      "sha256": "73192152e2742cfa21790dae082f33f39275ccff4cf36885d134fd374ecfca97"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-celular/04-credito-alterado.png",
+      "artifact": "capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-celular/04-credito-alterado.png",
+      "sha256": "85edbf522348ae0ff2c2568e71710e4561347fe8f9ec4f047d93963719b8078c"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-computador/01-ativa.png",
+      "artifact": "capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-computador/01-ativa.png",
+      "sha256": "f9cff36444fa9d705c2bdf76cf481eb42abf126beb519e635d9433ea43ef21d4"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-computador/02-incerta.png",
+      "artifact": "capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-computador/02-incerta.png",
+      "sha256": "c7a2a6b9e43e7900024e094236b2bf994e4d9ebe501f689bd2ffaeffa05d7382"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-computador/03-reenvio.png",
+      "artifact": "capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-computador/03-reenvio.png",
+      "sha256": "f9cff36444fa9d705c2bdf76cf481eb42abf126beb519e635d9433ea43ef21d4"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-computador/04-credito-alterado.png",
+      "artifact": "capturas/balance-invoice-journey-ca-37167-lterado-preservam-a-emissão-computador/04-credito-alterado.png",
+      "sha256": "7827375e425f1b8ac420dfd611c061a8b41d225c2082c0f888e4bce5a667f812"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-63eec-ada-bloqueia-abertura-atual-celular/07-parcial.png",
+      "artifact": "capturas/balance-invoice-journey-ca-63eec-ada-bloqueia-abertura-atual-celular/07-parcial.png",
+      "sha256": "fedf864fec95f6036b9b26282eda33fb21c281341bd0eceb9be13145634c49a1"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-63eec-ada-bloqueia-abertura-atual-celular/08-sem-entrega.png",
+      "artifact": "capturas/balance-invoice-journey-ca-63eec-ada-bloqueia-abertura-atual-celular/08-sem-entrega.png",
+      "sha256": "c9b791ca6814fa1ca4ca81ff514f9aa3a3bdd676373decf6009ff3af1ba58c9e"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-63eec-ada-bloqueia-abertura-atual-computador/07-parcial.png",
+      "artifact": "capturas/balance-invoice-journey-ca-63eec-ada-bloqueia-abertura-atual-computador/07-parcial.png",
+      "sha256": "46e8ac0d487d42f54f2b1ba2ff1d405f45626d0884aab23dd19b46b077a2688e"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-63eec-ada-bloqueia-abertura-atual-computador/08-sem-entrega.png",
+      "artifact": "capturas/balance-invoice-journey-ca-63eec-ada-bloqueia-abertura-atual-computador/08-sem-entrega.png",
+      "sha256": "ea888bf96df44efb85ed061e63aec7547433acd7059127430c4d5024240b14f1"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-e2f6c-atuita-têm-estados-próprios-celular/05-paga.png",
+      "artifact": "capturas/balance-invoice-journey-ca-e2f6c-atuita-têm-estados-próprios-celular/05-paga.png",
+      "sha256": "cbfac321b409751839c6175d22264e9255328a5e37b03348fe9151c3b8353138"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-e2f6c-atuita-têm-estados-próprios-celular/06-gratuita.png",
+      "artifact": "capturas/balance-invoice-journey-ca-e2f6c-atuita-têm-estados-próprios-celular/06-gratuita.png",
+      "sha256": "15d36e7885072e8748b98d942556b679f8208aab2dda78d7827ecadc253a5b2a"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-e2f6c-atuita-têm-estados-próprios-computador/05-paga.png",
+      "artifact": "capturas/balance-invoice-journey-ca-e2f6c-atuita-têm-estados-próprios-computador/05-paga.png",
+      "sha256": "59419e30a8185a61ce0e84603cc6f5d9ba2778904053b306c225d4e5a27b8b3a"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-ca-e2f6c-atuita-têm-estados-próprios-computador/06-gratuita.png",
+      "artifact": "capturas/balance-invoice-journey-ca-e2f6c-atuita-têm-estados-próprios-computador/06-gratuita.png",
+      "sha256": "fe62be486b507bbf3d9e307d09f78082941edc8bf58c429ba950621b958de582"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-744ba-atuita-têm-estados-próprios-celular/05-paga.png",
+      "artifact": "capturas/balance-invoice-journey-cl-744ba-atuita-têm-estados-próprios-celular/05-paga.png",
+      "sha256": "79a1f8b1f627397baaca8d1ff8af634b66dbab2a5431bf771480f3cf9e59291e"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-744ba-atuita-têm-estados-próprios-celular/06-gratuita.png",
+      "artifact": "capturas/balance-invoice-journey-cl-744ba-atuita-têm-estados-próprios-celular/06-gratuita.png",
+      "sha256": "6c067162dbc2d3c6fe343ad4b151ab04cdbbf989b9ad2ebaff5af4fccf0bad9f"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-744ba-atuita-têm-estados-próprios-computador/05-paga.png",
+      "artifact": "capturas/balance-invoice-journey-cl-744ba-atuita-têm-estados-próprios-computador/05-paga.png",
+      "sha256": "3a3ea56ccb399a09276ed34029a9b682af120e8c6d8ed8880de9e673c07bcc15"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-744ba-atuita-têm-estados-próprios-computador/06-gratuita.png",
+      "artifact": "capturas/balance-invoice-journey-cl-744ba-atuita-têm-estados-próprios-computador/06-gratuita.png",
+      "sha256": "2594f66fa1e64ad026574802573458d40123069eb890722a0f7d4610ce10c4cb"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-8a631-ada-bloqueia-abertura-atual-celular/07-parcial.png",
+      "artifact": "capturas/balance-invoice-journey-cl-8a631-ada-bloqueia-abertura-atual-celular/07-parcial.png",
+      "sha256": "7a5fe9b59b39f92ab312f38d047861f0f80f2bb716c44342c0382438c3f79339"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-8a631-ada-bloqueia-abertura-atual-celular/08-sem-entrega.png",
+      "artifact": "capturas/balance-invoice-journey-cl-8a631-ada-bloqueia-abertura-atual-celular/08-sem-entrega.png",
+      "sha256": "4689222ef95f2e12258e279def6122b2c57584c0cd23bd6078f4c18379155cc1"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-8a631-ada-bloqueia-abertura-atual-computador/07-parcial.png",
+      "artifact": "capturas/balance-invoice-journey-cl-8a631-ada-bloqueia-abertura-atual-computador/07-parcial.png",
+      "sha256": "7e8678cc3f859fe90f29eba9631fe65dd482869047d398b252e034bd278ad471"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-8a631-ada-bloqueia-abertura-atual-computador/08-sem-entrega.png",
+      "artifact": "capturas/balance-invoice-journey-cl-8a631-ada-bloqueia-abertura-atual-computador/08-sem-entrega.png",
+      "sha256": "672271663afb8fb847807dce9166dae374b5d956cae46068c7d261bec16ade5e"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-celular/01-ativa.png",
+      "artifact": "capturas/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-celular/01-ativa.png",
+      "sha256": "2933ad9139a26dee0994d79f317aed5b68e2425b7185648c195fd35e3192b6d2"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-celular/02-incerta.png",
+      "artifact": "capturas/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-celular/02-incerta.png",
+      "sha256": "557dd9ca92941b43dd944d73dfadc18790f5dfaf509f4f1d92fd9ca9006e4d05"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-celular/03-reenvio.png",
+      "artifact": "capturas/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-celular/03-reenvio.png",
+      "sha256": "2933ad9139a26dee0994d79f317aed5b68e2425b7185648c195fd35e3192b6d2"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-celular/04-credito-alterado.png",
+      "artifact": "capturas/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-celular/04-credito-alterado.png",
+      "sha256": "dce95398188b0683dc6c78c4ba163e7e311ef07f0fa78e4c93e760a6e6602f9b"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-computador/01-ativa.png",
+      "artifact": "capturas/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-computador/01-ativa.png",
+      "sha256": "178e84f2cd01561b732f12f1fef94c2822f1e74aac2b089444501a812472917a"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-computador/02-incerta.png",
+      "artifact": "capturas/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-computador/02-incerta.png",
+      "sha256": "e6ecc8fff28479ac34b77fd28d4f8ae1304a8d0880a7ea994fda195a2be66cff"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-computador/03-reenvio.png",
+      "artifact": "capturas/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-computador/03-reenvio.png",
+      "sha256": "178e84f2cd01561b732f12f1fef94c2822f1e74aac2b089444501a812472917a"
+    },
+    {
+      "source": "app/test-results/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-computador/04-credito-alterado.png",
+      "artifact": "capturas/balance-invoice-journey-cl-cddc4-lterado-preservam-a-emissão-computador/04-credito-alterado.png",
+      "sha256": "98e6c5c98c4a41e72212d6a1296747807509f57dceaa86565858de3d5d6efe81"
+    }
+  ]
+}

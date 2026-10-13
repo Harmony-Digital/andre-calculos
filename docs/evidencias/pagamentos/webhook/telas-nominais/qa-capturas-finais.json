@@ -1,0 +1,527 @@
+{
+  "captures": [
+    {
+      "index": 1,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-celular/01-sinal-calculista.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "c75e5c9255c2625c6d9d7ed6985c4a0a39e4fd7b38329bb900cad3456de5754b",
+      "reviewed": true
+    },
+    {
+      "index": 2,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-celular/01-sinal-cliente.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "d61e4c46b8bc5fe1c8f6fa8165389b4e9ba0f2be1516ec5767d6aeb558c6206c",
+      "reviewed": true
+    },
+    {
+      "index": 3,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-celular/02-recebido-cliente.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "9954a6aa70102cdfd4d960d56c72ffabf1ed67a1668a38210e26232ac34299ac",
+      "reviewed": true
+    },
+    {
+      "index": 4,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-celular/03-fila-calculista.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "cadaf75b53b5ee8cdf0ade1015aa353b5f59bab113127de16e04adc2d84ae655",
+      "reviewed": true
+    },
+    {
+      "index": 5,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-celular/04-saldo-calculista.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "3e6df2e85bd488bf91d57e81bf32556e3990e51c52a04f17772ff03d6596f896",
+      "reviewed": true
+    },
+    {
+      "index": 6,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-celular/04-saldo-cliente.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "3e583c862afda202993a25b49ccb3034ff610e69bc1900937730c3854a8bff20",
+      "reviewed": true
+    },
+    {
+      "index": 7,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-celular/05-liberada-calculista.png",
+      "width": 375,
+      "parts": 3,
+      "sha256": "daee612d1934836a48b739d0b2ca444228301f338ac2a9e6db09aec10ebe9461",
+      "reviewed": true
+    },
+    {
+      "index": 8,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-celular/05-liberada-cliente.png",
+      "width": 375,
+      "parts": 3,
+      "sha256": "02793024eef339584cc9892d07eff1b17e3adb901f2c0c364f56983a41b1c5c3",
+      "reviewed": true
+    },
+    {
+      "index": 9,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-celular/06-historico-calculista.png",
+      "width": 375,
+      "parts": 4,
+      "sha256": "1e155771b04254afd4d99efad6d9d7400716244541cb6b9d825e5e3045ceb959",
+      "reviewed": true
+    },
+    {
+      "index": 10,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-celular/06-historico-cliente.png",
+      "width": 375,
+      "parts": 4,
+      "sha256": "d5bafc7b0117689fe8018e00487d7e6e30df5aaa9f04ce924201747f4221f367",
+      "reviewed": true
+    },
+    {
+      "index": 11,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-computador/01-sinal-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "70f45f41da7edbcee4187ac7ddd87b703f478f64a112bc332449cbdf36765ee5",
+      "reviewed": true
+    },
+    {
+      "index": 12,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-computador/01-sinal-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "04e973d825618b50428100e5b407e52315950feaa83345de7af5fd0206aec6ff",
+      "reviewed": true
+    },
+    {
+      "index": 13,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-computador/02-recebido-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "d562a5f528b220791f393956511636dc44de477cd3a1cb150494526be936b72e",
+      "reviewed": true
+    },
+    {
+      "index": 14,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-computador/03-fila-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "a580df6cc2f176ecbf23ee6bcb4e5d00885a635cadb4efcd727d7c3d48b830d7",
+      "reviewed": true
+    },
+    {
+      "index": 15,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-computador/04-saldo-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "cfa729a8fd054ee99a57e03e699c6ddb41ba2f81650564c776d2accd885e608e",
+      "reviewed": true
+    },
+    {
+      "index": 16,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-computador/04-saldo-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "3871b50b8c6478c83c6b8bf81be255dee6af1d48cfc6bf13439fa16acb207368",
+      "reviewed": true
+    },
+    {
+      "index": 17,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-computador/05-liberada-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "8c468c15d3b7f15c89ba55af5d7779bc994aaac1b38961ad05adc44f1afcfe70",
+      "reviewed": true
+    },
+    {
+      "index": 18,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-computador/05-liberada-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "0cf6142d488a9fddaf09185586569de055ac6b6d7683fd4883850e1ab79e6954",
+      "reviewed": true
+    },
+    {
+      "index": 19,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-computador/06-historico-calculista.png",
+      "width": 1440,
+      "parts": 2,
+      "sha256": "df495a60556b63f0efdfa385f77e5e85d4b617332fb5eab12c197a8a8b1e7a04",
+      "reviewed": true
+    },
+    {
+      "index": 20,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-BOLETO-adv-a0f7b--saldo-e-bytes-pelo-webhook-computador/06-historico-cliente.png",
+      "width": 1440,
+      "parts": 2,
+      "sha256": "b84c48c77e4a17743124df5490a48d647542132a92b45f2017de8bf4b05fecf8",
+      "reviewed": true
+    },
+    {
+      "index": 21,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-celular/01-sinal-calculista.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "96fec596cea864c61a2f3c820ddd07f7c4363b1ecf6b656db333468775683a2b",
+      "reviewed": true
+    },
+    {
+      "index": 22,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-celular/01-sinal-cliente.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "7d27d513ad7f4b9950c225c63b669c0f7a04b52245cd012e28db58b6ccf37848",
+      "reviewed": true
+    },
+    {
+      "index": 23,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-celular/02-recebido-cliente.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "6163998263a2ac85b6a3853dd3acb3e25c1274fe7a00ae9438ccaa6966118ac9",
+      "reviewed": true
+    },
+    {
+      "index": 24,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-celular/03-fila-calculista.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "a8dcd0dbb12d8f9ff249d5c0a71d607c11e51e3643dc41c424457619f20ac225",
+      "reviewed": true
+    },
+    {
+      "index": 25,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-celular/04-saldo-calculista.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "33e9e6ce49cafa824f3b7e41dfd68189cf35b0e1a3594eaa9908586c9421ad96",
+      "reviewed": true
+    },
+    {
+      "index": 26,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-celular/04-saldo-cliente.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "0b623d88d81f4ba28b8de75688df8fbd7a387b03ef75a1cee98a1feed8d2c592",
+      "reviewed": true
+    },
+    {
+      "index": 27,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-celular/05-liberada-calculista.png",
+      "width": 375,
+      "parts": 3,
+      "sha256": "01024eac471643df77931c90d51a24e405aa7be54c22e2a60964f56fb24bed00",
+      "reviewed": true
+    },
+    {
+      "index": 28,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-celular/05-liberada-cliente.png",
+      "width": 375,
+      "parts": 3,
+      "sha256": "dd78e1fae9e7c7c597310f8f99f7bb6f5f21cbacfab4efc125ad72eccec24d6d",
+      "reviewed": true
+    },
+    {
+      "index": 29,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-celular/06-historico-calculista.png",
+      "width": 375,
+      "parts": 4,
+      "sha256": "5a76ff624b788c1bd9ef068354c06dcb4c6674f6477c50e718c7bef446ec5cb9",
+      "reviewed": true
+    },
+    {
+      "index": 30,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-celular/06-historico-cliente.png",
+      "width": 375,
+      "parts": 4,
+      "sha256": "d2f667d76658267d238cf7827ae1fc233f59555caed0e8917d83f3e5f2c5e538",
+      "reviewed": true
+    },
+    {
+      "index": 31,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-computador/01-sinal-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "91fd321bcc045813b9a689bcefa7e5ebe96783234c59634e381b6030ab256ba6",
+      "reviewed": true
+    },
+    {
+      "index": 32,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-computador/01-sinal-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "1709a7fc209963964ce3cda40afe1f4e9d7e77e755b5bb2ec0823599117d88d3",
+      "reviewed": true
+    },
+    {
+      "index": 33,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-computador/02-recebido-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "e7bfa587af96cd20aec51ab6a6f2d9cefef5448c94a4eede7fd21272e5712573",
+      "reviewed": true
+    },
+    {
+      "index": 34,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-computador/03-fila-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "d83dd95503e2bde92b5db3e7bd1cadf2434261dc320b5cbbd0b947c45ba5492c",
+      "reviewed": true
+    },
+    {
+      "index": 35,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-computador/04-saldo-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "0e57a7d9405b394e657c8991988243f773b84f39b8f3ef451a19325377cd4bb6",
+      "reviewed": true
+    },
+    {
+      "index": 36,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-computador/04-saldo-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "29c7bd46611d90b5fbf53acfc60f94084ebdd4af176df5e8825548b5711aaa86",
+      "reviewed": true
+    },
+    {
+      "index": 37,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-computador/05-liberada-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "afc596c8e7006385556461895c73ff230fa40069c6d52fcaa06306465604c2fa",
+      "reviewed": true
+    },
+    {
+      "index": 38,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-computador/05-liberada-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "cdf9bd210255917cbb7009a2b4f508b32fa1db535b0d5e4e2fc9350617f4a0e0",
+      "reviewed": true
+    },
+    {
+      "index": 39,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-computador/06-historico-calculista.png",
+      "width": 1440,
+      "parts": 2,
+      "sha256": "2f711ac1c493f99626f5b7c4cb757d69c027bc62b69fc94112a8e37384da454d",
+      "reviewed": true
+    },
+    {
+      "index": 40,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-CREDIT-CAR-94bc3--saldo-e-bytes-pelo-webhook-computador/06-historico-cliente.png",
+      "width": 1440,
+      "parts": 2,
+      "sha256": "aa5cdc7cf39f1d822e8ca8dd3d1dc2659a79e953758a416e1688bffec9d57c9e",
+      "reviewed": true
+    },
+    {
+      "index": 41,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-celular/01-sinal-calculista.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "72548c7418c30c6fdeeaaec11c4e11eb62bc1a5b794083a18e3434b74a4c036c",
+      "reviewed": true
+    },
+    {
+      "index": 42,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-celular/01-sinal-cliente.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "68a38b78c381619d51b4fd60f2bd3eaf1762c65fd572f207b69583675b479a88",
+      "reviewed": true
+    },
+    {
+      "index": 43,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-celular/02-recebido-cliente.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "51c23f65997d573a94b80e1a91b635878ffd6385d149a392f2161717864a803f",
+      "reviewed": true
+    },
+    {
+      "index": 44,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-celular/03-fila-calculista.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "13157a75fb10944dadd9c7ef337488e8806fcc087bd4d1b1389e38221635846e",
+      "reviewed": true
+    },
+    {
+      "index": 45,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-celular/04-saldo-calculista.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "c82fad759719ae482d449a2e9f8214e7a753f4f74128e48e2825be1cc59cecb1",
+      "reviewed": true
+    },
+    {
+      "index": 46,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-celular/04-saldo-cliente.png",
+      "width": 375,
+      "parts": 2,
+      "sha256": "f42b65d76074fc8800098b29ed66e28b8d2af37bdbb7e10909c510bc01238c54",
+      "reviewed": true
+    },
+    {
+      "index": 47,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-celular/05-liberada-calculista.png",
+      "width": 375,
+      "parts": 3,
+      "sha256": "a00a8cb9138ccf37ea0b061ed752f2d996854b391101852e8bcb358cfa04c6c1",
+      "reviewed": true
+    },
+    {
+      "index": 48,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-celular/05-liberada-cliente.png",
+      "width": 375,
+      "parts": 3,
+      "sha256": "452228348cc1de9e40c1e4f629228bde2e72910abcd68746f315044739f76994",
+      "reviewed": true
+    },
+    {
+      "index": 49,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-celular/06-historico-calculista.png",
+      "width": 375,
+      "parts": 4,
+      "sha256": "1f673c508a36f73b9fe0ac3d6526a4c64bb236d8e2e2c4b1d7d05fddb29150db",
+      "reviewed": true
+    },
+    {
+      "index": 50,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-celular/06-historico-cliente.png",
+      "width": 375,
+      "parts": 4,
+      "sha256": "0f3c8adb0e59040c2ef7752e5ed1d07d990a8460c990e44a87b8aa72ee1ab169",
+      "reviewed": true
+    },
+    {
+      "index": 51,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-computador/01-sinal-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "c0f87599d729409f9bcaaa0d9a53952fd6054db2ad8cdd6fc28bd51f6ee5ca88",
+      "reviewed": true
+    },
+    {
+      "index": 52,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-computador/01-sinal-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "421f573bcaa970a8037f5936561b0140c7187ca0d39eaa057afce1c8351e2221",
+      "reviewed": true
+    },
+    {
+      "index": 53,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-computador/02-recebido-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "9a40d4901a0fa72cab18dc13b382797536b2976a064c63295ae048c1928c2950",
+      "reviewed": true
+    },
+    {
+      "index": 54,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-computador/03-fila-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "a421ba2f0c19c1d83e60745c61be3c2cdbf32ff5ac21c0bb0a29bb98362727f4",
+      "reviewed": true
+    },
+    {
+      "index": 55,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-computador/04-saldo-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "a1394a9b1a80a08bf63bb2ed023202e50da65f5fb5fc24d67607fff8ec3ea6cc",
+      "reviewed": true
+    },
+    {
+      "index": 56,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-computador/04-saldo-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "82b2c6ddd8b9e60f30fceacc160896e0d0abef3c4f70b263d0ac71f0e89fee1e",
+      "reviewed": true
+    },
+    {
+      "index": 57,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-computador/05-liberada-calculista.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "8ef3c79c2732d0bd3f7339ec4c5d162767b356b70cf2a2052ff09975f5ff1707",
+      "reviewed": true
+    },
+    {
+      "index": 58,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-computador/05-liberada-cliente.png",
+      "width": 1440,
+      "parts": 1,
+      "sha256": "66f2874f64ab89b5ec09b6e8ad2e1881b41d80b18ef489a03a98b3b9bfae3d4b",
+      "reviewed": true
+    },
+    {
+      "index": 59,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-computador/06-historico-calculista.png",
+      "width": 1440,
+      "parts": 2,
+      "sha256": "619e51a7efbab6484147483932748028770286c4b82448cabb8168c2a649723d",
+      "reviewed": true
+    },
+    {
+      "index": 60,
+      "path": "docs/evidencias/pagamentos/webhook/telas-nominais/capturas/webhook-nominal-PIX-advoga-4ec89--saldo-e-bytes-pelo-webhook-computador/06-historico-cliente.png",
+      "width": 1440,
+      "parts": 2,
+      "sha256": "465f7558133bc14db58dc120aabcfbcaef64631f02f271d1165d0a8b34864313",
+      "reviewed": true
+    }
+  ],
+  "sheetCount": 29,
+  "captureSource": "ae5491863fc74d9c86866ed3245cb20654d5775e",
+  "task": "M3.01c3c3d",
+  "reviewedSheets": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "observedLayoutDefects": [],
+  "scope": "60 capturas dos seis percursos finais Pix/boleto/cartao em375/1440, dois papeis",
+  "observations": [
+    "faturas de sinal e saldo legiveis com meio/valor/vencimento separados",
+    "fila com um pedido e sinal confirmado legivel nas duas larguras",
+    "entregas com CRC e tres arquivos legiveis para cliente e calculista",
+    "linha do tempo inteira revisada sem sobreposicao ou corte horizontal observado"
+  ],
+  "remaining": "regressao da fonte final, read-back/advisors e CI integral; investigacao M2.35f/g e C4 permanecem proprios"
+}

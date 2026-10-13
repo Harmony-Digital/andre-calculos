@@ -1,0 +1,122 @@
+[
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "routes",
+    "phase": "start",
+    "elapsedMs": 0
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "routes",
+    "phase": "complete",
+    "elapsedMs": 1
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "context",
+    "phase": "start",
+    "elapsedMs": 0
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "context",
+    "phase": "complete",
+    "elapsedMs": 4
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "session",
+    "phase": "start",
+    "elapsedMs": 0
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "session",
+    "phase": "complete",
+    "elapsedMs": 28
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "process",
+    "phase": "start",
+    "elapsedMs": 0
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "process",
+    "phase": "complete",
+    "elapsedMs": 56
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "fixture",
+    "phase": "start",
+    "elapsedMs": 0
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "fixture",
+    "phase": "complete",
+    "elapsedMs": 186
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "routes",
+    "phase": "start",
+    "elapsedMs": 0
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "routes",
+    "phase": "complete",
+    "elapsedMs": 1
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "context",
+    "phase": "start",
+    "elapsedMs": 0
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "context",
+    "phase": "complete",
+    "elapsedMs": 3
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "session",
+    "phase": "start",
+    "elapsedMs": 0
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "session",
+    "phase": "complete",
+    "elapsedMs": 25
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "process",
+    "phase": "start",
+    "elapsedMs": 0
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "process",
+    "phase": "complete",
+    "elapsedMs": 60
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "fixture",
+    "phase": "start",
+    "elapsedMs": 0
+  },
+  {
+    "diagnostic": "notification_preference_cleanup_stage",
+    "resource": "fixture",
+    "phase": "complete",
+    "elapsedMs": 133
+  }
+]

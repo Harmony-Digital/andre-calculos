@@ -1,0 +1,183 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-financial-journey.test.ts tests/integration/financial-journey.test.ts tests/integration/balance-journey.test.ts tests/integration/webhook-queue.test.ts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/webhook-financial-journey.test.ts (32 tests | 14 failed) 80679ms
+   × PIX/deposit estorno pendente preserva subtotal e bloqueia certeza sem zero fictício 2339ms
+   × BOLETO/deposit estorno pendente preserva subtotal e bloqueia certeza sem zero fictício 2098ms
+   × CREDIT_CARD/deposit estorno pendente preserva subtotal e bloqueia certeza sem zero fictício 2027ms
+   × PIX/balance estorno pendente preserva subtotal e bloqueia certeza sem zero fictício 2474ms
+   × BOLETO/balance estorno pendente preserva subtotal e bloqueia certeza sem zero fictício 2544ms
+   × CREDIT_CARD/balance estorno pendente preserva subtotal e bloqueia certeza sem zero fictício 2779ms
+   × cartão/deposit disputa,débito e duas restaurações recompõem crédito sem novo recebimento 2050ms
+   × cartão/balance disputa,débito e duas restaurações recompõem crédito sem novo recebimento 2620ms
+   × PIX/deposit UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro 2060ms
+   × BOLETO/deposit UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro 1913ms
+   × CREDIT_CARD/deposit UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro 1950ms
+   × PIX/balance UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro 2450ms
+   × BOLETO/balance UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro 2449ms
+   × CREDIT_CARD/balance UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro 2434ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-financial-journey.test.ts > PIX/deposit estorno pendente preserva subtotal e bloqueia certeza sem zero fictício
+ FAIL  tests/integration/webhook-financial-journey.test.ts > BOLETO/deposit estorno pendente preserva subtotal e bloqueia certeza sem zero fictício
+ FAIL  tests/integration/webhook-financial-journey.test.ts > CREDIT_CARD/deposit estorno pendente preserva subtotal e bloqueia certeza sem zero fictício
+AssertionError: expected { proof: { kind: 'unknown' }, …(17) } to match object { certainty: 'reconcile', …(1) }
+(36 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "certainty": "reconcile",
+-   "creditCents": null,
++   "creditCents": 12501,
+  }
+
+ ❯ uncertain tests/integration/webhook-financial-journey.test.ts:54:22
+     52|   const j = fixture(),
+     53|     v = j.view();
+     54|   expect(v.position).toMatchObject({
+       |                      ^
+     55|     certainty: "reconcile",
+     56|     creditCents: null,
+ ❯ tests/integration/webhook-financial-journey.test.ts:196:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  tests/integration/webhook-financial-journey.test.ts > PIX/balance estorno pendente preserva subtotal e bloqueia certeza sem zero fictício
+ FAIL  tests/integration/webhook-financial-journey.test.ts > BOLETO/balance estorno pendente preserva subtotal e bloqueia certeza sem zero fictício
+ FAIL  tests/integration/webhook-financial-journey.test.ts > CREDIT_CARD/balance estorno pendente preserva subtotal e bloqueia certeza sem zero fictício
+AssertionError: expected { proof: { kind: 'unknown' }, …(17) } to match object { certainty: 'reconcile', …(1) }
+(36 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "certainty": "reconcile",
+-   "creditCents": null,
++   "creditCents": 12500,
+  }
+
+ ❯ uncertain tests/integration/webhook-financial-journey.test.ts:54:22
+     52|   const j = fixture(),
+     53|     v = j.view();
+     54|   expect(v.position).toMatchObject({
+       |                      ^
+     55|     certainty: "reconcile",
+     56|     creditCents: null,
+ ❯ tests/integration/webhook-financial-journey.test.ts:196:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  tests/integration/webhook-financial-journey.test.ts > cartão/deposit disputa,débito e duas restaurações recompõem crédito sem novo recebimento
+AssertionError: expected { …(18) } to match object { certainty: 'reconcile', …(1) }
+(42 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "certainty": "reconcile",
+-   "creditCents": null,
++   "creditCents": 10500,
+  }
+
+ ❯ uncertain tests/integration/webhook-financial-journey.test.ts:54:22
+     52|   const j = fixture(),
+     53|     v = j.view();
+     54|   expect(v.position).toMatchObject({
+       |                      ^
+     55|     certainty: "reconcile",
+     56|     creditCents: null,
+ ❯ tests/integration/webhook-financial-journey.test.ts:214:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  tests/integration/webhook-financial-journey.test.ts > cartão/balance disputa,débito e duas restaurações recompõem crédito sem novo recebimento
+AssertionError: expected { …(18) } to match object { certainty: 'reconcile', …(1) }
+(42 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "certainty": "reconcile",
+-   "creditCents": null,
++   "creditCents": 10499,
+  }
+
+ ❯ uncertain tests/integration/webhook-financial-journey.test.ts:54:22
+     52|   const j = fixture(),
+     53|     v = j.view();
+     54|   expect(v.position).toMatchObject({
+       |                      ^
+     55|     certainty: "reconcile",
+     56|     creditCents: null,
+ ❯ tests/integration/webhook-financial-journey.test.ts:214:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+ FAIL  tests/integration/webhook-financial-journey.test.ts > PIX/deposit UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro
+ FAIL  tests/integration/webhook-financial-journey.test.ts > BOLETO/deposit UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro
+ FAIL  tests/integration/webhook-financial-journey.test.ts > CREDIT_CARD/deposit UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro
+AssertionError: expected { proof: { kind: 'unknown' }, …(17) } to match object { certainty: 'reconcile', …(1) }
+(36 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "certainty": "reconcile",
+-   "creditCents": null,
++   "creditCents": 12501,
+  }
+
+ ❯ uncertain tests/integration/webhook-financial-journey.test.ts:54:22
+     52|   const j = fixture(),
+     53|     v = j.view();
+     54|   expect(v.position).toMatchObject({
+       |                      ^
+     55|     certainty: "reconcile",
+     56|     creditCents: null,
+ ❯ tests/integration/webhook-financial-journey.test.ts:261:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/14]⎯
+
+ FAIL  tests/integration/webhook-financial-journey.test.ts > PIX/balance UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro
+ FAIL  tests/integration/webhook-financial-journey.test.ts > BOLETO/balance UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro
+ FAIL  tests/integration/webhook-financial-journey.test.ts > CREDIT_CARD/balance UNKNOWN recupera pela consulta atual; evento antigo e conflito não duplicam dinheiro
+AssertionError: expected { proof: { kind: 'unknown' }, …(17) } to match object { certainty: 'reconcile', …(1) }
+(36 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "certainty": "reconcile",
+-   "creditCents": null,
++   "creditCents": 12500,
+  }
+
+ ❯ uncertain tests/integration/webhook-financial-journey.test.ts:54:22
+     52|   const j = fixture(),
+     53|     v = j.view();
+     54|   expect(v.position).toMatchObject({
+       |                      ^
+     55|     certainty: "reconcile",
+     56|     creditCents: null,
+ ❯ tests/integration/webhook-financial-journey.test.ts:261:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/14]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  14 failed | 74 passed (88)
+   Start at  23:21:05
+   Duration  187.47s (tests 100%)

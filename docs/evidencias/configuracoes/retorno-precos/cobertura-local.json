@@ -1,0 +1,36 @@
+{
+  "scope": "diagnostico M2.35e; nao corrige nem prova causa da falha original",
+  "originalSource": "840d6a37b1e54908aed50dde9b33d12b741660cb",
+  "originalRun": 38313323166,
+  "normalNoRetryPassesBeforeDiagnostic": 6,
+  "normalPassAfterDiagnostic": 1,
+  "normalRetakeAfterFaultRemoval": 1,
+  "originalFailureReproduced": false,
+  "controlledFault": {
+    "expectedFailure": 1,
+    "unchangedAssertionTimeoutMs": 5000,
+    "diagnostic": {
+      "invalidFields": [],
+      "alertPresent": 1,
+      "statusPresent": 0,
+      "pending": false,
+      "versionCreated": false
+    },
+    "temporaryTriggerAndFunctionRemoved": true,
+    "screenshot": "produced during run; cleared by normal retake; not archived"
+  },
+  "finalReadbackAndControlsByteIdentical": true,
+  "allUnitTests": 1490,
+  "unitFiles": 74,
+  "scripts": 43,
+  "localBuild": "EPERM; pending exact CI",
+  "codeSha256": "37f8b683bd19ecf54607457c87ec977889d118639c948b61c77acdcdee2068f5",
+  "evidence": {
+    "docs/evidencias/configuracoes/retorno-precos/pos-diagnostico.log": "7f824f319963923a6c150990683ffc6a98a09e5c3d4857983c4233151370b2ff",
+    "docs/evidencias/configuracoes/retorno-precos/check-local.log": "db289f3cf36ad59cb3703cda88c5a6e8866b868ca2c36404db3c21fd3f8688d4",
+    "docs/evidencias/configuracoes/retorno-precos/retake-final.log": "59be357a28a8834269b7a17047c9cbd8af7eeabe45d49d707f7274089dca047b",
+    "docs/evidencias/configuracoes/retorno-precos/repeticoes.log": "923d7cd357b9a3b37bfd86c0ff856017e9eee972c18f8c4a8f1d397c4fabdb56",
+    "docs/evidencias/configuracoes/retorno-precos/repro-inicial.log": "a09884f9e8e816a6b56a09a9f59a4d73945849c7869704cd1c1dfd919727728e",
+    "docs/evidencias/configuracoes/retorno-precos/diagnostico-fault.log": "c1d0ebb60ac863f6ff7d38220c65982cb3b2fffd978be25633624f341ec73bea"
+  }
+}

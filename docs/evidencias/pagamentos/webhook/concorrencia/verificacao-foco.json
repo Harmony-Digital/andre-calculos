@@ -1,0 +1,19 @@
+{
+  "tests": 32,
+  "files": 1,
+  "duration_seconds": 79.08,
+  "exit": 0,
+  "unit_tests": 1494,
+  "unit_files": 75,
+  "scripts": 43,
+  "format_lint_types": "passed",
+  "local_check_exit": 1,
+  "local_build": "EPERM internal port; exact-source CI needed",
+  "readback_controls_grants_preserved": true,
+  "advisors_no_issues": 2,
+  "product_migrations_scripts_workflow_unchanged": true,
+  "test_sha256": "dfe04335a7e988a2dbaa0e755efe15af05273610b171cefb6810cc2457463dc4",
+  "original_log_sha256": "ade6749d462b04ffad1e2f3a06bd9596f9cb6ecb9b77d008605172e9529dcda2",
+  "original_check_sha256": "a8e11db110109c5e45fa6ff72ef23c51de97fc8f203106d64c57abae3cc4dd9f",
+  "general_regression": "pending"
+}
