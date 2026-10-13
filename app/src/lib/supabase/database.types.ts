@@ -1356,6 +1356,24 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      finalize_fixture_payment_webhook: {
+        Args: {
+          decision_action: string;
+          expected_charge_revision: number;
+          expected_epoch: number;
+          expected_journal_fingerprint: string;
+          expected_position_revision: number;
+          expected_source_fingerprint: string;
+          position_value: Json;
+          target_run: string;
+          worker_id: string;
+        };
+        Returns: Json;
+      };
+      get_fixture_webhook_finalization_receipt: {
+        Args: { expected_epoch: number; target_run: string; worker_id: string };
+        Returns: Json;
+      };
       get_fixture_webhook_context: {
         Args: { expected_epoch: number; target_run: string; worker_id: string };
         Returns: Json;

@@ -1,0 +1,45 @@
+Seed local: quatro usuários fictícios e um processo criados. Senhas somente em memória.
+
+> andre-calculos@0.1.0 test:rls
+> vitest run --config vitest.rls.config.mts tests/integration/webhook-finalization.test.ts
+
+
+ RUN  v5.0.3 /Users/fabioalmeida/1) Harmony Digital Hub/Projetos de IA/Andre - Sistema Advogados/app
+
+ ❯ tests/integration/webhook-finalization.test.ts (20 tests | 1 failed) 32825ms
+   × recepção→GET→Y encerra fila/efeitos/reserva na mesma transação 1971ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/webhook-finalization.test.ts > recepção→GET→Y encerra fila/efeitos/reserva na mesma transação
+AssertionError: expected { positions: 1, applications: 1, …(5) } to match object { positions: 1, applications: 1, …(5) }
+
+- Expected
++ Received
+
+@@ -1,8 +1,8 @@
+  {
+    "applications": 1,
+-   "notices": 2,
++   "notices": 5,
+    "payments": 0,
+    "positions": 1,
+    "reservations": 0,
+    "resolutions": 1,
+    "status": "awaiting_documents",
+
+ ❯ tests/integration/webhook-finalization.test.ts:163:31
+    161|     uncertain: false,
+    162|   });
+    163|   expect(JSON.parse(state())).toMatchObject({
+       |                               ^
+    164|     positions: 1,
+    165|     applications: 1,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 19 passed (20)
+   Start at  22:11:06
+   Duration  33.15s (tests 99%)
