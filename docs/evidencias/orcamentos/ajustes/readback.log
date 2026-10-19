@@ -1,0 +1,8 @@
+migrations|113
+rls_privadas|68|68
+ajustes_temporarios|0
+versoes_temporarias|0
+grants_diretos|0
+get_quote_revision_context|f|t|f
+quote_is_current|f|t|f
+revise_quote_system|f|f|t

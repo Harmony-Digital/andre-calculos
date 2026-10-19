@@ -46,6 +46,8 @@ O calculista registra clientes que pagam no final em `/painel/clientes`, com mot
 
 O fluxo do checklist prepara proposta numerada, snapshot imutável e PDF privado com CRC. A emissão comercial exige calendário, disponibilidade, período e dados reais confirmados. O ensaio fictício tem opt-in exclusivo do servidor local, indicação em tela/PDF e contratação bloqueada. Recuperação, regras e comandos em `docs/propostas.md`.
 
+O calculista pode criar uma nova versão com valores ajustados e motivo obrigatório; o advogado consulta a vigente e o histórico preservado. Regras e operação em [docs/ajustes-orcamento.md](docs/ajustes-orcamento.md).
+
 ### Contratos
 
 O aceite registra uma intenção de geração e congela os dados do contrato. O processador confere os bytes arquivados antes de disponibilizar o PDF privado na proposta e na pasta do processo. Recuperação, permissões, restrição do produtor ao ambiente local e comandos de verificação em [docs/contratos.md](docs/contratos.md).

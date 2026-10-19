@@ -1,0 +1,53 @@
+{
+  "tasks": [
+    "M3.07",
+    "M3.07a",
+    "M3.07b",
+    "M3.07c"
+  ],
+  "scope": "Implementação/verificação local fictícia. Nenhuma publicação ou operação comercial.",
+  "migrations": [
+    111,
+    112,
+    113
+  ],
+  "previousMigrationsIntact": 110,
+  "privateTablesRls": 68,
+  "bankTests": 67,
+  "bankFiles": 4,
+  "ownBankTests": 10,
+  "browserJourneys": 4,
+  "browserDuration": "21.0s",
+  "viewports": [
+    375,
+    1440
+  ],
+  "retries": 0,
+  "axeViolations": 0,
+  "unitTests": 1519,
+  "unitFiles": 78,
+  "scriptTests": 43,
+  "formatLintTypes": "pass",
+  "localBuild": "EPERM interno do Turbopack ao criar processo/porta; exige build da mesma fonte no CI",
+  "ciBuildPending": true,
+  "cleanupAdjustments": 0,
+  "cleanupSuccessors": 0,
+  "privateDirectGrants": 0,
+  "advisorsNoIssues": 2,
+  "captures": 6,
+  "pdfs": 2,
+  "visualQa": "Formulários1440/375 e histórico do advogado/PDF revisado conferidos; demais capturas arquivadas.",
+  "initialBrowserAssertionsCorrected": [
+    "aceite da versão histórica permanece em formulário desabilitado",
+    "título existente é Contratação registrada",
+    "histórico de propostas na pasta exige aba Resumo"
+  ],
+  "evidence": [
+    "banco.log",
+    "navegador.log",
+    "check-local.log",
+    "readback.log",
+    "advisors.log",
+    "artefatos.json"
+  ]
+}

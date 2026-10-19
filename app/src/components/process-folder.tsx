@@ -144,7 +144,8 @@ export async function ProcessFolder({
                       Continuar checklist
                     </Link>
                   )}
-                  {order.quotes
+                  {[...order.quotes]
+                    .sort((a, b) => b.version - a.version)
                     .filter(
                       (quote) =>
                         quote.proposal_snapshot ||
@@ -156,7 +157,12 @@ export async function ProcessFolder({
                           className="text-link"
                           href={`${panel ? "/painel" : "/app"}/orcamentos/${quote.id}`}
                         >
-                          {quote.number}
+                          {quote.number} · Versão {quote.version}
+                          {order.quotes.some(
+                            (other) => other.supersedes_id === quote.id,
+                          )
+                            ? " · Substituída"
+                            : " · Vigente"}
                           {quote.is_simulation ? " · Ensaio fictício" : ""}
                         </Link>
                         <ContractPdfFolderCard quoteId={quote.id} />

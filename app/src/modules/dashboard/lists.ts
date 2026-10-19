@@ -71,6 +71,7 @@ export async function getPanelOrders(selection?: string, after?: string) {
         "id,number,total_cents,valid_until,created_at,order:orders!inner(code,status,process_id,process:processes!orders_process_id_client_id_fkey(client:clients!processes_client_id_fkey(legal_name)))",
       )
       .is("accepted_at", null)
+      .filter("quote_is_current", "eq", true)
       .gte("valid_until", window.now)
       .eq("order.status", "quoted")
       .order("created_at", { ascending: false })

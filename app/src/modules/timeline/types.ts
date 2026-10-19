@@ -22,6 +22,14 @@ export function eventFilter(value?: string): EventKind | null {
 }
 export function eventLabel(kind: string, data?: unknown) {
   if (
+    kind === "status_changed" &&
+    data &&
+    typeof data === "object" &&
+    "operation" in data &&
+    data.operation === "revise_quote"
+  )
+    return "Orçamento ajustado";
+  if (
     kind === "payment_updated" &&
     data &&
     typeof data === "object" &&

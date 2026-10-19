@@ -1109,6 +1109,8 @@ export type Database = {
           total_cents: number;
           updated_at: string;
           valid_until: string;
+          version: number;
+          supersedes_id: string | null;
         };
         Insert: {
           accepted_at?: string | null;
@@ -1127,6 +1129,8 @@ export type Database = {
           total_cents: number;
           updated_at?: string;
           valid_until: string;
+          version?: number;
+          supersedes_id?: string | null;
         };
         Update: {
           accepted_at?: string | null;
@@ -1145,6 +1149,8 @@ export type Database = {
           total_cents?: number;
           updated_at?: string;
           valid_until?: string;
+          version?: number;
+          supersedes_id?: string | null;
         };
         Relationships: [
           {
@@ -1438,6 +1444,23 @@ export type Database = {
       };
       complete_notification_local_system: {
         Args: { request_id: string; outcome: string };
+        Returns: Json;
+      };
+      revise_quote_system: {
+        Args: {
+          actor: string;
+          target_quote: string;
+          expected_context: string;
+          expected_version: number;
+          expected_order_revision: number;
+          request_id: string;
+          reason: string;
+          unit_prices: Json;
+        };
+        Returns: Json;
+      };
+      get_quote_revision_context: {
+        Args: { target_quote: string };
         Returns: Json;
       };
       reject_quote_system: {

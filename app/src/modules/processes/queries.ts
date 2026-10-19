@@ -123,7 +123,7 @@ export async function getProcess(
       ? supabase
           .from("orders")
           .select(
-            "id,code,calc_type,status,status_revision,resume_status,delivery_date,quotes(id,number,is_simulation,proposal_snapshot)",
+            "id,code,calc_type,status,status_revision,resume_status,delivery_date,quotes(id,number,is_simulation,proposal_snapshot,version,supersedes_id)",
           )
           .eq("process_id", id)
           .order("created_at", { ascending: false })
