@@ -7,7 +7,7 @@ Nome provisório até a marca (D3).
 
 ## Onde estamos
 
-**Passagem de sessão — 2026-10-13, 09h40 (America/Sao_Paulo), por Codex.** Este bloco é a referência do estado atual. As notas nas tarefas e no Registro de Execução são evidências históricas do momento em que foram coletadas.
+**Atualização de status — 2026-10-19 (America/Sao_Paulo), por Codex.** Conferidos o checkout, a conta/repositório GitHub, a main, o PR70, os resultados dos CIs e o projeto/deploy pelo MCP dedicado da Vercel. Não há nova entrega de construção registrada neste checkout desde 13/10; main, fonte do PR70 e último deploy permanecem os mesmos. Este bloco é a referência do estado atual. As notas nas tarefas e no Registro de Execução são evidências históricas do momento em que foram coletadas.
 
 **Estado da entrega:** a demonstração fictícia está publicada; o portal e os novos fluxos comerciais estão em desenvolvimento local. O contrato completo está funcionando e verificado localmente. A versão consolidada ainda não foi integrada à `main` nem publicada. O projeto integral M1–M6 e os GATEs continuam abertos. O percentual de 40% informado anteriormente era uma estimativa sem pesos definidos; não é uma medição válida do projeto.
 
@@ -16,12 +16,12 @@ Nome provisório até a marca (D3).
 | Referência | Estado conferido nesta passagem |
 |---|---|
 | Pasta de trabalho | `Andre - Sistema Advogados`, remoto `Harmony-Digital/andre-calculos`, repositório público ID `1414349093` |
-| Branch local | `feat/contrato-geracao-retomavel`; ponto de partida desta atualização documental: `45f127cae64836bb36a84c3062c13771f78ddea8`, com worktree limpo |
+| Branch local | `feat/contrato-geracao-retomavel`; ponto de partida da consulta de 19/10: `0e8fda2`, com worktree limpo |
 | Fonte consolidada do produto | `e9b204f2fd939a6f1550a1b06fc86b9658cbee2c`; código do app, migrations, scripts e workflow preservados nesta atualização |
 | Revisão do contrato | [PR #70](https://github.com/Harmony-Digital/andre-calculos/pull/70), draft aberto, título “Entrega contrato privado do aceite ao download (M3.04)”; head `e9b204f`. O fluxo foi consolidado no PR existente |
 | Correção anterior de seletores | [PR #71](https://github.com/Harmony-Digital/andre-calculos/pull/71), fonte `e153aeea93aa3ef21732ade54a0a51b643e27c45`; correção já incorporada à fonte consolidada do contrato |
 | `main` remota | `9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd`, conferida pela API nesta passagem |
-| Demonstração publicada | [project-rucji.vercel.app/demonstracao](https://project-rucji.vercel.app/demonstracao), último deploy verificado `dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7`, 158 arquivos da `main`, região `gru1`. Verificação hospedada anterior em [evidências](docs/evidencias/demonstracao/README.md); não houve nova publicação nesta passagem |
+| Demonstração publicada | [project-rucji.vercel.app/demonstracao](https://project-rucji.vercel.app/demonstracao), último deploy `dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7`, novamente confirmado como READY pelo MCP em 19/10. Origem e região verificadas na publicação anterior: 158 arquivos da `main`, `gru1`. Verificação hospedada anterior em [evidências](docs/evidencias/demonstracao/README.md); não houve nova publicação nesta passagem |
 
 Esta atualização ficará em commit local, sem alterar o head dos PRs ou reiniciar seus CIs. A próxima sessão deve ler o HEAD real com `git log -1`, pois o commit da passagem sucede o ponto de partida acima.
 
@@ -36,23 +36,25 @@ Esta atualização ficará em commit local, sem alterar o head dos PRs ou reinic
 
 ### Verificação e ambiente de retomada
 
+Os resultados de testes e read-back abaixo são da entrega de 13/10. Nesta consulta de status não foi executada nova suíte nem alterado o produto.
+
 A entrega do contrato tem 19 testes conjuntos de snapshot/arquivo, nove de arquivamento após reforço de auditoria, 55 regressões de aceite e quatro jornadas em 375/1440 px, sem retries, com Axe sem violações. Formato/lint/tipos, 1.507 testes unitários em 77 arquivos e 43 testes de scripts passaram. O `npm run check` local encontra o EPERM conhecido do Turbopack no build; o check/build da mesma fonte foi aprovado no CI. Não tratar esse erro local como sucesso nem repetir a suíte sem alteração ou falha nova.
 
 Evidências principais: [verificação local](docs/evidencias/contratos/fluxo-completo/verificacao-local.json), [prova do check/build](docs/evidencias/contratos/fluxo-completo/ci-build.json), [navegador](docs/evidencias/contratos/fluxo-completo/navegador.log) e [read-back](docs/evidencias/contratos/fluxo-completo/readback.log).
 
 - **Banco local, último read-back:** 110 migrations, 25 tabelas públicas e 67 privadas com RLS; quatro perfis fictícios, flag de fixture desligada e pagamento manual original de 12.500 centavos/pending preservado. Contratos/jobs/claims/metadados/objetos temporários limpos; controles e grants anteriores preservados; advisors de segurança e desempenho sem achados.
 - **Migrations:** `0107` congela o contrato; `0108` reserva/geração; `0109` arquivamento/fila/download; `0110` auditoria do download pelo servidor. Aplicadas somente localmente. Não editar migrations `0001`–`0110`; a próxima é `0111`.
-- **Runtime:** perfil Colima `andre-calculos`, socket `~/.colima/andre-calculos/docker.sock`, container `supabase_db_andre-calculos`; API `http://127.0.0.1:54321`, app `http://127.0.0.1:3000`, Studio `54323`, Mailpit `54324`. Os comandos seguros estão no README. Nenhum processo Vitest/Playwright foi encontrado na conferência desta passagem; revalidar processos/leases antes de novo ensaio. Não resetar/reseedear ambiente saudável apenas para retomar.
-- **Contas:** preflight GitHub/1Password aprovado nesta passagem. GitHub usa explicitamente `fabioalmeidadigital`; a conta ativa padrão do CLI pertence a outro cliente. Hub ainda não cadastrado/sem chave: `plan.md` permanece a referência. Segredos, áudio e transcrição continuam fora do Git.
+- **Runtime:** perfil Colima `andre-calculos`, socket `~/.colima/andre-calculos/docker.sock`, container `supabase_db_andre-calculos`; API `http://127.0.0.1:54321`, app `http://127.0.0.1:3000`, Studio `54323`, Mailpit `54324`. Os comandos seguros estão no README. Nenhum processo Vitest/Playwright foi encontrado na passagem de 13/10; processos/leases não foram revalidados em 19/10 e devem ser conferidos antes de novo ensaio. Não resetar/reseedear ambiente saudável apenas para retomar.
+- **Contas:** GitHub `fabioalmeidadigital` e repositório ID `1414349093` conferidos em 19/10; MCP Vercel lista somente Projeto Andre e confirma os IDs esperados e o deploy. O preflight no ambiente restrito não conseguiu validar GitHub/1Password; a consulta GitHub fora dessa restrição confirmou a conta correta. O 1Password não foi revalidado, nem usado para esta consulta. A conta ativa padrão do CLI pertence a outro cliente. Hub ainda não cadastrado/sem chave: `plan.md` permanece a referência. Segredos, áudio e transcrição continuam fora do Git.
 
 ### CI que a próxima sessão deve consultar
 
-Estados consultados pela API em 2026-10-13, aproximadamente 09h38. São instantâneos; obter o resultado real da mesma execução na retomada.
+Resultados finais consultados pela API em 2026-10-19, na conta `fabioalmeidadigital` e no repositório ID `1414349093`. Os dois CIs terminaram em 13/10; não continuam em execução.
 
 | Fonte | Execução / jobs | Resultado observado |
 |---|---|---|
-| Contrato consolidado `e9b204f` | [CI 38395733958](https://github.com/Harmony-Digital/andre-calculos/actions/runs/38395733958); qualidade `115291195556`; e2e `115291195073` | Qualidade/check/build **success**, com checkout/pais/árvore/inventário conferidos e artefato `11811602276`. Execução integral **in_progress**, e2e na etapa `test:rls`; não há aprovação integral |
-| Seletores `e153aee` | [CI 38388687687](https://github.com/Harmony-Digital/andre-calculos/actions/runs/38388687687); qualidade `115266740388`; e2e `115266740022` | Qualidade/check/build **success**. Execução integral **in_progress**, e2e na etapa `test:e2e -- --workers=1` |
+| Contrato consolidado `e9b204f` | [CI 38395733958](https://github.com/Harmony-Digital/andre-calculos/actions/runs/38395733958); qualidade `115291195556`; e2e `115291195073` | Qualidade/check/build **success**, com checkout/pais/árvore/inventário conferidos e artefato `11811602276`. Execução integral **completed/cancelled**, encerrada em 13/10 às 11h18m42s; navegador `test:e2e -- --workers=1` cancelado. Não há aprovação integral |
+| Seletores `e153aee` | [CI 38388687687](https://github.com/Harmony-Digital/andre-calculos/actions/runs/38388687687); qualidade `115266740388`; e2e `115266740022` | Qualidade/check/build **success**. Execução integral **completed/cancelled**, encerrada em 13/10 às 10h14m13s; navegador `test:e2e -- --workers=1` cancelado. Não há aprovação integral |
 
 Não cancelar ou reiniciar uma execução por tempo de observação, nem alterar sua fonte só para registrar evidência. Se terminar, registrar a conclusão e investigar apenas uma falha concreta. O CI anterior do PR70 (`38385736816`, fonte `839a6fd`) foi cancelado após a consolidação funcional do mesmo PR. Os CIs 68/69 foram cancelados pelo limite oficial de duas horas; não constituem aprovação integral.
 
@@ -61,7 +63,7 @@ Não cancelar ou reiniciar uma execução por tempo de observação, nem alterar
 ### Como dar continuidade
 
 1. Ler `AGENTS.md`, este bloco, “Insumos pendentes”, “Ordem de execução” e somente a especificação da tarefa escolhida. Conferir branch, alterações e preflight; preservar este commit e o código existente.
-2. Consultar uma vez os dois CIs acima. Se ainda estiverem vivos, conservar seus heads e avançar trabalho local independente. Não repetir a implementação ou os ensaios completos do contrato apenas por mudança de sessão.
+2. Os dois CIs acima têm resultado final cancelled. Antes de integrar a fonte consolidada, examinar a causa registrada do cancelamento e os casos pendentes; não inferir aprovação integral pelo check/build. Conservar os heads/provas, não reiniciar apenas por mudança de sessão e não repetir implementação já concluída. Trabalho local independente pode avançar.
 3. **Próxima entrega recomendada: preparo local fictício de `M3.07`**, ajuste do orçamento com motivo e sucessão explícita de propostas. Ler a especificação `M3.07`, RF-26/RN-01/06 e os casos existentes de proposta/aceite/recusa. As dependências de software estão disponíveis no recorte fictício; aprovação comercial do produtor/textos permanece separada. Entregar o percurso completo do calculista até a nova proposta do advogado, preservando PDF/histórico e disputa com aceite/recusa. Dividir antes do código somente se necessário para caber numa sessão, sem multiplicar PRs de evidência.
 4. `M3.02` conserva dependência do M3.01 e configuração operacional válida; não habilitar cobrança automática com integração real ainda não ensaiada. Demais tarefas seguem a ordem aprovada do M3, sem inventar decisões do André ou antecipar M4–M6 sem detalhamento/condições próprias.
 5. Trabalhar em branch de funcionalidade, usando migrations novas. Testar o que mudou, consolidar a funcionalidade e atualizar este plano. Não fazer push apenas deste registro sobre os heads congelados. Merge, publicação e ativações externas conservam as regras e autorizações do projeto.
@@ -3098,3 +3100,5 @@ Os agentes trabalham com o padrão recomendado e deixam o item aberto até a con
 | 2026-10-13 | Codex | Fluxo completo do contrato conferido no build da fonte consolidada (M3.04b/c/d) | Fontee9b204f noPR70 existente, título/descrição reescritos para a entrega completa; nenhum PRnovo. CI38395733958/job115291195556 success e artefato11811602276/checkout3b72a539/pais/árvore/lock/config/inventário conferidos. b2/b3/b4/c/d eparentb concluídos no recorte local fictício;parentM3.04 comercial conserva dependências externas.19snapshot/arquivo+9após auditoria+55aceite e quatrobrowser/27,9s/375-1440/semretry/Axe0,bytes/negações/capturas/baseline/limpeza/advisors registrados. Run70 anterior dafonte839 foi cancelado após a atualização funcional do mesmoPR; nenhum rerun por mero tempo de observação. CI novo integral ainda vivo na etapa de banco; sem aprovação integral inferida. Main/produção inalteradas, nenhuma operação real/publicação. |
 
 | 2026-10-13 | Codex | Passagem de sessão solicitada pelo Fábio | “Onde estamos” reescrito como snapshot atual, com distinção entre demonstração publicada, software local e operação real; branch/fontes/main/PR70 e CIs70/71 consultados pela API às09h38, preflight aprovado. Prioridade de retomada local M3.07, migrations até110 imutáveis/próxima111, evidências e débitos preservados. README direciona à passagem e documenta operação do contrato em docs/contratos.md. Somente documentação/metadado de evidência; sem alteração de produto, nova suíte, push, publicação ou reinício deCI. |
+
+| 2026-10-19 | Codex | Consulta de status solicitada pelo Fábio | Checkout limpo em0e8fda2 antes desta nota, sem nova implementação desde13/10. CLI confirmou fabioalmeidadigital/repo1414349093, main9a25f31 ePR70draft aberto/head e9b204f/não integrado. CIs38395733958 e38388687687 completed/cancelled desde13/10, qualidade success emambos; navegador cancelado, sem aprovação integral. MCP dedicado Vercel confirmou somente Projeto Andre/IDs esperados e mesmo deploy READY dpl_D8FCmhRtUpTP4mftZr7RfbW6jeZ7. Onde estamos atualizado com resultados finais, evidências locais mantidas como históricas, próxima M3.07 preservada. Somente documentação; sem testes novos, push ou publicação. |
