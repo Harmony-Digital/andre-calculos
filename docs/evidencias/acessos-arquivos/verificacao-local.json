@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-19",
+  "scope": "M3.20 local fictício; sem nuvem/main/publicação",
+  "database": {
+    "command": "bash scripts/dev-env.sh npm run test:rls -- tests/integration/file-access-audit.test.ts",
+    "ownTestsPassed": 5,
+    "regressionFiles": [
+      "file-access.test.ts",
+      "settings.test.ts"
+    ],
+    "regressionTestsPassed": 9,
+    "microsecondOrdering": true,
+    "inclusiveSaoPauloDates": true,
+    "sanitizedPayload": true,
+    "roleDenials": true,
+    "legacyAdminFileAuditDenied": true,
+    "otherAdminAuditPreserved": true
+  },
+  "browser": {
+    "command": "bash scripts/dev-env.sh npm run test:e2e -- tests/e2e/file-access-audit.spec.ts --workers=1 --retries=0",
+    "passed": 2,
+    "viewports": [
+      375,
+      1440
+    ],
+    "durationSeconds": 23.7,
+    "retries": 0,
+    "authorizedRequestsPerJourney": 53,
+    "checks": [
+      "GET/HEAD/Range/download e bytes locais",
+      "filtros arquivo/autor/período/ação",
+      "páginas50+3 sem perdas ou duplicações",
+      "vazio/erro",
+      "negação cliente/outro cliente/admin/anônimo",
+      "Axe0",
+      "sem overflow",
+      "CSS carregado e revisão visual"
+    ]
+  },
+  "quality": {
+    "command": "npm run check",
+    "format": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "unitTests": 1532,
+    "unitFiles": 80,
+    "scriptTests": 43,
+    "build": "failed: EPERM conhecido do Turbopack ao criar processo e vincular porta; não repetido",
+    "ci": "pendente para a nova fonte consolidada"
+  },
+  "advisors": {
+    "security": [],
+    "performance": []
+  },
+  "readback": {
+    "migrations": 114,
+    "last_migration": "20261019011400",
+    "profiles": 4,
+    "temporary_audit_files": 0,
+    "public_tables_without_rls": 0,
+    "private_tables_without_rls": 0,
+    "rpc_anonymous": false,
+    "rpc_system": false
+  },
+  "migration": {
+    "name": "20261019011400_andre_calculos_0114_file_access_audit.sql",
+    "sha256": "51849936a2e1eceb8a3e1e96e417e3d5d9a3707a54e1f6a76d7921aee24b1106",
+    "previousMigrationsUnchanged": true
+  },
+  "correctionsDuringVerification": [
+    "fixture usa defaults em inserção heterogênea",
+    "seletor de alerta limitado ao main",
+    "declaração RPC no schema public dos tipos",
+    "cache dev antigo isolado após artefato CSS sem regras novas; capturas finais conferidas"
+  ]
+}

@@ -1362,6 +1362,21 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      get_file_access_audit: {
+        Args: {
+          target_file?: string;
+          file_search?: string;
+          target_actor?: string;
+          actor_search?: string;
+          start_date?: string;
+          end_date?: string;
+          access_action?: string;
+          cursor_created_at?: string;
+          cursor_id?: string;
+          page_size?: number;
+        };
+        Returns: Json;
+      };
       select_fixture_payment_webhooks: {
         Args: {
           batch_limit: number;

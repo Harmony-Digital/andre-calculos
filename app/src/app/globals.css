@@ -979,6 +979,71 @@ h2 {
   gap: 1.5rem;
   margin-block: 1rem;
 }
+.file-audit {
+  padding: 1.5rem;
+}
+.file-audit-note {
+  margin-block: 1rem;
+  color: var(--muted-foreground);
+}
+.file-audit-help summary {
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: 600;
+}
+.file-audit-help p {
+  max-width: 75ch;
+  margin-block: 0.75rem;
+}
+.file-audit-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1.25rem;
+  margin-top: 1.5rem;
+}
+.file-audit-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+.file-audit-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.file-audit-list > li {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1.8fr;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+.file-audit-label,
+.file-audit-list small {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  margin-block: 0.2rem;
+}
+.file-audit-action {
+  font-weight: 600;
+  margin-top: 0.4rem;
+}
+@media (max-width: 700px) {
+  .file-audit {
+    padding: 1rem;
+  }
+  .file-audit-filters,
+  .file-audit-list > li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .file-audit-list > li {
+    gap: 0.75rem;
+  }
+}
 .work-queue {
   padding: 1.25rem;
 }

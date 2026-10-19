@@ -10,6 +10,7 @@ import {
   Settings,
   ArrowUpRight,
   ClipboardList,
+  History,
 } from "lucide-react";
 import { Brand } from "./brand";
 import { logout } from "@/modules/auth/actions";
@@ -23,16 +24,24 @@ const panelLinks = [
   { href: "/painel/fila", label: "Fila de trabalho", icon: ListOrdered },
   { href: "/painel/pedidos", label: "Pedidos", icon: FolderOpen },
   { href: "/painel/clientes", label: "Clientes", icon: Users },
+  {
+    href: "/painel/acessos",
+    label: "Acessos a arquivos",
+    icon: History,
+    calculatorOnly: true,
+  },
   { href: "/painel/configuracoes", label: "Configurações", icon: Settings },
 ];
 export function WorkspaceShell({
   children,
   panel = false,
   name = "Minha conta",
+  calculator = false,
 }: {
   children: React.ReactNode;
   panel?: boolean;
   name?: string;
+  calculator?: boolean;
 }) {
   const pathname = usePathname();
   return (
@@ -46,19 +55,22 @@ export function WorkspaceShell({
           className="side-nav"
           aria-label={panel ? "Painel do André" : "Área do cliente"}
         >
-          {(panel ? panelLinks : customerLinks).map(
-            ({ href, label, icon: Icon }) => (
-              <Link
-                className="side-link"
-                href={href}
-                key={href}
-                aria-current={pathname === href ? "page" : undefined}
-              >
-                <Icon size={19} strokeWidth={1.7} aria-hidden="true" />
-                {label}
-              </Link>
-            ),
-          )}
+          {(panel
+            ? panelLinks.filter(
+                (link) => !("calculatorOnly" in link) || calculator,
+              )
+            : customerLinks
+          ).map(({ href, label, icon: Icon }) => (
+            <Link
+              className="side-link"
+              href={href}
+              key={href}
+              aria-current={pathname === href ? "page" : undefined}
+            >
+              <Icon size={19} strokeWidth={1.7} aria-hidden="true" />
+              {label}
+            </Link>
+          ))}
         </nav>
         <div className="sidebar-bottom">
           <Link className="side-link" href="/">
