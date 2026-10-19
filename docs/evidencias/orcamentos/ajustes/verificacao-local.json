@@ -29,7 +29,7 @@
   "scriptTests": 43,
   "formatLintTypes": "pass",
   "localBuild": "EPERM interno do Turbopack ao criar processo/porta; exige build da mesma fonte no CI",
-  "ciBuildPending": true,
+  "ciBuildPending": false,
   "cleanupAdjustments": 0,
   "cleanupSuccessors": 0,
   "privateDirectGrants": 0,
@@ -49,5 +49,8 @@
     "readback.log",
     "advisors.log",
     "artefatos.json"
-  ]
+  ],
+  "source": "9343bcce9df1a84706a3120da69533eb9bffe364",
+  "ciBuildProof": "ci-build.json",
+  "fullCiResult": "Em execução na conferência; resultado próprio, sem aprovação integral inferida."
 }
