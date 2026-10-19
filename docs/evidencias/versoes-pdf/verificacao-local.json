@@ -86,7 +86,14 @@
     "unitFiles": 82,
     "scriptTests": 43,
     "localBuild": "EPERM conhecido do Turbopack ao criar processo/vincular porta; uma tentativa, sem troca de bundler",
-    "consolidatedCI": "pendente para a nova fonte"
+    "consolidatedCI": {
+      "run": 39304006091,
+      "qualityJob": 118236559217,
+      "conclusion": "success",
+      "source": "0b5d9ae7fc6a456e0890479394c48c6c2787acb4",
+      "proof": "ci-build.json",
+      "overall": "in_progress; não inferir aprovação integral"
+    }
   },
   "migrations": [
     "0115",
@@ -95,5 +102,6 @@
     "0118"
   ],
   "previousMigrationsUnchanged": true,
-  "commercialEffects": "nenhum; sem nuvem, IA, cobrança, concordância automática, merge, publicação ou GATE"
+  "commercialEffects": "nenhum; sem nuvem, IA, cobrança, concordância automática, merge, publicação ou GATE",
+  "source": "0b5d9ae7fc6a456e0890479394c48c6c2787acb4"
 }
