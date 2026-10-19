@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { getCalculationUpdate } from "@/modules/calculation-updates/queries";
+import { CalculationUpdateContext } from "./calculation-update-context";
 import { randomUUID } from "node:crypto";
 import { Clock3, FileText, ClipboardList } from "lucide-react";
 import { getProcess } from "@/modules/processes/queries";
@@ -60,6 +62,13 @@ export async function ProcessFolder({
 }) {
   const data = await getProcess(id, tab, before, eventType),
     { process, files } = data;
+  const updates = new Map(
+    await Promise.all(
+      data.orders
+        .filter((o) => o.calc_type === "update")
+        .map(async (o) => [o.id, await getCalculationUpdate(o.id)] as const),
+    ),
+  );
   const base = `${panel ? "/painel" : "/app"}/processos/${id}`;
   const cnj = process.cnj_number.replace(
     /^(\d{7})(\d{2})(\d{4})(\d)(\d{2})(\d{4})$/,
@@ -136,6 +145,23 @@ export async function ProcessFolder({
                       ? ` · Entrega prevista: ${civilDate(order.delivery_date)}`
                       : ""}
                   </p>
+                  {updates.get(order.id) && (
+                    <CalculationUpdateContext
+                      context={updates.get(order.id)!}
+                      panel={panel}
+                    />
+                  )}
+                  {!panel &&
+                    ["delivered", "completed"].includes(order.status) && (
+                      <p>
+                        <Link
+                          className="text-link"
+                          href={`${base}/atualizar?origem=${order.id}`}
+                        >
+                          Solicitar atualização · {order.code}
+                        </Link>
+                      </p>
+                    )}
                   {order.status === "draft" && !panel && (
                     <Link
                       className="text-link"

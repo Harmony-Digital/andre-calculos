@@ -21,6 +21,12 @@ export function eventFilter(value?: string): EventKind | null {
   return value as EventKind;
 }
 export function eventLabel(kind: string, data?: unknown) {
+  if (data && typeof data === "object" && "operation" in data) {
+    if (kind === "draft_created" && data.operation === "calculation_update")
+      return "Atualização solicitada";
+    if (kind === "draft_updated" && data.operation === "update_pjc_attached")
+      return "PJC da atualização confirmado";
+  }
   if (
     kind === "status_changed" &&
     data &&

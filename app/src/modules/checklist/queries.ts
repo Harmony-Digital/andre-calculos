@@ -1,4 +1,5 @@
 import "server-only";
+import { getCalculationUpdate } from "@/modules/calculation-updates/queries";
 import { notFound, redirect } from "next/navigation";
 import { z } from "zod";
 import { authorize } from "@/modules/auth/session";
@@ -38,6 +39,7 @@ export async function getDraft(id: string) {
   if (!answers.success)
     throw new Error("Este checklist precisa de revisão antes de continuar.");
   return {
+    update: await getCalculationUpdate(order.data.id),
     orderId: order.data.id,
     code: order.data.code,
     processId: order.data.process_id,

@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-19",
+  "localMigrations": 121,
+  "profiles": 4,
+  "updateRecords": 0,
+  "rls": true,
+  "authenticatedSelectPrivate": false,
+  "anonCreate": false,
+  "securityAdvisor": [],
+  "performanceAdvisor": [],
+  "files": {
+    "total": 1,
+    "temporaryUpdates": 0,
+    "preservedSeedId": "00000000-0000-4000-8000-000000000501",
+    "preservedSeedName": "arquivo-ficticio.pdf",
+    "preservedSeedStatus": "pending"
+  }
+}

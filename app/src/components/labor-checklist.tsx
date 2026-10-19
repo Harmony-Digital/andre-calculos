@@ -1,5 +1,6 @@
 "use client";
 
+import type { UpdateContext } from "@/modules/calculation-updates/schemas";
 import { useRef, useState, useSyncExternalStore } from "react";
 import {
   useForm,
@@ -92,16 +93,24 @@ export function LaborChecklist({
   initialDraft,
   complexitySettings = defaultComplexitySettings,
 }: {
-  initialDraft?: SavedDraft & { answers: ChecklistLaborV1 };
+  initialDraft?: SavedDraft & {
+    answers: ChecklistLaborV1;
+    update?: UpdateContext | null;
+  };
   complexitySettings?: typeof defaultComplexitySettings;
 }) {
   const router = useRouter();
+  const [reviewConfirmed, setReviewConfirmed] = useState(false);
   const ready = useSyncExternalStore(subscribeReady, clientReady, serverReady);
   const [saved, setSaved] = useState<SavedDraft | undefined>(initialDraft);
   const [saving, setSaving] = useState(false),
     [saveError, setSaveError] = useState("");
   const [step, setStep] = useState(
-      initialDraft ? Math.min(initialDraft.completedStep + 1, 8) : 0,
+      initialDraft
+        ? initialDraft.update && initialDraft.completedStep === 0
+          ? 0
+          : Math.min(initialDraft.completedStep + 1, 8)
+        : 0,
     ),
     [result, setResult] = useState<ChecklistLaborV1 | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -121,6 +130,7 @@ export function LaborChecklist({
     setQuoteError([]);
     try {
       const response = await createChecklistQuote({
+        reviewConfirmed,
         orderId: saved.orderId,
         revision: saved.revision,
         requestId: quoteIntent.current.requestId,
@@ -232,6 +242,16 @@ export function LaborChecklist({
       move(step + 1);
   };
   const complete = async (answers: ChecklistLaborV1) => {
+    if (
+      initialDraft?.update &&
+      answers.baseDate <= initialDraft.update.sourceBaseDate
+    ) {
+      setError("baseDate", {
+        message: "Informe uma data-base posterior à do cálculo anterior.",
+      });
+      move(3);
+      return;
+    }
     if (await persist(answers)) {
       setResult(answers);
       requestAnimationFrame(() => heading.current?.focus());
@@ -293,6 +313,22 @@ export function LaborChecklist({
             O orçamento precisa da tabela real de preços. O André revisará o
             calendário do TRT e as decisões antes de confirmar os prazos.
           </p>
+          {initialDraft?.update && (
+            <label className="check-option">
+              <input
+                type="checkbox"
+                checked={reviewConfirmed}
+                onChange={(e) => setReviewConfirmed(e.target.checked)}
+              />
+              Revisei todas as respostas herdadas, o PJC e a nova data-base.
+            </label>
+          )}
+          {initialDraft?.update && !initialDraft.update.file && (
+            <p className="notice">
+              Envie e confirme o PJC em Origem da atualização para gerar a
+              proposta.
+            </p>
+          )}
           {quoteError.length > 0 && (
             <div role="alert" aria-label="Emissão da proposta">
               <p>{quoteError[0]}</p>
@@ -305,13 +341,24 @@ export function LaborChecklist({
           )}
         </div>
         <div className="form-actions checklist-summary-actions">
-          <Button onClick={issueQuote} disabled={issuing || !saved}>
+          <Button
+            onClick={issueQuote}
+            disabled={
+              issuing ||
+              !saved ||
+              Boolean(
+                initialDraft?.update &&
+                (!reviewConfirmed || !initialDraft.update.file),
+              )
+            }
+          >
             {issuing ? "Gerando proposta…" : "Gerar proposta"}
           </Button>
           <Button
             variant="outline"
             onClick={() => {
               setResult(null);
+              setReviewConfirmed(false);
               move(0);
             }}
           >
@@ -416,13 +463,16 @@ export function LaborChecklist({
               {step === 1 && (
                 <div className="form-wide">
                   {field("calculationType", "Tipo de cálculo", {
-                    children: Object.entries(calculationLabels).map(
-                      ([value, label]) => (
+                    children: Object.entries(calculationLabels)
+                      .filter(
+                        ([value]) =>
+                          !initialDraft?.update || value === "update",
+                      )
+                      .map(([value, label]) => (
                         <option key={value} value={value}>
                           {label}
                         </option>
-                      ),
-                    ),
+                      )),
                   })}
                 </div>
               )}

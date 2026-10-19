@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-19",
+  "bankScenariosPassed": 6,
+  "bankExecution": "dirigida; casos corrigidos e novos verificados separadamente",
+  "browserJourneys": 2,
+  "browserDurationSeconds": 17.1,
+  "viewports": [
+    375,
+    1440
+  ],
+  "retries": 0,
+  "axeViolations": 0,
+  "originalPreserved": true,
+  "missingPjcRealLocalUpload": true,
+  "indexDecisionSnapshotNonEmpty": true,
+  "localQuality": {
+    "format": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "unitFiles": 82,
+    "unitTests": 1547,
+    "scriptTests": 43,
+    "build": "EPERM conhecido de processo/porta no Turbopack; sem nova tentativa"
+  },
+  "published": false,
+  "visualScreenshotsReviewed": 4
+}

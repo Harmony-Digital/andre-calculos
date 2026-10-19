@@ -1,3 +1,5 @@
+import { getCalculationUpdate } from "@/modules/calculation-updates/queries";
+import { CalculationUpdateContext } from "@/components/calculation-update-context";
 import { getQuote } from "@/modules/quotes/queries";
 import { QuoteDetail } from "@/components/quote-detail";
 export default async function QuotePage({
@@ -5,5 +7,12 @@ export default async function QuotePage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  return <QuoteDetail data={await getQuote((await params).id)} />;
+  const data = await getQuote((await params).id),
+    update = await getCalculationUpdate(data.proposal.orderId);
+  return (
+    <>
+      {update && <CalculationUpdateContext context={update} />}
+      <QuoteDetail data={data} />
+    </>
+  );
 }

@@ -1366,6 +1366,25 @@ export type Database = {
         Args: { target_process: string; request_id: string; payload: Json };
         Returns: Json;
       };
+      create_calculation_update: {
+        Args: {
+          target_process: string;
+          source_order: string;
+          request_id: string;
+          source_file?: string;
+        };
+        Returns: string;
+      };
+      complete_calculation_update: {
+        Args: {
+          target_order: string;
+          expected_revision: number;
+          source_file?: string;
+          confirm_review?: boolean;
+        };
+        Returns: undefined;
+      };
+      get_calculation_update: { Args: { target_order: string }; Returns: Json };
       get_pdf_version_context: {
         Args: {
           target_file: string;
