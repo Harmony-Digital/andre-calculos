@@ -91,7 +91,11 @@
       "mime": "application/pdf",
       "sizeBytes": 2709,
       "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
-      "source": "app/tests/fixtures/processo-ficticio.pdf"
+      "source": "app/tests/fixtures/processo-ficticio.pdf",
+      "scenarioKey": "calculo",
+      "processId": "6d07e560-0020-4000-8000-000000000002",
+      "orderId": "6d07e560-0030-4000-8000-000000000002",
+      "folder": "case"
     },
     {
       "id": "6d07e560-0060-4000-8000-000000000002",
@@ -99,7 +103,11 @@
       "mime": "application/pdf",
       "sizeBytes": 2709,
       "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
-      "source": "app/tests/fixtures/processo-ficticio.pdf"
+      "source": "app/tests/fixtures/processo-ficticio.pdf",
+      "scenarioKey": "entrega",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "folder": "deliverables"
     },
     {
       "id": "6d07e560-0060-4000-8000-000000000003",
@@ -107,7 +115,11 @@
       "mime": "application/pdf",
       "sizeBytes": 2709,
       "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
-      "source": "app/tests/fixtures/processo-ficticio.pdf"
+      "source": "app/tests/fixtures/processo-ficticio.pdf",
+      "scenarioKey": "entrega",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "folder": "deliverables"
     },
     {
       "id": "6d07e560-0060-4000-8000-000000000004",
@@ -115,7 +127,23 @@
       "mime": "application/octet-stream",
       "sizeBytes": 134,
       "sha256": "c84ec101858b6dd4a200f81d6c07e72580d145ce15e849e86091a02c9a96fd4c",
-      "source": "texto explícito de demonstração, sem conteúdo de processo"
+      "source": "texto explícito de demonstração, sem conteúdo de processo",
+      "scenarioKey": "entrega",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "folder": "deliverables"
+    },
+    {
+      "id": "6d07e560-0060-4000-8000-000000000005",
+      "file": "processo-ficticio.pdf",
+      "mime": "application/pdf",
+      "sizeBytes": 2709,
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "source": "app/tests/fixtures/processo-ficticio.pdf",
+      "scenarioKey": "entrega",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "folder": "case"
     }
   ],
   "constraints": [
