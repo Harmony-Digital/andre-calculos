@@ -151,8 +151,8 @@ export function PageIndexEditor({
             </div>
             <p className="field-help form-wide">
               Use as posições das páginas no PDF, começando em 1. A numeração
-              impressa na peça pode ser diferente. A quantidade de páginas do
-              arquivo não é conferida por este formulário.
+              impressa na peça pode ser diferente. Nos PDFs com contagem
+              conferida, as referências respeitam esse limite.
             </p>
             <div className="form-field form-wide">
               <label htmlFor={`${prefix}-note`}>Observação (opcional)</label>

@@ -48,6 +48,10 @@ O fluxo do checklist prepara proposta numerada, snapshot imutável e PDF privado
 
 O calculista pode criar uma nova versão com valores ajustados e motivo obrigatório; o advogado consulta a vigente e o histórico preservado. Regras e operação em [docs/ajustes-orcamento.md](docs/ajustes-orcamento.md).
 
+### Versões do PDF
+
+Na aba Índice, o calculista abre **Conferir versões e páginas lidas** para vincular PDFs e confirmar correspondências antes de reaproveitar referências. Fluxo, correções, proveniência e permissões em [docs/versoes-pdf.md](docs/versoes-pdf.md).
+
 ### Acessos a arquivos
 
 O calculista consulta autorizações de visualização/download em `/painel/acessos`, com filtros de arquivo, autor, período e ação. Semântica do registro, paginação e permissões em [docs/acessos-arquivos.md](docs/acessos-arquivos.md).

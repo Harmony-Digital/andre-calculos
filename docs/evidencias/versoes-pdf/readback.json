@@ -1,0 +1,14 @@
+{
+  "migrations": 118,
+  "public_tables": 25,
+  "private_tables": 72,
+  "tables_without_rls": 0,
+  "profiles": 4,
+  "pdf_versions": 0,
+  "pdf_checks": 0,
+  "pdf_origins": 0,
+  "pdf_receipts": 0,
+  "temporary_files": 0,
+  "anonymous_execute": false,
+  "authenticated_private_grant": false
+}

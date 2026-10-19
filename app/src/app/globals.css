@@ -1964,3 +1964,88 @@ h2 {
   padding: 0;
   min-width: 0;
 }
+.pdf-review-panel {
+  padding: 1.5rem;
+  margin-block: 1.5rem;
+}
+.pdf-review-select {
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+  margin-block: 1rem;
+}
+.pdf-review-select .form-field {
+  flex: 1;
+  margin: 0;
+  min-width: 0;
+}
+.pdf-review-form {
+  margin-block: 1.25rem;
+  max-width: 48rem;
+}
+.pdf-review-form .plain-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.pdf-review-confirm {
+  display: flex;
+  gap: 0.65rem;
+  align-items: start;
+  margin-block: 1rem;
+}
+.pdf-review-confirm input {
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+.pdf-review-viewer {
+  margin-block: 1.25rem;
+}
+.pdf-review-viewer h3 {
+  overflow-wrap: anywhere;
+}
+.pdf-review-editor > summary {
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: 600;
+  padding-block: 0.75rem;
+}
+.pdf-pages {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+.pdf-pages > li {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr;
+  gap: 0.6rem;
+  border-top: 1px solid var(--border);
+  padding-block: 1rem;
+  overflow-wrap: anywhere;
+}
+.pdf-pages small {
+  color: var(--muted-foreground);
+}
+.pdf-origin {
+  background: var(--muted);
+  padding: 0.75rem;
+  margin-block: 0.75rem;
+  overflow-wrap: anywhere;
+}
+.pdf-origin p {
+  margin-bottom: 0.4rem;
+}
+@media (max-width: 700px) {
+  .pdf-review-panel {
+    padding: 1rem;
+  }
+  .pdf-review-select {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .pdf-pages > li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

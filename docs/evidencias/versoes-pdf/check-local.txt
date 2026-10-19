@@ -1,0 +1,11 @@
+Checagem consolidada local M3.10a — 2026-10-19
+Formato/lint: npm run check, estágios aprovados.
+Tipos/unidades/scripts/build: continuação a partir do estágio que apontou tipagem da fixture.
+Comando: npm run typecheck && npm run test:coverage && npm run test:scripts && npm run build
+Tipos: ✓ Types generated successfully; tsc sem erros.
+Test Files 82 passed (82)
+Tests 1547 passed (1547)
+Scripts:12+31 aprovados,43 total.
+Build: exit1, TurbopackInternalError — creating new process / binding to a port / Operation not permitted (os error1).
+Não houve nova tentativa de build ou mudança de bundler. Check/build da fonte final a conferir no CI.
+Caches compilados foram preservados fora da árvore do app; regras de lint intactas. Corrigida somente tipagem de fixture antes de retomar o estágio de tipos.

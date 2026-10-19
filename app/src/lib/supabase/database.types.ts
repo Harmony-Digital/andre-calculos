@@ -1362,6 +1362,31 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      mutate_pdf_version: {
+        Args: { target_process: string; request_id: string; payload: Json };
+        Returns: Json;
+      };
+      get_pdf_version_context: {
+        Args: {
+          target_file: string;
+          start_page?: number;
+          ref_after_at?: string;
+          ref_after_id?: string;
+        };
+        Returns: Json;
+      };
+      get_pdf_version_sequences: {
+        Args: { target_process: string };
+        Returns: Json;
+      };
+      get_pdf_version_heads: {
+        Args: { target_process: string };
+        Returns: Json;
+      };
+      get_pdf_index_origins: {
+        Args: { target_process: string; entry_ids: string[] };
+        Returns: Json;
+      };
       get_file_access_audit: {
         Args: {
           target_file?: string;

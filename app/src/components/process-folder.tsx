@@ -414,6 +414,11 @@ export async function ProcessFolder({
         <section className="panel process-section">
           <h2>Índice de páginas</h2>
           <p>Localização das peças em cada versão do processo.</p>
+          {data.role === "calculator" && (
+            <Link className="text-link" href={`${base}/versoes`}>
+              Conferir versões e páginas lidas
+            </Link>
+          )}
           {data.role === "calculator" &&
             !before &&
             (files.some(
@@ -443,6 +448,7 @@ export async function ProcessFolder({
             <ul className="process-records">
               {data.index.map((piece) => {
                 const file = piece.source;
+                const origin = data.indexOrigins.get(piece.id);
                 return (
                   <li key={piece.id}>
                     <strong>
@@ -453,6 +459,36 @@ export async function ProcessFolder({
                         ? `${file.name} · Versão ${file.version}${file.upload_status !== "uploaded" ? " · Documento indisponível" : ""}`
                         : "Documento indisponível"}
                     </p>
+                    {origin && (
+                      <div className="pdf-origin" data-pdf-origin={piece.id}>
+                        <p>
+                          Reaproveitada de {origin.sourceName ?? "PDF anterior"}{" "}
+                          · páginas {origin.sourcePages} · revisão{" "}
+                          {origin.sourceRevision} da referência.
+                        </p>
+                        <p>
+                          Conferência: {origin.copiedName} ·{" "}
+                          {new Intl.DateTimeFormat("pt-BR", {
+                            dateStyle: "short",
+                            timeStyle: "short",
+                            timeZone: "America/Sao_Paulo",
+                          }).format(new Date(origin.copiedAt))}
+                          .
+                        </p>
+                        {origin.edited && (
+                          <p>
+                            Entrada editada após o reaproveitamento; a prova de
+                            origem foi preservada.
+                          </p>
+                        )}
+                        {origin.requiresReview && (
+                          <p className="field-error">
+                            A correspondência mudou. Reconfira esta referência
+                            antes de usar.
+                          </p>
+                        )}
+                      </div>
+                    )}
                     {piece.note && (
                       <p className="preserve-lines">{piece.note}</p>
                     )}

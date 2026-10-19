@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-19",
+  "scope": "M3.10a local fictício; definição definitiva do André e parent M3.10 abertos",
+  "database": {
+    "coreTestsPassed": 8,
+    "projectionTestsPassed": 1,
+    "legacyIndexTestsPassed": 6,
+    "commands": [
+      "bash scripts/dev-env.sh npm run test:rls -- tests/integration/pdf-versions.test.ts tests/integration/page-index.test.ts",
+      "bash scripts/dev-env.sh npm run test:rls -- tests/integration/pdf-versions.test.ts -t projeta"
+    ],
+    "checks": [
+      "autoria/escopo/privado",
+      "revisão/concorrência/recibo",
+      "mapas bijetivos e rollback",
+      "cópia integral/snapshot imutável",
+      "limites do editor legado",
+      "corrida registro versus índice",
+      "cursor microssegundos/paginação",
+      "projeção para duas visões sem alterar metadados",
+      "limpeza transacional"
+    ]
+  },
+  "browser": {
+    "command": "bash scripts/dev-env.sh npm run test:e2e -- tests/e2e/pdf-versions.spec.ts --workers=1 --retries=0",
+    "passed": 2,
+    "viewports": [
+      375,
+      1440
+    ],
+    "retries": 0,
+    "durationSeconds": 21.6,
+    "axeViolations": 0,
+    "overflow": false,
+    "visualReview": true,
+    "fixturePages": {
+      "previous": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "current": [
+        "C",
+        "X",
+        "A",
+        "D"
+      ]
+    },
+    "checks": [
+      "upload e visualizador reais locais",
+      "marcação explícita",
+      "correspondência3:1/1:3/4:4",
+      "página2 pendente",
+      "cópia de índice e posição correta",
+      "proveniência nas duas visões",
+      "correção0:3 gera reconferência",
+      "troca de arquivo não conserva campos/chave",
+      "hash e bytes anteriores preservados",
+      "negações cliente/outro cliente/admin/anônimo"
+    ]
+  },
+  "advisors": {
+    "security": [],
+    "performance": []
+  },
+  "readback": {
+    "migrations": 118,
+    "public_tables": 25,
+    "private_tables": 72,
+    "tables_without_rls": 0,
+    "profiles": 4,
+    "pdf_versions": 0,
+    "pdf_checks": 0,
+    "pdf_origins": 0,
+    "pdf_receipts": 0,
+    "temporary_files": 0,
+    "anonymous_execute": false,
+    "authenticated_private_grant": false
+  },
+  "quality": {
+    "format": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "unitTests": 1547,
+    "unitFiles": 82,
+    "scriptTests": 43,
+    "localBuild": "EPERM conhecido do Turbopack ao criar processo/vincular porta; uma tentativa, sem troca de bundler",
+    "consolidatedCI": "pendente para a nova fonte"
+  },
+  "migrations": [
+    "0115",
+    "0116",
+    "0117",
+    "0118"
+  ],
+  "previousMigrationsUnchanged": true,
+  "commercialEffects": "nenhum; sem nuvem, IA, cobrança, concordância automática, merge, publicação ou GATE"
+}

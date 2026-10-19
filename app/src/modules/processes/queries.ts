@@ -7,6 +7,10 @@ import { depositInfoSchema } from "@/modules/payments/deposit";
 import { parseDeliveryDisplay } from "@/modules/delivery/display-context";
 import type { ProcessTab } from "./tabs";
 import { messageCursor, encodeMessageCursor } from "@/modules/messages/cursor";
+import {
+  getPdfIndexOrigins,
+  getPdfVersionSequences,
+} from "@/modules/pdf-versions/queries";
 import { eventFilter } from "@/modules/timeline/types";
 export async function listProcesses() {
   await authorize(["client", "calculator"]);
@@ -203,7 +207,21 @@ export async function getProcess(
   if (displayResult.error)
     throw new Error("Não foi possível conferir as entregas e o saldo.");
   const display = parseDeliveryDisplay(displayResult.data, id, deliveryRecords);
+  const pdfSequences =
+    (files.data?.length ?? 0)
+      ? await getPdfVersionSequences(id)
+      : new Map<string, number>();
+  const indexOrigins =
+    tab === "indice"
+      ? await getPdfIndexOrigins(
+          id,
+          (index.data ?? []).slice(0, 50).map((row) => row.id),
+        )
+      : [];
   return {
+    indexOrigins: new Map(
+      indexOrigins.map((origin) => [origin.entryId, origin]),
+    ),
     deposits: new Map(
       depositInfoSchema
         .array()
@@ -212,7 +230,10 @@ export async function getProcess(
     ),
     process: data,
     role: session.profile.role,
-    files: files.data ?? [],
+    files: (files.data ?? []).map((file) => ({
+      ...file,
+      version: pdfSequences.get(file.id) ?? file.version,
+    })),
     orders: orders.data ?? [],
     contractQuoteIds: new Set(
       (contractQuotes.data ?? []).map((row) => row.quote_id),
@@ -230,7 +251,15 @@ export async function getProcess(
         ? encodeMessageCursor(messages.data![49])
         : null,
     decisions: decisions.data ?? [],
-    index: (index.data ?? []).slice(0, 50),
+    index: (index.data ?? []).slice(0, 50).map((entry) => ({
+      ...entry,
+      source: entry.source
+        ? {
+            ...entry.source,
+            version: pdfSequences.get(entry.file_id) ?? entry.source.version,
+          }
+        : entry.source,
+    })),
     olderIndex:
       (index.data?.length ?? 0) > 50
         ? encodeMessageCursor(index.data![49])
