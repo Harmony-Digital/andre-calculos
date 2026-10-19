@@ -1,6 +1,6 @@
 # Variáveis da Vercel
 
-O Fábio cadastra os valores a partir do cofre de produção, depois de conferir a conta do cliente, o time `projeto-andre1` e o projeto ligado a `Harmony-Digital/andre-calculos`. Nunca copiar valores para o repositório. Preview usa banco próprio de desenvolvimento com dados fictícios, sem apontar para a produção.
+O Fábio cadastra os valores a partir do cofre de produção, depois de conferir a conta do cliente, o time `projeto-andre1` e o projeto ligado a `Harmony-Digital/andre-calculos`. Nunca copiar valores para o repositório. Preview usa banco próprio de desenvolvimento com dados fictícios, sem apontar para a produção. Para a primeira validação M1.50v, Fábio autorizou expressamente o agente a configurar e publicar (“Configure e publique”, 19/10/2026), exclusivamente no projeto andre-calculos da equipe Projeto Andre, Supabase qtofwbxujshroaafxowr e domínio atual. Essa exceção não libera leitura do cofre pessoal nem execução do script pessoal abaixo.
 
 | Nome | Origem | Ambiente | Uso |
 |---|---|---|---|
