@@ -85,9 +85,8 @@ export async function CalculationUpdateContext({
             title="Enviar o PJC da atualização"
           />
           <UpdatePjcPicker
-            key={`${c.orderId}:${revision}`}
+            key={c.orderId}
             orderId={c.orderId}
-            revision={revision}
             files={(files?.data ?? []).filter((f) =>
               f.name.toLowerCase().endsWith(".pjc"),
             )}

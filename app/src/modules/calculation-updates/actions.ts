@@ -32,16 +32,22 @@ export async function attachUpdatePjc(input: unknown) {
   const v = z
     .strictObject({
       orderId: z.uuid(),
-      revision: z.number().int().positive(),
       fileId: z.uuid(),
     })
     .safeParse(input);
   if (!v.success)
     return { error: "Selecione o PJC enviado para esta atualização." };
   const db = await createSessionClient();
+  const current = await db
+    .from("checklists")
+    .select("revision")
+    .eq("order_id", v.data.orderId)
+    .single();
+  if (current.error || !current.data)
+    return { error: "Não foi possível conferir o pedido. Tente novamente." };
   const result = await db.rpc("complete_calculation_update", {
     target_order: v.data.orderId,
-    expected_revision: v.data.revision,
+    expected_revision: current.data.revision,
     source_file: v.data.fileId,
   });
   if (result.error)

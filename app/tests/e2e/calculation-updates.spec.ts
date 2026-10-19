@@ -31,6 +31,26 @@ test("atualização preserva origem, revisa rascunho e emite proposta própria p
     await expect(
       page.getByRole("region", { name: "Origem da atualização" }),
     ).toContainText(f.sample.order_code);
+    for (let step = 0; step < 9; step++) {
+      if (step === 1)
+        await expect(
+          page.getByLabel("Tipo de cálculo", { exact: true }),
+        ).toHaveValue("update");
+      if (step === 3) {
+        await expect(page.getByLabel("Data-base do cálculo")).toHaveValue("");
+        await page.getByLabel("Data-base do cálculo").fill("2026-11-01");
+      }
+      if (step === 7)
+        await page
+          .getByLabel("Data da ciência da intimação")
+          .fill(todayInSaoPaulo(new Date()));
+      await page
+        .getByRole("button", {
+          name: step === 8 ? "Conferir respostas" : "Continuar",
+          exact: true,
+        })
+        .click();
+    }
     if (missing) {
       await expect(
         page.getByRole("region", { name: "Origem da atualização" }),
@@ -52,26 +72,6 @@ test("atualização preserva origem, revisa rascunho e emite proposta própria p
       await expect(
         page.getByRole("region", { name: "Origem da atualização" }),
       ).toContainText("Enviado para esta atualização");
-    }
-    for (let step = 0; step < 9; step++) {
-      if (step === 1)
-        await expect(
-          page.getByLabel("Tipo de cálculo", { exact: true }),
-        ).toHaveValue("update");
-      if (step === 3) {
-        await expect(page.getByLabel("Data-base do cálculo")).toHaveValue("");
-        await page.getByLabel("Data-base do cálculo").fill("2026-11-01");
-      }
-      if (step === 7)
-        await page
-          .getByLabel("Data da ciência da intimação")
-          .fill(todayInSaoPaulo(new Date()));
-      await page
-        .getByRole("button", {
-          name: step === 8 ? "Conferir respostas" : "Continuar",
-          exact: true,
-        })
-        .click();
     }
     await expect(
       page.getByRole("heading", { name: "Confira as informações" }),
@@ -170,7 +170,7 @@ test("atualização preserva origem, revisa rascunho e emite proposta própria p
         {
           viewport: page.viewportSize(),
           path: missing
-            ? "ausente → upload real → vínculo → revisão → proposta"
+            ? "ausente → revisão → upload real → vínculo → proposta"
             : "PJC guardado → revisão → proposta",
           originalPreserved: f.snapshot() === f.original,
           newQuote: true,

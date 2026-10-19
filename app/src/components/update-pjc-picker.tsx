@@ -5,11 +5,9 @@ import { attachUpdatePjc } from "@/modules/calculation-updates/actions";
 import { Button } from "./ui/button";
 export function UpdatePjcPicker({
   orderId,
-  revision,
   files,
 }: {
   orderId: string;
-  revision: number;
   files: { id: string; name: string }[];
 }) {
   const router = useRouter(),
@@ -26,7 +24,6 @@ export function UpdatePjcPicker({
         try {
           const r = await attachUpdatePjc({
             orderId,
-            revision,
             fileId: selected,
           });
           if (r.success) router.refresh();

@@ -14,5 +14,10 @@
     "preservedSeedId": "00000000-0000-4000-8000-000000000501",
     "preservedSeedName": "arquivo-ficticio.pdf",
     "preservedSeedStatus": "pending"
-  }
+  },
+  "publicTables": 25,
+  "privateTables": 73,
+  "tablesWithoutRls": 0,
+  "uploadedFiles": 0,
+  "syntheticOrdersRemaining": 0
 }

@@ -23,5 +23,13 @@
     "build": "EPERM conhecido de processo/porta no Turbopack; sem nova tentativa"
   },
   "published": false,
-  "visualScreenshotsReviewed": 4
+  "visualScreenshotsReviewed": 4,
+  "latePjcUploadAfterReview": {
+    "targetedBoundaryTests": 3,
+    "typecheck": "passed",
+    "mobileJourneySeconds": 8.9,
+    "totalSeconds": 11.3,
+    "retries": 0,
+    "axeViolations": 0
+  }
 }
