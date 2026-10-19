@@ -53,3 +53,7 @@ bash scripts/dev-env.sh npm run test:e2e -- tests/e2e/contract-archive.spec.ts -
 O wrapper fornece configuração local somente ao processo; não cria arquivo de segredo. Os testes usam contas e dados fictícios. Antes de executá-los, confira os processos e leases ativos para respeitar a regra de um escritor. Não rodar reset/reseed ou outra suíte de banco em paralelo.
 
 O teste de banco cobre reserva/replay/concorrência, falhas de transporte, divergência de objeto, isolamento, rollback e retomada. O navegador cobre aceite com retorno perdido, recuperação, proposta/pasta, download com conferência de bytes e negação aos outros papéis em celular e computador. O checklist completo de qualidade continua em `AGENTS.md`; repetir ensaios depende de alteração ou falha concreta.
+
+## Primeira validação hospedada
+
+O preparo autorizado em19/10 permite a geração do mesmo PDF a partir do snapshot sintético já preparado, exclusivamente quando `ANDRE_VALIDATION_MODE=1` e projeto Vercel, ambiente production, domínio e Supabase coincidem com o manifesto. Autorização do cliente/calculista, reserva, hash, bucket privado e auditoria permanecem obrigatórios. As flags locais continuam restritas ao localhost. Não configurar cron ou `CRON_SECRET` nesta validação. Esse opt-in não ativa contratação comercial nem aceita orçamento simulado como real. Consulte `docs/validacao/operacao.md`.

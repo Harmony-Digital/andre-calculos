@@ -58,7 +58,7 @@ O calculista consulta autorizações de visualização/download em `/painel/aces
 
 ### Contratos
 
-O aceite registra uma intenção de geração e congela os dados do contrato. O processador confere os bytes arquivados antes de disponibilizar o PDF privado na proposta e na pasta do processo. Recuperação, permissões, restrição do produtor ao ambiente local e comandos de verificação em [docs/contratos.md](docs/contratos.md).
+O aceite registra uma intenção de geração e congela os dados do contrato. O processador confere os bytes arquivados antes de disponibilizar o PDF privado na proposta e na pasta do processo. Recuperação, permissões, restrição do produtor ao ambiente local ou ao destino fictício de validação explicitamente autorizado e comandos de verificação em [docs/contratos.md](docs/contratos.md).
 
 ### Lembretes de prazo
 
@@ -76,3 +76,7 @@ A seleção local usa dias úteis para avisos de um/dois dias e gera um aviso de
 - `supabase/`: migrations, configuração local e seed fictício.
 
 Antes de qualquer escrita externa, confira a identidade pelo preflight. Segredos são fornecidos pelo cofre do projeto; jamais são registrados no código, Git ou saída dos comandos.
+
+## Primeira validação hospedada
+
+Operação, destinos, variáveis, contas/cenários reservados e conferência após publicação em [docs/validacao/operacao.md](docs/validacao/operacao.md). A existência do manifesto não comprova que o banco foi semeado ou que a versão foi publicada; consulte `plan.md`.

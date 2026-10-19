@@ -4,6 +4,7 @@ O Fábio cadastra os valores a partir do cofre de produção, depois de conferir
 
 | Nome | Origem | Ambiente | Uso |
 |---|---|---|---|
+| `ANDRE_VALIDATION_MODE` | Opt-in não secreto `1`, somente primeira validação autorizada | production, exclusivamente projeto/banco/domínio do manifesto de validação | Calendário/agenda fictícios, banner e geração de contratos sintéticos; não habilita provedores reais |
 | `APP_BASE_URL` | App | production / preview | Origem HTTPS do ambiente, callbacks do login |
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase | production / preview | Projeto correspondente ao ambiente |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase | production / preview | Chave pública; acesso de dados autenticado com RLS no servidor |

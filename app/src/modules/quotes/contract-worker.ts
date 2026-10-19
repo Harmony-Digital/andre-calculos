@@ -1,4 +1,5 @@
 import "server-only";
+import { hostedValidationEnabled } from "@/modules/validation/environment";
 import { randomUUID, createHash } from "node:crypto";
 import { z } from "zod";
 import { createSystemClient } from "@/lib/supabase/admin";
@@ -7,11 +8,12 @@ import { renderContractPdf } from "./contract-pdf";
 
 export function localContractWorkerEnabled() {
   return (
-    process.env.ANDRE_LOCAL_TESTS === "1" &&
-    process.env.NEXT_PUBLIC_SUPABASE_URL === "http://127.0.0.1:54321" &&
-    !process.env.VERCEL &&
-    !process.env.VERCEL_ENV &&
-    process.env.NODE_ENV !== "production"
+    (process.env.ANDRE_LOCAL_TESTS === "1" &&
+      process.env.NEXT_PUBLIC_SUPABASE_URL === "http://127.0.0.1:54321" &&
+      !process.env.VERCEL &&
+      !process.env.VERCEL_ENV &&
+      process.env.NODE_ENV !== "production") ||
+    hostedValidationEnabled(process.env)
   );
 }
 const sha = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");

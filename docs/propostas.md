@@ -12,6 +12,8 @@ O carregador comercial bloqueia a emissão enquanto não houver fontes protegida
 
 `ANDRE_QUOTE_FIXTURES=1` só habilita simulação junto de `ANDRE_LOCAL_TESTS=1`, API exatamente `http://127.0.0.1:54321` e ausência de `VERCEL_ENV`. É uma variável exclusiva do servidor; nenhum parâmetro HTTP a habilita. Os documentos exibem **Ensaio fictício - sem valor comercial**, não permitem aceite e não reservam agenda real. Nunca cadastre essa variável na Vercel.
 
+A primeira validação hospedada tem opt-in separado: `ANDRE_VALIDATION_MODE=1`, Vercel production, ID do projeto, origem e Supabase exatos de `docs/validacao/manifesto-base.json`. A autorização do Fábio é exclusiva desse preparo fictício. Não usa as flags de testes locais na Vercel, não permite aceite de proposta simulada e não habilita emissão comercial ou transporte externo. A retirada desse opt-in exige novo deploy. A fonte bloqueia destinos divergentes.
+
 Nesse ensaio, calendário e capacidade são inventados. O período conta meses civis tocados, incluindo frações, somente quando a demissão foi informada. Essa regra não é uma decisão comercial do André; não usa a data-base como término presumido. Identificação e preços também são fixtures temporárias, restauradas pelos testes.
 
 O Playwright inicia o servidor com o opt-in fictício. Antes do ensaio, encerre um servidor dev comum já aberto: o Playwright não altera o ambiente de um processo existente. Alternativamente, inicie explicitamente o servidor fictício:
