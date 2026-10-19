@@ -46,7 +46,14 @@
     "unitFiles": 80,
     "scriptTests": 43,
     "build": "failed: EPERM conhecido do Turbopack ao criar processo e vincular porta; não repetido",
-    "ci": "pendente para a nova fonte consolidada"
+    "ci": {
+      "run": 39299544391,
+      "qualityJob": 118221303455,
+      "conclusion": "success",
+      "source": "26f726a259b9f2320cc37bb512b666ab7200683e",
+      "proof": "ci-build.json",
+      "overallSuite": "in_progress; não inferir aprovação integral"
+    }
   },
   "advisors": {
     "security": [],
@@ -72,5 +79,6 @@
     "seletor de alerta limitado ao main",
     "declaração RPC no schema public dos tipos",
     "cache dev antigo isolado após artefato CSS sem regras novas; capturas finais conferidas"
-  ]
+  ],
+  "source": "26f726a259b9f2320cc37bb512b666ab7200683e"
 }
