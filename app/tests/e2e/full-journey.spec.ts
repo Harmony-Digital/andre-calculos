@@ -277,12 +277,18 @@ test("mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas
       expect(response.status()).toBe(200);
       expect((await response.body()).subarray(0, 5).toString()).toBe("%PDF-");
       await calc.goto(`/painel/processos/${processId}?aba=resumo`);
-      await calc
-        .getByRole("link", {
-          name: `${simulation.data!.number} · Ensaio fictício`,
-          exact: true,
-        })
-        .click();
+      const simulationLink = calc.getByRole("link", {
+        name: simulation.data!.number,
+        exact: false,
+      });
+      await expect(simulationLink).toHaveAttribute(
+        "href",
+        `/painel/orcamentos/${simulation.data!.id}`,
+      );
+      await expect(simulationLink).toContainText("Versão 1");
+      await expect(simulationLink).toContainText("Vigente");
+      await expect(simulationLink).toContainText("Ensaio fictício");
+      await simulationLink.click();
       await expect(calc).toHaveURL(
         new RegExp(`/painel/orcamentos/${simulation.data!.id}$`),
       );

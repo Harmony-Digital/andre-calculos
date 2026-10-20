@@ -41,6 +41,10 @@ test("painel conta além de cinquenta e os cartões abrem listas coerentes, com 
         due: yesterday,
       })),
       { status: "delivered", due: yesterday },
+      ...Array.from({ length: 59 }, () => ({
+        status: "quoted",
+        due: yesterday,
+      })),
     ]),
     priorClients = (
       await db
@@ -67,16 +71,16 @@ test("painel conta além de cinquenta e os cartões abrem listas coerentes, com 
       ).toBeNull();
     const offers = [
       { index: 126, accepted: false, expired: false },
-      { index: 126, accepted: false, expired: false },
       { index: 127, accepted: false, expired: false },
-      { index: 128, accepted: false, expired: true },
-      { index: 129, accepted: true, expired: false },
-      { index: 130, accepted: false, expired: false },
-      ...Array.from({ length: 58 }, () => ({
-        index: 127,
+      // Cada proposta vigente é a única folha de um pedido distinto.
+      ...Array.from({ length: 59 }, (_, i) => ({
+        index: 131 + i,
         accepted: false,
         expired: false,
       })),
+      { index: 128, accepted: false, expired: true },
+      { index: 129, accepted: true, expired: false },
+      { index: 130, accepted: false, expired: false },
     ].map((o) => ({
       id: randomUUID(),
       number: `ORC-ENSAIO-${randomUUID()}`,
@@ -165,7 +169,8 @@ test("painel conta além de cinquenta e os cartões abrem listas coerentes, com 
     await expect(page.locator("[data-panel-record]")).toHaveCount(7);
     await page.goto("/painel");
     await page.locator('[data-stat="quotes"]').click();
-    const expectedQuotes = [...offers.slice(0, 3), ...offers.slice(6)]
+    const expectedQuotes = offers
+        .slice(0, 61)
         .map((q) => q.id)
         .sort()
         .reverse(),
