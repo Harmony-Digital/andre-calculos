@@ -1,0 +1,9 @@
+{
+  "projectRef": "qtofwbxujshroaafxowr",
+  "lastApplied": 59,
+  "rejectedIndex": 60,
+  "rejectedName": "andre_calculos_0060_payment_reservation_coordination",
+  "rejectedAt": "2026-10-19T20:32:49.029Z",
+  "reason": "A migração altera persistentemente fluxos financeiros e contratuais existentes, incluindo confirmação de depósitos, reservas de cobrança e atualização de contratos/clientes; isso excede a publicação fictícia sem novas funcionalidades e pode afetar dados operacionais se invocado.",
+  "action": "Stopped. No retry or alternative execution. Awaiting user-specific authorization."
+}

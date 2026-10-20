@@ -1,0 +1,30 @@
+{
+  "projectRef": "qtofwbxujshroaafxowr",
+  "projectUrlVerified": "https://qtofwbxujshroaafxowr.supabase.co",
+  "initialState": {
+    "applicationTables": 0,
+    "migrations": 0,
+    "authUsers": 0,
+    "storageBuckets": 0,
+    "storageObjects": 0,
+    "postgresVersion": "17.11",
+    "pgcryptoSchema": "extensions",
+    "appAuthTriggerConflicts": 0,
+    "appStoragePolicyConflicts": 0
+  },
+  "installedSnapshot": {
+    "count": 59,
+    "lastName": "andre_calculos_0059_payment_intents",
+    "lastAppliedAt": "2026-10-19T20:32:33.937Z",
+    "sourceHashes": "docs/validacao/migrations.json",
+    "journal": ".data/validacao/migrations-aplicadas.jsonl",
+    "securityCriticalErrors": 0
+  },
+  "productionEnvironmentKeys": [
+    "APP_BASE_URL",
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+    "ANDRE_VALIDATION_MODE"
+  ],
+  "missingEnvironmentKey": "SUPABASE_SERVICE_ROLE_KEY"
+}
