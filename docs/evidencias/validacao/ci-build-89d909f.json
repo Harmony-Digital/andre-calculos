@@ -53,62 +53,50 @@
   "e2eStatus": "in_progress",
   "overallStatus": "in_progress",
   "overallConclusion": null,
-  "limits": "Esta prova confirma check/build e RLS success dessa fonte. O CI terminou cancelled pelo limite de2h, com falha concreta de seletor obsoleto no navegador e leases posteriores sob investigação. Não é aprovação integral, merge, implantação ou equivalência do ambiente Vercel. Correção da família de seletores e quatro ensaios dirigidos em dois viewports sem retry ainda pendentes; candidato local não publicado, produção continua exigindo main.",
-  "rlsConclusion": "success",
-  "e2eConclusion": "cancelled",
-  "e2eLastStep": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1",
-  "overallCompletedAt": "2026-10-20T03:10:04Z",
-  "cancellationReason": "Limite de duas horas do job, sem cancelamento manual ou rerun por documentação.",
-  "rlsCompletedAt": "2026-10-20T01:52:17Z",
-  "rlsDurationSeconds": 2382,
-  "earlierStatusObservation": {
-    "observedAtUtcMinute": "2026-10-20T01:53Z",
-    "timePrecision": "minute",
-    "rlsConclusionAtObservation": "success",
-    "rlsExactCompletedAt": "not_recorded",
-    "browserStartedAtUtcMinute": "2026-10-20T01:53Z",
-    "browserStatus": "in_progress",
-    "monitorAgent": "fix_release_harness",
-    "monitorMethod": "read_only_check_run_polling",
-    "annotationsObserved": 0,
-    "rerun": false
-  },
-  "statusObservation": {
-    "runCompletedAt": "2026-10-20T03:10:04Z",
-    "rlsConclusion": "success",
-    "rlsCompletedAt": "2026-10-20T01:52:17Z",
-    "rlsDuration": "39m42s",
-    "browserConclusion": "cancelled",
-    "firstConcreteFailure": {
-      "file": "app/tests/e2e/quote-acceptance.spec.ts",
-      "line": 21,
-      "cause": "Seletor de link com name exato sample.number obsoleto."
-    },
-    "laterLeaseFailures": "Sob investigação; cascata provável, sem causalidade absoluta confirmada.",
-    "harnessCorrection": {
-      "agent": "fix_release_harness",
-      "scope": ["quote-acceptance", "quotes"],
-      "directedTests": 4,
-      "viewports": 2,
-      "retries": 0,
-      "status": "pending"
-    },
-    "overallApproval": false,
-    "merge": false,
-    "deployment": false
-  },
-  "localCandidatePackage": {
-    "directory": ".data/publicacao-validacao-candidata",
-    "source": "49737d9856e65a3a53f572ee550afab1070049c0",
-    "files": 265,
-    "sizeBytes": 1603844,
-    "sha256": "6f7ee761648a8ecddb60d408c4a5a1198b8116f8e3cf6b51e8b7610cf9362d78",
-    "published": false,
-    "productionRequiresMain": true
-  },
+  "limits": "Check/build dessa fonte e etapa RLS confirmados success. Navegador e resultado integral ainda não concluídos no momento da coleta; annotations0 não atesta aprovação. Não atesta implantação ou equivalência do ambiente Vercel.",
   "productMatchesPreviousSource": {
     "source": "49737d9856e65a3a53f572ee550afab1070049c0",
     "command": "git diff --quiet 49737d9856e65a3a53f572ee550afab1070049c0 89d909fa31b729b5b1521d8a891253e0a5a21b6d -- app/src app/public app/package.json app/package-lock.json app/next.config.ts app/tsconfig.json app/vercel.json app/scripts/copy-pdf-assets.mjs",
     "exitCode": 0
+  },
+  "observedAt": "2026-10-20T03:50:14.385Z",
+  "rls": {
+    "conclusion": "success",
+    "startedAt": "2026-10-20T03:17:53Z",
+    "completedAt": "2026-10-20T03:46:35Z",
+    "durationSeconds": 1722
+  },
+  "browser": {
+    "status": "in_progress",
+    "conclusion": null,
+    "startedAt": "2026-10-20T03:46:35Z",
+    "command": "bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1 --max-failures=1"
+  },
+  "e2eCurrentStep": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1 --max-failures=1",
+  "progressLogs": {
+    "available": false,
+    "httpStatus": 404,
+    "attempts": 1,
+    "limits": "API oficial de logs do job em andamento retornou HTTP 404; sem nova tentativa ou estimativa da duração restante."
+  },
+  "rlsConclusion": "success",
+  "e2eConclusion": null,
+  "overallCompletedAt": null,
+  "rlsCompletedAt": "2026-10-20T03:46:35Z",
+  "rlsDurationSeconds": 1722,
+  "statusObservation": {
+    "observedAt": "2026-10-20T03:50:14.385Z",
+    "run": 39363302717,
+    "source": "89d909fa31b729b5b1521d8a891253e0a5a21b6d",
+    "status": "in_progress",
+    "qualityConclusion": "success",
+    "rlsConclusion": "success",
+    "rlsCompletedAt": "2026-10-20T03:46:35Z",
+    "rlsDurationSeconds": 1722,
+    "browserStatus": "in_progress",
+    "browserStartedAt": "2026-10-20T03:46:35Z",
+    "browserConclusion": null,
+    "annotationsCount": 0,
+    "overallConclusion": null
   }
 }
