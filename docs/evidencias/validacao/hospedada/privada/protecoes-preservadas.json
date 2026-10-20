@@ -1,0 +1,31 @@
+{
+  "operation": "github_protections_readback",
+  "verifiedOn": "2026-10-20",
+  "repository": "Harmony-Digital/andre-calculos",
+  "main": {
+    "ref": "refs/heads/main",
+    "sha": "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd"
+  },
+  "ruleset": {
+    "bypassActors": 0,
+    "enforcement": "active",
+    "id": 24880297,
+    "requiredChecks": [
+      {
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "qualidade",
+            "integration_id": 15368
+          },
+          {
+            "context": "e2e",
+            "integration_id": 15368
+          }
+        ],
+        "strict_required_status_checks_policy": true
+      }
+    ]
+  },
+  "mutated": false
+}

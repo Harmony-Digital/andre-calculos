@@ -1,0 +1,99 @@
+{
+  "operation": "single_hosted_contract_02",
+  "origin": "https://project-rucji.vercel.app",
+  "quoteId": "6d07e560-0050-4000-8000-000000000002",
+  "startedAt": "2026-10-20T11:57:29.245Z",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "previousSqlReadback": "coordinator_confirmed_pending_without_job_metadata_or_archive",
+  "requested": true,
+  "nativePostResponses": [
+    {
+      "route": "/painel/orcamentos/6d07e560-0050-4000-8000-000000000002",
+      "status": 200
+    }
+  ],
+  "cardMessages": [
+    {
+      "moment": "before_click_after_hydration",
+      "messages": [
+        "Estamos preparando o PDF com os dados registrados no aceite. Sua contratação já está confirmada."
+      ],
+      "unrecognizedMessagePresent": false
+    },
+    {
+      "moment": "after_native_post",
+      "messages": [
+        "Estamos preparando o PDF com os dados registrados no aceite. Sua contratação já está confirmada.",
+        "Preparação retomada. O arquivo aparecerá aqui quando estiver disponível."
+      ],
+      "unrecognizedMessagePresent": false
+    },
+    {
+      "moment": "ready",
+      "messages": [
+        "Seu contrato reúne os serviços, valores e os termos que você aceitou."
+      ],
+      "unrecognizedMessagePresent": false
+    }
+  ],
+  "pdfChecks": [
+    {
+      "account": "andre",
+      "route": "/api/quotes/6d07e560-0050-4000-8000-000000000002/contract",
+      "status": 200,
+      "pdfMime": true,
+      "privateNoStore": true,
+      "sizeBytes": 17994,
+      "sha256": "1e44669ae14497fb3ca48b29dc18c27babe8f9b63cf7de4f24ee09c7e11821d1",
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "account": "advogada",
+      "route": "/api/quotes/6d07e560-0050-4000-8000-000000000002/contract",
+      "status": 200,
+      "pdfMime": true,
+      "privateNoStore": true,
+      "sizeBytes": 17994,
+      "sha256": "1e44669ae14497fb3ca48b29dc18c27babe8f9b63cf7de4f24ee09c7e11821d1",
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/evidencias/validacao/hospedada/privada/contrato02-20261020T115729245Z-andre-pronto.png",
+      "sha256": "78df47d6705757c12b4246818ec371a280d2bb7a7fed89a5e529183734401ef2"
+    }
+  ],
+  "thirdPartyRequestsBlocked": 0,
+  "passed": true,
+  "secretsInOutput": false,
+  "trace": false,
+  "video": false,
+  "har": false,
+  "cookiesOnDisk": false,
+  "pdfBytesOnDisk": false,
+  "statusBefore": {
+    "status": 200,
+    "state": "pending",
+    "quoteIdMatched": true
+  },
+  "hydrationStatus": {
+    "status": 200,
+    "state": "pending",
+    "quoteIdMatched": true
+  },
+  "statusAfter": {
+    "status": 200,
+    "state": "ready",
+    "quoteIdMatched": true
+  },
+  "completedAt": "2026-10-20T11:57:48.692Z",
+  "sourceEvidence": ".data/validacao/hospedagem-ui-hXy3Aa/contrato02-20261020T115729245Z.json"
+}

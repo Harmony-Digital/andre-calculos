@@ -1,0 +1,797 @@
+{
+  "operation": "hosted_ui_validation",
+  "targetOrigin": "https://project-rucji.vercel.app",
+  "health": {
+    "status": "ok",
+    "sha": "49737d9856e65a3a53f572ee550afab1070049c0",
+    "region": "gru1"
+  },
+  "passed": false,
+  "uiChecks": [
+    {
+      "kind": "native_ui_login",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "label": "inicio",
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "label": "contrato-03",
+      "passed": true
+    },
+    {
+      "kind": "original_and_separate_update_visible",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "passed": true
+    },
+    {
+      "kind": "update_origin_and_saved_pjc_visible",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "sourceOrder": "6d07e560-0030-4000-8000-000000000003",
+      "updateOrder": "5f4b7093-ddb4-4a91-a9b1-6fa9711d8c08",
+      "sourcePjc": "6d07e560-0060-4000-8000-000000000004",
+      "sourceRevision": 1,
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "label": "processo-entrega-atualizacao",
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "label": "linha-do-tempo",
+      "passed": true
+    },
+    {
+      "kind": "quote_05_can_revise_ui",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "label": "orcamento-ajuste",
+      "passed": true
+    },
+    {
+      "kind": "native_ui_login",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "label": "inicio",
+      "passed": true
+    },
+    {
+      "kind": "original_and_separate_update_visible",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "passed": true
+    },
+    {
+      "kind": "update_origin_and_saved_pjc_visible",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "sourceOrder": "6d07e560-0030-4000-8000-000000000003",
+      "updateOrder": "5f4b7093-ddb4-4a91-a9b1-6fa9711d8c08",
+      "sourcePjc": "6d07e560-0060-4000-8000-000000000004",
+      "sourceRevision": 1,
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "label": "processo-entrega-atualizacao",
+      "passed": true
+    },
+    {
+      "kind": "update_origin_and_saved_pjc_visible",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "sourceOrder": "6d07e560-0030-4000-8000-000000000003",
+      "updateOrder": "5f4b7093-ddb4-4a91-a9b1-6fa9711d8c08",
+      "sourcePjc": "6d07e560-0060-4000-8000-000000000004",
+      "sourceRevision": 1,
+      "passed": true
+    },
+    {
+      "kind": "existing_update_draft_review_pending",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "updateOrder": "5f4b7093-ddb4-4a91-a9b1-6fa9711d8c08",
+      "step": 1,
+      "totalSteps": 9,
+      "savedOrSubmitted": false,
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "label": "atualizacao-rascunho-pjc",
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "label": "linha-do-tempo",
+      "passed": true
+    },
+    {
+      "kind": "quote_05_can_accept_ui",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "label": "orcamento-ajuste",
+      "passed": true
+    },
+    {
+      "kind": "other_client_process_denied",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "status": 404,
+      "passed": true
+    },
+    {
+      "kind": "native_ui_login",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 375,
+      "label": "inicio",
+      "passed": true
+    },
+    {
+      "kind": "original_and_separate_update_visible",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 375,
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 375,
+      "label": "processo-entrega-atualizacao",
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 375,
+      "label": "linha-do-tempo",
+      "passed": true
+    },
+    {
+      "kind": "quote_05_can_revise_ui",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 375,
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 375,
+      "label": "orcamento-ajuste",
+      "passed": true
+    },
+    {
+      "kind": "native_ui_login",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 375,
+      "label": "inicio",
+      "passed": true
+    },
+    {
+      "kind": "original_and_separate_update_visible",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 375,
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 375,
+      "label": "processo-entrega-atualizacao",
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 375,
+      "label": "linha-do-tempo",
+      "passed": true
+    },
+    {
+      "kind": "quote_05_can_accept_ui",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 375,
+      "passed": true
+    },
+    {
+      "kind": "responsive_layout",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 375,
+      "label": "orcamento-ajuste",
+      "passed": true
+    },
+    {
+      "kind": "other_client_process_denied",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 375,
+      "status": 404,
+      "passed": true
+    }
+  ],
+  "contractGeneration": [
+    {
+      "quoteId": "6d07e560-0050-4000-8000-000000000002",
+      "requested": true,
+      "state": "pending",
+      "status": 200,
+      "downloadLinkVisible": false,
+      "passed": false
+    },
+    {
+      "quoteId": "6d07e560-0050-4000-8000-000000000003",
+      "requested": true,
+      "state": "ready",
+      "status": 200,
+      "downloadLinkVisible": true,
+      "passed": true
+    }
+  ],
+  "artifactChecks": [
+    {
+      "kind": "quote_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "quoteId": "6d07e560-0050-4000-8000-000000000001",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 13958,
+      "sha256": "43b07b44c19394b6e080207046d94284cfcab29ac6cc9f5c04aa4adda2a58938",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "quote_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "quoteId": "6d07e560-0050-4000-8000-000000000002",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 13965,
+      "sha256": "356504a9d5b14a8ac9bf1a304dd5ed547330420f241400ccecb274b2cb761b44",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "quote_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "quoteId": "6d07e560-0050-4000-8000-000000000003",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 13957,
+      "sha256": "682298b411047ca5270beb867a87671a439b024240e7757dbf95f3102733b5eb",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "quote_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "quoteId": "6d07e560-0050-4000-8000-000000000005",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 14017,
+      "sha256": "4f1b1e5622d5e64d9de03b4150818cfb964c45d8b39a8729a5573b09ab66728b",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "decisions_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "processId": "6d07e560-0020-4000-8000-000000000001",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 10745,
+      "sha256": "2b956b97696450724ede6adc0df08199784b66da048e669700b3a35022c9b152",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "decisions_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "processId": "6d07e560-0020-4000-8000-000000000002",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 10593,
+      "sha256": "7a6555088c61bbecc6941b8dfadf829efd784e5aebeb1eaa8c83d773283188f1",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "decisions_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 10767,
+      "sha256": "ba615ea4d59d50d03d0882ec3ff707b583a635de0e81d626299882b93fe3d3d9",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "contract_status",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "quoteId": "6d07e560-0050-4000-8000-000000000002",
+      "status": 200,
+      "state": "pending",
+      "passed": false
+    },
+    {
+      "kind": "contract_status",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "quoteId": "6d07e560-0050-4000-8000-000000000003",
+      "status": 200,
+      "state": "ready",
+      "passed": true
+    },
+    {
+      "kind": "contract_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "quoteId": "6d07e560-0050-4000-8000-000000000003",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 17973,
+      "sha256": "d3a41db353fec961597442ddf028da7140633cbe7157148b26446f1bd13dc037",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "quote_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "quoteId": "6d07e560-0050-4000-8000-000000000001",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 13958,
+      "sha256": "d618f8e64961510d9a5c47cb7c586c34ddd4758da85da5215dba0c30d2644a9e",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "quote_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "quoteId": "6d07e560-0050-4000-8000-000000000002",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 13965,
+      "sha256": "92b766e7e73ae8c899c8ac954ee2a20e645d29284da28fe256c044c17524b17e",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "quote_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "quoteId": "6d07e560-0050-4000-8000-000000000003",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 13957,
+      "sha256": "afb875bec9280884c42a8382a11170cbcb34640fba50995e934b505045411416",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "quote_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "quoteId": "6d07e560-0050-4000-8000-000000000005",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 14017,
+      "sha256": "ff0ea8cd9220e740683cc48b8b595290eae2f457b787b9099b8d34ef953c9868",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "decisions_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "processId": "6d07e560-0020-4000-8000-000000000001",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 10745,
+      "sha256": "1839320d1afb461326987077427772e0a169e6c5605e58537e9a713a1e6679eb",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "decisions_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "processId": "6d07e560-0020-4000-8000-000000000002",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 10593,
+      "sha256": "9328117315df299faa60823fff0b6e1ca6e17e58f12ea05fd72d0be06bf164d4",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "decisions_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 10767,
+      "sha256": "a2c3f13636a1f6c91c1f2220f984b79854e768da8c7e5a3a4ca4a9bfa2ac9d2b",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "contract_status",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "quoteId": "6d07e560-0050-4000-8000-000000000002",
+      "status": 200,
+      "state": "pending",
+      "passed": false
+    },
+    {
+      "kind": "contract_status",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "quoteId": "6d07e560-0050-4000-8000-000000000003",
+      "status": 200,
+      "state": "ready",
+      "passed": true
+    },
+    {
+      "kind": "contract_pdf",
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "quoteId": "6d07e560-0050-4000-8000-000000000003",
+      "status": 200,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 17973,
+      "sha256": "d3a41db353fec961597442ddf028da7140633cbe7157148b26446f1bd13dc037",
+      "pdfMime": true,
+      "pdfHeader": true,
+      "pdfEof": true,
+      "passed": true
+    },
+    {
+      "kind": "private_download",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "fileId": "6d07e560-0060-4000-8000-000000000001",
+      "status": 307,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 2709,
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "passed": true
+    },
+    {
+      "kind": "private_download",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "fileId": "6d07e560-0060-4000-8000-000000000002",
+      "status": 307,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 2709,
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "passed": true
+    },
+    {
+      "kind": "private_download",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "fileId": "6d07e560-0060-4000-8000-000000000003",
+      "status": 307,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 2709,
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "passed": true
+    },
+    {
+      "kind": "private_download",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "fileId": "6d07e560-0060-4000-8000-000000000004",
+      "status": 307,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 134,
+      "sha256": "c84ec101858b6dd4a200f81d6c07e72580d145ce15e849e86091a02c9a96fd4c",
+      "passed": true
+    },
+    {
+      "kind": "private_download",
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "fileId": "6d07e560-0060-4000-8000-000000000005",
+      "status": 307,
+      "privateNoStore": true,
+      "noReferrer": true,
+      "noSniff": true,
+      "sizeBytes": 2709,
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "label": "inicio",
+      "path": "docs/evidencias/validacao/hospedada/privada/andre-1440-inicio.png",
+      "viewport": 1440,
+      "document": 1440,
+      "noHorizontalOverflow": true,
+      "sha256": "1d15b6fa8f6193f9f48837b2c33db3d3d0ed8dea288352e410c5089f177f1e03"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "label": "contrato-03",
+      "path": "docs/evidencias/validacao/hospedada/privada/andre-1440-contrato-03.png",
+      "viewport": 1440,
+      "document": 1440,
+      "noHorizontalOverflow": true,
+      "sha256": "e06cd4f73802ede23037aea8922083882b1aa33f5c0914d042f5b478007c47a5"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "label": "processo-entrega-atualizacao",
+      "path": "docs/evidencias/validacao/hospedada/privada/andre-1440-processo-entrega-atualizacao.png",
+      "viewport": 1440,
+      "document": 1440,
+      "noHorizontalOverflow": true,
+      "sha256": "ffd5627ecc917b43dc2f8601b1151b06b9b0f66f114a16d07a6b04b2deda55c9"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "label": "linha-do-tempo",
+      "path": "docs/evidencias/validacao/hospedada/privada/andre-1440-linha-do-tempo.png",
+      "viewport": 1440,
+      "document": 1440,
+      "noHorizontalOverflow": true,
+      "sha256": "55e708637b102d607eb573755e4eec4f79a9924a633a26bceb8dbbc3d607789f"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 1440,
+      "label": "orcamento-ajuste",
+      "path": "docs/evidencias/validacao/hospedada/privada/andre-1440-orcamento-ajuste.png",
+      "viewport": 1440,
+      "document": 1440,
+      "noHorizontalOverflow": true,
+      "sha256": "4317fc3058d2a0d625033dbcbd642be11261a7441faaf967a7bf10e46f6acef3"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "label": "inicio",
+      "path": "docs/evidencias/validacao/hospedada/privada/advogada-1440-inicio.png",
+      "viewport": 1440,
+      "document": 1440,
+      "noHorizontalOverflow": true,
+      "sha256": "109ec812c4e1a8b2489af542c9716ac4326bf7f8c5ecfe1f27b4fb2a6db26e32"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "label": "processo-entrega-atualizacao",
+      "path": "docs/evidencias/validacao/hospedada/privada/advogada-1440-processo-entrega-atualizacao.png",
+      "viewport": 1440,
+      "document": 1440,
+      "noHorizontalOverflow": true,
+      "sha256": "9c4cc9d880a387d4a26845b6bf060318ea8cf235dfc169873f83fc21ca04e1d1"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "label": "atualizacao-rascunho-pjc",
+      "path": "docs/evidencias/validacao/hospedada/privada/advogada-1440-atualizacao-rascunho-pjc.png",
+      "viewport": 1440,
+      "document": 1440,
+      "noHorizontalOverflow": true,
+      "sha256": "bc7db70fa730c7e115e7651e7abef0929f02d9a7f20224cc711908366c7d5d8b"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "label": "linha-do-tempo",
+      "path": "docs/evidencias/validacao/hospedada/privada/advogada-1440-linha-do-tempo.png",
+      "viewport": 1440,
+      "document": 1440,
+      "noHorizontalOverflow": true,
+      "sha256": "d6e2d011982b9df819cf0f9219c6e0eb992005733a4212677e9f0999b1e47b36"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 1440,
+      "label": "orcamento-ajuste",
+      "path": "docs/evidencias/validacao/hospedada/privada/advogada-1440-orcamento-ajuste.png",
+      "viewport": 1440,
+      "document": 1440,
+      "noHorizontalOverflow": true,
+      "sha256": "1d736028a2ef7059e709ebeef6c8d1d38098aab2375af8bdbd270990fd5d09c0"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 375,
+      "label": "inicio",
+      "path": "docs/evidencias/validacao/hospedada/privada/andre-375-inicio.png",
+      "viewport": 375,
+      "document": 375,
+      "noHorizontalOverflow": true,
+      "sha256": "86de0b2090b6404c5870abbbbf52b97244b4e3b02479e774048b04f46f9d7b01"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 375,
+      "label": "processo-entrega-atualizacao",
+      "path": "docs/evidencias/validacao/hospedada/privada/andre-375-processo-entrega-atualizacao.png",
+      "viewport": 375,
+      "document": 375,
+      "noHorizontalOverflow": true,
+      "sha256": "a6a997330e0deba30b633ae874a8306c289e235728fd97e85c61df60ae837b7e"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 375,
+      "label": "linha-do-tempo",
+      "path": "docs/evidencias/validacao/hospedada/privada/andre-375-linha-do-tempo.png",
+      "viewport": 375,
+      "document": 375,
+      "noHorizontalOverflow": true,
+      "sha256": "48dd7cde1d225dee6fdbddd264b6639793b528f616cb89ba09decf21a2ff92b0"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "size": 375,
+      "label": "orcamento-ajuste",
+      "path": "docs/evidencias/validacao/hospedada/privada/andre-375-orcamento-ajuste.png",
+      "viewport": 375,
+      "document": 375,
+      "noHorizontalOverflow": true,
+      "sha256": "2a16f007a1b13cd070f52aae06923b18c7bce5681f9786010a41f9870f0cc590"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 375,
+      "label": "inicio",
+      "path": "docs/evidencias/validacao/hospedada/privada/advogada-375-inicio.png",
+      "viewport": 375,
+      "document": 375,
+      "noHorizontalOverflow": true,
+      "sha256": "a541e40b4f46a633b6b4f22e01c7a4e22a95a14f4a895a701da581f573273d7b"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 375,
+      "label": "processo-entrega-atualizacao",
+      "path": "docs/evidencias/validacao/hospedada/privada/advogada-375-processo-entrega-atualizacao.png",
+      "viewport": 375,
+      "document": 375,
+      "noHorizontalOverflow": true,
+      "sha256": "d1727a40493bfffa5c0033ab05ab1b053facebc2a74bc49a4d8f929ed9f93bfe"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 375,
+      "label": "linha-do-tempo",
+      "path": "docs/evidencias/validacao/hospedada/privada/advogada-375-linha-do-tempo.png",
+      "viewport": 375,
+      "document": 375,
+      "noHorizontalOverflow": true,
+      "sha256": "6ecf6b20b2e8fa53decfc87f3e713c1506acb836b579e726ae8b0e572a30b67d"
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "size": 375,
+      "label": "orcamento-ajuste",
+      "path": "docs/evidencias/validacao/hospedada/privada/advogada-375-orcamento-ajuste.png",
+      "viewport": 375,
+      "document": 375,
+      "noHorizontalOverflow": true,
+      "sha256": "07e6e9cb7b687e1ce6c3e4617cd6275924732a6e93fbcab25182588255494e7a"
+    }
+  ],
+  "outsiderAccountRequirement": "Conferir também verify-readpages no driver original; este processo usa somente duas contas principais.",
+  "secretsInOutput": false,
+  "traces": false,
+  "cookiesOnDisk": false,
+  "pdfBytesOnDisk": false,
+  "sourceEvidence": ".data/validacao/hospedagem-ui-hXy3Aa/evidencia.json",
+  "note": "Primeira execução preservada integralmente; contrato02 pendente, sem aprovação global inferida. Conferência dirigida posterior tem evidência própria."
+}

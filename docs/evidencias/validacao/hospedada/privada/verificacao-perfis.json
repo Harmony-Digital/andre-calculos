@@ -1,0 +1,154 @@
+{
+  "operation": "hosted_reserved_profiles_readback",
+  "verifiedOn": "2026-10-20",
+  "targetOrigin": "https://project-rucji.vercel.app",
+  "source": "admin-control.mjs verify-readpages",
+  "passed": true,
+  "checks": [
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "path": "/app",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "path": "/app/processos/6d07e560-0020-4000-8000-000000000001",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "path": "/app/processos/6d07e560-0020-4000-8000-000000000002",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "path": "/app/processos/6d07e560-0020-4000-8000-000000000003",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "path": "/app/orcamentos/6d07e560-0050-4000-8000-000000000001",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "path": "/app/orcamentos/6d07e560-0050-4000-8000-000000000002",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "path": "/app/orcamentos/6d07e560-0050-4000-8000-000000000003",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000001",
+      "path": "/app/processos/6d07e560-0020-4000-8000-000000000004",
+      "status": 404,
+      "expectedStatus": 404,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "path": "/painel",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "path": "/painel/processos/6d07e560-0020-4000-8000-000000000001",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "path": "/painel/processos/6d07e560-0020-4000-8000-000000000002",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "path": "/painel/processos/6d07e560-0020-4000-8000-000000000003",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000002",
+      "path": "/painel/acessos",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000003",
+      "path": "/app",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000003",
+      "path": "/app/processos/6d07e560-0020-4000-8000-000000000004",
+      "status": 200,
+      "expectedStatus": 200,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    },
+    {
+      "accountId": "6d07e560-0010-4000-8000-000000000003",
+      "path": "/app/processos/6d07e560-0020-4000-8000-000000000001",
+      "status": 404,
+      "expectedStatus": 404,
+      "expectedStatusMatched": true,
+      "signInRedirect": false,
+      "validationNotice": true
+    }
+  ],
+  "secretsInOutput": false
+}

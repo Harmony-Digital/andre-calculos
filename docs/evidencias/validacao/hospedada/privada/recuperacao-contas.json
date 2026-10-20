@@ -1,0 +1,24 @@
+{
+  "operation": "reserved_demo_accounts_recovery_readback",
+  "verifiedOn": "2026-10-20",
+  "projectRef": "qtofwbxujshroaafxowr",
+  "source": "admin-control.mjs status; resposta ao vivo após execução humana autorizada",
+  "configured": true,
+  "authReady": true,
+  "reservedAccounts": 3,
+  "recovery": {
+    "complete": true,
+    "preflightCount": 3,
+    "resetAccountIds": [
+      "6d07e560-0010-4000-8000-000000000001",
+      "6d07e560-0010-4000-8000-000000000002",
+      "6d07e560-0010-4000-8000-000000000003"
+    ],
+    "pendingAccountIds": [],
+    "requiresHumanReview": false
+  },
+  "storageReady": false,
+  "storageReadyMeaning": "Estado RAM do novo driver; os cinco arquivos existentes foram baixados e tiveram bytes/hash confirmados no portal. Não houve nova carga.",
+  "credentialsInEvidence": false,
+  "driverMustRemainOpenUntilHumanStoresCredentials": true
+}

@@ -1,0 +1,68 @@
+{
+  "operation": "first_fictitious_hosted_validation_closeout",
+  "verifiedAt": "2026-10-20T11:59:18.238Z",
+  "scope": "Conferência técnica da primeira validação fictícia; aceite do André e operação comercial continuam separados.",
+  "passed": true,
+  "origin": "https://project-rucji.vercel.app",
+  "sourceCommit": "49737d9856e65a3a53f572ee550afab1070049c0",
+  "deploymentId": "dpl_E34UhGXjFQPndxVEig8ozVF7qkNU",
+  "region": "gru1",
+  "publicationException": {
+    "approvedBy": "Fábio",
+    "approvedOn": "2026-10-20",
+    "mainAndProtectionsPreserved": true,
+    "ciApproval": false
+  },
+  "observed": {
+    "reservedAccountsRecovered": 3,
+    "nativeLoginCases": 4,
+    "viewports": [1440, 375],
+    "uiChecksPassed": 36,
+    "profileReadChecksPassed": 16,
+    "privateFilesDownloadedAndHashMatched": 5,
+    "quoteAndDecisionsPdfsPassed": 14,
+    "contractsReady": 2,
+    "contractDownloadsPassed": 4,
+    "contractArchiveBytesMatchBothRoles": true,
+    "originalOrderStatus": "delivered",
+    "separateUpdateStatus": "draft",
+    "separateUpdateQuotes": 0,
+    "separateUpdatePayments": 0,
+    "sourcePjcPreserved": true,
+    "screenshots": 19
+  },
+  "initialRun": {
+    "passed": false,
+    "artifactChecks": 25,
+    "artifactChecksPassed": 23,
+    "unresolvedContractStatusChecks": 2,
+    "retained": true
+  },
+  "directedResolution": {
+    "quoteId": "6d07e560-0050-4000-8000-000000000002",
+    "onlyThisContractRepeated": true,
+    "nativeRequests": 1,
+    "hydrationStatus": 200,
+    "postStatus": 200,
+    "finalState": "ready",
+    "passed": true,
+    "applicationChanged": false,
+    "redeployed": false,
+    "causeOfInitialPending": "Não confirmada; ausência de job antes da conferência dirigida e posterior POST nativo/ready documentados."
+  },
+  "evidence": {
+    "recovery": "recuperacao-contas.json",
+    "profiles": "verificacao-perfis.json",
+    "initialUi": "jornada-privada-inicial.json",
+    "directedContract02": "contrato02-dirigido.json",
+    "database": "readback-banco.json",
+    "protections": "protecoes-preservadas.json"
+  },
+  "limits": [
+    "CI 39363302717 permanece failure; intermitência do preview de PDF não foi corrigida nem convertida em aprovação.",
+    "PJC é amostra de armazenamento e não um cálculo exportado válido do PJe-Calc.",
+    "Provedores reais e cron continuam desligados; este aceite não autoriza operação comercial.",
+    "As senhas fictícias ficam na RAM do helper humano. Fábio precisa copiá-las e guardá-las no cofre pessoal antes de encerrar o Terminal."
+  ],
+  "credentialsInEvidence": false
+}

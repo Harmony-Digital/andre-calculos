@@ -1,0 +1,158 @@
+{
+  "operation": "hosted_validation_database_readback",
+  "projectRef": "qtofwbxujshroaafxowr",
+  "executedBy": "MCP andre-calculos-supabase; SELECT somente leitura",
+  "audit": [
+    {
+      "action": "contract_pdf_download_authorized",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001",
+      "target_id": "6d07e560-0050-4000-8000-000000000002",
+      "target_type": "quote"
+    },
+    {
+      "action": "contract_pdf_downloaded",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001",
+      "target_id": "6d07e560-0050-4000-8000-000000000002",
+      "target_type": "quote"
+    },
+    {
+      "action": "contract_pdf_download_authorized",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001",
+      "target_id": "6d07e560-0050-4000-8000-000000000003",
+      "target_type": "quote"
+    },
+    {
+      "action": "contract_pdf_downloaded",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001",
+      "target_id": "6d07e560-0050-4000-8000-000000000003",
+      "target_type": "quote"
+    },
+    {
+      "action": "file_download",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001",
+      "target_id": "6d07e560-0060-4000-8000-000000000001",
+      "target_type": "file"
+    },
+    {
+      "action": "file_download",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001",
+      "target_id": "6d07e560-0060-4000-8000-000000000002",
+      "target_type": "file"
+    },
+    {
+      "action": "file_download",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001",
+      "target_id": "6d07e560-0060-4000-8000-000000000003",
+      "target_type": "file"
+    },
+    {
+      "action": "file_download",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001",
+      "target_id": "6d07e560-0060-4000-8000-000000000004",
+      "target_type": "file"
+    },
+    {
+      "action": "file_view",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001",
+      "target_id": "6d07e560-0060-4000-8000-000000000004",
+      "target_type": "file"
+    },
+    {
+      "action": "file_download",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001",
+      "target_id": "6d07e560-0060-4000-8000-000000000005",
+      "target_type": "file"
+    },
+    {
+      "action": "contract_pdf_download_authorized",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000002",
+      "target_id": "6d07e560-0050-4000-8000-000000000002",
+      "target_type": "quote"
+    },
+    {
+      "action": "contract_pdf_downloaded",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000002",
+      "target_id": "6d07e560-0050-4000-8000-000000000002",
+      "target_type": "quote"
+    },
+    {
+      "action": "contract_pdf_download_authorized",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000002",
+      "target_id": "6d07e560-0050-4000-8000-000000000003",
+      "target_type": "quote"
+    },
+    {
+      "action": "contract_pdf_downloaded",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000002",
+      "target_id": "6d07e560-0050-4000-8000-000000000003",
+      "target_type": "quote"
+    },
+    {
+      "action": "file_download",
+      "accesses": 1,
+      "actor_id": "6d07e560-0010-4000-8000-000000000002",
+      "target_id": "6d07e560-0060-4000-8000-000000000004",
+      "target_type": "file"
+    }
+  ],
+  "readAt": "2026-10-20T11:58:06.027351+00:00",
+  "update": {
+    "code": "P-0001",
+    "status": "draft",
+    "orderId": "5f4b7093-ddb4-4a91-a9b1-6fa9711d8c08",
+    "newQuotes": 0,
+    "newPayments": 0,
+    "sourceFileId": "6d07e560-0060-4000-8000-000000000004",
+    "sourceStatus": "delivered",
+    "completedStep": 0,
+    "sourceOrderId": "6d07e560-0030-4000-8000-000000000003",
+    "sourceFileName": "original-demonstrativo.pjc",
+    "sourceRevision": 1,
+    "sourceFileBytes": 134,
+    "reviewedRevision": null,
+    "sourceFileSha256": "c84ec101858b6dd4a200f81d6c07e72580d145ce15e849e86091a02c9a96fd4c",
+    "sourceFileOrderId": "6d07e560-0030-4000-8000-000000000003",
+    "currentChecklistRevision": 1
+  },
+  "contracts": [
+    {
+      "epoch": 1,
+      "state": "ready",
+      "sha256": "1e44669ae14497fb3ca48b29dc18c27babe8f9b63cf7de4f24ee09c7e11821d1",
+      "quote_id": "6d07e560-0050-4000-8000-000000000002",
+      "error_code": null,
+      "size_bytes": 17994,
+      "verified_at": "2026-10-20T11:57:37.916445+00:00",
+      "renderer_version": "contract-pdf-v1",
+      "path_matches_snapshot": true,
+      "archive_matches_metadata": true
+    },
+    {
+      "epoch": 1,
+      "state": "ready",
+      "sha256": "d3a41db353fec961597442ddf028da7140633cbe7157148b26446f1bd13dc037",
+      "quote_id": "6d07e560-0050-4000-8000-000000000003",
+      "error_code": null,
+      "size_bytes": 17973,
+      "verified_at": "2026-10-20T11:52:10.448933+00:00",
+      "renderer_version": "contract-pdf-v1",
+      "path_matches_snapshot": true,
+      "archive_matches_metadata": true
+    }
+  ],
+  "passed": true
+}
