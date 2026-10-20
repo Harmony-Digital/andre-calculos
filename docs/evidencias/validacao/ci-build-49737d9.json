@@ -47,12 +47,28 @@
   "requiredChecks": {
     "rulesetId": 24880297,
     "strict": true,
-    "contexts": ["qualidade", "e2e"]
+    "contexts": [
+      "qualidade",
+      "e2e"
+    ]
   },
   "e2eJob": 118397551969,
   "e2eStatus": "in_progress",
-  "e2eCurrentStep": "Run bash ../scripts/dev-env.sh npm run test:rls",
+  "e2eCurrentStep": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1",
   "overallStatus": "in_progress",
   "overallConclusion": null,
-  "limits": "Esta prova confirma o check/build dessa fonte. RLS, navegador e resultado integral ainda não concluídos no momento da coleta; não atesta implantação ou equivalência do ambiente Vercel."
+  "limits": "Esta prova confirma o check/build dessa fonte e RLS success conferido na consulta de01:53UTC de20/10. O navegador iniciou às01:53UTC e ainda está em execução; resultado integral pendente. Não atesta merge, implantação ou equivalência do ambiente Vercel. Monitor por leitura de check-run, sem rerun; annotations0 nas consultas.",
+  "rlsConclusion": "success",
+  "statusObservation": {
+    "observedAtUtcMinute": "2026-10-20T01:53Z",
+    "timePrecision": "minute",
+    "rlsConclusionAtObservation": "success",
+    "rlsExactCompletedAt": "not_recorded",
+    "browserStartedAtUtcMinute": "2026-10-20T01:53Z",
+    "browserStatus": "in_progress",
+    "monitorAgent": "fix_release_harness",
+    "monitorMethod": "read_only_check_run_polling",
+    "annotationsObserved": 0,
+    "rerun": false
+  }
 }
