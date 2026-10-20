@@ -520,6 +520,33 @@ h2 {
   padding: 32px;
   border-radius: 5px;
 }
+.demo-access-note {
+  color: var(--muted-foreground);
+  margin: 0 0 1.5rem;
+}
+.demo-access-options {
+  display: grid;
+  gap: 1rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.demo-access-option {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.demo-access-option h3 {
+  margin: 0 0 0.5rem;
+}
+.demo-access-option p {
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+  margin: 0 0 1rem;
+}
+.demo-access-option .button {
+  width: 100%;
+}
 .auth-card h2 {
   font-family: var(--font-source-sans);
   font-size: 23px;

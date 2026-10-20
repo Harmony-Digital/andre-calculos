@@ -2,12 +2,30 @@ import Link from "next/link";
 import { AuthPage } from "@/components/auth-page";
 import { AuthForm } from "@/components/auth-form";
 import { supabaseConfig } from "@/lib/supabase/config";
+import { DemoAccessForm } from "@/components/demo-access-form";
+import { hostedValidationEnabled } from "@/modules/validation/environment";
 export default async function Login({
   searchParams,
 }: {
   searchParams: Promise<{ next?: string; senha?: string; link?: string }>;
 }) {
   const params = await searchParams;
+  if (hostedValidationEnabled(process.env)) {
+    return (
+      <AuthPage
+        title="Conheça o portal por dentro."
+        description="Explore os pedidos, os orçamentos e a linha do tempo com processos de demonstração."
+        cardTitle="Escolha como deseja entrar"
+      >
+        <DemoAccessForm />
+        <p>
+          <Link href="/demonstracao" className="text-link">
+            Ver apresentação guiada
+          </Link>
+        </p>
+      </AuthPage>
+    );
+  }
   const enabled = !!supabaseConfig();
   const invalidLink = params.link === "invalido";
   return (
