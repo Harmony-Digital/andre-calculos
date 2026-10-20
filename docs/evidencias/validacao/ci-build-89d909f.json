@@ -50,16 +50,15 @@
     "contexts": ["qualidade", "e2e"]
   },
   "e2eJob": 118434226695,
-  "e2eStatus": "in_progress",
-  "overallStatus": "in_progress",
-  "overallConclusion": null,
-  "limits": "Check/build dessa fonte e etapa RLS confirmados success. Navegador e resultado integral ainda não concluídos no momento da coleta; annotations0 não atesta aprovação. Não atesta implantação ou equivalência do ambiente Vercel.",
+  "e2eStatus": "completed",
+  "overallStatus": "completed",
+  "overallConclusion": "failure",
+  "limits": "Qualidade/check/build e RLS success preservados; CI integral failure no navegador:292passed/1failed/1flaky/3skipped/71did not run. Diagnóstico inconclusivo após única reprodução dirigida:2passed nas duas viewports em22,1s sem retries ou correção. Advisors skipped e cleanup success. Não há aprovação integral, novo CI, merge ou publicação consolidada. Exceção fora da main sem resposta; informar a intermitência PDF antes de publicar. Não atesta equivalência do ambiente Vercel.",
   "productMatchesPreviousSource": {
     "source": "49737d9856e65a3a53f572ee550afab1070049c0",
     "command": "git diff --quiet 49737d9856e65a3a53f572ee550afab1070049c0 89d909fa31b729b5b1521d8a891253e0a5a21b6d -- app/src app/public app/package.json app/package-lock.json app/next.config.ts app/tsconfig.json app/vercel.json app/scripts/copy-pdf-assets.mjs",
     "exitCode": 0
   },
-  "observedAt": "2026-10-20T03:50:14.385Z",
   "rls": {
     "conclusion": "success",
     "startedAt": "2026-10-20T03:17:53Z",
@@ -67,24 +66,19 @@
     "durationSeconds": 1722
   },
   "browser": {
-    "status": "in_progress",
-    "conclusion": null,
+    "status": "completed",
+    "conclusion": "failure",
     "startedAt": "2026-10-20T03:46:35Z",
-    "command": "bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1 --max-failures=1"
-  },
-  "e2eCurrentStep": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1 --max-failures=1",
-  "progressLogs": {
-    "available": false,
-    "httpStatus": 404,
-    "attempts": 1,
-    "limits": "API oficial de logs do job em andamento retornou HTTP 404; sem nova tentativa ou estimativa da duração restante."
+    "command": "bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1 --max-failures=1",
+    "completedAt": "2026-10-20T04:29:20Z",
+    "durationSeconds": 2565
   },
   "rlsConclusion": "success",
-  "e2eConclusion": null,
+  "e2eConclusion": "failure",
   "overallCompletedAt": null,
   "rlsCompletedAt": "2026-10-20T03:46:35Z",
   "rlsDurationSeconds": 1722,
-  "statusObservation": {
+  "earlierStatusObservation": {
     "observedAt": "2026-10-20T03:50:14.385Z",
     "run": 39363302717,
     "source": "89d909fa31b729b5b1521d8a891253e0a5a21b6d",
@@ -98,5 +92,91 @@
     "browserConclusion": null,
     "annotationsCount": 0,
     "overallConclusion": null
+  },
+  "earlierObservedAt": "2026-10-20T03:50:14.385Z",
+  "earlierProgressLogs": {
+    "available": false,
+    "httpStatus": 404,
+    "attempts": 1,
+    "limits": "API oficial de logs do job em andamento retornou HTTP 404; sem nova tentativa ou estimativa da duração restante."
+  },
+  "e2eCompletedAt": "2026-10-20T04:29:47Z",
+  "e2eLastBrowserStep": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1 --max-failures=1",
+  "e2eCurrentStep": null,
+  "advisorsConclusion": "skipped",
+  "cleanupConclusion": "success",
+  "playwrightResults": {
+    "source": "Resultado final oficial do job e2e118434226695 comunicado pelo agente principal.",
+    "passed": 292,
+    "failed": 1,
+    "flaky": 1,
+    "skipped": 3,
+    "didNotRun": 71,
+    "maxFailures": 1,
+    "workers": 1,
+    "fullSuiteApproved": false
+  },
+  "failureInvestigation": {
+    "status": "inconclusive_after_single_directed_reproduction",
+    "assignedAgents": 0,
+    "classification": "not_established_product_or_harness",
+    "failedCase": {
+      "project": "celular",
+      "file": "app/tests/e2e/pdf-versions.spec.ts",
+      "line": 146
+    },
+    "flakyCase": {
+      "project": "computador",
+      "file": "app/tests/e2e/pdf-versions.spec.ts",
+      "finalResult": "passed"
+    },
+    "observations": [
+      "Prévia Página 1 de 4 não apareceu em30s.",
+      "Retry celular: heading de leitura da versão1 ausente.",
+      "Retry no computador: campos de correspondências inválidos; resultado final aprovado."
+    ],
+    "rerunAfterFailure": false,
+    "newCorrectionAfterFailure": false,
+    "mergeAfterFailure": false,
+    "deploymentAfterFailure": false,
+    "previousAssignedAgents": 2,
+    "diagnosticProof": "docs/evidencias/validacao/diagnostico-preview-pdf.json",
+    "localDirectedTests": {
+      "passed": 2,
+      "viewports": 2,
+      "durationSeconds": 22.1,
+      "retries": 0,
+      "failureReproduced": false,
+      "newCorrection": false,
+      "newCi": false
+    }
+  },
+  "statusObservation": {
+    "source": "Resultado final oficial comunicado pelo agente principal.",
+    "run": 39363302717,
+    "sourceSha": "89d909fa31b729b5b1521d8a891253e0a5a21b6d",
+    "status": "completed",
+    "overallConclusion": "failure",
+    "qualityConclusion": "success",
+    "rlsConclusion": "success",
+    "rlsDurationSeconds": 1722,
+    "browserConclusion": "failure",
+    "browserStartedAt": "2026-10-20T03:46:35Z",
+    "browserCompletedAt": "2026-10-20T04:29:20Z",
+    "browserDurationSeconds": 2565,
+    "e2eCompletedAt": "2026-10-20T04:29:47Z",
+    "advisorsConclusion": "skipped",
+    "cleanupConclusion": "success",
+    "overallCompletedAt": null,
+    "overallCompletedAtLimit": "Horário exato de conclusão do workflow não informado separadamente;04:29:47UTC é a conclusão oficial do job e2e."
+  },
+  "publication": {
+    "consolidatedPublished": false,
+    "mainSource": "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "effectiveDeployment": "dpl_DyVFKhhF98fLRHJWi8iRZVcVtFrr",
+    "effectiveDeploymentScope": "redeploy anterior",
+    "exceptionForSource497OutsideMain": "pending_no_user_response",
+    "newFailureMustBeReportedBeforePublication": true,
+    "approvalPresumed": false
   }
 }

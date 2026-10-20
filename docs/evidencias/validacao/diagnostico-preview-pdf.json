@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-20",
+  "scope": "Diagnóstico factual da falha intermitente do preview PDF, sem correção de produto ou harness.",
+  "ci": {
+    "run": 39363302717,
+    "source": "89d909fa31b729b5b1521d8a891253e0a5a21b6d",
+    "qualityJob": 118434226454,
+    "qualityConclusion": "success",
+    "e2eJob": 118434226695,
+    "overallConclusion": "failure",
+    "e2eConclusion": "failure",
+    "e2eCompletedAt": "2026-10-20T04:29:47Z",
+    "rlsConclusion": "success",
+    "browser": {
+      "startedAt": "2026-10-20T03:46:35Z",
+      "completedAt": "2026-10-20T04:29:20Z",
+      "durationSeconds": 2565,
+      "reportedDuration": "42m45s",
+      "conclusion": "failure",
+      "workers": 1,
+      "maxFailures": 1
+    },
+    "summary": {
+      "passed": 292,
+      "failed": 1,
+      "flaky": 1,
+      "skipped": 3,
+      "didNotRun": 71,
+      "failedProject": "celular",
+      "flakyProject": "computador",
+      "test": "tests/e2e/pdf-versions.spec.ts:24 — versões de PDF preservam leitura, correspondências e origem do índice"
+    },
+    "observedAssertions": [
+      {
+        "file": "app/tests/e2e/pdf-versions.spec.ts",
+        "line": 146,
+        "projects": ["computador", "celular"],
+        "message": "getByText('Página 1 de 4', { exact: true }) não ficou visível em 30000ms."
+      },
+      {
+        "file": "app/tests/e2e/pdf-versions.spec.ts",
+        "line": 121,
+        "project": "celular",
+        "attempt": "retry1",
+        "message": "getByRole('heading', { name: 'Leitura da versão 1', exact: true }) não ficou visível em 5000ms."
+      },
+      {
+        "file": "app/tests/e2e/pdf-versions.spec.ts",
+        "line": 281,
+        "project": "computador",
+        "attempt": "retry1",
+        "message": "O formulário Confirmar correspondências retornou Confira os campos indicados. em vez de Correspondências salvas."
+      }
+    ],
+    "selectorAssessment": "Os seletores correspondem aos rótulos atuais; não foi identificada obsolescência equivalente à dos links de propostas. Isso não determina a causa da falha de preview."
+  },
+  "artifact": {
+    "id": 12241196491,
+    "name": "evidencias-de-testes",
+    "sizeInBytes": 96421048,
+    "digest": "sha256:8bc6c684d7ac6143ed80d885a5aadbe0d2a3d491f775731eb85bb2d72c81f22a",
+    "downloadDigestVerified": true,
+    "pngEntries": 611,
+    "nonPngEntries": 0,
+    "errorContextMarkdownEntries": 0,
+    "pdfVersionsEntries": 4,
+    "pdfVersionsProjects": ["computador"],
+    "pdfVersionsAttempts": ["retry1", "retry2"],
+    "pdfVersionsNames": ["leitura-versoes.png", "indice-origem.png"],
+    "observation": "As capturas mostram leitura da versão 2 e índice de páginas em estado normal. O preview já estava fechado; não há captura do estado que falhou no celular ou nas linhas 121/146.",
+    "limits": "O workflow incluiu somente PNGs. Nenhum error-context.md ou DOM da falha está disponível no artefato; as quatro imagens não determinam a causa. Não foram copiadas para o repositório."
+  },
+  "completedLogs": {
+    "reader": "root",
+    "command": "gh run view 39363302717 --repo Harmony-Digital/andre-calculos --job 118434226695 --log-failed",
+    "available": true,
+    "sizeInBytes": 117896,
+    "readDurationSeconds": 2.395,
+    "processing": "Somente em memória; filtro textual de PDF, PDF.js e worker.",
+    "result": "O filtro não encontrou mensagem de erro de PDF.js, worker, lazy loading ou failed fetch; encontrou as assertions e caminhos dos snapshots Markdown ausentes no artefato.",
+    "limits": "A ausência de correspondências no filtro não demonstra ausência absoluta de erro. O log não inclui o DOM necessário para distinguir botão não aberto, carregamento pendente e erro efetivo de PDF."
+  },
+  "localReproduction": {
+    "executions": 1,
+    "command": "bash scripts/dev-env.sh npm run test:e2e -- tests/e2e/pdf-versions.spec.ts --config .data/diagnostico-pdf-preview.config.ts --workers=1 --retries=0 --max-failures=1",
+    "workingDirectory": "repository-root",
+    "exitCode": 0,
+    "passed": 2,
+    "reportedDuration": "22.1s",
+    "workers": 1,
+    "retries": 0,
+    "maxFailures": 1,
+    "results": [
+      {
+        "project": "computador",
+        "status": "passed",
+        "durationSeconds": 10.7
+      },
+      {
+        "project": "celular",
+        "status": "passed",
+        "durationSeconds": 8.2
+      }
+    ],
+    "diagnosticConfig": {
+      "path": "app/.data/diagnostico-pdf-preview.config.ts",
+      "ignoredByGit": true,
+      "screenshot": "only-on-failure",
+      "trace": "off",
+      "timeoutChanged": false
+    },
+    "failureReproduced": false,
+    "errorContextMarkdownEntries": 0,
+    "settingsLeaseExistsBefore": false,
+    "queueLeaseExistsBefore": false,
+    "settingsLeaseExistsAfter": false,
+    "queueLeaseExistsAfter": false,
+    "productCorrection": false,
+    "harnessCorrection": false,
+    "limits": "As duas viewports passaram nessa única execução. Não houve estado de erro para captura; isso não aprova o CI nem confirma causa exclusiva no harness."
+  },
+  "candidate": {
+    "previousSource": "49737d9856e65a3a53f572ee550afab1070049c0",
+    "currentSource": "89d909fa31b729b5b1521d8a891253e0a5a21b6d",
+    "appPackageBlobsIdentical": true,
+    "appPackageBlobCount": 265,
+    "published": false
+  },
+  "conclusion": "Causa da intermitência não confirmada. Não foi determinado se a origem é produto, ambiente ou sincronização do harness. A reprodução local não substitui o resultado integral do CI.",
+  "newCiStarted": false
+}
