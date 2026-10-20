@@ -53,13 +53,18 @@
     ]
   },
   "e2eJob": 118397551969,
-  "e2eStatus": "in_progress",
-  "e2eCurrentStep": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1",
-  "overallStatus": "in_progress",
-  "overallConclusion": null,
-  "limits": "Esta prova confirma o check/build dessa fonte e RLS success conferido na consulta de01:53UTC de20/10. O navegador iniciou às01:53UTC e ainda está em execução; resultado integral pendente. Não atesta merge, implantação ou equivalência do ambiente Vercel. Monitor por leitura de check-run, sem rerun; annotations0 nas consultas.",
+  "e2eStatus": "completed",
+  "overallStatus": "completed",
+  "overallConclusion": "cancelled",
+  "limits": "Esta prova confirma check/build e RLS success dessa fonte. O CI terminou cancelled pelo limite de2h, com falha concreta de seletor obsoleto no navegador e leases posteriores sob investigação. Não é aprovação integral, merge, implantação ou equivalência do ambiente Vercel. Correção da família de seletores e quatro ensaios dirigidos em dois viewports sem retry ainda pendentes; candidato local não publicado, produção continua exigindo main.",
   "rlsConclusion": "success",
-  "statusObservation": {
+  "e2eConclusion": "cancelled",
+  "e2eLastStep": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1",
+  "overallCompletedAt": "2026-10-20T03:10:04Z",
+  "cancellationReason": "Limite de duas horas do job, sem cancelamento manual ou rerun por documentação.",
+  "rlsCompletedAt": "2026-10-20T01:52:17Z",
+  "rlsDurationSeconds": 2382,
+  "earlierStatusObservation": {
     "observedAtUtcMinute": "2026-10-20T01:53Z",
     "timePrecision": "minute",
     "rlsConclusionAtObservation": "success",
@@ -70,5 +75,41 @@
     "monitorMethod": "read_only_check_run_polling",
     "annotationsObserved": 0,
     "rerun": false
+  },
+  "statusObservation": {
+    "runCompletedAt": "2026-10-20T03:10:04Z",
+    "rlsConclusion": "success",
+    "rlsCompletedAt": "2026-10-20T01:52:17Z",
+    "rlsDuration": "39m42s",
+    "browserConclusion": "cancelled",
+    "firstConcreteFailure": {
+      "file": "app/tests/e2e/quote-acceptance.spec.ts",
+      "line": 21,
+      "cause": "Seletor de link com name exato sample.number obsoleto."
+    },
+    "laterLeaseFailures": "Sob investigação; cascata provável, sem causalidade absoluta confirmada.",
+    "harnessCorrection": {
+      "agent": "fix_release_harness",
+      "scope": [
+        "quote-acceptance",
+        "quotes"
+      ],
+      "directedTests": 4,
+      "viewports": 2,
+      "retries": 0,
+      "status": "pending"
+    },
+    "overallApproval": false,
+    "merge": false,
+    "deployment": false
+  },
+  "localCandidatePackage": {
+    "directory": ".data/publicacao-validacao-candidata",
+    "source": "49737d9856e65a3a53f572ee550afab1070049c0",
+    "files": 265,
+    "sizeBytes": 1603844,
+    "sha256": "6f7ee761648a8ecddb60d408c4a5a1198b8116f8e3cf6b51e8b7610cf9362d78",
+    "published": false,
+    "productionRequiresMain": true
   }
 }

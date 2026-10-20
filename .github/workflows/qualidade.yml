@@ -63,7 +63,7 @@ jobs:
           version: 2.113.0
       - run: node scripts/start-local.mjs
       - run: bash ../scripts/dev-env.sh npm run test:rls
-      - run: bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1
+      - run: bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1 --max-failures=1
       - name: Advisors locais
         run: |
           supabase db advisors --local --workdir .. --type security --level warn --fail-on error
