@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-20T10:53:32.107Z",
+  "authorization": {
+    "type": "explicit_one_time_exception_to_main_only",
+    "receivedClientDate": "2026-10-20",
+    "scope": "andre-calculos; Projeto Andre; domínio atual; somente dados fictícios; pendência PDF registrada; main e proteções intactas"
+  },
+  "candidate": {
+    "source": "49737d9856e65a3a53f572ee550afab1070049c0",
+    "artifactSha256": "6f7ee761648a8ecddb60d408c4a5a1198b8116f8e3cf6b51e8b7610cf9362d78",
+    "files": 265,
+    "sizeBytes": 1603844
+  },
+  "deployment": {
+    "id": "dpl_E34UhGXjFQPndxVEig8ozVF7qkNU",
+    "projectId": "prj_tdmzmC6utVU2fHPz0iVhroMD8NtI",
+    "teamId": "team_4fdLDCsB0ROvP5ph50aFNvxm",
+    "state": "READY",
+    "target": "production",
+    "regions": ["gru1"],
+    "source": "49737d9856e65a3a53f572ee550afab1070049c0",
+    "createdAt": "2026-10-20T10:48:34.965Z",
+    "readyAt": "2026-10-20T10:49:45.758Z",
+    "deploymentUrl": "https://andre-calculos-41stivkap-projeto-andre1.vercel.app",
+    "currentDomain": "https://project-rucji.vercel.app",
+    "currentDomainResolvedToSameId": true
+  },
+  "httpChecks": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "sha": "49737d9856e65a3a53f572ee550afab1070049c0",
+      "region": "gru1"
+    },
+    {
+      "path": "/entrar",
+      "status": 200,
+      "validationNotice": true
+    },
+    {
+      "path": "/demonstracao",
+      "status": 200,
+      "validationNotice": true
+    },
+    {
+      "path": "/app",
+      "status": 307,
+      "location": "/entrar",
+      "authenticated": false
+    },
+    {
+      "path": "/painel",
+      "status": 307,
+      "location": "/entrar",
+      "authenticated": false
+    }
+  ],
+  "github": {
+    "main": "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "mainChanged": false,
+    "ruleset": {
+      "id": 24880297,
+      "enforcement": "active",
+      "bypassActors": 0,
+      "requiredContexts": ["qualidade", "e2e"],
+      "strict": true
+    },
+    "protectionsChanged": false,
+    "prMerged": false,
+    "newCiStarted": false
+  },
+  "limits": {
+    "ciFailurePdfPending": true,
+    "diagnostic": "diagnostico-preview-pdf.json",
+    "authenticatedHostedJourneys": "pending_fictitious_credential_recovery",
+    "reason": "O driver privado anterior encerrou; socket órfão e credenciais aleatórias não persistidas. Nenhuma senha, token ou chave recuperada, lida ou redefinida.",
+    "contractPdfGenerationHostedVerified": false,
+    "publicationReady": true,
+    "firstValidationFullyVerified": false
+  },
+  "publicJourney": {
+    "status": "passed",
+    "viewports": [1440, 375],
+    "evidence": "hospedada/publica/jornada-publica.json",
+    "screenshots": 6,
+    "privateAuthenticationVerified": false
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "origin": "https://project-rucji.vercel.app",
+  "deploymentId": "dpl_E34UhGXjFQPndxVEig8ozVF7qkNU",
+  "source": "49737d9856e65a3a53f572ee550afab1070049c0",
+  "scope": "Fluxo público da demonstração, somente estado local e dados fictícios.",
+  "results": [
+    {
+      "project": "computador",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": "passed",
+      "steps": [
+        {
+          "step": "apresentação",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "visão do advogado",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "checklist 1/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "checklist 2/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "checklist 3/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "checklist 4/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "checklist 5/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "checklist 6/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "checklist 7/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "checklist 8/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "checklist 9/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "proposta fictícia R$ 650,00",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "aceite, sinal, documento e linha do tempo",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        },
+        {
+          "step": "visão profissional, revisão e entrega",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "viewportWidth": 1440
+        }
+      ],
+      "screenshots": [
+        {
+          "stage": "proposta",
+          "path": "docs/evidencias/validacao/hospedada/publica/computador-proposta.png",
+          "sha256": "e9c090619e588826f9f0338f7ad224900faa51340dd045b47603bebc0e393938"
+        },
+        {
+          "stage": "linha-do-tempo",
+          "path": "docs/evidencias/validacao/hospedada/publica/computador-linha-do-tempo.png",
+          "sha256": "cdd635d58620a2cc81e07e2a3afcf5bec2ee14ecb0a0cdca7eb1fb07df395260"
+        },
+        {
+          "stage": "entrega",
+          "path": "docs/evidencias/validacao/hospedada/publica/computador-entrega.png",
+          "sha256": "6e971ed61c0fd2ea1ffe8d2d457be122848bb3451f01e64366d3f92394a14e6c"
+        }
+      ],
+      "blockedRequests": [],
+      "pageErrors": [],
+      "entryStatus": 200
+    },
+    {
+      "project": "celular",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "status": "passed",
+      "steps": [
+        {
+          "step": "apresentação",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "visão do advogado",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "checklist 1/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "checklist 2/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "checklist 3/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "checklist 4/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "checklist 5/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "checklist 6/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "checklist 7/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "checklist 8/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "checklist 9/9",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "proposta fictícia R$ 650,00",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "aceite, sinal, documento e linha do tempo",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        },
+        {
+          "step": "visão profissional, revisão e entrega",
+          "banner": true,
+          "overflow": false,
+          "scrollWidth": 375,
+          "viewportWidth": 375
+        }
+      ],
+      "screenshots": [
+        {
+          "stage": "proposta",
+          "path": "docs/evidencias/validacao/hospedada/publica/celular-proposta.png",
+          "sha256": "db6ca32ffdedc8c36bd309d7bb877cc7d3e1d81bda0912c62318500f814010f9"
+        },
+        {
+          "stage": "linha-do-tempo",
+          "path": "docs/evidencias/validacao/hospedada/publica/celular-linha-do-tempo.png",
+          "sha256": "df419f8741f6f7ae3123660f242b5ce417d450a2d749543dddce67fec3ab172e"
+        },
+        {
+          "stage": "entrega",
+          "path": "docs/evidencias/validacao/hospedada/publica/celular-entrega.png",
+          "sha256": "bf49139be9bb7853229c875170b4029c628f36b86257c5c3d630110e5a31a54f"
+        }
+      ],
+      "blockedRequests": [],
+      "pageErrors": [],
+      "entryStatus": 200
+    }
+  ],
+  "status": "passed",
+  "firstAttempt": {
+    "startedAt": "2026-10-20T10:54:29.058Z",
+    "completedAt": "2026-10-20T10:54:36.372Z",
+    "desktop": "passed",
+    "mobile": "failed",
+    "navigationReadiness": "domcontentloaded",
+    "observation": "Após primeiro clique móvel, apresentação permaneceu visível; sem erro de página ou request externo/escrita."
+  },
+  "affectedPathRecheck": {
+    "startedAt": "2026-10-20T10:56:12.527Z",
+    "completedAt": "2026-10-20T10:56:14.016Z",
+    "mobile": "passed",
+    "navigationReadiness": "load",
+    "reason": "Alinhar a navegação ao teste original demo.spec.ts; somente móvel repetido, sem alterar produto ou repetir desktop."
+  },
+  "limits": {
+    "privateAuthenticationVerified": false,
+    "privateContractsVerified": false,
+    "pdfCiIntermittencyStillOpen": true,
+    "realMessagesOrPayments": false,
+    "newProductCode": false
+  }
+}
