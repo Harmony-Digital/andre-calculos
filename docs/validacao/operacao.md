@@ -16,9 +16,11 @@ O estado efetivo da publicação fica somente em `plan.md`, seção Onde estamos
 
 `manifesto-base.json` reserva três contas fictícias e quatro pastas. O roteiro principal usa orçamento, cálculo em andamento e entrega; a atualização fica na pasta do pedido entregue. A pasta do outro cliente serve à conferência de isolamento.
 
-As contas não pertencem a pessoas reais. O provisionamento deve usar os grants administrativos existentes, sem fabricar consentimento legal. O Fábio define e compartilha o acesso privado fora do chat. Não gerar senha fixa de demonstração no código nem publicar link de autenticação. Não enviar convites para os endereços `.invalid`.
+As contas não pertencem a pessoas reais. O provisionamento deve usar os grants administrativos existentes, sem fabricar consentimento legal. Não gerar senha fixa de demonstração no código nem publicar link de autenticação. Não enviar convites para os endereços `.invalid`.
 
-Para obter as senhas geradas pelo helper de recuperação, mantenha o Terminal desse helper aberto. Em outro Terminal, execute `.data/validacao/acesso-ficticio-privado.mjs` com Node e a opção `--advogada` ou `--andre`, uma conta de cada vez. O utilitário copia somente a senha fictícia para a área de transferência, sem exibi-la. Use respectivamente `advogada@validacao.invalid` ou `andre@validacao.invalid` em `/entrar` e cole a senha no campo correspondente. Guarde as senhas no cofre pessoal antes de encerrar o helper; chave e senhas não são persistidas pelo processo. O terceiro perfil é reservado à conferência de isolamento.
+Na apresentação fictícia, abra [a entrada do portal](https://project-rucji.vercel.app/entrar) e escolha **Entrar como advogado** ou **Entrar como André**. Não é preciso informar e-mail, senha ou usar o Terminal. Para trocar de visão, clique em **Sair** e escolha o outro botão. Os botões usam exclusivamente as duas contas fictícias já preparadas; o terceiro perfil continua reservado à conferência de isolamento.
+
+A entrada direta só funciona com o modo de validação habilitado no projeto, domínio e Supabase exatos. O servidor confere as identidades fixas, os papéis e a origem da requisição, estabelece a sessão por cookie e registra o acesso, sem enviar e-mail nem expor o link de autenticação. A presença de perfis fora dos três reservados bloqueia o atalho. Fora desse modo, a entrada convencional é preservada.
 
 Os estados sintéticos são preparados de forma identificada e restrita aos IDs reservados. Não executar `seed-local.ts`, helpers de Playwright ou dumps locais na nuvem: eles trocam credenciais, alteram settings e removem fixtures no encerramento.
 

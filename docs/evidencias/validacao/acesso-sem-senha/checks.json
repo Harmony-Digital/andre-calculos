@@ -1,0 +1,33 @@
+{
+  "operation": "passwordless_demo_local_checks",
+  "sourceCommit": "42624c621da82a039b3a40cd862bcbe2c8b35b2b",
+  "verifiedOn": "2026-10-20",
+  "command": "npm run check",
+  "exitCode": 1,
+  "format": "passed",
+  "lint": "passed",
+  "typecheck": "passed",
+  "unitTests": {
+    "passed": 1582,
+    "files": 86,
+    "newModuleTests": 24
+  },
+  "scriptTests": {
+    "passed": 43
+  },
+  "build": {
+    "passed": false,
+    "cause": "Turbopack: creating new process/binding to a port/Operation not permitted (os error 1), TextLayer.css.css; restrição local já conhecida.",
+    "retried": false
+  },
+  "hostedBuild": {
+    "deploymentId": "dpl_FgKY5iM3XAY7ZBxVyrvPRuC4ovt5",
+    "readyState": "READY",
+    "logMessages": [
+      "Build Completed in /vercel/output [1m]",
+      "Deployment completed"
+    ]
+  },
+  "sourceChangedAfterChecks": false,
+  "fullCiRerun": false
+}

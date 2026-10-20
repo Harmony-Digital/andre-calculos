@@ -1,0 +1,96 @@
+{
+  "operation": "hosted_passwordless_demo_access",
+  "origin": "https://project-rucji.vercel.app",
+  "startedAt": "2026-10-20T12:36:39.032Z",
+  "passed": false,
+  "cases": [
+    {
+      "persona": "lawyer",
+      "width": 1440,
+      "prefix": "/app",
+      "passed": false,
+      "entryWithoutCredentials": true,
+      "nativeLogin": true,
+      "sessionPersistsAfterReload": true,
+      "cookieMetadata": [
+        {
+          "name": "sb-qtofwbxujshroaafxowr-auth-token.0",
+          "httpOnly": true,
+          "secure": true,
+          "sameSite": "Lax",
+          "domain": "project-rucji.vercel.app",
+          "path": "/"
+        },
+        {
+          "name": "sb-qtofwbxujshroaafxowr-auth-token.1",
+          "httpOnly": true,
+          "secure": true,
+          "sameSite": "Lax",
+          "domain": "project-rucji.vercel.app",
+          "path": "/"
+        }
+      ],
+      "documentExposesSupabaseCookie": false,
+      "authCookiePresent": true
+    }
+  ],
+  "screenshots": [
+    {
+      "persona": "lawyer",
+      "width": 1440,
+      "label": "entrada",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/inicial/lawyer-1440-entrada.png",
+      "viewport": 1440,
+      "document": 1440,
+      "horizontalOverflow": false,
+      "sha256": "09e26ec9e3b8efce0a32b6fa6e90723562402e2912426f474a5e841dc81d02f2"
+    },
+    {
+      "persona": "lawyer",
+      "width": 1440,
+      "label": "painel",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/inicial/lawyer-1440-painel.png",
+      "viewport": 1440,
+      "document": 1440,
+      "horizontalOverflow": false,
+      "sha256": "109ec812c4e1a8b2489af542c9716ac4326bf7f8c5ecfe1f27b4fb2a6db26e32"
+    },
+    {
+      "persona": "lawyer",
+      "width": 1440,
+      "label": "falha",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/inicial/lawyer-1440-falha.png",
+      "viewport": 1440,
+      "document": 1440,
+      "horizontalOverflow": false,
+      "sha256": "e08339da0aed1f39d4cb03e57a1bf67e565ad17778d3ae9a8d4b8a87f1882c19"
+    }
+  ],
+  "thirdPartyRequestsBlocked": 0,
+  "unexpectedWritesBlocked": 0,
+  "pageErrorCount": 0,
+  "credentialsUsed": false,
+  "driverUsed": false,
+  "secretsInOutput": false,
+  "trace": false,
+  "har": false,
+  "video": false,
+  "storageStateOnDisk": false,
+  "cookiesOnDisk": false,
+  "sessionOnDisk": false,
+  "pdfBytesOnDisk": false,
+  "expectedSha": "42624c621da82a039b3a40cd862bcbe2c8b35b2b",
+  "health": {
+    "status": 200,
+    "statusOk": true,
+    "shaMatches": true,
+    "observedSha": "42624c621da82a039b3a40cd862bcbe2c8b35b2b"
+  },
+  "failure": {
+    "stage": "lawyer_1440_process_03",
+    "code": "passwordless_access_verification_failed"
+  },
+  "completedAt": "2026-10-20T12:37:06.362Z",
+  "sourceEvidence": ".data/validacao/acesso-sem-senha-20261020T123639032Z/evidencia.json",
+  "verifierCorrection": "A pasta abre por padrão em Documentos. O verificador precisava abrir explicitamente ?aba=resumo para o heading esperado; apenas o helper ignorado foi corrigido, sem alterar ou republicar a aplicação. A primeira entrada e os cookies já tinham passado."
+}

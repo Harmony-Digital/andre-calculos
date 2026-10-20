@@ -1,0 +1,67 @@
+{
+  "operation": "passwordless_demo_publication_readback",
+  "verifiedAt": "2026-10-20T12:39:46.992Z",
+  "userRequest": "Criar acessos de teste sem senha para mostrar o sistema ao André.",
+  "scope": "Continuação da apresentação fictícia no projeto andre-calculos e domínio atual, preservando main/proteções e a pendência PDF.",
+  "teamId": "team_4fdLDCsB0ROvP5ph50aFNvxm",
+  "projectId": "prj_tdmzmC6utVU2fHPz0iVhroMD8NtI",
+  "sourceCommit": "42624c621da82a039b3a40cd862bcbe2c8b35b2b",
+  "artifactSha256": "5c5c6eb239e07ade04f5cbaccf2e3b46303bb1a7710e5f285a879968bc9f05e0",
+  "files": 268,
+  "bytes": 1612750,
+  "deployment": {
+    "id": "dpl_FgKY5iM3XAY7ZBxVyrvPRuC4ovt5",
+    "url": "andre-calculos-8n7uh07pu-projeto-andre1.vercel.app",
+    "readyState": "READY",
+    "target": "production",
+    "regions": ["gru1"],
+    "aliases": [
+      "project-rucji.vercel.app",
+      "andre-calculos-projeto-andre1.vercel.app"
+    ]
+  },
+  "publicEntry": "https://project-rucji.vercel.app/entrar",
+  "github": {
+    "main": {
+      "ref": "refs/heads/main",
+      "sha": "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd"
+    },
+    "ruleset": {
+      "bypassActors": 0,
+      "enforcement": "active",
+      "id": 24880297,
+      "requiredChecks": [
+        {
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "qualidade",
+              "integration_id": 15368
+            },
+            {
+              "context": "e2e",
+              "integration_id": 15368
+            }
+          ],
+          "strict_required_status_checks_policy": true
+        }
+      ]
+    },
+    "merged": false,
+    "protectionsChanged": false,
+    "ciRerun": false
+  },
+  "oldLocalDriver": {
+    "ok": true,
+    "finished": true
+  },
+  "browserEvidence": "jornada.json",
+  "checksEvidence": "checks.json",
+  "onlyTwoReservedPersonas": true,
+  "noPasswordReset": true,
+  "noMigration": true,
+  "noEnvironmentChanges": true,
+  "noEmailSent": true,
+  "noCredentialOrTokenInEvidence": true,
+  "knownCiPdfIssueResolved": false
+}

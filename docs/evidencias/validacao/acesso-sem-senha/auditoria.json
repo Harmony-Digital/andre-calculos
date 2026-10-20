@@ -1,0 +1,43 @@
+{
+  "operation": "passwordless_demo_auth_audit",
+  "projectRef": "qtofwbxujshroaafxowr",
+  "readAt": "2026-10-20T12:39:06.092473+00:00",
+  "profiles": [
+    {
+      "id": "6d07e560-0010-4000-8000-000000000001",
+      "role": "client"
+    },
+    {
+      "id": "6d07e560-0010-4000-8000-000000000002",
+      "role": "calculator"
+    },
+    {
+      "id": "6d07e560-0010-4000-8000-000000000003",
+      "role": "client"
+    }
+  ],
+  "authAudit": [
+    {
+      "action": "login",
+      "events": 3,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001"
+    },
+    {
+      "action": "logout",
+      "events": 2,
+      "actor_id": "6d07e560-0010-4000-8000-000000000001"
+    },
+    {
+      "action": "login",
+      "events": 2,
+      "actor_id": "6d07e560-0010-4000-8000-000000000002"
+    },
+    {
+      "action": "logout",
+      "events": 2,
+      "actor_id": "6d07e560-0010-4000-8000-000000000002"
+    }
+  ],
+  "note": "Cliente tem um login adicional da primeira passagem interrompida por expectativa de aba do verificador; quatro logins finais e quatro saídas conferidos. Nenhuma nova conta criada.",
+  "passed": true
+}

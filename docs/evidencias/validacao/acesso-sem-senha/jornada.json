@@ -1,0 +1,296 @@
+{
+  "operation": "hosted_passwordless_demo_access",
+  "origin": "https://project-rucji.vercel.app",
+  "startedAt": "2026-10-20T12:38:02.026Z",
+  "passed": true,
+  "cases": [
+    {
+      "persona": "lawyer",
+      "width": 1440,
+      "prefix": "/app",
+      "passed": true,
+      "entryWithoutCredentials": true,
+      "nativeLogin": true,
+      "sessionPersistsAfterReload": true,
+      "cookieMetadata": [
+        {
+          "name": "sb-qtofwbxujshroaafxowr-auth-token.0",
+          "httpOnly": true,
+          "secure": true,
+          "sameSite": "Lax",
+          "domain": "project-rucji.vercel.app",
+          "path": "/"
+        },
+        {
+          "name": "sb-qtofwbxujshroaafxowr-auth-token.1",
+          "httpOnly": true,
+          "secure": true,
+          "sameSite": "Lax",
+          "domain": "project-rucji.vercel.app",
+          "path": "/"
+        }
+      ],
+      "documentExposesSupabaseCookie": false,
+      "authCookiePresent": true,
+      "process03Visible": true,
+      "logout": {
+        "nativeReturnToEntry": true,
+        "privateStatus": 307,
+        "redirectPath": "/entrar",
+        "denied": true
+      }
+    },
+    {
+      "persona": "calculator",
+      "width": 1440,
+      "prefix": "/painel",
+      "passed": true,
+      "entryWithoutCredentials": true,
+      "nativeLogin": true,
+      "sessionPersistsAfterReload": true,
+      "cookieMetadata": [
+        {
+          "name": "sb-qtofwbxujshroaafxowr-auth-token.0",
+          "httpOnly": true,
+          "secure": true,
+          "sameSite": "Lax",
+          "domain": "project-rucji.vercel.app",
+          "path": "/"
+        },
+        {
+          "name": "sb-qtofwbxujshroaafxowr-auth-token.1",
+          "httpOnly": true,
+          "secure": true,
+          "sameSite": "Lax",
+          "domain": "project-rucji.vercel.app",
+          "path": "/"
+        }
+      ],
+      "documentExposesSupabaseCookie": false,
+      "authCookiePresent": true,
+      "process03Visible": true,
+      "logout": {
+        "nativeReturnToEntry": true,
+        "privateStatus": 307,
+        "redirectPath": "/entrar",
+        "denied": true
+      }
+    },
+    {
+      "persona": "lawyer",
+      "width": 375,
+      "prefix": "/app",
+      "passed": true,
+      "entryWithoutCredentials": true,
+      "nativeLogin": true,
+      "sessionPersistsAfterReload": true,
+      "cookieMetadata": [
+        {
+          "name": "sb-qtofwbxujshroaafxowr-auth-token.0",
+          "httpOnly": true,
+          "secure": true,
+          "sameSite": "Lax",
+          "domain": "project-rucji.vercel.app",
+          "path": "/"
+        },
+        {
+          "name": "sb-qtofwbxujshroaafxowr-auth-token.1",
+          "httpOnly": true,
+          "secure": true,
+          "sameSite": "Lax",
+          "domain": "project-rucji.vercel.app",
+          "path": "/"
+        }
+      ],
+      "documentExposesSupabaseCookie": false,
+      "authCookiePresent": true,
+      "process03Visible": true,
+      "logout": {
+        "nativeReturnToEntry": true,
+        "privateStatus": 307,
+        "redirectPath": "/entrar",
+        "denied": true
+      }
+    },
+    {
+      "persona": "calculator",
+      "width": 375,
+      "prefix": "/painel",
+      "passed": true,
+      "entryWithoutCredentials": true,
+      "nativeLogin": true,
+      "sessionPersistsAfterReload": true,
+      "cookieMetadata": [
+        {
+          "name": "sb-qtofwbxujshroaafxowr-auth-token.0",
+          "httpOnly": true,
+          "secure": true,
+          "sameSite": "Lax",
+          "domain": "project-rucji.vercel.app",
+          "path": "/"
+        },
+        {
+          "name": "sb-qtofwbxujshroaafxowr-auth-token.1",
+          "httpOnly": true,
+          "secure": true,
+          "sameSite": "Lax",
+          "domain": "project-rucji.vercel.app",
+          "path": "/"
+        }
+      ],
+      "documentExposesSupabaseCookie": false,
+      "authCookiePresent": true,
+      "process03Visible": true,
+      "logout": {
+        "nativeReturnToEntry": true,
+        "privateStatus": 307,
+        "redirectPath": "/entrar",
+        "denied": true
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "persona": "lawyer",
+      "width": 1440,
+      "label": "entrada",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/lawyer-1440-entrada.png",
+      "viewport": 1440,
+      "document": 1440,
+      "horizontalOverflow": false,
+      "sha256": "09e26ec9e3b8efce0a32b6fa6e90723562402e2912426f474a5e841dc81d02f2"
+    },
+    {
+      "persona": "lawyer",
+      "width": 1440,
+      "label": "painel",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/lawyer-1440-painel.png",
+      "viewport": 1440,
+      "document": 1440,
+      "horizontalOverflow": false,
+      "sha256": "109ec812c4e1a8b2489af542c9716ac4326bf7f8c5ecfe1f27b4fb2a6db26e32"
+    },
+    {
+      "persona": "lawyer",
+      "width": 1440,
+      "label": "pasta-03",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/lawyer-1440-pasta-03.png",
+      "viewport": 1440,
+      "document": 1440,
+      "horizontalOverflow": false,
+      "sha256": "9c4cc9d880a387d4a26845b6bf060318ea8cf235dfc169873f83fc21ca04e1d1"
+    },
+    {
+      "persona": "calculator",
+      "width": 1440,
+      "label": "entrada",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/calculator-1440-entrada.png",
+      "viewport": 1440,
+      "document": 1440,
+      "horizontalOverflow": false,
+      "sha256": "09e26ec9e3b8efce0a32b6fa6e90723562402e2912426f474a5e841dc81d02f2"
+    },
+    {
+      "persona": "calculator",
+      "width": 1440,
+      "label": "painel",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/calculator-1440-painel.png",
+      "viewport": 1440,
+      "document": 1440,
+      "horizontalOverflow": false,
+      "sha256": "1d15b6fa8f6193f9f48837b2c33db3d3d0ed8dea288352e410c5089f177f1e03"
+    },
+    {
+      "persona": "calculator",
+      "width": 1440,
+      "label": "pasta-03",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/calculator-1440-pasta-03.png",
+      "viewport": 1440,
+      "document": 1440,
+      "horizontalOverflow": false,
+      "sha256": "ffd5627ecc917b43dc2f8601b1151b06b9b0f66f114a16d07a6b04b2deda55c9"
+    },
+    {
+      "persona": "lawyer",
+      "width": 375,
+      "label": "entrada",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/lawyer-375-entrada.png",
+      "viewport": 375,
+      "document": 375,
+      "horizontalOverflow": false,
+      "sha256": "62b1d011d3bd7342fb061152cebf1bd9e4088a9a1d33f694156dcd9bb42349b1"
+    },
+    {
+      "persona": "lawyer",
+      "width": 375,
+      "label": "painel",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/lawyer-375-painel.png",
+      "viewport": 375,
+      "document": 375,
+      "horizontalOverflow": false,
+      "sha256": "a541e40b4f46a633b6b4f22e01c7a4e22a95a14f4a895a701da581f573273d7b"
+    },
+    {
+      "persona": "lawyer",
+      "width": 375,
+      "label": "pasta-03",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/lawyer-375-pasta-03.png",
+      "viewport": 375,
+      "document": 375,
+      "horizontalOverflow": false,
+      "sha256": "d1727a40493bfffa5c0033ab05ab1b053facebc2a74bc49a4d8f929ed9f93bfe"
+    },
+    {
+      "persona": "calculator",
+      "width": 375,
+      "label": "entrada",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/calculator-375-entrada.png",
+      "viewport": 375,
+      "document": 375,
+      "horizontalOverflow": false,
+      "sha256": "62b1d011d3bd7342fb061152cebf1bd9e4088a9a1d33f694156dcd9bb42349b1"
+    },
+    {
+      "persona": "calculator",
+      "width": 375,
+      "label": "painel",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/calculator-375-painel.png",
+      "viewport": 375,
+      "document": 375,
+      "horizontalOverflow": false,
+      "sha256": "86de0b2090b6404c5870abbbbf52b97244b4e3b02479e774048b04f46f9d7b01"
+    },
+    {
+      "persona": "calculator",
+      "width": 375,
+      "label": "pasta-03",
+      "path": "docs/evidencias/validacao/acesso-sem-senha/calculator-375-pasta-03.png",
+      "viewport": 375,
+      "document": 375,
+      "horizontalOverflow": false,
+      "sha256": "a6a997330e0deba30b633ae874a8306c289e235728fd97e85c61df60ae837b7e"
+    }
+  ],
+  "thirdPartyRequestsBlocked": 0,
+  "unexpectedWritesBlocked": 0,
+  "pageErrorCount": 0,
+  "credentialsUsed": false,
+  "driverUsed": false,
+  "secretsInOutput": false,
+  "trace": false,
+  "har": false,
+  "video": false,
+  "storageStateOnDisk": false,
+  "cookiesOnDisk": false,
+  "sessionOnDisk": false,
+  "pdfBytesOnDisk": false,
+  "expectedSha": "42624c621da82a039b3a40cd862bcbe2c8b35b2b",
+  "health": {
+    "status": 200,
+    "statusOk": true,
+    "shaMatches": true,
+    "observedSha": "42624c621da82a039b3a40cd862bcbe2c8b35b2b"
+  },
+  "completedAt": "2026-10-20T12:38:16.459Z",
+  "sourceEvidence": ".data/validacao/acesso-sem-senha-20261020T123802026Z/evidencia.json"
+}
