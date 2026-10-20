@@ -1,0 +1,40 @@
+{
+  "recordedAtUtc": "2026-10-20 03:31:57 UTC",
+  "scope": "Verificação limitada da configuração efetiva no redeploy anterior; não comprova publicação consolidada.",
+  "projectId": "prj_tdmzmC6utVU2fHPz0iVhroMD8NtI",
+  "teamId": "team_4fdLDCsB0ROvP5ph50aFNvxm",
+  "supabaseRef": "qtofwbxujshroaafxowr",
+  "origin": "https://project-rucji.vercel.app",
+  "deployment": {
+    "id": "dpl_DyVFKhhF98fLRHJWi8iRZVcVtFrr",
+    "createdAt": 1792460778099,
+    "source": "redeploy",
+    "state": "READY",
+    "projectId": "prj_tdmzmC6utVU2fHPz0iVhroMD8NtI"
+  },
+  "environment": {
+    "id": "tS6h4tdjTra5YaWu",
+    "key": "SUPABASE_SERVICE_ROLE_KEY",
+    "type": "sensitive",
+    "target": [
+      "production"
+    ],
+    "updatedAt": 1792459903134,
+    "createdAt": 1792459903134
+  },
+  "deploymentCreatedAfterEnvironmentUpdate": true,
+  "probe": {
+    "accountId": "6d07e560-0010-4000-8000-000000000002",
+    "fileId": "6d07e560-0060-4000-8000-000000000004",
+    "status": 307,
+    "signedStorageTargetMatches": true,
+    "keyCanSignPrivateObject": true
+  },
+  "privacy": {
+    "secretsInOutput": false,
+    "signedUrlRecorded": false,
+    "cookiesRecorded": false,
+    "credentialsOnlyInMemory": true
+  },
+  "limits": "O administrador createSystemClient lê SUPABASE_SERVICE_ROLE_KEY e não mudou entre9a25 e497. A autorização de arquivo foi alterada depois, com wrapper legado compatível. O resultado comprova assinatura privada no redeploy que recebeu a variável, não o portal consolidado ou a geração do contrato."
+}
