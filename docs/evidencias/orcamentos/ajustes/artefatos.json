@@ -1,0 +1,42 @@
+[
+  {
+    "path": "celular-ajuste-advogado-versao2.png",
+    "sha256": "7a07b9c87909a98cd027bd6de1839ba8404577062848e6b29ee7c4d203469377",
+    "bytes": 387966
+  },
+  {
+    "path": "celular-ajuste-calculista-versao2.png",
+    "sha256": "02158a2a7e5476a8250b1a7139c8c57d3756ded1626cc4531db024dc78d0e1f8",
+    "bytes": 382509
+  },
+  {
+    "path": "celular-ajuste-formulario.png",
+    "sha256": "cbbe4981b177569b0057c17e8f53cc94fb65beac6ab662e2e3e6f548fc51abd4",
+    "bytes": 537112
+  },
+  {
+    "path": "celular-proposta-revisada.pdf",
+    "sha256": "eb943abccc4646931080f055a8c234bef5277576021ae70907ba5fa072085725",
+    "bytes": 14293
+  },
+  {
+    "path": "computador-ajuste-advogado-versao2.png",
+    "sha256": "e6cc86ef844af45e24a0ae4cc4078b218f07007195c623ac44c85bc99499ba59",
+    "bytes": 150537
+  },
+  {
+    "path": "computador-ajuste-calculista-versao2.png",
+    "sha256": "db3a0d5e0757e8bab5a4af1892af5a04f07c813e8962df2dbaeb9067de2198ba",
+    "bytes": 152303
+  },
+  {
+    "path": "computador-ajuste-formulario.png",
+    "sha256": "05e04bade19188b14ba96562cfd376ff0a2c105ab41cc35d6d6a7ec29bce57c4",
+    "bytes": 202057
+  },
+  {
+    "path": "computador-proposta-revisada.pdf",
+    "sha256": "1c353d331da3158caedd91c4216cd2d92a7796711c4be99c2ae921af2d499e37",
+    "bytes": 14306
+  }
+]

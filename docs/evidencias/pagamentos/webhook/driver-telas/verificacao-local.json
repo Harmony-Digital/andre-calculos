@@ -1,0 +1,65 @@
+{
+  "tests_passed": 5,
+  "duration_seconds": 12.87,
+  "exit": 0,
+  "first_tests": {
+    "passed": 2,
+    "failed": 3
+  },
+  "instrumented_original": {
+    "passed": 2,
+    "failed": 3,
+    "exit_signal": "SIGTERM"
+  },
+  "fix": "wait natural exit after closed ACK; preserve 15s bound",
+  "readback_controls_grants_preserved": true,
+  "advisors_no_issues": 2,
+  "unit_tests": 1494,
+  "unit_files": 75,
+  "scripts": 43,
+  "format_lint_types": "passed",
+  "local_build": "EPERM internal port; exact-source CI needed",
+  "old_helpers_product_migrations_scripts_workflow_unchanged": true,
+  "logs": [
+    {
+      "file": "primeiro-ensaio.log",
+      "original_sha256": "c32e674765b6560d5886197330d6465b26fb743a2e7ad78f6c141ae81dbdc6ef",
+      "normalized_sha256": "b4575ba7b42fc39e7b635324233b98949e94f41192f450b436a64be271d5439d"
+    },
+    {
+      "file": "saida-original.log",
+      "original_sha256": "ebb53cd8003fc3ca53afe0b375f4e81df19ebd3019c775f10c3cf8794bc3235e",
+      "normalized_sha256": "19155ec4c3c98a62071800cad1dcd9c4547eac6841681edbdc883738cbefca72"
+    },
+    {
+      "file": "foco-final.log",
+      "original_sha256": "af9743fc25e66aec9516e6ed85fac139a98b38ed7ffee83093ea48692aae0958",
+      "normalized_sha256": "6b0543a863f1e5704446c517aab146c655e190e2167684838b633ead7521511e"
+    },
+    {
+      "file": "check-local.log",
+      "original_sha256": "f388d8593bdddb1369e9bffa5cebce7deaa26b86925909aa09b8a9a06d497332",
+      "normalized_sha256": "6de4f23d13fdf34e8c35847b29f9636abba823f61f957a059bd5750ad39a8f58"
+    },
+    {
+      "file": "readback-final.log",
+      "original_sha256": "5bacec851e00219a29b21de2564ea4779c519332c8289d8e83f722c4ec9cda88",
+      "normalized_sha256": "5bacec851e00219a29b21de2564ea4779c519332c8289d8e83f722c4ec9cda88"
+    },
+    {
+      "file": "controles-final.jsonl",
+      "original_sha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c",
+      "normalized_sha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c"
+    },
+    {
+      "file": "grants-final.jsonl",
+      "original_sha256": "ad4eee5e2041c00dad88a0d682e33388fe39d4ae40b408108b064506577e3a09",
+      "normalized_sha256": "ad4eee5e2041c00dad88a0d682e33388fe39d4ae40b408108b064506577e3a09"
+    },
+    {
+      "file": "advisors.log",
+      "original_sha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa",
+      "normalized_sha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+    }
+  ]
+}

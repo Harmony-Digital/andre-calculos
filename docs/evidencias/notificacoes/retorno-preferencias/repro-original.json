@@ -1,0 +1,15 @@
+{
+  "source": "e66c1a00c538263a5f9fb0717e58e995de1a3cf3",
+  "test_source_unchanged": true,
+  "workers": 1,
+  "retries": 0,
+  "widths": [
+    1440,
+    375
+  ],
+  "assertion_timeout_ms": 5000,
+  "test_timeout_ms": 90000,
+  "result": "2 passed (1.5m)",
+  "log_sha256": "2cbb95346578091472395a5dd8236ba16e4f539ebe5904d45b5e8ec68af9e3f9",
+  "screenshots": []
+}

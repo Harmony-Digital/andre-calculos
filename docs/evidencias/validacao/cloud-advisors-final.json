@@ -1,0 +1,3239 @@
+{
+  "index": 121,
+  "name": "andre_calculos_0121_update_missing_message",
+  "sha256": "ad9e69a6e08931d43f7b562476cdb7f07e3857ddfbc9818c8354fdf87abe0a41",
+  "appliedAt": "2026-10-20T01:09:06.725Z",
+  "security": [
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "count": 74,
+      "findings": [
+        {
+          "detail": "Table \\`private.calculation_updates\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "calculation_updates",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.calculator_notification_recipient\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "calculator_notification_recipient",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.client_contract_changes\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "client_contract_changes",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.deadline_reminder_receipts\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "deadline_reminder_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.manual_deposit_receipts\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "manual_deposit_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.manual_deposit_requests\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "manual_deposit_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.message_attachments\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "message_attachments",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.notification_dispatch_receipts\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "notification_dispatch_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.notification_dispatch_requests\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "notification_dispatch_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.notification_local_calls\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "notification_local_calls",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.notification_local_deliveries\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "notification_local_deliveries",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.notification_local_runs\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "notification_local_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.notification_preference_changes\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "notification_preference_changes",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.order_operation_receipts\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "order_operation_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.page_index_receipts\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "page_index_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_customer_requests\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_customer_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_customer_steps\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_customer_steps",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_customer_work\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_customer_work",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_execution_observations\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_execution_observations",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_execution_protocols\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_execution_protocols",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_execution_runs\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_execution_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_execution_steps\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_execution_steps",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_financial_applications\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_financial_applications",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_financial_charges\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_financial_charges",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_financial_conflicts\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_financial_conflicts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_financial_observations\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_financial_observations",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_financial_positions\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_financial_positions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_financial_queries\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_financial_queries",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_financial_resolutions\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_financial_resolutions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_fixture_controls\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_fixture_controls",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_fixture_customers\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_fixture_customers",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_fixture_environment\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_fixture_environment",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_fixture_invocations\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_fixture_invocations",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_fixture_payments\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_fixture_payments",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_fixture_requests\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_fixture_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_intent_dispatch_claims\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_intent_dispatch_claims",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_intent_requests\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_intent_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_intent_reservations\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_intent_reservations",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_intent_resolutions\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_intent_resolutions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_intent_withdrawals\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_intent_withdrawals",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_intents\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_intents",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_invoice_queries\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_invoice_queries",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_legacy_binding_receipts\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_legacy_binding_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_legacy_bindings\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_legacy_bindings",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_legacy_origins\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_legacy_origins",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_obligation_contexts\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_obligation_contexts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_provider_configuration\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_provider_configuration",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_provider_customers\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_provider_customers",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_provider_scopes\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_provider_scopes",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_webhook_claims\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_webhook_claims",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_webhook_conflicts\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_webhook_conflicts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_webhook_events\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_webhook_events",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_webhook_queue\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_webhook_queue",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.payment_webhook_runs\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "payment_webhook_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.pdf_page_checks\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "pdf_page_checks",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.pdf_reference_origins\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "pdf_reference_origins",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.pdf_version_receipts\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "pdf_version_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.pdf_versions\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "pdf_versions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_acceptance_requests\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_acceptance_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_acceptances\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_acceptances",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_adjustments\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_adjustments",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_contract_contexts\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_contract_contexts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_contract_generation_intents\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_contract_generation_intents",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_contract_pdf_archives\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_contract_pdf_archives",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_contract_pdf_claims\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_contract_pdf_claims",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_contract_pdf_jobs\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_contract_pdf_jobs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_contract_pdf_metadata\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_contract_pdf_metadata",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_contract_snapshots\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_contract_snapshots",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_counters\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_counters",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_rejection_requests\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_rejection_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_rejections\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_rejections",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.quote_requests\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "quote_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`private.user_provisioning_grants\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "user_provisioning_grants",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Table \\`public.notifications\\` has RLS enabled, but no policies exist",
+          "metadata": {
+            "name": "notifications",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        }
+      ]
+    },
+    {
+      "name": "anon_security_definer_function_executable",
+      "title": "Public Can Execute SECURITY DEFINER Function",
+      "level": "WARN",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects `SECURITY DEFINER` functions that are callable without signing in. Revoke `EXECUTE`, switch the function to `SECURITY INVOKER`, or move it out of your exposed API schema if it is not meant to be public.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable",
+      "count": 3,
+      "findings": [
+        {
+          "detail": "Function `public.get_legal_versions()` can be executed by the `anon` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_legal_versions`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_legal_versions",
+            "schema": "public",
+            "language": "sql",
+            "arguments": "",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_public_price_table()` can be executed by the `anon` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_public_price_table`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_public_price_table",
+            "schema": "public",
+            "language": "sql",
+            "arguments": "",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_public_service_info()` can be executed by the `anon` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_public_service_info`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_public_service_info",
+            "schema": "public",
+            "language": "sql",
+            "arguments": "",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        }
+      ]
+    },
+    {
+      "name": "authenticated_security_definer_function_executable",
+      "title": "Signed-In Users Can Execute SECURITY DEFINER Function",
+      "level": "WARN",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects `SECURITY DEFINER` functions that are callable by signed-in users. Revoke `EXECUTE`, switch the function to `SECURITY INVOKER`, or move it out of your exposed API schema if signed-in users should not call it.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable",
+      "count": 67,
+      "findings": [
+        {
+          "detail": "Function `public.add_process_note(target_process uuid, note_body text, request_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/add_process_note`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "add_process_note",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, note_body text, request_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.approve_existing_delivery_release(target_delivery uuid, policy text, approved boolean, request_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/approve_existing_delivery_release`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "approve_existing_delivery_release",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_delivery uuid, policy text, approved boolean, request_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.approve_future_delivery_policy(policy text, expected_revision integer, approved boolean, request_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/approve_future_delivery_policy`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "approve_future_delivery_policy",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "policy text, expected_revision integer, approved boolean, request_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.authorize_file_access(target_file uuid, access_kind text)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/authorize_file_access`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "authorize_file_access",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_file uuid, access_kind text",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.authorize_quote_contract_download(target_quote uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/authorize_quote_contract_download`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "authorize_quote_contract_download",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_quote uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.complete_calculation_update(target_order uuid, expected_revision integer, source_file uuid, confirm_review boolean)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/complete_calculation_update`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "complete_calculation_update",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_order uuid, expected_revision integer, source_file uuid, confirm_review boolean",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.confirm_manual_deposit(target_quote uuid, expected_context text, expected_remaining_cents bigint, request_id uuid, confirmed boolean)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/confirm_manual_deposit`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "confirm_manual_deposit",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_quote uuid, expected_context text, expected_remaining_cents bigint, request_id uuid, confirmed boolean",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.confirm_order_delivery(target_process uuid, target_order uuid, request_id uuid, payload jsonb)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/confirm_order_delivery`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "confirm_order_delivery",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, target_order uuid, request_id uuid, payload jsonb",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.confirm_process_decision(target_decision uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/confirm_process_decision`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "confirm_process_decision",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_decision uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.create_calculation_update(target_process uuid, source_order uuid, request_id uuid, source_file uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/create_calculation_update`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "create_calculation_update",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, source_order uuid, request_id uuid, source_file uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.finish_payment_invoice(target_query uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/finish_payment_invoice`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "finish_payment_invoice",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_query uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_calculation_update(target_order uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_calculation_update`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_calculation_update",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_order uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_calculator_notification_context()` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_calculator_notification_context`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_calculator_notification_context",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_client_contract_context(target_clients uuid[])` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_client_contract_context`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_client_contract_context",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_clients uuid[]",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_complexity_limits()` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_complexity_limits`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_complexity_limits",
+            "schema": "public",
+            "language": "sql",
+            "arguments": "",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_current_delivery_access_contexts(target_process uuid, target_deliveries uuid[])` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_current_delivery_access_contexts`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_current_delivery_access_contexts",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, target_deliveries uuid[]",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_current_order_credits(target_orders uuid[])` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_current_order_credits`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_current_order_credits",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_orders uuid[]",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_delivery_credit_instructions(target_process uuid, target_deliveries uuid[])` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_delivery_credit_instructions`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_delivery_credit_instructions",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, target_deliveries uuid[]",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_delivery_display_context(target_process uuid, target_deliveries uuid[])` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_delivery_display_context`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_delivery_display_context",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, target_deliveries uuid[]",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_delivery_payment_instructions(target_process uuid, target_deliveries uuid[])` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_delivery_payment_instructions`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_delivery_payment_instructions",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, target_deliveries uuid[]",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_file_access_audit(target_file uuid, file_search text, target_actor uuid, actor_search text, start_date date, end_date date, access_action text, cursor_created_at timestamp with time zone, cursor_id uuid, page_size integer)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_file_access_audit`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_file_access_audit",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_file uuid, file_search text, target_actor uuid, actor_search text, start_date date, end_date date, access_action text, cursor_created_at timestamp with time zone, cursor_id uuid, page_size integer",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_legal_versions()` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_legal_versions`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_legal_versions",
+            "schema": "public",
+            "language": "sql",
+            "arguments": "",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_order_financial_projection(target_order uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_order_financial_projection`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_order_financial_projection",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_order uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_order_payment_reservation(target_order uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_order_payment_reservation`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_order_payment_reservation",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_order uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_payment_customer_request(target_request uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_payment_customer_request`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_payment_customer_request",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_request uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_payment_execution(target_intent uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_payment_execution`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_payment_execution",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_intent uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_payment_intent(target_intent uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_payment_intent`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_payment_intent",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_intent uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_payment_obligation(target_order uuid, target_phase text)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_payment_obligation`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_payment_obligation",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_order uuid, target_phase text",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_pdf_index_origins(target_process uuid, entry_ids uuid[])` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_pdf_index_origins`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_pdf_index_origins",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, entry_ids uuid[]",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_pdf_version_context(target_file uuid, start_page integer, ref_after_at timestamp with time zone, ref_after_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_pdf_version_context`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_pdf_version_context",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_file uuid, start_page integer, ref_after_at timestamp with time zone, ref_after_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_pdf_version_heads(target_process uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_pdf_version_heads`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_pdf_version_heads",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_pdf_version_sequences(target_process uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_pdf_version_sequences`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_pdf_version_sequences",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_process_contract_quote_ids(target_process uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_process_contract_quote_ids`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_process_contract_quote_ids",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_process_decision_export(target_process uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_process_decision_export`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_process_decision_export",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_process_deposit_instructions(target_process uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_process_deposit_instructions`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_process_deposit_instructions",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_process_participants(target_process uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_process_participants`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_process_participants",
+            "schema": "public",
+            "language": "sql",
+            "arguments": "target_process uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_public_price_table()` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_public_price_table`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_public_price_table",
+            "schema": "public",
+            "language": "sql",
+            "arguments": "",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_public_service_info()` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_public_service_info`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_public_service_info",
+            "schema": "public",
+            "language": "sql",
+            "arguments": "",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_quote_contract_context(target_quote uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_quote_contract_context`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_quote_contract_context",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_quote uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_quote_contract_pdf_state(target_quote uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_quote_contract_pdf_state`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_quote_contract_pdf_state",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_quote uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_quote_contract_snapshot(target_quote uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_quote_contract_snapshot`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_quote_contract_snapshot",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_quote uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_quote_pdf_export(target_quote uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_quote_pdf_export`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_quote_pdf_export",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_quote uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.get_quote_revision_context(target_quote uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/get_quote_revision_context`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "get_quote_revision_context",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_quote uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.is_admin()` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/is_admin`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "is_admin",
+            "schema": "public",
+            "language": "sql",
+            "arguments": "",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.is_calculator()` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/is_calculator`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "is_calculator",
+            "schema": "public",
+            "language": "sql",
+            "arguments": "",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.mutate_pdf_version(target_process uuid, request_id uuid, payload jsonb)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/mutate_pdf_version`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "mutate_pdf_version",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, request_id uuid, payload jsonb",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.mutate_process_page_index(target_process uuid, request_id uuid, payload jsonb)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/mutate_process_page_index`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "mutate_process_page_index",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, request_id uuid, payload jsonb",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.operate_order(target_process uuid, target_order uuid, request_id uuid, payload jsonb)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/operate_order`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "operate_order",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, target_order uuid, request_id uuid, payload jsonb",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.prepare_file_upload(target_process uuid, file_name text, file_mime text, file_size bigint, expected_hash text, target_folder text)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/prepare_file_upload`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "prepare_file_upload",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, file_name text, file_mime text, file_size bigint, expected_hash text, target_folder text",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.prepare_payment_balance_invoice(target_order uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/prepare_payment_balance_invoice`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "prepare_payment_balance_invoice",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_order uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.prepare_payment_invoice(target_order uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/prepare_payment_invoice`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "prepare_payment_invoice",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_order uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.prepare_payment_obligation(target_order uuid, target_phase text, expected_context text, expected_remaining_cents bigint, billing_type text, due_date date, request_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/prepare_payment_obligation`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "prepare_payment_obligation",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_order uuid, target_phase text, expected_context text, expected_remaining_cents bigint, billing_type text, due_date date, request_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.quote_is_current(public.quotes)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/quote_is_current`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "quote_is_current",
+            "schema": "public",
+            "language": "sql",
+            "arguments": "public.quotes",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.record_auth_audit(event text)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/record_auth_audit`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "record_auth_audit",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "event text",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.record_file_access(target_file uuid, access_kind text)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/record_file_access`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "record_file_access",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_file uuid, access_kind text",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.record_process_decision(target_process uuid, decision_parameter text, decision_value text, decision_source text, decision_page integer, decision_rationale text, request_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/record_process_decision`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "record_process_decision",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, decision_parameter text, decision_value text, decision_source text, decision_page integer, decision_rationale text, request_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.request_account_deletion()` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/request_account_deletion`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "request_account_deletion",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.request_payment_customer(target_client uuid, request_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/request_payment_customer`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "request_payment_customer",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_client uuid, request_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.reserve_payment_intent(target_context uuid, request_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/reserve_payment_intent`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "reserve_payment_intent",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_context uuid, request_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.save_checklist_draft(payload jsonb, completed_step integer, draft_id uuid, expected_revision integer)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/save_checklist_draft`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "save_checklist_draft",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "payload jsonb, completed_step integer, draft_id uuid, expected_revision integer",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.save_price_version(payload jsonb, example boolean, expected_version integer, approved boolean)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/save_price_version`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "save_price_version",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "payload jsonb, example boolean, expected_version integer, approved boolean",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.save_service_settings(payload jsonb, expected_revision integer)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/save_service_settings`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "save_service_settings",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "payload jsonb, expected_revision integer",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.send_process_message(target_process uuid, message_body text, attachments uuid[], request_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/send_process_message`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "send_process_message",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_process uuid, message_body text, attachments uuid[], request_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.set_client_contract(target_client uuid, has_contract boolean, reason text, expected_revision integer, request_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/set_client_contract`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "set_client_contract",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_client uuid, has_contract boolean, reason text, expected_revision integer, request_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.set_my_notification_preference(event text, channel text, enabled boolean, expected_revision integer, request_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/set_my_notification_preference`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "set_my_notification_preference",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "event text, channel text, enabled boolean, expected_revision integer, request_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.update_own_profile(full_name text, phone text, oab_number text, oab_state text, city text, legal_name text)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/update_own_profile`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "update_own_profile",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "full_name text, phone text, oab_number text, oab_state text, city text, legal_name text",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        },
+        {
+          "detail": "Function `public.withdraw_payment_intent(target_intent uuid, expected_revision integer, request_id uuid)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/withdraw_payment_intent`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "withdraw_payment_intent",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "target_intent uuid, expected_revision integer, request_id uuid",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-20T01:09:05.264Z"
+        }
+      ]
+    }
+  ],
+  "performance": [
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "count": 10,
+      "findings": [
+        {
+          "detail": "Table \\`private.order_operation_receipts\\` has a foreign key \\`order_operation_receipts_order_id_process_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "order_operation_receipts",
+            "type": "table",
+            "schema": "private",
+            "fkey_name": "order_operation_receipts_order_id_process_id_fkey",
+            "fkey_columns": [
+              2,
+              3
+            ]
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Table \\`private.payment_execution_observations\\` has a foreign key \\`payment_execution_observations_step_id_run_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "payment_execution_observations",
+            "type": "table",
+            "schema": "private",
+            "fkey_name": "payment_execution_observations_step_id_run_id_fkey",
+            "fkey_columns": [
+              2,
+              3
+            ]
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Table \\`private.payment_execution_protocols\\` has a foreign key \\`payment_execution_protocols_step_id_run_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "payment_execution_protocols",
+            "type": "table",
+            "schema": "private",
+            "fkey_name": "payment_execution_protocols_step_id_run_id_fkey",
+            "fkey_columns": [
+              1,
+              2
+            ]
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Table \\`private.payment_obligation_contexts\\` has a foreign key \\`payment_obligation_contexts_client_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "payment_obligation_contexts",
+            "type": "table",
+            "schema": "private",
+            "fkey_name": "payment_obligation_contexts_client_id_fkey",
+            "fkey_columns": [
+              4
+            ]
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Table \\`public.decisions\\` has a foreign key \\`decisions_order_id_process_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "decisions",
+            "type": "table",
+            "schema": "public",
+            "fkey_name": "decisions_order_id_process_id_fkey",
+            "fkey_columns": [
+              3,
+              2
+            ]
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Table \\`public.deliveries\\` has a foreign key \\`deliveries_order_id_process_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "deliveries",
+            "type": "table",
+            "schema": "public",
+            "fkey_name": "deliveries_order_id_process_id_fkey",
+            "fkey_columns": [
+              3,
+              2
+            ]
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Table \\`public.files\\` has a foreign key \\`files_order_id_process_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "files",
+            "type": "table",
+            "schema": "public",
+            "fkey_name": "files_order_id_process_id_fkey",
+            "fkey_columns": [
+              3,
+              2
+            ]
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Table \\`public.orders\\` has a foreign key \\`orders_process_id_client_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "orders",
+            "type": "table",
+            "schema": "public",
+            "fkey_name": "orders_process_id_client_id_fkey",
+            "fkey_columns": [
+              2,
+              3
+            ]
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Table \\`public.page_index\\` has a foreign key \\`page_index_file_id_process_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "page_index",
+            "type": "table",
+            "schema": "public",
+            "fkey_name": "page_index_file_id_process_id_fkey",
+            "fkey_columns": [
+              3,
+              2
+            ]
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Table \\`public.timeline_events\\` has a foreign key \\`timeline_events_order_id_process_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "timeline_events",
+            "type": "table",
+            "schema": "public",
+            "fkey_name": "timeline_events_order_id_process_id_fkey",
+            "fkey_columns": [
+              3,
+              2
+            ]
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        }
+      ]
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "count": 176,
+      "findings": [
+        {
+          "detail": "Index \\`calculator_notification_recipient_profile_idx\\` on table \\`private.calculator_notification_recipient\\` has not been used",
+          "metadata": {
+            "name": "calculator_notification_recipient",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`notification_preference_changes_profile_idx\\` on table \\`private.notification_preference_changes\\` has not been used",
+          "metadata": {
+            "name": "notification_preference_changes",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quotes_price_table_id_idx\\` on table \\`public.quotes\\` has not been used",
+          "metadata": {
+            "name": "quotes",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_requests_actor_idx\\` on table \\`private.quote_requests\\` has not been used",
+          "metadata": {
+            "name": "quote_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_requests_order_idx\\` on table \\`private.quote_requests\\` has not been used",
+          "metadata": {
+            "name": "quote_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_requests_quote_idx\\` on table \\`private.quote_requests\\` has not been used",
+          "metadata": {
+            "name": "quote_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_contract_contexts_prepared_by_idx\\` on table \\`private.quote_contract_contexts\\` has not been used",
+          "metadata": {
+            "name": "quote_contract_contexts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_acceptances_actor_idx\\` on table \\`private.quote_acceptances\\` has not been used",
+          "metadata": {
+            "name": "quote_acceptances",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_acceptance_requests_quote_idx\\` on table \\`private.quote_acceptance_requests\\` has not been used",
+          "metadata": {
+            "name": "quote_acceptance_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_acceptance_requests_actor_idx\\` on table \\`private.quote_acceptance_requests\\` has not been used",
+          "metadata": {
+            "name": "quote_acceptance_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_provider_configuration_scope_idx\\` on table \\`private.payment_provider_configuration\\` has not been used",
+          "metadata": {
+            "name": "payment_provider_configuration",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_provider_customers_client_idx\\` on table \\`private.payment_provider_customers\\` has not been used",
+          "metadata": {
+            "name": "payment_provider_customers",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_obligation_contexts_order_idx\\` on table \\`private.payment_obligation_contexts\\` has not been used",
+          "metadata": {
+            "name": "payment_obligation_contexts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_obligation_contexts_quote_idx\\` on table \\`private.payment_obligation_contexts\\` has not been used",
+          "metadata": {
+            "name": "payment_obligation_contexts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_obligation_contexts_binding_idx\\` on table \\`private.payment_obligation_contexts\\` has not been used",
+          "metadata": {
+            "name": "payment_obligation_contexts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`manual_deposit_receipts_order_idx\\` on table \\`private.manual_deposit_receipts\\` has not been used",
+          "metadata": {
+            "name": "manual_deposit_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`manual_deposit_receipts_quote_idx\\` on table \\`private.manual_deposit_receipts\\` has not been used",
+          "metadata": {
+            "name": "manual_deposit_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`manual_deposit_receipts_actor_idx\\` on table \\`private.manual_deposit_receipts\\` has not been used",
+          "metadata": {
+            "name": "manual_deposit_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`manual_deposit_requests_receipt_idx\\` on table \\`private.manual_deposit_requests\\` has not been used",
+          "metadata": {
+            "name": "manual_deposit_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`manual_deposit_requests_quote_idx\\` on table \\`private.manual_deposit_requests\\` has not been used",
+          "metadata": {
+            "name": "manual_deposit_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`manual_deposit_requests_actor_idx\\` on table \\`private.manual_deposit_requests\\` has not been used",
+          "metadata": {
+            "name": "manual_deposit_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_obligation_contexts_actor_idx\\` on table \\`private.payment_obligation_contexts\\` has not been used",
+          "metadata": {
+            "name": "payment_obligation_contexts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_customer_work_client_idx\\` on table \\`private.payment_customer_work\\` has not been used",
+          "metadata": {
+            "name": "payment_customer_work",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_customer_work_owner_idx\\` on table \\`private.payment_customer_work\\` has not been used",
+          "metadata": {
+            "name": "payment_customer_work",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_customer_requests_work_idx\\` on table \\`private.payment_customer_requests\\` has not been used",
+          "metadata": {
+            "name": "payment_customer_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_customer_requests_client_idx\\` on table \\`private.payment_customer_requests\\` has not been used",
+          "metadata": {
+            "name": "payment_customer_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_intents_actor_idx\\` on table \\`private.payment_intents\\` has not been used",
+          "metadata": {
+            "name": "payment_intents",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`client_contract_changes_client_idx\\` on table \\`private.client_contract_changes\\` has not been used",
+          "metadata": {
+            "name": "client_contract_changes",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`client_contract_changes_actor_idx\\` on table \\`private.client_contract_changes\\` has not been used",
+          "metadata": {
+            "name": "client_contract_changes",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_intents_context_idx\\` on table \\`private.payment_intents\\` has not been used",
+          "metadata": {
+            "name": "payment_intents",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_intents_order_idx\\` on table \\`private.payment_intents\\` has not been used",
+          "metadata": {
+            "name": "payment_intents",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`order_operation_receipts_order_idx\\` on table \\`private.order_operation_receipts\\` has not been used",
+          "metadata": {
+            "name": "order_operation_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`order_operation_receipts_process_idx\\` on table \\`private.order_operation_receipts\\` has not been used",
+          "metadata": {
+            "name": "order_operation_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`order_operation_receipts_actor_idx\\` on table \\`private.order_operation_receipts\\` has not been used",
+          "metadata": {
+            "name": "order_operation_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_intent_withdrawals_request_idx\\` on table \\`private.payment_intent_withdrawals\\` has not been used",
+          "metadata": {
+            "name": "payment_intent_withdrawals",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_intent_reservations_binding_idx\\` on table \\`private.payment_intent_reservations\\` has not been used",
+          "metadata": {
+            "name": "payment_intent_reservations",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_intent_requests_intent_idx\\` on table \\`private.payment_intent_requests\\` has not been used",
+          "metadata": {
+            "name": "payment_intent_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_intent_requests_actor_idx\\` on table \\`private.payment_intent_requests\\` has not been used",
+          "metadata": {
+            "name": "payment_intent_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_customer_requests_actor_idx\\` on table \\`private.payment_customer_requests\\` has not been used",
+          "metadata": {
+            "name": "payment_customer_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_customer_steps_work_idx\\` on table \\`private.payment_customer_steps\\` has not been used",
+          "metadata": {
+            "name": "payment_customer_steps",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_customer_steps_request_idx\\` on table \\`private.payment_customer_steps\\` has not been used",
+          "metadata": {
+            "name": "payment_customer_steps",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_customer_work_step_idx\\` on table \\`private.payment_customer_work\\` has not been used",
+          "metadata": {
+            "name": "payment_customer_work",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_execution_steps_run_idx\\` on table \\`private.payment_execution_steps\\` has not been used",
+          "metadata": {
+            "name": "payment_execution_steps",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_execution_runs_step_idx\\` on table \\`private.payment_execution_runs\\` has not been used",
+          "metadata": {
+            "name": "payment_execution_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_fixture_payments_client\\` on table \\`private.payment_fixture_payments\\` has not been used",
+          "metadata": {
+            "name": "payment_fixture_payments",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_fixture_payments_customer\\` on table \\`private.payment_fixture_payments\\` has not been used",
+          "metadata": {
+            "name": "payment_fixture_payments",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_fixture_payments_intent\\` on table \\`private.payment_fixture_payments\\` has not been used",
+          "metadata": {
+            "name": "payment_fixture_payments",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_rejections_process_idx\\` on table \\`private.quote_rejections\\` has not been used",
+          "metadata": {
+            "name": "quote_rejections",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_rejections_actor_idx\\` on table \\`private.quote_rejections\\` has not been used",
+          "metadata": {
+            "name": "quote_rejections",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_rejection_requests_quote_idx\\` on table \\`private.quote_rejection_requests\\` has not been used",
+          "metadata": {
+            "name": "quote_rejection_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_fixture_customers_lookup\\` on table \\`private.payment_fixture_customers\\` has not been used",
+          "metadata": {
+            "name": "payment_fixture_customers",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_fixture_customers_client\\` on table \\`private.payment_fixture_customers\\` has not been used",
+          "metadata": {
+            "name": "payment_fixture_customers",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_fixture_payments_lookup\\` on table \\`private.payment_fixture_payments\\` has not been used",
+          "metadata": {
+            "name": "payment_fixture_payments",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_fixture_requests_scope\\` on table \\`private.payment_fixture_requests\\` has not been used",
+          "metadata": {
+            "name": "payment_fixture_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_fixture_requests_client\\` on table \\`private.payment_fixture_requests\\` has not been used",
+          "metadata": {
+            "name": "payment_fixture_requests",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`message_attachments_file_process_idx\\` on table \\`private.message_attachments\\` has not been used",
+          "metadata": {
+            "name": "message_attachments",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_fixture_invocations_request\\` on table \\`private.payment_fixture_invocations\\` has not been used",
+          "metadata": {
+            "name": "payment_fixture_invocations",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`price_tables_created_by_idx\\` on table \\`public.price_tables\\` has not been used",
+          "metadata": {
+            "name": "price_tables",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`processes_client_id_idx\\` on table \\`public.processes\\` has not been used",
+          "metadata": {
+            "name": "processes",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`orders_process_id_idx\\` on table \\`public.orders\\` has not been used",
+          "metadata": {
+            "name": "orders",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`orders_client_id_idx\\` on table \\`public.orders\\` has not been used",
+          "metadata": {
+            "name": "orders",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`orders_price_table_id_idx\\` on table \\`public.orders\\` has not been used",
+          "metadata": {
+            "name": "orders",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quotes_order_id_idx\\` on table \\`public.quotes\\` has not been used",
+          "metadata": {
+            "name": "quotes",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quotes_accepted_by_idx\\` on table \\`public.quotes\\` has not been used",
+          "metadata": {
+            "name": "quotes",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payments_order_id_idx\\` on table \\`public.payments\\` has not been used",
+          "metadata": {
+            "name": "payments",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payments_confirmed_by_idx\\` on table \\`public.payments\\` has not been used",
+          "metadata": {
+            "name": "payments",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`files_process_id_idx\\` on table \\`public.files\\` has not been used",
+          "metadata": {
+            "name": "files",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`files_order_id_idx\\` on table \\`public.files\\` has not been used",
+          "metadata": {
+            "name": "files",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`files_uploaded_by_idx\\` on table \\`public.files\\` has not been used",
+          "metadata": {
+            "name": "files",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`page_index_process_id_idx\\` on table \\`public.page_index\\` has not been used",
+          "metadata": {
+            "name": "page_index",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`page_index_file_id_idx\\` on table \\`public.page_index\\` has not been used",
+          "metadata": {
+            "name": "page_index",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`decisions_process_id_idx\\` on table \\`public.decisions\\` has not been used",
+          "metadata": {
+            "name": "decisions",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`decisions_order_id_idx\\` on table \\`public.decisions\\` has not been used",
+          "metadata": {
+            "name": "decisions",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`decisions_recorded_by_idx\\` on table \\`public.decisions\\` has not been used",
+          "metadata": {
+            "name": "decisions",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`messages_process_id_idx\\` on table \\`public.messages\\` has not been used",
+          "metadata": {
+            "name": "messages",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`messages_author_id_idx\\` on table \\`public.messages\\` has not been used",
+          "metadata": {
+            "name": "messages",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`timeline_events_process_id_idx\\` on table \\`public.timeline_events\\` has not been used",
+          "metadata": {
+            "name": "timeline_events",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`timeline_events_order_id_idx\\` on table \\`public.timeline_events\\` has not been used",
+          "metadata": {
+            "name": "timeline_events",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`timeline_events_actor_id_idx\\` on table \\`public.timeline_events\\` has not been used",
+          "metadata": {
+            "name": "timeline_events",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`reviews_profile_id_idx\\` on table \\`public.reviews\\` has not been used",
+          "metadata": {
+            "name": "reviews",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`audit_log_actor_id_idx\\` on table \\`public.audit_log\\` has not been used",
+          "metadata": {
+            "name": "audit_log",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`orders_queue_idx\\` on table \\`public.orders\\` has not been used",
+          "metadata": {
+            "name": "orders",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`notifications_pending_idx\\` on table \\`public.notifications\\` has not been used",
+          "metadata": {
+            "name": "notifications",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`files_pending_uploader_idx\\` on table \\`public.files\\` has not been used",
+          "metadata": {
+            "name": "files",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`messages_process_created_id_idx\\` on table \\`public.messages\\` has not been used",
+          "metadata": {
+            "name": "messages",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`timeline_process_created_id_idx\\` on table \\`public.timeline_events\\` has not been used",
+          "metadata": {
+            "name": "timeline_events",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`timeline_process_kind_created_id_idx\\` on table \\`public.timeline_events\\` has not been used",
+          "metadata": {
+            "name": "timeline_events",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`decisions_client_confirmed_by_idx\\` on table \\`public.decisions\\` has not been used",
+          "metadata": {
+            "name": "decisions",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`decisions_process_created_id_idx\\` on table \\`public.decisions\\` has not been used",
+          "metadata": {
+            "name": "decisions",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`page_index_recorded_by_idx\\` on table \\`public.page_index\\` has not been used",
+          "metadata": {
+            "name": "page_index",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`page_index_process_created_id_idx\\` on table \\`public.page_index\\` has not been used",
+          "metadata": {
+            "name": "page_index",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`page_index_receipts_process_idx\\` on table \\`private.page_index_receipts\\` has not been used",
+          "metadata": {
+            "name": "page_index_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`page_index_receipts_actor_idx\\` on table \\`private.page_index_receipts\\` has not been used",
+          "metadata": {
+            "name": "page_index_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`page_index_receipts_file_idx\\` on table \\`private.page_index_receipts\\` has not been used",
+          "metadata": {
+            "name": "page_index_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`orders_work_queue_due_id_idx\\` on table \\`public.orders\\` has not been used",
+          "metadata": {
+            "name": "orders",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`orders_work_queue_status_due_id_idx\\` on table \\`public.orders\\` has not been used",
+          "metadata": {
+            "name": "orders",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`notification_local_calls_notification\\` on table \\`private.notification_local_calls\\` has not been used",
+          "metadata": {
+            "name": "notification_local_calls",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`delivery_releases_actor_idx\\` on table \\`public.delivery_releases\\` has not been used",
+          "metadata": {
+            "name": "delivery_releases",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`deliveries_process_created_id_idx\\` on table \\`public.deliveries\\` has not been used",
+          "metadata": {
+            "name": "deliveries",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`deliveries_order_idx\\` on table \\`public.deliveries\\` has not been used",
+          "metadata": {
+            "name": "deliveries",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`deliveries_confirmed_by_idx\\` on table \\`public.deliveries\\` has not been used",
+          "metadata": {
+            "name": "deliveries",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`delivery_files_file_idx\\` on table \\`public.delivery_files\\` has not been used",
+          "metadata": {
+            "name": "delivery_files",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_fixture_controls_client\\` on table \\`private.payment_fixture_controls\\` has not been used",
+          "metadata": {
+            "name": "payment_fixture_controls",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`delivery_policy_approvals_actor_idx\\` on table \\`public.delivery_policy_approvals\\` has not been used",
+          "metadata": {
+            "name": "delivery_policy_approvals",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_execution_runs_request_idx\\` on table \\`private.payment_execution_runs\\` has not been used",
+          "metadata": {
+            "name": "payment_execution_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_execution_runs_scope_idx\\` on table \\`private.payment_execution_runs\\` has not been used",
+          "metadata": {
+            "name": "payment_execution_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_execution_runs_client_idx\\` on table \\`private.payment_execution_runs\\` has not been used",
+          "metadata": {
+            "name": "payment_execution_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_execution_protocols_run_idx\\` on table \\`private.payment_execution_protocols\\` has not been used",
+          "metadata": {
+            "name": "payment_execution_protocols",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_execution_protocols_scope_idx\\` on table \\`private.payment_execution_protocols\\` has not been used",
+          "metadata": {
+            "name": "payment_execution_protocols",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_execution_protocols_client_idx\\` on table \\`private.payment_execution_protocols\\` has not been used",
+          "metadata": {
+            "name": "payment_execution_protocols",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_execution_observations_run_idx\\` on table \\`private.payment_execution_observations\\` has not been used",
+          "metadata": {
+            "name": "payment_execution_observations",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_execution_observations_receipt_idx\\` on table \\`private.payment_execution_observations\\` has not been used",
+          "metadata": {
+            "name": "payment_execution_observations",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_execution_observations_customer_idx\\` on table \\`private.payment_execution_observations\\` has not been used",
+          "metadata": {
+            "name": "payment_execution_observations",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_charges_client_idx\\` on table \\`private.payment_financial_charges\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_charges",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_intent_resolutions_request_idx\\` on table \\`private.payment_intent_resolutions\\` has not been used",
+          "metadata": {
+            "name": "payment_intent_resolutions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_intent_resolutions_step_idx\\` on table \\`private.payment_intent_resolutions\\` has not been used",
+          "metadata": {
+            "name": "payment_intent_resolutions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_intent_resolutions_receipt_idx\\` on table \\`private.payment_intent_resolutions\\` has not been used",
+          "metadata": {
+            "name": "payment_intent_resolutions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_charges_order_idx\\` on table \\`private.payment_financial_charges\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_charges",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_charges_query_idx\\` on table \\`private.payment_financial_charges\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_charges",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_applications_observation_idx\\` on table \\`private.payment_financial_applications\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_applications",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_observations_receipt_idx\\` on table \\`private.payment_financial_observations\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_observations",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_bindings_charge_idx\\` on table \\`private.payment_legacy_bindings\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_bindings",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_bindings_scope_idx\\` on table \\`private.payment_legacy_bindings\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_bindings",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_bindings_observation_idx\\` on table \\`private.payment_legacy_bindings\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_bindings",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_applications_order_idx\\` on table \\`private.payment_financial_applications\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_applications",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_positions_observation_idx\\` on table \\`private.payment_financial_positions\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_positions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_applications_intent_idx\\` on table \\`private.payment_financial_applications\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_applications",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_applications_basis_idx\\` on table \\`private.payment_financial_applications\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_applications",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_applications_charge_idx\\` on table \\`private.payment_financial_applications\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_applications",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_resolutions_execution_idx\\` on table \\`private.payment_financial_resolutions\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_resolutions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_resolutions_order_idx\\` on table \\`private.payment_financial_resolutions\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_resolutions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_resolutions_observation_idx\\` on table \\`private.payment_financial_resolutions\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_resolutions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_financial_resolutions_basis_idx\\` on table \\`private.payment_financial_resolutions\\` has not been used",
+          "metadata": {
+            "name": "payment_financial_resolutions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_binding_receipts_observation_idx\\` on table \\`private.payment_legacy_binding_receipts\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_binding_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_origins_observation_idx\\` on table \\`private.payment_legacy_origins\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_origins",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_origins_scope_idx\\` on table \\`private.payment_legacy_origins\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_origins",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_origins_client_idx\\` on table \\`private.payment_legacy_origins\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_origins",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_origins_intent_idx\\` on table \\`private.payment_legacy_origins\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_origins",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_origins_order_idx\\` on table \\`private.payment_legacy_origins\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_origins",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_origins_execution_idx\\` on table \\`private.payment_legacy_origins\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_origins",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_origins_receipt_idx\\` on table \\`private.payment_legacy_origins\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_origins",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_binding_receipts_application_idx\\` on table \\`private.payment_legacy_binding_receipts\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_binding_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_binding_receipts_charge_idx\\` on table \\`private.payment_legacy_binding_receipts\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_binding_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_binding_receipts_scope_idx\\` on table \\`private.payment_legacy_binding_receipts\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_binding_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_binding_receipts_intent_idx\\` on table \\`private.payment_legacy_binding_receipts\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_binding_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_binding_receipts_order_idx\\` on table \\`private.payment_legacy_binding_receipts\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_binding_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_legacy_binding_receipts_basis_idx\\` on table \\`private.payment_legacy_binding_receipts\\` has not been used",
+          "metadata": {
+            "name": "payment_legacy_binding_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_invoice_queries_order_idx\\` on table \\`private.payment_invoice_queries\\` has not been used",
+          "metadata": {
+            "name": "payment_invoice_queries",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_invoice_queries_charge_idx\\` on table \\`private.payment_invoice_queries\\` has not been used",
+          "metadata": {
+            "name": "payment_invoice_queries",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_invoice_queries_actor_idx\\` on table \\`private.payment_invoice_queries\\` has not been used",
+          "metadata": {
+            "name": "payment_invoice_queries",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_invoice_queries_owner_idx\\` on table \\`private.payment_invoice_queries\\` has not been used",
+          "metadata": {
+            "name": "payment_invoice_queries",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_webhook_queue_available_idx\\` on table \\`private.payment_webhook_queue\\` has not been used",
+          "metadata": {
+            "name": "payment_webhook_queue",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_webhook_run_scope_idx\\` on table \\`private.payment_webhook_runs\\` has not been used",
+          "metadata": {
+            "name": "payment_webhook_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_webhook_run_charge_idx\\` on table \\`private.payment_webhook_runs\\` has not been used",
+          "metadata": {
+            "name": "payment_webhook_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_webhook_run_trigger_idx\\` on table \\`private.payment_webhook_runs\\` has not been used",
+          "metadata": {
+            "name": "payment_webhook_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_webhook_claim_run_idx\\` on table \\`private.payment_webhook_claims\\` has not been used",
+          "metadata": {
+            "name": "payment_webhook_claims",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_webhook_claim_event_idx\\` on table \\`private.payment_webhook_claims\\` has not been used",
+          "metadata": {
+            "name": "payment_webhook_claims",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_webhook_event_payment_idx\\` on table \\`private.payment_webhook_events\\` has not been used",
+          "metadata": {
+            "name": "payment_webhook_events",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_webhook_run_observation_idx\\` on table \\`private.payment_webhook_runs\\` has not been used",
+          "metadata": {
+            "name": "payment_webhook_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`payment_webhook_run_source_idx\\` on table \\`private.payment_webhook_runs\\` has not been used",
+          "metadata": {
+            "name": "payment_webhook_runs",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`contract_pdf_claim_quote_idx\\` on table \\`private.quote_contract_pdf_claims\\` has not been used",
+          "metadata": {
+            "name": "quote_contract_pdf_claims",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_contract_generation_snapshot_idx\\` on table \\`private.quote_contract_generation_intents\\` has not been used",
+          "metadata": {
+            "name": "quote_contract_generation_intents",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`pdf_versions_process_idx\\` on table \\`private.pdf_versions\\` has not been used",
+          "metadata": {
+            "name": "pdf_versions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`pdf_versions_actor_idx\\` on table \\`private.pdf_versions\\` has not been used",
+          "metadata": {
+            "name": "pdf_versions",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`quote_adjustments_actor_idx\\` on table \\`private.quote_adjustments\\` has not been used",
+          "metadata": {
+            "name": "quote_adjustments",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`pdf_page_checks_reader_idx\\` on table \\`private.pdf_page_checks\\` has not been used",
+          "metadata": {
+            "name": "pdf_page_checks",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`audit_log_file_access_page_idx\\` on table \\`public.audit_log\\` has not been used",
+          "metadata": {
+            "name": "audit_log",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`pdf_page_checks_matcher_idx\\` on table \\`private.pdf_page_checks\\` has not been used",
+          "metadata": {
+            "name": "pdf_page_checks",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`pdf_reference_origins_actor_idx\\` on table \\`private.pdf_reference_origins\\` has not been used",
+          "metadata": {
+            "name": "pdf_reference_origins",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`pdf_reference_origins_source_idx\\` on table \\`private.pdf_reference_origins\\` has not been used",
+          "metadata": {
+            "name": "pdf_reference_origins",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`pdf_version_receipts_process_idx\\` on table \\`private.pdf_version_receipts\\` has not been used",
+          "metadata": {
+            "name": "pdf_version_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`pdf_version_receipts_actor_idx\\` on table \\`private.pdf_version_receipts\\` has not been used",
+          "metadata": {
+            "name": "pdf_version_receipts",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`calculation_updates_process_idx\\` on table \\`private.calculation_updates\\` has not been used",
+          "metadata": {
+            "name": "calculation_updates",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`calculation_updates_source_idx\\` on table \\`private.calculation_updates\\` has not been used",
+          "metadata": {
+            "name": "calculation_updates",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`calculation_updates_actor_idx\\` on table \\`private.calculation_updates\\` has not been used",
+          "metadata": {
+            "name": "calculation_updates",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        },
+        {
+          "detail": "Index \\`calculation_updates_file_idx\\` on table \\`private.calculation_updates\\` has not been used",
+          "metadata": {
+            "name": "calculation_updates",
+            "type": "table",
+            "schema": "private"
+          },
+          "observed_at": "2026-10-20T01:09:05.185Z"
+        }
+      ]
+    }
+  ]
+}

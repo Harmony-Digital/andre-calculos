@@ -1,0 +1,36 @@
+{
+  "run": 38357490448,
+  "job": 115163655410,
+  "source": "1527fc94c37fbfdbb46ebc417786a291918bef67",
+  "checkout": "92a90f74bd0c5a404cb5918978ff1e8343a8c9e9",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "1527fc94c37fbfdbb46ebc417786a291918bef67"
+  ],
+  "sourceAndCheckoutTreeIdentical": true,
+  "localAppSqlScriptsMatchSource": true,
+  "jobConclusion": "success",
+  "checkStepConclusion": "success",
+  "inventoryStepConclusion": "success",
+  "overallStatus": "in_progress",
+  "overallConclusion": null,
+  "nativeLogs": "pendentes ate encerramento geral; contagens remotas nao inferidas",
+  "artifact": {
+    "id": 11793556488,
+    "name": "inventario-dependencias",
+    "expired": false,
+    "size_in_bytes": 24275,
+    "digest": "sha256:f3502c7e666be52c9ab77bb06788c6720945d8ce51969e54d0fc6478e125460e"
+  },
+  "inventoryOriginalSha256": "e39458776c2d17ac32532420d7bbbb32577656447d9944340d5e72c612606f08",
+  "inventory": {
+    "schemaVersion": 2,
+    "sourceSha": "1527fc94c37fbfdbb46ebc417786a291918bef67",
+    "checkoutSha": "92a90f74bd0c5a404cb5918978ff1e8343a8c9e9",
+    "nextVersion": "16.4.0",
+    "nodeVersion": "v22.23.3",
+    "lockSha256": "70a97ab10a598dad7d061a40f5834b0304fcc3d01ffdc656dce2aabe63987148",
+    "configSha256": "be5e5ddd84f9a99b8305d5a38b47263334776be5f93e9785365a4e6e7c3290bf",
+    "traceCoverageComplete": true
+  }
+}

@@ -1,0 +1,78 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "1237b05d9216e9d7b2a7a5416217dbdfcd75056284a6290991a93cbe69f3df4b"
+  },
+  {
+    "path": "advisors.log",
+    "sha256": "97540f3494191882bfdb34e0ce0f4c388fadcbcc74d8eb41200ead6110c07daa"
+  },
+  {
+    "path": "capturas/not-found-página-inexisten-4369e-r-em-português-pelo-teclado-celular/pagina-indisponivel.png",
+    "sha256": "58b2b62e3e83c160ff9c7467e7d4b5c9ead88991a8aa006910e3e1ae01576f55"
+  },
+  {
+    "path": "capturas/not-found-página-inexisten-4369e-r-em-português-pelo-teclado-computador/pagina-indisponivel.png",
+    "sha256": "57d380df35cf96d9a3fa2b5b9160f1a11b7630ee7d33109db214ab63f4691131"
+  },
+  {
+    "path": "capturas/webhook-preconditions-no-c-e3290-ições-e-tentativa-nas-telas-celular/01-proposta-calculista.png",
+    "sha256": "58b2b62e3e83c160ff9c7467e7d4b5c9ead88991a8aa006910e3e1ae01576f55"
+  },
+  {
+    "path": "capturas/webhook-preconditions-no-c-e3290-ições-e-tentativa-nas-telas-celular/01-proposta-cliente.png",
+    "sha256": "58b2b62e3e83c160ff9c7467e7d4b5c9ead88991a8aa006910e3e1ae01576f55"
+  },
+  {
+    "path": "capturas/webhook-preconditions-no-c-e3290-ições-e-tentativa-nas-telas-celular/02-processo-calculista.png",
+    "sha256": "feaf7a660de981db0cb82d812faa0eb8773cb954ec45e2324e8528a6fde6c5d7"
+  },
+  {
+    "path": "capturas/webhook-preconditions-no-c-e3290-ições-e-tentativa-nas-telas-celular/02-processo-cliente.png",
+    "sha256": "aaa4b0184f3eaecfa3ec72577d8c5897fc1881c01a59eed08d9043f7eceb5e60"
+  },
+  {
+    "path": "capturas/webhook-preconditions-no-c-e3290-ições-e-tentativa-nas-telas-computador/01-proposta-calculista.png",
+    "sha256": "57d380df35cf96d9a3fa2b5b9160f1a11b7630ee7d33109db214ab63f4691131"
+  },
+  {
+    "path": "capturas/webhook-preconditions-no-c-e3290-ições-e-tentativa-nas-telas-computador/01-proposta-cliente.png",
+    "sha256": "57d380df35cf96d9a3fa2b5b9160f1a11b7630ee7d33109db214ab63f4691131"
+  },
+  {
+    "path": "capturas/webhook-preconditions-no-c-e3290-ições-e-tentativa-nas-telas-computador/02-processo-calculista.png",
+    "sha256": "6a0fb770e453eaf9bf56de411c09fb8561e68bfaf5c6bce073e2b87a142263db"
+  },
+  {
+    "path": "capturas/webhook-preconditions-no-c-e3290-ições-e-tentativa-nas-telas-computador/02-processo-cliente.png",
+    "sha256": "56dad732baba838c8a2bf650c19a567bb0608202fb5aca2ee5fbc05ba6df6f19"
+  },
+  {
+    "path": "check.log",
+    "sha256": "7c4397a37a6c9b824549984615ba781a3e55404c95debd447b423188bd965aa9"
+  },
+  {
+    "path": "ci68-build.json",
+    "sha256": "716bcdae8699bd45b03d8a7a8d4ae68a65378c28ebca7944d6069d9c318671ef"
+  },
+  {
+    "path": "controles.log",
+    "sha256": "e8d4958ed128ec1a5f5bbe1268cf7c9ec7c5280aa2c29b0009ec929c1e993a6c"
+  },
+  {
+    "path": "e2e.log",
+    "sha256": "90bae1775e6f9d2fd5c5922f4c080a4ba343c489b7bc1640041479d7c059104a"
+  },
+  {
+    "path": "grants.log",
+    "sha256": "ad4eee5e2041c00dad88a0d682e33388fe39d4ae40b408108b064506577e3a09"
+  },
+  {
+    "path": "readback.log",
+    "sha256": "5bacec851e00219a29b21de2564ea4779c519332c8289d8e83f722c4ec9cda88"
+  },
+  {
+    "path": "verificacao-local.json",
+    "sha256": "2c08f2bb19d31995f89ea2725cd137cea4b3060dad212dbe498cc34873aff76a"
+  }
+]

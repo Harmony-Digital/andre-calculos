@@ -1,3 +1,4 @@
+import { CalculationUpdateContext } from "@/components/calculation-update-context";
 import { LaborChecklist } from "@/components/labor-checklist";
 import { getDraft } from "@/modules/checklist/queries";
 import { getComplexitySettings } from "@/modules/settings/queries";
@@ -32,7 +33,15 @@ export default async function NewOrderPage({
           Ambiente de desenvolvimento: use somente dados fictícios.
         </p>
       )}
+      {draft?.update && (
+        <CalculationUpdateContext
+          context={draft.update}
+          revision={draft.revision}
+          allowUpload
+        />
+      )}
       <LaborChecklist
+        key={draft?.orderId ?? "new"}
         initialDraft={draft}
         complexitySettings={complexitySettings}
       />

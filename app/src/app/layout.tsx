@@ -1,3 +1,4 @@
+import { hostedValidationEnabled } from "@/modules/validation/environment";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -32,6 +33,12 @@ export default function RootLayout({
         <a className="skip-link" href="#conteudo">
           Ir para o conteúdo
         </a>
+        {hostedValidationEnabled(process.env) && (
+          <div className="validation-notice" role="note">
+            Ambiente de validação · Dados, preços e identificação fictícios. Use
+            somente processos de demonstração. Nenhuma cobrança é emitida.
+          </div>
+        )}
         {children}
       </body>
     </html>

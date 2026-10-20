@@ -1,0 +1,32 @@
+{
+  "cause": "LineHeight numérico era novamente multiplicado ao relayout dinâmico; as linhas da numeração desapareciam.",
+  "before": [
+    {
+      "page": 1,
+      "text": "Página 1 de 2",
+      "lineHeight": 3955.078125,
+      "lines": 0
+    },
+    {
+      "page": 2,
+      "text": "Página 2 de 2",
+      "lineHeight": 222473.14453125,
+      "lines": 0
+    }
+  ],
+  "after": [
+    {
+      "page": 1,
+      "text": "Página 1 de 2",
+      "lineHeight": null,
+      "lines": 1
+    },
+    {
+      "page": 2,
+      "text": "Página 2 de 2",
+      "lineHeight": null,
+      "lines": 1
+    }
+  ],
+  "fix": "Espaçamentos numéricos removidos; leading padrão do font mantido; novo teste exige linhas visíveis para a numeração em cada página renderizada. Nenhum experimento/throw/log temporário ficou no renderer."
+}

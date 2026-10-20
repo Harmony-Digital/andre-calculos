@@ -1,0 +1,20 @@
+{
+  "run": 38370677082,
+  "job": 115206601823,
+  "kind": "quality",
+  "source": "24b9d7f304b5aaf4a19f6a9f82212363dd352ca8",
+  "checkout": "1fa9cdfc41bdd8e76dd1dc0ca6b8cc6448abde61",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "24b9d7f304b5aaf4a19f6a9f82212363dd352ca8"
+  ],
+  "jobConclusion": "success",
+  "overallStatus": "completed",
+  "overallConclusion": "cancelled",
+  "unitTests": 1494,
+  "unitFiles": 75,
+  "scripts": 43,
+  "logSha256": "c7e52c283f3df0bb890603bdf66f44483d4fad96696fe4faf39d38470fe95371",
+  "originalSanitizedLogSha256": "0d2bd9543f509eaee6692adb5e7ecf6232c10b0035e7f884ff3dd0d9ca66f318",
+  "normalization": "Espaços finais removidos; uma quebra de linha ao final."
+}

@@ -1,0 +1,9 @@
+{
+  "passed": 4,
+  "skipped": 28,
+  "duration_seconds": 10.69,
+  "original_log_sha256": "ae2924881d37507e26e3c4ce7ea7c79a3d1712f8596bbbc2beea76d078c22623",
+  "normalized_log_sha256": "6c4a70a2c8873c279ac1ef0f371e5569969f77028ad9399c138191dda531f92a",
+  "scope": "local fictitious fixtures",
+  "product_or_migrations_changed": false
+}

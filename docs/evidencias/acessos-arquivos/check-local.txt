@@ -1,0 +1,20 @@
+Comando: npm run check
+Resultado: exit1 no build local; formato/lint/tipos/unidades/scripts passaram.
+
+All matched files use Prettier code style!
+✓ Types generated successfully
+ Test Files  80 passed (80)
+      Tests  1532 passed (1532)
+All matched files use Prettier code style!
+# tests 12
+# pass 12
+All matched files use Prettier code style!
+# tests 31
+# pass 31
+Caused by:
+- creating new process
+- binding to a port
+- Operation not permitted (os error 1)
+- creating new process
+- binding to a port
+- Operation not permitted (os error 1)

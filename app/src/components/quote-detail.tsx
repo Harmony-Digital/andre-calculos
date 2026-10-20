@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { randomUUID } from "node:crypto";
 import type { QuoteDetailData } from "@/modules/quotes/queries";
+import { QuoteRevision } from "./quote-revision";
 import { QuoteAcceptance } from "./quote-acceptance";
+import { QuoteRejection } from "./quote-rejection";
 import { formatMoney } from "@/lib/utils";
 const civil = (date: string) => date.split("-").reverse().join("/");
 const instant = (date: string) =>
@@ -22,6 +24,23 @@ export function QuoteDetail({
     <div className="quote-page">
       <span className="eyebrow">{data.number}</span>
       <h1>Proposta de serviço</h1>
+      {data.revisionContext && !data.revisionContext.isCurrent && (
+        <div className="notice" role="status">
+          <strong>Versão substituída</strong>
+          <p>
+            Este conteúdo é histórico. O aceite e a recusa estão disponíveis
+            apenas na proposta vigente.
+          </p>
+          {data.revisionContext.currentQuoteId && (
+            <Link
+              className="text-link"
+              href={`${panel ? "/painel" : "/app"}/orcamentos/${data.revisionContext.currentQuoteId}`}
+            >
+              Abrir proposta vigente
+            </Link>
+          )}
+        </div>
+      )}
       {p.mode === "fixture" && (
         <p className="notice">
           Ensaio fictício - sem valor comercial. Não é uma cobrança e não
@@ -80,13 +99,64 @@ export function QuoteDetail({
           Tabela {p.priceVersion} · Emitida em {instant(p.issuedAt)} (Brasília)
         </p>
       </section>
-      {data.contract ? (
-        <QuoteAcceptance
+      {panel && data.revisionContext?.blockMessage && (
+        <p className="notice">{data.revisionContext.blockMessage}</p>
+      )}
+      {panel && data.revisionContext && data.contract && (
+        <QuoteRevision
           quoteId={data.id}
-          context={data.contract}
+          proposal={p}
+          contextHash={data.contract.contextHash}
+          orderRevision={data.contract.statusRevision}
+          revision={data.revisionContext}
           requestId={randomUUID()}
-          panel={panel}
         />
+      )}
+      {data.revisionContext && (
+        <section className="panel form-body" aria-labelledby="quote-history">
+          <h2 id="quote-history">Histórico de versões</h2>
+          <ol className="quote-items">
+            {data.revisionContext.history.map((version) => (
+              <li key={version.id}>
+                <div>
+                  <Link
+                    className="text-link"
+                    href={`${panel ? "/painel" : "/app"}/orcamentos/${version.id}`}
+                  >
+                    Versão {version.version} · {version.number}
+                  </Link>
+                  <p>
+                    {instant(version.createdAt)} ·{" "}
+                    {version.id === data.revisionContext?.currentQuoteId
+                      ? "Vigente"
+                      : "Substituída"}
+                  </p>
+                  {version.reason && (
+                    <p className="preserve-lines">Motivo: {version.reason}</p>
+                  )}
+                </div>
+                <strong>{formatMoney(version.totalCents)}</strong>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+      {data.contract ? (
+        <>
+          <QuoteAcceptance
+            quoteId={data.id}
+            context={data.contract}
+            requestId={randomUUID()}
+            panel={panel}
+            contractPdfState={data.contractPdfState}
+          />
+          <QuoteRejection
+            quoteId={data.id}
+            context={data.contract}
+            requestId={randomUUID()}
+            panel={panel}
+          />
+        </>
       ) : (
         <p className="notice">
           Esta proposta ainda não permite contratação. O ensaio não permite
@@ -99,9 +169,11 @@ export function QuoteDetail({
             Aceitar
           </button>
         )}
-        <button className="button" disabled>
-          Recusar
-        </button>
+        {!data.contract && (
+          <button className="button" disabled>
+            Recusar
+          </button>
+        )}
         <a className="button" href={`/api/quotes/${data.id}/pdf`}>
           Baixar proposta em PDF
         </a>

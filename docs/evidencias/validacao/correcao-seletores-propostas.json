@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-20",
+  "scope": "Correção de três seletores de links de propostas, sem alteração de produto, helpers, timeout ou retries.",
+  "files": [
+    "app/tests/e2e/quote-acceptance.spec.ts",
+    "app/tests/e2e/quotes.spec.ts"
+  ],
+  "ci": {
+    "source": "49737d9856e65a3a53f572ee550afab1070049c0",
+    "run": 39351825890,
+    "url": "https://github.com/Harmony-Digital/andre-calculos/actions/runs/39351825890",
+    "qualityJob": 118397551798,
+    "qualityConclusion": "success",
+    "e2eJob": 118397551969,
+    "overallConclusion": "cancelled",
+    "e2eConclusion": "cancelled",
+    "e2eCompletedAt": "2026-10-20T03:10:04Z",
+    "rls": {
+      "conclusion": "success",
+      "startedAt": "2026-10-20T01:12:35Z",
+      "completedAt": "2026-10-20T01:52:17Z"
+    },
+    "browser": {
+      "conclusion": "cancelled",
+      "startedAt": "2026-10-20T01:52:17Z",
+      "completedAt": "2026-10-20T03:09:39Z"
+    },
+    "annotationsCount": 12,
+    "relevantAnnotations": [
+      {
+        "level": "failure",
+        "message": "The job has exceeded the maximum execution time of 2h0m0s"
+      },
+      {
+        "path": "app/tests/e2e/quote-acceptance.spec.ts",
+        "test": "aceite pela pasta recupera resposta perdida, preserva recibo e restringe acesso",
+        "level": "failure",
+        "message": "Test timeout of 90000ms exceeded."
+      },
+      {
+        "path": "app/tests/e2e/local-helper.ts",
+        "line": 24,
+        "level": "failure",
+        "message": "Outro ensaio está usando as configurações fictícias locais.",
+        "affectedTests": [
+          "quote-acceptance.spec.ts:7",
+          "quote-acceptance.spec.ts:194",
+          "quote-acceptance.spec.ts:250",
+          "quote-acceptance.spec.ts:311"
+        ]
+      }
+    ],
+    "logRead": {
+      "endpoint": "repos/Harmony-Digital/andre-calculos/actions/jobs/118397551969/logs",
+      "available": false,
+      "error": "connection reset by peer",
+      "limits": "Não foi obtido call log do clique. Os trechos de erro acima vêm das annotations oficiais; a causa do seletor foi identificada pela comparação do código com o link da interface e confirmada pela execução dirigida após a correção."
+    }
+  },
+  "regression": {
+    "cause": "A pasta passou a exibir número, versão e vigência no link. Dois seletores de aceite exigiam somente o número exato; o seletor da proposta simulada exigia o rótulo antigo sem versão/vigência.",
+    "correction": "Os três seletores usam papel de link e href exato. Verificam número, Versão 1 e Vigente; a proposta simulada também verifica Ensaio fictício. Os fluxos de aceite e recuperação continuam exercitados integralmente."
+  },
+  "execution": {
+    "command": "bash scripts/dev-env.sh npm run test:e2e -- tests/e2e/quote-acceptance.spec.ts tests/e2e/quotes.spec.ts --grep 'aceite pela pasta recupera resposta perdida|gera proposta fictícia, recupera resposta perdida' --workers=1 --retries=0",
+    "workingDirectory": "repository-root",
+    "exitCode": 0,
+    "workers": 1,
+    "retries": 0,
+    "passed": 4,
+    "reportedDuration": "25.1s",
+    "resultsSource": "Saída do reporter list do Playwright; tempos arredondados pelo reporter.",
+    "lastRunReport": {
+      "path": "app/test-results/.last-run.json",
+      "status": "passed",
+      "failedTests": 0
+    },
+    "results": [
+      {
+        "file": "app/tests/e2e/quote-acceptance.spec.ts",
+        "project": "computador",
+        "status": "passed",
+        "durationSeconds": 8.8
+      },
+      {
+        "file": "app/tests/e2e/quotes.spec.ts",
+        "project": "computador",
+        "status": "passed",
+        "durationSeconds": 4.4
+      },
+      {
+        "file": "app/tests/e2e/quote-acceptance.spec.ts",
+        "project": "celular",
+        "status": "passed",
+        "durationSeconds": 4.8
+      },
+      {
+        "file": "app/tests/e2e/quotes.spec.ts",
+        "project": "celular",
+        "status": "passed",
+        "durationSeconds": 4.0
+      }
+    ]
+  },
+  "checks": [
+    {
+      "command": "./node_modules/.bin/prettier --check tests/e2e/quote-acceptance.spec.ts tests/e2e/quotes.spec.ts",
+      "workingDirectory": "app",
+      "status": "passed"
+    },
+    {
+      "command": "git diff --check -- app/tests/e2e/quote-acceptance.spec.ts app/tests/e2e/quotes.spec.ts",
+      "workingDirectory": "repository-root",
+      "status": "passed"
+    }
+  ],
+  "cleanup": {
+    "settingsLeaseExistsBefore": false,
+    "queueLeaseExistsBefore": false,
+    "settingsLeaseExistsAfter": false,
+    "queueLeaseExistsAfter": false
+  },
+  "environment": "Supabase e Next locais já existentes do andre-calculos, com uma execução do wrapper documentado e credenciais efêmeras em memória. Sem reset, seed avulso, build, suíte completa, operação na nuvem ou nova execução de CI."
+}

@@ -1,0 +1,115 @@
+{
+  "source": "49737d9856e65a3a53f572ee550afab1070049c0",
+  "repositoryId": 1414349093,
+  "pullRequest": 70,
+  "run": 39351825890,
+  "url": "https://github.com/Harmony-Digital/andre-calculos/actions/runs/39351825890",
+  "qualityJob": 118397551798,
+  "qualityConclusion": "success",
+  "checkStepConclusion": "success",
+  "qualityCompletedAt": "2026-10-20T01:11:22Z",
+  "checkout": "bd94abb0f0305d1f23ed110239af44f2e957c23a",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "49737d9856e65a3a53f572ee550afab1070049c0"
+  ],
+  "sourceTree": "5113683e8386fbc0cc338d7d93ce792f1cd6b236",
+  "checkoutTree": "5113683e8386fbc0cc338d7d93ce792f1cd6b236",
+  "sourceAndCheckoutTreeIdentical": true,
+  "artifact": {
+    "id": 12232664571,
+    "name": "inventario-dependencias",
+    "expired": false,
+    "size_in_bytes": 27666,
+    "digest": "sha256:2b5f2115a93976b4b6d4bf6ec20573548b7ffa8af0f1a71f8465cbbe7c9e69a0",
+    "downloadDigestVerified": true
+  },
+  "inventorySha256": "e9b94a7625382965b9dadd8b2b26d2c0f4d8676dd80b3f5785a9f86e3f0d04f4",
+  "inventory": {
+    "sourceSha": "49737d9856e65a3a53f572ee550afab1070049c0",
+    "checkoutSha": "bd94abb0f0305d1f23ed110239af44f2e957c23a",
+    "lockSha256": "70a97ab10a598dad7d061a40f5834b0304fcc3d01ffdc656dce2aabe63987148",
+    "configSha256": "d73326ebf122c387a20f67bae679726f9bd0456ef13521a3f6a7203170f6ad86",
+    "buildIdSha256": "1ecb3380988c98bc48d6150f98512a1529627e57bfd2a222b5dbe5aa7258652d",
+    "nextVersion": "16.4.0",
+    "nodeVersion": "v22.23.3",
+    "traceCoverageComplete": true,
+    "coverage": {
+      "unknownFields": 0,
+      "externalReferences": 0,
+      "missingReferences": 0,
+      "unresolvedSymlinks": 0,
+      "uninspectedExternalizedEntries": 0
+    },
+    "diagnostics": [],
+    "conclusion": "Referências identificáveis no build do CI e JavaScript da dependência externalizada admitida. Metadados de versão não atestam integridade dos bytes; exige árvore estável após npm ci/build. Marcadores ausentes não provam ausência de código minificado; não atesta equivalência à Vercel ou explorabilidade. Advisory permanece aberto."
+  },
+  "requiredChecks": {
+    "rulesetId": 24880297,
+    "strict": true,
+    "contexts": [
+      "qualidade",
+      "e2e"
+    ]
+  },
+  "e2eJob": 118397551969,
+  "e2eStatus": "completed",
+  "overallStatus": "completed",
+  "overallConclusion": "cancelled",
+  "limits": "Esta prova confirma check/build e RLS success dessa fonte. O CI terminou cancelled pelo limite de2h, com falha concreta de seletor obsoleto no navegador e leases posteriores sob investigação. Não é aprovação integral, merge, implantação ou equivalência do ambiente Vercel. Correção da família de seletores e quatro ensaios dirigidos em dois viewports sem retry ainda pendentes; candidato local não publicado, produção continua exigindo main.",
+  "rlsConclusion": "success",
+  "e2eConclusion": "cancelled",
+  "e2eLastStep": "Run bash ../scripts/dev-env.sh npm run test:e2e -- --workers=1",
+  "overallCompletedAt": "2026-10-20T03:10:04Z",
+  "cancellationReason": "Limite de duas horas do job, sem cancelamento manual ou rerun por documentação.",
+  "rlsCompletedAt": "2026-10-20T01:52:17Z",
+  "rlsDurationSeconds": 2382,
+  "earlierStatusObservation": {
+    "observedAtUtcMinute": "2026-10-20T01:53Z",
+    "timePrecision": "minute",
+    "rlsConclusionAtObservation": "success",
+    "rlsExactCompletedAt": "not_recorded",
+    "browserStartedAtUtcMinute": "2026-10-20T01:53Z",
+    "browserStatus": "in_progress",
+    "monitorAgent": "fix_release_harness",
+    "monitorMethod": "read_only_check_run_polling",
+    "annotationsObserved": 0,
+    "rerun": false
+  },
+  "statusObservation": {
+    "runCompletedAt": "2026-10-20T03:10:04Z",
+    "rlsConclusion": "success",
+    "rlsCompletedAt": "2026-10-20T01:52:17Z",
+    "rlsDuration": "39m42s",
+    "browserConclusion": "cancelled",
+    "firstConcreteFailure": {
+      "file": "app/tests/e2e/quote-acceptance.spec.ts",
+      "line": 21,
+      "cause": "Seletor de link com name exato sample.number obsoleto."
+    },
+    "laterLeaseFailures": "Sob investigação; cascata provável, sem causalidade absoluta confirmada.",
+    "harnessCorrection": {
+      "agent": "fix_release_harness",
+      "scope": [
+        "quote-acceptance",
+        "quotes"
+      ],
+      "directedTests": 4,
+      "viewports": 2,
+      "retries": 0,
+      "status": "pending"
+    },
+    "overallApproval": false,
+    "merge": false,
+    "deployment": false
+  },
+  "localCandidatePackage": {
+    "directory": ".data/publicacao-validacao-candidata",
+    "source": "49737d9856e65a3a53f572ee550afab1070049c0",
+    "files": 265,
+    "sizeBytes": 1603844,
+    "sha256": "6f7ee761648a8ecddb60d408c4a5a1198b8116f8e3cf6b51e8b7610cf9362d78",
+    "published": false,
+    "productionRequiresMain": true
+  }
+}

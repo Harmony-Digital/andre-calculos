@@ -1,0 +1,179 @@
+{
+  "projectRef": "qtofwbxujshroaafxowr",
+  "verifiedAt": "2026-10-20T01:10:40.670Z",
+  "source": ".data/validacao/configuracao-inicial.sql",
+  "sourceSha256": "4e0c519131ac34bee91f8602ca24b8e3ddb45b5289cb67a0a43046ac0a52a042",
+  "configuration": {
+    "items": [
+      {
+        "id": "6d07e560-0081-4000-8000-000000000001",
+        "code": "base_initial",
+        "kind": "base",
+        "rule": {},
+        "label": "Cálculo inicial",
+        "percent_bp": null,
+        "amount_cents": 15000,
+        "price_table_id": "6d07e560-0080-4000-8000-000000000002"
+      },
+      {
+        "id": "6d07e560-0081-4000-8000-000000000002",
+        "code": "base_liquidation",
+        "kind": "base",
+        "rule": {},
+        "label": "Liquidação",
+        "percent_bp": null,
+        "amount_cents": 25000,
+        "price_table_id": "6d07e560-0080-4000-8000-000000000002"
+      },
+      {
+        "id": "6d07e560-0081-4000-8000-000000000003",
+        "code": "base_challenge",
+        "kind": "base",
+        "rule": {},
+        "label": "Impugnação",
+        "percent_bp": null,
+        "amount_cents": 30000,
+        "price_table_id": "6d07e560-0080-4000-8000-000000000002"
+      },
+      {
+        "id": "6d07e560-0081-4000-8000-000000000004",
+        "code": "base_update",
+        "kind": "base",
+        "rule": {},
+        "label": "Atualização",
+        "percent_bp": null,
+        "amount_cents": 10000,
+        "price_table_id": "6d07e560-0080-4000-8000-000000000002"
+      },
+      {
+        "id": "6d07e560-0081-4000-8000-000000000005",
+        "code": "wages",
+        "kind": "addon",
+        "rule": {
+          "included": 1
+        },
+        "label": "Verba adicional",
+        "percent_bp": null,
+        "amount_cents": 0,
+        "price_table_id": "6d07e560-0080-4000-8000-000000000002"
+      },
+      {
+        "id": "6d07e560-0081-4000-8000-000000000006",
+        "code": "period",
+        "kind": "addon",
+        "rule": {
+          "included": 12
+        },
+        "label": "Mês contratual adicional",
+        "percent_bp": null,
+        "amount_cents": 0,
+        "price_table_id": "6d07e560-0080-4000-8000-000000000002"
+      },
+      {
+        "id": "6d07e560-0081-4000-8000-000000000007",
+        "code": "timecards",
+        "kind": "addon",
+        "rule": {
+          "unit": "month"
+        },
+        "label": "Digitação de cartões",
+        "percent_bp": null,
+        "amount_cents": 7000,
+        "price_table_id": "6d07e560-0080-4000-8000-000000000002"
+      },
+      {
+        "id": "6d07e560-0081-4000-8000-000000000008",
+        "code": "claimants",
+        "kind": "addon",
+        "rule": {},
+        "label": "Reclamante adicional",
+        "percent_bp": null,
+        "amount_cents": 0,
+        "price_table_id": "6d07e560-0080-4000-8000-000000000002"
+      },
+      {
+        "id": "6d07e560-0081-4000-8000-000000000009",
+        "code": "urgency",
+        "kind": "percent",
+        "rule": {},
+        "label": "Urgência",
+        "percent_bp": 3000,
+        "amount_cents": null,
+        "price_table_id": "6d07e560-0080-4000-8000-000000000002"
+      }
+    ],
+    "counts": {
+      "items": 9,
+      "prices": 1,
+      "settings": 1,
+      "auth_users": 0
+    },
+    "prices": [
+      {
+        "id": "6d07e560-0080-4000-8000-000000000002",
+        "active": false,
+        "version": 1,
+        "created_by": null,
+        "is_example": false,
+        "parameters": {
+          "base": {
+            "update": 10000,
+            "initial": 15000,
+            "challenge": 30000,
+            "liquidation": 25000
+          },
+          "perWage": 0,
+          "businessDays": {
+            "high": 8,
+            "medium": 5,
+            "simple": 3
+          },
+          "timecardUnit": "month",
+          "includedWages": 1,
+          "perTimecardUnit": 7000,
+          "perContractMonth": 0,
+          "perExtraClaimant": 0,
+          "urgencyBasisPoints": 3000,
+          "includedContractMonths": 12
+        },
+        "activated_at": null
+      }
+    ],
+    "settings": [
+      {
+        "id": "6d07e560-0080-4000-8000-000000000001",
+        "pix_key": null,
+        "revision": 1,
+        "crc_state": "DF",
+        "singleton": true,
+        "crc_number": "000001/O-0",
+        "slack_days": 2,
+        "urgency_bp": 3000,
+        "crc_category": "Contador",
+        "contact_email": "andre@validacao.invalid",
+        "contact_phone": "+5561999999999",
+        "default_texts": {
+          "guarantee": "Garantia fictícia para validação: revisão demonstrativa em até cinco dias úteis. Nenhuma contratação real é celebrada neste ambiente.",
+          "conditions": "CONTEÚDO SINTÉTICO SEM VIGÊNCIA — condições fictícias para demonstrar o portal. Sinal de 50% e saldo na entrega são apenas exemplos, sem cobrança real."
+        },
+        "technical_name": "André Modelo — contador de demonstração",
+        "quote_valid_days": 7,
+        "complexity_limits": {
+          "pages": 1000,
+          "wages": 6,
+          "claimants": 1
+        },
+        "notification_times": [
+          "09:00",
+          "17:00"
+        ],
+        "deadline_window_end": "21:00:00",
+        "deadline_window_start": "07:00:00",
+        "approved_terms_version": "validacao-andre-termos-v1",
+        "delivery_release_policy": null,
+        "approved_privacy_version": "validacao-andre-privacidade-v1"
+      }
+    ]
+  },
+  "operations": "DML only: inserted reserved fictional settings, inactive price table, nine items; no users/Auth grants/files/cases/activation."
+}

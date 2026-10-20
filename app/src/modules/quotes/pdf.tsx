@@ -107,6 +107,14 @@ export function QuoteDocument({ data }: { data: QuoteExport }) {
         <Text style={s.brand}>PORTAL DE CÁLCULOS JUDICIAIS</Text>
         <Text style={s.title}>Proposta de serviço</Text>
         <Text style={s.meta}>{data.number}</Text>
+        {data.revision && (
+          <View>
+            <Text style={s.meta}>Versão {data.revision.version}</Text>
+            <Text style={s.notice}>
+              Motivo do ajuste: {display(data.revision.reason)}
+            </Text>
+          </View>
+        )}
         {p.mode === "fixture" && (
           <Text style={s.notice}>
             ENSAIO FICTÍCIO - SEM VALOR COMERCIAL. NÃO É UMA COBRANÇA.

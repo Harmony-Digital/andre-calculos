@@ -1,0 +1,11 @@
+{
+  "command": "npm run check",
+  "exitCode": 1,
+  "formatLintTypes": "passed",
+  "unitTests": 1392,
+  "unitFiles": 69,
+  "scriptTests": 43,
+  "localBuild": "failed",
+  "localBuildReason": "Turbopack: binding to a port, EPERM",
+  "logSha256": "daaedbed81351958c6f7d242274305b131cc833908b787dcc631066d3f847960"
+}

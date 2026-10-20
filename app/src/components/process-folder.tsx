@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { getCalculationUpdate } from "@/modules/calculation-updates/queries";
+import { CalculationUpdateContext } from "./calculation-update-context";
 import { randomUUID } from "node:crypto";
 import { Clock3, FileText, ClipboardList } from "lucide-react";
 import { getProcess } from "@/modules/processes/queries";
@@ -17,9 +19,12 @@ import { DecisionComposer } from "./decision-composer";
 import { DecisionConfirmation } from "./decision-confirmation";
 import { PageIndexEditor } from "./page-index-editor";
 import { DeliveryForm } from "./delivery-form";
+import { OrderOperations } from "./order-operations";
 import { DepositCard } from "./deposit-card";
+import { fixtureInvoiceEnabled } from "@/modules/payments/invoice-mode";
 import { DeliveryRecords } from "./delivery-records";
 import { pieceLabel } from "@/modules/page-index/forms";
+import { ContractPdfFolderCard } from "./contract-pdf-folder-card";
 import {
   parameterLabel,
   sourceLabel,
@@ -57,6 +62,13 @@ export async function ProcessFolder({
 }) {
   const data = await getProcess(id, tab, before, eventType),
     { process, files } = data;
+  const updates = new Map(
+    await Promise.all(
+      data.orders
+        .filter((o) => o.calc_type === "update")
+        .map(async (o) => [o.id, await getCalculationUpdate(o.id)] as const),
+    ),
+  );
   const base = `${panel ? "/painel" : "/app"}/processos/${id}`;
   const cnj = process.cnj_number.replace(
     /^(\d{7})(\d{2})(\d{4})(\d)(\d{2})(\d{4})$/,
@@ -133,6 +145,23 @@ export async function ProcessFolder({
                       ? ` · Entrega prevista: ${civilDate(order.delivery_date)}`
                       : ""}
                   </p>
+                  {updates.get(order.id) && (
+                    <CalculationUpdateContext
+                      context={updates.get(order.id)!}
+                      panel={panel}
+                    />
+                  )}
+                  {!panel &&
+                    ["delivered", "completed"].includes(order.status) && (
+                      <p>
+                        <Link
+                          className="text-link"
+                          href={`${base}/atualizar?origem=${order.id}`}
+                        >
+                          Solicitar atualização · {order.code}
+                        </Link>
+                      </p>
+                    )}
                   {order.status === "draft" && !panel && (
                     <Link
                       className="text-link"
@@ -141,22 +170,29 @@ export async function ProcessFolder({
                       Continuar checklist
                     </Link>
                   )}
-                  {order.quotes
+                  {[...order.quotes]
+                    .sort((a, b) => b.version - a.version)
                     .filter(
                       (quote) =>
                         quote.proposal_snapshot ||
                         data.contractQuoteIds.has(quote.id),
                     )
                     .map((quote) => (
-                      <p key={quote.id}>
+                      <div key={quote.id}>
                         <Link
                           className="text-link"
                           href={`${panel ? "/painel" : "/app"}/orcamentos/${quote.id}`}
                         >
-                          {quote.number}
+                          {quote.number} · Versão {quote.version}
+                          {order.quotes.some(
+                            (other) => other.supersedes_id === quote.id,
+                          )
+                            ? " · Substituída"
+                            : " · Vigente"}
                           {quote.is_simulation ? " · Ensaio fictício" : ""}
                         </Link>
-                      </p>
+                        <ContractPdfFolderCard quoteId={quote.id} />
+                      </div>
                     ))}
                   {data.deposits.has(order.id) && (
                     <DepositCard
@@ -164,6 +200,34 @@ export async function ProcessFolder({
                       info={data.deposits.get(order.id)!}
                       requestId={randomUUID()}
                       panel={panel}
+                      invoiceEnabled={fixtureInvoiceEnabled()}
+                    />
+                  )}
+                  {fixtureInvoiceEnabled() &&
+                    ["delivered", "completed"].includes(order.status) && (
+                      <section className="form-body">
+                        <h4>Saldo · {order.code}</h4>
+                        <p>
+                          Consulte o pagamento previsto após a entrega técnica.
+                        </p>
+                        <Link
+                          className="text-link"
+                          prefetch={false}
+                          href={`${panel ? "/painel" : "/app"}/processos/${id}/fatura?pedido=${order.id}&fase=balance`}
+                        >
+                          Consultar fatura do saldo
+                        </Link>
+                      </section>
+                    )}
+                  {data.role === "calculator" && (
+                    <OrderOperations
+                      processId={id}
+                      orderId={order.id}
+                      code={order.code}
+                      status={order.status as OrderState}
+                      revision={order.status_revision}
+                      resumeStatus={order.resume_status}
+                      requestId={randomUUID()}
                     />
                   )}
                   {data.role === "calculator" &&
@@ -190,6 +254,7 @@ export async function ProcessFolder({
             older={data.olderDeliveries}
             processId={id}
             payments={data.deliveryPayments}
+            accessContexts={data.deliveryAccess}
           />
         </section>
       )}
@@ -375,6 +440,11 @@ export async function ProcessFolder({
         <section className="panel process-section">
           <h2>Índice de páginas</h2>
           <p>Localização das peças em cada versão do processo.</p>
+          {data.role === "calculator" && (
+            <Link className="text-link" href={`${base}/versoes`}>
+              Conferir versões e páginas lidas
+            </Link>
+          )}
           {data.role === "calculator" &&
             !before &&
             (files.some(
@@ -404,6 +474,7 @@ export async function ProcessFolder({
             <ul className="process-records">
               {data.index.map((piece) => {
                 const file = piece.source;
+                const origin = data.indexOrigins.get(piece.id);
                 return (
                   <li key={piece.id}>
                     <strong>
@@ -414,6 +485,36 @@ export async function ProcessFolder({
                         ? `${file.name} · Versão ${file.version}${file.upload_status !== "uploaded" ? " · Documento indisponível" : ""}`
                         : "Documento indisponível"}
                     </p>
+                    {origin && (
+                      <div className="pdf-origin" data-pdf-origin={piece.id}>
+                        <p>
+                          Reaproveitada de {origin.sourceName ?? "PDF anterior"}{" "}
+                          · páginas {origin.sourcePages} · revisão{" "}
+                          {origin.sourceRevision} da referência.
+                        </p>
+                        <p>
+                          Conferência: {origin.copiedName} ·{" "}
+                          {new Intl.DateTimeFormat("pt-BR", {
+                            dateStyle: "short",
+                            timeStyle: "short",
+                            timeZone: "America/Sao_Paulo",
+                          }).format(new Date(origin.copiedAt))}
+                          .
+                        </p>
+                        {origin.edited && (
+                          <p>
+                            Entrada editada após o reaproveitamento; a prova de
+                            origem foi preservada.
+                          </p>
+                        )}
+                        {origin.requiresReview && (
+                          <p className="field-error">
+                            A correspondência mudou. Reconfira esta referência
+                            antes de usar.
+                          </p>
+                        )}
+                      </div>
+                    )}
                     {piece.note && (
                       <p className="preserve-lines">{piece.note}</p>
                     )}
@@ -521,9 +622,12 @@ export async function ProcessFolder({
                       <time dateTime={event.created_at}>
                         {dateTime(event.created_at)}
                       </time>
-                      {event.kind === "note_added" && noteText(event.data) && (
-                        <p className="preserve-lines">{noteText(event.data)}</p>
-                      )}
+                      {["note_added", "status_changed"].includes(event.kind) &&
+                        noteText(event.data) && (
+                          <p className="preserve-lines">
+                            {noteText(event.data)}
+                          </p>
+                        )}
                     </div>
                   </li>
                 );

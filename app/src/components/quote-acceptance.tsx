@@ -7,6 +7,8 @@ import type {
   ContractContext,
 } from "@/modules/quotes/acceptance";
 import { formatMoney } from "@/lib/utils";
+import { ContractPdfCard } from "./contract-pdf-card";
+import type { ContractPdfState } from "@/modules/quotes/contract-generation";
 const subscribe = () => () => {};
 const ready = () => true;
 const waiting = () => false;
@@ -22,11 +24,13 @@ export function QuoteAcceptance({
   context,
   requestId,
   panel = false,
+  contractPdfState,
 }: {
   quoteId: string;
   context: ContractContext;
   requestId: string;
   panel?: boolean;
+  contractPdfState?: ContractPdfState;
 }) {
   const id = useId(),
     hydrated = useSyncExternalStore(subscribe, ready, waiting),
@@ -54,8 +58,15 @@ export function QuoteAcceptance({
   return (
     <section className="panel form-body" aria-labelledby={`${id}-title`}>
       <h2 id={`${id}-title`}>
-        {receipt ? "Contratação registrada" : "Confirmar contratação"}
+        {receipt
+          ? "Contratação registrada"
+          : context.rejectionReceipt
+            ? "Documentos da proposta"
+            : "Confirmar contratação"}
       </h2>
+      {receipt && (
+        <ContractPdfCard quoteId={quoteId} initialState={contractPdfState} />
+      )}
       {receipt && (
         <div role="status" className="notice">
           <p>
@@ -100,7 +111,7 @@ export function QuoteAcceptance({
       {!receipt && context.blockMessage && (
         <p className="notice">{context.blockMessage}</p>
       )}
-      {!receipt && !panel && (
+      {!receipt && !panel && !context.rejectionReceipt && (
         <form
           action={action}
           aria-label="Aceite da proposta"
@@ -139,7 +150,7 @@ export function QuoteAcceptance({
           )}
         </form>
       )}
-      {!receipt && panel && (
+      {!receipt && panel && !context.rejectionReceipt && (
         <p className="muted">
           O aceite deve ser registrado pelo cliente na área dele.
         </p>

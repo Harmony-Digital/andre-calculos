@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-19",
+  "scope": "Correção das duas regressões do harness que bloqueavam a validação consolidada; sem alteração de produto.",
+  "files": [
+    "app/tests/e2e/dashboard.spec.ts",
+    "app/tests/e2e/full-journey.spec.ts"
+  ],
+  "regressions": [
+    {
+      "file": "app/tests/e2e/dashboard.spec.ts",
+      "cause": "A fixture criava múltiplas propostas raiz nos mesmos pedidos. A migration 0111 exige uma única folha por pedido para reconhecer a proposta vigente.",
+      "correction": "As 61 propostas vigentes foram distribuídas em 61 pedidos distintos. Mantidas as ofertas expirada, aceita e de pedido entregue, a paginação 50+11 e as verificações de isolamento."
+    },
+    {
+      "file": "app/tests/e2e/full-journey.spec.ts",
+      "cause": "O seletor exigia o nome antigo do link e não contemplava os indicadores de versão e vigência adicionados à pasta do processo.",
+      "correction": "O link é localizado por papel e número. O teste confere o href da proposta e os textos Versão 1, Vigente e Ensaio fictício antes de clicar."
+    }
+  ],
+  "execution": {
+    "command": "bash scripts/dev-env.sh npm run test:e2e -- tests/e2e/dashboard.spec.ts tests/e2e/full-journey.spec.ts --workers=1 --retries=0",
+    "workingDirectory": "repository-root",
+    "exitCode": 0,
+    "workers": 1,
+    "retries": 0,
+    "passed": 4,
+    "reportedDuration": "1.1m",
+    "resultsSource": "Saída do reporter list do Playwright; tempos arredondados pelo reporter.",
+    "lastRunReport": {
+      "path": "app/test-results/.last-run.json",
+      "status": "passed",
+      "failedTests": 0
+    },
+    "results": [
+      {
+        "file": "app/tests/e2e/dashboard.spec.ts",
+        "project": "computador",
+        "status": "passed",
+        "durationSeconds": 8.9
+      },
+      {
+        "file": "app/tests/e2e/full-journey.spec.ts",
+        "project": "computador",
+        "status": "passed",
+        "durationSeconds": 24.2
+      },
+      {
+        "file": "app/tests/e2e/dashboard.spec.ts",
+        "project": "celular",
+        "status": "passed",
+        "durationSeconds": 7.7
+      },
+      {
+        "file": "app/tests/e2e/full-journey.spec.ts",
+        "project": "celular",
+        "status": "passed",
+        "durationSeconds": 21.2
+      }
+    ]
+  },
+  "checks": [
+    {
+      "command": "./node_modules/.bin/prettier --check tests/e2e/dashboard.spec.ts tests/e2e/full-journey.spec.ts",
+      "workingDirectory": "app",
+      "status": "passed"
+    },
+    {
+      "command": "git diff --check -- app/tests/e2e/dashboard.spec.ts app/tests/e2e/full-journey.spec.ts",
+      "workingDirectory": "repository-root",
+      "status": "passed"
+    }
+  ],
+  "environment": "Supabase e Next locais do projeto andre-calculos; seed fictício com credenciais efêmeras em memória. Sem acesso à nuvem, build ou nova suíte completa."
+}

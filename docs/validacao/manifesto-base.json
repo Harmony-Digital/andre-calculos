@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Primeira validação fictícia autorizada em2026-10-19; não é operação comercial",
+  "target": {
+    "vercelTeamId": "team_4fdLDCsB0ROvP5ph50aFNvxm",
+    "vercelProjectId": "prj_tdmzmC6utVU2fHPz0iVhroMD8NtI",
+    "supabaseProjectRef": "qtofwbxujshroaafxowr",
+    "baseUrl": "https://project-rucji.vercel.app"
+  },
+  "accounts": [
+    {
+      "id": "6d07e560-0010-4000-8000-000000000001",
+      "email": "advogada@validacao.invalid",
+      "name": "Advogada de demonstração",
+      "role": "client"
+    },
+    {
+      "id": "6d07e560-0010-4000-8000-000000000002",
+      "email": "andre@validacao.invalid",
+      "name": "André Modelo — validação",
+      "role": "calculator"
+    },
+    {
+      "id": "6d07e560-0010-4000-8000-000000000003",
+      "email": "outro-cliente@validacao.invalid",
+      "name": "Outro cliente de demonstração",
+      "role": "client"
+    }
+  ],
+  "scenarios": [
+    {
+      "key": "orcamento",
+      "name": "Orçamento de demonstração",
+      "processId": "6d07e560-0020-4000-8000-000000000001",
+      "orderId": "6d07e560-0030-4000-8000-000000000001",
+      "checklistId": "6d07e560-0040-4000-8000-000000000001",
+      "quoteId": "6d07e560-0050-4000-8000-000000000001",
+      "cnj": "9000901-73.2026.5.10.9999",
+      "ownerId": "6d07e560-0010-4000-8000-000000000001",
+      "expectedState": "quoted",
+      "code": "VALIDACAO-01"
+    },
+    {
+      "key": "calculo",
+      "name": "Cálculo em andamento",
+      "processId": "6d07e560-0020-4000-8000-000000000002",
+      "orderId": "6d07e560-0030-4000-8000-000000000002",
+      "checklistId": "6d07e560-0040-4000-8000-000000000002",
+      "quoteId": "6d07e560-0050-4000-8000-000000000002",
+      "cnj": "9000902-58.2026.5.10.9999",
+      "ownerId": "6d07e560-0010-4000-8000-000000000001",
+      "expectedState": "in_calculation",
+      "code": "VALIDACAO-02"
+    },
+    {
+      "key": "entrega",
+      "name": "Entrega e atualização",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "checklistId": "6d07e560-0040-4000-8000-000000000003",
+      "quoteId": "6d07e560-0050-4000-8000-000000000003",
+      "cnj": "9000903-43.2026.5.10.9999",
+      "ownerId": "6d07e560-0010-4000-8000-000000000001",
+      "expectedState": "delivered",
+      "code": "VALIDACAO-03"
+    },
+    {
+      "key": "isolamento",
+      "name": "Pasta de outro cliente",
+      "processId": "6d07e560-0020-4000-8000-000000000004",
+      "orderId": "6d07e560-0030-4000-8000-000000000004",
+      "checklistId": "6d07e560-0040-4000-8000-000000000004",
+      "quoteId": null,
+      "cnj": "9000904-28.2026.5.10.9999",
+      "ownerId": "6d07e560-0010-4000-8000-000000000003",
+      "expectedState": "draft",
+      "code": "VALIDACAO-04"
+    }
+  ],
+  "update": {
+    "sourceOrderId": "6d07e560-0030-4000-8000-000000000003",
+    "processId": "6d07e560-0020-4000-8000-000000000003",
+    "requestId": "6d07e560-0070-4000-8000-000000000001",
+    "sourceFileId": "6d07e560-0060-4000-8000-000000000004",
+    "orderId": "obtido pela RPC create_calculation_update; registrar no read-back"
+  },
+  "assets": [
+    {
+      "id": "6d07e560-0060-4000-8000-000000000001",
+      "file": "processo-ficticio.pdf",
+      "mime": "application/pdf",
+      "sizeBytes": 2709,
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "source": "app/tests/fixtures/processo-ficticio.pdf",
+      "scenarioKey": "calculo",
+      "processId": "6d07e560-0020-4000-8000-000000000002",
+      "orderId": "6d07e560-0030-4000-8000-000000000002",
+      "folder": "case"
+    },
+    {
+      "id": "6d07e560-0060-4000-8000-000000000002",
+      "file": "calculo-ficticio.pdf",
+      "mime": "application/pdf",
+      "sizeBytes": 2709,
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "source": "app/tests/fixtures/processo-ficticio.pdf",
+      "scenarioKey": "entrega",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "folder": "deliverables"
+    },
+    {
+      "id": "6d07e560-0060-4000-8000-000000000003",
+      "file": "parecer-ficticio.pdf",
+      "mime": "application/pdf",
+      "sizeBytes": 2709,
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "source": "app/tests/fixtures/processo-ficticio.pdf",
+      "scenarioKey": "entrega",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "folder": "deliverables"
+    },
+    {
+      "id": "6d07e560-0060-4000-8000-000000000004",
+      "file": "original-demonstrativo.pjc",
+      "mime": "application/octet-stream",
+      "sizeBytes": 134,
+      "sha256": "c84ec101858b6dd4a200f81d6c07e72580d145ce15e849e86091a02c9a96fd4c",
+      "source": "texto explícito de demonstração, sem conteúdo de processo",
+      "scenarioKey": "entrega",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "folder": "deliverables"
+    },
+    {
+      "id": "6d07e560-0060-4000-8000-000000000005",
+      "file": "processo-ficticio.pdf",
+      "mime": "application/pdf",
+      "sizeBytes": 2709,
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "source": "app/tests/fixtures/processo-ficticio.pdf",
+      "scenarioKey": "entrega",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "folder": "case"
+    }
+  ],
+  "constraints": [
+    "Confirmar destino pelo MCP dedicado antes de escrita",
+    "Inventariar migrações/dados sem sobrescrever conteúdo existente",
+    "Provisionar apenas UUIDs reservados com grant administrativo",
+    "Não inserir consentimento de pessoa real nem inventar aprovação comercial",
+    "Não registrar senha, token ou link de autenticação",
+    "Fábio configura o acesso privado às contas fictícias",
+    "Não enviar e-mails/WhatsApp nem ativar Asaas/cron",
+    "PJC é somente amostra de arquivo, não abre um cálculo real no PJe-Calc",
+    "Registrar IDs efetivos e hashes depois do preparo; não marcar implantado sem consulta e jornada hospedada"
+  ]
+}

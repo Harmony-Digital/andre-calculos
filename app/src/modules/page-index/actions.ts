@@ -45,11 +45,13 @@ export async function saveIndexEntry(
       success: false,
       errors: undefined,
       message:
-        result.error.code === "PT409"
-          ? "O índice mudou. Recarregue a página antes de editar; os campos foram preservados."
-          : result.error.message === "Operação já registrada com outros dados"
-            ? "A tentativa anterior já foi registrada com outros campos. Recarregue a página para conferir o índice."
-            : "Não foi possível salvar. Os campos foram preservados; tente novamente.",
+        result.error.message === "Página fora do PDF conferido"
+          ? "As páginas ultrapassam a quantidade conferida deste PDF. Corrija as páginas; os campos foram preservados."
+          : result.error.code === "PT409"
+            ? "O índice mudou. Recarregue a página antes de editar; os campos foram preservados."
+            : result.error.message === "Operação já registrada com outros dados"
+              ? "A tentativa anterior já foi registrada com outros campos. Recarregue a página para conferir o índice."
+              : "Não foi possível salvar. Os campos foram preservados; tente novamente.",
     };
   revalidatePath(`/painel/processos/${v.processId}`);
   revalidatePath(`/app/processos/${v.processId}`);

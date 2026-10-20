@@ -18,7 +18,13 @@ test("aceite pela pasta recupera resposta perdida, preserva recibo e restringe a
       "user-agent": "Navegador sintetico do aceite",
     });
     await page.goto(`/app/processos/${sample.process_id}?aba=resumo`);
-    await page.getByRole("link", { name: sample.number, exact: true }).click();
+    const quoteLink = page
+      .getByRole("link")
+      .and(page.locator(`a[href="/app/orcamentos/${sample.id}"]`));
+    await expect(quoteLink).toContainText(sample.number);
+    await expect(quoteLink).toContainText("Versão 1");
+    await expect(quoteLink).toContainText("Vigente");
+    await quoteLink.click();
     await expect(page).toHaveURL(new RegExp(`/app/orcamentos/${sample.id}$`));
     const form = page.getByRole("form", { name: "Aceite da proposta" });
     const confirm = form.getByRole("checkbox");
@@ -133,9 +139,10 @@ test("aceite pela pasta recupera resposta perdida, preserva recibo e restringe a
     expect((await pdf.body()).subarray(0, 5).toString()).toBe("%PDF-");
     await page.getByRole("link", { name: "Abrir pasta do processo" }).click();
     await page.goto(`/app/processos/${sample.process_id}?aba=resumo`);
-    await expect(
-      page.getByRole("link", { name: sample.number, exact: true }),
-    ).toBeVisible();
+    await expect(quoteLink).toBeVisible();
+    await expect(quoteLink).toContainText(sample.number);
+    await expect(quoteLink).toContainText("Versão 1");
+    await expect(quoteLink).toContainText("Vigente");
     await expect(
       page.getByText("Aguardando sinal", { exact: false }),
     ).toBeVisible();

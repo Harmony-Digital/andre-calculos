@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manifesto efetivo de preparação fictícia, verificado por read-back",
+  "readAt": "2026-10-20T01:27:36.067744+00:00",
+  "target": {
+    "supabaseProjectRef": "qtofwbxujshroaafxowr",
+    "baseUrl": "https://project-rucji.vercel.app",
+    "vercelTeamId": "team_4fdLDCsB0ROvP5ph50aFNvxm",
+    "vercelProjectId": "prj_tdmzmC6utVU2fHPz0iVhroMD8NtI"
+  },
+  "accounts": [
+    {
+      "id": "6d07e560-0010-4000-8000-000000000001",
+      "email": "advogada@validacao.invalid",
+      "role": "client",
+      "clientId": "683d32d7-2122-426e-a9cb-08d09c36614f"
+    },
+    {
+      "id": "6d07e560-0010-4000-8000-000000000002",
+      "email": "andre@validacao.invalid",
+      "role": "calculator",
+      "clientId": "3545c778-c17a-4bb5-8ada-4ea5e565845a"
+    },
+    {
+      "id": "6d07e560-0010-4000-8000-000000000003",
+      "email": "outro-cliente@validacao.invalid",
+      "role": "client",
+      "clientId": "2df9ca41-2310-43d5-b648-d68d62be565a"
+    }
+  ],
+  "orders": [
+    {
+      "id": "5f4b7093-ddb4-4a91-a9b1-6fa9711d8c08",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "code": "P-0001",
+      "status": "draft",
+      "statusRevision": 0,
+      "checklistId": "ad7a0656-9fc0-46a1-aba1-8bb92f3b2e46"
+    },
+    {
+      "id": "6d07e560-0030-4000-8000-000000000001",
+      "processId": "6d07e560-0020-4000-8000-000000000001",
+      "code": "VALIDACAO-01",
+      "status": "quoted",
+      "statusRevision": 0,
+      "checklistId": "6d07e560-0040-4000-8000-000000000001"
+    },
+    {
+      "id": "6d07e560-0030-4000-8000-000000000002",
+      "processId": "6d07e560-0020-4000-8000-000000000002",
+      "code": "VALIDACAO-02",
+      "status": "in_calculation",
+      "statusRevision": 4,
+      "checklistId": "6d07e560-0040-4000-8000-000000000002"
+    },
+    {
+      "id": "6d07e560-0030-4000-8000-000000000003",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "code": "VALIDACAO-03",
+      "status": "delivered",
+      "statusRevision": 6,
+      "checklistId": "6d07e560-0040-4000-8000-000000000003"
+    },
+    {
+      "id": "6d07e560-0030-4000-8000-000000000004",
+      "processId": "6d07e560-0020-4000-8000-000000000004",
+      "code": "VALIDACAO-04",
+      "status": "draft",
+      "statusRevision": 0,
+      "checklistId": "6d07e560-0040-4000-8000-000000000004"
+    }
+  ],
+  "quotes": [
+    {
+      "id": "6d07e560-0050-4000-8000-000000000001",
+      "number": "ORC-2026-900001",
+      "orderId": "6d07e560-0030-4000-8000-000000000001",
+      "accepted": false,
+      "acceptedBy": null,
+      "contextHash": "759ed402d6a2e9d4b703eb8250503a19c7234217d50e0cd98b6a1b6976af7fe7",
+      "isSimulation": false,
+      "snapshotNull": true
+    },
+    {
+      "id": "6d07e560-0050-4000-8000-000000000002",
+      "number": "ORC-2026-900002",
+      "orderId": "6d07e560-0030-4000-8000-000000000002",
+      "accepted": true,
+      "acceptedBy": "6d07e560-0010-4000-8000-000000000001",
+      "contextHash": "399629c1d56bbf49b7fa9d994bffeb22efd57638ee4e2794a12daa7e5b13c1e2",
+      "isSimulation": false,
+      "snapshotNull": true
+    },
+    {
+      "id": "6d07e560-0050-4000-8000-000000000003",
+      "number": "ORC-2026-900003",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "accepted": true,
+      "acceptedBy": "6d07e560-0010-4000-8000-000000000001",
+      "contextHash": "ff15df0550974d05d3d5340523d02452754b089977abca79d314996ec4456f08",
+      "isSimulation": false,
+      "snapshotNull": true
+    }
+  ],
+  "delivery": {
+    "id": "6d07e560-0090-4000-8000-000000003006",
+    "files": [
+      {
+        "kind": "calculation",
+        "fileId": "6d07e560-0060-4000-8000-000000000002",
+        "snapshot": {
+          "mime": "application/pdf",
+          "name": "calculo-ficticio.pdf",
+          "size": 2709,
+          "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+          "version": 1
+        }
+      },
+      {
+        "kind": "pjc",
+        "fileId": "6d07e560-0060-4000-8000-000000000004",
+        "snapshot": {
+          "mime": "application/octet-stream",
+          "name": "original-demonstrativo.pjc",
+          "size": 134,
+          "sha256": "c84ec101858b6dd4a200f81d6c07e72580d145ce15e849e86091a02c9a96fd4c",
+          "version": 1
+        }
+      },
+      {
+        "kind": "report",
+        "fileId": "6d07e560-0060-4000-8000-000000000003",
+        "snapshot": {
+          "mime": "application/pdf",
+          "name": "parecer-ficticio.pdf",
+          "size": 2709,
+          "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+          "version": 1
+        }
+      }
+    ],
+    "orderId": "6d07e560-0030-4000-8000-000000000003",
+    "processId": "6d07e560-0020-4000-8000-000000000003",
+    "indexMonth": "2026-10",
+    "pjeVersion": "2.13.1",
+    "confirmedBy": "6d07e560-0010-4000-8000-000000000002",
+    "releasePolicy": "before_balance",
+    "releaseRequestId": "6d07e560-0090-4000-8000-000000003007",
+    "releaseApprovedBy": "6d07e560-0010-4000-8000-000000000002"
+  },
+  "update": {
+    "actorId": "6d07e560-0010-4000-8000-000000000001",
+    "orderId": "5f4b7093-ddb4-4a91-a9b1-6fa9711d8c08",
+    "processId": "6d07e560-0020-4000-8000-000000000003",
+    "requestId": "6d07e560-0070-4000-8000-000000000001",
+    "fileSnapshot": {
+      "id": "6d07e560-0060-4000-8000-000000000004",
+      "name": "original-demonstrativo.pjc",
+      "origin": "delivery",
+      "sha256": "c84ec101858b6dd4a200f81d6c07e72580d145ce15e849e86091a02c9a96fd4c",
+      "sizeBytes": 134
+    },
+    "sourceFileId": "6d07e560-0060-4000-8000-000000000004",
+    "sourceOrderId": "6d07e560-0030-4000-8000-000000000003",
+    "newOrderQuotes": 0,
+    "sourceRevision": 1,
+    "missingRequested": false,
+    "newOrderPayments": 0,
+    "newOrderIsSeparate": true,
+    "sourceIndexEntries": 0,
+    "sourceDecisionEntries": 0,
+    "sourceChecklistUnchanged": true
+  },
+  "files": [
+    {
+      "id": "6d07e560-0060-4000-8000-000000000001",
+      "name": "processo-ficticio.pdf",
+      "folder": "case",
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "orderId": "6d07e560-0030-4000-8000-000000000002",
+      "processId": "6d07e560-0020-4000-8000-000000000002",
+      "sizeBytes": 2709,
+      "hashMatches": true,
+      "uploadStatus": "uploaded"
+    },
+    {
+      "id": "6d07e560-0060-4000-8000-000000000002",
+      "name": "calculo-ficticio.pdf",
+      "folder": "deliverables",
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "sizeBytes": 2709,
+      "hashMatches": true,
+      "uploadStatus": "uploaded"
+    },
+    {
+      "id": "6d07e560-0060-4000-8000-000000000003",
+      "name": "parecer-ficticio.pdf",
+      "folder": "deliverables",
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "sizeBytes": 2709,
+      "hashMatches": true,
+      "uploadStatus": "uploaded"
+    },
+    {
+      "id": "6d07e560-0060-4000-8000-000000000004",
+      "name": "original-demonstrativo.pjc",
+      "folder": "deliverables",
+      "sha256": "c84ec101858b6dd4a200f81d6c07e72580d145ce15e849e86091a02c9a96fd4c",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "sizeBytes": 134,
+      "hashMatches": true,
+      "uploadStatus": "uploaded"
+    },
+    {
+      "id": "6d07e560-0060-4000-8000-000000000005",
+      "name": "processo-ficticio.pdf",
+      "folder": "case",
+      "sha256": "2da59463adca575aab371e0650b6a5a131967c3ec4a0b702f6900ecdf7d4b4a0",
+      "orderId": "6d07e560-0030-4000-8000-000000000003",
+      "processId": "6d07e560-0020-4000-8000-000000000003",
+      "sizeBytes": 2709,
+      "hashMatches": true,
+      "uploadStatus": "uploaded"
+    }
+  ],
+  "notifications": {
+    "sent": 0,
+    "queued": 5,
+    "dispatchAttempts": 0,
+    "onlyInvalidRecipients": true
+  },
+  "evidenceFile": ".data/validacao/fluxo-readback.json",
+  "published": false
+}

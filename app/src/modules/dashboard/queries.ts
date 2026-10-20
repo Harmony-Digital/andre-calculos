@@ -24,6 +24,7 @@ export async function getDashboard() {
       .from("quotes")
       .select("id,order:orders!inner(status)", { count: "exact", head: true })
       .is("accepted_at", null)
+      .filter("quote_is_current", "eq", true)
       .gte("valid_until", window.now)
       .eq("order.status", "quoted"),
     db

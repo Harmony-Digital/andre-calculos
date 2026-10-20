@@ -1,0 +1,10 @@
+{
+  "migrations": 114,
+  "last_migration": "20261019011400",
+  "profiles": 4,
+  "temporary_audit_files": 0,
+  "public_tables_without_rls": 0,
+  "private_tables_without_rls": 0,
+  "rpc_anonymous": false,
+  "rpc_system": false
+}

@@ -12,6 +12,7 @@ const intentSchema = z.strictObject({
   orderId: z.uuid(),
   revision: z.number().int().positive(),
   requestId: z.uuid(),
+  reviewConfirmed: z.boolean().optional(),
 });
 export async function createChecklistQuote(
   input: unknown,
@@ -45,6 +46,28 @@ export async function createChecklistQuote(
         error: "A solicitação precisa ser conferida. Recarregue o pedido.",
       };
     if (replay.data) return { quoteId: replay.data };
+    const update = await db.rpc("get_calculation_update", {
+      target_order: order.data.id,
+    });
+    if (update.error)
+      return { error: "Não foi possível conferir a origem do pedido." };
+    if (update.data !== null) {
+      if (!intent.data.reviewConfirmed)
+        return {
+          error:
+            "Confirme a revisão das respostas herdadas e da nova data-base.",
+        };
+      const reviewed = await db.rpc("complete_calculation_update", {
+        target_order: order.data.id,
+        expected_revision: intent.data.revision,
+        confirm_review: true,
+      });
+      if (reviewed.error)
+        return {
+          error:
+            "Revise as etapas, confirme o PJC e informe uma data-base posterior à do cálculo anterior.",
+        };
+    }
     const [checklist, settings, prices] = await Promise.all([
       db
         .from("checklists")

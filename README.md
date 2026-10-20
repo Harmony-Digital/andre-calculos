@@ -2,6 +2,8 @@
 
 Portal para advogados contratarem e acompanharem cálculos judiciais realizados e revisados pelo André. Requisitos em `PRD.md`, instruções em `AGENTS.md` e andamento exclusivamente em `plan.md`.
 
+Para retomar em uma nova sessão, comece por [plan.md — Onde estamos](plan.md#onde-estamos), que reúne o ponto de continuidade, evidências e pendências. Leia também o protocolo de sessão de `AGENTS.md`.
+
 ## Desenvolvimento
 
 Requer Node.js 22 ou superior. Na pasta `app`, execute `npm ci`. Execute `npm run check` para formatação, lint, tipos, testes e build. Copie `scripts/contas-esperadas.example` para `scripts/contas-esperadas.env` e confira os identificadores antes de usar o preflight.
@@ -44,6 +46,20 @@ O calculista registra clientes que pagam no final em `/painel/clientes`, com mot
 
 O fluxo do checklist prepara proposta numerada, snapshot imutável e PDF privado com CRC. A emissão comercial exige calendário, disponibilidade, período e dados reais confirmados. O ensaio fictício tem opt-in exclusivo do servidor local, indicação em tela/PDF e contratação bloqueada. Recuperação, regras e comandos em `docs/propostas.md`.
 
+O calculista pode criar uma nova versão com valores ajustados e motivo obrigatório; o advogado consulta a vigente e o histórico preservado. Regras e operação em [docs/ajustes-orcamento.md](docs/ajustes-orcamento.md).
+
+### Versões do PDF
+
+Na aba Índice, o calculista abre **Conferir versões e páginas lidas** para vincular PDFs e confirmar correspondências antes de reaproveitar referências. Fluxo, correções, proveniência e permissões em [docs/versoes-pdf.md](docs/versoes-pdf.md).
+
+### Acessos a arquivos
+
+O calculista consulta autorizações de visualização/download em `/painel/acessos`, com filtros de arquivo, autor, período e ação. Semântica do registro, paginação e permissões em [docs/acessos-arquivos.md](docs/acessos-arquivos.md).
+
+### Contratos
+
+O aceite registra uma intenção de geração e congela os dados do contrato. O processador confere os bytes arquivados antes de disponibilizar o PDF privado na proposta e na pasta do processo. Recuperação, permissões, restrição do produtor ao ambiente local ou ao destino fictício de validação explicitamente autorizado e comandos de verificação em [docs/contratos.md](docs/contratos.md).
+
 ### Lembretes de prazo
 
 A seleção local usa dias úteis para avisos de um/dois dias e gera um aviso de atraso por prazo interno. Janela de 07h até antes de 21h independente dos horários pontuais, recibos privados e cancelamento de pendentes evitam duplicação e avisos obsoletos. O endpoint exige Bearer; calendário provisório bloqueia execução em nuvem. Regras e ativação em `docs/lembretes-de-prazo.md`.
@@ -60,3 +76,7 @@ A seleção local usa dias úteis para avisos de um/dois dias e gera um aviso de
 - `supabase/`: migrations, configuração local e seed fictício.
 
 Antes de qualquer escrita externa, confira a identidade pelo preflight. Segredos são fornecidos pelo cofre do projeto; jamais são registrados no código, Git ou saída dos comandos.
+
+## Primeira validação hospedada
+
+Operação, destinos, variáveis, contas/cenários reservados e conferência após publicação em [docs/validacao/operacao.md](docs/validacao/operacao.md). A existência do manifesto não comprova que o banco foi semeado ou que a versão foi publicada; consulte `plan.md`.

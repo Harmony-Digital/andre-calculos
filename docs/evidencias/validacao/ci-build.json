@@ -1,0 +1,34 @@
+{
+  "source": "2dc660c5b568afe969b75849d5ecb450d3da0f8b",
+  "run": 39316070725,
+  "url": "https://github.com/Harmony-Digital/andre-calculos/actions/runs/39316070725",
+  "qualityJob": 118278587918,
+  "qualityConclusion": "success",
+  "checkStepConclusion": "success",
+  "checkout": "78c8ed69f43b0c2ae0da2d4c1c75d39cbb26b879",
+  "parents": [
+    "9a25f31e06a876e806c1dcf353c31c8b6ccd4cdd",
+    "2dc660c5b568afe969b75849d5ecb450d3da0f8b"
+  ],
+  "sourceAndCheckoutTreeIdentical": true,
+  "localProductMatchesSource": true,
+  "artifact": {
+    "id": 12217757837,
+    "name": "inventario-dependencias",
+    "expired": false,
+    "size_in_bytes": 27654,
+    "digest": "sha256:fef008cc3a44e3362d457fe085f6fcf40389f7d0cfe3af8121eca91478312ed9"
+  },
+  "inventorySha256": "052f6b6111606e2c2cf99882a8a552e5c75825261879e2b163b5826986a0b4a0",
+  "inventory": {
+    "sourceSha": "2dc660c5b568afe969b75849d5ecb450d3da0f8b",
+    "checkoutSha": "78c8ed69f43b0c2ae0da2d4c1c75d39cbb26b879",
+    "lockSha256": "70a97ab10a598dad7d061a40f5834b0304fcc3d01ffdc656dce2aabe63987148",
+    "configSha256": "d73326ebf122c387a20f67bae679726f9bd0456ef13521a3f6a7203170f6ad86",
+    "nextVersion": "16.4.0",
+    "nodeVersion": "v22.23.3",
+    "traceCoverageComplete": true
+  },
+  "overallStatus": "in_progress",
+  "overallConclusion": null
+}

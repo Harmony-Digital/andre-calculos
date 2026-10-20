@@ -9,11 +9,19 @@ import AxeBuilder from "@axe-core/playwright";
 import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { loginAs } from "./auth-helper";
-import { confirmMailpit } from "./local-helper";
+import { confirmMailpit, mailpitMessageIds } from "./local-helper";
 import { fullJourneyFixture } from "./full-journey-helper";
 import { fictionalCnj } from "./draft-helper";
 import { pdfFixture } from "./pdf-helper";
 import { todayInSaoPaulo } from "@/modules/quotes/proposal";
+import {
+  operationLabels,
+  type OperationalEvent,
+} from "@/modules/orders/operations";
+import {
+  orderStateLabels,
+  type OrderState,
+} from "@/modules/orders/state-machine";
 
 test.setTimeout(180000);
 async function accessible(page: Page, info: TestInfo, name: string) {
@@ -39,7 +47,6 @@ async function accessible(page: Page, info: TestInfo, name: string) {
 
 test("mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas explícitas", async ({
   page,
-  context,
   request,
   browser,
 }, info) => {
@@ -62,6 +69,35 @@ test("mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas
     });
     const calc = await calculatorContext.newPage(),
       pdf = await readFile(pdfFixture);
+    async function operate(
+      event: OperationalEvent,
+      target: OrderState,
+      reason = "",
+    ) {
+      await calc.goto(`/painel/processos/${processId}?aba=resumo`);
+      const form = calc.getByRole("form", { name: /Etapas do pedido/ });
+      await form.getByLabel("Próxima etapa").selectOption(event);
+      await form.getByLabel("Motivo ou informação para o cliente").fill(reason);
+      await form
+        .getByRole("button", { name: "Registrar etapa", exact: true })
+        .click();
+      await expect(form.getByRole("status")).toContainText("Etapa registrada");
+      await expect
+        .poll(async () => (await fixture.ownedOrder(orderId)).status)
+        .toBe(target);
+      await page.goto(`/app/processos/${processId}?aba=resumo`);
+      await expect(page.locator(".process-records > li").first()).toContainText(
+        orderStateLabels[target],
+      );
+      await expect(
+        page.getByRole("form", { name: /Etapas do pedido/ }),
+      ).toHaveCount(0);
+      if (target !== "in_review")
+        await expect(
+          calc.getByRole("form", { name: /Confirmar entrega/ }),
+        ).toHaveCount(0);
+      expect(operationLabels[event]).toBeTruthy();
+    }
     page.setDefaultTimeout(10000);
     calc.setDefaultTimeout(10000);
     await test.step("cadastro real na UI e confirmação no Mailpit local", async () => {
@@ -116,14 +152,15 @@ test("mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas
         .getByLabel("Confirme a senha", { exact: true })
         .fill(process.env.ANDRE_TEST_PASSWORD!);
       await page.getByLabel("Li e aceito").check();
+      const previousEmails = await mailpitMessageIds(fixture.email, request);
       await page.getByRole("button", { name: "Criar minha conta" }).click();
       await expect(page.getByRole("status")).toContainText(
         "Confira seu e-mail e confirme o cadastro",
       );
       actor = (await fixture.identity())!;
       expect(actor).toBeTruthy();
-      await confirmMailpit(fixture.email, context, request);
-      await page.goto("/app");
+      await confirmMailpit(fixture.email, page, request, previousEmails);
+      await expect.poll(() => new URL(page.url()).pathname).toBe("/app");
       await expect(page.getByText(name, { exact: true })).toBeVisible();
       const consents = await db
         .from("consents")
@@ -240,12 +277,18 @@ test("mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas
       expect(response.status()).toBe(200);
       expect((await response.body()).subarray(0, 5).toString()).toBe("%PDF-");
       await calc.goto(`/painel/processos/${processId}?aba=resumo`);
-      await calc
-        .getByRole("link", {
-          name: `${simulation.data!.number} · Ensaio fictício`,
-          exact: true,
-        })
-        .click();
+      const simulationLink = calc.getByRole("link", {
+        name: simulation.data!.number,
+        exact: false,
+      });
+      await expect(simulationLink).toHaveAttribute(
+        "href",
+        `/painel/orcamentos/${simulation.data!.id}`,
+      );
+      await expect(simulationLink).toContainText("Versão 1");
+      await expect(simulationLink).toContainText("Vigente");
+      await expect(simulationLink).toContainText("Ensaio fictício");
+      await simulationLink.click();
       await expect(calc).toHaveURL(
         new RegExp(`/painel/orcamentos/${simulation.data!.id}$`),
       );
@@ -364,6 +407,8 @@ test("mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas
         ).data,
       ).toHaveLength(1);
       await accessible(page, info, "06-documento-cliente");
+      await operate("start_analysis", "in_analysis");
+      await accessible(calc, info, "06a-analise-andre");
     });
 
     await test.step("cliente e André trocam mensagens no mesmo processo", async () => {
@@ -448,8 +493,60 @@ test("mesmo cliente e pedido: cadastro até download, com fronteiras sintéticas
       await accessible(page, info, "08-decisao");
     });
 
-    await test.step("FRONTEIRA SINTÉTICA: cálculo manual já preparado para revisão", async () => {
-      await fixture.prepareTechnicalReview(orderId);
+    await test.step("André opera cálculo, espera e revisão pela interface", async () => {
+      await operate("start_calculation", "in_calculation");
+      await accessible(calc, info, "08a-calculo-andre");
+      await operate(
+        "request_information",
+        "awaiting_client",
+        "Falta esclarecimento fictício sobre o período.",
+      );
+      await accessible(page, info, "08b-pausa-cliente");
+      await page.reload();
+      await operate("receive_information", "in_calculation");
+      await accessible(calc, info, "08c-retomada-andre");
+      await operate("submit_review", "in_review");
+      await operate(
+        "return_calculation",
+        "in_calculation",
+        "Conferir arredondamento fictício antes de assinar.",
+      );
+      await operate("submit_review", "in_review");
+      await accessible(calc, info, "08d-revisao-andre");
+      await page.goto(`/app/processos/${processId}?aba=historico`);
+      await expect(
+        page.getByText("Em cálculo → Aguardando cliente", { exact: true }),
+      ).toBeVisible();
+      await expect(
+        page.getByText("Falta esclarecimento fictício sobre o período.", {
+          exact: true,
+        }),
+      ).toBeVisible();
+      const events = await db
+        .from("timeline_events")
+        .select("id,data,actor_id")
+        .eq("order_id", orderId)
+        .eq("kind", "status_changed");
+      const operational = events.data!.filter(
+        (row) =>
+          row.data &&
+          typeof row.data === "object" &&
+          !Array.isArray(row.data) &&
+          "operation" in row.data,
+      );
+      expect(operational).toHaveLength(7);
+      expect(
+        (
+          await db
+            .from("audit_log")
+            .select("id")
+            .in(
+              "target_id",
+              operational.map((row) => row.id),
+            )
+        ).data,
+      ).toHaveLength(7);
+      await accessible(page, info, "08e-timeline-cliente");
     });
     const deliverableNames = [
       "Cálculo fictício da jornada.pdf",

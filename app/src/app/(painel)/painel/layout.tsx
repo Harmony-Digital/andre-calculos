@@ -8,7 +8,11 @@ export default async function PanelLayout({
 }) {
   const { profile } = await requireRole(["calculator", "admin"]);
   return (
-    <WorkspaceShell panel name={profile.full_name}>
+    <WorkspaceShell
+      panel
+      calculator={profile.role === "calculator"}
+      name={profile.full_name}
+    >
       {children}
     </WorkspaceShell>
   );

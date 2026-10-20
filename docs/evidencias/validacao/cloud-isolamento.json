@@ -1,0 +1,35 @@
+{
+  "projectRef": "qtofwbxujshroaafxowr",
+  "recordedAt": "2026-10-20T01:29:18Z",
+  "method": "Transações read-only por papel authenticated, claims locais por conta fictícia e rollback; quatro processos reservados.",
+  "checks": [
+    {
+      "role_under_test": "client",
+      "visible_process_ids": [
+        "6d07e560-0020-4000-8000-000000000001",
+        "6d07e560-0020-4000-8000-000000000002",
+        "6d07e560-0020-4000-8000-000000000003"
+      ]
+    },
+    {
+      "role_under_test": "other_client",
+      "visible_process_ids": [
+        "6d07e560-0020-4000-8000-000000000004"
+      ]
+    },
+    {
+      "role_under_test": "calculator",
+      "visible_process_ids": [
+        "6d07e560-0020-4000-8000-000000000001",
+        "6d07e560-0020-4000-8000-000000000002",
+        "6d07e560-0020-4000-8000-000000000003",
+        "6d07e560-0020-4000-8000-000000000004"
+      ]
+    }
+  ],
+  "expectedVisibleCounts": {
+    "client": 3,
+    "other_client": 1,
+    "calculator": 4
+  }
+}

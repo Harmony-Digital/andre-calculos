@@ -738,7 +738,9 @@ export type Database = {
           internal_due_date: string | null;
           price_table_id: string | null;
           process_id: string;
+          resume_status: string | null;
           status: string;
+          status_revision: number;
           total_cents: number;
           updated_at: string;
           urgent: boolean;
@@ -756,7 +758,9 @@ export type Database = {
           internal_due_date?: string | null;
           price_table_id?: string | null;
           process_id: string;
+          resume_status?: string | null;
           status?: string;
+          status_revision?: number;
           total_cents?: number;
           updated_at?: string;
           urgent?: boolean;
@@ -774,7 +778,9 @@ export type Database = {
           internal_due_date?: string | null;
           price_table_id?: string | null;
           process_id?: string;
+          resume_status?: string | null;
           status?: string;
+          status_revision?: number;
           total_cents?: number;
           updated_at?: string;
           urgent?: boolean;
@@ -1103,6 +1109,8 @@ export type Database = {
           total_cents: number;
           updated_at: string;
           valid_until: string;
+          version: number;
+          supersedes_id: string | null;
         };
         Insert: {
           accepted_at?: string | null;
@@ -1121,6 +1129,8 @@ export type Database = {
           total_cents: number;
           updated_at?: string;
           valid_until: string;
+          version?: number;
+          supersedes_id?: string | null;
         };
         Update: {
           accepted_at?: string | null;
@@ -1139,6 +1149,8 @@ export type Database = {
           total_cents?: number;
           updated_at?: string;
           valid_until?: string;
+          version?: number;
+          supersedes_id?: string | null;
         };
         Relationships: [
           {
@@ -1350,6 +1362,180 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      mutate_pdf_version: {
+        Args: { target_process: string; request_id: string; payload: Json };
+        Returns: Json;
+      };
+      create_calculation_update: {
+        Args: {
+          target_process: string;
+          source_order: string;
+          request_id: string;
+          source_file?: string;
+        };
+        Returns: string;
+      };
+      complete_calculation_update: {
+        Args: {
+          target_order: string;
+          expected_revision: number;
+          source_file?: string;
+          confirm_review?: boolean;
+        };
+        Returns: undefined;
+      };
+      get_calculation_update: { Args: { target_order: string }; Returns: Json };
+      get_pdf_version_context: {
+        Args: {
+          target_file: string;
+          start_page?: number;
+          ref_after_at?: string;
+          ref_after_id?: string;
+        };
+        Returns: Json;
+      };
+      get_pdf_version_sequences: {
+        Args: { target_process: string };
+        Returns: Json;
+      };
+      get_pdf_version_heads: {
+        Args: { target_process: string };
+        Returns: Json;
+      };
+      get_pdf_index_origins: {
+        Args: { target_process: string; entry_ids: string[] };
+        Returns: Json;
+      };
+      get_file_access_audit: {
+        Args: {
+          target_file?: string;
+          file_search?: string;
+          target_actor?: string;
+          actor_search?: string;
+          start_date?: string;
+          end_date?: string;
+          access_action?: string;
+          cursor_created_at?: string;
+          cursor_id?: string;
+          page_size?: number;
+        };
+        Returns: Json;
+      };
+      select_fixture_payment_webhooks: {
+        Args: {
+          batch_limit: number;
+          expected_account: string;
+          target_scope: string;
+        };
+        Returns: Json;
+      };
+      finalize_fixture_payment_webhook: {
+        Args: {
+          decision_action: string;
+          expected_charge_revision: number;
+          expected_epoch: number;
+          expected_journal_fingerprint: string;
+          expected_position_revision: number;
+          expected_source_fingerprint: string;
+          position_value: Json;
+          target_run: string;
+          worker_id: string;
+        };
+        Returns: Json;
+      };
+      get_fixture_webhook_finalization_receipt: {
+        Args: { expected_epoch: number; target_run: string; worker_id: string };
+        Returns: Json;
+      };
+      get_fixture_webhook_context: {
+        Args: { expected_epoch: number; target_run: string; worker_id: string };
+        Returns: Json;
+      };
+      record_fixture_webhook_query: {
+        Args: {
+          expected_epoch: number;
+          target_observation: string;
+          target_run: string;
+          worker_id: string;
+        };
+        Returns: Json;
+      };
+      claim_fixture_payment_webhook: {
+        Args: { request_id: string; target_event: string };
+        Returns: Json;
+      };
+      receive_fixture_payment_webhook: {
+        Args: { body_text: string; source_hash: string; target_scope: string };
+        Returns: Json;
+      };
+      begin_notification_local_run: {
+        Args: {
+          run_id: string;
+          channel: string;
+          batch_limit: number;
+          target_notifications?: string[];
+        };
+        Returns: Json;
+      };
+      get_notification_local_receipt: {
+        Args: { request_id: string };
+        Returns: Json;
+      };
+      get_notification_local_transport_result: {
+        Args: { request_id: string };
+        Returns: Json;
+      };
+      simulate_notification_local_transport: {
+        Args: { request_id: string };
+        Returns: Json;
+      };
+      claim_notification_local_system: {
+        Args: {
+          request_id: string;
+          channel: string;
+          target_notification?: string;
+        };
+        Returns: Json;
+      };
+      validate_notification_local_claim: {
+        Args: { request_id: string };
+        Returns: boolean;
+      };
+      complete_notification_local_system: {
+        Args: { request_id: string; outcome: string };
+        Returns: Json;
+      };
+      revise_quote_system: {
+        Args: {
+          actor: string;
+          target_quote: string;
+          expected_context: string;
+          expected_version: number;
+          expected_order_revision: number;
+          request_id: string;
+          reason: string;
+          unit_prices: Json;
+        };
+        Returns: Json;
+      };
+      get_quote_revision_context: {
+        Args: { target_quote: string };
+        Returns: Json;
+      };
+      reject_quote_system: {
+        Args: {
+          actor: string;
+          target_quote: string;
+          expected_context: string;
+          expected_revision: number;
+          request_id: string;
+          confirmed: boolean;
+          reason: string;
+          ip_address: string;
+          user_agent: string;
+        };
+        Returns: Json;
+      };
       accept_quote_system: {
         Args: {
           actor: string;
@@ -1445,13 +1631,29 @@ export type Database = {
         Returns: Json;
       };
       get_complexity_limits: { Args: never; Returns: Json };
+      get_current_delivery_access_contexts: {
+        Args: { target_deliveries: string[]; target_process: string };
+        Returns: Json;
+      };
+      get_current_order_credits: {
+        Args: { target_orders: string[] };
+        Returns: Json;
+      };
+      get_delivery_credit_instructions: {
+        Args: { target_deliveries: string[]; target_process: string };
+        Returns: Json;
+      };
+      get_delivery_display_context: {
+        Args: { target_deliveries: string[]; target_process: string };
+        Returns: Json;
+      };
       get_delivery_payment_instructions: {
         Args: { target_deliveries: string[]; target_process: string };
         Returns: {
           delivery_id: string;
           order_code: string;
-          pix_key: string;
-          remaining_cents: number;
+          pix_key: string | null;
+          remaining_cents: number | null;
         }[];
       };
       get_legal_versions: {
@@ -1475,6 +1677,242 @@ export type Database = {
         Args: { target_process: string };
         Returns: Json;
       };
+      get_payment_obligation: {
+        Args: { target_order: string; target_phase: string };
+        Returns: Json;
+      };
+      prepare_payment_invoice: {
+        Args: { target_order: string };
+        Returns: Json;
+      };
+      prepare_payment_balance_invoice: {
+        Args: { target_order: string };
+        Returns: Json;
+      };
+      read_payment_invoice_fixture: {
+        Args: { target_query: string };
+        Returns: Json;
+      };
+      record_payment_invoice_result: {
+        Args: { target_query: string; available: boolean };
+        Returns: undefined;
+      };
+      finish_payment_invoice: {
+        Args: { target_query: string };
+        Returns: Json;
+      };
+      prepare_payment_obligation: {
+        Args: {
+          target_order: string;
+          target_phase: string;
+          expected_context: string;
+          expected_remaining_cents: number;
+          billing_type: string;
+          due_date: string;
+          request_id: string;
+        };
+        Returns: Json;
+      };
+      reserve_payment_intent: {
+        Args: { target_context: string; request_id: string };
+        Returns: Json;
+      };
+      withdraw_payment_intent: {
+        Args: {
+          target_intent: string;
+          expected_revision: number;
+          request_id: string;
+        };
+        Returns: Json;
+      };
+      get_payment_intent: {
+        Args: { target_intent: string };
+        Returns: Json;
+      };
+      get_order_payment_reservation: {
+        Args: { target_order: string };
+        Returns: Json;
+      };
+      get_order_financial_projection: {
+        Args: { target_order: string };
+        Returns: Json;
+      };
+      get_financial_projection_source: {
+        Args: { target_observation: string };
+        Returns: Json;
+      };
+      get_financial_application_receipt: {
+        Args: { target_observation: string; request_id: string };
+        Returns: Json;
+      };
+      get_financial_resolution_receipt: {
+        Args: { target_application: string; request_id: string };
+        Returns: Json;
+      };
+      get_financial_execution_resolution: {
+        Args: { target_request: string };
+        Returns: Json;
+      };
+      resolve_financial_execution: {
+        Args: { target_application: string; request_id: string };
+        Returns: Json;
+      };
+      get_fixture_legacy_origin_receipt: {
+        Args: { target_observation: string; request_id: string };
+        Returns: Json;
+      };
+      create_fixture_legacy_origin: {
+        Args: { target_observation: string; request_id: string };
+        Returns: Json;
+      };
+      get_fixture_legacy_binding_receipt: {
+        Args: {
+          target_origin: string;
+          target_application: string;
+          request_id: string;
+        };
+        Returns: Json;
+      };
+      bind_fixture_legacy_payment: {
+        Args: {
+          target_origin: string;
+          target_application: string;
+          request_id: string;
+        };
+        Returns: Json;
+      };
+      apply_financial_observation: {
+        Args: {
+          target_observation: string;
+          request_id: string;
+          expected_position_revision: number;
+          expected_charge_revision: number;
+          expected_journal_fingerprint: string;
+          decision_action: string;
+          position_value: Json;
+        };
+        Returns: Json;
+      };
+      get_financial_origin: {
+        Args: { target_observation: string };
+        Returns: Json;
+      };
+      capture_financial_origin: {
+        Args: {
+          target_observation: string;
+          body_hash: string;
+          facts: Json;
+          proof: Json;
+          source_order: number | null;
+        };
+        Returns: Json;
+      };
+      allocate_financial_query: {
+        Args: { target_charge: string; request_id: string };
+        Returns: Json;
+      };
+      start_financial_query: {
+        Args: { target_query: string; worker_id: string; protocol: Json };
+        Returns: boolean;
+      };
+      finish_financial_query: {
+        Args: {
+          target_query: string;
+          worker_id: string;
+          body_hash: string | null;
+          facts: Json;
+          proof: Json;
+          source_order: number | null;
+        };
+        Returns: Json;
+      };
+      get_financial_query_observation: {
+        Args: { target_query: string; worker_id: string };
+        Returns: Json;
+      };
+      get_payment_execution_step: {
+        Args: { target_step: string; worker_id: string };
+        Returns: Json;
+      };
+      prepare_payment_execution_protocol: {
+        Args: { target_step: string; worker_id: string; protocols: Json };
+        Returns: boolean;
+      };
+      get_payment_execution_resolution: {
+        Args: { target_request: string };
+        Returns: Json;
+      };
+      resolve_payment_execution_no_dispatch: {
+        Args: { target_request: string; request_id: string };
+        Returns: Json;
+      };
+      finish_payment_execution_step: {
+        Args: {
+          target_step: string;
+          worker_id: string;
+          body_hash: string | null;
+          normalizer_version: number;
+          facts: Json;
+        };
+        Returns: Json;
+      };
+      claim_payment_execution_step: {
+        Args: { target_request: string; worker_id: string };
+        Returns: Json;
+      };
+      start_payment_execution_step: {
+        Args: { target_step: string; worker_id: string };
+        Returns: boolean;
+      };
+      get_payment_execution: {
+        Args: { target_intent: string };
+        Returns: Json;
+      };
+      request_payment_customer: {
+        Args: { target_client: string; request_id: string };
+        Returns: Json;
+      };
+      get_payment_customer_request: {
+        Args: { target_request: string };
+        Returns: Json;
+      };
+      claim_payment_customer_step: {
+        Args: { target_request: string; worker_id: string };
+        Returns: Json;
+      };
+      start_payment_customer_step: {
+        Args: { target_step: string; worker_id: string };
+        Returns: boolean;
+      };
+      finish_payment_customer_step: {
+        Args: { target_step: string; worker_id: string };
+        Returns: Json;
+      };
+      get_payment_fixture_scope: {
+        Args: { target_scope: string; target_client: string };
+        Returns: Json;
+      };
+      send_payment_fixture_request: {
+        Args: {
+          target_scope: string;
+          target_client: string;
+          slot_id: string;
+          request_id: string;
+          operation: string;
+          fingerprint: string;
+          payload: Json;
+        };
+        Returns: Json;
+      };
+      get_payment_fixture_receipt: {
+        Args: {
+          target_scope: string;
+          target_client: string;
+          slot_id: string;
+          request_id: string;
+        };
+        Returns: Json;
+      };
       get_process_participants: {
         Args: { target_process: string };
         Returns: {
@@ -1495,7 +1933,65 @@ export type Database = {
           technical_name: string;
         }[];
       };
+      get_public_price_table: { Args: never; Returns: Json };
       get_quote_contract_context: {
+        Args: { target_quote: string };
+        Returns: Json;
+      };
+      claim_quote_contract_pdf: {
+        Args: { target_quote: string; request_id: string };
+        Returns: Json;
+      };
+      prepare_quote_contract_pdf: {
+        Args: {
+          target_quote: string;
+          worker_claim: string;
+          expected_epoch: number;
+          pdf_sha256: string;
+          pdf_size: number;
+        };
+        Returns: boolean;
+      };
+      complete_quote_contract_pdf: {
+        Args: {
+          target_quote: string;
+          worker_claim: string;
+          expected_epoch: number;
+          observed_sha256: string;
+          observed_size: number;
+        };
+        Returns: boolean;
+      };
+      fail_quote_contract_pdf: {
+        Args: {
+          target_quote: string;
+          worker_claim: string;
+          expected_epoch: number;
+          failure_code: string;
+        };
+        Returns: boolean;
+      };
+      get_quote_contract_pdf_state: {
+        Args: { target_quote: string };
+        Returns: Json;
+      };
+      select_pending_quote_contract_pdfs: {
+        Args: { batch_limit: number };
+        Returns: Json;
+      };
+      authorize_quote_contract_download: {
+        Args: { target_quote: string };
+        Returns: Json;
+      };
+      record_quote_contract_download: {
+        Args: { target_quote: string; expected_sha256: string };
+        Returns: boolean;
+      };
+      record_quote_contract_download_system: {
+        Args: { target_quote: string; actor: string; expected_sha256: string };
+        Returns: boolean;
+      };
+      get_quote_contract_snapshot: {
         Args: { target_quote: string };
         Returns: Json;
       };
@@ -1505,6 +2001,15 @@ export type Database = {
       mutate_process_page_index: {
         Args: { payload: Json; request_id: string; target_process: string };
         Returns: string;
+      };
+      operate_order: {
+        Args: {
+          payload: Json;
+          request_id: string;
+          target_order: string;
+          target_process: string;
+        };
+        Returns: Json;
       };
       prepare_file_upload: {
         Args: {
@@ -1521,6 +2026,10 @@ export type Database = {
         }[];
       };
       record_auth_audit: { Args: { event: string }; Returns: undefined };
+      authorize_file_access: {
+        Args: { access_kind?: string; target_file: string };
+        Returns: Json;
+      };
       record_file_access: {
         Args: { access_kind?: string; target_file: string };
         Returns: undefined;

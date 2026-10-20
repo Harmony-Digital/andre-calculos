@@ -1,0 +1,72 @@
+{
+  "task": "M3.04a",
+  "migration107Sha256": "d28a490036df91d2b3829a78067127925d5ee07bcdc3bbdd5f37d4d4a596d215",
+  "oldMigrations1Through106Unchanged": true,
+  "bank": {
+    "passed": 61,
+    "files": 3,
+    "own": 10,
+    "duration": "37.81s",
+    "exit": 0
+  },
+  "finalChangedConstraintCase": {
+    "passed": 1,
+    "notSelected": 9,
+    "duration": "1.19s",
+    "exit": 0,
+    "notes": "Nove casos anteriores nao foram reexecutados neste foco; todos os dez foram incluidos no ensaio61."
+  },
+  "browser": {
+    "passed": 14,
+    "duration": "44.8s",
+    "retries": 0,
+    "widths": [
+      375,
+      1440
+    ],
+    "exit": 0
+  },
+  "readbackEqualsBaseline107": true,
+  "oldFinancialControlsAndGrantsEqualBaseline106": true,
+  "controls": {
+    "rls": 2,
+    "intents": 0,
+    "snapshots": 0,
+    "getterAnon": false,
+    "directGrants": 0,
+    "getterService": false,
+    "temporaryTriggers": 0,
+    "temporaryFunctions": 0,
+    "getterAuthenticated": true,
+    "privateHelperAuthenticated": false
+  },
+  "advisors": "security/performance: No issues found depois da migration e final",
+  "localCheck": {
+    "formatLintTypes": "pass",
+    "unitTests": 1494,
+    "unitFiles": 75,
+    "scriptTests": 43,
+    "build": "EPERM internal Turbopack port; exact remote build pending"
+  },
+  "originalMigrationAttempt": "Índice precedia a tabela; aplicação falhou e foi comprovadamente revertida, com versão107/tabelas ausentes. Ordem corrigida antes da primeira aplicação bem-sucedida; arquivo aplicado permanece intacto.",
+  "scope": [
+    "identidade pessoa/empresa capturada no aceite",
+    "proposta/textos/recibo imutáveis",
+    "snapshot SHA e intenção únicos na mesma transação",
+    "replay/concorrência/rollback/alterações posteriores",
+    "legado sem completar cadastro atual",
+    "RLS/negações/limpeza"
+  ],
+  "notImplementedHere": [
+    "geração/arquivamento PDF",
+    "worker de geração e estados",
+    "telas/download auditado"
+  ],
+  "cloudChanges": false,
+  "realOperations": false,
+  "exactCheckBuild": "ci69-build.json",
+  "source": "24b9d7f304b5aaf4a19f6a9f82212363dd352ca8",
+  "oldMigrationVerification": "Todas106migrations do tree97f938c comparadas byte a byte com os arquivos locais, sem diferença.",
+  "remoteOverallRun": 38370677082,
+  "remoteOverallConclusion": "Em execução; resultado geral ainda não inferido."
+}

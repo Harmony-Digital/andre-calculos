@@ -1,0 +1,10 @@
+{
+  "sourceBefore": "e3c0dcb11994c747ab0a6a2923d7d2e9c71fd3ee",
+  "integrationFilesUnchanged": 50,
+  "onlyConfigDifference": "default testTimeout=20000 for Node bank runner",
+  "hooksExplicitTimeoutsPollSqlLeasesAndAssertionsUnchanged": true,
+  "unitAndBrowserRunnerUnchanged": true,
+  "appSqlScriptsWorkflowUnchanged": true,
+  "configBeforeSha256": "33bdcfdab84434cb9051f786022b00fafa6d0bfa0214a32c1d369cb97a236be3",
+  "configAfterSha256": "815e0775935a36cec814df60cbbe13706e220773fc747a02453e8c984e7f30ee"
+}

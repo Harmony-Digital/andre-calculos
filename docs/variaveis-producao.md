@@ -1,9 +1,10 @@
 # Variáveis da Vercel
 
-O Fábio cadastra os valores a partir do cofre de produção, depois de conferir a conta do cliente, o time `projeto-andre1` e o projeto ligado a `Harmony-Digital/andre-calculos`. Nunca copiar valores para o repositório. Preview usa banco próprio de desenvolvimento com dados fictícios, sem apontar para a produção.
+O Fábio cadastra os valores a partir do cofre de produção, depois de conferir a conta do cliente, o time `projeto-andre1` e o projeto ligado a `Harmony-Digital/andre-calculos`. Nunca copiar valores para o repositório. Preview usa banco próprio de desenvolvimento com dados fictícios, sem apontar para a produção. Para a primeira validação M1.50v, Fábio autorizou expressamente o agente a configurar e publicar (“Configure e publique”, 19/10/2026), exclusivamente no projeto andre-calculos da equipe Projeto Andre, Supabase qtofwbxujshroaafxowr e domínio atual. Essa exceção não libera leitura do cofre pessoal nem execução do script pessoal abaixo.
 
 | Nome | Origem | Ambiente | Uso |
 |---|---|---|---|
+| `ANDRE_VALIDATION_MODE` | Opt-in não secreto `1`, somente primeira validação autorizada | production, exclusivamente projeto/banco/domínio do manifesto de validação | Calendário/agenda fictícios, banner e geração de contratos sintéticos; não habilita provedores reais |
 | `APP_BASE_URL` | App | production / preview | Origem HTTPS do ambiente, callbacks do login |
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase | production / preview | Projeto correspondente ao ambiente |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase | production / preview | Chave pública; acesso de dados autenticado com RLS no servidor |

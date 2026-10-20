@@ -164,12 +164,14 @@ test("gera proposta fictícia, recupera resposta perdida e baixa PDF privado", a
     const calc = await panel.newPage();
     await loginAs(calc, "calculator");
     await calc.goto(`/painel/processos/${draft.process_id}?aba=resumo`);
-    await calc
-      .getByRole("link", {
-        name: `${stored.data!.number} · Ensaio fictício`,
-        exact: true,
-      })
-      .click();
+    const simulationLink = calc
+      .getByRole("link")
+      .and(calc.locator(`a[href="/painel/orcamentos/${stored.data!.id}"]`));
+    await expect(simulationLink).toContainText(stored.data!.number);
+    await expect(simulationLink).toContainText("Versão 1");
+    await expect(simulationLink).toContainText("Vigente");
+    await expect(simulationLink).toContainText("Ensaio fictício");
+    await simulationLink.click();
     await expect(calc).toHaveURL(
       new RegExp(`/painel/orcamentos/${stored.data!.id}$`),
     );

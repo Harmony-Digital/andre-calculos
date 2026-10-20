@@ -1,0 +1,48 @@
+{
+  "run": 38346971121,
+  "source": "2792f934c7b96cdeccafb02178f33f397ed12f61",
+  "pr": 62,
+  "overallConclusion": "success",
+  "jobs": [
+    {
+      "id": 115130522542,
+      "conclusion": "success",
+      "cleanupAndUpload": [
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115130522633,
+      "conclusion": "success",
+      "cleanupAndUpload": [
+        {
+          "name": "Encerrar Supabase local",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 11790889456,
+      "name": "evidencias-de-testes",
+      "expired": false,
+      "size_in_bytes": 76759554,
+      "digest": "sha256:dec041305a360a38dacc23ddd4a1e855eb4cb4de971bc0d09ff694e219378290"
+    },
+    {
+      "id": 11789536886,
+      "name": "inventario-dependencias",
+      "expired": false,
+      "size_in_bytes": 24269,
+      "digest": "sha256:9d5f6c0bc9aa05a126e5219f8acc43b39bf2508c5fa569ead74bfc959ba06b58"
+    }
+  ]
+}

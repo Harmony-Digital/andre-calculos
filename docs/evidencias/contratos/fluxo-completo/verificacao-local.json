@@ -1,0 +1,53 @@
+{
+  "tasks": [
+    "M3.04b2",
+    "M3.04b3",
+    "M3.04b4",
+    "M3.04c",
+    "M3.04d"
+  ],
+  "scope": "Fluxo local fictício; não habilita produção nem textos comerciais.",
+  "migrations": [
+    108,
+    109,
+    110
+  ],
+  "previousMigrationsIntact": 107,
+  "privateTablesRls": 67,
+  "snapshotAndArchiveTests": 19,
+  "postAuditHardeningArchiveTests": 9,
+  "acceptanceRegressionTests": 55,
+  "browserJourneys": 4,
+  "browserDuration": "27.9s",
+  "retries": 0,
+  "viewports": [
+    375,
+    1440
+  ],
+  "axeViolations": 0,
+  "captureCount": 10,
+  "unitTests": 1507,
+  "unitFiles": 77,
+  "scriptTests": 43,
+  "formatLintTypes": "pass",
+  "localBuild": "EPERM interno do Turbopack no ambiente local; check/build da fonte e9b204f aprovado no CI, conforme ci-build.json",
+  "ciPending": false,
+  "baselinePreserved": true,
+  "storageAndJobsEmptyAfterCleanup": true,
+  "advisorsNoIssues": 2,
+  "covered": [
+    "claim/replay/fence/concorrência",
+    "falha antes do upload",
+    "retorno perdido após upload",
+    "objeto divergente recusado sem sobrescrita",
+    "empresa com64k+64ktextos e legado sem hidratação",
+    "rollback sem associação/auditoria parcial",
+    "fila durável fora da resposta do aceite",
+    "proposta e pasta com download por teclado",
+    "bytes/hash/cabeçalhos privados e auditoria exclusiva do servidor",
+    "outro cliente/admin/anônimo recusados"
+  ],
+  "ciBuildProof": "ci-build.json",
+  "source": "e9b204f2fd939a6f1550a1b06fc86b9658cbee2c",
+  "fullCiResult": "Ainda em execução; resultado próprio, sem aprovação integral inferida."
+}

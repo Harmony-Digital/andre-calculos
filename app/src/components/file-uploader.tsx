@@ -11,11 +11,13 @@ export function FileUploader({
   allowTriage = false,
   allowDeliverables = false,
   fixedFolder,
+  title,
 }: {
   processId: string;
   allowTriage?: boolean;
   allowDeliverables?: boolean;
   fixedFolder?: "client";
+  title?: string;
 }) {
   const router = useRouter();
   const uploader = useRef<Uppy | null>(null);
@@ -140,9 +142,10 @@ export function FileUploader({
   return (
     <section className="upload-box" aria-labelledby={titleId}>
       <h2 id={titleId}>
-        {fixedFolder
-          ? "Enviar anexo da mensagem"
-          : "Enviar documento do processo"}
+        {title ??
+          (fixedFolder
+            ? "Enviar anexo da mensagem"
+            : "Enviar documento do processo")}
       </h2>
       <p>
         PDF, imagens, XLSX, CSV, DOCX ou PJC, até 500 MB. O arquivo fica privado
@@ -151,7 +154,7 @@ export function FileUploader({
       {fixedFolder ? (
         <p>
           Destino: Documentos do cliente. Depois do envio, selecione o arquivo
-          na mensagem.
+          {title ? " para confirmar o vínculo." : " na mensagem."}
         </p>
       ) : (
         <label className="upload-folder">

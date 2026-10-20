@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-10-20T01:46:29Z",
+  "projectRef": "qtofwbxujshroaafxowr",
+  "purpose": "Suplemento fictício aditivo para demonstrar ajuste com motivo e histórico; não altera orçamento original.",
+  "sqlSha256": "f6f25d527142e1f0a9761d2c0a2459db099e8d69f1819f338e735c5793294db9",
+  "orderId": "6d07e560-0030-4000-8000-000000000005",
+  "quoteId": "6d07e560-0050-4000-8000-000000000005",
+  "contextHash": "bd8daec7c97afdcc7f9db23e81218216d6bf8bf26495e16aea4850fd0b339bf7",
+  "quoteValidUntil": "2026-10-27T01:44:02.033Z",
+  "capacityValidUntil": "2026-10-29T01:44:02.033Z",
+  "capacityStartDate": "2026-10-26",
+  "deliveryDate": "2026-10-29",
+  "proof": {
+    "counts": {
+      "orders": 6,
+      "quotes": 4,
+      "processes": 4
+    },
+    "revision": {
+      "history": [
+        {
+          "id": "6d07e560-0050-4000-8000-000000000005",
+          "number": "ORC-2026-900005",
+          "reason": null,
+          "version": 1,
+          "createdAt": "2026-10-20T01:46:20.394046+00:00",
+          "totalCents": 25000,
+          "previousQuoteId": null
+        }
+      ],
+      "version": 1,
+      "canRevise": true,
+      "isCurrent": true,
+      "blockMessage": null,
+      "currentQuoteId": "6d07e560-0050-4000-8000-000000000005"
+    },
+    "readiness": true,
+    "originalContextPreserved": true
+  },
+  "caveat": "Agenda, calendário, preços e CRC são inventados; prontidão conferida somente para validação. Não estender capacidade de contextos imutáveis automaticamente."
+}

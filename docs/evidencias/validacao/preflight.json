@@ -1,0 +1,60 @@
+{
+  "recordedAt": "2026-10-19 20:13:12 UTC",
+  "previousCheck": {
+    "checkedAt": "2026-10-19 20:07:54 UTC",
+    "supabase": "MCP OAuth token refresh failed: Failed to parse server response",
+    "vercelEnvironmentKeys": []
+  },
+  "vercel": {
+    "teamId": "team_4fdLDCsB0ROvP5ph50aFNvxm",
+    "projectId": "prj_tdmzmC6utVU2fHPz0iVhroMD8NtI",
+    "createdAndReadBackProductionKeys": [
+      "APP_BASE_URL",
+      "NEXT_PUBLIC_SUPABASE_URL",
+      "ANDRE_VALIDATION_MODE"
+    ],
+    "missingKeys": [
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+      "SUPABASE_SERVICE_ROLE_KEY"
+    ],
+    "failedCreations": 0
+  },
+  "secretsAvailability": {
+    "method": "scripts/com-segredos.sh",
+    "result": "aborted: App item not found in project vault",
+    "valuesPrinted": false,
+    "supabaseItemsChecked": false
+  },
+  "supabase": {
+    "officialLoginStarted": true,
+    "consentOrganization": "Projeto Andre",
+    "humanConsentPending": false,
+    "dashboardProjectRef": "qtofwbxujshroaafxowr",
+    "dashboardState": "Restoration in progress; project offline",
+    "dataOrSchemaMutated": false,
+    "cliLoginResult": "Successfully logged in to MCP server andre-calculos-supabase",
+    "postLoginNativeCall": "resources/list still fails OAuth token refresh / Failed to parse server response",
+    "toolsLoadedAfterLogin": 0,
+    "dashboardRestorationRechecked": true
+  },
+  "authorization": "Fabio: Configure e publique. Environment configuration and publication authorized for this project.",
+  "newDeployment": false,
+  "codexReload": {
+    "appControlDenied": true,
+    "reason": "Computer Use is not allowed to use com.openai.codex for safety reasons",
+    "userAskedToReopenSameChat": true
+  },
+  "afterUserReportedReopen": {
+    "nativeMcpCall": "OAuth token refresh failed: Failed to parse server response",
+    "loadedSupabaseTools": 0,
+    "dedicatedConfigEnabled": true,
+    "dedicatedConfigUrlMatches": true,
+    "observedMainAppPid": 6081,
+    "observedMainAppStarted": "2026-10-19 08:35:24 local",
+    "observedBackendPid": 6461,
+    "observedBackendStarted": "2026-10-19 08:35:30 local",
+    "officialRestartDocumentation": "https://learn.chatgpt.com/docs/extend/mcp#configure-in-the-chatgpt-desktop-app",
+    "requestedAction": "Settings > MCP servers > Restart; or fully quit with Command+Q and reopen; no new OAuth",
+    "dashboardStatus": "Coming up...; restoration banner absent; MCP readiness not confirmed"
+  }
+}

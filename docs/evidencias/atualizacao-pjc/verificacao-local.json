@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-19",
+  "bankScenariosPassed": 6,
+  "bankExecution": "dirigida; casos corrigidos e novos verificados separadamente",
+  "browserJourneys": 2,
+  "browserDurationSeconds": 17.1,
+  "viewports": [
+    375,
+    1440
+  ],
+  "retries": 0,
+  "axeViolations": 0,
+  "originalPreserved": true,
+  "missingPjcRealLocalUpload": true,
+  "indexDecisionSnapshotNonEmpty": true,
+  "localQuality": {
+    "format": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "unitFiles": 82,
+    "unitTests": 1547,
+    "scriptTests": 43,
+    "build": "EPERM conhecido de processo/porta no Turbopack; sem nova tentativa"
+  },
+  "published": false,
+  "visualScreenshotsReviewed": 4,
+  "latePjcUploadAfterReview": {
+    "targetedBoundaryTests": 3,
+    "typecheck": "passed",
+    "mobileJourneySeconds": 8.9,
+    "totalSeconds": 11.3,
+    "retries": 0,
+    "axeViolations": 0
+  },
+  "finalSource": "0ce8f55bc7a3e909990dc9de7660f124239ebdc8",
+  "ciCheckBuild": {
+    "run": 39307541265,
+    "job": 118248854459,
+    "conclusion": "success",
+    "proof": "ci-build.json"
+  }
+}

@@ -1,0 +1,14 @@
+All matched files use Prettier code style!
+> eslint . --max-warnings=0
+> next typegen && tsc --noEmit
+Generating route types...
+✓ Types generated successfully
+ Test Files  64 passed (64)
+      Tests  1303 passed (1303)
+All matched files use Prettier code style!
+# tests 12
+All matched files use Prettier code style!
+# tests 31
+Error [TurbopackInternalError]: [project]/node_modules/react-pdf/dist/Page/TextLayer.css.css [app-client] (css)
+- Operation not permitted (os error 1)
+- Operation not permitted (os error 1)

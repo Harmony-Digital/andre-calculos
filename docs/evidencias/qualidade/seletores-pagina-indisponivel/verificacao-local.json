@@ -1,0 +1,26 @@
+{
+  "task": "M2.35h",
+  "sourcePending": true,
+  "localE2ePassed": 12,
+  "duration": "45.5s",
+  "retries": 0,
+  "viewports": [
+    375,
+    1440
+  ],
+  "screenshots": 8,
+  "uniqueScreenshotHashes": 2,
+  "reviewedAllViaByteEquality": true,
+  "selector": "Página não encontrada",
+  "api404AssertionPreserved": true,
+  "applicationUnchanged": true,
+  "sqlScriptsWorkflowUnchanged": true,
+  "baseline107ControlsGrantsPreserved": true,
+  "advisorsNoIssues": 2,
+  "units": 1501,
+  "unitFiles": 76,
+  "scripts": 43,
+  "formatLintTypes": "pass",
+  "build": "EPERM local; check/build da fonte no CI pendente",
+  "fullGoalStillOpen": true
+}
